@@ -18,7 +18,6 @@ bug-reports:        https://github.com/wavefnd/hmath/issues
 extra-source-files:
     README.md
     ROADMAP.md
-    docs/linear-algebra.md
     cabal.project
     meson.build
     meson-build.py
