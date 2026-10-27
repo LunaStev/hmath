@@ -15,7 +15,17 @@ license:            MPL-2.0
 license-file:       LICENSE
 homepage:           https://github.com/wavefnd/hmath
 bug-reports:        https://github.com/wavefnd/hmath/issues
-extra-source-files: README.md, ROADMAP.md
+extra-source-files:
+    README.md
+    ROADMAP.md
+    cabal.project
+    meson.build
+    meson-build.py
+    examples/c/main.c
+    examples/python/main.py
+    test/ffi_lifecycle.py
+    test/ffi_failure_detection.py
+    test/ffi_bad_results.c
 
 source-repository head
     type:           git
@@ -67,7 +77,7 @@ foreign-library hmath
 
     include-dirs:       include
     c-sources:          cbits/runtime.c
-    cc-options:         -O2
+    cc-options:         -O2 -std=c11
 
     if os(windows)
         options:        standalone
