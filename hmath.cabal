@@ -1,0 +1,85 @@
+cabal-version:      3.0
+-- SPDX-License-Identifier: MPL-2.0
+
+name:               hmath
+version:            0.1.0.0
+synopsis:           General-purpose mathematics library written in Haskell
+description:
+    HMath is a general-purpose mathematics library written in Haskell.
+    It provides mathematical operations for scientific computing,
+    statistics, linear algebra, and machine learning.
+    The library also provides a C-compatible foreign function interface.
+category:           Math
+build-type:         Simple
+license:            MPL-2.0
+license-file:       LICENSE
+homepage:           https://github.com/wavefnd/hmath
+bug-reports:        https://github.com/wavefnd/hmath/issues
+extra-source-files: README.md, ROADMAP.md
+
+source-repository head
+    type:           git
+    location:       https://github.com/wavefnd/hmath.git
+
+library
+    hs-source-dirs:      src
+
+    exposed-modules:
+        HMath
+        HMath.Basic
+        HMath.Linear
+        HMath.Matrix
+        HMath.Statistics
+
+    other-modules:
+        HMath.FFI
+
+    build-depends:
+        base >= 4.16 && < 5
+
+    default-language:    Haskell2010
+    ghc-options:         -Wall -O2
+
+    include-dirs:        include
+    install-includes:    hmath.h
+
+    if os(windows)
+        cc-options:      -DHMATH_WINDOWS
+    else
+        cc-options:      -DHMATH_UNIX
+
+    
+foreign-library hmath
+    type:               native-shared
+    hs-source-dirs:     src
+
+    other-modules:
+        HMath.FFI
+        HMath.Basic
+        HMath.Linear
+        HMath.Statistics
+
+    build-depends:
+        base >= 4.16 && < 5
+
+    default-language:   Haskell2010
+    ghc-options:        -Wall -O2 -threaded
+
+    include-dirs:       include
+    c-sources:          cbits/runtime.c
+    cc-options:         -O2
+
+    if os(windows)
+        options:        standalone
+
+test-suite hmath-tests
+    type:               exitcode-stdio-1.0
+    hs-source-dirs:     test
+    main-is:            Main.hs
+
+    build-depends:
+        base >= 4.16 && < 5,
+        hmath
+
+    default-language:   Haskell2010
+    ghc-options:        -Wall
