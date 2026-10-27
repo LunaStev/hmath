@@ -1,12 +1,11 @@
 -- SPDX-License-Identifier: MPL-2.0
 
--- | Validation errors shared by the checked, finite-list linear algebra APIs.
--- Shapes and indices are @(rows, columns)@ pairs. These errors describe input
--- contracts; arithmetic follows the chosen numeric type and does not trap its
--- overflow, non-finite values, or exceptions.
+-- | Errors shared by the checked linear algebra APIs. Shapes and indices are
+-- @(rows, columns)@ pairs. Generic matrix/vector arithmetic follows its numeric
+-- type; the LU APIs additionally check finite inputs and arithmetic results.
 module HMath.Error (MathError(..)) where
 
--- | A failed shape, element-count, or bounds check.
+-- | A failed input contract or LU numerical check.
 data MathError
     = NegativeDimensions (Int, Int)
       -- ^ A requested shape contains a negative dimension.
@@ -24,4 +23,20 @@ data MathError
       -- ^ Matrix shape, slice start, and slice extent.
     | VectorLengthMismatch Int Int
       -- ^ Left and right finite-list lengths differ.
+    | NonSquareMatrix (Int, Int)
+      -- ^ A factorization requires equal row and column counts.
+    | InvalidTolerance
+      -- ^ A relative pivot tolerance is negative, NaN, or infinite.
+    | SingularMatrix Int
+      -- ^ An exactly zero pivot, at the given zero-based elimination step.
+    | NearSingularMatrix Int
+      -- ^ A nonzero pivot is at or below the relative tolerance threshold.
+    | NonFiniteMatrixEntry (Int, Int)
+      -- ^ The first NaN or infinite matrix entry, in row-major order.
+    | NonFiniteVectorEntry Int
+      -- ^ The first NaN or infinite vector entry, by zero-based index.
+    | NonFiniteResult
+      -- ^ LU arithmetic produced a NaN or infinity, including overflow.
+    | RightHandSideMismatch Int Int
+      -- ^ Expected right-hand-side row count, then actual row count.
     deriving (Eq, Show)

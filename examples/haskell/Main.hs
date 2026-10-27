@@ -19,10 +19,19 @@ examples = do
     right <- zeroMatrixChecked 0 3
     productMatrix <- multiplyChecked left right
     inner <- dotChecked [1, 2, 3 :: Integer] [4, 5, 6]
+    coefficients <- fromListChecked 2 2 [0, 2, 1, 3 :: Double]
+    factors <- luDecompose coefficients
+    solution <- solveLU factors [4, 7]
+    det <- determinantLU factors
+    inverted <- inverse coefficients
     pure
         [ "Slice: " ++ show (toList section)
         , "Reshape: " ++ show (shape reshaped, toList reshaped)
         , "Empty-inner product: " ++ show (shape productMatrix, toList productMatrix :: [Integer])
         , "Dot: " ++ show inner
         , "Length error: " ++ show (addChecked [1 :: Integer] [2, 3])
+        , "LU permutation: " ++ show (luPermutation factors)
+        , "Solution: " ++ show solution
+        , "Determinant: " ++ show det
+        , "Inverse: " ++ show (toList inverted)
         ]

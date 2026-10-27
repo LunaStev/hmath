@@ -4,6 +4,7 @@ module Main where
 
 import HMath
 import LinearSpec (linearTests)
+import LUSpec (luTests)
 import MatrixSpec (matrixTests)
 
 main :: IO ()
@@ -17,8 +18,8 @@ main = do
     check "matrix addition" testMatrixAddition
     check "matrix multiplication" testMatrixMultiplication
     check "matrix transpose" testMatrixTranspose
-    mapM_ (uncurry check) (matrixTests ++ linearTests)
-    putStrLn ("Passed " ++ show (9 + length matrixTests + length linearTests) ++ " test groups.")
+    mapM_ (uncurry check) (matrixTests ++ linearTests ++ luTests)
+    putStrLn ("Passed " ++ show (9 + length matrixTests + length linearTests + length luTests) ++ " test groups.")
 
 check :: String -> Bool -> IO ()
 check name result =
