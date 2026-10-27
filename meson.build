@@ -62,3 +62,57 @@ test(
     },
     depends: hmath
 )
+
+test(
+    'hmath-python-ffi-optimized',
+    python,
+    args: ['-O', files('examples/python/main.py')],
+    env: {'HMATH_LIBRARY': hmath.full_path()},
+    depends: hmath
+)
+
+# Each lifecycle scenario runs in a fresh process against the real GHC RTS.
+test(
+    'hmath-ffi-lifecycle',
+    python,
+    args: [files('test/ffi_lifecycle.py'), hmath.full_path()],
+    depends: hmath,
+    timeout: 45
+)
+
+# Test-only libraries prove each example exits unsuccessfully on wrong results.
+# They are never linked into the published library or installed.
+foreach fault : [
+    ['addition', 1, 'addition: expected'],
+    ['factorial', 2, 'factorial(10): expected'],
+    ['mean', 3, 'mean: expected'],
+    ['dot', 4, 'dot: expected'],
+]
+    bad_library = shared_library(
+        'hmath-bad-' + fault[0],
+        'test/ffi_bad_results.c',
+        include_directories: include_directories('include'),
+        c_args: ['-DHMATH_TEST_FAULT=' + fault[1].to_string()],
+        install: false
+    )
+    bad_c_client = executable(
+        'hmath-c-bad-' + fault[0],
+        'examples/c/main.c',
+        include_directories: include_directories('include'),
+        link_with: bad_library,
+        install: false
+    )
+    test(
+        'hmath-ffi-reject-' + fault[0],
+        python,
+        args: [
+            files('test/ffi_failure_detection.py'),
+            '--c-client', bad_c_client.full_path(),
+            '--python-example', files('examples/python/main.py'),
+            '--library', bad_library.full_path(),
+            '--diagnostic', fault[2],
+        ],
+        depends: [bad_c_client, bad_library],
+        timeout: 20
+    )
+endforeach
