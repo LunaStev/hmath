@@ -17,7 +17,7 @@ meson compile -C builddir
 meson test -C builddir --print-errorlogs
 ```
 
-Meson checks numerical results in C and Python (including Python `-O`), exercises runtime lifecycle sequences in isolated processes, and verifies that the examples reject deliberately incorrect results. Test-only replacement libraries are not installed.
+Meson runs the Haskell test suite, checks numerical results in C and Python (including Python `-O`), exercises runtime lifecycle sequences in isolated processes, and verifies that the examples reject deliberately incorrect results. Test-only replacement libraries are not installed.
 
 Run the Python example against the Meson output:
 
@@ -35,6 +35,8 @@ dot [1, 2, 3] [4, 5, 6]            -- 32
 mean [10, 20, 30 :: Double]         -- 20.0
 fromList 2 2 [1, 2, 3, 4 :: Double]
 ```
+
+For explicit shape errors, use `fromListChecked`, `multiplyChecked`, and the other `Either MathError` operations. Dense matrices also support safe indexing, rectangular slices, reshape, diagonal/zero construction, subtraction, scaling, and Hadamard products. See [the linear algebra guide](docs/linear-algebra.md) for zero-dimension behavior, examples, and compatibility contracts.
 
 ## Use from C and Python
 

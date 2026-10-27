@@ -3,6 +3,8 @@
 module Main where
 
 import HMath
+import LinearSpec (linearTests)
+import MatrixSpec (matrixTests)
 
 main :: IO ()
 main = do
@@ -15,6 +17,8 @@ main = do
     check "matrix addition" testMatrixAddition
     check "matrix multiplication" testMatrixMultiplication
     check "matrix transpose" testMatrixTranspose
+    mapM_ (uncurry check) (matrixTests ++ linearTests)
+    putStrLn ("Passed " ++ show (9 + length matrixTests + length linearTests) ++ " test groups.")
 
 check :: String -> Bool -> IO ()
 check name result =
@@ -24,7 +28,7 @@ check name result =
 
 testMatrixAddition :: Bool
 testMatrixAddition =
-    case (fromList 2 2 [1, 2, 3, 4],
+    case (fromList 2 2 [1, 2, 3, 4 :: Int],
           fromList 2 2 [5, 6, 7, 8]) of
         (Just a, Just b) ->
             fmap toList (addMatrix a b) == Just [6, 8, 10, 12]
@@ -32,7 +36,7 @@ testMatrixAddition =
 
 testMatrixMultiplication :: Bool
 testMatrixMultiplication =
-    case (fromList 2 3 [1, 2, 3, 4, 5, 6],
+    case (fromList 2 3 [1, 2, 3, 4, 5, 6 :: Int],
           fromList 3 2 [7, 8, 9, 10, 11, 12]) of
         (Just a, Just b) ->
             fmap toList (multiply a b) == Just [58, 64, 139, 154]
@@ -40,7 +44,7 @@ testMatrixMultiplication =
 
 testMatrixTranspose :: Bool
 testMatrixTranspose =
-    case fromList 2 3 [1, 2, 3, 4, 5, 6] of
+    case fromList 2 3 [1, 2, 3, 4, 5, 6 :: Int] of
         Just a ->
             toList (transposeMatrix a) == [1, 4, 2, 5, 3, 6]
         Nothing -> False

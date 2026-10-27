@@ -18,6 +18,7 @@ hmath_sources = files(
     'cbits/runtime.c',
     'src/HMath.hs',
     'src/HMath/Basic.hs',
+    'src/HMath/Error.hs',
     'src/HMath/Linear.hs',
     'src/HMath/Matrix.hs',
     'src/HMath/Statistics.hs',
@@ -41,6 +42,17 @@ hmath = custom_target(
 )
 
 install_headers('include/hmath.h')
+
+# Cabal and the shared-library build use the same source-tree build directory.
+test(
+    'hmath-haskell',
+    cabal,
+    args: ['test', 'hmath-tests', '--test-show-details=direct'],
+    workdir: meson.current_source_dir(),
+    depends: hmath,
+    is_parallel: false,
+    timeout: 120
+)
 
 hmath_c_test = executable(
     'hmath-c-test',
