@@ -41,6 +41,7 @@ library
         HMath.Error
         HMath.Linear
         HMath.Matrix
+        HMath.Matrix.LU
         HMath.Statistics
 
     other-modules:
@@ -93,6 +94,7 @@ test-suite hmath-tests
     other-modules:
         MatrixSpec
         LinearSpec
+        LUSpec
 
     build-depends:
         base >= 4.16 && < 5,

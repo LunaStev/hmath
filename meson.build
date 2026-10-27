@@ -21,6 +21,7 @@ hmath_sources = files(
     'src/HMath/Error.hs',
     'src/HMath/Linear.hs',
     'src/HMath/Matrix.hs',
+    'src/HMath/Matrix/LU.hs',
     'src/HMath/Statistics.hs',
     'src/HMath/FFI.hs'
 )

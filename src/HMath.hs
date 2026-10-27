@@ -7,6 +7,7 @@ module HMath
     , module HMath.Error
     , module HMath.Linear
     , module HMath.Matrix
+    , module HMath.Matrix.LU
     , module HMath.Statistics
     ) where
 
@@ -14,4 +15,5 @@ import HMath.Basic
 import HMath.Error
 import HMath.Linear
 import HMath.Matrix
+import HMath.Matrix.LU
 import HMath.Statistics
