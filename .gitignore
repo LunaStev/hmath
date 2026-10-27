@@ -1,0 +1,31 @@
+# Haskell / Cabal
+/dist/
+/dist-newstyle/
+/.ghc.environment.*
+*.hi
+*.dyn_hi
+*.o
+*.dyn_o
+
+# Meson and native build outputs
+/build/
+/builddir/
+/build-*/
+*.so
+*.so.*
+*.dylib
+*.dll
+*.a
+*.lib
+
+# Python and local tools
+__pycache__/
+*.py[cod]
+/.agents/
+/.aws/
+/.codex/
+.DS_Store
+
+# Local Cabal overrides
+/cabal.project.local
+/cabal.project.local~
