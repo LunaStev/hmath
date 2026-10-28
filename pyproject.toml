@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "hmath-python"
-version = "1.0.1"
+version = "1.0.2"
 description = "Python bindings for the Haskell HMath numerical library"
 readme = "README.md"
 requires-python = ">=3.9"
