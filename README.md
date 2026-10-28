@@ -9,7 +9,7 @@ HMath targets Linux x86-64. The Python distribution is named **hmath-python** an
 Install the Python package on Linux x86-64:
 
 ```sh
-python -m pip install --upgrade --only-binary=:all: "hmath-python>=1.0.1"
+pip install hmath-python
 ```
 
 ```python
