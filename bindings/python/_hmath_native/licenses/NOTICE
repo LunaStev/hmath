@@ -1,0 +1,14 @@
+HMath binary wheels include an unmodified, dynamically linked GHC 9.10.3
+runtime and its base, ghc-internal, ghc-bignum and ghc-prim libraries.
+GHC license: GHC-LICENSE
+Source: https://downloads.haskell.org/ghc/9.10.3/ghc-9.10.3-src.tar.xz
+
+The runtime also uses libffi (MIT license: LIBFFI-LICENSE) and GNU MP
+(LGPL version 3 or later: GMP-COPYING.LESSERv3 and GMP-COPYINGv3).
+GNU MP and libffi are separate shared libraries; HMath does not statically
+link them. Their source distributions and build information are available at:
+https://gmplib.org/download/gmp/
+https://github.com/libffi/libffi/releases
+https://github.com/pypa/manylinux
+
+HMath itself is licensed under MPL-2.0; see the distribution's LICENSE.

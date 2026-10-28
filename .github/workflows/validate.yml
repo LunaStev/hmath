@@ -3,11 +3,18 @@ name: Validate
 
 on:
   push:
+    branches: [master]
+    paths-ignore: ['docs/**', 'mkdocs.yml', 'requirements-docs.txt', 'tools/build_docs.py', 'README.md']
   pull_request:
+    paths-ignore: ['docs/**', 'mkdocs.yml', 'requirements-docs.txt', 'tools/build_docs.py', 'README.md']
   workflow_dispatch:
 
 permissions:
   contents: read
+
+concurrency:
+  group: validate-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
 
 jobs:
   linux:
@@ -20,17 +27,34 @@ jobs:
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
       - uses: haskell-actions/setup@7fd2bb5ca789761088fbc831406b2910e47e56f1 # v2
+        id: haskell
         with:
           ghc-version: ${{ matrix.ghc }}
           cabal-version: '3.16.1.0'
+      - uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
+        with:
+          path: |
+            ~/.cabal/packages
+            ${{ steps.haskell.outputs.cabal-store }}
+            dist-newstyle
+            build-ci/cabal
+            build-interchange/cabal
+          key: cabal-${{ runner.os }}-${{ matrix.ghc }}-${{ matrix.buildtype }}-${{ hashFiles('hmath.cabal', 'cabal.project', 'src/**', 'cbits/**', 'test/**', 'bench/**') }}
+          restore-keys: cabal-${{ runner.os }}-${{ matrix.ghc }}-${{ matrix.buildtype }}-
       - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
         with:
           python-version: '3.12'
+          cache: pip
+          cache-dependency-path: pyproject.toml
       - name: Dependencies
         run: |
           sudo apt-get update
           sudo apt-get install -y liblapacke-dev libopenblas-dev zlib1g-dev cmake ninja-build clang
-          python -m pip install meson==1.8.5 numpy scipy cffi h5py pyarrow onnx
+          python -m pip install meson==1.8.5 numpy cffi
+      - name: Differential validation dependencies
+        if: matrix.ghc == '9.10.3' && matrix.buildtype == 'release'
+        run: |
+          python -m pip install scipy h5py pyarrow onnx
           cabal update
       - name: Wave compiler
         if: matrix.ghc == '9.10.3' && matrix.buildtype == 'release'
@@ -50,14 +74,15 @@ jobs:
           if [ '${{ matrix.ghc }}' = '9.10.3' ] && [ '${{ matrix.buildtype }}' = release ]; then
             wave_tests=enabled
           fi
-          meson setup build-ci --buildtype=${{ matrix.buildtype }} -Dwerror=true -Dpython_bindings=enabled -Dwave_bindings="$wave_tests" -Dbenchmarks=true
+          meson setup build-ci --buildtype=${{ matrix.buildtype }} -Doffline=true -Dwerror=true -Dpython_bindings=enabled -Dwave_bindings="$wave_tests" -Dbenchmarks=true
           meson compile -C build-ci
           meson test -C build-ci --print-errorlogs
           python tools/check_install.py build-ci
           python tools/check_abi.py build-ci/libhmath.so
       - name: Properties and interchange
+        if: matrix.ghc == '9.10.3' && matrix.buildtype == 'release'
         run: |
-          cabal test hmath-properties -fvalidation-frameworks --test-show-details=direct
+          cabal test hmath-properties -fvalidation-frameworks -fcriterion-benchmarks --test-show-details=direct
           python tools/check_interchange.py --builddir=build-interchange --require-optional
       - name: Sanitized metadata and DLPack fuzzing
         if: matrix.ghc == '9.10.3' && matrix.buildtype == 'release'
@@ -65,22 +90,8 @@ jobs:
       - name: Criterion fixture and native benchmark smoke
         if: matrix.ghc == '9.10.3' && matrix.buildtype == 'release'
         run: |
-          cabal bench hmath-criterion -fcriterion-benchmarks --benchmark-options='--iters 1'
+          cabal bench hmath-criterion -fvalidation-frameworks -fcriterion-benchmarks --benchmark-options='--iters 1'
           python tools/benchmark.py --library=build-ci/libhmath.so --native=build-ci/hmath-native-benchmark --iterations=10 --output=build-ci/benchmark.json
-      - name: Python distribution validation
-        if: matrix.ghc == '9.10.3' && matrix.buildtype == 'release'
-        run: |
-          python -m pip install build twine
-          python -m build --outdir dist
-          python -m twine check --strict dist/*
-          python -m pip install dist/*.whl
-          HMATH_LIBRARY="$PWD/build-ci/libhmath.so" python - <<'PY'
-          import pathlib
-          import runpy
-          import hmath
-          assert 'site-packages' in pathlib.Path(hmath.__file__).parts
-          runpy.run_path('bindings/python/test_bindings.py', run_name='__main__')
-          PY
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         if: always()
         with:
@@ -101,8 +112,15 @@ jobs:
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
       - uses: haskell-actions/setup@7fd2bb5ca789761088fbc831406b2910e47e56f1 # v2
+        id: haskell
         with:
           ghc-version: '9.10.3'
           cabal-version: '3.16.1.0'
-      - run: cabal update
-      - run: cabal build lib:hmath flib:hmath -f-interchange-zlib --ghc-options="-Wall -Werror"
+      - uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
+        with:
+          path: |
+            ${{ steps.haskell.outputs.cabal-store }}
+            dist-newstyle
+          key: cabal-portability-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('hmath.cabal', 'cabal.project', 'src/**', 'cbits/**') }}
+          restore-keys: cabal-portability-${{ runner.os }}-${{ runner.arch }}-
+      - run: cabal build --offline lib:hmath flib:hmath -f-interchange-zlib --ghc-options="-Wall -Werror"

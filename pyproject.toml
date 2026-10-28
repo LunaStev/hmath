@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "hmath-python"
-version = "1.0.0"
+version = "1.0.1"
 description = "Python bindings for the Haskell HMath numerical library"
 readme = "README.md"
 requires-python = ">=3.9"
@@ -23,11 +23,17 @@ classifiers = [
 Homepage = "https://github.com/wavefnd/hmath"
 Source = "https://github.com/wavefnd/hmath"
 Issues = "https://github.com/wavefnd/hmath/issues"
+Documentation = "https://wavefnd.github.io/hmath/"
 
 [project.optional-dependencies]
 cffi = ["cffi>=1.15"]
 numpy = ["numpy>=1.22"]
 
 [tool.setuptools]
+include-package-data = false
 package-dir = {"" = "bindings/python"}
 py-modules = ["hmath", "hmath_cffi"]
+packages = ["_hmath_native"]
+
+[tool.setuptools.package-data]
+_hmath_native = ["licenses/*"]

@@ -1,9 +1,9 @@
 # SPDX-License-Identifier: MPL-2.0
 """Optional cffi ABI binding; no compiler needed. Explicit close/with cleanup."""
 
-import os
 from itertools import islice
 
+from _hmath_native import library_path
 from cffi import FFI
 
 ffi = FFI()
@@ -21,7 +21,7 @@ int hmath_tensor_dot(void*,const hmath_tensor*,const hmath_tensor*,double*);
 int hmath_tensor_add(void*,const hmath_tensor*,const hmath_tensor*,hmath_tensor**);
 int hmath_tensor_matmul(void*,const hmath_tensor*,const hmath_tensor*,hmath_tensor**);
 """)
-lib = ffi.dlopen(os.environ.get("HMATH_LIBRARY", "libhmath.so"))
+lib = ffi.dlopen(library_path())
 try:
     if lib.hmath_abi_version() != 1:
         raise RuntimeError("HMath binding requires ABI 1")

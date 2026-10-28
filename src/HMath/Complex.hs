@@ -1,10 +1,10 @@
 -- SPDX-License-Identifier: MPL-2.0
 
-{- | Checked finite complex arithmetic over 'Data.Complex'. Angles are radians,
+{- | Checked finite complex arithmetic over "Data.Complex". Angles are radians,
 positive rotations are counterclockwise, and logarithms/powers use the principal
 branch (argument in (-pi,pi], with IEEE signed-zero behavior inherited from
-'Data.Complex'). Poles, zero reciprocals, and nonfinite results are errors.
-Matrices use the existing row-major 'M.Matrix'; FFTs use the existing negative
+"Data.Complex"). Poles, zero reciprocals, and nonfinite results are errors.
+Matrices use the existing row-major @M.Matrix@; FFTs use the existing negative
 forward-exponent convention. The reference matrix budget is 256 per dimension.
 -}
 module HMath.Complex (

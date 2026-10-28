@@ -2,14 +2,14 @@
 
 HMath is a mathematics and numerical computing library with Python bindings, written in Haskell. It also provides native Haskell, C, and Wave interfaces.
 
-The 1.0.0 release targets Linux x86-64. The Python distribution is named **hmath-python** and is imported as `hmath`.
+HMath targets Linux x86-64. The Python distribution is named **hmath-python** and is imported as `hmath`. Version 1.0.1 includes the native library and runtime; GHC is not needed to use its Python wheel.
 
 ## Python quick start
 
 Install the Python package on Linux x86-64:
 
 ```sh
-pip install hmath-python
+python -m pip install --upgrade --only-binary=:all: "hmath-python>=1.0.1"
 ```
 
 ```python
@@ -23,6 +23,8 @@ with Tensor.matrix([1, 2, 3, 4], 2, 2) as matrix:
 ```
 
 Use `with` to release native resources automatically. Invalid operations raise `HMathError`. Install `hmath-python[numpy,cffi]` for optional NumPy and cffi support.
+
+See the [documentation](https://wavefnd.github.io/hmath/) for installation requirements, tutorials, API reference, and C/Wave integration.
 
 ## Features
 

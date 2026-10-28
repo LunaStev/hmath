@@ -1,0 +1,15 @@
+include LICENSE README.md CHANGELOG.md ROADMAP.md hmath.cabal cabal.project meson-build.py
+include meson.build meson_options.txt mkdocs.yml requirements-docs.txt fourmolu.yaml .clang-format
+recursive-include src *.hs
+recursive-include cbits *.c *.h
+recursive-include include *.h
+recursive-include bindings/python/_hmath_native/licenses *
+recursive-include bindings/python *.py LICENSE
+recursive-include bindings/wave *.wave
+recursive-include docs *.md
+recursive-include tools *.py *.sh
+recursive-include test *.hs *.c *.py *.txt
+recursive-include examples *.hs *.c *.py
+recursive-include bench *.hs *.c
+recursive-include meson *.in
+recursive-include .github/workflows *.yml
