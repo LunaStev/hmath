@@ -1,0 +1,5 @@
+cmake_minimum_required(VERSION 3.16)
+project(hmath_installed_client C)
+find_package(HMath 1.0 CONFIG REQUIRED)
+add_executable(client client.c)
+target_link_libraries(client PRIVATE HMath::hmath)

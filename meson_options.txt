@@ -1,0 +1,11 @@
+# SPDX-License-Identifier: MPL-2.0
+option('tests', type: 'boolean', value: true, description: 'Build and run native and Haskell tests')
+option('haskell_tests', type: 'boolean', value: true, description: 'Include the full Cabal test suite')
+option('compression', type: 'feature', value: 'auto', description: 'Enable zlib compression for NPZ interchange')
+option('offline', type: 'boolean', value: false, description: 'Build with the local Cabal package cache only')
+option('ghc', type: 'string', value: '', description: 'Explicit GHC executable (including cross compilers)')
+option('gpu', type: 'feature', value: 'disabled', description: 'Reserved GPU backend; enabled requires a future implementation')
+option('native_backend', type: 'boolean', value: true, description: 'Allow runtime loading of native BLAS/LAPACK providers')
+option('python_bindings', type: 'feature', value: 'auto', description: 'Test Python ctypes/cffi/NumPy bindings')
+option('wave_bindings', type: 'feature', value: 'auto', description: 'Test the official Wave binding')
+option('benchmarks', type: 'boolean', value: false, description: 'Build the native benchmark executable')

@@ -1,12 +1,14 @@
-# HMath 1.0.0 development roadmap
+# HMath development roadmap
 
 [Roadmap issue](https://github.com/wavefnd/hmath/issues/1) · [Planning milestone](https://github.com/wavefnd/hmath/milestone/1)
 
 ## Status and scope
 
-HMath is an early prototype at Cabal version 0.1.0.0. This roadmap preserves the complete maintainer-provided development checklist: **47 functional areas and 944 individual requirements**. Each area links to an English tracking issue containing its complete checklist, current baseline, and completion criteria.
+HMath is preparing its first 1.0.0 release. This roadmap preserves the complete maintainer-provided development checklist: **47 functional areas and 944 individual requirements**. Each area links to an English tracking issue containing its checklist, historical baseline, and completion criteria.
 
-The mandatory 1.0.0 release subset is **not yet agreed**. The milestone collects candidate development goals and has no committed due date. Priorities indicate a proposed work order; advanced goals can be deferred explicitly when release scope is selected. Existing prototype functions are partial foundations, not completed feature areas.
+The agreed 1.0.0 scope is the implemented Haskell numerical modules and the C ABI 1, Python, and Wave interfaces on **Linux x86-64**. It includes the reference CPU implementations, tested optional OpenBLAS/LAPACKE integration, numerical interchange, and local build/install validation. GPU execution, explicit SIMD acceleration, distributed execution, additional platforms, and other unfinished checklist goals remain later work. The original checklist is a long-term backlog, not a promise that every item ships in 1.0.0.
+
+Official external language support is limited to **C, Python, and Wave**. Haskell remains the implementation and native API. The counts below preserve the original checklist; the earlier requests for other maintained bindings are superseded by this scope decision in [#45](https://github.com/wavefnd/hmath/issues/45).
 
 ## Suggested work order
 
@@ -15,7 +17,7 @@ The mandatory 1.0.0 release subset is **not yet agreed**. The milestone collects
 3. Harden scalar, vector, matrix, and statistics foundations together with meaningful Haskell/C/Python regression tests.
 4. Add selected numerical algorithms, arrays, interoperability, and language bindings in reviewable increments.
 5. Add optional acceleration and advanced domains after their reference behavior and tests exist.
-6. Select the mandatory 1.0.0 subset and satisfy its API/ABI, platform, accuracy, packaging, documentation, and license release gates before tagging or publishing.
+6. Validate the agreed first-release scope and publish 1.0.0 after review. Continue with compatible fixes in 1.0.x, compatible features in 1.x, and breaking public API changes in 2.0.0 or later.
 
 ## Prototype correctness work
 

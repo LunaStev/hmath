@@ -10,13 +10,9 @@
 #error "Select one test fault: addition=1, factorial=2, mean=3, dot=4"
 #endif
 
-int hmath_init(void) {
-    return HMATH_INIT_OK;
-}
+int hmath_init(void) { return HMATH_INIT_OK; }
 
-void hmath_shutdown(void) {
-    fputs("HMATH_TEST_SHUTDOWN\n", stderr);
-}
+void hmath_shutdown(void) { fputs("HMATH_TEST_SHUTDOWN\n", stderr); }
 
 double hmath_add_f64(double a, double b) {
     if (HMATH_TEST_FAULT == 1) {

@@ -21,8 +21,11 @@ linearTests =
     , ("empty magnitude", magnitude ([] :: [Double]) == 0)
     , ("empty normalization", normalize ([] :: [Double]) == [])
     , ("zero normalization is unchanged", normalize [0, 0 :: Double] == [0, 0])
-    , ("unit normalization", let actual = normalize [3, 4 :: Double]
-        in length actual == 2 && and (zipWith near actual [0.6, 0.8]))
+    ,
+        ( "unit normalization"
+        , let actual = normalize [3, 4 :: Double]
+           in length actual == 2 && and (zipWith near actual [0.6, 0.8])
+        )
     , ("nonempty magnitude", magnitude [3, 4 :: Double] == 5)
     , ("scalar multiplication values", scale (-2) [1, -3 :: Int] == [-2, 6])
     , ("bounded dot symmetry", all dotSymmetry compatiblePairs)
@@ -31,13 +34,13 @@ linearTests =
     , ("legacy operations agree with checked API", all legacyAgreement compatiblePairs)
     , ("scaling preserves length", all (\xs -> length (scale 3 xs) == length xs) vectors)
     ]
-    where
-        near a b = abs (a - b) <= 1e-12
+  where
+    near a b = abs (a - b) <= 1e-12
 
 vectors :: [[Int]]
 vectors =
     [ take n (cycle patternValues)
-    | n <- [0..4]
+    | n <- [0 .. 4]
     , patternValues <- [[0], [1], [-2, 3], [1, 2, -1]]
     ]
 
@@ -61,10 +64,10 @@ additionInverse (xs, ys) =
 
 dotDistribution :: ([Int], [Int], [Int]) -> Bool
 dotDistribution (xs, ys, zs) =
-    (addChecked ys zs >>= dotChecked xs) ==
-        ((+) <$> dotChecked xs ys <*> dotChecked xs zs)
+    (addChecked ys zs >>= dotChecked xs)
+        == ((+) <$> dotChecked xs ys <*> dotChecked xs zs)
 
 legacyAgreement :: ([Int], [Int]) -> Bool
 legacyAgreement (xs, ys) =
-    Right (dot xs ys) == dotChecked xs ys &&
-    Right (add xs ys) == addChecked xs ys
+    Right (dot xs ys) == dotChecked xs ys
+        && Right (add xs ys) == addChecked xs ys

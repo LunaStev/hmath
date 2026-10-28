@@ -1,0 +1,32 @@
+# SPDX-License-Identifier: MPL-2.0
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "hmath-python"
+version = "1.0.0"
+description = "Python bindings for the Haskell HMath numerical library"
+readme = "README.md"
+requires-python = ">=3.9"
+license = "MPL-2.0"
+license-files = ["LICENSE"]
+keywords = ["mathematics", "haskell", "ffi", "tensor"]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Operating System :: POSIX :: Linux",
+    "Programming Language :: Python :: 3",
+    "Topic :: Scientific/Engineering :: Mathematics",
+]
+
+[project.urls]
+Homepage = "https://github.com/wavefnd/hmath"
+Source = "https://github.com/wavefnd/hmath"
+Issues = "https://github.com/wavefnd/hmath/issues"
+
+[project.optional-dependencies]
+cffi = ["cffi>=1.15"]
+numpy = ["numpy>=1.22"]
+
+[tool.setuptools]
+py-modules = ["hmath", "hmath_cffi"]
