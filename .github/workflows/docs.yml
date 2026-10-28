@@ -36,6 +36,14 @@ jobs:
         run: |
           python -m pip install -r requirements-docs.txt
           python tools/build_docs.py
+      - name: Verify Python documentation examples against the released package
+        run: |
+          python - <<'PY'
+          import pathlib, subprocess, sys, tomllib
+          version = tomllib.loads(pathlib.Path('pyproject.toml').read_text())['project']['version']
+          subprocess.run([sys.executable, '-m', 'pip', 'install', f'hmath-python[numpy,cffi]=={version}'], check=True)
+          PY
+          python tools/check_docs_examples.py
       - uses: actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa # v3
         with:
           path: site

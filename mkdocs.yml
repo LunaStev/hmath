@@ -27,10 +27,15 @@ theme:
         name: Switch to light mode
 extra_css:
   - stylesheets/api.css
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js
 plugins:
   - search
 markdown_extensions:
   - admonition
+  - pymdownx.arithmatex:
+      generic: true
   - pymdownx.highlight:
       anchor_linenums: true
   - pymdownx.superfences
@@ -38,20 +43,28 @@ markdown_extensions:
       check_paths: true
   - toc:
       permalink: true
+      toc_depth: 3
 nav:
   - Overview: index.md
   - Getting started:
       - Installation: getting-started/installation.md
       - First calculation: getting-started/first-calculation.md
+      - Choose an operation: getting-started/choose-an-operation.md
   - How-to guides:
       - NumPy interoperability: guides/numpy.md
+      - Validate a matrix calculation: guides/matrix-calculation.md
+      - Solve least-squares problems (Haskell): guides/least-squares.md
+      - Differentiate and integrate (Haskell): guides/calculus.md
+      - Summarize data (Haskell): guides/statistics.md
       - C integration: guides/c.md
+      - Borrow storage safely (C): guides/borrowed-storage.md
       - Wave integration: guides/wave.md
       - Build from source: guides/build.md
       - Troubleshooting: guides/troubleshooting.md
       - Dense linear algebra: linear-algebra.md
   - Explanation:
       - Architecture and ownership: explanation/architecture.md
+      - Numerical conventions: explanation/numerical-conventions.md
       - Compatibility and releases: explanation/releases.md
   - Contributing: contributing.md
   - API Reference:
@@ -59,3 +72,4 @@ nav:
       - C ABI: reference/c.md
       - Wave API: reference/wave.md
       - Haskell API: reference/haskell.md
+      - QR contracts (Haskell): reference/qr.md
