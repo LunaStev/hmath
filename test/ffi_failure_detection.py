@@ -4,9 +4,9 @@
 
 import argparse
 import os
-from pathlib import Path
 import subprocess
 import sys
+from pathlib import Path
 
 
 def main():
@@ -27,11 +27,19 @@ def main():
     for name, command in commands:
         try:
             result = subprocess.run(
-                command, env=env, capture_output=True, text=True,
-                errors="replace", timeout=5, check=False,
+                command,
+                env=env,
+                capture_output=True,
+                text=True,
+                errors="replace",
+                timeout=5,
+                check=False,
             )
         except subprocess.TimeoutExpired:
-            print(f"FAIL: {name} did not reject the faulty result in time", file=sys.stderr)
+            print(
+                f"FAIL: {name} did not reject the faulty result in time",
+                file=sys.stderr,
+            )
             failures += 1
             continue
 

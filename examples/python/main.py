@@ -3,16 +3,13 @@
 import ctypes
 import math
 import os
-from pathlib import Path
 import sys
+from pathlib import Path
 
 root = Path(__file__).resolve().parents[2]
 
 library_path = Path(
-    os.environ.get(
-        "HMATH_LIBRARY",
-        str(root / "build" / "libhmath.so")
-    )
+    os.environ.get("HMATH_LIBRARY", str(root / "build" / "libhmath.so"))
 )
 
 hmath = ctypes.CDLL(str(library_path))
@@ -75,9 +72,7 @@ def main():
         return 1
 
     try:
-        values = (ctypes.c_double * 4)(
-            10.25, 20.5, 30.75, 40.0
-        )
+        values = (ctypes.c_double * 4)(10.25, 20.5, 30.75, 40.0)
         a = (ctypes.c_double * 3)(1.5, -2.25, 3.75)
         b = (ctypes.c_double * 3)(2.0, 0.5, -4.0)
         sum_value = hmath.hmath_add_f64(10.25, 20.5)

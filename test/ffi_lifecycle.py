@@ -4,12 +4,11 @@
 
 import argparse
 import ctypes
-from pathlib import Path
 import signal
 import subprocess
 import sys
 import threading
-
+from pathlib import Path
 
 # These are the public enum hmath_init_result values from include/hmath.h.
 HMATH_INIT_OK = 0
@@ -56,7 +55,8 @@ def parallel_calls(calls):
         try:
             barrier.wait(timeout=2)
             results[index] = call()
-        except Exception as error:
+        # Propagate any worker failure to the main test thread.
+        except Exception as error:  # noqa: BLE001
             errors[index] = repr(error)
 
     threads = [
