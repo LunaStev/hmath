@@ -35,6 +35,10 @@ newtype PointCloud = Cloud [PointND] deriving (Eq, Show)
 
 data Node = Leaf AABB [(Int, PointND)] | Branch AABB [Node] | Ball AABB [Double] Double [Node]
     deriving (Eq, Show)
+
+{- | Opaque checked spatial-search tree/hash index. Construction and query functions
+document dimension/work limits and exactness flags.
+-}
 data SpatialIndex = Tree Int Node | Hash Int Double (Map.Map [Integer] [(Int, PointND)])
     deriving (Eq, Show)
 
@@ -162,9 +166,21 @@ boxDistance p (AABB a b) =
 {- | A budgeted nearest-neighbor answer; False means unexplored leaves may
 improve the answer. Returned distances are exact Double Euclidean distances.
 -}
-data NeighborQuery = NeighborQuery {queryNeighbors :: [(Int, Double)], queryLeaves :: Int, queryExhaustive :: Bool}
+data NeighborQuery = NeighborQuery
+    { queryNeighbors :: [(Int, Double)]
+    -- ^ Nearest candidate IDs paired with Euclidean distances, in increasing distance order.
+    , queryLeaves :: Int
+    -- ^ Number of visited spatial-index leaves charged to the query budget.
+    , queryExhaustive :: Bool
+    -- ^ True only when unexplored nodes cannot improve the returned neighbors; False marks a budget-limited approximation.
+    }
     deriving (Eq, Show)
 
+{- | Given neighbor count k, positive leaf budget, index, then query point, search for
+nearest neighbors. Require matching finite coordinate dimension and 1\<=k\<=65536. The
+result reports neighbors, visited leaves and whether search was exhaustive; an
+exhausted budget is not an exact-neighbor guarantee.
+-}
 nearestQuery :: Int -> Int -> SpatialIndex -> PointND -> Either MathError NeighborQuery
 nearestQuery k budget index p = do
     checkND p

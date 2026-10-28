@@ -76,10 +76,15 @@ archive budget applies to the SUM of uncompressed members, preventing bombs.
 -}
 data Limits = Limits
     { maxBytes :: Int
+    -- ^ Maximum aggregate encoded/input/backing bytes, including relevant format overhead.
     , maxElements :: Int
+    -- ^ Maximum logical scalar element count.
     , maxRank :: Int
+    -- ^ Maximum array dimension count (implementation cap 255).
     , maxMetadata :: Int
+    -- ^ Maximum descriptive metadata/header byte budget.
     , maxArchiveEntries :: Int
+    -- ^ Maximum archive member count; aggregate uncompressed bytes are also bounded.
     }
     deriving (Eq, Show)
 
@@ -98,23 +103,51 @@ data InterchangeError
 -- | Opaque validated bytes and descriptive UTF-8 metadata (key/value strings).
 data Array = Array DType Endian [Int] [Int] Int B.ByteString [(String, String)] deriving (Eq, Show)
 
+{- | Return the fixed-width wire dtype of an Array; this is independent of Haskell host
+Int/Double defaults.
+-}
 arrayDType :: Array -> DType
 arrayDType (Array x _ _ _ _ _ _) = x
+
+-- | Return explicit payload byte order; single-byte dtypes are endian-independent.
 arrayEndian :: Array -> Endian
 arrayEndian (Array _ x _ _ _ _ _) = x
+
+-- | Return logical dimensions in axis order; [] is scalar and zero axes are valid.
 arrayShape :: Array -> [Int]
 arrayShape (Array _ _ x _ _ _ _) = x
+
+{- | Return signed byte strides for each axis. Unlike HMath.Tensor strides, these are bytes,
+not elements.
+-}
 arrayStrides :: Array -> [Int]
 arrayStrides (Array _ _ _ x _ _ _) = x
+
+-- | Return byte offset of logical origin within arrayBytes backing storage.
 arrayOffset :: Array -> Int
 arrayOffset (Array _ _ _ _ x _ _) = x
+
+{- | Return immutable backing bytes, which may include padding or data not reached by the
+logical strided view. Use toValues or repack for logical contents.
+-}
 arrayBytes :: Array -> B.ByteString
 arrayBytes (Array _ _ _ _ _ x _) = x
+
+{- | Return descriptive UTF-8-compatible key/value metadata strings in stored order;
+metadata is not executable.
+-}
 arrayMetadata :: Array -> [(String, String)]
 arrayMetadata (Array _ _ _ _ _ _ x) = x
 
+{- | Given condition then InterchangeError, return Right () when True and Left that error
+otherwise. This helper performs no IO.
+-}
 guardI :: Bool -> InterchangeError -> Either InterchangeError ()
 guardI p e = unless p (Left e)
+
+{- | Validate nonnegative finite resource caps, rank\<=255 and Int-safe
+byte/element/metadata/archive budgets. Invalid settings return InvalidData.
+-}
 checkLimits :: Limits -> Either InterchangeError ()
 checkLimits lim =
     guardI
@@ -130,10 +163,18 @@ checkLimits lim =
             && maxArchiveEntries lim < maxBound
         )
         (InvalidData "invalid resource limits")
+
+{- | Given diagnostic name,nonnegative upper bound,then Integer value, convert only if value
+lies in [0,upper] and fits Int. Otherwise return LimitExceeded with that name.
+-}
 boundedInt :: String -> Integer -> Integer -> Either InterchangeError Int
 boundedInt name upper x = do
     guardI (x >= 0 && x <= upper && x <= toInteger (maxBound :: Int)) (LimitExceeded name)
     Right (fromInteger x)
+
+{- | Return fixed byte width of a DType, including complex pairs (C64=8,C128=16) and
+Bool8=1.
+-}
 elementBytes :: DType -> Int
 elementBytes dt = case dt of
     Bool8 -> 1
@@ -149,12 +190,18 @@ elementBytes dt = case dt of
     F64 -> 8
     C64 -> 8
     C128 -> 16
+
+{- | Given limits then dimensions, validate rank, nonnegative axes and element product,
+returning Int element count. Invalid data or exceeded limits return InterchangeError.
+-}
 validateShape :: Limits -> [Int] -> Either InterchangeError Int
 validateShape lim sh = do
     checkLimits lim
     guardI (length (take (maxRank lim + 1) sh) <= maxRank lim) (LimitExceeded "array rank")
     guardI (all (>= 0) sh) (InvalidData "negative dimension")
     boundedInt "array element count" (toInteger (maxElements lim)) (product (map toInteger sh))
+
+-- | Return logical shape product; scalar arrays have one element and empty axes have zero.
 elementCount :: Array -> Int
 elementCount = product . arrayShape
 
@@ -190,6 +237,9 @@ array lim dt en sh st off bs = do
         (InvalidData "noncanonical boolean")
     Right a
 
+{- | Given limits,dtype,endian,physical order,shape,then exact packed bytes, construct a
+canonical byte-strided array. Require exact byte count; invalid shape/data/limits fail.
+-}
 contiguousArray ::
     Limits -> DType -> Endian -> Order -> [Int] -> B.ByteString -> Either InterchangeError Array
 contiguousArray lim dt en order sh bs = do
@@ -219,6 +269,9 @@ withMetadata lim meta (Array dt en sh st off bs _) = do
         (InvalidData "surrogate in metadata")
     Right (Array dt en sh st off bs meta)
 
+{- | Return backing byte offsets for each logical element in row-major coordinate order,
+honoring signed strides and offset.
+-}
 byteOffsets :: Array -> [Int]
 -- An inner zero axis must short-circuit before traversing outer dimensions.
 -- Those outer dimensions can be huge even when the logical size is zero.
@@ -234,8 +287,13 @@ Custom instances must write exactly elementBytes bytes and use a bounded
 decoder. Built-in instances preserve floating-point bit representations.
 -}
 class Element a where
+    -- | Given a Haskell Element type proxy, return its exact fixed-width wire DType.
     elementType :: proxy a -> DType
+
+    -- | Given byte order then one typed Element, emit its binary representation with Data.Binary.Put.
     putElement :: Endian -> a -> Put
+
+    -- | Given byte order, decode one typed Element with Data.Binary.Get; surrounding array decoders enforce byte/storage budgets.
     getElement :: Endian -> Get a
 
 put16 :: Endian -> Word16 -> Put
@@ -314,6 +372,11 @@ instance Element (Complex Double) where
     elementType _ = C128
     putElement en (a :+ b) = putElement en a >> putElement en b
     getElement en = (:+) <$> getElement en <*> getElement en
+
+{- | Given limits,endian,shape,then typed Element list, encode to a contiguous array with
+that Element dtype. Require exact shape/count match and resource bounds; failures
+return InterchangeError.
+-}
 fromValues ::
     forall a. (Element a) => Limits -> Endian -> [Int] -> [a] -> Either InterchangeError Array
 fromValues lim en sh xs = do
@@ -324,6 +387,10 @@ fromValues lim en sh xs = do
         (LimitExceeded "encoded values")
     guardI (length (take (n + 1) xs) == n) (InvalidData "value count does not match shape")
     contiguousArray lim dt en COrder sh (L.toStrict (runPut (mapM_ (putElement en) xs)))
+
+{- | Decode logical row-major values as the requested Element type, requiring an exact dtype
+match. No silent numeric cast occurs; mismatch returns Unsupported/InvalidData.
+-}
 toValues :: forall a. (Element a) => Array -> Either InterchangeError [a]
 toValues a = do
     guardI
@@ -337,13 +404,30 @@ toValues a = do
         Left (_, _, err) -> Left (InvalidData err)
         Right (rest, _, x) | L.null rest -> Right x
         _ -> Left (InvalidData "element decoder size mismatch")
+
+{- | Given limits,endian,then typed Haskell Tensor, encode logical row-major values and
+preserve shape. The Element instance determines wire dtype; resource bounds can fail.
+-}
 fromTensor :: (Element a) => Limits -> Endian -> T.Tensor a -> Either InterchangeError Array
 fromTensor lim en t =
     fromValues lim en (T.tensorShape t) (if T.numel t == 0 then [] else T.tensorValues t)
+
+{- | Decode an Array of matching Element dtype to a contiguous Haskell Tensor, preserving
+logical shape/order. Dtype or checked tensor-construction failure returns
+InterchangeError.
+-}
 toTensor :: (Element a) => Array -> Either InterchangeError (T.Tensor a)
 toTensor a = toValues a >>= either (Left . InvalidData . show) Right . T.tensor (arrayShape a)
+
+{- | Given limits,endian,then typed Matrix, encode its row-major values as a rank-two Array.
+Dtype comes from Element; resource limits can fail.
+-}
 fromMatrix :: (Element a) => Limits -> Endian -> M.Matrix a -> Either InterchangeError Array
 fromMatrix lim en m = let (r, c) = M.shape m in fromValues lim en [r, c] (M.toList m)
+
+{- | Decode a matching typed rank-two Array to Matrix. Rank/dtype or checked shape
+conversion failures return InterchangeError.
+-}
 toMatrix :: (Element a) => Array -> Either InterchangeError (M.Matrix a)
 toMatrix a = case arrayShape a of
     [r, c] -> toValues a >>= either (Left . InvalidData . show) Right . M.fromListChecked r c
@@ -388,8 +472,16 @@ repack lim en order a = do
             (B.concat [swap (B.take width (B.drop i (arrayBytes a))) | i <- offsets])
     withMetadata lim (arrayMetadata a) b
 
+{- | Given limits,destination endian,physical order,then Array, repack its logical payload
+and return raw bytes without shape/header metadata. Checked resource/layout failures
+propagate.
+-}
 rawEncode :: Limits -> Endian -> Order -> Array -> Either InterchangeError B.ByteString
 rawEncode lim en order = fmap arrayBytes . repack lim en order
+
+{- | Given limits,dtype,endian,order,shape,then bytes, construct a packed Array. Caller
+supplies all metadata; exact byte-count and shape/resource validation is enforced.
+-}
 rawDecode ::
     Limits -> DType -> Endian -> Order -> [Int] -> B.ByteString -> Either InterchangeError Array
 rawDecode = contiguousArray

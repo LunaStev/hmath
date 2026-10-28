@@ -38,11 +38,24 @@ import Data.Array (Array, elems, listArray, (!))
 import HMath.Error
 import qualified HMath.Tensor as T
 
+{- | Opaque finite CPU image with row-major spatial axes and interleaved channels. Construct
+with image; shape/channel/storage limits are checked.
+-}
 data Image = Image [Int] Int (Array Int Double) deriving (Eq, Show)
+
+-- | Test whether Double is neither NaN nor infinite.
 finite :: Double -> Bool
 finite x = not (isNaN x || isInfinite x)
+
+{- | Given predicate then diagnostic, return Right () or image-prefixed Left
+InvalidArgument.
+-}
 require :: Bool -> String -> Either MathError ()
 require p message = if p then Right () else Left (InvalidArgument ("image: " ++ message))
+
+{- | Return finite Double values unchanged, or Left NonFiniteResult when any sample is
+non-finite.
+-}
 checked :: [Double] -> Either MathError [Double]
 checked values = if all finite values then Right values else Left NonFiniteResult
 
@@ -66,34 +79,66 @@ fromTensor tensor = do
     require (length dims >= 2) "tensor needs spatial and channel axes"
     image (init dims) (last dims) (T.tensorValues tensor)
 
+{- | Copy an image to Tensor Double with shape spatial dimensions followed by channel count.
+Values remain row-major with interleaved channels; checked tensor size errors
+propagate.
+-}
 toTensor :: Image -> Either MathError (T.Tensor Double)
 toTensor img = T.tensor (imageShape img ++ [imageChannels img]) (imageValues img)
+
+-- | Return spatial dimensions only, excluding the last implicit channel axis.
 imageShape :: Image -> [Int]
 imageShape (Image dims _ _) = dims
+
+-- | Return channel count, between one and sixteen for validated images.
 imageChannels :: Image -> Int
 imageChannels (Image _ channels _) = channels
+
+-- | Return flat row-major samples with channels interleaved at each spatial coordinate.
 imageValues :: Image -> [Double]
 imageValues (Image _ _ values) = elems values
+
+-- | Return number of spatial pixels (shape product), excluding channel multiplicity.
 spatialSize :: Image -> Int
 spatialSize = product . imageShape
+
+{- | Enumerate zero-based row-major coordinates of a dimension list. [] yields [[]];
+zero/negative extents yield no coordinates. This helper performs no image validation.
+-}
 coordinates :: [Int] -> [[Int]]
 coordinates [] = [[]]
 coordinates (d : ds) = [i : is | i <- [0 .. d - 1], is <- coordinates ds]
 
 -- Internal indexing kernel: callers must have checked rank/range and channel.
+
+{- | Unchecked image access: given image,complete spatial coordinates,then channel, return
+one sample. Checked callers must validate rank/ranges; invalid indices can raise an
+array error.
+-}
 at :: Image -> [Int] -> Int -> Double
 at (Image dims channels values) ix c = values ! (foldl (\acc (i, d) -> acc * d + i) 0 (zip ix dims) * channels + c)
 
+{- | Given image then complete spatial coordinates, return all channel values in order.
+Invalid coordinate rank/range returns Left InvalidArgument.
+-}
 pixel :: Image -> [Int] -> Either MathError [Double]
 pixel img ix = do
     require
         (length ix == length (imageShape img) && and (zipWith (\i d -> i >= 0 && i < d) ix (imageShape img)))
         "pixel index out of range"
     Right [at img ix c | c <- [0 .. imageChannels img - 1]]
+
+{- | Given zero-based channel index then image, return a copied one-channel image of the
+same spatial shape. Invalid channel index fails.
+-}
 channel :: Int -> Image -> Either MathError Image
 channel c img = do
     require (c >= 0 && c < imageChannels img) "channel index out of range"
     image (imageShape img) 1 [at img ix c | ix <- coordinates (imageShape img)]
+
+{- | Concatenate channels of a nonempty same-spatial-shape image list in input order.
+Require total channels\<=16; shape/count or checked storage limits fail.
+-}
 combineChannels :: [Image] -> Either MathError Image
 combineChannels images = do
     require (not (null images)) "no channels to combine"
@@ -108,6 +153,9 @@ combineChannels images = do
 mapImage :: (Double -> Double) -> Image -> Either MathError Image
 mapImage f img = image (imageShape img) (imageChannels img) (map f (imageValues img))
 
+{- | Given binary sample function then equally shaped/channel-count images, return a new
+validated image. Mismatched shape/channels or non-finite output returns Left MathError.
+-}
 zipImage :: (Double -> Double -> Double) -> Image -> Image -> Either MathError Image
 zipImage f a b = do
     require (imageShape a == imageShape b && imageChannels a == imageChannels b) "image shape mismatch"
@@ -141,6 +189,9 @@ gamma power img = do
         "gamma needs positive exponent/nonnegative data"
     mapImage (** power) img
 
+{- | Image sampling policy: Constant fill,edge Clamp,half-sample symmetric Reflect,or
+periodic Wrap.
+-}
 data Boundary = Constant Double | Clamp | Reflect | Wrap deriving (Eq, Show)
 
 {- | Reflect is half-sample symmetric (... b a | a b c | c b ...).

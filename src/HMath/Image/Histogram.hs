@@ -20,6 +20,10 @@ bin :: Int -> Double -> Int
 bin bins x = min (bins - 1) (floor (x * fromIntegral bins))
 counts :: Int -> [Double] -> [Int]
 counts bins values = elems (accumArray (+) 0 (0, bins - 1) [(bin bins x, 1) | x <- values] :: Array Int Int)
+
+{- | Given bin count in [2,4096] then image with every sample in [0,1], return one Int count
+list per channel. Values at 1 enter the final bin. Invalid count/range fails.
+-}
 histogram :: Int -> Image -> Either MathError [[Int]]
 histogram bins img = do
     unit bins img

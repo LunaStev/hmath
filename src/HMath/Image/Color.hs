@@ -13,6 +13,9 @@ module HMath.Image.Color (ColorSpace (..), convertColor, grayscale, srgbToLinear
 import HMath.Error
 import HMath.Image.Core
 
+{- | Color coordinate convention,including sRGB,linear RGB,HSV,HSL,XYZ,Lab,and YCbCr.
+convertColor validates each source convention's ranges.
+-}
 data ColorSpace = SRGB | LinearRGB | HSV | HSL | XYZ | Lab | YCbCr deriving (Eq, Show)
 
 {- | Transfer functions extend linearly below their positive breakpoints;
@@ -21,8 +24,13 @@ finite negative/out-of-gamut channels are retained.
 srgbToLinear :: Double -> Either MathError Double
 srgbToLinear x = do require (finite x) "nonfinite sRGB channel"; scalar (decode x)
 
+{- | Encode a finite linear-light channel with the sRGB piecewise transfer function (linear
+branch through 0.0031308). No automatic clipping is performed. Non-finite input/result
+returns Left MathError.
+-}
 linearToSrgb :: Double -> Either MathError Double
 linearToSrgb x = do require (finite x) "nonfinite linear RGB channel"; scalar (encode x)
+
 scalar :: Double -> Either MathError Double
 scalar x = do _ <- checked [x]; Right x
 decode, encode :: Double -> Double

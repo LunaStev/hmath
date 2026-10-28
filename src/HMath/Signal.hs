@@ -528,6 +528,10 @@ window kind n = do
                 result = case kind of DolphChebyshev _ -> let scale = maximum (map abs raw) in map (/ scale) raw; _ -> raw
             vector result
 
+{- | Given window kind, odd tap count in [1,257], cutoff frequency and positive sample rate,
+return normalized low-pass FIR coefficients. Require 0\<cutoff\<rate/2 and finite
+parameters; invalid values or normalization failure returns Left MathError.
+-}
 windowedSinc :: Window -> Int -> Double -> Double -> Either MathError [Double]
 windowedSinc kind taps cutoff rate = do
     require
@@ -613,7 +617,16 @@ antiAlias factor taps xs = do
     localFilter taps (checked . dot kernel) xs
 
 -- | Interior peak index, height, topographic prominence and half-prominence width in samples.
-data Peak = Peak {peakIndex :: Int, peakHeight :: Double, peakProminence :: Double, peakWidth :: Double}
+data Peak = Peak
+    { peakIndex :: Int
+    -- ^ Zero-based sample index of the detected peak.
+    , peakHeight :: Double
+    -- ^ Sample amplitude at peakIndex.
+    , peakProminence :: Double
+    -- ^ Peak height above its reference surrounding contour level.
+    , peakWidth :: Double
+    -- ^ Estimated width at the selected prominence height, measured in samples.
+    }
     deriving (Eq, Show)
 
 {- | Interior local maxima; flat plateaus select the lower middle index. Width

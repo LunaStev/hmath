@@ -24,6 +24,9 @@ import qualified Data.Foldable as Foldable (foldl')
 import HMath.Error
 import HMath.Optimization.Common
 
+{- | First-order optimizer selector, including momentum and adaptive-moment variants.
+Stateful parameters are validated by the selected optimizer.
+-}
 data GradientMethod
     = GradientDescent
     | Momentum
@@ -38,6 +41,10 @@ data GradientMethod
     | Nadam
     | RAdam
     deriving (Eq, Show, Enum, Bounded)
+
+{- | Opaque accumulated first-order optimizer moments/history. Initialize and advance
+through the stateful optimizer API.
+-}
 data OptimizerState = OptimizerState Int [Double] [Double] [Double] deriving (Eq, Show)
 
 -- | Allocate zero momentum/moment buffers for a nonnegative parameter count.

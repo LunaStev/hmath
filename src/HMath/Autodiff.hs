@@ -68,8 +68,17 @@ import qualified HMath.Tensor as T
 data Dual a = Dual a a deriving (Eq, Show)
 
 primal, tangent :: Dual a -> a
+
+{- | Extract the primal value from Dual value tangent without evaluating a derivative.
+Example: primal (Dual 3 1) == 3.
+-}
 primal (Dual a _) = a
+
+{- | Extract the directional derivative seed/result from a Dual value. Example: tangent
+(Dual 3 1) == 1.
+-}
 tangent (Dual _ a) = a
+
 instance (Ord a) => Ord (Dual a) where compare (Dual x _) (Dual y _) = compare x y
 instance (Num a) => Num (Dual a) where
     Dual x dx + Dual y dy = Dual (x + y) (dx + dy)
@@ -138,6 +147,10 @@ data Unary
     | Abs
     | Sign
     deriving (Eq, Show)
+
+{- | Opaque reverse-mode differentiable scalar expression,composed from explicit inputs and
+operations. Compile/evaluate through the checked autodiff graph API.
+-}
 data Expr
     = C Double
     | V Int
@@ -149,6 +162,7 @@ data Expr
     | Stop Expr
     | Custom ([Double] -> Either MathError (Double, [Double])) [Expr]
     | Checkpoint ([Expr] -> Expr) [Expr]
+
 instance Show Expr where
     show (C x) = show x
     show (V i) = "x" ++ show i
@@ -230,7 +244,12 @@ data Node
     | StopNode Int
     | CustomNode ([Double] -> Either MathError (Double, [Double])) [Int]
     | RecomputeNode ([Expr] -> Expr) [Int]
+
+{- | Opaque reusable automatic-differentiation computation graph with explicit input/output
+structure.
+-}
 data CompiledGraph = CompiledGraph Int Int [(Int, Node)]
+
 data Pullback = Partials [(Int, Double)] | Deferred ([Expr] -> Expr) [Int] [Double]
 
 -- | Compile an immutable reusable graph with n inputs and a hard limit of one million scalar nodes.
@@ -468,7 +487,14 @@ hvp f xs ds = do
     finite values
     Right values
 
-newtype GradientState = GradientState {accumulatedGradient :: [Double]} deriving (Eq, Show)
+{- | Explicit gradient accumulation owner; evaluation does not mutate it implicitly. Use the
+accumulation API to retain/reset gradients.
+-}
+newtype GradientState = GradientState
+    { accumulatedGradient :: [Double]
+    -- ^ Gradient components currently retained by explicit GradientState accumulation; reverse evaluation alone does not mutate it.
+    }
+    deriving (Eq, Show)
 
 -- | Create an explicit zero accumulation buffer for a nonnegative input count.
 zeroGradients :: Int -> Either MathError GradientState

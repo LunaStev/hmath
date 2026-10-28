@@ -46,6 +46,9 @@ import qualified HMath.Optimization.Local as O
 import qualified HMath.Signal as S
 import HMath.TimeSeries.Core
 
+{- | Exponential smoothing: Simple alpha; Holt alpha beta; HoltWinters period alpha beta
+gamma. Rates lie in [0,1] and seasonal fitting requires complete initial cycles.
+-}
 data Smoothing = Simple Double | Holt Double Double | HoltWinters Int Double Double Double
     deriving (Eq, Show)
 
@@ -101,7 +104,13 @@ smoothForecast method horizon xs = do
 
 -- | Additive reconstruction is trend+seasonal+remainder at every input index.
 data Decomposition = Decomposition
-    {trendComponent :: [Double], seasonalComponent :: [Double], remainderComponent :: [Double]}
+    { trendComponent :: [Double]
+    -- ^ Estimated trend values aligned with original observations.
+    , seasonalComponent :: [Double]
+    -- ^ Estimated seasonal values aligned with original observations.
+    , remainderComponent :: [Double]
+    -- ^ Residual values after subtracting trend and seasonality.
+    }
     deriving (Eq, Show)
 
 {- | Classical additive decomposition with local linear trend smoothing and
@@ -120,15 +129,29 @@ decompose period xs = do
         seasonal = [phases !! (i `mod` period) - average phases | i <- [0 .. length xs - 1]]
     decomposition xs trend seasonal
 
+{- | Seasonal period,odd LOESS windows,and inner/robust iteration counts for STL
+decomposition. Use defaultSTLConfig then checked record updates.
+-}
 data STLConfig = STLConfig
     { stlPeriod :: Int
+    -- ^ Positive seasonal cycle length in observations.
     , stlSeasonalWindow :: Int
+    -- ^ Odd LOESS window for seasonal subseries.
     , stlTrendWindow :: Int
+    -- ^ Odd LOESS window for trend smoothing.
     , stlLowPassWindow :: Int
+    -- ^ Odd low-pass LOESS smoothing window.
     , stlInnerIterations :: Int
+    -- ^ Number of STL seasonal/trend backfitting passes.
     , stlRobustIterations :: Int
+    -- ^ Number of robust outer reweighting passes; zero disables robust reweighting.
     }
     deriving (Eq, Show)
+
+{- | Given seasonal period, construct STL options with seasonal window 7, odd trend window
+above 2*period, odd low-pass window at/above period, two inner iterations and no robust
+outer iterations. stl validates the resulting configuration.
+-}
 defaultSTLConfig :: Int -> STLConfig
 defaultSTLConfig period = STLConfig period 7 (oddAbove (2 * period + 1)) (oddAbove period) 2 0
   where
@@ -234,8 +257,16 @@ decomposition xs trend seasonal = do
 -- | Intercept followed by lag coefficients; observations stored chronologically.
 data ARModel = ARModel [Double] [Double] deriving (Eq, Show)
 
+{- | Return AR intercept followed by lag-1 through lag-p coefficients. The model retains
+observations chronologically for forecastAR.
+-}
 arCoefficients :: ARModel -> [Double]
 arCoefficients (ARModel b _) = b
+
+{- | Given AR order then finite chronological samples, fit intercept and lag coefficients by
+checked OLS. Require order in [0,64], \<=4096 samples and more than 2*order+1
+observations; invalid/ill-conditioned fits fail.
+-}
 fitAR :: Int -> [Double] -> Either MathError ARModel
 fitAR order xs = do
     validate 2 xs
@@ -245,6 +276,11 @@ fitAR order xs = do
     b <-
         ols [[1] ++ [xs !! (t - j) | j <- [1 .. order]] | t <- [order .. length xs - 1]] (drop order xs)
     Right (ARModel b xs)
+
+{- | Given horizon in [0,16384] then fitted AR model, recursively forecast future samples
+from latest observations. Zero horizon returns []; invalid horizon or non-finite
+predictions fail.
+-}
 forecastAR :: Int -> ARModel -> Either MathError [Double]
 forecastAR horizon (ARModel b xs) = do
     require (horizon >= 0 && horizon <= 16384) "invalid AR forecast horizon"
@@ -256,28 +292,65 @@ forecastAR horizon (ARModel b xs) = do
             go (k - 1) (value : past) (value : acc)
     go horizon (reverse xs) []
 
+{- | Ordinary (p,d,q),seasonal (P,D,Q),and cycle period s. fitSARIMA validates supported
+order/sample budgets.
+-}
 data SARIMAOrder = SARIMAOrder
     { arOrder :: Int
+    -- ^ Ordinary autoregressive order p.
     , differenceOrder :: Int
+    -- ^ Ordinary differencing order d.
     , maOrder :: Int
+    -- ^ Ordinary moving-average order q.
     , seasonalAROrder :: Int
+    -- ^ Seasonal autoregressive order P.
     , seasonalDifferenceOrder :: Int
+    -- ^ Seasonal differencing order D.
     , seasonalMAOrder :: Int
+    -- ^ Seasonal moving-average order Q.
     , seasonalPeriod :: Int
+    -- ^ Seasonal cycle length s used to place seasonal polynomial lags.
     }
     deriving (Eq, Show)
+
+{- | Opaque fitted ARIMA/SARIMA state with differencing,parameters,innovation residuals,and
+original history for forecasting.
+-}
 data ARIMAModel = ARIMAModel SARIMAOrder [Double] [Double] [Double] [Double] Double
     deriving (Eq, Show)
+
+{- | Return fitted intercept,ordinary AR,ordinary MA,seasonal AR,seasonal MA parameters in
+that order. Intercept belongs to the differenced process.
+-}
 arimaParameters :: ARIMAModel -> [Double]
 arimaParameters (ARIMAModel _ b _ _ _ _) = b
+
+{- | Return fitted innovation residuals in chronological order, on the model's differenced
+process.
+-}
 arimaResiduals :: ARIMAModel -> [Double]
 arimaResiduals (ARIMAModel _ _ _ _ es _) = es
+
+-- | Return fitted innovation-variance estimate stored in an ARIMA/SARIMA model.
 arimaInnovationVariance :: ARIMAModel -> Double
 arimaInnovationVariance (ARIMAModel _ _ _ _ _ v) = v
+
+{- | Given optimization options,p,d,q,then finite chronological series, fit nonseasonal
+ARIMA through fitSARIMA with seasonal orders zero. Invalid order/sample bounds,
+unstable or nonconvergent/ill-conditioned fit returns Left MathError.
+-}
 fitARIMA :: O.OptimizeOptions -> Int -> Int -> Int -> [Double] -> Either MathError ARIMAModel
 fitARIMA options p d q = fitSARIMA options (SARIMAOrder p d q 0 0 0 1)
+
+{- | Given optimization options,MA order q,then samples, fit ARIMA(0,0,q).
+Order/sample/optimization errors propagate from fitARIMA.
+-}
 fitMA :: O.OptimizeOptions -> Int -> [Double] -> Either MathError ARIMAModel
 fitMA options q = fitARIMA options 0 0 q
+
+{- | Given optimization options,AR order p,MA order q,then samples, fit ARIMA(p,0,q).
+Invalid or nonconvergent fits return Left MathError.
+-}
 fitARMA :: O.OptimizeOptions -> Int -> Int -> [Double] -> Either MathError ARIMAModel
 fitARMA options p q = fitARIMA options p 0 q
 
@@ -415,6 +488,10 @@ coefficientPartials order b = [partial j | j <- [0 .. length b - 1]]
             )
         | otherwise = (replicate (p + bigP * s) 0, replicate (q + bigQ * s) 0)
 
+{- | Given horizon in [0,16384] then fitted ARIMA/SARIMA model, forecast recursively with
+future innovations set to zero and undo ordinary/seasonal differencing. Invalid horizon
+or non-finite predictions fail.
+-}
 forecastARIMA :: Int -> ARIMAModel -> Either MathError [Double]
 forecastARIMA horizon (ARIMAModel order b xs zs es _) = do
     require (horizon >= 0 && horizon <= 16384) "invalid SARIMA forecast horizon"
@@ -434,12 +511,20 @@ forecastARIMA horizon (ARIMAModel order b xs zs es _) = do
             loop (k - 1) (value : original) (z : transformed) (0 : errors) (value : acc)
     loop horizon (reverse xs) (reverse zs) (reverse es) []
 
+{- | Opaque fitted vector autoregression with intercept/lag coefficients and chronological
+multivariate history.
+-}
 data VARModel = VARModel Int [[Double]] [[Double]] deriving (Eq, Show)
 
 -- | Rows are response components, columns are intercept then lag-major predictors.
 varCoefficients :: VARModel -> [[Double]]
 varCoefficients (VARModel _ b _) = b
 
+{- | Given lag order then chronological multivariate rows, fit response-wise OLS with
+intercept and lag-major features. Require finite rectangular data, dimensions\<=16,
+rows\<=2048, order in [1,16], sufficient samples and \<=20000000 fitting work.
+Invalid/ill-conditioned fits fail.
+-}
 fitVAR :: Int -> [[Double]] -> Either MathError VARModel
 fitVAR order xs = do
     require (not (null xs) && not (null ((!! 0) xs))) "empty VAR data"
@@ -458,6 +543,11 @@ fitVAR order xs = do
     let design = [1 : concat [xs !! (t - j) | j <- [1 .. order]] | t <- [order .. n - 1]]
     b <- mapM (ols design) (transpose (drop order xs))
     Right (VARModel order b xs)
+
+{- | Given horizon then VAR model, recursively return future multivariate observation rows.
+Require horizon in [0,16384] and horizon*components\<=262144; invalid bounds or
+non-finite predictions fail.
+-}
 forecastVAR :: Int -> VARModel -> Either MathError [[Double]]
 forecastVAR horizon (VARModel order b xs) = do
     require

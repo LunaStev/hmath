@@ -79,7 +79,14 @@ checkSize n
 checkRange :: Int -> Int -> Int -> Either MathError ()
 checkRange n lo hi | lo < 0 || hi < lo || hi > n = Left (InvalidArgument "range out of bounds") | otherwise = Right ()
 
+{- | Persistent exact-Integer prefix-sum tree with zero-based updates and half-open queries.
+Construct with fenwick.
+-}
 data Fenwick = Fenwick Int (Array Int Integer) deriving (Eq, Show)
+
+{- | Build an immutable Fenwick prefix-sum tree from at most 1048576 Integers. Oversized
+input fails; indices in public operations are zero based.
+-}
 fenwick :: [Integer] -> Either MathError Fenwick
 fenwick xs = do
     checkSize (length xs)
@@ -87,6 +94,10 @@ fenwick xs = do
         (\p (i, x) -> p >>= fenwickAdd i x)
         (Right (Fenwick (length xs) (listArray (1, length xs) (replicate (length xs) 0))))
         (zip [0 ..] xs)
+
+{- | Given zero-based index,delta,then Fenwick tree, return a new tree with that value
+incremented. Invalid index returns Left InvalidArgument.
+-}
 fenwickAdd :: Int -> Integer -> Fenwick -> Either MathError Fenwick
 fenwickAdd i delta (Fenwick n a)
     | i < 0 || i >= n = Left (InvalidArgument "Fenwick update index out of bounds")
@@ -96,18 +107,33 @@ fenwickAdd i delta (Fenwick n a)
                 n
                 (a // [(j, a ! j + delta) | j <- takeWhile (<= n) (iterate (\k -> k + (k .&. (-k))) (i + 1))])
             )
+
+{- | Given exclusive end then tree, return exact sum over [0,end). Require 0\<=end\<=length;
+invalid bounds fail.
+-}
 fenwickPrefix :: Int -> Fenwick -> Either MathError Integer
 fenwickPrefix end (Fenwick n a) = do
     checkRange n 0 end; pure (sum [a ! j | j <- takeWhile (> 0) (iterate (\k -> k - (k .&. (-k))) end)])
+
+{- | Given lo,hi,then tree, return exact half-open sum over [lo,hi). Invalid/reversed bounds
+fail; empty range gives zero.
+-}
 fenwickRange :: Int -> Int -> Fenwick -> Either MathError Integer
 fenwickRange lo hi t@(Fenwick n _) = do checkRange n lo hi; (-) <$> fenwickPrefix hi t <*> fenwickPrefix lo t
 
+{- | Persistent exact-Integer range-sum tree. Construct with segmentTree; segmentSet returns
+a new version.
+-}
 data SegmentTree = SegmentTree Int Int (Array Int Integer) deriving (Eq, Show)
+
 powerTwo :: Int -> Int
 powerTwo n = go 1
   where
     go p | p >= n = p | otherwise = go (p * 2)
 
+{- | Build an immutable Integer sum segment tree from at most 1048576 values. Invalid size
+fails; later queries use half-open bounds.
+-}
 segmentTree :: [Integer] -> Either MathError SegmentTree
 segmentTree xs = do
     checkSize (length xs)
@@ -118,6 +144,10 @@ segmentTree xs = do
             | i >= size = if i - size < n then xs !! (i - size) else 0
             | otherwise = a ! (2 * i) + a ! (2 * i + 1)
     pure (SegmentTree n size a)
+
+{- | Given zero-based index,new Integer,then segment tree, return an updated tree. Invalid
+index fails; the original remains unchanged.
+-}
 segmentSet :: Int -> Integer -> SegmentTree -> Either MathError SegmentTree
 segmentSet i x (SegmentTree n size a)
     | i < 0 || i >= n = Left (InvalidArgument "segment update index out of bounds")
@@ -126,6 +156,10 @@ segmentSet i x (SegmentTree n size a)
     go j ar
         | j <= 1 = ar
         | otherwise = let p = j `div` 2 in go p (ar // [(p, ar ! (2 * p) + ar ! (2 * p + 1))])
+
+{- | Given lo,hi,then segment tree, return Integer sum over [lo,hi). Invalid bounds fail; an
+empty range gives zero.
+-}
 segmentRange :: Int -> Int -> SegmentTree -> Either MathError Integer
 segmentRange lo hi (SegmentTree n size a) = do checkRange n lo hi; pure (go (lo + size) (hi + size) 0)
   where
@@ -136,7 +170,14 @@ segmentRange lo hi (SegmentTree n size a) = do checkRange n lo hi; pure (go (lo 
                 `addRight` (if odd r then a ! (r - 1) else 0)
     addRight x y = x + y
 
+{- | Immutable precomputed range-minimum table for nonempty half-open queries. Construct
+with sparseTable.
+-}
 data SparseTable = SparseTable Int [Array Int Integer] deriving (Eq, Show)
+
+{- | Precompute range minima for at most 1048576 Integers. Return immutable sparse table;
+oversized input fails.
+-}
 sparseTable :: [Integer] -> Either MathError SparseTable
 sparseTable xs = do
     checkSize (length xs)
@@ -152,6 +193,9 @@ sparseTable xs = do
                  in table : build (width * 2) table
     pure (SparseTable n (if n == 0 then [] else firstLevel : build 2 firstLevel))
 
+{- | Given lo,hi,then sparse table, return minimum over nonempty [lo,hi).
+Out-of-range/reversed or empty bounds fail.
+-}
 sparseMinimum :: Int -> Int -> SparseTable -> Either MathError Integer
 sparseMinimum lo hi (SparseTable n tables) = do
     checkRange n lo hi
@@ -160,9 +204,13 @@ sparseMinimum lo hi (SparseTable n tables) = do
         else
             let k = integerLog (hi - lo); width = 2 ^ k
              in pure (min ((tables !! k) ! lo) ((tables !! k) ! (hi - width)))
+
 integerLog :: Int -> Int
 integerLog n | n <= 1 = 0 | otherwise = 1 + integerLog (n `div` 2)
 
+{- | Immutable disjoint range-sum table supporting constant-query arithmetic. Construct with
+disjointSparseTable.
+-}
 data DisjointSparseTable = DisjointSparseTable [Integer] [Array Int Integer] deriving (Eq, Show)
 
 {- | Suffix/prefix blocks for associative integer addition, O(n log n) build and
@@ -180,6 +228,9 @@ disjointSparseTable xs = do
         scanr1Safe [] = []; scanr1Safe ys = scanr1 (+) ys
     pure (DisjointSparseTable xs [level k | k <- [0 .. integerLog (max 1 n)]])
 
+{- | Given lo,hi,then disjoint sparse sum table, return exact sum over [lo,hi). Invalid
+bounds fail; empty range yields zero.
+-}
 disjointRange :: Int -> Int -> DisjointSparseTable -> Either MathError Integer
 disjointRange lo hi (DisjointSparseTable xs tables) = do
     checkRange (length xs) lo hi
@@ -204,6 +255,9 @@ monotonicMinima width xs
             q' = reverse (dropWhile ((>= x) . snd) (reverse q)) ++ [(i, x)]
          in (if i >= width - 1 then [snd (q' !! 0)] else []) ++ go q' rest
 
+{- | For each list position, return Maybe index of its first strictly greater element to the
+right, using a monotone stack. Preserve input length; absent successors yield Nothing.
+-}
 nextGreater :: (Ord a) => [a] -> [Maybe Int]
 nextGreater xs = map (\i -> M.lookup i result) [0 .. length xs - 1]
   where
@@ -215,8 +269,12 @@ nextGreater xs = map (\i -> M.lookup i result) [0 .. length xs - 1]
 -- | Leftist binary min heap, O(log n) merge/insert/delete-min comparisons.
 data Heap a = Empty | Node Int a (Heap a) (Heap a) deriving (Eq, Show)
 
+{- | Construct an empty persistent leftist min-heap. heapPop returns Nothing until values
+are inserted.
+-}
 emptyHeap :: Heap a
 emptyHeap = Empty
+
 rank :: Heap a -> Int
 rank Empty = 0; rank (Node r _ _ _) = r
 mergeHeap :: (Ord a) => Heap a -> Heap a -> Heap a
@@ -228,11 +286,23 @@ mergeHeap a@(Node _ x l r) b@(Node _ y _ _)
     | otherwise = Node (rank l + 1) x z l
   where
     z = mergeHeap r b
+
+{- | Given value then persistent min-heap, return a new heap containing it. Duplicate values
+are retained; original heap remains valid.
+-}
 heapInsert :: (Ord a) => a -> Heap a -> Heap a
 heapInsert x = mergeHeap (Node 1 x Empty Empty)
+
+{- | Return Nothing for empty heap, otherwise Just (smallest value,remaining heap). Ties
+follow lawful Ord without discarding duplicates.
+-}
 heapPop :: (Ord a) => Heap a -> Maybe (a, Heap a)
 heapPop Empty = Nothing
 heapPop (Node _ x l r) = Just (x, mergeHeap l r)
+
+{- | Build a persistent min-heap from a finite list, retaining all elements including
+duplicates.
+-}
 heapFromList :: (Ord a) => [a] -> Heap a
 heapFromList = Foldable.foldl' (flip heapInsert) Empty
 
@@ -241,10 +311,17 @@ array; sift operations make O(log n) comparisons.
 -}
 newtype BinaryHeap = BinaryHeap (Array Int Integer) deriving (Eq, Show)
 
+{- | Build an array-backed Integer min-heap from at most 1048576 values. Oversized input
+fails.
+-}
 binaryHeap :: [Integer] -> Either MathError BinaryHeap
 binaryHeap xs = do
     checkSize (length xs)
     pure (Foldable.foldl' (flip binaryInsert) (BinaryHeap (listArray (0, -1) [])) xs)
+
+{- | Given Integer then binary heap, return a persistent updated min-heap. The insert
+operation itself has no Either size check.
+-}
 binaryInsert :: Integer -> BinaryHeap -> BinaryHeap
 binaryInsert value (BinaryHeap old) = BinaryHeap (bubble (length values) (listArray (0, length values) (values ++ [value])))
   where
@@ -255,6 +332,10 @@ binaryInsert value (BinaryHeap old) = BinaryHeap (bubble (length values) (listAr
         | otherwise = bubble parent (a // [(parent, a ! i), (i, a ! parent)])
       where
         parent = (i - 1) `div` 2
+
+{- | Return Nothing if empty, otherwise the smallest Integer and a new binary heap
+containing the remaining values.
+-}
 binaryPop :: BinaryHeap -> Maybe (Integer, BinaryHeap)
 binaryPop (BinaryHeap old) = case elems old of
     [] -> Nothing
@@ -277,10 +358,21 @@ Updates lazily invalidate old heap entries; pop discards stale entries.
 -}
 data IndexedHeap = IndexedHeap (M.Map Int Integer) (Heap (Integer, Int)) deriving (Eq, Show)
 
+{- | Construct an empty indexed priority queue. Each Int key has at most one Integer
+priority.
+-}
 indexedHeap :: IndexedHeap
 indexedHeap = IndexedHeap M.empty Empty
+
+{- | Given Int key,Integer priority,then indexed heap, set or replace that key's priority.
+Return a new queue; an existing key is updated, not duplicated.
+-}
 indexedSet :: Int -> Integer -> IndexedHeap -> IndexedHeap
 indexedSet key value (IndexedHeap entries h) = IndexedHeap (M.insert key value entries) (heapInsert (value, key) h)
+
+{- | Return Just ((key,priority),remaining queue) for the minimum (priority,key) pair, or
+Nothing if empty.
+-}
 indexedPop :: IndexedHeap -> Maybe ((Int, Integer), IndexedHeap)
 indexedPop (IndexedHeap entries h) = case heapPop h of
     Nothing -> Nothing
@@ -288,17 +380,33 @@ indexedPop (IndexedHeap entries h) = case heapPop h of
         | M.lookup k entries == Just v -> Just ((k, v), IndexedHeap (M.delete k entries) rest)
         | otherwise -> indexedPop (IndexedHeap entries rest)
 
+{- | Persistent disjoint-set partition of zero-based indices, constructed with unionFind and
+updated by union.
+-}
 data UnionFind = UnionFind (Array Int Int) (Array Int Int) deriving (Eq, Show)
+
+{- | Construct disjoint singleton sets for n zero-based elements, requiring n in
+[0,1048576]. Invalid size fails.
+-}
 unionFind :: Int -> Either MathError UnionFind
 unionFind n = do
     checkSize n
     pure (UnionFind (listArray (0, n - 1) [0 .. n - 1]) (listArray (0, n - 1) (replicate n 1)))
+
+{- | Given element index then union-find structure, return representative root. Invalid
+index fails; this pure query does not mutate/compress the stored structure.
+-}
 findRoot :: Int -> UnionFind -> Either MathError Int
 findRoot i (UnionFind parent _)
     | i < 0 || i >= length (elems parent) = Left (InvalidArgument "union-find index out of bounds")
     | otherwise = Right (go i)
   where
     go j | parent ! j == j = j | otherwise = go (parent ! j)
+
+{- | Given two valid indices then union-find, return a new structure merging their
+components by size. Invalid indices fail; already connected inputs leave connectivity
+unchanged.
+-}
 union :: Int -> Int -> UnionFind -> Either MathError UnionFind
 union a b uf@(UnionFind parent sizes) = do
     u <- findRoot a uf
@@ -309,8 +417,16 @@ union a b uf@(UnionFind parent sizes) = do
             then uf
             else UnionFind (parent // [(small, large)]) (sizes // [(large, sizes ! large + sizes ! small)])
         )
+
+{- | Given two indices then union-find, return whether their roots match. Invalid indices
+return Left InvalidArgument.
+-}
 connected :: Int -> Int -> UnionFind -> Either MathError Bool
 connected a b uf = (==) <$> findRoot a uf <*> findRoot b uf
+
+{- | Return all disjoint components as lists of zero-based element indices, including
+singleton sets.
+-}
 components :: UnionFind -> [[Int]]
 components uf@(UnionFind parent _) =
     M.elems
@@ -329,13 +445,29 @@ mix x =
 hashes :: Int -> Int -> Word64 -> [Int]
 hashes k m x =
     [fromIntegral (mix (x + fromIntegral i * 0x9e3779b97f4a7c15) `mod` fromIntegral m) | i <- [1 .. k]]
+
+{- | Immutable probabilistic membership filter; False is definitive and True may be a false
+positive. Construct with bloom.
+-}
 data Bloom = Bloom Int Int Integer Integer deriving (Eq, Show)
+
+{- | Given bit count m in [1,1048576] then hash count k in [1,64], construct an empty Bloom
+filter. Invalid dimensions fail.
+-}
 bloom :: Int -> Int -> Either MathError Bloom
 bloom m k
     | m <= 0 || m > 1048576 || k <= 0 || k > 64 = Left (InvalidArgument "invalid Bloom dimensions")
     | otherwise = Right (Bloom m k 0 0)
+
+{- | Given Word64 key then Bloom filter, set its k hash positions and return updated filter.
+Reinsertions are permitted; false positives remain possible.
+-}
 bloomInsert :: Word64 -> Bloom -> Bloom
 bloomInsert x (Bloom m k bits count) = Bloom m k (Foldable.foldl' setBit bits (hashes k m x)) (count + 1)
+
+{- | Test a Word64 key against all Bloom hash positions. False means definitely absent; True
+may be a false positive under the documented hash model.
+-}
 bloomMember :: Word64 -> Bloom -> Bool
 bloomMember x (Bloom m k bits _) = all (testBit bits) (hashes k m x)
 
@@ -346,12 +478,23 @@ than the common exponential occupancy approximation.
 bloomFalsePositiveBound :: Bloom -> Double
 bloomFalsePositiveBound (Bloom m k _ count) = min 1 (fromIntegral k * fromInteger count / fromIntegral m) ^ k
 
+{- | Immutable frequency sketch with nonnegative updates and possible collision
+overestimation. Construct with countMin.
+-}
 data CountMin = CountMin Int Int (M.Map (Int, Int) Integer) Integer deriving (Eq, Show)
+
+{- | Given positive width and depth with product\<=1048576, construct an empty count-min
+sketch. Invalid dimensions fail.
+-}
 countMin :: Int -> Int -> Either MathError CountMin
 countMin width depth
     | width <= 0 || depth <= 0 || toInteger width * toInteger depth > 1048576 =
         Left (InvalidArgument "invalid sketch dimensions")
     | otherwise = Right (CountMin width depth M.empty 0)
+
+{- | Given Word64 key,nonnegative Integer increment,then sketch, increment its hash
+counters. Negative updates fail; return a persistent updated sketch.
+-}
 countMinAdd :: Word64 -> Integer -> CountMin -> Either MathError CountMin
 countMinAdd x delta (CountMin w d counts total)
     | delta < 0 = Left (InvalidArgument "count-min requires nonnegative updates")
@@ -363,6 +506,11 @@ countMinAdd x delta (CountMin w d counts total)
                 (Foldable.foldl' (\m key -> M.insertWith (+) key delta m) counts (zip [0 ..] (hashes d w x)))
                 (total + delta)
             )
+
+{- | Given Word64 key then sketch, return minimum associated counter as an Integer frequency
+estimate. It may overestimate through collisions; use countMinErrorBound for the
+documented model.
+-}
 countMinEstimate :: Word64 -> CountMin -> Integer
 countMinEstimate x (CountMin w d counts _) = minimum [M.findWithDefault 0 (i, j) counts | (i, j) <- zip [0 ..] (hashes d w x)]
 
@@ -370,11 +518,20 @@ countMinEstimate x (CountMin w d counts _) = minimum [M.findWithDefault 0 (i, j)
 countMinErrorBound :: CountMin -> (Double, Double)
 countMinErrorBound (CountMin w d _ total) = (exp 1 * fromInteger total / fromIntegral w, exp (-fromIntegral d))
 
+-- | Immutable probabilistic distinct-cardinality sketch, constructed with hyperLogLog.
 data HyperLogLog = HyperLogLog Int (M.Map Int Int) deriving (Eq, Show)
+
+{- | Construct an empty cardinality sketch from precision p in [4,16], using 2^p registers.
+Invalid precision fails; hllEstimate returns its probabilistic estimate.
+-}
 hyperLogLog :: Int -> Either MathError HyperLogLog
 hyperLogLog precision
     | precision < 4 || precision > 16 = Left (InvalidArgument "HLL precision must be in [4,16]")
     | otherwise = Right (HyperLogLog precision M.empty)
+
+{- | Given Word64 item then HyperLogLog sketch, hash and update its register maximum. Return
+persistent updated sketch; repeated items do not add a new exact count.
+-}
 hllAdd :: Word64 -> HyperLogLog -> HyperLogLog
 hllAdd x (HyperLogLog p registers) = HyperLogLog p (M.insertWith max bucket rho registers)
   where
@@ -397,7 +554,14 @@ hllEstimate (HyperLogLog p registers)
     zeros = count - M.size registers
     raw = alpha * m * m / (fromIntegral zeros + sum [2 ** (-fromIntegral r) | r <- M.elems registers])
 
+{- | Seeded bounded Algorithm-R stream sample state. Construct with reservoir and update
+with reservoirAdd.
+-}
 data Reservoir a = Reservoir Int Integer Word64 [a] deriving (Eq, Show)
+
+{- | Given sample capacity in [0,1048576] then Word64 seed, construct an empty deterministic
+Algorithm-R reservoir. Invalid capacity fails.
+-}
 reservoir :: Int -> Word64 -> Either MathError (Reservoir a)
 reservoir k seed
     | k < 0 || k > 1048576 = Left (InvalidArgument "invalid reservoir size")
@@ -430,6 +594,9 @@ reservoirAdd x (Reservoir k count seed values)
             limit = 2 ^ (64 :: Int) - (2 ^ (64 :: Int) `mod` bound)
          in if r < limit then (r `mod` bound, next) else draw bound next
 
+{- | Return retained reservoir sample values. Their count never exceeds capacity; output
+order is storage order, not a sorted or arrival-order guarantee.
+-}
 reservoirValues :: Reservoir a -> [a]
 reservoirValues (Reservoir _ _ _ xs) = xs
 
@@ -439,13 +606,25 @@ O(n), queries O(1) after insertion. Exceeding the cap fails without eviction.
 -}
 data OnlineQuantiles = OnlineQuantiles Int [Double] deriving (Eq, Show)
 
+{- | Given exact-storage cap in [0,1048576], create an empty online order-statistics
+container. Invalid capacity fails; this retains exact values rather than a
+bounded-memory approximate sketch.
+-}
 onlineQuantiles :: Int -> Either MathError OnlineQuantiles
 onlineQuantiles cap = do checkSize cap; pure (OnlineQuantiles cap [])
+
+{- | Given finite Double then quantile container, insert in sorted order. Non-finite values
+or a full cap fail without eviction; original container is unchanged.
+-}
 quantileAdd :: Double -> OnlineQuantiles -> Either MathError OnlineQuantiles
 quantileAdd x (OnlineQuantiles cap xs)
     | isNaN x || isInfinite x = Left NonFiniteResult
     | length xs >= cap = Left (NonConvergence "online quantile memory" cap)
     | otherwise = let (a, b) = span (<= x) xs in Right (OnlineQuantiles cap (a ++ [x] ++ b))
+
+{- | Given finite q in [0,1] then nonempty quantile container, linearly interpolate order
+statistics at q*(n-1). Invalid q or empty state returns Left InvalidArgument.
+-}
 onlineQuantile :: Double -> OnlineQuantiles -> Either MathError Double
 onlineQuantile q (OnlineQuantiles _ xs)
     | null xs || isNaN q || isInfinite q || q < 0 || q > 1 =

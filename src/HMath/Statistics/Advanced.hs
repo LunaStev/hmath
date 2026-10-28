@@ -514,7 +514,14 @@ jackknife statistic xs = do
      in pure (n * theta - (n - 1) * m, sqrt ((n - 1) / n * sum (map (\t -> (t - m) ^ (2 :: Int)) ts)))
 
 -- | Test statistic, p value clamped to [0,1] after numerical checks, and applicable degrees of freedom.
-data TestResult = TestResult {testStatistic :: Double, pValue :: Double, degreesOfFreedom :: [Double]}
+data TestResult = TestResult
+    { testStatistic :: Double
+    -- ^ Computed statistic for the selected hypothesis test.
+    , pValue :: Double
+    -- ^ Reported tail probability, clamped to [0,1]; interpret using the test's documented alternative hypothesis.
+    , degreesOfFreedom :: [Double]
+    -- ^ Distribution degrees-of-freedom parameters in test-specific order (for example numerator then denominator for F tests).
+    }
     deriving (Eq, Show)
 
 result :: Double -> Double -> [Double] -> Either MathError TestResult

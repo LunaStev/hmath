@@ -1,0 +1,26 @@
+.haskell-reference .top {
+  margin: 1.5em 0 2em;
+  padding-top: .5em;
+  border-top: 1px solid var(--md-default-fg-color--lightest);
+}
+.haskell-reference .src {
+  font-family: var(--md-code-font-family);
+  font-size: .85em;
+  overflow-wrap: anywhere;
+}
+.haskell-reference .link,
+.haskell-reference .selflink {
+  margin-left: .6em;
+  font-size: .8em;
+}
+.haskell-reference .subs {
+  margin-left: 1em;
+}
+.haskell-reference .caption {
+  font-weight: bold;
+}
+.haskell-reference table {
+  display: block;
+  overflow-x: auto;
+  width: 100%;
+}

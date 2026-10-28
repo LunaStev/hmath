@@ -39,35 +39,79 @@ import qualified HMath.Matrix as M
 import qualified HMath.Matrix.LU as LU
 import qualified HMath.Polynomial as P
 
+{- | Root-solver iteration/evaluation budgets and residual/step tolerances, initialized with
+defaultRootOptions.
+-}
 data RootOptions = RootOptions
     { rootMaxIterations :: Int
+    -- ^ Maximum scalar-root iteration count.
     , rootMaxEvaluations :: Int
+    -- ^ Maximum scalar function/derivative evaluation budget.
     , rootTolerance :: Double
+    -- ^ Requested finite positive residual tolerance.
     , rootStepTolerance :: Double
+    -- ^ Requested finite positive parameter-step tolerance.
     }
     deriving (Eq, Show)
+
+{- | Default root-solving limits: 200 iterations, 4000 evaluations, residual tolerance 1e-10
+and step tolerance 1e-12. Solvers validate options and report their own convergence
+diagnostics.
+-}
 defaultRootOptions :: RootOptions
 defaultRootOptions = RootOptions 200 4000 1e-10 1e-12
+
+{- | Scalar root estimate with residual,optional certified bracket error bound,and work
+counts.
+-}
 data RootResult = RootResult
     { rootValue :: Double
+    -- ^ Returned scalar root estimate.
     , rootResidual :: Double
+    -- ^ Absolute function residual at rootValue.
     , rootErrorBound :: Maybe Double
+    -- ^ Optional bracket-based absolute root error bound; Nothing when the method cannot certify one.
     , rootIterations :: Int
+    -- ^ Completed scalar-root iterations.
     , rootEvaluations :: Int
+    -- ^ Recorded function/derivative evaluation count.
     }
     deriving (Eq, Show)
+
+{- | Validated scalar bracketing state used by checked bracketed root solvers; construct
+through the bracketing API.
+-}
 data Bracket = Bracket Double Double Double Double deriving (Eq, Show)
+
+{- | Bracket-preserving root strategy such as bisection,Brent,Ridder,or regula falsi
+variants.
+-}
 data BracketMethod = Bisection | RegulaFalsi | Illinois | Brent | Ridder deriving (Eq, Show)
+
+{- | Derivative-based scalar-root strategy, including Newton,Halley,and Householder methods
+with their required derivatives.
+-}
 data DerivativeMethod = Newton | Halley | Householder3 deriving (Eq, Show)
+
+-- | Fixed-point acceleration strategy, selecting Picard,Aitken,or Steffensen iteration.
 data FixedPointMethod = Picard | Aitken | SteffensenFixed deriving (Eq, Show)
+
+-- | Multivariate root strategy, selecting checked Newton or Broyden updates.
 data SystemMethod = MultivariateNewton | NewtonTrustRegion Double | Broyden deriving (Eq, Show)
+
+-- | Returned multivariate root vector with residual norm and iteration/evaluation counts.
 data SystemRootResult = SystemRootResult
     { systemRoot :: [Double]
+    -- ^ Returned multivariate root parameter vector.
     , systemResidual :: Double
+    -- ^ Norm of the residual function at systemRoot.
     , systemIterations :: Int
+    -- ^ Completed nonlinear-system iterations.
     , systemEvaluations :: Int
+    -- ^ Recorded system function/evaluation count.
     }
     deriving (Eq, Show)
+
 finite :: Double -> Bool
 finite x = not (isNaN x || isInfinite x)
 valid :: RootOptions -> Either MathError ()

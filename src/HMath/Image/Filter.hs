@@ -31,9 +31,16 @@ import qualified Data.Set as Set
 import HMath.Error
 import HMath.Image.Core
 
+{- | Validate Constant boundary value as finite; Clamp,Reflect,Wrap are always valid.
+Non-finite constant returns Left InvalidArgument.
+-}
 validateBoundary :: Boundary -> Either MathError ()
 validateBoundary (Constant value) = require (finite value) "nonfinite boundary constant"
 validateBoundary _ = Right ()
+
+{- | Require a two-dimensional one-channel image and return (height,width). Other
+spatial/channel layouts return Left InvalidArgument.
+-}
 scalar2D :: Image -> Either MathError (Int, Int)
 scalar2D img = do
     require (length (imageShape img) == 2 && imageChannels img == 1) "one-channel 2D image required"
@@ -60,6 +67,11 @@ correlate boundary dims weights img = do
         apply ix c = sum [w * sample boundary img (zipWith (+) ix offset) c | (offset, w) <- zip offsets weights]
     build (imageShape img) (imageChannels img) apply
 
+{- | Given boundary,kernel dimensions,flat weights,then image, reverse all kernel axes and
+correlate. Channels are filtered independently; require odd extents\<=65, matching
+rank/count, \<=4096 weights and \<=20000000 sample operations. Invalid/non-finite
+input/result fails.
+-}
 convolve :: Boundary -> [Int] -> [Double] -> Image -> Either MathError Image
 convolve boundary dims weights = correlate boundary dims (reverse weights)
 
@@ -77,6 +89,9 @@ gaussianBlur boundary sigma radius img = do
         img
         [0 .. rank - 1]
 
+{- | Given radius then image, enumerate centered neighborhood offsets. Require radius in
+[0,16], \<=4096 neighbors and \<=20000000 sample operations; otherwise fail.
+-}
 windowOffsets :: Int -> Image -> Either MathError [[Int]]
 windowOffsets radius img = do
     let rank = length (imageShape img); count = (2 * toInteger radius + 1) ^ rank
@@ -88,6 +103,11 @@ windowOffsets radius img = do
         )
         "neighborhood/work limit"
     Right (map (map (subtract radius)) (coordinates (replicate rank (2 * radius + 1))))
+
+{- | Given boundary,radius,then image, average a centered full-dimensional box neighborhood
+independently per channel. Neighborhood/work bounds and boundary finiteness are
+checked; invalid/non-finite output fails.
+-}
 boxBlur :: Boundary -> Int -> Image -> Either MathError Image
 boxBlur boundary radius img = do
     validateBoundary boundary
@@ -99,6 +119,10 @@ boxBlur boundary radius img = do
             sum
                 [sample boundary img (zipWith (+) ix offset) c / fromIntegral (length offsets) | offset <- offsets]
         )
+
+{- | Given boundary,radius,then image, choose the median of each centered odd-sized
+neighborhood independently per channel. Invalid boundary/neighborhood/work bounds fail.
+-}
 medianBlur :: Boundary -> Int -> Image -> Either MathError Image
 medianBlur boundary radius img = do
     validateBoundary boundary
@@ -145,6 +169,7 @@ sharpen boundary amount sigma radius img = do
     blurred <- gaussianBlur boundary sigma radius img
     zipImage (\x y -> x + amount * (x - y)) img blurred
 
+-- | Image gradient stencil selector, choosing Sobel,Prewitt,or Scharr.
 data GradientOperator = Sobel | Prewitt | Scharr deriving (Eq, Show)
 
 {- | Returns row derivative, column derivative, magnitude, and atan2(row,col)
@@ -171,6 +196,9 @@ gradient operator boundary img = do
     angle <- zipImage atan2 dr dc
     Right (dr, dc, mag, angle)
 
+{- | Given boundary then one-channel 2D image, apply the four-neighbor 3-by-3 Laplacian
+[0,1,0;1,-4,1;0,1,0]. Invalid image/boundary or non-finite output fails.
+-}
 laplacian :: Boundary -> Image -> Either MathError Image
 laplacian boundary img = do _ <- scalar2D img; correlate boundary [3, 3] [0, 1, 0, 1, -4, 1, 0, 1, 0] img
 
@@ -209,6 +237,7 @@ canny boundary sigma radius low high img = do
         edges = flood (Set.toList strong) strong
     build [height, width] 1 (\ix _ -> if Set.member (ix !! 0, ix !! 1) edges then 1 else 0)
 
+-- | Grayscale footprint operation selector: erosion,dilation,opening,or closing.
 data Morphology = Erosion | Dilation | Opening | Closing deriving (Eq, Show)
 
 {- | Flat grayscale morphology with an explicit odd-rank Boolean footprint.
@@ -248,6 +277,10 @@ morphology operation boundary dims footprint img = do
         Opening -> erode img >>= dilate
         Closing -> dilate img >>= erode
 
+{- | Given boundary,footprint dimensions,Bool footprint,then image, return dilation minus
+erosion. Shape/footprint/work/boundary validation and finite output checks propagate
+from morphology.
+-}
 morphologicalGradient :: Boundary -> [Int] -> [Bool] -> Image -> Either MathError Image
 morphologicalGradient boundary dims footprint img = do
     dilated <- morphology Dilation boundary dims footprint img

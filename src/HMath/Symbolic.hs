@@ -99,9 +99,20 @@ failure k e = Left . ExprError k (expressionPosition e)
 unsupported :: Expr -> String -> Either ExprError a
 unsupported = failure Unsupported
 
+{- | Symbolic domain fact such as real,positive,nonzero,or sign restrictions, used to guard
+domain-sensitive identities.
+-}
 data Property = Real | NonZero | Positive | NonNegative | Integral | Negative | NonPositive
     deriving (Eq, Ord, Show)
+
+{- | Validated variable-property environment. Build through the assumptions API;
+noAssumptions proves no additional variable facts.
+-}
 newtype Assumptions = Assumptions (Map.Map String [Property]) deriving (Eq, Show)
+
+{- | Construct an empty variable-property environment. Simplifications requiring
+positivity/nonzero facts remain guarded or unchanged without proof.
+-}
 noAssumptions :: Assumptions
 noAssumptions = Assumptions Map.empty
 
@@ -122,11 +133,26 @@ assumptions entries = do
             then failure DomainFailure (variable name) "contradictory assumptions"
             else Right ()
 
-data SymbolicOptions = SymbolicOptions {symbolicLimits :: Limits, symbolicAssumptions :: Assumptions}
+{- | Expression budgets together with permitted variable assumptions for checked symbolic
+operations.
+-}
+data SymbolicOptions = SymbolicOptions
+    { symbolicLimits :: Limits
+    -- ^ Expression resource/numeric budgets used by symbolic operations.
+    , symbolicAssumptions :: Assumptions
+    -- ^ Variable facts permitted when proving domain-sensitive rewrites.
+    }
     deriving (Eq, Show)
+
+{- | Default expression budgets with no assumptions; domain-sensitive rules
+require their preconditions to be proved before rewriting.
+-}
 defaultSymbolicOptions :: SymbolicOptions
 defaultSymbolicOptions = SymbolicOptions defaultLimits noAssumptions
 
+{- | Given assumptions,requested Property,then Expr, conservatively test whether the fact is
+established. False means not proved, not a proof of its negation.
+-}
 proves :: Assumptions -> Property -> Expr -> Bool
 proves a@(Assumptions names) prop e = case expressionNode e of
     Literal q -> case prop of
@@ -246,6 +272,10 @@ rewrites x/x or removes an unproved partial function from a zero product.
 normalize :: SymbolicOptions -> Expr -> Either ExprError Expr
 normalize = simplify
 
+{- | Given SymbolicOptions then Expr, simplify within its resource limits and supplied
+assumptions, preserving domain-sensitive conditions. Return ExprError for
+invalid/budget-exceeding input/output.
+-}
 simplify :: SymbolicOptions -> Expr -> Either ExprError Expr
 simplify o e = inputs o [e] >> go e >>= checked o
   where
@@ -341,6 +371,10 @@ simplify o e = inputs o [e] >> go e >>= checked o
         | q == 1 = x
         | q == (-1) = neg x
         | otherwise = times (literal q) x
+
+{- | Alias of simplify, combining supported like terms under the same assumption and budget
+checks.
+-}
 collectTerms :: SymbolicOptions -> Expr -> Either ExprError Expr
 collectTerms = simplify
 
@@ -413,6 +447,9 @@ substitute limits replacements expression = do
         Let n a b -> n : allNames a ++ allNames b
         _ -> []
 
+{- | Symbolic rewrite pattern with literal/variable/operator/call structure and binding
+placeholders.
+-}
 data Pattern
     = Any String
     | Exactly Expr
@@ -459,10 +496,16 @@ matchPattern limits pat expression = do
     step _ (fuel, Nothing) _ = Right (fuel, Nothing)
     step d (fuel, Just env) (p, e) = go d fuel env p e
 
+{- | Pattern,replacement expression,and property requirements needed for a valid bounded
+symbolic rewrite.
+-}
 data RewriteRule = RewriteRule
     { rewritePattern :: Pattern
+    -- ^ Pattern to match before applying this rewrite rule.
     , rewriteReplacement :: Expr
+    -- ^ Replacement expression, with matched bindings substituted.
     , rewriteRequirements :: [(String, Property)]
+    -- ^ Variable properties required to justify the rewrite.
     }
     deriving (Eq, Show)
 
@@ -531,12 +574,26 @@ differentiate o name expression = do
             _ -> unsupported e "unsupported symbolic derivative"
         checked o result
 
+{- | Given symbolic options,ordered variable names,then scalar expression, return symbolic
+partial derivatives in that order. At most 32 variables are supported;
+expression/domain/resource failures return ExprError.
+-}
 gradient :: SymbolicOptions -> [String] -> Expr -> Either ExprError [Expr]
 gradient o names e = inputs o [e] >> boundedVariables o names >> mapM (\n -> differentiate o n e) names
+
+{- | Given options,ordered variable names,then output-expression list, return one gradient
+row per output. Validate variable/expression budgets; failures return ExprError.
+-}
 jacobian :: SymbolicOptions -> [String] -> [Expr] -> Either ExprError [[Expr]]
 jacobian o names es = boundedVariables o names >> boundedExpressions o es >> mapM (gradient o names) es
+
+{- | Given options,ordered variables,then scalar Expr, return derivatives of each gradient
+component in the same row/column variable order. Validation/differentiation/resource
+failures propagate.
+-}
 hessian :: SymbolicOptions -> [String] -> Expr -> Either ExprError [[Expr]]
 hessian o names e = gradient o names e >>= mapM (gradient o names)
+
 boundedVariables :: SymbolicOptions -> [String] -> Either ExprError ()
 boundedVariables o names
     | length (take 33 names) > 32 = failure MemoryLimit (literal 0) "at most 32 symbolic variables"
@@ -549,6 +606,11 @@ boundedExpressions o es
     | otherwise = inputs o es
 
 -- Polynomial admission checks size/degree/coefficient bits at every operation.
+
+{- | Given options,variable name,then Expr, convert a supported univariate exact Rational
+polynomial. Other variables/functions, invalid exponents or resource-limit violations
+return ExprError.
+-}
 toPolynomial :: SymbolicOptions -> String -> Expr -> Either ExprError (P.Polynomial Rational)
 toPolynomial o name expression = inputs o [variable name, expression] >> go expression
   where
@@ -574,12 +636,21 @@ toPolynomial o name expression = inputs o [variable name, expression] >> go expr
             failure MemoryLimit expression "polynomial degree limit 64"
         | otherwise =
             mapM_ (\q -> validateExpression (symbolicLimits o) (literal q)) (P.coefficients p) >> Right p
+
+{- | Given variable name then exact Rational Polynomial, build an Expr in Horner form. This
+pure builder does not itself validate SymbolicOptions limits.
+-}
 fromPolynomial :: String -> P.Polynomial Rational -> Expr
 fromPolynomial name p = foldr (\a acc -> plus (literal a) (times (variable name) acc)) (literal 0) (P.coefficients p)
 
+{- | Exact leading coefficient and symbolic factor/multiplicity pairs; unfactored remainder
+behavior follows the factorization function.
+-}
 data PolynomialFactorization = PolynomialFactorization
     { factorLeading :: Rational
+    -- ^ Exact scalar leading factor outside the polynomial factors.
     , factorTerms :: [(Expr, Int)]
+    -- ^ Symbolic factors paired with positive multiplicities.
     }
     deriving (Eq, Show)
 
@@ -609,6 +680,10 @@ rationalSimplify o name e = case expressionNode e of
             (divide (fromPolynomial name (P.rationalNumerator r)) (fromPolynomial name (P.rationalDenominator r)))
     _ -> simplify o e
 
+{- | Given options then Expr, apply supported trigonometric identities such as matching
+sin-squared plus cos-squared terms, after input validation. This is a bounded rule set,
+not a general identity prover.
+-}
 trigonometricSimplify :: SymbolicOptions -> Expr -> Either ExprError Expr
 trigonometricSimplify o e = do
     inputs o [e]
@@ -621,6 +696,11 @@ trigonometricSimplify o e = do
     case expressionNode e of
         Binary Add a b | identity a b || identity b a -> Right (literal 1)
         _ -> simplify o e
+
+{- | Given options then Expr, apply log product/quotient/power rules only when the supplied
+assumptions establish required real-domain facts. Unproved transformations are left
+unchanged; budget errors propagate.
+-}
 logarithmicSimplify :: SymbolicOptions -> Expr -> Either ExprError Expr
 logarithmicSimplify o e = do
     inputs o [e]
@@ -753,7 +833,12 @@ integrateRational o name numeratorExpr denominatorExpr = do
                 denominatorExpr
                 "partial fraction primitive requires linear or simple positive quadratic denominator"
 
+-- | Limit approach direction: from left,from right,or two-sided.
 data Direction = FromLeft | FromRight | TwoSided deriving (Eq, Show)
+
+{- | Symbolic finite/infinite limit classification,including an explicit does-not-exist or
+unresolved result.
+-}
 data LimitResult = FiniteLimit Rational | PositiveInfinity | NegativeInfinity | DoesNotExist
     deriving (Eq, Show)
 
@@ -802,7 +887,17 @@ leadingAt center p = go 0 p
       where
         value = P.evaluatePolynomial q center / fromInteger (product [1 .. toInteger k])
 
-data Series = Series {seriesCenter :: Rational, seriesMinimumPower :: Int, seriesTerms :: [Expr]}
+{- | Finite symbolic Taylor/Laurent coefficient list with exact center and starting power;
+no analytic convergence is implied by storage alone.
+-}
+data Series = Series
+    { seriesCenter :: Rational
+    -- ^ Exact Rational expansion center.
+    , seriesMinimumPower :: Int
+    -- ^ Power corresponding to the first coefficient, including negative powers for Laurent series.
+    , seriesTerms :: [Expr]
+    -- ^ Coefficient expressions ordered from seriesMinimumPower upward.
+    }
     deriving (Eq, Show)
 
 {- | Truncated Taylor coefficients f^(k)(c)/k!, order 0..20. Missing regularity
@@ -828,6 +923,10 @@ taylorSeries o name center order e = do
                 more <- go (k + 1) (factorial * toInteger (k + 1)) next
                 Right (c : more)
 
+{- | Given options,variable name,order,then Expr, compute the Taylor series centered at zero
+via taylorSeries. Unsupported symbolic derivatives or exceeded order/resource bounds
+return ExprError.
+-}
 maclaurinSeries :: SymbolicOptions -> String -> Int -> Expr -> Either ExprError Series
 maclaurinSeries o name = taylorSeries o name 0
 
@@ -861,11 +960,21 @@ seriesOrder :: Expr -> Int -> Either ExprError ()
 seriesOrder e n
     | n < 0 || n > 20 = failure MemoryLimit e "series order must be 0..20"
     | otherwise = Right ()
+
+{- | Given options then Rational coefficient list, construct a finite formal jet with at
+most 64 coefficients, subject to expression numeric budgets. No analytic convergence is
+claimed.
+-}
 formalPowerSeries :: SymbolicOptions -> [Rational] -> Either ExprError (P.PowerSeries Rational)
 formalPowerSeries o coefficients
     | length (take 65 coefficients) > 64 =
         failure MemoryLimit (literal 0) "formal jet supports at most 64 coefficients"
     | otherwise = inputs o (map literal coefficients) >> Right (P.powerSeries coefficients)
+
+{- | Given options then two formal Rational jets, validate and convolve coefficients under
+the 64-coefficient cap. Oversized input/output or numeric-limit failures return
+ExprError.
+-}
 multiplyFormalSeries ::
     SymbolicOptions ->
     P.PowerSeries Rational ->
@@ -875,12 +984,21 @@ multiplyFormalSeries o a b = do
     _ <- formalPowerSeries o (P.seriesCoefficients a)
     _ <- formalPowerSeries o (P.seriesCoefficients b)
     formalPowerSeries o (P.seriesCoefficients (P.multiplySeries a b))
+
+{- | Given options then formal Rational series with nonzero constant term, compute its
+reciprocal jet. Invalid constant/size or numeric budgets return ExprError.
+-}
 reciprocalFormalSeries ::
     SymbolicOptions -> P.PowerSeries Rational -> Either ExprError (P.PowerSeries Rational)
 reciprocalFormalSeries o a = do
     _ <- formalPowerSeries o (P.seriesCoefficients a)
     result <- mathResult (literal 0) (P.reciprocalSeries a)
     formalPowerSeries o (P.seriesCoefficients result)
+
+{- | Given options,variable name,then polynomial Expr, return rational roots with
+multiplicities plus the remaining deflated Expr. Irrational/non-rational roots remain
+in the remainder; unsupported conversion or work-budget exhaustion returns ExprError.
+-}
 exactPolynomialRoots ::
     SymbolicOptions -> String -> Expr -> Either ExprError ([(Rational, Int)], Expr)
 exactPolynomialRoots o name e = do
@@ -912,9 +1030,21 @@ numericalPolynomialRoots o name e = do
                     (P.polynomial [fromRational q :+ 0 | q <- P.coefficients p])
                 )
 
+-- | Comparison relation selector: equality,inequality,or ordered less/greater comparisons.
 data RelationOp = Equal | NotEqual | Less | LessEqual | Greater | GreaterEqual deriving (Eq, Show)
+
+{- | Symbolic comparison of two expressions; use simplifyRelation to decide or preserve
+unresolved conditions.
+-}
 data Relation = Relation RelationOp Expr Expr deriving (Eq, Show)
+
+-- | Decided truth value or unresolved symbolic relation under the provided assumptions.
 data RelationResult = Truth Bool | Unresolved Relation deriving (Eq, Show)
+
+{- | Given options then Relation, simplify both sides and return a Boolean Truth when
+decidable, otherwise a symbolic unresolved relation/conditions. Invalid expressions or
+resource failures return ExprError.
+-}
 simplifyRelation :: SymbolicOptions -> Relation -> Either ExprError RelationResult
 simplifyRelation o (Relation op a b) = do
     x <- simplify o a
@@ -925,6 +1055,7 @@ simplifyRelation o (Relation op a b) = do
             | x == y && defined (symbolicAssumptions o) x ->
                 Right (Truth (op `elem` [Equal, LessEqual, GreaterEqual]))
             | otherwise -> Right (Unresolved (Relation op x y))
+
 compareRelation :: (Ord a) => RelationOp -> a -> a -> Bool
 compareRelation Equal = (==)
 compareRelation NotEqual = (/=)
@@ -953,6 +1084,9 @@ solveLinearInequality o name (Relation op a b) = do
     flipOp GreaterEqual = LessEqual
     flipOp x = x
 
+{- | Symbolic linear-system outcome distinguishing a determined/parametric solution from
+inconsistency or unresolved computation.
+-}
 data LinearSolution = Inconsistent | ParametricSolution [(String, Expr)] [String]
     deriving (Eq, Show)
 
@@ -1023,7 +1157,12 @@ solveLinearEquations o names equations = do
                 inputs o (map literal (concat next))
                 rref (r + 1) (c + 1) next (pivots ++ [(r, c)])
 
+-- | Checked bounded rectangular expression matrix, constructed with symbolicMatrix.
 newtype SymbolicMatrix = SymbolicMatrix [[Expr]] deriving (Eq, Show)
+
+{- | Given options then nonempty rectangular Expr rows, construct a checked symbolic matrix
+bounded to 8-by-8. Empty/ragged/oversized or invalid expressions fail.
+-}
 symbolicMatrix :: SymbolicOptions -> [[Expr]] -> Either ExprError SymbolicMatrix
 symbolicMatrix o rows
     | null rows
@@ -1035,13 +1174,23 @@ symbolicMatrix o rows
     | otherwise = inputs o (concat rows) >> Right (SymbolicMatrix rows)
   where
     width = case rows of r : _ -> length (take 9 r); [] -> 0
+
+-- | Extract row-major symbolic expressions without evaluation or simplification.
 matrixExpressions :: SymbolicMatrix -> [[Expr]]
 matrixExpressions (SymbolicMatrix rows) = rows
+
+{- | Given options then equally shaped symbolic matrices, add and simplify corresponding
+expressions. Shape mismatch or symbolic resource/domain failure returns ExprError.
+-}
 matrixAdd :: SymbolicOptions -> SymbolicMatrix -> SymbolicMatrix -> Either ExprError SymbolicMatrix
 matrixAdd o (SymbolicMatrix a) (SymbolicMatrix b)
     | length a /= length b || map length a /= map length b =
         failure DomainFailure (literal 0) "matrix addition shape mismatch"
     | otherwise = mapM (mapM (simplify o) . uncurry (zipWith plus)) (zip a b) >>= symbolicMatrix o
+
+{- | Given options then compatible symbolic matrices, form simplified dot-product entries.
+Inner-dimension mismatch or expression/output limits return ExprError.
+-}
 matrixMultiply ::
     SymbolicOptions -> SymbolicMatrix -> SymbolicMatrix -> Either ExprError SymbolicMatrix
 matrixMultiply o (SymbolicMatrix a) (SymbolicMatrix b)
@@ -1079,7 +1228,13 @@ symbolicDeterminant o (SymbolicMatrix rows)
                 (zip [0 ..] r)
         checked o (Foldable.foldl' plus (literal 0) terms)
 
-data Guarded a = Guarded {guardedValue :: a, requiredConditions :: [(Expr, Property)]}
+-- | Value paired with mathematical property conditions required for its unconditional use.
+data Guarded a = Guarded
+    { guardedValue :: a
+    -- ^ Result whose validity depends on requiredConditions.
+    , requiredConditions :: [(Expr, Property)]
+    -- ^ Expression/property facts that must hold before using guardedValue unconditionally.
+    }
     deriving (Eq, Show)
 
 {- | Exact 1x1/2x2 real eigenvalue formulas; an unproved discriminant is returned
@@ -1104,6 +1259,10 @@ symbolicEigenvalues o (SymbolicMatrix rows) = case rows of
                     )
     _ -> unsupported (literal 0) "symbolic eigenvalues support order 1 or 2"
 
+{- | Given options,precision,bindings list,then Expr, evaluate using the default builtin
+registry and symbolic limits. Later duplicate binding names replace earlier ones.
+Evaluation/name/domain/resource errors remain ExprError.
+-}
 numericalSubstitution ::
     SymbolicOptions -> Precision -> [(String, Value)] -> Expr -> Either ExprError Value
 numericalSubstitution o mode bindings = evaluateExpression (symbolicLimits o) mode defaultRegistry (Map.fromList bindings)

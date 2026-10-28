@@ -56,7 +56,11 @@ import HMath.Error
 import HMath.Random (RNG, normal, sampleN, uniform)
 import qualified HMath.Tensor as T
 
+{- | Layer mode: Training updates/uses batch statistics; Inference uses retained running
+statistics.
+-}
 data Training = Training | Inference deriving (Eq, Show)
+
 finite :: [Double] -> Either MathError ()
 finite xs = if all (\x -> not (isNaN x || isInfinite x)) xs then Right () else Left NonFiniteResult
 validTensor :: T.Tensor Double -> Either MathError ()
@@ -114,7 +118,17 @@ spatialDropout mode probability rng input = case T.tensorShape input of
         Right (output, expanded, state)
     _ -> Left (InvalidArgument "spatial dropout requires N,C,spatial")
 
-data BatchNormState = BatchNormState {runningMean :: [Double], runningVariance :: [Double], batchesSeen :: Int}
+{- | Per-channel running mean/variance and incorporated training-batch count for batch
+normalization.
+-}
+data BatchNormState = BatchNormState
+    { runningMean :: [Double]
+    -- ^ Per-channel running mean used during inference.
+    , runningVariance :: [Double]
+    -- ^ Per-channel running variance used during inference.
+    , batchesSeen :: Int
+    -- ^ Number of training batches incorporated into running statistics.
+    }
     deriving (Eq, Show)
 
 {- | Population variance normalizes a training batch; unbiased sample variance
@@ -255,6 +269,10 @@ weightNorm axis magnitudes input = do
                 shape
                 [get input ix * (magnitudes !! (ix !! axis)) / (norms !! (ix !! axis)) | ix <- allIx]
 
+{- | Weight initializer selector: Xavier/Kaiming uniform/normal,Orthogonal gain,or
+TruncatedNormal mean sigma cutoff. initializeWeights also takes explicit fan counts and
+RNG.
+-}
 data Initializer
     = XavierUniform
     | XavierNormal
@@ -363,13 +381,19 @@ denseAD input weights bias = do
     y <- denseGeneric x w bias
     AD.adTensor (T.tensorShape y) (T.tensorValues y)
 
+-- | Per-axis stride,padding,dilation,and channel-group settings for checked convolution.
 data ConvOptions = ConvOptions
     { convolutionStride :: [Int]
+    -- ^ Positive spatial stride per convolution axis.
     , convolutionPadding :: [Int]
+    -- ^ Nonnegative symmetric padding per spatial axis.
     , convolutionDilation :: [Int]
+    -- ^ Positive spacing between kernel elements per spatial axis.
     , convolutionGroups :: Int
+    -- ^ Positive group count dividing input/output channels for grouped convolution.
     }
     deriving (Eq, Show)
+
 convGeneric ::
     (Num a) =>
     Bool -> [Int] -> ConvOptions -> T.Tensor a -> T.Tensor a -> [a] -> Either MathError (T.Tensor a)
@@ -524,6 +548,7 @@ convolutionAD options input weights bias = do
     output <- convGeneric False [] options x w bias
     AD.adTensor (T.tensorShape output) (T.tensorValues output)
 
+-- | Pooling reduction selector: MaxPool or AveragePool over each checked window.
 data PoolMode = MaxPool | AveragePool deriving (Eq, Show)
 
 -- | Windowed max/average pooling. Padded elements are excluded from the average; entirely padded windows fail.
@@ -734,6 +759,9 @@ alibiBias slope queryLength keyLength offset = do
     finite (concat values)
     Right values
 
+{- | Opaque retained attention keys/values for incremental decoding; use checked cache
+append/attention operations.
+-}
 data KVCache = KVCache Int Int Int (T.Tensor Double) (T.Tensor Double) deriving (Eq, Show)
 
 -- | Create an owned immutable key/value cache with fixed positive capacity and feature widths.

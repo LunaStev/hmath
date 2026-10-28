@@ -45,17 +45,34 @@ import HMath.Error
 -- | Opaque, validated timestamps paired with optional observations.
 newtype Series = Series [(Double, Maybe Double)] deriving (Eq, Show)
 
+-- | Test whether Double is neither NaN nor infinite.
 finite :: Double -> Bool
 finite x = not (isNaN x || isInfinite x)
+
+{- | Given predicate then message, return Right () or time-series-prefixed Left
+InvalidArgument.
+-}
 require :: Bool -> String -> Either MathError ()
 require p s = if p then Right () else Left (InvalidArgument ("time series: " ++ s))
+
+{- | Return list unchanged when every sample is finite; otherwise return Left
+NonFiniteResult.
+-}
 checked :: [Double] -> Either MathError [Double]
 checked xs = if all finite xs then Right xs else Left NonFiniteResult
+
+{- | Given minimum sample count then list, require length between that minimum and 16384 and
+all finite values. Invalid input returns Left InvalidArgument.
+-}
 validate :: Int -> [Double] -> Either MathError ()
 validate n xs =
     require
         (length xs >= n && length xs <= 16384 && all finite xs)
         "finite sample count outside supported range"
+
+{- | Unchecked arithmetic average using per-term division by list length; empty list returns
+zero by empty sum. Checked statistical callers validate nonempty input first.
+-}
 average :: [Double] -> Double
 average xs = sum (map (/ fromIntegral (length xs)) xs)
 
@@ -73,6 +90,9 @@ regularSeries start step xs = do
     require (finite start && finite step && step > 0) "finite start and positive step required"
     series (zip [start + fromIntegral i * step | i <- [0 :: Int .. length xs - 1]] xs)
 
+{- | Extract time-ordered (timestamp,Maybe value) observations from a validated Series.
+Missing values remain Nothing.
+-}
 observations :: Series -> [(Double, Maybe Double)]
 observations (Series xs) = xs
 
@@ -89,6 +109,9 @@ isRegular tolerance (Series xs) = do
     Right
         (case steps of [] -> True; d : ds -> all (\x -> abs (x - d) <= tolerance * max (abs d) (abs x)) ds)
 
+{- | Time-series timestamp join policy: Inner intersection or Outer union,with missing
+values explicit.
+-}
 data Alignment = Inner | Outer | LeftAligned deriving (Eq, Show)
 
 -- | Exact timestamp equality. Missing alignment positions are explicit Nothing.
@@ -104,6 +127,9 @@ align mode (Series a) (Series b) = do
     y <- series [(t, M.findWithDefault Nothing t bm) | t <- times]
     Right (x, y)
 
+{- | Missing-value strategy selecting forward fill,backward fill,or linear interpolation
+under the checked boundary rules.
+-}
 data Fill = ForwardFill | BackwardFill | LinearFill deriving (Eq, Show)
 
 {- | Directional filling leaves the unavailable leading/trailing end missing.
@@ -127,6 +153,7 @@ fillMissing mode (Series xs) =
         (Just (a, x), Just (b, y)) -> (t, Just ((1 - w) * x + w * y)) where w = fraction a b t
         _ -> pair
 
+-- | Series resampling policy selecting bin means,last-bin values,or linear point samples.
 data Resampling = LinearSamples | BinMean | BinLast deriving (Eq, Show)
 
 {- | Linear samples require brackets (or an exact timestamp). Bins are
@@ -157,6 +184,9 @@ resample method start step count input@(Series xs) = do
     aggregate [] = Nothing
     aggregate vs = Just (if method == BinLast then last vs else average vs)
 
+{- | Rolling-window statistic selector for mean,variance,standard deviation,minimum,or
+maximum.
+-}
 data Rolling = MovingMean | MovingVariance | MovingSD | MovingMinimum | MovingMaximum
     deriving (Eq, Show)
 
@@ -273,6 +303,10 @@ yuleWalker order xs = do
     (phi, v, _) <- durbinLevinson (map (* variance) acf)
     Right (phi, v, m)
 
+{- | Given maximum lag then samples, compute ACF and Durbin-Levinson partial correlations,
+returning lag zero (1) followed by requested PACF lags. Invalid lag/data or singular
+covariance recurrence returns Left MathError.
+-}
 partialAutocorrelation :: Int -> [Double] -> Either MathError [Double]
 partialAutocorrelation order xs = do
     acf <- autocorrelation order xs

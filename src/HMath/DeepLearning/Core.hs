@@ -39,6 +39,9 @@ import Data.List (sortBy)
 import qualified HMath.Autodiff as AD
 import HMath.Error
 
+{- | Scalar activation selector. LeakyReLU/PReLU carry negative-side slope and ELU carries
+positive alpha; other constructors select the named standard activation.
+-}
 data Activation
     = Sigmoid
     | Tanh
@@ -55,6 +58,7 @@ data Activation
     | HardSigmoid
     | HardSwish
     deriving (Eq, Show)
+
 finite :: [Double] -> Either MathError ()
 finite xs = if all (\x -> not (isNaN x || isInfinite x)) xs then Right () else Left NonFiniteResult
 sigmoid :: Double -> Double
@@ -63,6 +67,11 @@ softplus :: Double -> Double
 softplus x = max x 0 + log (1 + exp (-abs x))
 
 -- GELU uses the explicit tanh approximation from Hendrycks/Gimpel (2016).
+
+{- | Given Activation selector then finite scalar, evaluate the selected activation.
+Parameterized LeakyReLU/PReLU slopes must be finite and ELU alpha positive. Invalid
+input/parameters or non-finite output returns Left MathError.
+-}
 activation :: Activation -> Double -> Either MathError Double
 activation kind x = do
     finite [x]
@@ -173,7 +182,15 @@ gatedLinearUnit values gate = do
         then Left (VectorLengthMismatch (length values) (length gate))
         else Right (zipWith (\x g -> x * sigmoid g) values gate)
 
+{- | Loss aggregation: Sum adds elementwise losses and Mean divides by their count;
+vector-level loss exceptions are documented by loss.
+-}
 data Reduction = Sum | Mean deriving (Eq, Show)
+
+{- | Checked loss selector,including squared/absolute error,cross
+entropy,KL,hinge,cosine,and parameterized Huber/smooth losses. Target/prediction domain
+rules belong to loss.
+-}
 data Loss
     = MeanSquaredError
     | MeanAbsoluteError
@@ -186,6 +203,7 @@ data Loss
     | CosineLoss
     | Hinge Double
     deriving (Eq, Show)
+
 validatePair :: [Double] -> [Double] -> Either MathError ()
 validatePair target prediction = do
     finite (target ++ prediction)
@@ -374,6 +392,11 @@ log-softmax chain rule. Impossible alignments return DomainError.
 ctcLoss :: Int -> [Int] -> [[Double]] -> Either MathError Double
 ctcLoss blank labels logs = fst <$> ctcLossGradient blank labels logs
 
+{- | Given blank class index, target labels, then rectangular time-by-class log
+probabilities, return CTC negative log likelihood and gradient rows. Validate class
+indices, finite/log-probability constraints and alignment feasibility. Empty time
+permits only empty labels; invalid/impossible inputs return Left MathError.
+-}
 ctcLossGradient :: Int -> [Int] -> [[Double]] -> Either MathError (Double, [[Double]])
 ctcLossGradient blank labels logs = do
     case logs of

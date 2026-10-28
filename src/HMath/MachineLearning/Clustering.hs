@@ -37,7 +37,14 @@ import HMath.Error
 import HMath.MachineLearning.Internal
 import qualified HMath.Random as R
 
-newtype ClusterModel = Clusters {clusterCenters :: Dataset} deriving (Eq, Show)
+{- | Fitted cluster centroids as cluster-by-feature observations; prediction assigns new
+queries to the learned centers.
+-}
+newtype ClusterModel = Clusters
+    { clusterCenters :: Dataset
+    -- ^ Cluster centroids as cluster-by-feature rows.
+    }
+    deriving (Eq, Show)
 
 -- | Assign each row to its closest squared-Euclidean center; ties use the first center.
 predictClusters :: ClusterModel -> Dataset -> Either MathError [Int]
@@ -143,8 +150,19 @@ kMedoids c k xs = do
             Right (candidates !! argmin costs)
     iterateFit c step (\a b -> abs (cost a - cost b)) [0 .. k - 1]
 
-data GaussianMixture = GMM {mixtureWeights :: [Double], mixtureMeans :: Dataset, mixtureCovariances :: [Dataset]}
+{- | Fitted component probabilities,mean vectors,and covariance matrices in shared component
+order.
+-}
+data GaussianMixture = GMM
+    { mixtureWeights :: [Double]
+    -- ^ Gaussian-mixture component probabilities in component order.
+    , mixtureMeans :: Dataset
+    -- ^ Component mean vectors, matching mixtureWeights order.
+    , mixtureCovariances :: [Dataset]
+    -- ^ One feature-by-feature covariance matrix per Gaussian component.
+    }
     deriving (Eq, Show)
+
 logsumexp :: [Double] -> Double
 logsumexp xs = let m = maximum xs in m + log (sum (map (exp . subtract m) xs))
 
@@ -323,7 +341,19 @@ meanShift c bandwidth xs = do
 -- | Single, complete, average Euclidean distance or Ward variance-increase linkage.
 data Linkage = Single | Complete | Average | Ward deriving (Eq, Show)
 
-data Merge = Merge {leftCluster :: Int, rightCluster :: Int, mergeDistance :: Double, mergedSize :: Int}
+{- | One hierarchical-clustering merge, retaining child IDs,linkage distance,and merged
+observation count.
+-}
+data Merge = Merge
+    { leftCluster :: Int
+    -- ^ Left child cluster ID in a hierarchical merge.
+    , rightCluster :: Int
+    -- ^ Right child cluster ID in a hierarchical merge.
+    , mergeDistance :: Double
+    -- ^ Linkage distance at which the two child clusters merge.
+    , mergedSize :: Int
+    -- ^ Number of original observations in the merged cluster.
+    }
     deriving (Eq, Show)
 
 -- | Agglomerate the closest active clusters to produce all n-1 linkage rows.

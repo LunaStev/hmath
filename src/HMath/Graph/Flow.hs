@@ -27,15 +27,32 @@ import qualified Data.Set as S
 import HMath.Error (MathError (..))
 import HMath.Graph.Core
 
+{- | Directed integral-capacity/unit-cost edge with stable identity. Capacities are
+nonnegative; costs may be negative.
+-}
 data NetworkEdge = NetworkEdge
     { networkEdgeId :: Int
+    -- ^ Stable original edge identity in network input order.
     , networkFrom :: Int
+    -- ^ Source vertex of this directed network edge.
     , networkTo :: Int
+    -- ^ Destination vertex of this directed network edge.
     , networkCapacity :: Integer
+    -- ^ Exact nonnegative Integer capacity of this edge.
     , networkCost :: Integer
+    -- ^ Exact Integer cost per unit flow; may be negative.
     }
     deriving (Eq, Show)
+
+{- | Opaque exact network-flow input with stable parallel/antiparallel edges, constructed
+with network.
+-}
 data Network = Network Int [NetworkEdge] deriving (Eq, Show)
+
+{- | Given vertex count then (from,to,capacity,cost) edges, construct an exact integral
+network with stable edge IDs. Require \<=512 vertices, \<=65536 edges, valid endpoints
+and nonnegative capacities. Costs may be negative.
+-}
 network :: Int -> [(Int, Int, Integer, Integer)] -> Either MathError Network
 network n es
     | n < 0
@@ -44,11 +61,24 @@ network n es
         || any (\(u, v, c, _) -> u < 0 || v < 0 || u >= n || v >= n || c < 0) es =
         Left (InvalidArgument "invalid network size/endpoints/capacity")
     | otherwise = Right (Network n [NetworkEdge i u v c w | (i, (u, v, c, w)) <- zip [0 ..] es])
+
+-- | Return original network edges in input/ID order, retaining capacities and costs.
 networkEdges :: Network -> [NetworkEdge]
 networkEdges (Network _ es) = es
 
-data FlowResult = FlowResult {flowValue :: Integer, edgeFlows :: [Integer], flowCost :: Integer}
+{- | Exact net flow,total edge cost,and original-edge-order flows. A maximum-flow result
+alone does not certify minimum cost.
+-}
+data FlowResult = FlowResult
+    { flowValue :: Integer
+    -- ^ Exact net flow leaving the chosen source.
+    , edgeFlows :: [Integer]
+    -- ^ Exact edge flows in original network edge order, preserving parallel and antiparallel identity.
+    , flowCost :: Integer
+    -- ^ Sum of edge flow times edge unit cost; maximum-flow methods do not necessarily minimize this cost.
+    }
     deriving (Eq, Show)
+
 type Residual = M.Map Int Integer
 arcData :: Network -> Int -> (Int, Int, Integer)
 arcData (Network _ es) i =
@@ -106,9 +136,23 @@ augmenting breadth b net s t = do valid b net s t; go b (initial net)
             | fuel <= 0 -> Left (NonConvergence "augmenting maximum flow" b)
             | otherwise -> go (fuel - 1) (augment (minimum [r M.! i | i <- path]) path r)
 fordFulkerson, edmondsKarp :: Int -> Network -> Int -> Int -> Either MathError FlowResult
+
+{- | Given augmentation budget,network,source,sink, compute exact maximum flow using
+depth-first augmenting paths. Invalid/non-distinct endpoints or negative budget fails;
+exhausted budget returns NonConvergence. Result retains per-edge flows and total cost.
+-}
 fordFulkerson = augmenting False
+
+{- | Given augmentation budget,network,source,sink, compute exact maximum flow using
+breadth-first shortest augmenting paths. Invalid input or exhausted budget fails;
+parallel/antiparallel edge flows retain identity.
+-}
 edmondsKarp = augmenting True
 
+{- | Given work budget,network,source,sink, compute maximum flow with level graphs and
+blocking-flow augmentation. Invalid source/sink/budget or exhausted work returns Left
+MathError; result includes flows in original edge order.
+-}
 dinic :: Int -> Network -> Int -> Int -> Either MathError FlowResult
 dinic b net s t = do valid b net s t; phase b (initial net)
   where
@@ -136,6 +180,10 @@ dinic b net s t = do valid b net s t; phase b (initial net)
             | fuel <= 0 -> Left (NonConvergence "Dinic maximum flow" b)
             | otherwise -> block (fuel - 1) (augment (minimum [r M.! i | i <- path]) path r) dist
 
+{- | Given push/relabel work budget,network,source,sink, compute exact maximum flow by
+preflow and relabel operations. Reject invalid endpoints/budget; work exhaustion
+returns NonConvergence.
+-}
 pushRelabel :: Int -> Network -> Int -> Int -> Either MathError FlowResult
 pushRelabel b net@(Network n _) s t = do
     valid b net s t

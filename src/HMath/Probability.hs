@@ -66,6 +66,19 @@ import HMath.Matrix.LU (determinant, inverse, solve)
 import qualified HMath.Random as R
 import qualified HMath.Special as S
 
+{- | Parameterized probability law. Constructors carry: Bernoulli p; Binomial trials p;
+NegativeBinomial successes p; Geometric p; Hypergeometric population successes draws;
+Poisson rate; Categorical probabilities; DiscreteUniform lo hi; Uniform lo hi; Normal
+mean standardDeviation; LogNormal logMean logStandardDeviation; Exponential rate; Gamma
+shape scale; Beta alpha beta; ChiSquare degrees; StudentT degrees; FisherF
+numeratorDegrees denominatorDegrees; Cauchy/Laplace/Logistic location scale; Weibull
+shape scale; Pareto scale shape; Rayleigh/Maxwell scale; Gumbel location scale;
+GeneralizedExtremeValue location scale shape; BetaBinomial trials alpha beta; Skellam
+rate1 rate2; VonMises meanAngle concentration; Triangular lo mode hi; TruncatedNormal
+mean standardDeviation lo hi; Mixture weightedLaws; Empirical samples; GaussianKDE
+bandwidth samples. Call validateDistribution to check finite
+parameters,support,normalization,and family budgets before numerical use.
+-}
 data Distribution
     = Bernoulli Double
     | Binomial Int Double
@@ -102,6 +115,7 @@ data Distribution
     | Empirical [Double]
     | GaussianKDE Double [Double]
     deriving (Eq, Show)
+
 finite :: Double -> Bool
 finite x = not (isNaN x || isInfinite x)
 positive :: Double -> Bool

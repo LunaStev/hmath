@@ -49,6 +49,10 @@ weakNeighbors g v =
         ( S.fromList
             ([edgeTo e | e <- edges g, edgeFrom e == v] ++ [edgeFrom e | e <- edges g, edgeTo e == v])
         )
+
+{- | Return Just Bool colors for every vertex if the underlying undirected adjacency is
+bipartite, including disconnected components; conflicting edges/loops yield Nothing.
+-}
 bipartiteColors :: Graph -> Maybe [Bool]
 bipartiteColors g = mapM (`M.lookup` final) (allVertices g)
   where
@@ -70,6 +74,10 @@ bipartiteColors g = mapM (`M.lookup` final) (allVertices g)
             (allVertices g)
     final = maybe M.empty id result
 
+{- | Return zero-based greedy colors in vertex order using underlying undirected adjacency.
+A self-loop makes proper coloring impossible and returns Left DomainError. Minimal
+color count is not guaranteed.
+-}
 greedyColoring :: Graph -> Either MathError [Int]
 greedyColoring g
     | any (\e -> edgeFrom e == edgeTo e) (edges g) =
@@ -85,6 +93,11 @@ greedyColoring g
             )
             M.empty
             (allVertices g)
+
+{- | Given work budget then graph with at most 24 vertices, search for a minimum proper
+coloring. Invalid budget/size or self-loops fail; exhausted search returns
+NonConvergence.
+-}
 exactColoring :: Int -> Graph -> Either MathError [Int]
 exactColoring fuel g = do
     initial <- greedyColoring g
@@ -146,6 +159,10 @@ eulerianPath g
         ((u, i) : _) -> walk ((u, Just i) : stack) (S.insert i used) vertices ids
         [] -> walk rest used (v : vertices) (maybe ids (: ids) incoming)
 
+{- | Given search budget then graph, find a path visiting every vertex once, returning Maybe
+vertex list. Invalid options/exhausted budget fail; Nothing means exhaustive search
+found no path.
+-}
 hamiltonianPath :: Int -> Graph -> Either MathError (Maybe [Int])
 hamiltonianPath fuel g
     | fuel < 0 || vertexCount g > 24 =
@@ -183,6 +200,10 @@ nearestNeighborTour g start = do
         answer = if vertexCount g == 1 then Just (0, [start, start]) else go [start]
     if maybe False (not . finite . fst) answer then Left NonFiniteResult else pure answer
 
+{- | Given improvement-step budget,graph,then closed Hamiltonian tour, improve via pairwise
+segment reversals. Validate the tour permutation/edges and finite cost. Return
+(cost,tour); invalid input or missing edges fails.
+-}
 twoOptTour :: Int -> Graph -> [Int] -> Either MathError (Double, [Int])
 twoOptTour steps g tour
     | steps < 0
@@ -226,6 +247,11 @@ iterateVector name steps tol update = go steps
                     if maximum (0 : zipWith (\a b -> abs (a - b)) x y) <= tol
                         then Right y
                         else if remaining <= 1 then Left (NonConvergence name steps) else go (remaining - 1) y
+
+{- | Given iteration budget,tolerance,damping,then graph, return vertex PageRank scores with
+dangling-node redistribution. Require nonnegative weights, finite damping in [0,1),
+valid tolerance/budget; nonconvergence/numeric failure returns Left MathError.
+-}
 pageRank :: Int -> Double -> Double -> Graph -> Either MathError [Double]
 pageRank steps tol damping g = do
     validateIteration steps tol
@@ -256,6 +282,11 @@ pageRank steps tol damping g = do
                   )
         | v <- allVertices g
         ]
+
+{- | Return outgoing traversal degree divided by n-1 for each vertex; n\<=1 yields zeros.
+Undirected loops contribute twice and parallel edges are retained, so values can exceed
+one.
+-}
 degreeCentrality :: Graph -> [Double]
 degreeCentrality g =
     [ if n <= 1 then 0 else fromIntegral (length (neighbors g v)) / fromIntegral (n - 1)
@@ -266,6 +297,10 @@ degreeCentrality g =
 
 -- Brandes' unweighted accumulation; parallel arcs count as distinct shortest
 -- edge paths, consistent with the graph's multigraph interpretation.
+
+{- | Return unweighted shortest-path betweenness by vertex, accounting for shortest-path
+multiplicities. Undirected scores are halved; edge weights are not path lengths here.
+-}
 betweennessCentrality :: Graph -> [Double]
 betweennessCentrality g = map (/ if directed g then 1 else 2) (Foldable.foldl' source (replicate n 0) (allVertices g))
   where
@@ -308,6 +343,10 @@ unweightedDistances g start = go (M.singleton start 0) [start]
         let fresh = S.toAscList (S.fromList [u | (u, _, _) <- neighbors g v, M.notMember u dist])
             next = Foldable.foldl' (\m u -> M.insert u (dist M.! v + 1) m) dist fresh
          in go next (vs ++ fresh)
+
+{- | Return unweighted closeness with reachable-component correction:
+reachable^2/((n-1)*sumDistances). Isolated/singleton vertices yield zero.
+-}
 closenessCentrality :: Graph -> [Double]
 closenessCentrality g =
     [ let ds = M.elems (unweightedDistances g v); reachable = length ds - 1; total = sum ds
@@ -318,6 +357,7 @@ closenessCentrality g =
     ]
   where
     n = vertexCount g
+
 weightedMultiply :: Graph -> [Double] -> [Double]
 weightedMultiply g x = [sum [edgeWeight e * x !! edgeFrom e | e <- arcs g, edgeTo e == v] | v <- allVertices g]
 
@@ -345,6 +385,10 @@ eigenvectorCentrality steps tol g = do
         let y = zipWith (+) x (weightedMultiply g x); norm = sqrt (sum (map (\v -> v * v) y))
          in map (/ norm) y
 
+{- | Given iterations,tolerance,alpha,beta,then graph, iterate weighted Katz scores. Require
+finite alpha>=0 and alpha times maximum absolute incoming weight sum \<1. Invalid input
+or nonconvergence fails.
+-}
 katzCentrality :: Int -> Double -> Double -> Double -> Graph -> Either MathError [Double]
 katzCentrality steps tol alpha beta g = do
     validateIteration steps tol
@@ -358,6 +402,10 @@ katzCentrality steps tol alpha beta g = do
                 tol
                 (map (\v -> beta + alpha * v) . weightedMultiply g)
                 (replicate (vertexCount g) beta)
+
+{- | Return local undirected clustering coefficients from distinct non-self neighbor sets.
+Degree below two yields zero. Directed graphs fail.
+-}
 clusteringCoefficients :: Graph -> Either MathError [Double]
 clusteringCoefficients g = do
     requireUndirected g
@@ -397,6 +445,10 @@ diameterRadius g
   where
     distances = map (unweightedDistances g) (allVertices g)
 
+{- | Given normalized Bool then nonnegative-weight undirected graph, return dense
+combinatorial or normalized Laplacian rows. Directed/negative-weight graphs or
+non-finite arithmetic fail.
+-}
 graphLaplacian :: Bool -> Graph -> Either MathError [[Double]]
 graphLaplacian normalized g = do
     requireUndirected g
@@ -482,6 +534,11 @@ communityInput g = do
     if any ((< 0) . edgeWeight) (edges g)
         then Left (DomainError "nonnegative community weights required")
         else Right ()
+
+{- | Given undirected nonnegative-weight graph then one community label per vertex, return
+weighted modularity. Invalid graph/label length or arithmetic fails; loops follow the
+module degree convention.
+-}
 modularity :: Graph -> [Int] -> Either MathError Double
 modularity g labels = do
     communityInput g

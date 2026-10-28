@@ -63,7 +63,14 @@ import HMath.Matrix
 import HMath.Matrix.Internal (dotV, finiteValues, stableNorm, swap)
 import HMath.Matrix.LAPACK (Eigen, SVD, eigen, svd)
 
+{- | Canonical immutable sparse matrix with summed duplicate coordinates and explicit zeros
+removed. Construct using sparse or checked format conversions.
+-}
 data Sparse a = Sparse Int Int (M.Map (Int, Int) a) deriving (Eq, Show)
+
+{- | Interchange representation selector carrying COO,CSR,CSC,DIA,BSR,or ELLPACK arrays;
+validate through fromFormat.
+-}
 data SparseFormat a
     = COO Int Int [(Int, Int, a)]
     | CSR Int Int [Int] [Int] [a]
@@ -72,22 +79,35 @@ data SparseFormat a
     | BSR Int Int Int Int [Int] [Int] [[a]]
     | ELLPACK Int Int Int [Int] [a]
     deriving (Eq, Show)
+
 shapeValid :: Int -> Int -> Either MathError ()
 shapeValid r c
     | r < 0 || c < 0 = Left (NegativeDimensions (r, c))
     | otherwise = Right ()
+
+{- | Given rows,columns,then (row,column,value) entries, validate coordinates, sum
+duplicates and remove explicit zeros. Return canonical ordered sparse storage; invalid
+shape/indices or size overflow fail.
+-}
 sparse :: (Eq a, Num a) => Int -> Int -> [(Int, Int, a)] -> Either MathError (Sparse a)
 sparse r c xs = do
     shapeValid r c
     if any (\(i, j, _) -> i < 0 || j < 0 || i >= r || j >= c) xs
         then Left (InvalidArgument "sparse: coordinate out of bounds")
         else Right (Sparse r c (M.filter (/= 0) (M.fromListWith (+) [((i, j), v) | (i, j, v) <- xs])))
+
+-- | Return declared (row count,column count), including empty dimensions.
 sparseShape :: Sparse a -> (Int, Int)
 sparseShape (Sparse r c _) = (r, c)
+
+-- | Return canonical nonzero (row,column,value) triples in ascending coordinate order.
 sparseEntries :: Sparse a -> [(Int, Int, a)]
 sparseEntries (Sparse _ _ xs) = [(i, j, v) | ((i, j), v) <- M.toAscList xs]
+
+-- | Return stored nonzero count after duplicate coalescing and zero removal.
 nonzeros :: Sparse a -> Int
 nonzeros (Sparse _ _ xs) = M.size xs
+
 segments :: Int -> Int -> [Int] -> [Int] -> [a] -> Either MathError [[(Int, a)]]
 segments outer inner ptr indices values
     | toInteger outer + 1 > toInteger (maxBound :: Int) = bad
@@ -100,6 +120,11 @@ segments outer inner ptr indices values
   where
     bad = Left (InvalidArgument "sparse compressed format: invalid pointers, indices, or ordering")
     parts = [take (ptr !! (i + 1) - ptr !! i) (drop (ptr !! i) (zip indices values)) | i <- [0 .. outer - 1]]
+
+{- | Validate COO/CSR/CSC/DIA/BSR/ELLPACK dimensions, pointers/indices and values, then
+construct canonical sparse storage. Invalid layout or coordinates return Left
+MathError.
+-}
 fromFormat :: (Eq a, Num a) => SparseFormat a -> Either MathError (Sparse a)
 fromFormat (COO r c xs) = sparse r c xs
 fromFormat (CSR r c ptr indices values) = do
@@ -158,8 +183,16 @@ fromFormat (ELLPACK r c width indices values) = do
             if not (all valid rows)
                 then Left (InvalidArgument "ELLPACK: malformed indices or padding")
                 else sparse r c [(i, j, v) | (i, row) <- zip [0 ..] rows, (j, v) <- row, j /= (-1)]
+
+{- | Return coordinate-list SparseFormat with explicit row/column/value arrays, preserving
+canonical nonzeros.
+-}
 toCOO :: Sparse a -> SparseFormat a
 toCOO a = let (r, c) = sparseShape a in COO r c (sparseEntries a)
+
+{- | Return compressed sparse row format with row offsets, column indices and nonzero
+values.
+-}
 toCSR :: Sparse a -> SparseFormat a
 toCSR a =
     let (r, c) = sparseShape a
@@ -171,8 +204,14 @@ toCSR a =
             (scanl (+) 0 [M.findWithDefault 0 i counts | i <- [0 .. r - 1]])
             [j | (_, j, _) <- xs]
             [v | (_, _, v) <- xs]
+
+-- | Return compressed sparse column format with column offsets, row indices and values.
 toCSC :: Sparse a -> SparseFormat a
 toCSC a = case toCSR (sparseTranspose a) of CSR c r p i v -> CSC r c p i v; _ -> error "toCSC invariant"
+
+{- | Return diagonal sparse format; absent positions in represented diagonals are padded
+with zero.
+-}
 toDIA :: (Num a) => Sparse a -> SparseFormat a
 toDIA a =
     let (r, c) = sparseShape a
@@ -180,6 +219,11 @@ toDIA a =
         offsets = M.keys (M.fromList [(j - i, ()) | (i, j, _) <- xs])
         vals = M.fromList [((i, j), v) | (i, j, v) <- xs]
      in DIA r c [(k, [M.findWithDefault 0 (i, i + k) vals | i <- [0 .. r - 1]]) | k <- offsets]
+
+{- | Given positive block rows,block columns,then sparse matrix, build block-sparse-row
+format with zero padding within edge blocks. Invalid block dimensions or size overflow
+fails.
+-}
 toBSR :: (Num a) => Int -> Int -> Sparse a -> Either MathError (SparseFormat a)
 toBSR br bc a
     | br <= 0 || bc <= 0 || toInteger br * toInteger bc > toInteger (maxBound :: Int) =
@@ -206,6 +250,10 @@ toBSR br bc a
             )
   where
     (r, c) = sparseShape a
+
+{- | Return ELLPACK padded row storage, using row width equal to maximum nonzeros per row.
+Invalid/overflowing storage dimensions fail.
+-}
 toELLPACK :: (Num a) => Sparse a -> Either MathError (SparseFormat a)
 toELLPACK a
     | toInteger r * toInteger width > toInteger (maxBound :: Int) =
@@ -224,6 +272,10 @@ toELLPACK a
     rows = M.fromListWith (++) [(i, [(j, v)]) | (i, j, v) <- sparseEntries a]
     row i = sortOn fst (M.findWithDefault [] i rows)
     width = maximum (0 : map length (M.elems rows))
+
+{- | Return a dense Matrix with the same dimensions and zeros for missing entries. Checked
+dense element-count overflow can fail.
+-}
 sparseToDense :: (Num a) => Sparse a -> Either MathError (Matrix a)
 sparseToDense (Sparse r c xs) =
     fromListChecked
@@ -233,18 +285,38 @@ sparseToDense (Sparse r c xs) =
             then []
             else [M.findWithDefault 0 (i, j) xs | i <- [0 .. r - 1], j <- [0 .. c - 1]]
         )
+
+{- | Convert a dense matrix to canonical sparse storage, discarding exact zeros and
+preserving dimensions.
+-}
 denseToSparse :: (Eq a, Num a) => Matrix a -> Sparse a
 denseToSparse a = Sparse r c (M.fromList [((k `div` c, k `mod` c), v) | (k, v) <- zip [0 ..] (toList a), v /= 0])
   where
     (r, c) = shape a
+
+{- | Exchange row/column coordinates and dimensions without changing values, returning
+canonical sparse order.
+-}
 sparseTranspose :: Sparse a -> Sparse a
 sparseTranspose (Sparse r c xs) = Sparse c r (M.mapKeys (\(i, j) -> (j, i)) xs)
+
+{- | Add equal-shaped sparse matrices, coalescing entries and dropping resulting zeros.
+Shape mismatch or checked construction errors fail.
+-}
 sparseAdd :: (Eq a, Num a) => Sparse a -> Sparse a -> Either MathError (Sparse a)
 sparseAdd (Sparse r c a) (Sparse s t b)
     | (r, c) /= (s, t) = Left (ShapeMismatch (r, c) (s, t))
     | otherwise = Right (Sparse r c (M.filter (/= 0) (M.unionWith (+) a b)))
+
+{- | Subtract right sparse values from left for equal shapes; coalesce and remove zeros.
+Shape mismatch fails.
+-}
 sparseSubtract :: (Eq a, Num a) => Sparse a -> Sparse a -> Either MathError (Sparse a)
 sparseSubtract a (Sparse r c b) = sparseAdd a (Sparse r c (M.map negate b))
+
+{- | Given sparse matrix then dense vector, return matrix-vector product. Vector length must
+equal column count; mismatch returns Left MathError.
+-}
 spmv :: (Num a) => Sparse a -> [a] -> Either MathError [a]
 spmv (Sparse r c xs) vector
     | length vector /= c = Left (VectorLengthMismatch c (length vector))
@@ -253,6 +325,10 @@ spmv (Sparse r c xs) vector
         let input = listArray (0, c - 1) vector
             sums = accumArray (+) 0 (0, r - 1) [(i, v * (input ! j)) | ((i, j), v) <- M.toAscList xs]
          in Right (elems sums)
+
+{- | Multiply compatible sparse matrices using sparse row contributions. Inner-dimension
+mismatch or output construction errors return Left MathError.
+-}
 spmm :: (Eq a, Num a) => Sparse a -> Sparse a -> Either MathError (Sparse a)
 spmm (Sparse r c a) (Sparse s t b)
     | c /= s = Left (InnerDimensionMismatch c s)
@@ -260,6 +336,10 @@ spmm (Sparse r c a) (Sparse s t b)
         sparse r t [(i, j, x * y) | ((i, k), x) <- M.toAscList a, (j, y) <- M.findWithDefault [] k rowsB]
   where
     rowsB = M.fromListWith (++) [(k, [(j, v)]) | ((k, j), v) <- M.toAscList b]
+
+{- | Return sparse Kronecker product, multiplying row/column dimensions and nonzero pairs.
+Dimension/product overflow fails.
+-}
 sparseKronecker :: (Eq a, Num a) => Sparse a -> Sparse a -> Either MathError (Sparse a)
 sparseKronecker a b
     | toInteger r * toInteger s > toInteger (maxBound :: Int)
@@ -272,6 +352,11 @@ sparseKronecker a b
             [(i * s + k, j * t + l, x * y) | (i, j, x) <- sparseEntries a, (k, l, y) <- sparseEntries b]
   where
     (r, c) = sparseShape a; (s, t) = sparseShape b
+
+{- | Given lower Bool,square finite sparse matrix,then RHS list, solve by forward/back
+substitution. Require correct triangular structure and matching RHS length; zero
+diagonal pivots or non-finite arithmetic fail.
+-}
 sparseTriangularSolve :: (RealFloat a) => Bool -> Sparse a -> [a] -> Either MathError [a]
 sparseTriangularSolve lower a@(Sparse n m values) b
     | n /= m = Left (NonSquareMatrix (n, m))
@@ -290,19 +375,37 @@ sparseTriangularSolve lower a@(Sparse n m values) b
                 (b !! i - sum [x * M.findWithDefault 0 j xs | (j, x) <- M.findWithDefault [] i rows, j /= i])
                     / pivot
          in if pivot == 0 then Left (SingularMatrix i) else finiteValues [v] >> Right (M.insert i v xs)
+
+{- | Given diagonal square sparse matrix then RHS, divide by each diagonal pivot.
+Off-diagonal entries, shape mismatch, zero pivots or non-finite data fail.
+-}
 sparseDiagonalSolve :: (RealFloat a) => Sparse a -> [a] -> Either MathError [a]
 sparseDiagonalSolve a b
     | any (\(i, j, _) -> i /= j) (sparseEntries a) =
         Left (DomainError "sparseDiagonalSolve: diagonal matrix required")
     | otherwise = sparseTriangularSolve True a b
 
+{- | Opaque sparse row-pivoted LU factors with reconstruction permutation; solve through
+sparseSolveLU.
+-}
 data SparseLU a = SparseLU (Sparse a) (Sparse a) [Int] deriving (Eq, Show)
+
+-- | Extract unit lower-triangular sparse factor from a SparseLU result.
 sparseLULower :: SparseLU a -> Sparse a
 sparseLULower (SparseLU l _ _) = l
+
+-- | Extract upper-triangular sparse factor from a SparseLU result.
 sparseLUUpper :: SparseLU a -> Sparse a
 sparseLUUpper (SparseLU _ u _) = u
+
+-- | Return LU row permutation in pivoted order, for reconstructing P*A=L*U.
 sparseLUPermutation :: SparseLU a -> [Int]
 sparseLUPermutation (SparseLU _ _ p) = p
+
+{- | Given finite nonnegative relative pivot tolerance then square finite sparse matrix,
+compute sparse LU with row pivoting. Invalid tolerance/input, zero/near-singular pivots
+or numerical failure returns Left MathError.
+-}
 sparseLU :: (RealFloat a) => a -> Sparse a -> Either MathError (SparseLU a)
 sparseLU tol a@(Sparse n m values)
     | n /= m = Left (NonSquareMatrix (n, m))
@@ -339,6 +442,10 @@ sparseLU tol a@(Sparse n m values)
                                 Right (M.insert i next rs, if multiplier == 0 then ls else M.insert (i, k) multiplier ls)
                         (nextRows, nextL) <- foldl update (Right (swapped, lsw)) [k + 1 .. n - 1]
                         Right (nextRows, nextL, swap k pivot p)
+
+{- | Given sparse LU factors then RHS list, apply row permutation and triangular solves.
+Dimension mismatch, singularity or non-finite input/result fails.
+-}
 sparseSolveLU :: (RealFloat a) => SparseLU a -> [a] -> Either MathError [a]
 sparseSolveLU f b
     | length b /= n = Left (VectorLengthMismatch n (length b))
@@ -347,6 +454,10 @@ sparseSolveLU f b
             >>= sparseTriangularSolve False (sparseLUUpper f)
   where
     n = fst (sparseShape (sparseLULower f))
+
+{- | Factor a symmetric positive-definite finite sparse matrix into a lower sparse factor.
+Invalid shape/symmetry, nonpositive pivots or numerical failure returns Left MathError.
+-}
 sparseCholesky :: (RealFloat a) => Sparse a -> Either MathError (Sparse a)
 sparseCholesky a@(Sparse n m values)
     | n /= m = Left (NonSquareMatrix (n, m))
@@ -371,12 +482,21 @@ sparseCholesky a@(Sparse n m values)
                 finiteValues [x]
                 Right (if x == 0 then l else M.insert (i, j) x l)
 
+{- | Opaque sparse QR factors with implicit orthogonal transform; use sparseQRUpper and
+sparseQRApplyQT.
+-}
 data SparseQR a = SparseQR (Sparse a) [(Int, [a])] deriving (Eq, Show)
+
+-- | Extract upper-triangular/trapezoidal sparse R from a sparse QR factorization.
 sparseQRUpper :: SparseQR a -> Sparse a
 sparseQRUpper (SparseQR r _) = r
 
 {- | Sparse Householder QR retains only the R nonzeros and compact reflectors;
 fill is retained, never silently dropped. Reflection vectors are dense tails.
+-}
+
+{- | Given finite nonnegative tolerance then sparse matrix, compute its checked sparse QR
+factors. Invalid tolerance, input or numerical failure returns Left MathError.
 -}
 sparseQR :: (RealFloat a) => Sparse a -> Either MathError (SparseQR a)
 sparseQR a@(Sparse m n values) = do
@@ -408,6 +528,9 @@ sparseQR a@(Sparse m n values) = do
                 finiteValues (M.elems cleaned)
                 Right (Sparse r c cleaned, reflectors ++ [(k, unit)])
 
+{- | Given sparse QR factors then compatible RHS list, apply transpose(Q) without
+constructing dense Q. Invalid length or non-finite arithmetic fails.
+-}
 sparseQRApplyQT :: (RealFloat a) => SparseQR a -> [a] -> Either MathError [a]
 sparseQRApplyQT (SparseQR r reflectors) b
     | length b /= fst (sparseShape r) = Left (VectorLengthMismatch (fst (sparseShape r)) (length b))
@@ -417,6 +540,10 @@ sparseQRApplyQT (SparseQR r reflectors) b
         let coefficient = 2 * dotV v (drop start xs)
             next = take start xs ++ zipWith (\x y -> x - coefficient * y) (drop start xs) v
          in finiteValues next >> Right next
+
+{- | For a square sparse matrix, return one adjacency row per vertex with stored
+(column,value) neighbors. Non-square matrix returns Left MathError.
+-}
 sparseGraph :: Sparse a -> Either MathError [(Int, [(Int, a)])]
 sparseGraph a
     | n /= m = Left (NonSquareMatrix (n, m))
@@ -438,17 +565,34 @@ sparseStorageBytes scalarBytes a
                 + 2 * toInteger (sizeOf (undefined :: Int))
             )
 
+{- | Canonical sparse multidimensional entries, constructed by sparseTensor with checked
+coordinates and duplicate coalescing.
+-}
 data SparseTensor a = SparseTensor [Int] (M.Map [Int] a) deriving (Eq, Show)
+
+{- | Given dimensions then (coordinate-list,value) entries, validate rank/bounds, sum
+duplicate coordinates and remove zeros. Invalid shape/indices return Left MathError.
+-}
 sparseTensor :: (Eq a, Num a) => [Int] -> [([Int], a)] -> Either MathError (SparseTensor a)
 sparseTensor dims values
     | any (< 0) dims
         || any (\(is, _) -> length is /= length dims || or (zipWith (\i d -> i < 0 || i >= d) is dims)) values =
         Left (InvalidArgument "sparseTensor: shape or index invalid")
     | otherwise = Right (SparseTensor dims (M.filter (/= 0) (M.fromListWith (+) values)))
+
+-- | Return axis dimensions of a sparse tensor; [] denotes a scalar.
 sparseTensorShape :: SparseTensor a -> [Int]
 sparseTensorShape (SparseTensor dims _) = dims
+
+{- | Return canonical nonzero (coordinate list,value) pairs in lexicographic coordinate
+order.
+-}
 sparseTensorEntries :: SparseTensor a -> [([Int], a)]
 sparseTensorEntries (SparseTensor _ xs) = M.toAscList xs
+
+{- | Given sparse tensor then full zero-based coordinates, return stored value or zero.
+Wrong rank or out-of-range indices fail.
+-}
 sparseTensorLookup :: (Num a) => SparseTensor a -> [Int] -> Either MathError a
 sparseTensorLookup (SparseTensor dims xs) is
     | length is /= length dims || or (zipWith (\i d -> i < 0 || i >= d) is dims) =
@@ -462,8 +606,13 @@ This is not a scalable sparse eigensolver/SVD and never silently densifies.
 sparseEigenReference :: Integer -> Sparse Double -> Either MathError Eigen
 sparseEigenReference budget a = referenceDense budget a >>= eigen
 
+{- | Given explicit dense-byte budget then sparse Double matrix, densify only if within
+budget and run checked dense SVD. This is a reference fallback, not a sparse iterative
+SVD; budget/backend/numeric errors fail.
+-}
 sparseSVDReference :: Integer -> Sparse Double -> Either MathError SVD
 sparseSVDReference budget a = referenceDense budget a >>= svd
+
 referenceDense :: Integer -> Sparse Double -> Either MathError (Matrix Double)
 referenceDense budget a
     | budget < 0 || toInteger r * toInteger c > budget =

@@ -64,15 +64,25 @@ choose n k
   where
     r = min k (n - k)
 
+{- | Given n,k in [0,4096], return n!/(n-k)! exactly, or zero when k>n. Invalid orders fail.
+Example: permutationsCount 4 2 == Right 12.
+-}
 permutationsCount :: Int -> Int -> Either MathError Integer
 permutationsCount n k = do
     order n
     order k
     pure (if k > n then 0 else fact n `div` fact (n - k))
 
+{- | Given n,k in [0,4096], return the exact binomial coefficient, or zero when k>n. Invalid
+orders fail. Example: combinationsCount 4 2 == Right 6.
+-}
 combinationsCount :: Int -> Int -> Either MathError Integer
 combinationsCount n k = do order n; order k; pure (choose n k)
 
+{- | Given nonnegative group sizes whose sum is \<=4096, return
+factorial(total)/product(factorial sizes). Invalid sizes/total fail. Example:
+multinomial [2,1] == Right 3.
+-}
 multinomial :: [Int] -> Either MathError Integer
 multinomial ks = do
     mapM_ order ks
@@ -91,6 +101,10 @@ permutationsOf b k xs = do
     perm 0 _ = [[]]
     perm j ys = [v : zs | (i, v) <- zip [0 :: Int ..] ys, zs <- perm (j - 1) (take i ys ++ drop (i + 1) ys)]
 
+{- | Given output budget, selection length k, then list, enumerate position-distinct
+k-element combinations in source order. Invalid order or insufficient budget fails
+before output construction.
+-}
 combinationsOf :: Int -> Int -> [a] -> Either MathError [[a]]
 combinationsOf b k xs = do
     n <- combinationsCount (length xs) k; budget b n; pure (comb k xs)
@@ -110,6 +124,9 @@ rankPermutation p = do
     go [] _ = 0
     go (x : xs) ys = toInteger (length (takeWhile (< x) ys)) * fact (length xs) + go xs (delete x ys)
 
+{- | Given size n in [0,4096] then zero-based rank in [0,n!), return the lexicographic
+permutation of [0..n-1]. Invalid size/rank fails.
+-}
 unrankPermutation :: Int -> Integer -> Either MathError [Int]
 unrankPermutation n r = do
     order n
@@ -122,6 +139,9 @@ unrankPermutation n r = do
         let (i, t) = q `divMod` fact (length xs - 1); v = xs !! fromInteger i
          in v : go t (delete v xs)
 
+{- | Given universe size n then strictly increasing distinct indices in [0,n), return the
+zero-based lexicographic combination rank. Invalid order/indices fail.
+-}
 rankCombination :: Int -> [Int] -> Either MathError Integer
 rankCombination n xs = do
     order n
@@ -132,6 +152,10 @@ rankCombination n xs = do
     go _ [] = 0
     go lo (x : rest) = sum [choose (n - v - 1) (length rest) | v <- [lo .. x - 1]] + go (x + 1) rest
 
+{- | Given universe size n, selection size k, then zero-based rank, return the increasing
+index list. Orders must be in [0,4096] and rank must be below choose(n,k); otherwise
+fail.
+-}
 unrankCombination :: Int -> Int -> Integer -> Either MathError [Int]
 unrankCombination n k r = do
     order n
@@ -149,6 +173,9 @@ unrankCombination n k r = do
           where
             count = choose (n - x - 1) (j - 1)
 
+{- | Return exact number of permutations of n elements having no fixed points. Require n in
+[0,4096]; invalid orders fail. D0=1, D1=0. Example: derangementCount 3 == Right 2.
+-}
 derangementCount :: Int -> Either MathError Integer
 derangementCount n = do
     order n
@@ -211,15 +238,27 @@ triangle f n k = do
 stirlingFirst :: Int -> Int -> Either MathError Integer
 stirlingFirst = triangle (\n _ a b -> a - toInteger (n - 1) * b)
 
+{- | Given n,k, return the exact number of partitions into k nonempty unlabeled blocks.
+Require n\<=512 and nonnegative bounded orders; k>n gives zero.
+-}
 stirlingSecond :: Int -> Int -> Either MathError Integer
 stirlingSecond = triangle (\_ k a b -> a + toInteger k * b)
 
+{- | Return the exact number of set partitions of n labeled objects, summing second-kind
+Stirling numbers. The triangular recurrence requires n in [0,512].
+-}
 bellNumber :: Int -> Either MathError Integer
 bellNumber n = sum <$> mapM (stirlingSecond n) [0 .. n]
 
+{- | Given n,k, return the Eulerian recurrence counting permutations by ascents. Require
+n\<=512 and bounded nonnegative orders; k>n gives zero.
+-}
 eulerianNumber :: Int -> Int -> Either MathError Integer
 eulerianNumber = triangle (\n k a b -> toInteger (n - k) * a + toInteger (k + 1) * b)
 
+{- | Given n,k in [0,4096], return unsigned Lah number n!/k!*choose(n-1,k-1), with (0,0)=1
+and impossible positive-size partitions giving zero. Invalid orders fail.
+-}
 lahNumber :: Int -> Int -> Either MathError Integer
 lahNumber n k = do
     order n
@@ -230,9 +269,15 @@ lahNumber n k = do
             else if k == 0 || k > n then 0 else choose (n - 1) (k - 1) * fact n `div` fact k
         )
 
+{- | Return exact Catalan number choose(2*n,n)/(n+1), requiring n in [0,4096]. Example:
+catalanNumber 3 == Right 5.
+-}
 catalanNumber :: Int -> Either MathError Integer
 catalanNumber n = do order n; pure (choose (2 * n) n `div` toInteger (n + 1))
 
+{- | Return exact zero-based Fibonacci number by fast doubling for n in [0,4096]. Invalid
+index fails. Example: fibonacci 10 == Right 55.
+-}
 fibonacci :: Int -> Either MathError Integer
 fibonacci n = do order n; pure (fst (pair n))
   where
@@ -241,9 +286,15 @@ fibonacci n = do order n; pure (fst (pair n))
         let (a, b) = pair (k `div` 2); c = a * (2 * b - a); d = a * a + b * b
          in if even k then (c, d) else (d, c + d)
 
+{- | Return zero-based Lucas number using neighboring Fibonacci numbers. n and n+1 must both
+satisfy the [0,4096] bound, so n\<=4095. Invalid index fails.
+-}
 lucas :: Int -> Either MathError Integer
 lucas n = do a <- fibonacci n; b <- fibonacci (n + 1); pure (2 * b - a)
 
+{- | Return Pascal rows zero through n inclusive, starting [[1]]. n must lie in [0,512];
+invalid orders fail.
+-}
 pascalTriangle :: Int -> Either MathError [[Integer]]
 pascalTriangle n = do
     order n
@@ -262,19 +313,35 @@ inclusionExclusion n sizes
   where
     ones 0 = 0 :: Int; ones k = k `mod` 2 + ones (k `div` 2)
 
+{- | Given maximum output count then list, enumerate its position-based powerset. Reject
+input order >4096 or a budget smaller than 2^length. Equal input values can yield
+equal-valued subsets.
+-}
 subsets :: Int -> [a] -> Either MathError [[a]]
 subsets b xs = do
     order (length xs)
     budget b (2 ^ length xs)
     pure (foldr (\x ps -> ps ++ map (x :) ps) [[]] xs)
 
+{- | Given output budget then a list of lists, return all ordered choices using sequence.
+Reject negative/insufficient budget before constructing results. Empty outer list
+yields one empty choice.
+-}
 cartesianProduct :: Int -> [[a]] -> Either MathError [[a]]
 cartesianProduct b xs = do
     budget b (product (map (toInteger . length) xs)); pure (sequence xs)
 
+{- | Return the multinomial count of distinct permutations of a list, grouping equal values
+in sorted order. Group sizes and total must satisfy the 4096-element combinatorial
+bound.
+-}
 multisetCount :: (Ord a) => [a] -> Either MathError Integer
 multisetCount xs = multinomial (map length (group (sort xs)))
 
+{- | Given budget then ordered values, enumerate distinct multiset permutations in ascending
+lexicographic order. Invalid size or insufficient output budget fails before
+enumeration.
+-}
 multisetPermutations :: (Ord a) => Int -> [a] -> Either MathError [[a]]
 multisetPermutations b xs = do
     count <- multisetCount xs; budget b count; pure (go (sort xs))
@@ -313,15 +380,25 @@ generatingCoefficients n ps qs = do
             let v = (get ps i - sum [get qs j * (acc !! (i - j)) | j <- [1 .. min i (length qs - 1)]]) / get qs 0
              in go (acc ++ [v]) (i + 1)
 
+{- | Given output length n then two coefficient lists, return the first n exact Integer
+convolution coefficients, treating absent coefficients as zero. n must lie in [0,4096].
+-}
 convolveSeries :: Int -> [Integer] -> [Integer] -> Either MathError [Integer]
 convolveSeries n a b = do
     order n
     pure
         [sum [a !! j * b !! (i - j) | j <- [0 .. i], j < length a, i - j < length b] | i <- [0 .. n - 1]]
 
+{- | Return successive forward-difference rows beginning with the original list and ending
+at the last singleton. Empty input yields no rows. Example: finiteDifferences [1,4,9]
+== [[1,4,9],[3,5],[2]].
+-}
 finiteDifferences :: (Num a) => [a] -> [[a]]
 finiteDifferences [] = []
 finiteDifferences xs = xs : finiteDifferences (zipWith (-) (drop 1 xs) xs)
 
+{- | Sum a finite list using its Num arithmetic. Empty input returns zero. Example:
+finiteSum [1,2,3] == 6.
+-}
 finiteSum :: (Num a) => [a] -> a
 finiteSum = sum

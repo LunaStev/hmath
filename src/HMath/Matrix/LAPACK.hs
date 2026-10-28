@@ -166,9 +166,28 @@ foreign import ccall unsafe "hmath_lapacke_dgebal"
     cBalance ::
         CInt -> CChar -> CInt -> Ptr CDouble -> CInt -> Ptr CInt -> Ptr CInt -> Ptr CDouble -> IO CInt
 
-data SVD = SVD {svdU :: Matrix Double, singularValues :: [Double], svdVT :: Matrix Double}
+{- | Real singular-value decomposition with U,descending nonnegative singular values,and VT.
+Thin/full dimensions follow the selected factorization function.
+-}
+data SVD = SVD
+    { svdU :: Matrix Double
+    -- ^ Left singular vectors as columns of the real thin/full SVD factor.
+    , singularValues :: [Double]
+    -- ^ Nonnegative real singular values in descending order.
+    , svdVT :: Matrix Double
+    -- ^ Transposed right singular-vector factor in A=U*diag(s)*VT.
+    }
     deriving (Eq, Show)
-data Eigen = Eigen {eigenvalues :: [Complex Double], eigenvectors :: Matrix (Complex Double)}
+
+{- | Complex eigenvalues with corresponding right eigenvector columns, including conjugate
+pairs from real input.
+-}
+data Eigen = Eigen
+    { eigenvalues :: [Complex Double]
+    -- ^ Complex eigenvalues matching eigenvector column order.
+    , eigenvectors :: Matrix (Complex Double)
+    -- ^ Right eigenvectors as complex matrix columns.
+    }
     deriving (Eq, Show)
 
 {- | Projective eigenvalues alpha/beta preserve infinite eigenvalues and
@@ -176,27 +195,60 @@ indeterminate singular pencils without dividing by a zero beta.
 -}
 data GeneralizedEigen = GeneralizedEigen
     { eigenAlpha :: [Complex Double]
+    -- ^ Generalized-eigenvalue numerators alpha; retain with beta to represent infinite eigenvalues.
     , eigenBeta :: [Double]
+    -- ^ Generalized-eigenvalue denominators beta; zero beta can represent an infinite eigenvalue.
     , generalizedEigenvectors :: Matrix (Complex Double)
+    -- ^ Right eigenvector columns satisfying beta*A*v=alpha*B*v.
     }
     deriving (Eq, Show)
 
-data Schur = Schur {schurQ :: Matrix Double, schurT :: Matrix Double, schurEigenvalues :: [Complex Double]}
-    deriving (Eq, Show)
-data QZ = QZ
-    { qzQ :: Matrix Double
-    , qzZ :: Matrix Double
-    , qzS :: Matrix Double
-    , qzT :: Matrix Double
-    , qzAlpha :: [Complex Double]
-    , qzBeta :: [Double]
+-- | Real Schur factors A=Q*T*transpose(Q), with quasi-triangular T and complex eigenvalues.
+data Schur = Schur
+    { schurQ :: Matrix Double
+    -- ^ Orthogonal basis in A=Q*T*transpose(Q).
+    , schurT :: Matrix Double
+    -- ^ Real quasi-upper-triangular Schur form, including 2-by-2 blocks for conjugate pairs.
+    , schurEigenvalues :: [Complex Double]
+    -- ^ Complex eigenvalues decoded from the real Schur form.
     }
     deriving (Eq, Show)
-data Hessenberg = Hessenberg {hessenbergQ :: Matrix Double, hessenbergH :: Matrix Double}
+
+{- | Generalized real Schur factors for a matrix pair, retaining alpha/beta eigenvalue
+representation to allow infinite eigenvalues.
+-}
+data QZ = QZ
+    { qzQ :: Matrix Double
+    -- ^ Left orthogonal QZ transform, with A=Q*S*transpose(Z).
+    , qzZ :: Matrix Double
+    -- ^ Right orthogonal QZ transform for both matrix factors.
+    , qzS :: Matrix Double
+    -- ^ First generalized real Schur factor S.
+    , qzT :: Matrix Double
+    -- ^ Second generalized real Schur factor T.
+    , qzAlpha :: [Complex Double]
+    -- ^ Generalized Schur eigenvalue numerators alpha.
+    , qzBeta :: [Double]
+    -- ^ Generalized Schur eigenvalue denominators beta; do not divide blindly when zero.
+    }
+    deriving (Eq, Show)
+
+-- | Orthogonal reduction A=Q*H*transpose(Q), with H upper Hessenberg.
+data Hessenberg = Hessenberg
+    { hessenbergQ :: Matrix Double
+    -- ^ Orthogonal transform in A=Q*H*transpose(Q).
+    , hessenbergH :: Matrix Double
+    -- ^ Upper Hessenberg form with zeros below the first subdiagonal.
+    }
     deriving (Eq, Show)
 
 -- | D^-1 A D = balancedMatrix. Scale-only balancing preserves index order.
-data Balance = Balance {balancedMatrix :: Matrix Double, balanceScales :: [Double]}
+data Balance = Balance
+    { balancedMatrix :: Matrix Double
+    -- ^ Matrix after LAPACK diagonal balancing.
+    , balanceScales :: [Double]
+    -- ^ Diagonal basis scaling factors used by the balancing transformation.
+    }
     deriving (Eq, Show)
 
 char :: Char -> CChar
@@ -246,6 +298,11 @@ square a
     (m, n) = shape a
 
 {-# NOINLINE svd #-}
+
+{- | Compute thin real SVD A=U*diag(s)*VT via LAPACK, with descending nonnegative singular
+values and k=min(m,n). Return m-by-k U and k-by-n VT. Invalid input, unavailable
+backend, allocation bounds or LAPACK failure returns Left MathError.
+-}
 svd :: Matrix Double -> Either MathError SVD
 svd a = do
     validate a
@@ -262,6 +319,7 @@ svd a = do
                 status "SVD" info
                 finiteValues (s ++ u ++ v)
                 SVD <$> fromListChecked m k u <*> pure s <*> fromListChecked k n v
+
 {-# NOINLINE fullSVD #-}
 
 -- | Full square U and V^T, including null-space completion.
@@ -286,6 +344,10 @@ fullSVD a = do
                         finiteValues (s ++ u ++ v)
                         SVD <$> fromListChecked m m u <*> pure s <*> fromListChecked n n v
 
+{- | Given retained rank k then real matrix, compute thin SVD and retain its first k
+components. Reject k outside the available rank dimensions; decomposition failures
+propagate.
+-}
 truncatedSVD :: Int -> Matrix Double -> Either MathError SVD
 truncatedSVD k a
     | k < 0 || k > min m n = Left (InvalidArgument "truncatedSVD: invalid rank")
@@ -345,6 +407,11 @@ complexVectors n imag values = build n n $ \i j ->
                 then values !! (i * n + j) :+ values !! (i * n + j + 1)
                 else values !! (i * n + j - 1) :+ negate (values !! (i * n + j))
 {-# NOINLINE eigen #-}
+
+{- | Compute complex eigenvalues and right eigenvectors of a finite real square matrix via
+LAPACK. Complex-conjugate pairs are decoded into complex columns. Invalid
+shape/backend/numeric failures return Left MathError.
+-}
 eigen :: Matrix Double -> Either MathError Eigen
 eigen a = do
     n <- square a
@@ -360,6 +427,7 @@ eigen a = do
                     status "eigen" info
                     finiteValues (re ++ im ++ vs)
                     Eigen (zipWith (:+) re im) <$> complexVectors n im vs
+
 {-# NOINLINE symmetricEigen #-}
 
 -- | Real symmetric eigensolver with orthonormal columns, sorted ascending.
@@ -384,6 +452,11 @@ symmetricEigen a = do
                             Eigen (map (:+ 0) ws) <$> fromListChecked n n (map (:+ 0) vs)
 
 {-# NOINLINE generalizedEigen #-}
+
+{- | Given equally sized square matrices A,B, compute generalized alpha/beta eigenvalue
+representation and right eigenvectors. Retain alpha/beta to represent infinite
+eigenvalues safely; invalid input or LAPACK failure propagates.
+-}
 generalizedEigen :: Matrix Double -> Matrix Double -> Either MathError GeneralizedEigen
 generalizedEigen a b = do
     n <- square a
@@ -404,7 +477,13 @@ generalizedEigen a b = do
                             status "generalizedEigen" info
                             finiteValues (re ++ im ++ be ++ vs)
                             GeneralizedEigen (zipWith (:+) re im) be <$> complexVectors n im vs
+
 {-# NOINLINE schur #-}
+
+{- | Compute real Schur form A=Q*T*transpose(Q), returning orthogonal Q,
+quasi-upper-triangular T and complex eigenvalues. Require finite square input and
+available LAPACK; failures return Left MathError.
+-}
 schur :: Matrix Double -> Either MathError Schur
 schur a = do
     n <- square a
@@ -421,7 +500,12 @@ schur a = do
                     status "Schur" info
                     finiteValues (re ++ im ++ qs ++ ts)
                     Schur <$> fromListChecked n n qs <*> fromListChecked n n ts <*> pure (zipWith (:+) re im)
+
 {-# NOINLINE qz #-}
+
+{- | Compute generalized real Schur factors for a finite square matrix pair A,B, retaining
+Q,Z,S,T and alpha/beta eigenvalues. Shape/backend/LAPACK errors return Left MathError.
+-}
 qz :: Matrix Double -> Matrix Double -> Either MathError QZ
 qz a b = do
     n <- square a
@@ -470,7 +554,12 @@ qz a b = do
                                 <*> fromListChecked n n ts
                                 <*> pure (zipWith (:+) re im)
                                 <*> pure be
+
 {-# NOINLINE hessenberg #-}
+
+{- | Reduce finite real square A to upper Hessenberg H with orthogonal Q, satisfying
+A=Q*H*transpose(Q). Invalid shape or backend/decomposition failures propagate.
+-}
 hessenberg :: Matrix Double -> Either MathError Hessenberg
 hessenberg a = do
     n <- square a
@@ -492,7 +581,13 @@ hessenberg a = do
                             n
                             [if i > j + 1 then 0 else hs !! (i * n + j) | i <- [0 .. n - 1], j <- [0 .. n - 1]]
                     Hessenberg <$> fromListChecked n n qs <*> pure h
+
 {-# NOINLINE balance #-}
+
+{- | Balance a real square matrix by diagonal scaling, returning the balanced matrix and
+scales needed to interpret its basis. Invalid finite-input/shape checks or LAPACK
+failures return Left MathError.
+-}
 balance :: Matrix Double -> Either MathError Balance
 balance a = do
     n <- square a
@@ -511,8 +606,11 @@ balance a = do
 -- | Complex128 thin SVD: A = U diag(s) V*, where complexVT already stores V*.
 data ComplexSVD = ComplexSVD
     { complexU :: Matrix (Complex Double)
+    -- ^ Complex left singular vectors as columns.
     , complexSingularValues :: [Double]
+    -- ^ Descending nonnegative real singular values of the complex matrix.
     , complexVT :: Matrix (Complex Double)
+    -- ^ Conjugate-transposed right singular vectors in complex SVD.
     }
     deriving (Eq, Show)
 
@@ -533,6 +631,11 @@ validateComplex a = do
         else
             finiteValues (complexParts (toList a))
 {-# NOINLINE complexSVD #-}
+
+{- | Compute thin complex SVD with conjugate-transposed right factor VT and real nonnegative
+singular values. Require finite complex entries and available LAPACK. Invalid storage
+sizes/backend/decomposition fails.
+-}
 complexSVD :: Matrix (Complex Double) -> Either MathError ComplexSVD
 complexSVD a = do
     validateComplex a
@@ -550,7 +653,13 @@ complexSVD a = do
                     status "complex SVD" info
                     finiteValues (ss ++ complexParts us ++ complexParts vs)
                     ComplexSVD <$> fromListChecked m k us <*> pure ss <*> fromListChecked k n vs
+
 {-# NOINLINE complexEigen #-}
+
+{- | Compute complex eigenvalues and right eigenvectors of a finite complex square matrix
+via LAPACK. Invalid shape, backend availability, bounds or decomposition errors return
+Left MathError.
+-}
 complexEigen :: Matrix (Complex Double) -> Either MathError Eigen
 complexEigen a = do
     validateComplex a

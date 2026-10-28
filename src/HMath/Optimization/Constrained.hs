@@ -27,9 +27,17 @@ import HMath.Error
 import HMath.Optimization.Common
 import HMath.Optimization.Local (QuasiNewton (BFGS), minimizeQuasiNewton)
 
+{- | Scalar Equality or LessEqual constraint over the parameter vector; inequality functions
+use the solver's \<=0 convention.
+-}
 data Constraint = Equality Objective Gradient | LessEqual Objective Gradient
+
+{- | Constrained-optimization strategy selecting quadratic penalty,log barrier,augmented
+Lagrangian,or interior-point treatment.
+-}
 data PenaltyMethod = QuadraticPenalty | LogBarrier | InteriorPoint | AugmentedLagrangian
     deriving (Eq, Show)
+
 constraintValues :: [Constraint] -> [Double] -> Either MathError [(Bool, Double, [Double])]
 constraintValues cs x = mapM value cs
   where
@@ -165,7 +173,19 @@ constrainedMinimize method o f g constraints x0 = do
                         Left e -> Left e
                         _ -> backtrack remaining (k + 1) (rate / 2) y gs x
 
-data LPResult = LPResult {lpPoint :: [Double], lpValue :: Double, lpBasis :: [Int], lpIterations :: Int}
+{- | Linear-program primal solution,objective value,retained basis indices,and iteration
+count.
+-}
+data LPResult = LPResult
+    { lpPoint :: [Double]
+    -- ^ Returned primal variable vector of the linear program.
+    , lpValue :: Double
+    -- ^ Objective value at the returned LP point.
+    , lpBasis :: [Int]
+    -- ^ Zero-based basis indices retained by the simplex solution.
+    , lpIterations :: Int
+    -- ^ Number of simplex iterations performed.
+    }
     deriving (Eq, Show)
 
 {- | Primal two-phase simplex with Bland entering/leaving rules. Tolerance is

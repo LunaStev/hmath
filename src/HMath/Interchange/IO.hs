@@ -181,8 +181,17 @@ foreign import ccall safe "hmath_interchange_map_read"
 -- | Scope-bound mapping; no pointer or borrowed ByteString is exposed.
 data MappedArray s = MappedArray RawSpec Int (MVar (Maybe (Ptr ())))
 
+{- | Return dimensions of a callback-scoped read-only mapped array. The region token
+prevents its raw view escaping withMappedArray.
+-}
 mappedShape :: MappedArray s -> [Int]
 mappedShape (MappedArray (RawSpec _ _ _ sh) _ _) = sh
+
+{- | Given limits,RawSpec,path,then rank-2 callback, map read-only raw data for that
+callback's lifetime and unmap on exit. Validate exact file size/spec/budgets;
+path/IO/format failures return InterchangeError. Do not retain borrowed pointers beyond
+the callback.
+-}
 withMappedArray ::
     Limits -> RawSpec -> FilePath -> (forall s. MappedArray s -> IO a) -> IO (Either InterchangeError a)
 withMappedArray lim spec path action = ioErrors $ case rawSize lim spec of

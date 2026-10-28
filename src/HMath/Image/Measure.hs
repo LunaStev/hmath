@@ -21,6 +21,9 @@ import HMath.Error
 import HMath.Image.Core
 import HMath.Image.Filter (scalar2D)
 
+{- | Template matching score: squared difference or normalized correlation. Interpret
+whether smaller/larger values are better according to the metric.
+-}
 data TemplateMetric = SquaredDifference | NormalizedCorrelation deriving (Eq, Show)
 
 {- | Valid 2D, one-channel matching. Each output is one template origin.
@@ -77,6 +80,10 @@ imageCentroid img = do
     col <- rawMoment 0 1 img >>= single . (/ mass)
     Right (row, col)
 
+{- | Given row exponent p,column exponent q,then scalar 2D image, compute the unnormalized
+intensity-weighted central moment around its centroid. Require orders in [0,8]; invalid
+image/zero mass or non-finite result fails.
+-}
 centralMoment :: Int -> Int -> Image -> Either MathError Double
 centralMoment p q img = do
     (height, width) <- scalar2D img
@@ -119,6 +126,10 @@ integralImage img = do
                 ]
     build [height + 1, width + 1] nc (\ix c -> values ! (ix !! 0, ix !! 1, c))
 
+{- | Given (row,column) origin,(height,width) extent,then padded integralImage output,
+return per-channel sum of the half-open rectangle. Reject invalid/out-of-range bounds;
+zero extents are allowed.
+-}
 rectangleSum :: (Int, Int) -> (Int, Int) -> Image -> Either MathError [Double]
 rectangleSum (row, col) (height, width) summed = do
     require
@@ -144,6 +155,10 @@ same a b =
     require
         (imageShape a == imageShape b && imageChannels a == imageChannels b)
         "comparison shape mismatch"
+
+{- | Given two images of equal spatial shape and channels, return average squared sample
+difference. Shape mismatch or non-finite arithmetic returns Left MathError.
+-}
 meanSquaredError :: Image -> Image -> Either MathError Double
 meanSquaredError a b = do
     same a b

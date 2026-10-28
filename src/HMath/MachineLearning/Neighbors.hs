@@ -76,7 +76,17 @@ buildIndex kind leafSize xs = do
     transposeLocal [] = []
     transposeLocal rows' = let d = length (firstRow rows') in [[r !! j | r <- rows'] | j <- [0 .. d - 1]]
 
-data NeighborResult = NeighborResult {neighbors :: [(Int, Double)], visitedLeaves :: Int, exhaustive :: Bool}
+{- | Neighbor indices/distances plus visited-leaf and exhaustive-search diagnostics.
+Budget-limited candidates are explicitly marked approximate.
+-}
+data NeighborResult = NeighborResult
+    { neighbors :: [(Int, Double)]
+    -- ^ Training-row indices paired with returned Euclidean distances, ordered by distance and then index.
+    , visitedLeaves :: Int
+    -- ^ Number of leaves visited against the explicit query budget.
+    , exhaustive :: Bool
+    -- ^ True if the neighbor search completed its exact stopping condition; False if unexplored nodes may improve candidates.
+    }
     deriving (Eq, Show)
 
 {- | maxLeaves is a query work budget. A False exhaustive flag means unexplored

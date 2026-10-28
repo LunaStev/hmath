@@ -140,6 +140,10 @@ parseValues lim dt en sh ss = do
                 then Left (InvalidData "float32 overflow")
                 else Right y
     complexChecked (a :+ b) = (:+) <$> floatChecked a <*> floatChecked b
+
+{- | Given limits then Array, encode self-describing HMath text with dtype/shape and scalar
+tokens. Invalid/unsupported values or output exceeding limits returns InterchangeError.
+-}
 encodeText :: Limits -> Array -> Either InterchangeError B.ByteString
 encodeText lim a = do
     values <- valueTokens a
@@ -158,6 +162,10 @@ encodeText lim a = do
             ++ "\n"
             ++ unlines values
         )
+
+{- | Given limits then HMath text bytes, parse dtype/shape/tokens and return a checked
+Array. Invalid ASCII/header/value counts or exceeded budgets fail.
+-}
 decodeText :: Limits -> B.ByteString -> Either InterchangeError Array
 decodeText lim bs = do
     s <- ascii lim bs
@@ -181,6 +189,11 @@ decodeText lim bs = do
         _ -> Left (InvalidData "empty text")
   where
     (>=>) f g x = f x >>= g
+
+{- | Given limits,comma or tab separator,then rank-two noncomplex Array, encode CSV/TSV
+numeric cells. No shape/dtype metadata is embedded; unsupported input/separator or
+output bounds fail.
+-}
 encodeDelimited :: Limits -> Char -> Array -> Either InterchangeError B.ByteString
 encodeDelimited lim separator a = do
     guardI (separator == ',' || separator == '\t') (InvalidData "separator must be comma or tab")
@@ -197,6 +210,11 @@ encodeDelimited lim separator a = do
                 rows xs = let (row, rest) = splitAt c xs in row : rows rest
             output lim (concatMap ((++ "\n") . intercalate [separator]) (rows values))
         _ -> Left (InvalidData "CSV requires rank two")
+
+{- | Given limits,comma/tab separator,target DType,then CSV/TSV bytes, parse rectangular
+real numeric cells to a rank-two Array. Complex dtype, malformed rows/tokens or
+exceeded budgets fail.
+-}
 decodeDelimited :: Limits -> Char -> DType -> B.ByteString -> Either InterchangeError Array
 decodeDelimited lim separator dt bs = do
     guardI (separator == ',' || separator == '\t') (InvalidData "separator must be comma or tab")

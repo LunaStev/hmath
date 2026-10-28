@@ -88,13 +88,40 @@ sinChecked
     , acosChecked
     , atanChecked ::
         (RealFloat a) => a -> Either MathError a
+
+{- | Sine of a radian argument. Return Right result for finite input in the stated domain;
+invalid input/poles or non-finite output return Left MathError.
+-}
 sinChecked = checked sin
+
+{- | Cosine of a radian argument. Return Right result for finite input in the stated domain;
+invalid input/poles or non-finite output return Left MathError.
+-}
 cosChecked = checked cos
+
+{- | Tangent of a radian argument; represented poles at odd pi/2 are rejected. Return Right
+result for finite input in the stated domain; invalid input/poles or non-finite output
+return Left MathError.
+-}
 tanChecked x = do
     a <- normalizeSignedAngle x
     if abs a == pi / 2 then Left (DomainError "tangent pole") else checked tan x
+
+{- | Principal inverse sine in [-pi/2,pi/2]; require abs(x)\<=1. Return Right result for
+finite input in the stated domain; invalid input/poles or non-finite output return Left
+MathError.
+-}
 asinChecked = restricted (\x -> abs x <= 1) "asin needs abs x <= 1" asin
+
+{- | Principal inverse cosine in [0,pi]; require abs(x)\<=1. Return Right result for finite
+input in the stated domain; invalid input/poles or non-finite output return Left
+MathError.
+-}
 acosChecked = restricted (\x -> abs x <= 1) "acos needs abs x <= 1" acos
+
+{- | Principal inverse tangent in (-pi/2,pi/2). Return Right result for finite input in the
+stated domain; invalid input/poles or non-finite output return Left MathError.
+-}
 atanChecked = checked atan
 
 -- | Conventional atan2(y,x), range [-pi,pi]. Rejects the undefined origin.
@@ -104,18 +131,48 @@ atan2Checked y x
     | otherwise = Right (atan2 y x)
 
 sec, csc, cot, asec, acsc, acot :: (RealFloat a) => a -> Either MathError a
+
+{- | Secant 1/cos(x) in radians; represented odd-pi/2 poles fail. Return Right result for
+finite input in the stated domain; invalid input/poles or non-finite output return Left
+MathError.
+-}
 sec x = do
     a <- normalizeSignedAngle x
     if abs a == pi / 2 then Left (DomainError "secant pole") else checked (\v -> 1 / cos v) x
+
+{- | Cosecant 1/sin(x) in radians; represented multiples of pi fail. Return Right result for
+finite input in the stated domain; invalid input/poles or non-finite output return Left
+MathError.
+-}
 csc x = do
     a <- wrap 0 pi x
     if a == 0 then Left (DomainError "cosecant pole") else checked (\v -> 1 / sin v) x
+
+{- | Cotangent cos(x)/sin(x) in radians; represented multiples of pi fail. Return Right
+result for finite input in the stated domain; invalid input/poles or non-finite output
+return Left MathError.
+-}
 cot x = do
     a <- wrap 0 pi x
     if a == 0 then Left (DomainError "cotangent pole") else checked (\v -> cos v / sin v) x
+
+{- | Principal inverse secant acos(1/x); require abs(x)>=1. Return Right result for finite
+input in the stated domain; invalid input/poles or non-finite output return Left
+MathError.
+-}
 asec = restricted (\x -> abs x >= 1) "asec needs abs x >= 1" (acos . recip)
+
+{- | Principal inverse cosecant asin(1/x); require abs(x)>=1. Return Right result for finite
+input in the stated domain; invalid input/poles or non-finite output return Left
+MathError.
+-}
 acsc = restricted (\x -> abs x >= 1) "acsc needs abs x >= 1" (asin . recip)
+
+{- | Inverse cotangent atan2(1,x), with range (0,pi). Return Right result for finite input
+in the stated domain; invalid input/poles or non-finite output return Left MathError.
+-}
 acot = checked (atan2 1)
+
 sinhChecked
     , coshChecked
     , tanhChecked
@@ -123,32 +180,89 @@ sinhChecked
     , acoshChecked
     , atanhChecked ::
         (RealFloat a) => a -> Either MathError a
+
+{- | Hyperbolic sine. Return Right result for finite input in the stated domain; invalid
+input/poles or non-finite output return Left MathError.
+-}
 sinhChecked = checked sinh
+
+{- | Hyperbolic cosine. Return Right result for finite input in the stated domain; invalid
+input/poles or non-finite output return Left MathError.
+-}
 coshChecked = checked cosh
+
+{- | Hyperbolic tangent. Return Right result for finite input in the stated domain; invalid
+input/poles or non-finite output return Left MathError.
+-}
 tanhChecked = checked tanh
+
+{- | Inverse hyperbolic sine. Return Right result for finite input in the stated domain;
+invalid input/poles or non-finite output return Left MathError.
+-}
 asinhChecked = checked asinh
+
+{- | Principal real inverse hyperbolic cosine; require x>=1. Return Right result for finite
+input in the stated domain; invalid input/poles or non-finite output return Left
+MathError.
+-}
 acoshChecked = restricted (>= 1) "acosh needs x >= 1" acosh
+
+{- | Inverse hyperbolic tangent; require abs(x)\<1. Return Right result for finite input in
+the stated domain; invalid input/poles or non-finite output return Left MathError.
+-}
 atanhChecked = restricted (\x -> abs x < 1) "atanh needs abs x < 1" atanh
+
 sech, csch, coth, asech, acsch, acoth :: (RealFloat a) => a -> Either MathError a
+
 -- exponential formulas avoid overflowing cosh/sinh for large finite arguments.
+
+{- | Hyperbolic secant 1/cosh(x), using a scaled exponential formula for large arguments.
+Return Right result for finite input in the stated domain; invalid input/poles or
+non-finite output return Left MathError.
+-}
 sech = checked (\x -> let e = exp (-abs x) in 2 * e / (1 + e * e))
+
+{- | Hyperbolic cosecant 1/sinh(x); reject zero. Return Right result for finite input in the
+stated domain; invalid input/poles or non-finite output return Left MathError.
+-}
 csch =
     restricted
         (/= 0)
         "csch pole"
         (\x -> if abs x < 1 then 1 / sinh x else let e = exp (-abs x) in signum x * 2 * e / (1 - e * e))
+
+{- | Hyperbolic cotangent 1/tanh(x); reject zero. Return Right result for finite input in
+the stated domain; invalid input/poles or non-finite output return Left MathError.
+-}
 coth = restricted (/= 0) "coth pole" (recip . tanh)
+
+{- | Inverse hyperbolic secant; require 0\<x\<=1. Return Right result for finite input in the
+stated domain; invalid input/poles or non-finite output return Left MathError.
+-}
 asech =
     restricted
         (\x -> x > 0 && x <= 1)
         "asech needs 0 < x <= 1"
         (\x -> log (1 + sqrt (1 - x * x)) - log x)
+
+{- | Inverse hyperbolic cosecant; reject zero and use a log formula near zero. Return Right
+result for finite input in the stated domain; invalid input/poles or non-finite output
+return Left MathError.
+-}
 acsch =
     restricted
         (/= 0)
         "acsch needs x /= 0"
         (\x -> if abs x < 1e-15 then signum x * (log 2 - log (abs x)) else asinh (1 / x))
+
+{- | Inverse hyperbolic cotangent; require abs(x)>1. Return Right result for finite input in
+the stated domain; invalid input/poles or non-finite output return Left MathError.
+-}
 acoth = restricted (\x -> abs x > 1) "acoth needs abs x > 1" (atanh . recip)
+
+{- | Given a finite radian angle, return Right (sin x,cos x), propagating checked
+input/result failures. Example: sincos 0 == Right (0,1).
+-}
 sincos :: (RealFloat a) => a -> Either MathError (a, a)
 sincos x = do s <- sinChecked x; c <- cosChecked x; Right (s, c)
 
@@ -169,15 +283,42 @@ wrap lo hi x
          in Right (if r >= hi then lo else max lo r)
 
 normalizeAngle, normalizeSignedAngle :: (RealFloat a) => a -> Either MathError a
+
+{- | Wrap a finite radian angle into [0,2*pi). Non-finite input fails. Reduction uses the
+represented period; no exact huge-angle reduction against irrational pi is promised.
+-}
 normalizeAngle = wrap 0 (2 * pi)
+
+{- | Wrap a finite radian angle into [-pi,pi). Non-finite input fails. The positive endpoint
+pi wraps to -pi.
+-}
 normalizeSignedAngle = wrap (-pi) pi
+
+{- | Given angles a then b, return the signed wrapped difference a-b in [-pi,pi). Reject
+non-finite input. Normalize operands first to avoid avoidable subtraction overflow.
+-}
 angleDifference :: (RealFloat a) => a -> a -> Either MathError a
 angleDifference a b
     | not (all finite [a, b]) = Left (DomainError "non-finite angle")
     | otherwise = do x <- normalizeSignedAngle a; y <- normalizeSignedAngle b; normalizeSignedAngle (x - y)
+
 versine, haversine, sinc, cosc :: (RealFloat a) => a -> Either MathError a
+
+{- | Versine 1-cos(x), evaluated as 2*sin(x/2)^2 for a radian input. Return Right result for
+finite input in the stated domain; invalid input/poles or non-finite output return Left
+MathError.
+-}
 versine = checked (\x -> 2 * sin (x / 2) ^ (2 :: Int))
+
+{- | Haversine sin(x/2)^2 for a radian input. Return Right result for finite input in the
+stated domain; invalid input/poles or non-finite output return Left MathError.
+-}
 haversine = checked (\x -> sin (x / 2) ^ (2 :: Int))
+
+{- | Unnormalized sinc sin(x)/x for radians, with continuous value 1 at zero. Return Right
+result for finite input in the stated domain; invalid input/poles or non-finite output
+return Left MathError.
+-}
 sinc x
     | x == 0 = Right 1
     | otherwise = checked (\v -> sin v / v) x
@@ -198,6 +339,10 @@ greatCircleAngle (lat1, lon1) (lat2, lon2)
             h = max 0 (min 1 a)
         Right (2 * atan2 (sqrt h) (sqrt (1 - h)))
 
+{- | Given finite nonnegative sphere radius and two (latitude,longitude) radian pairs,
+return radius times the central angle. Reject invalid latitude, non-finite input, or
+result overflow. Distance uses the radius units.
+-}
 greatCircleDistance :: (RealFloat a) => a -> (a, a) -> (a, a) -> Either MathError a
 greatCircleDistance radius a b
     | not (finite radius) || radius < 0 = Left (DomainError "invalid sphere radius")
@@ -225,9 +370,16 @@ sphericalAngles a b c
   where
     angle x y z = acos (max (-1) (min 1 ((cos x - cos y * cos z) / (sin y * sin z))))
 
+{- | Given three side angles of a nondegenerate minor spherical triangle, compute
+interior-angle sum minus pi. Side/domain errors propagate from sphericalAngles.
+Multiply by radius squared for area.
+-}
 sphericalExcess :: (RealFloat a) => a -> a -> a -> Either MathError a
 sphericalExcess a b c = do (x, y, z) <- sphericalAngles a b c; Right (x + y + z - pi)
 
+{- | Checked complex trigonometric/hyperbolic principal-branch function selector,including
+reciprocal secant/cosecant/cotangent variants.
+-}
 data ComplexFunction
     = CSin
     | CCos
@@ -248,6 +400,11 @@ data ComplexFunction
     | CCsch
     | CCoth
     deriving (Eq, Show)
+
+{- | Given a ComplexFunction selector then complex input, compute the selected
+principal-branch Data.Complex function or reciprocal. Reject non-finite components and
+non-finite results/poles with Left DomainError.
+-}
 complexFunction :: (RealFloat a) => ComplexFunction -> Complex a -> Either MathError (Complex a)
 complexFunction name z
     | not (finite (realPart z) && finite (imagPart z)) =
@@ -275,6 +432,7 @@ complexFunction name z
         CSech -> 1 / cosh z
         CCsch -> 1 / sinh z
         CCoth -> cosh z / sinh z
+
 complexSin
     , complexCos
     , complexTan
@@ -288,17 +446,77 @@ complexSin
     , complexAcosh
     , complexAtanh ::
         (RealFloat a) => Complex a -> Either MathError (Complex a)
+
+{- | Principal complex sine, dispatched through complexFunction. Return Right complex
+result; non-finite input components or a pole/overflow producing non-finite components
+return Left DomainError. Angles use radians.
+-}
 complexSin = complexFunction CSin
+
+{- | Principal complex cosine, dispatched through complexFunction. Return Right complex
+result; non-finite input components or a pole/overflow producing non-finite components
+return Left DomainError. Angles use radians.
+-}
 complexCos = complexFunction CCos
+
+{- | Principal complex tangent, dispatched through complexFunction. Return Right complex
+result; non-finite input components or a pole/overflow producing non-finite components
+return Left DomainError. Angles use radians.
+-}
 complexTan = complexFunction CTan
+
+{- | Principal complex inverse sine, dispatched through complexFunction. Return Right
+complex result; non-finite input components or a pole/overflow producing non-finite
+components return Left DomainError. Angles use radians.
+-}
 complexAsin = complexFunction CAsin
+
+{- | Principal complex inverse cosine, dispatched through complexFunction. Return Right
+complex result; non-finite input components or a pole/overflow producing non-finite
+components return Left DomainError. Angles use radians.
+-}
 complexAcos = complexFunction CAcos
+
+{- | Principal complex inverse tangent, dispatched through complexFunction. Return Right
+complex result; non-finite input components or a pole/overflow producing non-finite
+components return Left DomainError. Angles use radians.
+-}
 complexAtan = complexFunction CAtan
+
+{- | Principal complex hyperbolic sine, dispatched through complexFunction. Return Right
+complex result; non-finite input components or a pole/overflow producing non-finite
+components return Left DomainError. Angles use radians.
+-}
 complexSinh = complexFunction CSinh
+
+{- | Principal complex hyperbolic cosine, dispatched through complexFunction. Return Right
+complex result; non-finite input components or a pole/overflow producing non-finite
+components return Left DomainError. Angles use radians.
+-}
 complexCosh = complexFunction CCosh
+
+{- | Principal complex hyperbolic tangent, dispatched through complexFunction. Return Right
+complex result; non-finite input components or a pole/overflow producing non-finite
+components return Left DomainError. Angles use radians.
+-}
 complexTanh = complexFunction CTanh
+
+{- | Principal complex inverse hyperbolic sine, dispatched through complexFunction. Return
+Right complex result; non-finite input components or a pole/overflow producing
+non-finite components return Left DomainError. Angles use radians.
+-}
 complexAsinh = complexFunction CAsinh
+
+{- | Principal complex inverse hyperbolic cosine, dispatched through complexFunction. Return
+Right complex result; non-finite input components or a pole/overflow producing
+non-finite components return Left DomainError. Angles use radians.
+-}
 complexAcosh = complexFunction CAcosh
+
+{- | Principal complex inverse hyperbolic tangent, dispatched through complexFunction.
+Return Right complex result; non-finite input components or a pole/overflow producing
+non-finite components return Left DomainError. Angles use radians.
+-}
 complexAtanh = complexFunction CAtanh
 
 {- | Unit-amplitude periodic waves. Period must be positive and finite. Square

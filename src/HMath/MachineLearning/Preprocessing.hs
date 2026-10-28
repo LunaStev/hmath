@@ -233,7 +233,13 @@ oneHotEncode policy (Encoder levels) xs = do
     Right [[if x == c then 1 else 0 | c <- levels] | x <- xs]
 
 -- | Disjoint indices into the original dataset. No estimator is fitted here.
-data Fold = Fold {trainingIndices :: [Int], validationIndices :: [Int]} deriving (Eq, Show)
+data Fold = Fold
+    { trainingIndices :: [Int]
+    -- ^ Zero-based original row indices assigned to training in this fold.
+    , validationIndices :: [Int]
+    -- ^ Zero-based original row indices held out for validation in this fold.
+    }
+    deriving (Eq, Show)
 
 permutation :: Word64 -> Int -> [Int]
 permutation seed n = map snd (sortOn fst (zip (take n (stream (R.seedRNG R.PCG32 seed))) [0 .. n - 1]))

@@ -65,11 +65,29 @@ bound cmp x xs = go 0 (length xs)
       where
         mid = lo + (hi - lo) `div` 2
 lowerBound, upperBound :: (Ord a) => a -> [a] -> Either MathError Int
+
+{- | Given a target and ascending list, return the first zero-based insertion index whose
+value is >= target, or length at the end. Reject unsorted input. Validation is O(n).
+Example: lowerBound 2 [1,2,2,4] == Right 1.
+-}
 lowerBound x xs = ordered xs >> pure (bound (<) x xs)
+
+{- | Given a target and ascending list, return the first insertion index whose value is >
+target. Reject unsorted input. Example: upperBound 2 [1,2,2,4] == Right 3.
+-}
 upperBound x xs = ordered xs >> pure (bound (<=) x xs)
+
+{- | Given target and ascending list, return Just the first matching zero-based index or
+Nothing if absent. Reject unsorted input. Example: binarySearch 2 [1,2,2] == Right
+(Just 1).
+-}
 binarySearch :: (Ord a) => a -> [a] -> Either MathError (Maybe Int)
 binarySearch x xs = do i <- lowerBound x xs; pure (if i < length xs && xs !! i == x then Just i else Nothing)
 
+{- | Search ascending Integer values using value-based interpolation, returning the first
+matching index or Nothing. Reject unsorted input. Example: interpolationSearch 20
+[10,20,30] == Right (Just 1).
+-}
 interpolationSearch :: Integer -> [Integer] -> Either MathError (Maybe Int)
 interpolationSearch x xs = do ordered xs; pure (go 0 (length xs - 1))
   where
@@ -82,6 +100,11 @@ interpolationSearch x xs = do ordered xs; pure (go 0 (length xs - 1))
         | otherwise = go lo (p - 1)
       where
         p = lo + fromInteger ((x - a ! lo) * toInteger (hi - lo) `div` (a ! hi - a ! lo))
+
+{- | Given a target and ascending finite list, grow a search range then find a matching
+index or Nothing. Reject unsorted input. The implementation returns a matching index
+without a general first-duplicate guarantee.
+-}
 exponentialSearch :: (Ord a) => a -> [a] -> Either MathError (Maybe Int)
 exponentialSearch x xs = do
     ordered xs
@@ -120,14 +143,28 @@ select depth k xs
   where
     p = xs !! (length xs `div` 2); lo = filter (< p) xs; eq = filter (== p) xs; hi = filter (> p) xs
 quickselect, introselect :: (Ord a) => Int -> [a] -> Either MathError a
+
+{- | Given a zero-based order-statistic index and list, return the element at that position
+in ascending order without returning a sorted list. Reject negative/out-of-range
+indices. Example: quickselect 1 [9,1,5] == Right 5.
+-}
 quickselect k xs
     | k < 0 || k >= length xs = Left (InvalidArgument "selection index out of bounds")
     | otherwise = Right (select (length xs) k xs)
+
+{- | Like quickselect, but bound pivot depth and fall back to heap sorting. Index must lie
+in [0,length). Example: introselect 0 [3,2,1] == Right 1.
+-}
 introselect k xs
     | k < 0 || k >= length xs = Left (InvalidArgument "selection index out of bounds")
     | otherwise = Right (select (2 * log2 (length xs)) k xs)
+
 log2 :: Int -> Int
 log2 n | n <= 1 = 0 | otherwise = 1 + log2 (n `div` 2)
+
+{- | Given k in [0,length] and a list, return the k smallest values in ascending order,
+retaining duplicates. Invalid k fails. Example: partialSort 2 [5,1,3] == Right [1,3].
+-}
 partialSort :: (Ord a) => Int -> [a] -> Either MathError [a]
 partialSort k xs
     | k < 0 || k > length xs = Left (InvalidArgument "partial-sort size out of bounds")
@@ -136,6 +173,10 @@ partialSort k xs
         p <- introselect (k - 1) xs
         let lo = filter (< p) xs
         pure (mergeSort lo ++ take (k - length lo) (filter (== p) xs))
+
+{- | Stable ascending merge sort under a lawful total Ord; accepts empty lists. Return a new
+sorted list. Example: mergeSort [3,1,2] == [1,2,3].
+-}
 mergeSort :: (Ord a) => [a] -> [a]
 mergeSort [] = []
 mergeSort [x] = [x]
@@ -145,6 +186,10 @@ mergeSort xs = merge (mergeSort a) (mergeSort b)
     merge [] ys = ys
     merge ys [] = ys
     merge aa@(u : us) bb@(v : vs) | u <= v = u : merge us bb | otherwise = v : merge aa vs
+
+{- | Ascending reference quicksort preserving equal values, using the head as pivot.
+Worst-case quadratic work; accepts empty lists. Example: quicksort [2,1,2] == [1,2,2].
+-}
 quicksort :: (Ord a) => [a] -> [a]
 quicksort [] = []
 quicksort (p : xs) = quicksort (filter (< p) xs) ++ (p : filter (== p) xs) ++ quicksort (filter (> p) xs)
@@ -169,6 +214,10 @@ heapsort xs = elems (extract (n - 1) built)
     built = Foldable.foldl' (\ar i -> sift ar n i) a [n `div` 2 - 1, n `div` 2 - 2 .. 0]
     extract i ar | i <= 0 = ar | otherwise = extract (i - 1) (sift (swap ar 0 i) i 0)
 
+{- | Ascending comparison sort with bounded quickselect-style partition depth and heap-sort
+fallback. Return a new sorted list; requires a lawful total Ord. Example: introsort
+[3,1,2] == [1,2,3].
+-}
 introsort :: (Ord a) => [a] -> [a]
 introsort xs = go (2 * log2 (length xs)) xs
   where
@@ -177,6 +226,11 @@ introsort xs = go (2 * log2 (length xs)) xs
     go d ys =
         let p = ys !! (length ys `div` 2)
          in go (d - 1) (filter (< p) ys) ++ filter (== p) ys ++ go (d - 1) (filter (> p) ys)
+
+{- | Given a nonnegative value-range budget then an Int list, return ascending counting
+sort. Reject a negative budget or a range max-min+1 exceeding it (NonConvergence);
+empty input succeeds. Example: countingSort 5 [3,1,3] == Right [1,3,3].
+-}
 countingSort :: Int -> [Int] -> Either MathError [Int]
 countingSort budget xs
     | budget < 0 = Left (InvalidArgument "negative counting-sort range budget")
@@ -186,6 +240,10 @@ countingSort budget xs
     | otherwise = Right (concat [replicate (M.findWithDefault 0 x counts) x | x <- [lo .. hi]])
   where
     lo = minimum xs; hi = maximum xs; counts = M.fromListWith (+) [(x, 1) | x <- xs]
+
+{- | Sort unbounded Integers in ascending order by radix digits, separating negative and
+nonnegative magnitudes. Accepts empty input. Example: radixSort [2,-3,0] == [-3,0,2].
+-}
 radixSort :: [Integer] -> [Integer]
 radixSort [] = []
 radixSort xs = map (+ lo) (go 1 shifted)
@@ -196,6 +254,11 @@ radixSort xs = map (+ lo) (go 1 shifted)
     go p ys
         | p > hi = ys
         | otherwise = go (p * 256) (concat [[x | x <- ys, (x `div` p) `mod` 256 == d] | d <- [0 .. 255]])
+
+{- | Given bucket count in [1,65536] and finite Doubles in [0,1], sort ascending using
+buckets and merge sort. Invalid count/data fail. Example: bucketSort 4 [1,0.5,0] ==
+Right [0,0.5,1].
+-}
 bucketSort :: Int -> [Double] -> Either MathError [Double]
 bucketSort buckets xs
     | buckets <= 0 || buckets > 65536 = Left (InvalidArgument "bucket count must be in [1,65536]")
@@ -204,10 +267,23 @@ bucketSort buckets xs
     | otherwise = Right (concat [mergeSort [x | x <- xs, index x == i] | i <- [0 .. buckets - 1]])
   where
     index x = min (buckets - 1) (floor (x * fromIntegral buckets))
+
+{- | Return original zero-based indices in stable ascending value order. Example: argsort
+[3,1,1] == [1,2,0]. No values are discarded.
+-}
 argsort :: (Ord a) => [a] -> [Int]
 argsort = map snd . mergeSort . flip zip [0 ..]
+
+{- | Alias of partialSort: return the k smallest values in ascending order, not the k
+largest. k outside [0,length] fails. Example: topK 2 [5,1,3] == Right [1,3].
+-}
 topK :: (Ord a) => Int -> [a] -> Either MathError [a]
 topK = partialSort
+
+{- | Given finite q in [0,1] and a nonempty finite Double list, linearly interpolate the
+ascending order statistics at q*(n-1). Invalid data fail. Example: quantileSelect 0.5
+[1,3] == Right 2.
+-}
 quantileSelect :: Double -> [Double] -> Either MathError Double
 quantileSelect q xs
     | null xs || q < 0 || q > 1 || any (\x -> isNaN x || isInfinite x) (q : xs) =
@@ -215,23 +291,61 @@ quantileSelect q xs
     | otherwise = do a <- introselect lo xs; b <- introselect hi xs; pure ((1 - t) * a + t * b)
   where
     p = q * fromIntegral (length xs - 1); lo = floor p; hi = ceiling p; t = p - fromIntegral lo
+
+{- | Sort ascending and keep one representative of each equal value. Input order is not
+preserved. Example: deduplicate [3,1,3] == [1,3].
+-}
 deduplicate :: (Ord a) => [a] -> [a]
 deduplicate xs = [x | x : _ <- group (mergeSort xs)]
+
+{- | Sort ascending and return each distinct value paired with its frequency. Example:
+numericGroups [2,1,2] == [(1,1),(2,2)].
+-}
 numericGroups :: (Ord a) => [a] -> [(a, Int)]
 numericGroups xs = [(x, length g) | g@(x : _) <- group (mergeSort xs)]
+
+{- | Encode adjacent equal runs as (value,count), preserving run order without sorting.
+Example: runLengthEncode [1,1,2,1] == [(1,2),(2,1),(1,1)].
+-}
 runLengthEncode :: (Eq a) => [a] -> [(a, Int)]
 runLengthEncode xs = [(x, length g) | g@(x : _) <- group xs]
+
+{- | Given maximum output length then (value,count) runs, expand runs. Negative budget/count
+fails; output beyond the budget returns NonConvergence before allocation. Zero-length
+runs are allowed.
+-}
 runLengthDecode :: Int -> [(a, Int)] -> Either MathError [a]
 runLengthDecode b runs
     | b < 0 || any ((< 0) . snd) runs = Left (InvalidArgument "negative RLE size")
     | sum (map (toInteger . snd) runs) > toInteger b = Left (NonConvergence "RLE output" b)
     | otherwise = Right (concatMap (uncurry (flip replicate)) runs)
+
 prefixSums, suffixSums, differenceArray, applyDifferences :: (Num a) => [a] -> [a]
+
+{- | Return cumulative sums including a leading zero; output length is n+1. Arithmetic
+follows Num. Example: prefixSums [1,2] == [0,1,3].
+-}
 prefixSums = scanl (+) 0
+
+{- | Return suffix sums including a final zero; output length is n+1. Example: suffixSums
+[1,2] == [3,2,0].
+-}
 suffixSums = scanr (+) 0
+
+{- | Return first differences relative to a leading zero, preserving length. Empty input
+gives empty output. Example: differenceArray [2,5,9] == [2,3,4].
+-}
 differenceArray [] = []
 differenceArray xs = zipWith (-) xs (0 : xs)
+
+{- | Reconstruct values from first differences by inclusive cumulative sum. Example:
+applyDifferences [2,3,4] == [2,5,9].
+-}
 applyDifferences = drop 1 . prefixSums
+
+{- | Return sorted unique keys and zero-based ranks for the original input order. Example:
+coordinateCompression [8,2,8] == ([2,8],[1,0,1]).
+-}
 coordinateCompression :: (Ord a) => [a] -> ([a], [Int])
 coordinateCompression xs = (keys, map (\x -> table M.! x) xs)
   where
@@ -318,6 +432,10 @@ binaryLift next steps start
   where
     go _ 0 x = x; go table k x = go (map (table !!) table) (k `div` 2) (if odd k then table !! x else x)
 
+{- | Given square Integer rows and a nonnegative exponent, return exact matrix
+exponentiation by squaring; exponent zero returns identity. Reject ragged/non-square
+matrices, order >128, or negative exponent.
+-}
 integerMatrixPower :: [[Integer]] -> Integer -> Either MathError [[Integer]]
 integerMatrixPower a powerIndex
     | powerIndex < 0 || length a > 128 || any ((/= n) . length) a =
@@ -329,6 +447,10 @@ integerMatrixPower a powerIndex
     mul x y = [[sum [x !! i !! k * y !! k !! j | k <- [0 .. n - 1]] | j <- [0 .. n - 1]] | i <- [0 .. n - 1]]
     go _ 0 r = r
     go x k r = go (mul x x) (k `div` 2) (if odd k then mul r x else r)
+
+{- | Given base, modulus >1, then Integer sequence, fold h=(h*base+x) mod modulus from zero.
+Invalid modulus fails. This is noncryptographic and collisions are possible.
+-}
 polynomialHash :: Integer -> Integer -> [Integer] -> Either MathError Integer
 polynomialHash base modulus xs
     | modulus <= 1 = Left (InvalidArgument "hash modulus must exceed one")
