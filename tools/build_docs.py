@@ -7,6 +7,7 @@ import subprocess
 import sys
 from pathlib import Path
 
+import tomllib
 import yaml
 from check_api_docs import check_reference, read_haddock
 from haskell_reference import generate_reference, repair_module_anchors
@@ -49,6 +50,9 @@ staging = root / "build-docs/site-src"
 if staging.exists():
     shutil.rmtree(staging)
 shutil.copytree(root / "docs", staging)
+version = tomllib.loads((root / "pyproject.toml").read_text())["project"]["version"]
+for page in staging.rglob("*.md"):
+    page.write_text(page.read_text().replace("@HMATH_VERSION@", version))
 config = yaml.safe_load((root / "mkdocs.yml").read_text())
 config["docs_dir"] = str(staging)
 config["site_dir"] = str(root / "site")

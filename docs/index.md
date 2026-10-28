@@ -7,6 +7,9 @@ Start with [installation](getting-started/installation.md), then follow
 [your first calculation](getting-started/first-calculation.md). Use the
 [Python reference](reference/python.md) to look up individual operations.
 
+[Choose an operation](getting-started/choose-an-operation.md) to find the
+right interface and function for your calculation.
+
 ## Choose an interface
 
 | Interface | Scope | Entry point |
@@ -26,6 +29,6 @@ being available in Haskell does not imply that a Python wrapper exists.
 - **Reference** describes signatures, results, constraints, and errors.
 - **Explanation** describes architecture, ownership, and compatibility.
 
-This documentation accompanies HMath 1.0.1. Linux x86-64 is the supported
+This documentation accompanies HMath @HMATH_VERSION@. Linux x86-64 is the supported
 binary distribution target. See [release compatibility](explanation/releases.md)
 for Python versions, ABI compatibility, and the 1.0.0 installation defect.

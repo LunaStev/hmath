@@ -22,7 +22,8 @@ put detailed instructions here and link to the authoritative explanation.
 
 ```sh
 python -m pip install -r requirements-docs.txt
-python -m mkdocs serve
+python tools/build_docs.py
+python -m mkdocs serve --config-file build-docs/mkdocs.generated.yml
 ```
 
 To build the site together with the complete Haskell API reference, install
@@ -36,3 +37,36 @@ CI builds with strict validation and deploys the generated `site/` directory
 to GitHub Pages after changes reach `master`. Do not commit generated HTML.
 Use runnable examples with expected results; distinguish available interfaces
 from future or Haskell-only features.
+
+## Reference writing standard
+
+Follow the [numpydoc section conventions](https://numpydoc.readthedocs.io/en/latest/format.html)
+for Python reference content and [Haddock conventions](https://haskell-haddock.readthedocs.io/latest/markup.html)
+for Haskell source documentation. The website uses Markdown; adopting these
+content conventions does not require changing its site generator.
+
+Each Python, C, or Wave entry needs a one-line purpose, exact signature,
+`Parameters` table with one row per argument in declaration order, a `Returns`
+section, and relevant `See also` links. Include types, defaults, units, shapes,
+bounds, ownership, and failure conditions where they apply. Use `None.` for
+an empty parameter list. Properties have no call parentheses. Explain errors
+with the actual exception/status/constructor, rather than “may fail”.
+
+Add examples for operations that need an explanation of usage. Show expected
+results, resource cleanup, and meaningful failure cases. For numerical
+algorithms, explain the equation, assumptions, stopping criteria, and accuracy
+limitations; keep implementation history out of user instructions. A simple
+getter does not need a paper citation or an artificial standalone example.
+
+Haskell module and area indexes are generated from declarations and authored
+Haddock prose, including constructors, record fields, and class methods.
+The API check includes symbolic function names as well as ordinary identifiers.
+Keep standalone task guides distinct from reference contracts and conceptual
+explanations, following [Diátaxis](https://diataxis.fr/start-here/).
+
+The documentation workflow checks source signatures and parameter order,
+reference coverage, local file/fragment links, Python examples against the
+released wheel, and complete Haskell example programs against this checkout.
+Run the C/Wave example programs with the native build when changing them.
+The home-page version is substituted from `pyproject.toml` during generation;
+documentation changes alone do not require a package release.

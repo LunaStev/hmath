@@ -4,9 +4,9 @@ name: Python wheels
 on:
   push:
     branches: [master]
-    paths-ignore: ['docs/**', 'mkdocs.yml', 'requirements-docs.txt', 'tools/build_docs.py', 'tools/check_api_docs.py', 'tools/check_haskell_doc_examples.py', 'tools/check_docs_links.py', 'tools/haskell_reference.py', 'README.md']
+    paths-ignore: ['.github/workflows/docs.yml', 'docs/**', 'mkdocs.yml', 'requirements-docs.txt', 'tools/build_docs.py', 'tools/check_api_docs.py', 'tools/check_haskell_doc_examples.py', 'tools/check_docs_links.py', 'tools/haskell_reference.py', 'README.md']
   pull_request:
-    paths-ignore: ['docs/**', 'mkdocs.yml', 'requirements-docs.txt', 'tools/build_docs.py', 'tools/check_api_docs.py', 'tools/check_haskell_doc_examples.py', 'tools/check_docs_links.py', 'tools/haskell_reference.py', 'README.md']
+    paths-ignore: ['.github/workflows/docs.yml', 'docs/**', 'mkdocs.yml', 'requirements-docs.txt', 'tools/build_docs.py', 'tools/check_api_docs.py', 'tools/check_haskell_doc_examples.py', 'tools/check_docs_links.py', 'tools/haskell_reference.py', 'README.md']
   workflow_call:
     outputs:
       version:
