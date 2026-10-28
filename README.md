@@ -6,9 +6,10 @@ The project is in early development. The native build currently targets Linux, a
 
 ## Features
 
-- **Core math:** factorials, Fibonacci numbers, primality testing, clamping, and linear interpolation.
-- **Linear algebra:** list-based vectors and dense matrices, with dimension-checked operations, matrix multiplication, transpose, indexing, slicing, and reshape.
-- **Statistics:** mean, variance, standard deviation, and median.
+- **Core math:** checked scalar operations, numeric types, constants, units, number theory, and polynomials.
+- **Linear algebra:** dense and sparse matrices, decompositions, iterative solvers, and CPU tensors.
+- **Scientific computing:** differentiation, integration, ODE/PDE solvers, optimization, interpolation, FFTs, and signal processing.
+- **Statistics and learning:** reproducible sampling, probability distributions, inference, automatic differentiation, and machine learning primitives.
 - **Native interface:** C exports for addition, factorial, mean, and dot product, with C and Python examples.
 
 ## Build and test

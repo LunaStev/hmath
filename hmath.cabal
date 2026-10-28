@@ -19,11 +19,13 @@ extra-source-files:
     README.md
     ROADMAP.md
     cabal.project
+    fourmolu.yaml
     meson.build
     meson-build.py
     examples/c/main.c
     examples/haskell/Main.hs
     examples/haskell/Foundations.hs
+    examples/haskell/Scientific.hs
     examples/python/main.py
     test/ffi_lifecycle.py
     test/ffi_failure_detection.py
@@ -38,37 +40,66 @@ library
 
     exposed-modules:
         HMath
-        HMath.Basic
-        HMath.Error
-        HMath.Linear
-        HMath.Matrix
-        HMath.Matrix.LU
-        HMath.Statistics
-        HMath.Scalar
-        HMath.Constants
-        HMath.Units
-        HMath.Numeric
-        HMath.Trigonometry
-        HMath.NumberTheory
-        HMath.Polynomial
         HMath.Algebra
-        HMath.Vector
-        HMath.Matrix.QR
-        HMath.Matrix.LAPACK
+        HMath.Autodiff
+        HMath.Basic
+        HMath.Calculus
+        HMath.Constants
+        HMath.DeepLearning
+        HMath.DeepLearning.Core
+        HMath.DeepLearning.Layers
+        HMath.DeepLearning.Metrics
+        HMath.DeepLearning.Precision
+        HMath.Error
+        HMath.Fourier
+        HMath.Interpolation
+        HMath.Linear
+        HMath.MachineLearning
+        HMath.MachineLearning.Clustering
+        HMath.MachineLearning.Decomposition
+        HMath.MachineLearning.Neighbors
+        HMath.MachineLearning.Preprocessing
+        HMath.MachineLearning.Regression
+        HMath.Matrix
         HMath.Matrix.Advanced
         HMath.Matrix.Decomposition
         HMath.Matrix.Iterative
+        HMath.Matrix.LAPACK
+        HMath.Matrix.LU
+        HMath.Matrix.QR
+        HMath.NumberTheory
+        HMath.Numeric
+        HMath.ODE
+        HMath.Optimization
+        HMath.Optimization.Common
+        HMath.Optimization.Constrained
+        HMath.Optimization.FirstOrder
+        HMath.Optimization.Global
+        HMath.Optimization.Local
+        HMath.PDE
+        HMath.Polynomial
+        HMath.Probability
+        HMath.Random
+        HMath.Root
+        HMath.Scalar
+        HMath.Signal
         HMath.Sparse
         HMath.Sparse.Spectral
+        HMath.Special
+        HMath.Statistics
+        HMath.Statistics.Advanced
         HMath.Tensor
         HMath.Tensor.Mutable
-        HMath.Calculus
-        HMath.ODE
+        HMath.Trigonometry
+        HMath.Units
+        HMath.Vector
 
     other-modules:
         HMath.FFI
+        HMath.MachineLearning.Internal
         HMath.Matrix.Internal
         HMath.ODE.Tableau
+        HMath.Signal.Internal
 
     build-depends:
         base >= 4.16 && < 5,
@@ -128,6 +159,10 @@ test-suite hmath-tests
         NumericalBatchSpec
         IterativeBatchSpec
         SparseSpectralSpec
+        MachineLearningBatchSpec
+        ProbabilityBatchSpec
+        SignalBatchSpec
+        DifferentiableBatchSpec
 
     build-depends:
         base >= 4.16 && < 5,
