@@ -22,6 +22,7 @@ module HMath.Optimization.Local (
 ) where
 
 import Control.Monad (foldM)
+import qualified Data.Foldable as Foldable (foldl')
 import Data.List (sortOn)
 import HMath.Error
 import HMath.Optimization.Common
@@ -163,9 +164,12 @@ minimizeQuasiNewton method o f g x0 = do
     twoLoop [] gs = gs
     twoLoop hs@((s0, y0, _) : _) gs =
         let (q, alphas) =
-                foldl' (\(v, as) (s, y, rho) -> let a = rho * dot s v in (sub v (scale a y), as ++ [a])) (gs, []) hs
+                Foldable.foldl'
+                    (\(v, as) (s, y, rho) -> let a = rho * dot s v in (sub v (scale a y), as ++ [a]))
+                    (gs, [])
+                    hs
             gamma = dot s0 y0 / dot y0 y0
-         in foldl'
+         in Foldable.foldl'
                 (\v ((s, y, rho), a) -> add v (scale (a - rho * dot y v) s))
                 (scale gamma q)
                 (reverse (zip hs alphas))
@@ -372,7 +376,8 @@ nelderMead o f x0 = do
             (worst, fw) = sorted !! length x0
             second = snd (sorted !! (length x0 - 1))
             rest = take (length x0) sorted
-            centroid = scale (1 / fromIntegral (length x0)) (foldl' add (replicate (length x0) 0) (map fst rest))
+            centroid =
+                scale (1 / fromIntegral (length x0)) (Foldable.foldl' add (replicate (length x0) 0) (map fst rest))
             spread = maximum (map (\(x, y) -> max (norm (sub x best)) (abs (y - fb))) sorted)
         if spread <= optTolerance o
             then Right (OptimizeResult best fb spread k n True)

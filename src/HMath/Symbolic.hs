@@ -86,6 +86,7 @@ module HMath.Symbolic (
 
 import Control.Monad (foldM)
 import Data.Complex (Complex ((:+)))
+import qualified Data.Foldable as Foldable (foldl')
 import Data.List (intercalate, nub, sort)
 import qualified Data.Map.Strict as Map
 import Data.Ratio (denominator, numerator)
@@ -326,13 +327,15 @@ simplify o e = inputs o [e] >> go e >>= checked o
         Unary Negate y -> let (q, fs) = productParts y in (-q, fs)
         Binary Multiply u v -> let (q, fs) = productParts u; (r, gs) = productParts v in (q * r, fs ++ gs)
         _ -> (1, [x])
-    productBody fs = case sort fs of [] -> literal 1; y : ys -> foldl' times y ys
+    productBody fs = case sort fs of [] -> literal 1; y : ys -> Foldable.foldl' times y ys
     productCanonical u v =
         let (q, fs) = productParts (times u v); body = productBody fs
          in if null fs
                 then literal q
                 else if q == 1 then body else if q == (-1) then neg body else times (literal q) body
-    assemble entries = case map term (filter ((/= 0) . snd) entries) of [] -> literal 0; x : xs -> foldl' plus x xs
+    assemble entries = case map term (filter ((/= 0) . snd) entries) of
+        [] -> literal 0
+        x : xs -> Foldable.foldl' plus x xs
     term (x, q)
         | x == literal 1 = literal q
         | q == 1 = x
@@ -722,7 +725,7 @@ integrateRational o name numeratorExpr denominatorExpr = do
     (whole, fs) <-
         mathResult denominatorExpr (P.partialFractions (min 100000 (maximumSteps (symbolicLimits o))) rf)
     terms <- mapM term fs
-    simplify o (foldl' plus (fromPolynomial name (P.integratePolynomial 0 whole)) terms)
+    simplify o (Foldable.foldl' plus (fromPolynomial name (P.integratePolynomial 0 whole)) terms)
   where
     x = variable name
     term (n, d, k) = case (P.coefficients n, P.coefficients d) of
@@ -884,14 +887,14 @@ exactPolynomialRoots o name e = do
     p <- toPolynomial o name e
     roots <- mathResult e (P.rationalRoots (min 100000 (maximumSteps (symbolicLimits o))) p)
     let deflate q (r, k) =
-            foldl'
+            Foldable.foldl'
                 ( \current _ -> case P.dividePolynomial current (P.polynomial [-r, 1]) of
                     Right (result, _) -> result
                     Left _ -> current
                 )
                 q
                 [1 .. k]
-    residual <- simplify o (fromPolynomial name (foldl' deflate p roots))
+    residual <- simplify o (fromPolynomial name (Foldable.foldl' deflate p roots))
     Right (roots, residual)
 
 -- | Bounded Durand-Kerner roots, degree <=32; nonconvergence is explicit.
@@ -974,7 +977,7 @@ solveLinearEquations o names equations = do
                     ( \(r, c) -> do
                         let values = reduced !! r
                             expr =
-                                foldl'
+                                Foldable.foldl'
                                     minus
                                     (literal (lastValue values))
                                     [times (literal (values !! j)) (variable (names !! j)) | j <- free, values !! j /= 0]
@@ -984,7 +987,7 @@ solveLinearEquations o names equations = do
                     pivots
             Right (ParametricSolution solved [names !! i | i <- free])
   where
-    lastValue = foldl' (\_ x -> x) 0
+    lastValue = Foldable.foldl' (\_ x -> x) 0
     row (a, b) = do
         expanded <- expand o (minus a b)
         (c, coeff) <- affine expanded
@@ -1047,7 +1050,7 @@ matrixMultiply o (SymbolicMatrix a) (SymbolicMatrix b)
         mapM
             ( \row ->
                 mapM
-                    (\j -> simplify o (foldl' plus (literal 0) (zipWith times row [r !! j | r <- b])))
+                    (\j -> simplify o (Foldable.foldl' plus (literal 0) (zipWith times row [r !! j | r <- b])))
                     [0 .. columns b - 1]
             )
             a
@@ -1074,7 +1077,7 @@ symbolicDeterminant o (SymbolicMatrix rows)
                     checked o (times (literal (if even j then 1 else -1)) (times x sub))
                 )
                 (zip [0 ..] r)
-        checked o (foldl' plus (literal 0) terms)
+        checked o (Foldable.foldl' plus (literal 0) terms)
 
 data Guarded a = Guarded {guardedValue :: a, requiredConditions :: [(Expr, Property)]}
     deriving (Eq, Show)

@@ -22,10 +22,9 @@ extra-source-files:
     README.md
     ROADMAP.md
     bindings/python/LICENSE
-    bindings/python/README.md
     bindings/python/hmath.py
     bindings/python/hmath_cffi.py
-    bindings/python/pyproject.toml
+    pyproject.toml
     bindings/python/test_bindings.py
     bindings/wave/hmath.wave
     bindings/wave/smoke.wave

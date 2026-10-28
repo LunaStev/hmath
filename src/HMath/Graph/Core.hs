@@ -54,6 +54,7 @@ module HMath.Graph.Core (
     finite,
 ) where
 
+import qualified Data.Foldable as Foldable (foldl')
 import Data.List (nub, sort, sortOn)
 import qualified Data.Map.Strict as M
 import qualified Data.Set as S
@@ -302,7 +303,7 @@ iterativeDeepening b g source target = do
         | last path == target = Right (Just path, fuel - 1)
         | depth == 0 = Right (Nothing, fuel - 1)
         | otherwise =
-            foldl'
+            Foldable.foldl'
                 ( \previous v -> do
                     (answer, left) <- previous
                     case answer of { Just _ -> pure (answer, left); Nothing -> limited left (depth - 1) (path ++ [v]) }
@@ -324,7 +325,7 @@ hasCycle g
     | directed g = either (const True) (const False) (topologicalSort g)
     | otherwise = either (const False) id $ do
         uf <- U.unionFind (vertexCount g)
-        fst <$> foldl' step (Right (False, uf)) (edges g)
+        fst <$> Foldable.foldl' step (Right (False, uf)) (edges g)
   where
     step p e = do
         (found, uf) <- p
@@ -347,14 +348,14 @@ tarjanSCC :: Graph -> [[Int]]
 tarjanSCC g = sort (map sort output)
   where
     (_, _, _, _, _, output) =
-        foldl'
+        Foldable.foldl'
             (\state v -> if M.member v (second state) then state else visit v state)
             (0 :: Int, M.empty, M.empty, [], S.empty, [])
             [0 .. vertexCount g - 1]
     second (_, a, _, _, _, _) = a
     visit v (counter, index, low, stack, on, comps) =
         let initial = (counter + 1, M.insert v counter index, M.insert v counter low, v : stack, S.insert v on, comps)
-            stepped = foldl' (edge v) initial [u | (u, _, _) <- neighbors g v]
+            stepped = Foldable.foldl' (edge v) initial [u | (u, _, _) <- neighbors g v]
             (c, idx, lows, stk, active, cs) = stepped
          in if lows M.! v /= idx M.! v
                 then stepped
@@ -369,14 +370,14 @@ tarjanSCC g = sort (map sort output)
         | otherwise = state
 
 kosarajuSCC :: Graph -> [[Int]]
-kosarajuSCC g = sort (map sort (snd (foldl' second (S.empty, []) order)))
+kosarajuSCC g = sort (map sort (snd (Foldable.foldl' second (S.empty, []) order)))
   where
     adj v = [u | (u, _, _) <- neighbors g v]
     rev v = [edgeFrom e | e <- arcs g, edgeTo e == v]
     finish (seen, out) v
         | S.member v seen = (seen, out)
-        | otherwise = let (s, o) = foldl' finish (S.insert v seen, out) (adj v) in (s, v : o)
-    (_, order) = foldl' finish (S.empty, []) [0 .. vertexCount g - 1]
+        | otherwise = let (s, o) = Foldable.foldl' finish (S.insert v seen, out) (adj v) in (s, v : o)
+    (_, order) = Foldable.foldl' finish (S.empty, []) [0 .. vertexCount g - 1]
     flood seen [] = seen
     flood seen (v : vs) | S.member v seen = flood seen vs | otherwise = flood (S.insert v seen) (rev v ++ vs)
     second (seen, cs) v
@@ -420,7 +421,7 @@ kruskal :: Graph -> Either MathError [Edge]
 kruskal g = do
     requireUndirected g
     uf <- U.unionFind (vertexCount g)
-    fst <$> foldl' step (Right ([], uf)) (sortOn (\e -> (edgeWeight e, edgeId e)) (edges g))
+    fst <$> Foldable.foldl' step (Right ([], uf)) (sortOn (\e -> (edgeWeight e, edgeId e)) (edges g))
   where
     step p e = do
         (out, uf) <- p
@@ -452,8 +453,8 @@ boruvka g = do
     go uf []
   where
     go uf out = do
-        candidates <- foldl' (consider uf) (Right M.empty) (edges g)
-        (added, next) <- foldl' add (Right ([], uf)) (nub (M.elems candidates))
+        candidates <- Foldable.foldl' (consider uf) (Right M.empty) (edges g)
+        (added, next) <- Foldable.foldl' add (Right ([], uf)) (nub (M.elems candidates))
         if null added then pure out else go next (out ++ added)
     consider uf previous e = do
         m <- previous

@@ -22,7 +22,7 @@ with Tensor.matrix([1, 2, 3, 4], 2, 2) as matrix:
         print(product.values())  # [7.0, 10.0, 15.0, 22.0]
 ```
 
-Use `with` to release native resources automatically. Invalid operations raise `HMathError`. Optional NumPy and cffi support is described in the [Python binding guide](bindings/python).
+Use `with` to release native resources automatically. Invalid operations raise `HMathError`. Install `hmath-python[numpy,cffi]` for optional NumPy and cffi support.
 
 ## Features
 

@@ -20,6 +20,7 @@ module HMath.Graph.Flow (
     hungarian,
 ) where
 
+import qualified Data.Foldable as Foldable (foldl')
 import Data.List (sort)
 import qualified Data.Map.Strict as M
 import qualified Data.Set as S
@@ -69,7 +70,7 @@ initial (Network _ es) =
     M.fromList
         (concat [[(2 * networkEdgeId e, networkCapacity e), (2 * networkEdgeId e + 1, 0)] | e <- es])
 augment :: Integer -> [Int] -> Residual -> Residual
-augment amount path r = foldl' (\m i -> M.adjust (subtract amount) i (M.adjust (+ amount) (xorOne i) m)) r path
+augment amount path r = Foldable.foldl' (\m i -> M.adjust (subtract amount) i (M.adjust (+ amount) (xorOne i) m)) r path
   where
     xorOne i = if even i then i + 1 else i - 1
 result :: Network -> Int -> Residual -> FlowResult
@@ -116,7 +117,7 @@ dinic b net s t = do valid b net s t; phase b (initial net)
         go dist [] = dist
         go dist (v : vs) =
             let fresh = [u | i <- outgoing net r v, let (_, u, _) = arcData net i, M.notMember u dist]
-                next = foldl' (\m u -> M.insert u (dist M.! v + 1) m) dist fresh
+                next = Foldable.foldl' (\m u -> M.insert u (dist M.! v + 1) m) dist fresh
              in go next (vs ++ S.toList (S.fromList fresh))
     layered r dist v
         | v == t = Just []
@@ -141,7 +142,7 @@ pushRelabel b net@(Network n _) s t = do
     let r0 = initial net
         pre = outgoing net r0 s
         (r, excess) =
-            foldl'
+            Foldable.foldl'
                 ( \(res, ex) i ->
                     let amount = res M.! i; (_, u, _) = arcData net i
                      in (augment amount [i] res, M.insertWith (+) u amount (M.insertWith (+) s (-amount) ex))
@@ -205,7 +206,7 @@ minimumCostMaximumFlow b net@(Network n es) s t = do
     negativeCycle r =
         let active = [i | i <- [0 .. 2 * length es - 1], r M.! i > 0]
             iteration (dist, parent, _) =
-                foldl'
+                Foldable.foldl'
                     ( \(d, p, lastChanged) i ->
                         let (u, v, c) = arcData net i; candidate = d M.! u + c
                          in if candidate < d M.! v
@@ -264,7 +265,7 @@ hopcroftKarp bip = sort (M.toList (go M.empty M.empty))
         (_, Nothing) -> matching
         (dist, Just shortest) ->
             let (next, rev) =
-                    foldl'
+                    Foldable.foldl'
                         (\(m, r) u -> if M.member u m then (m, r) else maybe (m, r) id (augmentPath dist shortest u m r))
                         (matching, reverseMatching)
                         [0 .. left - 1]
@@ -278,7 +279,7 @@ hungarian costs
     | rows > cols || cols > 256 || any ((/= cols) . length) costs =
         Left (InvalidArgument "Hungarian matrix must be rectangular, rows <= columns <= 256")
     | otherwise =
-        let (_, _, assignment) = foldl' addRow (M.empty, M.empty, M.empty) [1 .. rows]
+        let (_, _, assignment) = Foldable.foldl' addRow (M.empty, M.empty, M.empty) [1 .. rows]
             pairs = sort [(i - 1, j - 1) | (j, i) <- M.toList assignment, j /= 0]
          in Right (sum [costs !! i !! j | (i, j) <- pairs], pairs)
   where
@@ -291,7 +292,7 @@ hungarian costs
             i0 = p M.! j0
             candidates = [j | j <- [1 .. cols], S.notMember j used']
             (slack', way') =
-                foldl'
+                Foldable.foldl'
                     ( \(sl, wa) j ->
                         let reduced = costs !! (i0 - 1) !! (j - 1) - value i0 u - value j v
                          in if maybe True (reduced <) (M.lookup j sl)
@@ -301,8 +302,8 @@ hungarian costs
                     (slack, way)
                     candidates
             (delta, j1) = minimum [(slack' M.! j, j) | j <- candidates]
-            u' = foldl' (\m j -> M.insertWith (+) (p M.! j) delta m) u (S.toList used')
-            v' = foldl' (\m j -> M.insertWith (+) j (-delta) m) v (S.toList used')
+            u' = Foldable.foldl' (\m j -> M.insertWith (+) (p M.! j) delta m) u (S.toList used')
+            v' = Foldable.foldl' (\m j -> M.insertWith (+) j (-delta) m) v (S.toList used')
             sl' = M.mapWithKey (\j d -> if S.member j used' then d else d - delta) slack'
             augmentAssignment j assignment
                 | j == 0 = assignment

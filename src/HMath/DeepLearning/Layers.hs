@@ -48,6 +48,7 @@ module HMath.DeepLearning.Layers (
 ) where
 
 import Control.Monad (foldM)
+import qualified Data.Foldable as Foldable (foldl')
 import Data.List (nub)
 import qualified HMath.Autodiff as AD
 import HMath.DeepLearning.Core (Activation, activation, softmax, softmaxExpr)
@@ -89,7 +90,7 @@ dropout mode probability rng input = do
         (mask, state) =
             if mode == Inference
                 then (replicate (T.numel input) 1, rng)
-                else foldl' draw ([], rng) [1 .. T.numel input]
+                else Foldable.foldl' draw ([], rng) [1 .. T.numel input]
     m <- T.tensor (T.tensorShape input) mask
     y <- checkedMake (T.tensorShape input) (zipWith (*) (T.tensorValues input) mask)
     Right (y, m, state)
@@ -314,7 +315,7 @@ initializeWeights kind fanIn fanOut shape rng = do
     orthogonalize =
         foldM
             ( \basis v -> do
-                let residual = foldl' (\r q -> zipWith (-) r (map (* (sum (zipWith (*) r q))) q)) v basis
+                let residual = Foldable.foldl' (\r q -> zipWith (-) r (map (* (sum (zipWith (*) r q))) q)) v basis
                     norm = sqrt (sum (map (\x -> x * x) residual))
                 if norm < 1e-14
                     then Left (RankDeficient (length basis))

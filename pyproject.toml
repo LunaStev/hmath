@@ -29,4 +29,5 @@ cffi = ["cffi>=1.15"]
 numpy = ["numpy>=1.22"]
 
 [tool.setuptools]
+package-dir = {"" = "bindings/python"}
 py-modules = ["hmath", "hmath_cffi"]

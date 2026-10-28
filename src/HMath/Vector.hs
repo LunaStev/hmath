@@ -42,6 +42,7 @@ module HMath.Vector (
     gramSchmidt,
 ) where
 
+import qualified Data.Foldable as Foldable (foldl')
 import qualified Data.IntMap.Strict as IM
 import Data.Proxy (Proxy (..))
 import GHC.TypeLits (KnownNat, Nat, natVal)
@@ -169,12 +170,12 @@ angle a b = acos <$> cosineSimilarity a b
 gramSchmidt :: (RealFloat a) => a -> [Vector a] -> Either MathError [Vector a]
 gramSchmidt tolerance vs
     | tolerance < 0 || isNaN tolerance || isInfinite tolerance = Left InvalidTolerance
-    | otherwise = foldl' step (Right []) vs
+    | otherwise = Foldable.foldl' step (Right []) vs
   where
     step acc v = do
         basis <- acc
         -- Two modified Gram-Schmidt passes reduce loss of orthogonality.
-        w <- foldl' remove (Right v) (basis ++ basis)
+        w <- Foldable.foldl' remove (Right v) (basis ++ basis)
         if norm2 w <= tolerance * max 1 (norm2 v)
             then Left (RankDeficient (length basis))
             else do u <- normalizeVector w; Right (basis ++ [u])

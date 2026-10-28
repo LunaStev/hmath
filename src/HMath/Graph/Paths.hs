@@ -18,6 +18,7 @@ module HMath.Graph.Paths (
 ) where
 
 import Control.Monad (foldM)
+import qualified Data.Foldable as Foldable (foldl')
 import Data.List (sortOn)
 import qualified Data.Map.Strict as M
 import qualified Data.Set as S
@@ -200,7 +201,7 @@ bidirectionalDijkstra g source target = do
             foldM (\m (u, w) -> do candidate <- checkedSum d w; pure (M.insertWith min u candidate m)) own links
         meetings <-
             mapM (uncurry checkedSum) [(x, y) | (u, x) <- M.toList next, Just y <- [M.lookup u other]]
-        let updated = foldl' (\old x -> Just (maybe x (min x) old)) best meetings
+        let updated = Foldable.foldl' (\old x -> Just (maybe x (min x) old)) best meetings
         if front
             then go next other (S.insert v settled) opposite updated
             else go other next opposite (S.insert v settled) updated

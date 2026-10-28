@@ -21,6 +21,7 @@ module HMath.Optimization.Constrained (
     paretoFront,
 ) where
 
+import qualified Data.Foldable as Foldable (foldl')
 import Data.List (nub, sort)
 import HMath.Error
 import HMath.Optimization.Common
@@ -97,7 +98,7 @@ constrainedMinimize method o f g constraints x0 = do
                                 Right (scale coeff gs)
                             )
                             (zip vals multipliers)
-                    Right (foldl' add base terms)
+                    Right (Foldable.foldl' add base terms)
                 inner =
                     o
                         { optMaxIterations = max 10 (optMaxIterations o `div` 2)
@@ -119,7 +120,7 @@ constrainedMinimize method o f g constraints x0 = do
                        in if eq then base + strength * v else max 0 (base + strength * v)
                     | ((eq, v, _), l) <- zip vals multipliers
                     ]
-                lagGradient = foldl' add gs [scale l d | ((_, _, d), l) <- zip vals nextLambda]
+                lagGradient = Foldable.foldl' add gs [scale l d | ((_, _, d), l) <- zip vals nextLambda]
                 violation = maximum (0 : [if eq then abs v else max 0 v | (eq, v, _) <- vals])
                 dual =
                     if method == LogBarrier || method == InteriorPoint

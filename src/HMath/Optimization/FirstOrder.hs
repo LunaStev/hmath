@@ -20,6 +20,7 @@ module HMath.Optimization.FirstOrder (
 ) where
 
 import Control.Monad (foldM)
+import qualified Data.Foldable as Foldable (foldl')
 import HMath.Error
 import HMath.Optimization.Common
 
@@ -165,7 +166,7 @@ miniBatchGradient [] _ = Left (InvalidArgument "empty mini batch")
 miniBatchGradient gradients x = do
     checkedPoint x
     gs <- mapM (`checkedGradient` x) gradients
-    let average = foldl' add (replicate (length x) 0) (map (scale (1 / fromIntegral (length gs))) gs)
+    let average = Foldable.foldl' add (replicate (length x) 0) (map (scale (1 / fromIntegral (length gs))) gs)
     checkedPoint average
     Right average
 
