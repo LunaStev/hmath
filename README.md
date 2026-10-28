@@ -6,11 +6,10 @@ The 1.0.0 release targets Linux x86-64. The Python distribution is named **hmath
 
 ## Python quick start
 
-Python bindings require the native HMath shared library. [Build it from source](#build-from-source), then install the bindings from the checkout:
+Install the Python package on Linux x86-64:
 
 ```sh
-python -m pip install ./bindings/python
-export HMATH_LIBRARY="$PWD/builddir/libhmath.so"
+pip install hmath-python
 ```
 
 ```python
