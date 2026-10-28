@@ -1,0 +1,108 @@
+# SPDX-License-Identifier: MPL-2.0
+name: Validate
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  linux:
+    strategy:
+      fail-fast: false
+      matrix:
+        ghc: ['9.6.7', '9.10.3']
+        buildtype: [debug, release]
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: haskell-actions/setup@7fd2bb5ca789761088fbc831406b2910e47e56f1 # v2
+        with:
+          ghc-version: ${{ matrix.ghc }}
+          cabal-version: '3.16.1.0'
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        with:
+          python-version: '3.12'
+      - name: Dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y liblapacke-dev libopenblas-dev zlib1g-dev cmake ninja-build clang
+          python -m pip install meson==1.8.5 numpy scipy cffi h5py pyarrow onnx
+          cabal update
+      - name: Wave compiler
+        if: matrix.ghc == '9.10.3' && matrix.buildtype == 'release'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p "$RUNNER_TEMP/wave"
+          gh release download v0.2.1-pre-beta --repo wavefnd/Wave --pattern wave-v0.2.1-pre-beta-x86_64-linux-gnu.tar.gz --dir "$RUNNER_TEMP/wave"
+          cd "$RUNNER_TEMP/wave"
+          echo '4e5daf46a93414e00b8ea073eda09e4b7aa7d248cc03f2aeb965a36fc9b0fef0  wave-v0.2.1-pre-beta-x86_64-linux-gnu.tar.gz' | sha256sum --check
+          tar -xzf wave-v0.2.1-pre-beta-x86_64-linux-gnu.tar.gz
+          test -n "$(find "$RUNNER_TEMP/wave" -type f -name wavec -print -quit)"
+          find "$RUNNER_TEMP/wave" -type f -name wavec -printf '%h\n' >> "$GITHUB_PATH"
+      - name: Build and integration tests
+        run: |
+          wave_tests=auto
+          if [ '${{ matrix.ghc }}' = '9.10.3' ] && [ '${{ matrix.buildtype }}' = release ]; then
+            wave_tests=enabled
+          fi
+          meson setup build-ci --buildtype=${{ matrix.buildtype }} -Dwerror=true -Dpython_bindings=enabled -Dwave_bindings="$wave_tests" -Dbenchmarks=true
+          meson compile -C build-ci
+          meson test -C build-ci --print-errorlogs
+          python tools/check_install.py build-ci
+          python tools/check_abi.py build-ci/libhmath.so
+      - name: Properties and interchange
+        run: |
+          cabal test hmath-properties -fvalidation-frameworks --test-show-details=direct
+          python tools/check_interchange.py --builddir=build-interchange --require-optional
+      - name: Sanitized metadata and DLPack fuzzing
+        if: matrix.ghc == '9.10.3' && matrix.buildtype == 'release'
+        run: python tools/run_fuzz.py --runs=100000 --output=build-ci/fuzz.log
+      - name: Criterion fixture and native benchmark smoke
+        if: matrix.ghc == '9.10.3' && matrix.buildtype == 'release'
+        run: |
+          cabal bench hmath-criterion -fcriterion-benchmarks --benchmark-options='--iters 1'
+          python tools/benchmark.py --library=build-ci/libhmath.so --native=build-ci/hmath-native-benchmark --iterations=10 --output=build-ci/benchmark.json
+      - name: Python distribution validation
+        if: matrix.ghc == '9.10.3' && matrix.buildtype == 'release'
+        run: |
+          python -m pip install build twine
+          python -m build bindings/python --outdir dist
+          python -m twine check --strict dist/*
+          python -m pip install dist/*.whl
+          HMATH_LIBRARY="$PWD/build-ci/libhmath.so" python - <<'PY'
+          import pathlib
+          import runpy
+          import hmath
+          assert 'site-packages' in pathlib.Path(hmath.__file__).parts
+          runpy.run_path('bindings/python/test_bindings.py', run_name='__main__')
+          PY
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        if: always()
+        with:
+          name: validation-${{ matrix.ghc }}-${{ matrix.buildtype }}
+          path: |
+            build-ci/meson-logs/
+            build-ci/hmath-build.json
+            build-ci/fuzz.log
+            build-ci/benchmark.*
+
+  portability-build:
+    # Build probes do not establish full native platform support.
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [macos-14, windows-2022]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: haskell-actions/setup@7fd2bb5ca789761088fbc831406b2910e47e56f1 # v2
+        with:
+          ghc-version: '9.10.3'
+          cabal-version: '3.16.1.0'
+      - run: cabal update
+      - run: cabal build lib:hmath flib:hmath -f-interchange-zlib --ghc-options="-Wall -Werror"

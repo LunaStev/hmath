@@ -1,0 +1,9 @@
+prefix=${pcfiledir}/@PC_PREFIX_RELATIVE@
+libdir=${prefix}/@LIBDIR@
+includedir=${prefix}/@INCLUDEDIR@
+
+Name: HMath
+Description: Haskell numerical library with a native C interface
+Version: @VERSION@
+Libs: -L${libdir} -lhmath
+Cflags: -I${includedir}

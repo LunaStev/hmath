@@ -1,0 +1,10 @@
+# SPDX-License-Identifier: MPL-2.0
+get_filename_component(_HMATH_PREFIX "${CMAKE_CURRENT_LIST_DIR}/@CMAKE_PREFIX_RELATIVE@" ABSOLUTE)
+if(NOT TARGET HMath::hmath)
+  add_library(HMath::hmath SHARED IMPORTED)
+  set_target_properties(HMath::hmath PROPERTIES
+    IMPORTED_LOCATION "${_HMATH_PREFIX}/@LIBDIR@/@LIBRARY@"
+    INTERFACE_INCLUDE_DIRECTORIES "${_HMATH_PREFIX}/@INCLUDEDIR@")
+endif()
+set(HMath_VERSION "@VERSION@")
+unset(_HMATH_PREFIX)

@@ -2,7 +2,7 @@ cabal-version:      3.0
 -- SPDX-License-Identifier: MPL-2.0
 
 name:               hmath
-version:            0.1.0.0
+version:            1.0.0
 synopsis:           General-purpose mathematics library written in Haskell
 description:
     HMath is a general-purpose mathematics library written in Haskell.
@@ -16,21 +16,81 @@ license-file:       LICENSE
 homepage:           https://github.com/wavefnd/hmath
 bug-reports:        https://github.com/wavefnd/hmath/issues
 extra-source-files:
+    .clang-format
+    .github/workflows/publish-python.yml
+    .github/workflows/validate.yml
     README.md
     ROADMAP.md
+    bindings/python/LICENSE
+    bindings/python/README.md
+    bindings/python/hmath.py
+    bindings/python/hmath_cffi.py
+    bindings/python/pyproject.toml
+    bindings/python/test_bindings.py
+    bindings/wave/hmath.wave
+    bindings/wave/smoke.wave
+    bench/native.c
     cabal.project
-    fourmolu.yaml
-    meson.build
-    meson-build.py
+    cbits/native_internal.h
     examples/c/main.c
-    examples/haskell/Main.hs
-    examples/haskell/Foundations.hs
-    examples/haskell/Scientific.hs
     examples/haskell/Domains.hs
+    examples/haskell/Foundations.hs
+    examples/haskell/Main.hs
+    examples/haskell/Scientific.hs
     examples/python/main.py
-    test/ffi_lifecycle.py
-    test/ffi_failure_detection.py
+    fourmolu.yaml
+    include/hmath.h
+    include/hmath_backend.h
+    include/hmath_dlpack.h
+    meson-build.py
+    meson.build
+    meson/cmake/HMathConfig.cmake.in
+    meson/cmake/HMathConfigVersion.cmake.in
+    meson/hmath.pc.in
+    meson_options.txt
+    test/abi-symbols.txt
     test/ffi_bad_results.c
+    test/ffi_failure_detection.py
+    test/ffi_lifecycle.py
+    test/fuzz_native.c
+    test/install/CMakeLists.txt
+    test/install/client.c
+    test/interchange_differential.py
+    test/interchange_native.c
+    test/native/abi_rejection.py
+    test/native/contracts.c
+    test/native/dlpack_numpy.py
+    test/native/header_c99.c
+    test/native/wrong_abi.c
+    tools/benchmark.py
+    tools/check_abi.py
+    tools/check_install.py
+    tools/check_interchange.py
+    tools/interchange_adapters.py
+    tools/run_fuzz.py
+    tools/run_wave.py
+
+extra-doc-files: CHANGELOG.md
+
+flag native-backend
+    description: Enable runtime loading of native BLAS and LAPACK providers
+    default: True
+    manual: True
+
+flag validation-frameworks
+    description: Build the optional Hspec and QuickCheck validation suite
+    default: False
+    manual: True
+
+flag interchange-zlib
+    description: Enable deflate compression for numerical interchange
+    default: True
+    manual: True
+
+flag criterion-benchmarks
+    description: Build the optional Criterion benchmark suite
+    default: False
+    manual: True
 
 source-repository head
     type:           git
@@ -43,7 +103,13 @@ library
         HMath
         HMath.Algebra
         HMath.Algorithms
+        HMath.API
+        HMath.API.Algebra
+        HMath.API.Buffer
+        HMath.API.Convergence
+        HMath.API.Shape
         HMath.Autodiff
+        HMath.Backend
         HMath.Basic
         HMath.Calculus
         HMath.Combinatorics
@@ -77,6 +143,13 @@ library
         HMath.Image.Histogram
         HMath.Image.Measure
         HMath.Image.Spatial
+        HMath.Interchange
+        HMath.Interchange.Array
+        HMath.Interchange.Binary
+        HMath.Interchange.Compression
+        HMath.Interchange.IO
+        HMath.Interchange.Numpy
+        HMath.Interchange.Text
         HMath.Interpolation
         HMath.Linear
         HMath.MachineLearning
@@ -138,15 +211,25 @@ library
     build-depends:
         base >= 4.16 && < 5,
         array >= 0.5 && < 0.6,
-        containers >= 0.6 && < 0.9
+        containers >= 0.6 && < 0.9,
+        bytestring >= 0.11 && < 0.13,
+        binary >= 0.8 && < 0.9,
+        text >= 1.2 && < 2.2
 
-    extra-libraries:     lapacke
+    c-sources:          cbits/backend.c cbits/interchange_io.c
+    if flag(interchange-zlib)
+        cc-options: -DHMATH_HAVE_ZLIB
+        extra-libraries: z
+    if os(linux)
+        extra-libraries: dl
+    if !flag(native-backend)
+        cc-options: -DHMATH_DISABLE_NATIVE
 
     default-language:    Haskell2010
-    ghc-options:         -Wall -O2
+    ghc-options:         -Wall
 
     include-dirs:        include
-    install-includes:    hmath.h
+    install-includes:    hmath.h hmath_dlpack.h
 
     if os(windows)
         cc-options:      -DHMATH_WINDOWS
@@ -156,6 +239,8 @@ library
     
 foreign-library hmath
     type:               native-shared
+    if os(linux)
+        lib-version-info: 1:0:0
     hs-source-dirs:     src
 
     other-modules:
@@ -169,11 +254,11 @@ foreign-library hmath
         base >= 4.16 && < 5
 
     default-language:   Haskell2010
-    ghc-options:        -Wall -O2 -threaded
+    ghc-options:        -Wall -threaded
 
-    include-dirs:       include
-    c-sources:          cbits/runtime.c
-    cc-options:         -O2 -std=c11
+    include-dirs:       include cbits
+    c-sources:          cbits/runtime.c cbits/native.c cbits/native_dlpack.c
+    cc-options:         -std=c11 -DHMATH_BUILD_SHARED
 
     if os(windows)
         options:        standalone
@@ -201,11 +286,49 @@ test-suite hmath-tests
         ProbabilityBatchSpec
         SignalBatchSpec
         DifferentiableBatchSpec
+        BackendAPISpec
+        InterchangeSpec
 
     build-depends:
         base >= 4.16 && < 5,
         containers >= 0.6 && < 0.9,
+        bytestring >= 0.11 && < 0.13,
+        binary >= 0.8 && < 0.9,
         hmath
 
     default-language:   Haskell2010
     ghc-options:        -Wall
+
+benchmark hmath-criterion
+    type: exitcode-stdio-1.0
+    hs-source-dirs: bench
+    main-is: Main.hs
+    if !flag(criterion-benchmarks)
+        buildable: False
+    build-depends: base >=4.16 && <5, hmath, criterion >=1.6 && <1.7
+    default-language: Haskell2010
+    ghc-options: -Wall -rtsopts -threaded
+
+test-suite hmath-properties
+    type: exitcode-stdio-1.0
+    hs-source-dirs: test
+    main-is: Properties.hs
+    if !flag(validation-frameworks)
+        buildable: False
+    build-depends: base >=4.16 && <5, hmath, hspec >=2.10 && <3, QuickCheck >=2.14 && <3
+    default-language: Haskell2010
+    ghc-options: -Wall
+
+executable hmath-interchange-driver
+    hs-source-dirs: test
+    main-is: interchange_driver.hs
+    other-modules: InterchangeSpec
+    build-depends:
+        base >=4.16 && <5,
+        bytestring >=0.11 && <0.13,
+        binary >=0.8 && <0.9,
+        directory >=1.3 && <1.4,
+        filepath >=1.4 && <1.6,
+        hmath
+    default-language: Haskell2010
+    ghc-options: -Wall -threaded

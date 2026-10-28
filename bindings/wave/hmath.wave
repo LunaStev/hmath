@@ -1,0 +1,152 @@
+// SPDX-License-Identifier: MPL-2.0
+// Wave 0.2.1 ABI-1 binding for 64-bit targets (C size_t == u64).
+// Own Tensor values linearly: use tensor_clone to obtain another owner.
+// Close explicitly before discarding an owner. The process owns RTS shutdown.
+
+// Explicit C symbol names avoid Wave module name mangling.
+extern(c, "hmath_abi_version") fun hmath_abi_version() -> u32;
+extern(c, "hmath_init") fun hmath_init() -> i32;
+extern(c, "hmath_last_error_message") fun hmath_last_error_message() -> ptr<i8>;
+extern(c, "hmath_scalar_add") fun hmath_scalar_add(
+    context: ptr<u8>, a: f64, b: f64, destination: ptr<f64>
+) -> i32;
+extern(c, "hmath_tensor_copy") fun hmath_tensor_copy(
+    data: ptr<f64>, count: u64, shape: ptr<u64>, rank: u64, destination: ptr<ptr<u8>>
+) -> i32;
+extern(c, "hmath_tensor_retain") fun hmath_tensor_retain(handle: ptr<u8>);
+extern(c, "hmath_tensor_release") fun hmath_tensor_release(handle: ptr<u8>);
+extern(c, "hmath_tensor_count") fun hmath_tensor_count(handle: ptr<u8>) -> u64;
+extern(c, "hmath_tensor_copy_to") fun hmath_tensor_copy_to(
+    handle: ptr<u8>, destination: ptr<f64>, count: u64
+) -> i32;
+extern(c, "hmath_tensor_sum") fun hmath_tensor_sum(
+    context: ptr<u8>, handle: ptr<u8>, destination: ptr<f64>
+) -> i32;
+extern(c, "hmath_tensor_dot") fun hmath_tensor_dot(
+    context: ptr<u8>, a: ptr<u8>, b: ptr<u8>, destination: ptr<f64>
+) -> i32;
+extern(c, "hmath_tensor_add") fun hmath_tensor_add(
+    context: ptr<u8>, a: ptr<u8>, b: ptr<u8>, destination: ptr<ptr<u8>>
+) -> i32;
+extern(c, "hmath_tensor_matmul") fun hmath_tensor_matmul(
+    context: ptr<u8>, a: ptr<u8>, b: ptr<u8>, destination: ptr<ptr<u8>>
+) -> i32;
+
+pub struct Tensor {
+    handle: ptr<u8>;
+}
+
+pub fun tensor_empty() -> Tensor {
+    return Tensor { handle: null };
+}
+
+pub fun initialize() -> i32 {
+    if (hmath_abi_version() != 1) {
+        return 10;
+    }
+    if (hmath_init() != 0) {
+        return 5;
+    }
+    return 0;
+}
+
+// The error message is thread-local and valid until the next checked C call.
+pub fun error_message() -> ptr<i8> {
+    return hmath_last_error_message();
+}
+
+pub fun scalar_add(a: f64, b: f64, output: ptr<f64>) -> i32 {
+    var status: i32 = initialize();
+    if (status != 0) {
+        return status;
+    }
+    return hmath_scalar_add(null, a, b, output);
+}
+
+// Output must start empty. Failure preserves it; success transfers one ref.
+pub fun tensor_copy(
+    data: ptr<f64>, count: u64, shape: ptr<u64>, rank: u64, output: ptr<Tensor>
+) -> i32 {
+    if (output == null || deref output.handle != null) {
+        return 1;
+    }
+    var status: i32 = initialize();
+    if (status != 0) {
+        return status;
+    }
+    var handle: ptr<u8> = null;
+    status = hmath_tensor_copy(data, count, shape, rank, &handle);
+    if (status == 0) {
+        deref output = Tensor { handle: handle };
+    }
+    return status;
+}
+
+pub fun vector_copy(data: ptr<f64>, count: u64, output: ptr<Tensor>) -> i32 {
+    var length: u64 = count;
+    return tensor_copy(data, count, &length, 1, output);
+}
+
+pub fun matrix_copy(
+    data: ptr<f64>, count: u64, rows: u64, columns: u64, output: ptr<Tensor>
+) -> i32 {
+    var shape: array<u64, 2> = [rows, columns];
+    return tensor_copy(data, count, &shape[0], 2, output);
+}
+
+pub fun tensor_clone(source: Tensor, output: ptr<Tensor>) -> i32 {
+    if (source.handle == null || output == null || deref output.handle != null) {
+        return 1;
+    }
+    hmath_tensor_retain(source.handle);
+    deref output = Tensor { handle: source.handle };
+    return 0;
+}
+
+pub fun tensor_close(tensor: ptr<Tensor>) {
+    if (tensor == null) {
+        return;
+    }
+    hmath_tensor_release(deref tensor.handle);
+    deref tensor.handle = null;
+}
+
+pub fun tensor_count(tensor: Tensor) -> u64 {
+    return hmath_tensor_count(tensor.handle);
+}
+
+pub fun tensor_values(tensor: Tensor, output: ptr<f64>, count: u64) -> i32 {
+    return hmath_tensor_copy_to(tensor.handle, output, count);
+}
+
+pub fun tensor_sum(tensor: Tensor, output: ptr<f64>) -> i32 {
+    return hmath_tensor_sum(null, tensor.handle, output);
+}
+
+pub fun tensor_dot(a: Tensor, b: Tensor, output: ptr<f64>) -> i32 {
+    return hmath_tensor_dot(null, a.handle, b.handle, output);
+}
+
+pub fun tensor_add(a: Tensor, b: Tensor, output: ptr<Tensor>) -> i32 {
+    if (output == null || deref output.handle != null) {
+        return 1;
+    }
+    var handle: ptr<u8> = null;
+    var status: i32 = hmath_tensor_add(null, a.handle, b.handle, &handle);
+    if (status == 0) {
+        deref output.handle = handle;
+    }
+    return status;
+}
+
+pub fun tensor_matmul(a: Tensor, b: Tensor, output: ptr<Tensor>) -> i32 {
+    if (output == null || deref output.handle != null) {
+        return 1;
+    }
+    var handle: ptr<u8> = null;
+    var status: i32 = hmath_tensor_matmul(null, a.handle, b.handle, &handle);
+    if (status == 0) {
+        deref output.handle = handle;
+    }
+    return status;
+}

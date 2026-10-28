@@ -1,0 +1,87 @@
+// SPDX-License-Identifier: MPL-2.0
+import("./hmath")::{
+    Tensor, tensor_empty, scalar_add, tensor_copy, matrix_copy, vector_copy,
+    tensor_values, tensor_sum, tensor_dot, tensor_add, tensor_matmul,
+    tensor_clone, tensor_close
+};
+
+fun main() -> i32 {
+    var result: f64 = 0.0;
+    if (scalar_add(2.0, 3.0, &result) != 0 || result != 5.0) {
+        return 1;
+    }
+    var data: array<f64, 4> = [1.0, 2.0, 3.0, 4.0];
+    var a: Tensor = tensor_empty();
+    var b: Tensor = tensor_empty();
+    if (matrix_copy(&data[0], 4, 2, 2, &a) != 0) {
+        return 2;
+    }
+    if (tensor_matmul(a, a, &b) != 0) {
+        tensor_close(&a);
+        return 3;
+    }
+    var values: array<f64, 4>;
+    if (tensor_values(b, &values[0], 4) != 0 ||
+        values[0] != 7.0 || values[1] != 10.0 ||
+        values[2] != 15.0 || values[3] != 22.0) {
+        tensor_close(&b);
+        tensor_close(&a);
+        return 4;
+    }
+    if (tensor_sum(a, &result) != 0 || result != 10.0) {
+        tensor_close(&b);
+        tensor_close(&a);
+        return 5;
+    }
+    if (tensor_dot(a, a, &result) != 0 || result != 30.0) {
+        tensor_close(&b);
+        tensor_close(&a);
+        return 6;
+    }
+    tensor_close(&b);
+    if (matrix_copy(&data[0], 1, 2, 2, &b) != 2) {
+        tensor_close(&a);
+        tensor_close(&b);
+        return 7;
+    }
+    if (tensor_clone(a, &b) != 0) {
+        tensor_close(&a);
+        return 8;
+    }
+    tensor_close(&a);
+    if (tensor_sum(b, &result) != 0 || result != 10.0) {
+        tensor_close(&b);
+        return 9;
+    }
+    tensor_close(&b);
+    tensor_close(&b);
+    if (tensor_sum(b, &result) != 1) {
+        return 10;
+    }
+
+    // Vector and arbitrary-rank tensor constructors share the checked ABI.
+    if (vector_copy(&data[0], 4, &a) != 0) {
+        return 11;
+    }
+    if (tensor_add(a, a, &b) != 0) {
+        tensor_close(&a);
+        return 12;
+    }
+    if (tensor_sum(b, &result) != 0 || result != 20.0) {
+        tensor_close(&a);
+        tensor_close(&b);
+        return 13;
+    }
+    tensor_close(&a);
+    tensor_close(&b);
+    var shape: array<u64, 3> = [1, 2, 2];
+    if (tensor_copy(&data[0], 4, &shape[0], 3, &a) != 0) {
+        return 14;
+    }
+    if (tensor_sum(a, &result) != 0 || result != 10.0) {
+        tensor_close(&a);
+        return 15;
+    }
+    tensor_close(&a);
+    return 0;
+}

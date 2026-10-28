@@ -4,11 +4,13 @@ module Main where
 
 import AlgebraBatchSpec (algebraBatchTests)
 import ApplicationBatchSpec (applicationBatchTests)
+import BackendAPISpec (backendAPIIOTests, backendAPITests)
 import DifferentiableBatchSpec (differentiableBatchTests)
 import DiscreteBatchSpec (discreteBatchTests)
 import ExpressionBatchSpec (expressionBatchTests)
 import GeometryBatchSpec (geometryBatchTests)
 import HMath
+import InterchangeSpec (interchangeTests)
 import IterativeBatchSpec (iterativeBatchTests)
 import LUSpec (luTests)
 import LinearBatchSpec (linearBatchIOTests, linearBatchTests)
@@ -50,6 +52,8 @@ main = do
                 ++ discreteBatchTests
                 ++ expressionBatchTests
                 ++ geometryBatchTests
+                ++ backendAPITests
+                ++ interchangeTests
     mapM_ (uncurry check) groups
     ioGroups <- linearBatchIOTests
     mapM_ (uncurry check) ioGroups
@@ -58,6 +62,9 @@ main = do
     signalGroups <-
         mapM (\(name, action) -> do result <- action; pure (name, result)) signalBatchIOTests
     mapM_ (uncurry check) signalGroups
+    backendGroups <-
+        mapM (\(name, action) -> do result <- action; pure (name, result)) backendAPIIOTests
+    mapM_ (uncurry check) backendGroups
     putStrLn
         ( "Passed "
             ++ show
@@ -66,6 +73,7 @@ main = do
                     + length ioGroups
                     + length probabilityGroups
                     + length signalGroups
+                    + length backendGroups
                 )
             ++ " test groups."
         )

@@ -21,6 +21,9 @@
 # Python and local tools
 __pycache__/
 *.py[cod]
+/bindings/python/build/
+/bindings/python/dist/
+/bindings/python/*.egg-info/
 /.agents/
 /.aws/
 /.codex/

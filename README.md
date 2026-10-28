@@ -1,8 +1,29 @@
 # HMath
 
-HMath is a mathematics and numerical computing library written in Haskell. It provides a native Haskell API and a shared library with a C-compatible interface for use from other languages.
+HMath is a mathematics and numerical computing library with Python bindings, written in Haskell. It also provides native Haskell, C, and Wave interfaces.
 
-The project is in early development. The native build currently targets Linux, and the public API and ABI are still evolving.
+The 1.0.0 release targets Linux x86-64. The Python distribution is named **hmath-python** and is imported as `hmath`.
+
+## Python quick start
+
+Python bindings require the native HMath shared library. [Build it from source](#build-from-source), then install the bindings from the checkout:
+
+```sh
+python -m pip install ./bindings/python
+export HMATH_LIBRARY="$PWD/builddir/libhmath.so"
+```
+
+```python
+from hmath import Tensor, add
+
+print(add(2, 3))  # 5.0
+
+with Tensor.matrix([1, 2, 3, 4], 2, 2) as matrix:
+    with matrix @ matrix as product:
+        print(product.values())  # [7.0, 10.0, 15.0, 22.0]
+```
+
+Use `with` to release native resources automatically. Invalid operations raise `HMathError`. Optional NumPy and cffi support is described in the [Python binding guide](bindings/python).
 
 ## Features
 
@@ -12,11 +33,14 @@ The project is in early development. The native build currently targets Linux, a
 - **Statistics and learning:** reproducible sampling, probability distributions, inference, automatic differentiation, and machine learning primitives.
 - **Discrete and symbolic math:** combinatorics, graphs, numerical data structures, symbolic calculus, and a bounded expression evaluator.
 - **Applied math:** complex numbers, rotations, computational geometry, time series, and numerical image processing.
-- **Native interface:** C exports for addition, factorial, mean, and dot product, with C and Python examples.
+- **Native interface:** checked scalar, vector, matrix, and tensor operations; explicit ownership and errors; Python/NumPy and Wave bindings.
+- **Interchange:** typed binary and text arrays, CSV/TSV, Matrix Market, NPY/NPZ, and CPU DLPack.
 
-## Build and test
+The Haskell library contains the full numerical API; Python currently exposes scalar addition and binary64 vector, matrix, and tensor construction, arithmetic, and reductions.
 
-Requires GHC, Cabal, a C11 compiler, Meson >= 0.63, Ninja, Python 3, and the LAPACKE development library.
+## Build from source
+
+Requires GHC, Cabal, a C11 compiler, Meson >= 1.3, Ninja, and Python 3. Zlib enables compressed interchange. BLAS/LAPACKE are optional runtime backends; the full spectral test suite needs LAPACKE.
 
 ```sh
 git clone https://github.com/wavefnd/hmath.git
@@ -26,11 +50,11 @@ meson compile -C builddir
 meson test -C builddir --print-errorlogs
 ```
 
-This builds `builddir/libhmath.so` and runs the Haskell, C, and Python tests. For a Haskell-only build, use `cabal build lib:hmath` and `cabal test hmath-tests`.
+This builds `builddir/libhmath.so` and runs the Haskell, C, and Python tests. Wave tests also run when `wavec` is available.
 
-## Quick start
+## Haskell
 
-Save the following as `Main.hs` in the checkout and run `runghc -isrc Main.hs`:
+Save the following as `Main.hs` in the checkout. Run `cabal build lib:hmath`, then `cabal exec -- runghc -package=hmath Main.hs`:
 
 ```haskell
 import HMath
@@ -45,15 +69,9 @@ main = do
 
 Checked operations return `Either MathError` for invalid shapes or lengths. More examples are available in [examples/haskell](examples/haskell).
 
-## C and Python
+## C and Wave
 
-The C API is declared in [include/hmath.h](include/hmath.h). C clients initialize with `hmath_init()` before numerical calls and shut down with `hmath_shutdown()` after all calls have finished. See the [C example](examples/c/main.c) and [Python ctypes example](examples/python/main.py).
-
-Run the Python example against the built library:
-
-```sh
-HMATH_LIBRARY="$PWD/builddir/libhmath.so" python3 examples/python/main.py
-```
+The [C header](include/hmath.h) defines errors, ownership, and runtime lifetime. See the [C example](examples/c/main.c) and [Wave bindings](bindings/wave) for usage.
 
 ## Contributing
 
