@@ -193,9 +193,7 @@ None.
 
 #### Returns
 
-Returns `HMATH_OK` on success or a nonzero `hmath_status` on failure.
-
-On success: the current thread's last checked status.
+The current thread's last checked status. This query does not execute a checked operation.
 Queries, retain/release, and cancellation do not clear it. Successful checked
 calls replace it with `HMATH_OK`. It does not return another thread's failure.
 
