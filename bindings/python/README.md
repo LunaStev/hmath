@@ -2,14 +2,13 @@
 
 Python bindings for [HMath](https://github.com/wavefnd/hmath), a mathematics library written in Haskell. Provides checked binary64 scalar, vector, matrix and tensor operations through C ABI 1.
 
-Install the HMath shared library separately and set `HMATH_LIBRARY` to its absolute path. This package contains Python bindings; the native library and GHC runtime dependencies are separate installations.
+Install from PyPI:
 
 ```sh
-python -m pip install 'hmath-python[numpy,cffi]'
-export HMATH_LIBRARY=/absolute/path/to/libhmath.so
+pip install hmath-python
 ```
 
-The standard interface uses `ctypes`. The optional `cffi` interface is available as `hmath_cffi`; NumPy integration is available through `Tensor.from_numpy()` and `Tensor.numpy()`.
+The standard interface uses `ctypes`. Install `hmath-python[numpy,cffi]` for optional NumPy and cffi support. The cffi interface is available as `hmath_cffi`; NumPy integration is available through `Tensor.from_numpy()` and `Tensor.numpy()`.
 
 ```python
 from hmath import Tensor, add
