@@ -26,6 +26,7 @@ extra-source-files:
     examples/haskell/Main.hs
     examples/haskell/Foundations.hs
     examples/haskell/Scientific.hs
+    examples/haskell/Domains.hs
     examples/python/main.py
     test/ffi_lifecycle.py
     test/ffi_failure_detection.py
@@ -41,17 +42,41 @@ library
     exposed-modules:
         HMath
         HMath.Algebra
+        HMath.Algorithms
         HMath.Autodiff
         HMath.Basic
         HMath.Calculus
+        HMath.Combinatorics
+        HMath.Complex
         HMath.Constants
+        HMath.DataStructure
         HMath.DeepLearning
         HMath.DeepLearning.Core
         HMath.DeepLearning.Layers
         HMath.DeepLearning.Metrics
         HMath.DeepLearning.Precision
+        HMath.Discrete
         HMath.Error
+        HMath.Expression
         HMath.Fourier
+        HMath.Geometry
+        HMath.Geometry.Collision
+        HMath.Geometry.Polygon
+        HMath.Geometry.Primitives
+        HMath.Geometry.Spatial
+        HMath.Geometry.Transform
+        HMath.Geometry.Triangulation
+        HMath.Graph
+        HMath.Graph.Analysis
+        HMath.Graph.Core
+        HMath.Graph.Flow
+        HMath.Graph.Paths
+        HMath.Image
+        HMath.Image.Color
+        HMath.Image.Filter
+        HMath.Image.Histogram
+        HMath.Image.Measure
+        HMath.Image.Spatial
         HMath.Interpolation
         HMath.Linear
         HMath.MachineLearning
@@ -79,8 +104,10 @@ library
         HMath.PDE
         HMath.Polynomial
         HMath.Probability
+        HMath.Quaternion
         HMath.Random
         HMath.Root
+        HMath.Rotation
         HMath.Scalar
         HMath.Signal
         HMath.Sparse
@@ -88,18 +115,25 @@ library
         HMath.Special
         HMath.Statistics
         HMath.Statistics.Advanced
+        HMath.Symbolic
         HMath.Tensor
         HMath.Tensor.Mutable
+        HMath.TimeSeries
+        HMath.TimeSeries.Diagnostics
+        HMath.TimeSeries.Models
         HMath.Trigonometry
         HMath.Units
         HMath.Vector
 
     other-modules:
         HMath.FFI
+        HMath.Geometry.Internal
+        HMath.Image.Core
         HMath.MachineLearning.Internal
         HMath.Matrix.Internal
         HMath.ODE.Tableau
         HMath.Signal.Internal
+        HMath.TimeSeries.Core
 
     build-depends:
         base >= 4.16 && < 5,
@@ -155,6 +189,10 @@ test-suite hmath-tests
         LUSpec
         ScalarBatchSpec
         AlgebraBatchSpec
+        ApplicationBatchSpec
+        DiscreteBatchSpec
+        ExpressionBatchSpec
+        GeometryBatchSpec
         LinearBatchSpec
         NumericalBatchSpec
         IterativeBatchSpec
@@ -166,6 +204,7 @@ test-suite hmath-tests
 
     build-depends:
         base >= 4.16 && < 5,
+        containers >= 0.6 && < 0.9,
         hmath
 
     default-language:   Haskell2010

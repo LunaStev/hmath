@@ -10,6 +10,8 @@ The project is in early development. The native build currently targets Linux, a
 - **Linear algebra:** dense and sparse matrices, decompositions, iterative solvers, and CPU tensors.
 - **Scientific computing:** differentiation, integration, ODE/PDE solvers, optimization, interpolation, FFTs, and signal processing.
 - **Statistics and learning:** reproducible sampling, probability distributions, inference, automatic differentiation, and machine learning primitives.
+- **Discrete and symbolic math:** combinatorics, graphs, numerical data structures, symbolic calculus, and a bounded expression evaluator.
+- **Applied math:** complex numbers, rotations, computational geometry, time series, and numerical image processing.
 - **Native interface:** C exports for addition, factorial, mean, and dot product, with C and Python examples.
 
 ## Build and test
