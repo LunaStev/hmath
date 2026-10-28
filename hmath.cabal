@@ -23,6 +23,7 @@ extra-source-files:
     meson-build.py
     examples/c/main.c
     examples/haskell/Main.hs
+    examples/haskell/Foundations.hs
     examples/python/main.py
     test/ffi_lifecycle.py
     test/ffi_failure_detection.py
@@ -43,12 +44,38 @@ library
         HMath.Matrix
         HMath.Matrix.LU
         HMath.Statistics
+        HMath.Scalar
+        HMath.Constants
+        HMath.Units
+        HMath.Numeric
+        HMath.Trigonometry
+        HMath.NumberTheory
+        HMath.Polynomial
+        HMath.Algebra
+        HMath.Vector
+        HMath.Matrix.QR
+        HMath.Matrix.LAPACK
+        HMath.Matrix.Advanced
+        HMath.Matrix.Decomposition
+        HMath.Matrix.Iterative
+        HMath.Sparse
+        HMath.Sparse.Spectral
+        HMath.Tensor
+        HMath.Tensor.Mutable
+        HMath.Calculus
+        HMath.ODE
 
     other-modules:
         HMath.FFI
+        HMath.Matrix.Internal
+        HMath.ODE.Tableau
 
     build-depends:
-        base >= 4.16 && < 5
+        base >= 4.16 && < 5,
+        array >= 0.5 && < 0.6,
+        containers >= 0.6 && < 0.9
+
+    extra-libraries:     lapacke
 
     default-language:    Haskell2010
     ghc-options:         -Wall -O2
@@ -95,6 +122,12 @@ test-suite hmath-tests
         MatrixSpec
         LinearSpec
         LUSpec
+        ScalarBatchSpec
+        AlgebraBatchSpec
+        LinearBatchSpec
+        NumericalBatchSpec
+        IterativeBatchSpec
+        SparseSpectralSpec
 
     build-depends:
         base >= 4.16 && < 5,
