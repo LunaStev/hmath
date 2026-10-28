@@ -154,7 +154,15 @@ fitRobust c delta xs ys = do
         (\a b -> norm (sub (coefficients a) (coefficients b)))
         start
 
-data BayesianLinear = BayesianLinear {bayesianMean :: LinearModel, bayesianCovariance :: Dataset}
+{- | Posterior-mean linear model together with coefficient covariance, returned by Bayesian
+regression fitting.
+-}
+data BayesianLinear = BayesianLinear
+    { bayesianMean :: LinearModel
+    -- ^ Posterior-mean fitted linear model.
+    , bayesianCovariance :: Dataset
+    -- ^ Posterior covariance matrix of linear coefficients.
+    }
     deriving (Eq, Show)
 
 {- | Isotropic zero-mean Gaussian prior, observation precision beta. Unlike

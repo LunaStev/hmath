@@ -20,6 +20,9 @@ import HMath.Optimization.Common
 import HMath.Optimization.Local (nelderMead)
 import HMath.Random (Generator (PCG32), RNG, normal, sampleN, seedRNG, uniform)
 
+{- | Seeded bounded stochastic search strategy. A successful finite run does not certify
+global optimality.
+-}
 data GlobalMethod
     = SimulatedAnnealing
     | DifferentialEvolution
@@ -27,6 +30,7 @@ data GlobalMethod
     | ParticleSwarm
     | CMAES
     deriving (Eq, Show)
+
 validateBounds :: [(Double, Double)] -> Either MathError ()
 validateBounds bounds = do
     checkedPoint (concatMap (\(lo, hi) -> [lo, hi, hi - lo]) bounds)

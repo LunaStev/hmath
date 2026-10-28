@@ -91,8 +91,11 @@ data RBF = RBF RadialKernel [[Double]] [Double] [Double] deriving (Eq, Show)
 -- | Coefficients or parameters, observed absolute residual, and iteration/evaluation count; error is an estimate.
 data Approximation = Approximation
     { approximationCoefficients :: [Double]
+    -- ^ Fitted coefficients in the approximation routine's documented basis/order.
     , approximationError :: Double
+    -- ^ Reported approximation residual/error measure, not a general analytic bound.
     , approximationIterations :: Int
+    -- ^ Number of fitting/refinement iterations performed.
     }
     deriving (Eq, Show)
 

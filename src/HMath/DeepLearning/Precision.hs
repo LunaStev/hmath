@@ -33,7 +33,14 @@ import HMath.Error
 import qualified HMath.Numeric as N
 import qualified HMath.Tensor as T
 
+{- | Integer quantization policy: Symmetric around zero or Asymmetric with a learned zero
+point.
+-}
 data Quantization = Symmetric | Asymmetric deriving (Eq, Show)
+
+{- | Opaque Int8 tensor with shape,optional channel axis,scales,and zero points. Construct
+through the checked quantization API.
+-}
 data QuantizedTensor = QuantizedTensor [Int] (Maybe Int) [Double] [Int] [Int8] deriving (Eq, Show)
 
 -- | Return signed INT8 storage in logical row-major order.
@@ -120,6 +127,9 @@ int8Gemm (QuantizedTensor [m, k] aa as az av) (QuantizedTensor [inner, n] ba bs 
         T.tensor [m, n] vals
 int8Gemm _ _ = Left (InvalidArgument "INT8 GEMM expects matrices")
 
+{- | Mixed-precision storage/rounding selector FP16 or BF16; operations report
+finite/overflow conditions through the checked precision API.
+-}
 data Precision = FP16 | BF16 deriving (Eq, Show)
 
 -- | Round operands to the chosen 16-bit format, accumulate in Float32, and return checked Double values.
@@ -144,7 +154,15 @@ reducedGemm precision a b = do
             T.tensor [m, n] vals
         _ -> Left (InvalidArgument "reduced GEMM expects conformable matrices")
 
-data LossScaler = LossScaler {lossScale :: Double, scaleGrowthInterval :: Int, finiteSteps :: Int}
+-- | Dynamic mixed-precision loss-scale state with finite-step growth tracking.
+data LossScaler = LossScaler
+    { lossScale :: Double
+    -- ^ Positive scaling factor applied to loss/gradients in mixed-precision training.
+    , scaleGrowthInterval :: Int
+    -- ^ Number of consecutive finite updates before loss-scale growth.
+    , finiteSteps :: Int
+    -- ^ Current count of consecutive finite updates since the last reset/growth.
+    }
     deriving (Eq, Show)
 
 -- | Create a positive finite loss scale and positive growth interval; zero accumulated finite steps.

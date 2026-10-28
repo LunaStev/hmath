@@ -102,9 +102,13 @@ A zero-depth touch may have the deterministic normal (1,0).
 -}
 data Penetration = Penetration
     { penetrationDepth :: Double
+    -- ^ Estimated overlap depth along penetrationNormal, in coordinate units.
     , penetrationNormal :: Point2
+    -- ^ Separating direction of the returned EPA penetration estimate.
     , penetrationError :: Double
+    -- ^ Remaining absolute support gap at the stopping iteration.
     , penetrationIterations :: Int
+    -- ^ Completed expanding-polytope iterations.
     }
     deriving (Eq, Show)
 

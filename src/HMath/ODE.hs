@@ -68,12 +68,19 @@ rejected attempts, and newtonIterations bounds each implicit correction.
 -}
 data ODEOptions = ODEOptions
     { odeAbsoluteTolerance :: Double
+    -- ^ Finite positive absolute local error tolerance.
     , odeRelativeTolerance :: Double
+    -- ^ Finite nonnegative local error tolerance relative to state scale.
     , initialStep :: Double
+    -- ^ Requested positive initial step magnitude; integration direction follows time bounds.
     , minimumStep :: Double
+    -- ^ Positive minimum permitted step magnitude before reporting failure.
     , maximumStep :: Double
+    -- ^ Positive maximum permitted step magnitude.
     , maximumSteps :: Int
+    -- ^ Maximum integration-step work budget.
     , newtonIterations :: Int
+    -- ^ Iteration budget for implicit-method nonlinear solves.
     }
     deriving (Eq, Show)
 
@@ -85,7 +92,13 @@ defaultODEOptions = ODEOptions 1e-9 1e-7 1e-2 1e-12 0.1 100000 30
 constructor is public for inspection; interpolation validates all dimensions.
 -}
 data Trajectory = Trajectory
-    {trajectoryTimes :: [Double], trajectoryStates :: [[Double]], trajectoryDerivatives :: [[Double]]}
+    { trajectoryTimes :: [Double]
+    -- ^ Accepted sample times in integration order.
+    , trajectoryStates :: [[Double]]
+    -- ^ State vector at each trajectory time.
+    , trajectoryDerivatives :: [[Double]]
+    -- ^ ODE derivative vector at each trajectory sample, used by dense output.
+    }
     deriving (Eq, Show)
 
 finite :: Double -> Bool
@@ -473,7 +486,13 @@ zip4 _ _ _ _ = []
 data EventDirection = AnyDirection | Rising | Falling deriving (Eq, Show)
 
 -- | A located event time and its dense-interpolated state.
-data Event = Event {eventTime :: Double, eventState :: [Double]} deriving (Eq, Show)
+data Event = Event
+    { eventTime :: Double
+    -- ^ Located event crossing time.
+    , eventState :: [Double]
+    -- ^ Interpolated state vector at eventTime.
+    }
+    deriving (Eq, Show)
 
 {- | Locate bracketed sign-changing events by dense-output bisection. Tangential
 roots and multiple roots inside one sample interval are not guaranteed.

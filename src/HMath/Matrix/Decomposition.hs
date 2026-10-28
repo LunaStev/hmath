@@ -34,10 +34,20 @@ import HMath.Matrix.Internal
 import HMath.Matrix.LAPACK (Hessenberg (..), hessenberg)
 import HMath.Matrix.LU (inverse, luDecomposeWithTolerance, solve, solveLU)
 
+{- | Given finite nonnegative relative tolerance then finite matrix, return normalized
+row-echelon form and zero-based pivot columns. Partial row pivoting skips pivots below
+tolerance times the global entry scale. Invalid tolerance/non-finite arithmetic fails.
+-}
 gaussianElimination :: (RealFloat a) => a -> Matrix a -> Either MathError (Matrix a, [Int])
 gaussianElimination tol a = eliminate False tol a
+
+{- | Given relative tolerance then finite matrix, return reduced row-echelon form and
+zero-based pivot columns using row pivoting. Invalid tolerance/non-finite arithmetic
+fails.
+-}
 gaussJordan :: (RealFloat a) => a -> Matrix a -> Either MathError (Matrix a, [Int])
 gaussJordan tol a = eliminate True tol a
+
 eliminate :: (RealFloat a) => Bool -> a -> Matrix a -> Either MathError (Matrix a, [Int])
 eliminate reduced tol a
     | tol < 0 || isNaN tol || isInfinite tol = Left InvalidTolerance
@@ -77,6 +87,11 @@ checkSymmetric a
     | otherwise = finiteMatrix a >> Right n
   where
     (n, m) = shape a
+
+{- | Factor a finite symmetric positive-definite matrix as L*transpose(L), returning
+lower-triangular L. Non-square/asymmetric/non-finite input or a nonpositive diagonal
+pivot returns Left MathError.
+-}
 cholesky :: (RealFloat a) => Matrix a -> Either MathError (Matrix a)
 cholesky a = do
     n <- checkSymmetric a
@@ -94,6 +109,11 @@ cholesky a = do
                 let result = if i == j then sqrt value else value / (rows !! j !! j)
                 finiteValues [result]
                 Right (xs ++ [result])
+
+{- | Factor a finite symmetric matrix as L*diag(d)*transpose(L), returning unit lower L and
+diagonal list d. This unpivoted method requires nonzero scalar pivots; it can reject
+invertible indefinite matrices needing block pivots.
+-}
 ldlt :: (RealFloat a) => Matrix a -> Either MathError (Matrix a, [a])
 ldlt a = do
     n <- checkSymmetric a
@@ -117,6 +137,10 @@ ldlt a = do
             else do
                 finiteValues [d]
                 Right (rows ++ [prefix ++ 1 : replicate (n - i - 1) 0], ds ++ [d])
+
+{- | Factor finite m-by-n matrix as Q*R using Givens rotations, returning square m-by-m Q
+and m-by-n R without column pivoting. Non-finite input/intermediate results fail.
+-}
 givensQR :: (RealFloat a) => Matrix a -> Either MathError (Matrix a, Matrix a)
 givensQR a = do
     finiteMatrix a
@@ -150,8 +174,21 @@ givensQR a = do
   where
     (m, n) = shape a
 
-data Bidiagonal a = Bidiagonal {bidiagonalU :: Matrix a, bidiagonalB :: Matrix a, bidiagonalV :: Matrix a}
+-- | Orthogonal factors A=U*B*transpose(V), retaining a rectangular bidiagonal B.
+data Bidiagonal a = Bidiagonal
+    { bidiagonalU :: Matrix a
+    -- ^ Left orthogonal factor in A=U*B*transpose(V).
+    , bidiagonalB :: Matrix a
+    -- ^ Bidiagonal matrix in the factorization, retaining input shape.
+    , bidiagonalV :: Matrix a
+    -- ^ Right orthogonal factor in A=U*B*transpose(V).
+    }
     deriving (Eq, Show)
+
+{- | Reduce a finite rectangular matrix to bidiagonal form with orthogonal factors,
+returning Bidiagonal fields. Input/numeric validation errors propagate; inspect the
+factor types and module reconstruction example.
+-}
 bidiagonalize :: (RealFloat a) => Matrix a -> Either MathError (Bidiagonal a)
 bidiagonalize a = do
     finiteMatrix a
@@ -185,15 +222,32 @@ bidiagonalize a = do
                 v1 <- multiplyChecked v g
                 finiteValues (toList b2 ++ toList v1)
                 Right (u1, b2, v1)
+
+{- | Reduce a symmetric finite square matrix to @(Q,T)@, satisfying
+@A = Q * T * transpose Q@ with tridiagonal @T@. Non-square/asymmetric input
+or numerical failure returns Left MathError.
+-}
 tridiagonalize :: Matrix Double -> Either MathError (Matrix Double, Matrix Double)
 tridiagonalize a = do
     _ <- checkSymmetric a
     f <- hessenberg a
     Right (hessenbergQ f, hessenbergH f)
 
+{- | Accepted eigenpair estimate with residual and iteration count. See the iterative
+solver's tolerance and failure contract.
+-}
 data Iteration a = Iteration
-    {iterationValue :: a, iterationVector :: [a], iterationResidual :: a, iterationCount :: Int}
+    { iterationValue :: a
+    -- ^ Returned real eigenvalue estimate.
+    , iterationVector :: [a]
+    -- ^ Returned normalized eigenvector estimate.
+    , iterationResidual :: a
+    -- ^ Eigenpair residual norm used to assess convergence.
+    , iterationCount :: Int
+    -- ^ Number of eigen-iteration updates performed.
+    }
     deriving (Eq, Show)
+
 iterateEigen ::
     (RealFloat a) =>
     String ->
@@ -238,8 +292,19 @@ iterateEigen name tol budget action a initial
                             else
                                 if norm == 0 then Left (DomainError (name ++ ": zero iterate")) else go (k + 1) (map (/ norm) y)
     matrixScale = maximum (0 : map (sum . map abs) (entries a))
+
+{- | Given positive finite tolerance,positive budget,square finite matrix,then nonzero
+starting vector, estimate a dominant eigenpair. Return Iteration with
+value/vector/residual/count; invalid dimensions/options, non-finite arithmetic or
+exhausted budget fails.
+-}
 powerIteration :: (RealFloat a) => a -> Int -> Matrix a -> [a] -> Either MathError (Iteration a)
 powerIteration tol budget a = iterateEigen "powerIteration" tol budget (\_ x -> Right [dotV row x | row <- entries a]) a
+
+{- | Given tolerance,budget,shift,square matrix,then starting vector, estimate an eigenpair
+near shift by repeated shifted solves. Require valid finite inputs and nonzero start;
+singular shifted systems or convergence/numerical failures return Left MathError.
+-}
 inverseIteration ::
     (RealFloat a) => a -> Int -> a -> Matrix a -> [a] -> Either MathError (Iteration a)
 inverseIteration tol budget shift a initial = do
@@ -247,6 +312,11 @@ inverseIteration tol budget shift a initial = do
     iterateEigen "inverseIteration" tol budget (\_ -> solve shifted) a initial
   where
     n = fst (shape a)
+
+{- | Given tolerance,budget,square matrix,then nonzero initial vector, refine an eigenpair
+with Rayleigh-quotient shifts. Shape/options, singular shifted solves or
+convergence/numerical failures return Left MathError.
+-}
 rayleighIteration :: (RealFloat a) => a -> Int -> Matrix a -> [a] -> Either MathError (Iteration a)
 rayleighIteration tol budget a = iterateEigen "rayleighIteration" tol budget action a
   where
@@ -263,8 +333,22 @@ rayleighIteration tol budget a = iterateEigen "rayleighIteration" tol budget act
                 luDecomposeWithTolerance 0 regular >>= (`solveLU` x)
             result -> result
 
-data Arnoldi a = Arnoldi {arnoldiBasis :: Matrix a, arnoldiHessenberg :: Matrix a}
+{- | Krylov basis columns and upper-Hessenberg projection returned by arnoldi; exact
+breakdown may shorten the basis.
+-}
+data Arnoldi a = Arnoldi
+    { arnoldiBasis :: Matrix a
+    -- ^ Orthonormal Krylov basis vectors as matrix columns.
+    , arnoldiHessenberg :: Matrix a
+    -- ^ Hessenberg projection relating the matrix action to the Arnoldi basis.
+    }
     deriving (Eq, Show)
+
+{- | Given positive finite tolerance,requested basis size,square matrix,then nonzero initial
+vector, build Arnoldi basis/projection. Require 1\<=requested\<=matrix order. Invalid
+input or numerical failures return Left MathError; exact Krylov breakdown terminates
+the basis.
+-}
 arnoldi :: (RealFloat a) => a -> Int -> Matrix a -> [a] -> Either MathError (Arnoldi a)
 arnoldi tol requested a initial
     | m /= n = Left (NonSquareMatrix (m, n))
@@ -358,6 +442,10 @@ lanczos tol requested a initial = do
                 Right (Arnoldi qmat hmat)
             else go next (columns ++ [column]) beta (k + 1)
 
+{- | Given positive finite tolerance,positive budget,then finite square matrix, iterate QR
+to return @(Q,T)@: accumulated orthogonal vectors and the resulting iterate. Invalid
+options/shape or failure to converge within budget returns Left MathError.
+-}
 qrIteration :: (RealFloat a) => a -> Int -> Matrix a -> Either MathError (Matrix a, Matrix a)
 qrIteration tol budget a
     | m /= n = Left (NonSquareMatrix (m, n))

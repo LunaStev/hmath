@@ -49,6 +49,11 @@ putMeta meta = do
     mapM_ (\(k, v) -> putString k >> putString v) meta
   where
     putString s = let b = E.encodeUtf8 (T.pack s) in putWord32le (fromIntegral (B.length b)) >> putByteString b
+
+{- | Given limits then Array, encode HMath wire-format v1 including
+shape/strides/offset/metadata/backing storage and CRC-32. Invalid metadata/layout or
+exceeded aggregate byte budget fails.
+-}
 encodeBinary :: Limits -> Array -> Either InterchangeError B.ByteString
 encodeBinary lim a = do
     _ <-
@@ -90,6 +95,11 @@ encodeBinary lim a = do
                     putByteString (arrayBytes a)
                 )
     Right (content <> L.toStrict (runPut (putWord32le (crc32 content))))
+
+{- | Given limits then bytes, validate HMath v1 magic/header/flags/CRC and exact framing,
+returning an Array. Truncation, corruption, unsupported metadata or exceeded budgets
+return InterchangeError.
+-}
 decodeBinary :: Limits -> B.ByteString -> Either InterchangeError Array
 decodeBinary lim input = do
     checkLimits lim

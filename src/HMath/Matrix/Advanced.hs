@@ -52,30 +52,56 @@ import HMath.Matrix.LU (inverse, solve)
 import Prelude hiding (log, sqrt)
 import qualified Prelude as P
 
+{- | Given row count, column count, then zero-based (row,column) generator, construct a
+row-major matrix. Negative dimensions or Int-size element product overflow return Left
+MathError.
+-}
 generateMatrix :: Int -> Int -> (Int -> Int -> a) -> Either MathError (Matrix a)
 generateMatrix = build
+
+{- | Given lower flag then matrix, preserve entries on/below the diagonal if True, on/above
+if False, and zero the rest. Rectangular matrices are allowed; return checked
+construction result.
+-}
 triangularMatrix :: (Num a) => Bool -> Matrix a -> Either MathError (Matrix a)
 triangularMatrix lower a = build r c (\i j -> if (lower && j <= i) || (not lower && j >= i) then get a i j else 0)
   where
     (r, c) = shape a
+
+{- | Return (A+transpose(A))/2 for a square matrix. Non-square input returns
+NonSquareMatrix; arithmetic follows Fractional.
+-}
 symmetricMatrix :: (Fractional a) => Matrix a -> Either MathError (Matrix a)
 symmetricMatrix a
     | r /= c = Left (NonSquareMatrix (r, c))
     | otherwise = build r c (\i j -> (get a i j + get a j i) / 2)
   where
     (r, c) = shape a
+
+{- | Return (A+conjugateTranspose(A))/2 for a square complex matrix. Non-square input fails;
+this symmetrizes rather than merely asserting the original is Hermitian.
+-}
 hermitianMatrix :: (RealFloat a) => Matrix (Complex a) -> Either MathError (Matrix (Complex a))
 hermitianMatrix a
     | r /= c = Left (NonSquareMatrix (r, c))
     | otherwise = build r c (\i j -> (get a i j + conjugate (get a j i)) / 2)
   where
     (r, c) = shape a
+
+{- | Given a permutation p of [0..n-1], construct n-by-n P with P[i,p[i]]=1. Duplicate,
+missing, or out-of-range indices return Left InvalidArgument.
+-}
 permutationMatrix :: (Num a) => [Int] -> Either MathError (Matrix a)
 permutationMatrix p
     | sort p /= [0 .. n - 1] = Left (InvalidArgument "permutationMatrix: indices must be a permutation")
     | otherwise = build n n (\i j -> if p !! i == j then 1 else 0)
   where
     n = length p
+
+{- | Assemble a rectangular grid of matrix blocks. Require equal heights within each block
+row and equal widths within each block column. Ragged grids or total-size overflow
+fail; empty grids yield a 0-by-0 matrix.
+-}
 blockMatrix :: [[Matrix a]] -> Either MathError (Matrix a)
 blockMatrix [] = fromListChecked 0 0 []
 blockMatrix blocks
@@ -100,6 +126,11 @@ blockMatrix blocks
     n = length (blocks !! 0)
     totalR = sum [toInteger (fst (shape (row !! 0))) | row <- blocks]
     totalC = sum [toInteger (snd (shape b)) | b <- blocks !! 0]
+
+{- | Given rows, columns, then (diagonal offset,values) pairs, construct a matrix with zeros
+elsewhere. Offset k means column-row=k. Each list must match that diagonal's length;
+duplicates add. Invalid dimensions/counts fail.
+-}
 bandedMatrix :: (Num a) => Int -> Int -> [(Int, [a])] -> Either MathError (Matrix a)
 bandedMatrix r c diagonals
     | r < 0 || c < 0 = Left (NegativeDimensions (r, c))
@@ -115,18 +146,33 @@ bandedMatrix r c diagonals
   where
     diagonalLength k = max 0 (min (toInteger r) (toInteger c - toInteger k) - max 0 (-toInteger k))
 
+{- | Transpose a complex matrix and conjugate every entry, exchanging its row/column
+dimensions.
+-}
 conjugateTranspose :: (RealFloat a) => Matrix (Complex a) -> Matrix (Complex a)
 conjugateTranspose = mapEntries conjugate . transposeMatrix
+
+{- | Given elementwise function and two identically shaped matrices, apply it to
+corresponding entries and return a new matrix. Mismatched shapes return ShapeMismatch.
+-}
 zipMatrixWith :: (a -> b -> c) -> Matrix a -> Matrix b -> Either MathError (Matrix c)
 zipMatrixWith f a b
     | shape a /= shape b = Left (ShapeMismatch (shape a) (shape b))
     | otherwise = fromListChecked r c (zipWith f (toList a) (toList b))
   where
     (r, c) = shape a
+
+{- | Multiply pairs of matrices from equally long lists, preserving batch order. Different
+batch lengths or any checked multiplication failure return Left MathError.
+-}
 batchedMultiply :: (Num a) => [Matrix a] -> [Matrix a] -> Either MathError [Matrix a]
 batchedMultiply as bs
     | length as /= length bs = Left (VectorLengthMismatch (length as) (length bs))
     | otherwise = sequence (zipWith multiplyChecked as bs)
+
+{- | Return the block Kronecker product of matrices A and B, of shape
+(Arows*Brows,Acols*Bcols). Reject dimension/element-count overflow.
+-}
 kronecker :: (Num a) => Matrix a -> Matrix a -> Either MathError (Matrix a)
 kronecker a b
     | rows > toInteger (maxBound :: Int) || cols > toInteger (maxBound :: Int) =
@@ -141,6 +187,10 @@ kronecker a b
     (br, bc) = shape b
     rows = toInteger ar * toInteger br
     cols = toInteger ac * toInteger bc
+
+{- | Return columnwise Kronecker product, requiring equal column counts. Shape is
+(Arows*Brows,columns); mismatched columns or dimension overflow fail.
+-}
 khatriRao :: (Num a) => Matrix a -> Matrix a -> Either MathError (Matrix a)
 khatriRao a b
     | ac /= bc = Left (InnerDimensionMismatch ac bc)
@@ -149,6 +199,11 @@ khatriRao a b
     | otherwise = build (ar * br) ac (\i j -> get a (i `div` br) j * get b (i `mod` br) j)
   where
     (ar, ac) = shape a; (br, bc) = shape b
+
+{- | Given Integer exponent then square real matrix, compute power by squaring. Zero yields
+identity; negative exponent inverts first. Non-square/singular input or multiplication
+errors propagate.
+-}
 matrixPower :: (RealFloat a) => Integer -> Matrix a -> Either MathError (Matrix a)
 matrixPower power a
     | r /= c = Left (NonSquareMatrix (r, c))
@@ -160,34 +215,65 @@ matrixPower power a
     go k base result = do
         next <- if odd k then multiplyChecked result base else Right result
         if k == 1 then Right next else do squared <- multiplyChecked base base; go (k `div` 2) squared next
+
+{- | Return sum of main diagonal of a square matrix; non-square input returns
+NonSquareMatrix. A 0-by-0 matrix has trace zero.
+-}
 trace :: (Num a) => Matrix a -> Either MathError a
 trace a
     | r /= c = Left (NonSquareMatrix (r, c))
     | otherwise = Right (sum [get a i i | i <- [0 .. r - 1]])
   where
     (r, c) = shape a
+
+{- | Return maximum absolute column sum (induced one norm). Empty dimensions give zero; no
+finiteness check is added.
+-}
 matrixNorm1 :: (Ord a, Num a) => Matrix a -> a
 matrixNorm1 a = maximum (0 : [sum [abs (get a i j) | i <- [0 .. r - 1]] | j <- [0 .. c - 1]])
   where
     (r, c) = shape a
+
+{- | Return maximum absolute row sum (induced infinity norm). A matrix with no elements
+gives zero.
+-}
 matrixNormInfinity :: (Ord a, Num a) => Matrix a -> a
 matrixNormInfinity a
     | null (toList a) = 0
     | otherwise = maximum (0 : map (sum . map abs) (entries a))
+
+{- | Return scaled Euclidean norm of all entries, reducing intermediate overflow; empty
+matrix norm is zero. No Either result is added.
+-}
 frobeniusNorm :: (RealFloat a) => Matrix a -> a
 frobeniusNorm = stableNorm . toList
+
+{- | Return largest singular value via SVD, or zero for an empty singular spectrum. Invalid
+input/backend decomposition failures return Left MathError.
+-}
 spectralNorm :: Matrix Double -> Either MathError Double
 spectralNorm a = maximum . (0 :) . singularValues <$> svd a
+
 validTol :: Double -> Either MathError ()
 validTol t
     | t < 0 || isNaN t || isInfinite t = Left InvalidTolerance
     | otherwise = Right ()
+
+{- | Given finite nonnegative relative tolerance then matrix, count positive singular values
+whose ratio to the largest exceeds tolerance. Zero tolerance counts all positive
+singular values. Invalid tolerance or SVD failure propagates.
+-}
 matrixRank :: Double -> Matrix Double -> Either MathError Int
 matrixRank tol a = do
     validTol tol
     f <- svd a
     let s = singularValues f; biggest = maximum (0 : s)
     Right (length [x | x <- s, x > 0, tol == 0 || x / biggest > tol])
+
+{- | Given relative singular-value tolerance then m-by-n matrix, return n-by-m Moore-Penrose
+pseudoinverse via thresholded SVD. Rectangular/rank-deficient inputs are supported;
+invalid tolerance or numeric/decomposition failures propagate.
+-}
 pseudoinverse :: Double -> Matrix Double -> Either MathError (Matrix Double)
 pseudoinverse tol a = do
     validTol tol
@@ -199,16 +285,33 @@ pseudoinverse tol a = do
     if k == 0
         then zeroMatrixChecked (snd (shape a)) (fst (shape a))
         else finiteMatrix result >> Right result
+
+{- | Return largest/smallest singular-value ratio; singular matrices yield positive
+infinity, empty spectrum yields 1. Input/SVD failures return Left MathError.
+-}
 conditionNumber :: Matrix Double -> Either MathError Double
 conditionNumber a = do
     f <- svd a
     case singularValues f of
         [] -> Right 1
         xs -> Right (if minimum xs == 0 then 1 / 0 else maximum xs / minimum xs)
+
+{- | Given relative SVD rank tolerance then matrix, return columns of left singular vectors
+spanning its numerical column space. Invalid tolerance/decomposition errors propagate.
+-}
 columnSpace :: Double -> Matrix Double -> Either MathError (Matrix Double)
 columnSpace tol a = do rank <- matrixRank tol a; f <- svd a; sliceMatrixChecked (0, 0) (fst (shape a), rank) (svdU f)
+
+{- | Given relative rank tolerance then matrix, return a column basis for its row space by
+applying columnSpace to its transpose.
+-}
 rowSpace :: Double -> Matrix Double -> Either MathError (Matrix Double)
 rowSpace tol a = columnSpace tol (transposeMatrix a)
+
+{- | Given relative singular-value tolerance then m-by-n matrix, return an n-by-(n-rank)
+basis for its numerical right null space using full SVD. Invalid
+tolerance/decomposition failures propagate.
+-}
 nullSpace :: Double -> Matrix Double -> Either MathError (Matrix Double)
 nullSpace tol a = do
     validTol tol
@@ -216,11 +319,21 @@ nullSpace tol a = do
     rank <- matrixRank tol a
     let n = snd (shape a)
     sliceMatrixChecked (0, rank) (n, n - rank) (transposeMatrix (svdVT f))
+
+{- | Given source basis matrix, target square basis matrix, then source coordinate list, map
+to physical coordinates and solve in target basis. Shape mismatch, singular target, and
+checked solve errors propagate.
+-}
 changeCoordinates :: (RealFloat a) => Matrix a -> Matrix a -> [a] -> Either MathError [a]
 changeCoordinates source target coordinates = do
     rhs <- fromListChecked (length coordinates) 1 coordinates
     physical <- multiplyChecked source rhs
     solve target (toList physical)
+
+{- | Given positive finite tolerance, positive iteration budget, then square finite matrix,
+approximate exp(A) by scaling, Taylor series and squaring. Return NonConvergence on
+exhausted series budget; input/shape/numerical failures propagate.
+-}
 matrixExp :: (RealFloat a) => a -> Int -> Matrix a -> Either MathError (Matrix a)
 matrixExp tol budget a
     | r /= c = Left (NonSquareMatrix (r, c))
@@ -249,6 +362,7 @@ matrixExp tol budget a
             if matrixNorm1 next <= tol * max 1 (matrixNorm1 totalNext)
                 then Right totalNext
                 else series small (k + 1) next totalNext
+
 symmetricSpectral ::
     (Double -> Either MathError Double) -> Matrix Double -> Either MathError (Matrix Double)
 symmetricSpectral f a
@@ -270,6 +384,11 @@ symmetricSpectral f a
                 finiteMatrix result >> Right result
   where
     (r, c) = shape a
+
+{- | Compute principal real matrix logarithm of a symmetric positive-definite Double matrix
+using symmetric eigendecomposition. Reject non-square/asymmetric matrices, nonpositive
+spectrum, non-real decomposition, or numeric failure.
+-}
 matrixLog :: Matrix Double -> Either MathError (Matrix Double)
 matrixLog =
     symmetricSpectral
@@ -278,6 +397,11 @@ matrixLog =
                 then Left (DomainError "matrixLog: positive definite matrix required")
                 else Right (P.log x)
         )
+
+{- | Compute symmetric positive-semidefinite matrix square root by spectral decomposition;
+tolerate eigenvalues down to -1e-12 and clamp them to zero. Invalid
+shape/symmetry/spectrum or decomposition failure returns Left MathError.
+-}
 matrixSqrt :: Matrix Double -> Either MathError (Matrix Double)
 matrixSqrt =
     symmetricSpectral
@@ -286,6 +410,10 @@ matrixSqrt =
                 then Left (DomainError "matrixSqrt: positive semidefinite matrix required")
                 else Right (P.sqrt (max 0 x))
         )
+
+{- | Return (U,P) from SVD so A=U*P, with P positive semidefinite; rectangular input uses
+the thin polar factors. Validation/decomposition/multiplication errors propagate.
+-}
 polar :: Matrix Double -> Either MathError (Matrix Double, Matrix Double)
 polar a = do
     f <- svd a

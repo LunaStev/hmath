@@ -74,7 +74,14 @@ data PDEOperator = PDEOperator Grid (S.Sparse Double) (S.Sparse Double) [Double]
     deriving (Eq, Show)
 
 -- | Nodal solution with independently recomputed infinity residual; errorEstimate reports backward residual only.
-data PDEResult = PDEResult {pdeValues :: [Double], pdeResidual :: Double, pdeErrorEstimate :: Double}
+data PDEResult = PDEResult
+    { pdeValues :: [Double]
+    -- ^ Computed grid solution values in the solver's documented spatial order.
+    , pdeResidual :: Double
+    -- ^ Residual measure at the returned grid solution.
+    , pdeErrorEstimate :: Double
+    -- ^ Solver-specific discretization/error estimate; not a universal certified bound.
+    }
     deriving (Eq, Show)
 
 -- | Construct a grid with >=3 nodes per axis; reject overflowing counts and rounded-away duplicate coordinates.

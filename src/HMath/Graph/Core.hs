@@ -62,35 +62,93 @@ import qualified HMath.DataStructure as U
 import HMath.Error (MathError (..))
 import Text.Read (readMaybe)
 
-data Edge = Edge {edgeId :: Int, edgeFrom :: Int, edgeTo :: Int, edgeWeight :: Double}
+{- | Finite weighted multigraph edge with stable identity and zero-based endpoints. Parallel
+edges and loops retain separate IDs.
+-}
+data Edge = Edge
+    { edgeId :: Int
+    -- ^ Stable zero-based identity assigned by original input edge order.
+    , edgeFrom :: Int
+    -- ^ Zero-based source endpoint of the original edge.
+    , edgeTo :: Int
+    -- ^ Zero-based destination endpoint of the original edge.
+    , edgeWeight :: Double
+    -- ^ Finite Double edge weight, retaining loops/parallel-edge identity.
+    }
     deriving (Eq, Ord, Show, Read)
+
+{- | Opaque validated directed/undirected finite multigraph, constructed with graph or
+checked conversion functions.
+-}
 data Graph = Graph Bool Int [Edge] deriving (Eq, Show)
+
+{- | Return whether the graph is directed. Undirected edges are represented once in edges
+and twice in arcs, including loops.
+-}
 directed :: Graph -> Bool
 directed (Graph d _ _) = d
+
+{- | Return graph vertex count. Valid vertex labels are zero-based integers below this
+count.
+-}
 vertexCount :: Graph -> Int
 vertexCount (Graph _ n _) = n
+
+{- | Return original labeled edges in input order, preserving loops, multiplicity and stable
+edge IDs.
+-}
 edges :: Graph -> [Edge]
 edges (Graph _ _ es) = es
+
+{- | Test whether a Double is neither NaN nor infinite; used by checked graph
+weight/arithmetic validation.
+-}
 finite :: Double -> Bool
 finite x = not (isNaN x || isInfinite x)
+
+{- | Given directed flag,vertex count,then (from,to,weight) triples, construct a multigraph
+with stable input-order edge IDs. Require 0\<=vertices\<=512, \<=65536 edges, valid
+endpoints and finite weights; otherwise return Left InvalidArgument.
+-}
 graph :: Bool -> Int -> [(Int, Int, Double)] -> Either MathError Graph
 graph d n es
     | n < 0 || n > 512 || length es > 65536 = Left (InvalidArgument "graph size limit exceeded")
     | any (\(u, v, w) -> u < 0 || v < 0 || u >= n || v >= n || not (finite w)) es =
         Left (InvalidArgument "invalid graph endpoint/weight")
     | otherwise = Right (Graph d n [Edge i u v w | (i, (u, v, w)) <- zip [0 ..] es])
+
+{- | Given graph then vertex index, return Right () only for a label in [0,vertexCount).
+Invalid labels return Left InvalidArgument.
+-}
 checkVertex :: Graph -> Int -> Either MathError ()
 checkVertex g v
     | v < 0 || v >= vertexCount g = Left (InvalidArgument "graph vertex out of bounds")
     | otherwise = Right ()
+
+{- | Return Right () for an undirected graph; directed input returns Left InvalidArgument.
+No graph conversion occurs.
+-}
 requireUndirected :: Graph -> Either MathError ()
 requireUndirected g | directed g = Left (InvalidArgument "undirected graph required") | otherwise = Right ()
+
+{- | Return directed traversal arcs. An undirected edge yields forward and reverse arcs
+sharing one original ID; a loop therefore yields two arcs.
+-}
 arcs :: Graph -> [Edge]
 arcs g
     | directed g = edges g
     | otherwise = concat [[e, e{edgeFrom = edgeTo e, edgeTo = edgeFrom e}] | e <- edges g]
+
+{- | Given graph then vertex, return sorted (destination,weight,edge ID) traversal entries
+leaving that vertex. Parallel edges/loops are preserved. This query does not itself
+reject invalid vertex labels.
+-}
 neighbors :: Graph -> Int -> [(Int, Double, Int)]
 neighbors g v = sort [(edgeTo e, edgeWeight e, edgeId e) | e <- arcs g, edgeFrom e == v]
+
+{- | Return one sorted neighbors row per zero-based vertex, retaining weight and edge
+identity for every traversal arc.
+-}
 adjacencyList :: Graph -> [[(Int, Double, Int)]]
 adjacencyList g = [neighbors g v | v <- [0 .. vertexCount g - 1]]
 
@@ -121,6 +179,10 @@ fromAdjacencyList d rows orientations =
                 orientations
             )
 
+{- | Given directed flag,square cells of (edge ID,weight) lists,then original edge
+orientations, reconstruct a lossless graph. Validate square shape, canonical IDs/arcs
+and graph bounds through fromCSR; malformed input fails.
+-}
 fromLabeledAdjacencyMatrix :: Bool -> [[[(Int, Double)]]] -> [(Int, Int)] -> Either MathError Graph
 fromLabeledAdjacencyMatrix d cells orientations
     | any ((/= length cells) . length) cells = Left (InvalidArgument "adjacency matrix must be square")
@@ -143,16 +205,30 @@ fromAdjacencyMatrix d matrix
   where
     n = length matrix
 
+{- | Lossless labeled compressed adjacency storage. Offsets index target/weight/ID arrays;
+orientations preserve original undirected edge direction.
+-}
 data CSR = CSR
     { csrDirected :: Bool
+    -- ^ Whether CSR traversal represents a directed graph.
     , csrVertices :: Int
+    -- ^ Number of graph vertices, including isolated rows.
     , csrOffsets :: [Int]
+    -- ^ Row pointer array of length vertices+1, starting at zero and ending at traversal entry count.
     , csrTargets :: [Int]
+    -- ^ Destination vertex for each compressed traversal entry.
     , csrWeights :: [Double]
+    -- ^ Finite edge weight for each traversal entry.
     , csrIds :: [Int]
+    -- ^ Original edge ID for each traversal entry; an undirected edge contributes two arcs sharing its ID.
     , csrOrientations :: [(Int, Int)]
+    -- ^ Original endpoint orientation for each edge ID, required for lossless undirected round-trip.
     }
     deriving (Eq, Show, Read)
+
+{- | Convert a graph to lossless CSR rows with offsets, targets, weights, IDs and original
+edge orientations. Preserve loops and multiedge identity.
+-}
 toCSR :: Graph -> CSR
 toCSR g =
     let rows = adjacencyList g; entries = concat rows
@@ -164,6 +240,11 @@ toCSR g =
             [w | (_, w, _) <- entries]
             [i | (_, _, i) <- entries]
             [(edgeFrom e, edgeTo e) | e <- edges g]
+
+{- | Validate CSR sizes, offsets, endpoint/weight/ID arrays and original orientations, then
+reconstruct a canonical graph. Malformed or noncanonical data returns Left
+InvalidArgument.
+-}
 fromCSR :: CSR -> Either MathError Graph
 fromCSR input@(CSR d n offsets targets weights ids orientations)
     | n < 0
@@ -205,19 +286,41 @@ fromCSR input@(CSR d n offsets targets weights ids orientations)
                             Right (u, v, w)
                         | otherwise -> Left (InvalidArgument "CSR edge identity/orientation mismatch")
 
+{- | Validated graph with explicit left/right vertex partition. Construct from part-local
+endpoints using bipartiteGraph.
+-}
 data BipartiteGraph = BipartiteGraph Int Graph deriving (Eq, Show)
+
+{- | Given left count,right count,then (left-local,right-local,weight) triples, construct an
+undirected bipartite graph. Right vertices are offset by left count internally.
+Negative/out-of-range endpoints, non-finite weights or graph size bounds fail.
+-}
 bipartiteGraph :: Int -> Int -> [(Int, Int, Double)] -> Either MathError BipartiteGraph
 bipartiteGraph left right es
     | left < 0 || right < 0 || any (\(u, v, _) -> u < 0 || u >= left || v < 0 || v >= right) es =
         Left (InvalidArgument "bipartite endpoints out of bounds")
     | otherwise =
         BipartiteGraph left <$> graph False (left + right) [(u, left + v, w) | (u, v, w) <- es]
+
+-- | Return (left vertex count,right vertex count) of a bipartite graph.
 bipartiteParts :: BipartiteGraph -> (Int, Int)
 bipartiteParts (BipartiteGraph l g) = (l, vertexCount g - l)
+
+{- | Return underlying undirected graph, whose right-part global labels start at the
+left-part count.
+-}
 bipartiteBase :: BipartiteGraph -> Graph
 bipartiteBase (BipartiteGraph _ g) = g
 
+{- | Validated finite vertex set with canonical sorted distinct vertices per hyperedge.
+Construct with hypergraph.
+-}
 data Hypergraph = Hypergraph Int [[Int]] deriving (Eq, Show)
+
+{- | Given vertex count then hyperedge vertex lists, validate bounded size/endpoints and
+construct a hypergraph. Canonicalize vertices within each hyperedge by
+sorting/deduplicating. Invalid bounds fail.
+-}
 hypergraph :: Int -> [[Int]] -> Either MathError Hypergraph
 hypergraph n es
     | n < 0
@@ -227,13 +330,23 @@ hypergraph n es
         || any (\e -> length (nub e) /= length e) es =
         Left (InvalidArgument "invalid hypergraph")
     | otherwise = Right (Hypergraph n (map sort es))
+
+-- | Return the number of zero-based vertices in a hypergraph.
 hyperVertices :: Hypergraph -> Int
 hyperVertices (Hypergraph n _) = n
+
+{- | Return canonical hyperedge lists with sorted distinct member vertices, preserving
+hyperedge list order.
+-}
 hyperedges :: Hypergraph -> [[Int]]
 hyperedges (Hypergraph _ es) = es
 
 {- | Versioned Haskell tuple grammar. Deserialization validates all invariants,
 requires full-input parsing and limits input text to 16 MiB.
+-}
+
+{- | Serialize a bipartite graph with HMath.BipartiteGraph/1 version marker and local part
+labels. Pair with deserializeBipartiteGraph for checked round-trip.
 -}
 serializeBipartiteGraph :: BipartiteGraph -> String
 serializeBipartiteGraph bip =
@@ -245,6 +358,9 @@ serializeBipartiteGraph bip =
             , [(edgeFrom e, edgeTo e - left, edgeWeight e) | e <- edges (bipartiteBase bip)]
             )
 
+{- | Read a versioned bipartite serialization, then validate part counts, endpoints and
+weights. Reject unknown/malformed encoding or input longer than 16777216 characters.
+-}
 deserializeBipartiteGraph :: String -> Either MathError BipartiteGraph
 deserializeBipartiteGraph text
     | length text > 16777216 = Left (InvalidArgument "serialized bipartite graph too large")
@@ -252,19 +368,32 @@ deserializeBipartiteGraph text
         Just (version, left, right, es) | version == ("HMath.BipartiteGraph/1" :: String) -> bipartiteGraph left right es
         _ -> Left (InvalidArgument "invalid bipartite serialization/version")
 
+{- | Serialize graph direction, vertex count and input-ordered edges with HMath.Graph/1
+marker; stable IDs reconstruct from edge order.
+-}
 serializeGraph :: Graph -> String
 serializeGraph g =
     show
         ("HMath.Graph/1", directed g, vertexCount g, [(edgeFrom e, edgeTo e, edgeWeight e) | e <- edges g])
 
+{- | Read complete HMath.Graph/1 encoding and reconstruct via checked graph constructor.
+Unknown version, malformed text, input over 16777216 characters or invalid graph data
+fails.
+-}
 deserializeGraph :: String -> Either MathError Graph
 deserializeGraph text
     | length text > 16777216 = Left (InvalidArgument "serialized graph too large")
     | otherwise = case readMaybe text of
         Just (version, d, n, es) | version == ("HMath.Graph/1" :: String) -> graph d n es
         _ -> Left (InvalidArgument "invalid graph serialization/version")
+
+-- | Serialize vertex count and canonical hyperedges with HMath.Hypergraph/1 version marker.
 serializeHypergraph :: Hypergraph -> String
 serializeHypergraph h = show ("HMath.Hypergraph/1", hyperVertices h, hyperedges h)
+
+{- | Read versioned hypergraph encoding and validate through hypergraph. Reject
+unknown/malformed input, more than 16777216 characters or invalid graph bounds.
+-}
 deserializeHypergraph :: String -> Either MathError Hypergraph
 deserializeHypergraph text
     | length text > 16777216 = Left (InvalidArgument "serialized hypergraph too large")
@@ -272,6 +401,10 @@ deserializeHypergraph text
         Just (version, n, es) | version == ("HMath.Hypergraph/1" :: String) -> hypergraph n es
         _ -> Left (InvalidArgument "invalid hypergraph serialization/version")
 
+{- | Given graph then valid start vertex, return breadth-first reachable-vertex order with
+sorted neighbor tie-breaking. Invalid start fails; disconnected unreachable vertices
+are omitted.
+-}
 bfs :: Graph -> Int -> Either MathError [Int]
 bfs g start = do checkVertex g start; pure (go S.empty [start])
   where
@@ -279,6 +412,10 @@ bfs g start = do checkVertex g start; pure (go S.empty [start])
     go seen (v : rest)
         | S.member v seen = go seen rest
         | otherwise = v : go (S.insert v seen) (rest ++ [u | (u, _, _) <- neighbors g v])
+
+{- | Given graph then valid start vertex, return depth-first reachable-vertex order with
+deterministic sorted neighbors. Invalid start fails; each reached vertex appears once.
+-}
 dfs :: Graph -> Int -> Either MathError [Int]
 dfs g start = do checkVertex g start; pure (go S.empty [start])
   where
@@ -311,6 +448,9 @@ iterativeDeepening b g source target = do
                 (Right (Nothing, fuel - 1))
                 [v | (v, _, _) <- neighbors g (last path), v `notElem` path]
 
+{- | Return a deterministic topological order of all vertices of a directed acyclic graph.
+Undirected graphs or directed cycles return Left MathError.
+-}
 topologicalSort :: Graph -> Either MathError [Int]
 topologicalSort g
     | not (directed g) = Left (InvalidArgument "topological sort requires directed graph")
@@ -320,6 +460,10 @@ topologicalSort g
     go out remaining = case [v | v <- remaining, not (any (\e -> edgeTo e == v && edgeFrom e `elem` remaining) (edges g))] of
         [] -> Left (DomainError "directed cycle")
         (v : _) -> go (out ++ [v]) (filter (/= v) remaining)
+
+{- | Test for a directed or undirected cycle, respecting original edge identities. Loops and
+parallel undirected edges can form cycles.
+-}
 hasCycle :: Graph -> Bool
 hasCycle g
     | directed g = either (const True) (const False) (topologicalSort g)
@@ -332,6 +476,10 @@ hasCycle g
         same <- U.connected (edgeFrom e) (edgeTo e) uf
         next <- U.union (edgeFrom e) (edgeTo e) uf
         pure (found || same, next)
+
+{- | Return weak connected components as sorted vertex lists, ignoring edge direction and
+retaining isolated vertices.
+-}
 connectedComponents :: Graph -> [[Int]]
 connectedComponents g = go S.empty [0 .. vertexCount g - 1]
   where
@@ -369,6 +517,9 @@ tarjanSCC g = sort (map sort output)
             let (c, i, l, s, o, cs) = state in (c, i, M.insert v (min (l M.! v) (idx M.! u)) l, s, o, cs)
         | otherwise = state
 
+{- | Return sorted strongly connected components via Kosaraju traversal; undirected graphs
+reduce to ordinary connected components.
+-}
 kosarajuSCC :: Graph -> [[Int]]
 kosarajuSCC g = sort (map sort (snd (Foldable.foldl' second (S.empty, []) order)))
   where
@@ -406,6 +557,9 @@ articulationPoints g = do
                     (S.insert v seen)
                     ([u | (u, _, i) <- neighbors g v, Just u /= removed, Just i /= edgeRemoved] ++ vs)
 
+{- | Return original IDs of bridges in an undirected multigraph; parallel edges are treated
+distinctly. Directed input returns Left InvalidArgument.
+-}
 bridges :: Graph -> Either MathError [Int]
 bridges g = do
     requireUndirected g
@@ -417,6 +571,9 @@ bridges g = do
             > length (connectedComponents g)
         ]
 
+{- | Return a minimum spanning forest of an undirected weighted graph by Kruskal, breaking
+ties by stable edge ID. Disconnected graphs return a forest; directed input fails.
+-}
 kruskal :: Graph -> Either MathError [Edge]
 kruskal g = do
     requireUndirected g
@@ -446,6 +603,9 @@ prim g = do requireUndirected g; pure (go S.empty [])
             (e : _) -> go (S.insert (edgeFrom e) (S.insert (edgeTo e) seen)) (out ++ [e])
             [] -> go (S.insert (([v | v <- [0 .. vertexCount g - 1], S.notMember v seen] !! 0)) seen) out
 
+{- | Return an undirected minimum spanning forest by repeatedly merging components along
+cheapest outgoing edges. Preserve original edge identity; directed input fails.
+-}
 boruvka :: Graph -> Either MathError [Edge]
 boruvka g = do
     requireUndirected g

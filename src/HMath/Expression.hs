@@ -1,6 +1,6 @@
 -- SPDX-License-Identifier: MPL-2.0
 
-{- | A pure, bounded real expression language shared with 'HMath.Symbolic'.
+{- | A pure, bounded real expression language shared with "HMath.Symbolic".
 
 Grammar: @let name = expression in expression@; left-associative @+ - * /@;
 right-associative @^@; unary @+ -@ binds below powers (@-2^2 = -(2^2)@).
@@ -86,16 +86,50 @@ import Data.Word (Word64)
 import Numeric (showEFloat, showIntAtBase)
 
 -- | Zero-based offset and one-based line/column. Generated expressions use 0/0/0.
-data SourcePos = SourcePos {sourceOffset :: Int, sourceLine :: Int, sourceColumn :: Int}
+data SourcePos = SourcePos
+    { sourceOffset :: Int
+    -- ^ Zero-based source character offset; generated nodes use zero.
+    , sourceLine :: Int
+    -- ^ One-based source line, or zero for generated unknown positions.
+    , sourceColumn :: Int
+    -- ^ One-based source column, or zero for generated unknown positions.
+    }
     deriving (Eq, Ord, Show)
 
+{- | Source position sentinel (offset,line,column)=(0,0,0), used by programmatically
+constructed nodes rather than parsed source positions.
+-}
 unknownPosition :: SourcePos
 unknownPosition = SourcePos 0 0 0
 
+-- | Unary expression operator; Negate changes the operand sign.
 data UnaryOp = Negate deriving (Eq, Ord, Show)
+
+{- | Arithmetic expression operator: addition,subtraction,multiplication,division,or
+exponentiation. Evaluation enforces the selected numeric/domain limits.
+-}
 data BinaryOp = Add | Subtract | Multiply | Divide | Power deriving (Eq, Ord, Show)
+
+{- | Symbolic pi,Euler number e,or tau=2*pi. Precision mode determines how a constant is
+evaluated.
+-}
 data NamedConstant = Pi | Euler | Tau deriving (Eq, Ord, Show)
-data Expr = Expr {expressionPosition :: SourcePos, expressionNode :: ExprNode} deriving (Show)
+
+{- | Positioned expression syntax tree. Smart builders use unknownPosition; parsed nodes
+retain source locations. Validation/evaluation returns structured ExprError rather than
+executing host code.
+-}
+data Expr = Expr
+    { expressionPosition :: SourcePos
+    -- ^ Source location carried by this Expr for positioned errors.
+    , expressionNode :: ExprNode
+    -- ^ Literal/variable/operator/call/let structure of this expression.
+    }
+    deriving (Show)
+
+{- | Expression syntax: exact literal,named variable/constant,unary/binary
+operation,registered call,or lexically scoped let binding.
+-}
 data ExprNode
     = Literal Rational
     | Variable String
@@ -105,35 +139,79 @@ data ExprNode
     | Call String [Expr]
     | Let String Expr Expr
     deriving (Eq, Ord, Show)
+
 instance Eq Expr where Expr _ a == Expr _ b = a == b
 instance Ord Expr where compare (Expr _ a) (Expr _ b) = compare a b
+
+{- | Construct an exact Rational literal Expr at unknownPosition. This builder does not
+validate resource limits; evaluation/serialization performs checked validation.
+-}
 literal :: Rational -> Expr
 literal = Expr unknownPosition . Literal
+
+{- | Construct a named variable Expr at unknownPosition; lookup and limit validation occur
+during checked processing.
+-}
 variable :: String -> Expr
 variable = Expr unknownPosition . Variable
+
+{- | Construct a Pi/Euler/Tau named-constant Expr at unknownPosition, without numeric
+evaluation.
+-}
 constant :: NamedConstant -> Expr
 constant = Expr unknownPosition . Constant
+
+-- | Given UnaryOp then child Expr, construct an unevaluated unary node at unknownPosition.
 unary :: UnaryOp -> Expr -> Expr
 unary op = Expr unknownPosition . Unary op
+
+{- | Given BinaryOp,left Expr,right Expr, construct an unevaluated binary node at
+unknownPosition. Domain and resource checks occur when evaluated.
+-}
 binary :: BinaryOp -> Expr -> Expr -> Expr
 binary op a b = Expr unknownPosition (Binary op a b)
+
+{- | Given function name then argument Expr list, construct a call node at unknownPosition.
+Evaluation resolves the supplied registry; construction does not execute a function.
+-}
 call :: String -> [Expr] -> Expr
 call name = Expr unknownPosition . Call name
+
+{- | Given binding name,value Expr,body Expr, construct a lexically scoped let node at
+unknownPosition. The binding applies in the body, not its own value expression.
+-}
 letIn :: String -> Expr -> Expr -> Expr
 letIn name a b = Expr unknownPosition (Let name a b)
 
+{- | Explicit resource budgets checked before parsing,evaluation,serialization,and cache
+growth; start from defaultLimits.
+-}
 data Limits = Limits
     { maximumSteps :: Int
+    -- ^ Maximum checked evaluation/rewrite instruction steps.
     , maximumDepth :: Int
+    -- ^ Maximum permitted parser/expression recursion depth.
     , maximumNodes :: Int
+    -- ^ Maximum expression or compiled-node storage budget.
     , maximumInputChars :: Int
+    -- ^ Maximum accepted input/serialized text characters.
     , maximumIntegerBits :: Int
+    -- ^ Maximum exact-integer bit length in checked arithmetic.
     , maximumCacheEntries :: Int
+    -- ^ Maximum retained compiled-expression cache entries; zero disables retention.
     }
     deriving (Eq, Show)
+
+{- | Default expression budgets: 100000 steps, depth 128, 20000 nodes, 100000 input
+characters, 1024 integer bits and 64 cache entries. Use record updates; validateLimits
+checks hard implementation bounds.
+-}
 defaultLimits :: Limits
 defaultLimits = Limits 100000 128 20000 100000 1024 64
 
+{- | Expression error category distinguishing syntax/name/type/domain/nonfinite failures
+from bounded-resource exhaustion and unsupported operations.
+-}
 data ErrorKind
     = SyntaxError
     | UnknownName
@@ -146,10 +224,25 @@ data ErrorKind
     | InvalidLimits
     | Unsupported
     deriving (Eq, Ord, Show)
-data ExprError = ExprError {errorKind :: ErrorKind, errorPosition :: SourcePos, errorMessage :: String}
+
+-- | Structured expression failure with category,source position,and human-readable detail.
+data ExprError = ExprError
+    { errorKind :: ErrorKind
+    -- ^ Structured syntax,name,domain,type,nonfinite,unsupported,or resource-error category.
+    , errorPosition :: SourcePos
+    -- ^ Source position attached to the failed operation.
+    , errorMessage :: String
+    -- ^ Human-readable detail for this expression failure.
+    }
     deriving (Eq, Show)
+
 err :: ErrorKind -> SourcePos -> String -> Either ExprError a
 err k p = Left . ExprError k p
+
+{- | Return Right () if all resource budgets fit implementation bounds: steps 1..10000000,
+depth 1..256, nodes 1..100000, input chars 1..1000000, integer bits 2..8192, cache
+entries 0..1024. Otherwise return ExprError InvalidLimits.
+-}
 validateLimits :: Limits -> Either ExprError ()
 validateLimits l
     | or
@@ -168,6 +261,7 @@ validateLimits l
         ] =
         err InvalidLimits unknownPosition "limits exceed positive reference implementation bounds"
     | otherwise = Right ()
+
 data Budget = Budget !Int !Int
 start :: Limits -> Budget
 start l = Budget (maximumSteps l) (maximumNodes l)
@@ -410,6 +504,10 @@ operator Subtract = "-"
 operator Multiply = "*"
 operator Divide = "/"
 operator Power = "^"
+
+{- | Return sorted distinct variable names free in an Expr, respecting lexical let bindings.
+No evaluation or name lookup occurs.
+-}
 freeVariables :: Expr -> [String]
 freeVariables = Set.toAscList . go
   where
@@ -422,9 +520,25 @@ freeVariables = Set.toAscList . go
         Call _ xs -> Set.unions (map go xs)
         Let s a b -> Set.union (go a) (Set.delete s (go b))
 
+{- | Expression numeric mode: ExactRational retains exact supported rational arithmetic;
+Float64 uses checked binary64 evaluation. Unsupported exact transcendental operations
+return structured errors.
+-}
 data Precision = ExactRational | Float64 deriving (Eq, Ord, Show)
+
+{- | Evaluation result tagged ExactValue Rational or FloatValue Double. The selected
+Precision controls permitted operations and conversions.
+-}
 data Value = ExactValue Rational | FloatValue Double deriving (Eq, Show)
+
+{- | Map from variable names to tagged expression Values. Lexical let bindings extend the
+environment inside their body.
+-}
 type Bindings = Map.Map String Value
+
+{- | Finite whitelist of supported scalar operations; Registry maps valid names/aliases to
+these selectors, never arbitrary host code.
+-}
 data Builtin
     = Sin
     | Cos
@@ -445,9 +559,22 @@ data Builtin
     | Cosh
     | Tanh
     deriving (Eq, Ord, Show, Enum, Bounded)
+
+{- | Immutable safe builtin-name registry, initialized with emptyRegistry or defaultRegistry
+and extended with registerFunction.
+-}
 newtype Registry = Registry (Map.Map String Builtin) deriving (Eq, Show)
+
+{- | Construct a registry containing no builtins; callers may add permitted names with
+registerFunction.
+-}
 emptyRegistry :: Registry
 emptyRegistry = Registry Map.empty
+
+{- | Registry of supported safe scalar builtins (trigonometric/hyperbolic functions,
+exp/log/sqrt, abs/signum, rounding and min/max). Evaluation dispatches known Builtin
+values, never arbitrary source code.
+-}
 defaultRegistry :: Registry
 defaultRegistry =
     Registry
@@ -475,6 +602,11 @@ defaultRegistry =
                 [minBound .. maxBound]
             )
         )
+
+{- | Given valid identifier name,Builtin selector,then registry, insert or replace an alias.
+Reject invalid names (including length>1024) or more than 256 distinct entries with
+structured ExprError.
+-}
 registerFunction :: String -> Builtin -> Registry -> Either ExprError Registry
 registerFunction n f (Registry m)
     | length (take 1025 n) > 1024 || not (identifier n) =
@@ -482,8 +614,11 @@ registerFunction n f (Registry m)
     | Map.size m >= 256 && Map.notMember n m =
         err MemoryLimit unknownPosition "registry supports at most 256 names"
     | otherwise = Right (Registry (Map.insert n f m))
+
+-- | Sorted function and alias names accepted by a registry; no evaluation occurs.
 allowedFunctions :: Registry -> [String]
 allowedFunctions (Registry m) = Map.keys m
+
 arity :: Builtin -> Int
 arity f = if f `elem` [Min, Max] then 2 else 1
 finite :: Double -> Bool
@@ -661,6 +796,10 @@ evaluateExpression l mode registry env expression = do
                 Right (v, b2)
             Let n a c -> do (x, b2) <- go (d + 1) b1 vars a; b3 <- charge p 1 1 b2; go (d + 1) b3 (Map.insert n x vars) c
 
+{- | Given limits,precision,registry,bindings,then source text, parse and evaluate under the
+checked expression budgets. Return exact Rational or Float64 Value according to mode;
+syntax/name/domain/resource failures return positioned ExprError.
+-}
 evaluateText :: Limits -> Precision -> Registry -> Bindings -> String -> Either ExprError Value
 evaluateText l mode registry env source = parseExpression l source >>= evaluateExpression l mode registry env
 
@@ -676,7 +815,12 @@ data Key
     | KStrictLet Int Int
     deriving (Eq, Ord, Show)
 data Instruction = Instruction SourcePos Key deriving (Eq, Show)
+
+{- | Opaque validated expression DAG with common-subexpression sharing and source locations.
+Use compileExpression/evaluateCompiled.
+-}
 data Compiled = Compiled Expr Int (Map.Map Int Instruction) deriving (Eq, Show)
+
 data Build = Build !Int (Map.Map Key Int) (Map.Map Int Instruction) Budget
 
 {- | Compile to a hash-consed DAG. Strict lets are retained, including unused
@@ -713,6 +857,7 @@ compileExpression l expression = do
             b1 <- charge p 1 1 b
             Right (n, Build (n + 1) (Map.insert key n keys) (Map.insert n (Instruction p key) instructions) b1)
 
+-- | Number of unique DAG instructions after common-subexpression sharing.
 compiledNodeCount :: Compiled -> Int
 compiledNodeCount (Compiled _ _ nodes) = Map.size nodes
 
@@ -792,10 +937,22 @@ or results. Keys include exact source; eviction occurs at the caller's limit.
 -}
 newtype ExpressionCache = ExpressionCache [(String, Compiled)] deriving (Eq, Show)
 
+{- | Construct an empty immutable compiled-expression cache. cachedExpression returns an
+updated cache explicitly.
+-}
 emptyExpressionCache :: ExpressionCache
 emptyExpressionCache = ExpressionCache []
+
+{- | Return number of retained compiled-source entries; does not compile or evaluate
+anything.
+-}
 cacheSize :: ExpressionCache -> Int
 cacheSize (ExpressionCache xs) = length xs
+
+{- | Given limits,source text,then cache, return (compiled expression,updated cache),
+reusing a matching entry when permitted. Enforce entry and aggregate source/instruction
+budgets; parse/compile/resource failures return ExprError.
+-}
 cachedExpression ::
     Limits -> String -> ExpressionCache -> Either ExprError (Compiled, ExpressionCache)
 cachedExpression l source (ExpressionCache entries) = do
@@ -850,6 +1007,11 @@ formatRadix base value
 
 -- Serialization uses a reserved constructor vocabulary, not Read: input cannot
 -- manufacture a Ratio with denominator zero or bypass parser resource limits.
+
+{- | Given limits then Expr, validate its structure and produce versioned safe textual
+encoding, retaining expression structure. Exceeded character/structure limits return
+ExprError.
+-}
 serializeExpression :: Limits -> Expr -> Either ExprError String
 serializeExpression l e = do
     validateExpression l e
@@ -866,6 +1028,11 @@ serializeExpression l e = do
         Binary op a b -> "__" ++ show op ++ "(" ++ encode a ++ "," ++ encode b ++ ")"
         Call name xs -> "__call(" ++ name ++ concatMap ((", " ++) . encode) xs ++ ")"
         Let name a b -> "__let(" ++ name ++ "," ++ encode a ++ "," ++ encode b ++ ")"
+
+{- | Given limits then encoded text, parse the supported serialization and revalidate its
+structure. Malformed/unsupported nodes or exceeded limits return ExprError; no host
+code evaluation is used.
+-}
 deserializeExpression :: Limits -> String -> Either ExprError Expr
 deserializeExpression l source = do
     encoded <- parseExpression l source

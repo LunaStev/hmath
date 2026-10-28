@@ -20,6 +20,9 @@ import HMath.Image.Filter (validateBoundary)
 import qualified HMath.Matrix as M
 import qualified HMath.Matrix.LU as LU
 
+{- | Image resampling interpolation mode, choosing nearest,bilinear,bicubic,or Lanczos
+kernels.
+-}
 data Interpolation = Nearest | Bilinear | Bicubic | Lanczos deriving (Eq, Show)
 
 {- | 2D resize uses pixel-center mapping (i+0.5)*old/new-0.5, independently
@@ -137,6 +140,7 @@ interpolate method boundary img y x c =
         total = sum (map snd wy) * sum (map snd wx)
      in sum [a * b / total * sample boundary img [i, j] c | (i, a) <- wy, (j, b) <- wx]
 
+-- | Spatial connected-component adjacency: axis neighbors or all surrounding neighbors.
 data Connectivity = AxisConnected | FullyConnected deriving (Eq, Show)
 
 {- | Nonzero is foreground. Label zero is background; component labels start

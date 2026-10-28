@@ -469,6 +469,10 @@ raySphere ray@(Ray o d) sphere@(Sphere center radius) = do
 data CircleIntersection = DisjointCircles | CoincidentCircles | CirclePoints [Point2]
     deriving (Eq, Show)
 
+{- | Given two circles, return DisjointCircles, CoincidentCircles, or CirclePoints for their
+intersection. Require valid finite centers and nonnegative bounded radii. Tangency
+yields one point; identical zero-radius circles yield their single center.
+-}
 circleIntersection :: Circle -> Circle -> Either MathError CircleIntersection
 circleIntersection (Circle a r) (Circle b s) = do
     mapM_ check2 [a, b]

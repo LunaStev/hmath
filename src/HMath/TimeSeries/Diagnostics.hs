@@ -32,6 +32,7 @@ import qualified HMath.Matrix.QR as QR
 import qualified HMath.Statistics.Advanced as Stats
 import HMath.TimeSeries.Core
 
+-- | Stationarity-test deterministic terms: level-only or linear-trend specification.
 data Deterministic = Level | LinearTrend deriving (Eq, Show)
 
 {- | Significance level paired with critical value. ADF rejects for smaller
@@ -39,9 +40,13 @@ statistics, KPSS for larger ones. No interpolated p value is fabricated.
 -}
 data Stationarity = Stationarity
     { stationarityStatistic :: Double
+    -- ^ Computed ADF/KPSS stationarity test statistic.
     , stationarityCriticalValues :: [(Double, Double)]
+    -- ^ Significance-level and critical-value pairs for the selected test/deterministic specification.
     , stationarityObservations :: Int
+    -- ^ Number of effective observations used by the test.
     , stationarityNull :: String
+    -- ^ Human-readable null hypothesis, which differs between ADF and KPSS.
     }
     deriving (Eq, Show)
 
@@ -215,7 +220,16 @@ anomalies threshold xs = do
     Right
         [i | (i, (x, z)) <- zip [0 ..] (zip xs scores), if mad == 0 then x /= median else z > threshold]
 
-data DTWResult = DTWResult {dtwDistance :: Double, dtwPath :: [(Int, Int)]} deriving (Eq, Show)
+{- | Dynamic-time-warping accumulated distance and original-series zero-based alignment
+path.
+-}
+data DTWResult = DTWResult
+    { dtwDistance :: Double
+    -- ^ Accumulated dynamic-time-warping path cost.
+    , dtwPath :: [(Int, Int)]
+    -- ^ Optimal alignment as zero-based index pairs from the two input series.
+    }
+    deriving (Eq, Show)
 
 {- | Absolute local cost; Sakoe--Chiba radius must include both endpoints.
 Returns the unnormalized path cost, with diagonal/up/left tie priority.
@@ -261,6 +275,9 @@ spectrum sampleRate xs = do
     _ <- checked (concatMap (\(a, b) -> [a, b]) density)
     Right density
 
+{- | Prediction-error metric selector; scale/zero-denominator preconditions are checked by
+the metric function.
+-}
 data ForecastMetric = MAE | MSE | RMSE | MAPE | SMAPE | MASE Int [Double] deriving (Eq, Show)
 
 {- | MAPE and sMAPE are percentages; zero/zero sMAPE contributes zero. MASE

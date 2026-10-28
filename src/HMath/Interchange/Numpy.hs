@@ -42,6 +42,11 @@ descriptor dt = case dt of
     F64 -> "f8"
     C64 -> "c8"
     C128 -> "c16"
+
+{- | Given limits,physical C/F order,then Array, repack and write a NumPy NPY v1 payload
+with explicit dtype/endian/shape. Oversized header/output or unsupported layout
+conversion fails.
+-}
 encodeNpy :: Limits -> Order -> Array -> Either InterchangeError B.ByteString
 encodeNpy lim order a = do
     packed <- repack lim (arrayEndian a) order a
@@ -108,6 +113,11 @@ headerParser = lexeme (char '{') *> sepEndBy field (lexeme (char ',')) <* lexeme
             pure (x : xs)
         )
             <++ pure []
+
+{- | Given limits then NPY bytes, decode supported v1/v2/v3 fixed-width scalar dtype arrays.
+Reject pickle/object/record/string dtypes, malformed headers, unknown endian/layout,
+trailing bytes or exceeded budgets.
+-}
 decodeNpy :: Limits -> B.ByteString -> Either InterchangeError Array
 decodeNpy lim input = do
     checkLimits lim

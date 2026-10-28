@@ -41,16 +41,38 @@ import HMath.Error
 import qualified HMath.Matrix as M
 import qualified HMath.Matrix.LU as LU
 
+-- | Scalar objective function over a parameter vector, supplied by the optimization caller.
 type Objective = [Double] -> Either MathError Double
+
+{- | Caller-supplied gradient components in parameter order; dimension/finite checks occur
+in the consuming optimizer.
+-}
 type Gradient = [Double] -> Either MathError [Double]
+
+{- | Caller-supplied second-derivative matrix in parameter order, consumed by checked Newton
+methods.
+-}
 type Hessian = [Double] -> Either MathError [[Double]]
+
+{- | Finite optimization work budgets,tolerance,and method step rate. Start from
+defaultOptimizeOptions.
+-}
 data OptimizeOptions = OptimizeOptions
     { optMaxIterations :: Int
+    -- ^ Maximum optimization iterations.
     , optMaxEvaluations :: Int
+    -- ^ Maximum objective/evaluation work budget.
     , optTolerance :: Double
+    -- ^ Positive finite method-specific stopping tolerance.
     , optLearningRate :: Double
+    -- ^ Positive finite step-size/rate where used by the method.
     }
     deriving (Eq, Show)
+
+{- | Default optimization options: 1000 iterations, 20000 evaluations, tolerance 1e-8 and
+learning rate 0.01. Customize with record updates; algorithms validate the selected
+settings.
+-}
 defaultOptimizeOptions :: OptimizeOptions
 defaultOptimizeOptions = OptimizeOptions 1000 20000 1e-8 0.01
 
@@ -61,11 +83,17 @@ methods. Stochastic searches cannot certify global optimality.
 -}
 data OptimizeResult = OptimizeResult
     { optPoint :: [Double]
+    -- ^ Returned parameter vector at the accepted estimate.
     , optValue :: Double
+    -- ^ Objective value at optPoint.
     , optGradientNorm :: Double
+    -- ^ Gradient,projected/proximal,or geometric stopping residual as defined by the selected method.
     , optIterations :: Int
+    -- ^ Completed optimization iterations.
     , optEvaluations :: Int
+    -- ^ Recorded objective/evaluation count.
     , optConverged :: Bool
+    -- ^ Whether the selected method met its stopping criterion; this does not certify a global optimum.
     }
     deriving (Eq, Show)
 
@@ -156,6 +184,9 @@ result k n converged f g x = do
     checkedPoint [norm gs]
     Right (OptimizeResult x y (norm gs) k (n + 2) converged)
 
+{- | Selected constant or scheduled learning-rate policy, with method-specific parameters
+validated by the schedule function.
+-}
 data LearningRate
     = ConstantRate Double
     | StepDecay Double Int Double
@@ -189,7 +220,17 @@ learningRate schedule step
         checkedPoint [value]
         if value < 0 then Left (InvalidArgument "negative learning rate") else Right value
 
-data EarlyStopping = EarlyStopping {bestScore :: Maybe Double, staleSteps :: Int, stopped :: Bool}
+{- | Explicit monitoring state retaining the best score,nonimproving count,and stop flag; it
+does not mutate an optimizer automatically.
+-}
+data EarlyStopping = EarlyStopping
+    { bestScore :: Maybe Double
+    -- ^ Best monitored score so far, or Nothing before the first observation.
+    , staleSteps :: Int
+    -- ^ Consecutive monitoring updates without sufficient improvement.
+    , stopped :: Bool
+    -- ^ Whether early-stopping patience has been exhausted.
+    }
     deriving (Eq, Show)
 
 -- | Track strict improvement beyond minDelta; stop after patience stale observations.
@@ -203,6 +244,7 @@ earlyStopping patience minDelta value state = do
         stale = if improved then 0 else staleSteps state + 1
     Right (EarlyStopping (if improved then Just value else bestScore state) stale (stale >= patience))
 
+-- | Step selection policy: Armijo backtracking or strong-Wolfe conditions.
 data LineSearch = Armijo | StrongWolfe deriving (Eq, Show)
 
 {- | Backtracking Armijo or bracket-and-zoom strong Wolfe (c1=1e-4,c2=.9).

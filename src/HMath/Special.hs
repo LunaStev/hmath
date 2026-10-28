@@ -95,7 +95,13 @@ foreign import ccall unsafe "jn" cJn :: CInt -> CDouble -> CDouble
 foreign import ccall unsafe "yn" cYn :: CInt -> CDouble -> CDouble
 
 -- | Finite value and estimated absolute numerical error. The estimate includes truncation/discretization and a small rounding allowance; it is not a certified enclosure.
-data SFResult = SFResult {sfValue :: Double, sfError :: Double} deriving (Eq, Show)
+data SFResult = SFResult
+    { sfValue :: Double
+    -- ^ Returned special-function numerical estimate.
+    , sfError :: Double
+    -- ^ Absolute numerical error estimate accompanying sfValue.
+    }
+    deriving (Eq, Show)
 
 finite :: Double -> Bool
 finite x = not (isNaN x || isInfinite x)

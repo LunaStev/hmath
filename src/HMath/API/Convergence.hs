@@ -29,12 +29,38 @@ not reinterpret a small update as proof of a small residual.
 -}
 data StopReason = ResidualSatisfied | IterationLimit | Stagnation deriving (Eq, Show)
 
+{- | Iteration report retaining the estimate and residual even on a budget/stagnation stop.
+Inspect stopReason before assuming convergence.
+-}
 data Convergence a = Convergence
-    {estimate :: a, iterationCount :: !Int, finalResidual :: !Double, stopReason :: !StopReason}
+    { estimate :: a
+    -- ^ Best current estimate, retained even when the iteration budget is exhausted.
+    , iterationCount :: !Int
+    -- ^ Number of completed updates; the initial estimate is iteration zero.
+    , finalResidual :: !Double
+    -- ^ Finite nonnegative absolute residual at the returned estimate.
+    , stopReason :: !StopReason
+    -- ^ ResidualSatisfied,IterationLimit,or Stagnation; successful execution does not itself imply convergence.
+    }
     deriving (Eq, Show, Functor, Foldable, Traversable)
+
+{- | Caller-controlled iteration count and absolute/relative stopping tolerances, validated
+by iterateUntil.
+-}
 data IterationOptions = IterationOptions
-    {maximumIterations :: !Int, absoluteTolerance :: !Double, relativeTolerance :: !Double}
+    { maximumIterations :: !Int
+    -- ^ Nonnegative maximum number of updates permitted by iterateUntil.
+    , absoluteTolerance :: !Double
+    -- ^ Finite nonnegative absolute stopping threshold.
+    , relativeTolerance :: !Double
+    -- ^ Finite nonnegative tolerance scaled by the initial residual.
+    }
     deriving (Eq, Show)
+
+{- | Default iteration budget 1000, absolute tolerance 1e-12, relative tolerance 1e-10. Use
+record updates to configure a solver; iterateUntil validates nonnegative finite
+tolerances.
+-}
 defaultIterationOptions :: IterationOptions
 defaultIterationOptions = IterationOptions 1000 1e-12 1e-10
 
@@ -80,6 +106,10 @@ iterateUntil options step residual stagnant initial = do
                 then Right (Convergence y (n + 1) ry Stagnation)
                 else loop initialResidual (n + 1) y ry
 
+{- | Given operation name then convergence report, return its estimate only for
+ResidualSatisfied. IterationLimit or Stagnation becomes Left (NonConvergence name
+iterationCount), preserving the distinction between execution and convergence.
+-}
 requireConvergence :: String -> Convergence a -> Either MathError a
 requireConvergence name r
     | stopReason r == ResidualSatisfied = Right (estimate r)
@@ -89,5 +119,8 @@ requireConvergence name r
 resultMaybe :: Either e a -> Maybe a
 resultMaybe = either (const Nothing) Just
 
+{- | Given error value then Maybe result, convert Nothing to Left error and Just x to Right
+x. Example: fromMaybeError "missing" (Just 3) == Right 3.
+-}
 fromMaybeError :: e -> Maybe a -> Either e a
 fromMaybeError e = maybe (Left e) Right

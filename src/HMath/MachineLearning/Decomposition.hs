@@ -53,7 +53,17 @@ import HMath.MachineLearning.Regression (Kernel, kernel)
 import qualified HMath.Matrix.LAPACK as L
 import qualified HMath.Random as R
 
-data PCA = PCA {pcaMean :: [Double], pcaComponents :: Dataset, pcaVariances :: [Double]}
+{- | Fitted feature center,principal-component directions,and their explained variances; use
+transform functions for new observations.
+-}
+data PCA = PCA
+    { pcaMean :: [Double]
+    -- ^ Training feature means subtracted before projection.
+    , pcaComponents :: Dataset
+    -- ^ Principal component loading vectors in component order.
+    , pcaVariances :: [Double]
+    -- ^ Explained variances associated with the retained principal components.
+    }
     deriving (Eq, Show)
 
 -- | Fit count principal axes from at least two observations; uses sample covariance (denominator n-1).
@@ -236,7 +246,14 @@ normalMatrix seed n d = do
     (values, _) <- R.sampleN (n * d) (R.normal 0 1) (R.seedRNG R.PCG32 (fromIntegral seed))
     Right [take d (drop (i * d) values) | i <- [0 .. n - 1]]
 
-data FactorAnalysis = FA {factorCenter :: [Double], factorLoadings :: Dataset, factorNoise :: [Double]}
+-- | Fitted feature center,latent factor loadings,and diagonal feature-noise variances.
+data FactorAnalysis = FA
+    { factorCenter :: [Double]
+    , factorLoadings :: Dataset
+    -- ^ Fitted feature-by-factor loading matrix.
+    , factorNoise :: [Double]
+    -- ^ Per-feature residual noise variances in the factor model.
+    }
     deriving (Eq, Show)
 
 {- | Gaussian factor-analysis EM with diagonal noise floor. Unlike PCA, each

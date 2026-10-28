@@ -55,11 +55,25 @@ import HMath.Error (MathError (..))
 import HMath.Matrix (Matrix, fromListChecked)
 
 -- | Estimated value, absolute error estimate and callback evaluation count.
-data Estimate a = Estimate {estimateValue :: a, estimateError :: Double, evaluations :: Int}
+data Estimate a = Estimate
+    { estimateValue :: a
+    -- ^ Returned numerical derivative/integral estimate.
+    , estimateError :: Double
+    -- ^ Absolute error estimate from the selected approximation/refinement rule; not a universal rigorous bound.
+    , evaluations :: Int
+    -- ^ Number of function evaluations used by the calculation.
+    }
     deriving (Eq, Show)
 
 -- | Positive absolute tolerance, nonnegative relative tolerance and positive budget.
-data Tolerance = Tolerance {absoluteTolerance :: Double, relativeTolerance :: Double, maximumEvaluations :: Int}
+data Tolerance = Tolerance
+    { absoluteTolerance :: Double
+    -- ^ Requested finite nonnegative absolute error threshold.
+    , relativeTolerance :: Double
+    -- ^ Requested finite nonnegative error threshold relative to estimate magnitude.
+    , maximumEvaluations :: Int
+    -- ^ Positive caller-supplied function-evaluation budget.
+    }
     deriving (Eq, Show)
 
 -- | Default adaptive tolerance: 1e-10 absolute, 1e-8 relative, 100000 evaluations.

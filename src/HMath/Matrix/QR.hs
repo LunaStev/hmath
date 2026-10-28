@@ -30,17 +30,43 @@ import HMath.Error
 import HMath.Matrix
 import HMath.Matrix.Internal
 
+{- | Opaque column-pivoted Householder factors satisfying A[:,p]=Q*R, with numerical-rank
+estimate. Construct with qrDecompose.
+-}
 data QR a = QR (Matrix a) (Matrix a) [Int] Int deriving (Eq, Show)
+
+-- | Extract the square m-by-m orthogonal Q factor from a QR decomposition.
 qrQ :: QR a -> Matrix a
 qrQ (QR q _ _ _) = q
+
+{- | Extract the m-by-n upper trapezoidal R factor. Column ordering corresponds to
+qrPermutation.
+-}
 qrR :: QR a -> Matrix a
 qrR (QR _ r _ _) = r
+
+-- | Return zero-based original column indices in pivoted order, satisfying A[:,p]=Q*R.
 qrPermutation :: QR a -> [Int]
 qrPermutation (QR _ _ p _) = p
+
+{- | Return estimated numerical rank selected by the factorization's relative diagonal-pivot
+tolerance.
+-}
 qrRank :: QR a -> Int
 qrRank (QR _ _ _ r) = r
+
+{- | Column-pivoted Householder QR of a finite m-by-n matrix using relative rank tolerance
+max(m,n)*machine epsilon. Return factors satisfying A[:,permutation]=Q*R. Numeric/input
+failures return Left MathError; rank deficiency is recorded rather than rejected at
+factorization.
+-}
 qrDecompose :: (RealFloat a) => Matrix a -> Either MathError (QR a)
 qrDecompose a = qrDecomposeWithTolerance (defaultTolerance a) a
+
+{- | Given finite nonnegative relative rank tolerance then finite matrix, compute
+column-pivoted Householder QR. Reject invalid tolerance/non-finite arithmetic. Zero
+tolerance counts every nonzero diagonal pivot as significant.
+-}
 qrDecomposeWithTolerance :: (RealFloat a) => a -> Matrix a -> Either MathError (QR a)
 qrDecomposeWithTolerance tol a
     | tol < 0 || isNaN tol || isInfinite tol = Left InvalidTolerance
@@ -77,10 +103,23 @@ qrDecomposeWithTolerance tol a
                     rclean = [[if j == k && i > k then 0 else rnew !! i !! j | j <- [0 .. n - 1]] | i <- [0 .. m - 1]]
                 finiteValues (concat qnew ++ concat rclean)
                 Right (qnew, rclean, swap k pivot p)
+
+{- | Given QR factorization then a matrix with m rows, return Q times that matrix.
+Dimension/size errors return Left MathError; generic Num arithmetic is unchanged.
+-}
 applyQ :: (Num a) => QR a -> Matrix a -> Either MathError (Matrix a)
 applyQ f = multiplyChecked (qrQ f)
+
+{- | Given QR factorization then a matrix with m rows, return transpose(Q) times it. Checked
+matrix dimension errors propagate.
+-}
 applyQT :: (Num a) => QR a -> Matrix a -> Either MathError (Matrix a)
 applyQT f = multiplyChecked (transposeMatrix (qrQ f))
+
+{- | Given QR factors and an m-by-k RHS, return n-by-k least-squares coefficients, undoing
+column pivoting. Require m>=n and full column rank; shape/rank/finiteness failures
+return Left MathError.
+-}
 solveMatrixQR :: (RealFloat a) => QR a -> Matrix a -> Either MathError (Matrix a)
 solveMatrixQR f b
     | m < n = Left (InvalidArgument "leastSquares: underdetermined system")
@@ -107,18 +146,43 @@ solveMatrixQR f b
                     )
   where
     r = qrR f; (m, n) = shape r
+
+{- | Given full-column-rank QR factors of an m-by-n matrix then m-element right-hand side,
+return n least-squares coefficients in original column order. Reject underdetermined
+systems, incompatible RHS, deficient rank, or non-finite input/result.
+-}
 solveQR :: (RealFloat a) => QR a -> [a] -> Either MathError [a]
 solveQR f b = do
     rhs <- fromListChecked (length b) 1 b
     toList <$> solveMatrixQR f rhs
+
+{- | Given finite m-by-n design matrix then m-element RHS, factor with pivoted QR and return
+least-squares coefficients. Require m>=n and full column rank; decomposition/solve
+errors propagate.
+-}
 leastSquares :: (RealFloat a) => Matrix a -> [a] -> Either MathError [a]
 leastSquares a b = qrDecompose a >>= (`solveQR` b)
+
+{- | Given finite m-by-n design and m-by-k RHS matrices, return n-by-k least-squares
+solution via QR. Underdetermined/rank-deficient or invalid input returns Left
+MathError.
+-}
 leastSquaresMatrix :: (RealFloat a) => Matrix a -> Matrix a -> Either MathError (Matrix a)
 leastSquaresMatrix a b = qrDecompose a >>= (`solveMatrixQR` b)
+
+{- | Given finite nonnegative lambda, design matrix, then RHS list, minimize squared
+residual plus lambda times squared coefficient norm. Use augmented QR, not normal
+equations. Zero lambda delegates to leastSquares; dimension/numeric errors propagate.
+-}
 ridgeSolve :: (RealFloat a) => a -> Matrix a -> [a] -> Either MathError [a]
 ridgeSolve lambda a b = do
     rhs <- fromListChecked (length b) 1 b
     toList <$> ridgeSolveMatrix lambda a rhs
+
+{- | Given lambda, m-by-n design, then m-by-k RHS, return n-by-k ridge coefficients via
+augmented QR. Reject negative/non-finite lambda, RHS mismatch, shape overflow, or
+numerical failure.
+-}
 ridgeSolveMatrix :: (RealFloat a) => a -> Matrix a -> Matrix a -> Either MathError (Matrix a)
 ridgeSolveMatrix lambda a b
     | lambda < 0 || isNaN lambda || isInfinite lambda =

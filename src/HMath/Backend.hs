@@ -90,17 +90,33 @@ unsuffixed and 64_ suffixed builds are recognized.
 data BackendRequest = AutoBackend | RequireBackend Provider IntegerABI (Maybe FilePath)
     deriving (Eq, Show)
 
-data BackendInfo = BackendInfo {selectedProvider :: Provider, selectedIntegerABI :: IntegerABI}
+-- | Actual selected BLAS provider and integer-width ABI, available through backendInfo.
+data BackendInfo = BackendInfo
+    { selectedProvider :: Provider
+    -- ^ Provider actually selected, including Pure when reference fallback is used.
+    , selectedIntegerABI :: IntegerABI
+    -- ^ Selected BLAS integer width: LP64 uses 32-bit indices and ILP64 uses 64-bit indices.
+    }
     deriving (Eq, Show)
+
 data NativeBackend
+
+{- | Opaque selected reference/native backend owner. Retain the value while using its
+dynamically loaded provider.
+-}
 data Backend = Backend !BackendInfo !(Maybe (ForeignPtr NativeBackend))
 
 -- | Provider identity is immutable for the lifetime of a handle.
 backendInfo :: Backend -> BackendInfo
 backendInfo (Backend info _) = info
 
+{- | Construct the deterministic reference backend without dynamically loading BLAS. Its
+lifetime is garbage-collected; selected numeric reference decomposition limits still
+apply.
+-}
 pureBackend :: Backend
 pureBackend = Backend (BackendInfo Pure ILP64) Nothing
+
 foreign import ccall safe "hmath_backend_open"
     cOpen :: CInt -> CInt -> CString -> Ptr CInt -> IO (Ptr NativeBackend)
 foreign import ccall unsafe "&hmath_backend_close" cClose :: FinalizerPtr NativeBackend
@@ -144,6 +160,11 @@ foreign import ccall safe "hmath_lapack_available" cLapackAvailable :: IO CInt
 lapackAvailable :: IO Bool
 lapackAvailable = (/= 0) <$> cLapackAvailable
 
+{- | Given AutoBackend or explicit provider/integer-ABI/library request, select a reference
+or native BLAS backend in IO. Auto honors HMATH_BACKEND, HMATH_BLAS_PROVIDER,
+HMATH_BLAS_INTEGER_BITS and HMATH_BLAS_LIBRARY; unknown settings or unavailable
+explicit providers fail. Keep the Backend alive while calling it.
+-}
 selectBackend :: BackendRequest -> IO (Either MathError Backend)
 selectBackend AutoBackend = do
     mode <- lookupEnv "HMATH_BACKEND"
@@ -220,7 +241,12 @@ lapackStatus name n
     | n < 0 = Left (InvalidArgument (name ++ ": argument " ++ show (negate (toInteger n))))
     | otherwise = Left (NonConvergence name n)
 
+{- | Physical matrix storage order: RowMajor or ColumnMajor, independent of mathematical
+transpose.
+-}
 data BackendLayout = RowMajor | ColumnMajor deriving (Eq, Show)
+
+-- | BLAS operand transformation: unchanged,transposed,or conjugate-transposed.
 data Transpose = NoTranspose | Transpose | ConjugateTranspose deriving (Eq, Show)
 
 -- | Layout conversion is a checked, explicit copy; zero shapes retain rank.
@@ -228,9 +254,13 @@ matrixFromLayout :: BackendLayout -> Int -> Int -> [a] -> Either MathError (M.Ma
 matrixFromLayout RowMajor m n = M.fromListChecked m n
 matrixFromLayout ColumnMajor m n = fmap M.transposeMatrix . M.fromListChecked n m
 
+{- | Given RowMajor/ColumnMajor layout then Matrix, return values in that physical order
+without changing the logical matrix.
+-}
 matrixToLayout :: BackendLayout -> M.Matrix a -> [a]
 matrixToLayout RowMajor = M.toList
 matrixToLayout ColumnMajor = M.toList . M.transposeMatrix
+
 transCode :: Transpose -> CInt
 transCode NoTranspose = 111
 transCode Transpose = 112
@@ -283,6 +313,11 @@ vectorOperation b kind alpha xs ys = case validate of
     reference 0 = checkedList (zipWith (\x y -> alpha * x + y) xs ys)
     reference 1 = checkedList [sum (zipWith (*) xs ys)]
     reference _ = checkedList [I.stableNorm xs]
+
+{- | Given backend,alpha,x,y, return alpha*x+y as a new Double list. Require equal lengths,
+finite inputs/result and provider-supported integer extents; validation/provider
+failures return Left MathError in IO.
+-}
 axpy :: Backend -> Double -> [Double] -> [Double] -> IO (Either MathError [Double])
 axpy b = vectorOperation b 0
 
@@ -292,6 +327,10 @@ when exact cancellation would produce a finite mathematical result.
 dot :: Backend -> [Double] -> [Double] -> IO (Either MathError Double)
 dot b x y = fmap (fmap (!! 0)) (vectorOperation b 1 0 x y)
 
+{- | Given backend then finite Double vector, return Euclidean norm through the selected
+provider or reference path. Empty input gives zero; invalid/non-finite output or
+provider bounds fail in IO.
+-}
 nrm2 :: Backend -> [Double] -> IO (Either MathError Double)
 nrm2 b x = fmap (fmap (!! 0)) (vectorOperation b 2 0 x (replicate (length x) 0))
 
@@ -343,6 +382,11 @@ gemm = gemmWith 0 id finite
 
 aComplex :: Complex Double -> [Double]
 aComplex z = [realPart z, imagPart z]
+
+{- | Given backend,transpose A,transpose B,alpha,A,B,beta,C, return alpha*op(A)*op(B)+beta*C
+as a new complex matrix. Validate compatible dimensions, finite components and provider
+integer/allocation bounds.
+-}
 complexGemm ::
     Backend ->
     Transpose ->
@@ -354,6 +398,7 @@ complexGemm ::
     M.Matrix (Complex Double) ->
     IO (Either MathError (M.Matrix (Complex Double)))
 complexGemm = gemmWith 1 conjugate finiteC
+
 gemmWith ::
     forall a.
     (Num a, Storable a) =>
@@ -409,6 +454,11 @@ gemmWith complexValues conj check b ta tb alpha a bb beta c = case validate of
             [length (M.toList a), length (M.toList bb), length (M.toList c)]
         check (alpha : beta : M.toList a ++ M.toList bb ++ M.toList c)
         Right (aa, bbb, m, n, k)
+
+{- | Given backend,complex alpha,x,y, compute alpha*x+y, requiring equal lengths and finite
+real/imaginary components. Return a new list or checked shape/provider/numeric error in
+IO.
+-}
 complexAxpy ::
     Backend ->
     Complex Double ->
@@ -430,8 +480,17 @@ complexDot b hermitian x y = case sameLength x y >>= \n ->
     Left e -> pure (Left e)
     Right (a, bb, c) -> fmap (fmap ((!! 0) . M.toList)) (complexGemm b NoTranspose NoTranspose 1 a bb 0 c)
 
+{- | Given backend then complex vector, return real Euclidean norm of all real/imaginary
+components. Non-finite input/output or provider extent errors return Left MathError in
+IO.
+-}
 complexNrm2 :: Backend -> [Complex Double] -> IO (Either MathError Double)
 complexNrm2 b = nrm2 b . concatMap aComplex
+
+{- | Given backend,transpose selector,alpha,A,x,beta,y, return alpha*op(A)*x+beta*y as a new
+complex list. ConjugateTranspose conjugates matrix values; dimensions, finite values
+and provider bounds are checked.
+-}
 complexGemv ::
     Backend ->
     Transpose ->
@@ -496,13 +555,27 @@ stridedBatchedGemm b batches m n k strideA as strideB bs = case prepare of
             )
             [0 .. batches - 1]
 
+{- | Given backend then real matrix, compute checked column-independent LU using the
+reference pivoted LU implementation. The backend argument does not change this
+routine's provider. Shape/pivot/numeric failures propagate.
+-}
 backendLU :: Backend -> M.Matrix Double -> Either MathError (LU.LU Double)
 backendLU _ = LU.luDecompose
+
+{- | Given backend then real matrix, compute reference column-pivoted Householder QR;
+selection does not change this routine's provider. Validation/numeric errors propagate.
+-}
 backendQR :: Backend -> M.Matrix Double -> Either MathError (QR.QR Double)
 backendQR _ = QR.qrDecompose
+
+{- | Given backend,square real matrix,then RHS list, solve via reference LU for Pure or the
+independent LAPACKE solve bridge for a native backend. Invalid dimensions, unavailable
+solver, singularity or non-finite arithmetic returns Left MathError.
+-}
 backendSolve :: Backend -> M.Matrix Double -> [Double] -> Either MathError [Double]
 backendSolve (Backend _ Nothing) = LU.solve
 backendSolve _ = nativeSolve
+
 {-# NOINLINE nativeSolve #-}
 nativeSolve :: M.Matrix Double -> [Double] -> Either MathError [Double]
 nativeSolve a rhs = do
@@ -529,13 +602,32 @@ nativeSolve a rhs = do
                                 if code > 0
                                     then Left (SingularMatrix (fromIntegral code - 1))
                                     else lapackStatus "LAPACKE solve" (fromIntegral code) >> checkedList output
+
+{- | Given backend then finite symmetric positive-definite matrix, return reference lower
+Cholesky factor. Invalid shape/symmetry/pivots/numeric results fail; provider selection
+is not used by this wrapper.
+-}
 backendCholesky :: Backend -> M.Matrix Double -> Either MathError (M.Matrix Double)
 backendCholesky _ = D.cholesky
+
+{- | Given backend,design matrix,then RHS list, solve using reference pivoted QR. Require
+compatible overdetermined/full-rank input; shape/rank/numeric failures propagate.
+-}
 backendLeastSquares :: Backend -> M.Matrix Double -> [Double] -> Either MathError [Double]
 backendLeastSquares _ = QR.leastSquares
+
+{- | Given backend then finite real matrix, use bounded pure reference SVD for Pure or
+LAPACK thin SVD for native selection. Return factors or checked
+shape/budget/provider/convergence errors.
+-}
 backendSVD :: Backend -> M.Matrix Double -> Either MathError L.SVD
 backendSVD (Backend _ Nothing) = pureSVD
 backendSVD _ = L.svd
+
+{- | Given backend then finite symmetric square matrix, use bounded cyclic-Jacobi reference
+solver for Pure or LAPACK otherwise. Return eigenvalues/vectors or
+input/provider/convergence errors.
+-}
 backendSymmetricEigen :: Backend -> M.Matrix Double -> Either MathError L.Eigen
 backendSymmetricEigen (Backend _ Nothing) = pureSymmetricEigen
 backendSymmetricEigen _ = L.symmetricEigen

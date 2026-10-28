@@ -39,6 +39,10 @@ nonnegative g
 checkedSum :: Double -> Double -> Either MathError Double
 checkedSum a b = let c = a + b in if finite c then Right c else Left NonFiniteResult
 
+{- | Given graph then source list, return distance to the nearest supplied source, each
+seeded at zero. Invalid sources, negative weights or non-finite arithmetic fail. Empty
+sources give all Nothing.
+-}
 multiSourceDijkstra :: Graph -> [Int] -> Either MathError [Maybe Double]
 multiSourceDijkstra g sources = do
     mapM_ (checkVertex g) sources
@@ -57,6 +61,10 @@ multiSourceDijkstra g sources = do
                     (neighbors g v)
             go (S.insert v visited) next
 
+{- | Given graph then source, return minimum distances in vertex order, with Nothing for
+unreachable vertices. Require valid source and nonnegative weights; invalid input or
+non-finite arithmetic fails.
+-}
 dijkstra :: Graph -> Int -> Either MathError [Maybe Double]
 dijkstra g source = multiSourceDijkstra g [source]
 
@@ -69,6 +77,10 @@ relax es initial = foldM step initial es
 repeatRelax :: Int -> [Edge] -> Distances -> Either MathError Distances
 repeatRelax count es initial = foldM (\m _ -> relax es m) initial [1 .. count]
 
+{- | Given graph then source, return minimum distances including negative weights. Invalid
+source, reachable negative cycle or non-finite arithmetic returns Left MathError;
+unreachable vertices are Nothing.
+-}
 bellmanFord :: Graph -> Int -> Either MathError [Maybe Double]
 bellmanFord g source = do
     checkVertex g source
@@ -76,6 +88,9 @@ bellmanFord g source = do
     next <- relax (arcs g) dist
     if next /= dist then Left (DomainError "reachable negative cycle") else finish g dist
 
+{- | Return all-pairs minimum-distance rows, with Nothing for unreachable pairs. Negative
+edges are allowed; any negative cycle or non-finite arithmetic fails.
+-}
 floydWarshall :: Graph -> Either MathError [[Maybe Double]]
 floydWarshall g = do
     let n = vertexCount g
@@ -238,6 +253,10 @@ kShortestPaths fuel count g source target = do
                                         [(u, w, i) | (u, w, i) <- neighbors g v, u `notElem` path]
                                 go (b - 1) (rest ++ added) out
 
+{- | Given directed acyclic graph then source, return maximum path-weight distance to each
+vertex, Nothing for unreachable vertices. Invalid source, cycles/undirected input or
+non-finite arithmetic fails.
+-}
 longestDAGPaths :: Graph -> Int -> Either MathError [Maybe Double]
 longestDAGPaths g source = do
     checkVertex g source

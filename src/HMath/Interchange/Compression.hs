@@ -20,8 +20,17 @@ data Compression = RawDeflate | Zlib | Gzip deriving (Eq, Show, Enum)
 foreign import ccall unsafe "hmath_interchange_has_zlib" c_available :: IO CInt
 foreign import ccall safe "hmath_interchange_compress"
     c_compress :: CInt -> CInt -> Ptr Word8 -> CSize -> Ptr Word8 -> CSize -> Ptr CSize -> IO CInt
+
+{- | Probe whether the optional native zlib adapter is available, returning IO Bool. False
+means compressed operations cannot run; no payload is processed.
+-}
 compressionAvailable :: IO Bool
 compressionAvailable = (/= 0) <$> c_available
+
+{- | Given limits,RawDeflate/Zlib/Gzip wrapper,then bytes, compress within a bounded output
+allocation. Return InterchangeError for unavailable provider, invalid limits,
+byte-budget excess or compression failure in IO.
+-}
 compress :: Limits -> Compression -> B.ByteString -> IO (Either InterchangeError B.ByteString)
 compress lim wrapper input =
     -- zlib's conservative deflate bound plus wrapper slack, capped by the

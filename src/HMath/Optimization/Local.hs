@@ -27,6 +27,7 @@ import Data.List (sortOn)
 import HMath.Error
 import HMath.Optimization.Common
 
+-- | Bounded one-dimensional minimization strategy (golden section,Brent,or ternary search).
 data ScalarMethod = GoldenSection | TernarySearch | BrentSearch deriving (Eq, Show)
 
 -- | Minimize on a finite bracket a<b. Result residual is interval width, not an unconstrained derivative.
@@ -111,6 +112,7 @@ minimizeScalar method o f a0 b0 = do
                                 then brent (k + 1) (n + 1) a' b' x w u fx fw fu d newOld
                                 else brent (k + 1) (n + 1) a' b' x w v fx fw fv d newOld
 
+-- | Quasi-Newton update selector such as BFGS,DFP,SR1,or limited-memory BFGS.
 data QuasiNewton = BFGS | LBFGS Int | DFP | SR1 deriving (Eq, Show)
 
 -- | Run the named inverse-Hessian secant update with safeguarded curvature and a strong-Wolfe descent search.
@@ -174,6 +176,7 @@ minimizeQuasiNewton method o f g x0 = do
                 (scale gamma q)
                 (reverse (zip hs alphas))
 
+-- | Newton/trust-region strategy selected for checked local minimization.
 data NewtonMethod = Newton | NewtonCG | TrustRegion Double | Dogleg Double deriving (Eq, Show)
 
 -- | Use an analytic square Hessian with Newton/CG or trust-region acceptance; singular systems and collapsed regions fail.
@@ -280,8 +283,17 @@ nonlinearCG o f g x0 = do
             let beta = max 0 (dot gn (sub gn gs) / dot gs gs)
             loop (k + 1) (n + cost) (add x (scale a d)) yn gn (add (scale (-1) gn) (scale beta d))
 
+-- | Caller-supplied residual vector for nonlinear least-squares fitting.
 type ResidualFunction = [Double] -> Either MathError [Double]
+
+{- | Caller-supplied residual Jacobian with rows corresponding to residual components and
+columns to parameters.
+-}
 type JacobianFunction = [Double] -> Either MathError [[Double]]
+
+{- | Robust residual penalty selector. Parameterized Huber/Cauchy/SoftL1 choices carry the
+selected scale; checked solvers validate it.
+-}
 data LeastSquaresLoss = SquaredLoss | HuberLoss Double | CauchyLoss Double | SoftL1 Double
     deriving (Eq, Show)
 

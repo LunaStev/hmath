@@ -22,13 +22,19 @@ import Data.List (groupBy, sortBy)
 import HMath.Error
 import qualified HMath.Tensor as T
 
+-- | Accuracy and per-class precision,recall,and F1 values ordered by class index.
 data ClassificationMetrics = ClassificationMetrics
     { accuracy :: Double
+    -- ^ Fraction of correctly predicted samples.
     , precisionByClass :: [Double]
+    -- ^ Per-class true positives divided by predicted positives; ordering follows class indices.
     , recallByClass :: [Double]
+    -- ^ Per-class true positives divided by actual positives.
     , f1ByClass :: [Double]
+    -- ^ Per-class harmonic mean of precision and recall, following the metric function's zero-denominator convention.
     }
     deriving (Eq, Show)
+
 finite :: [Double] -> Either MathError ()
 finite xs = if all (\x -> not (isNaN x || isInfinite x)) xs then Right () else Left NonFiniteResult
 

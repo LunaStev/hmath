@@ -6,7 +6,7 @@ The 1.0.0 Python distribution omitted the native library. Upgrade to 1.0.1
 or newer using your application's interpreter:
 
 ```sh
-python -m pip install --upgrade --only-binary=:all: "hmath-python>=1.0.1"
+pip install --upgrade hmath-python
 ```
 
 In PyCharm, use the interpreter selected in the project's Python interpreter
