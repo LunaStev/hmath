@@ -1,0 +1,37 @@
+# SPDX-License-Identifier: MPL-2.0
+name: Cached Haskell toolchain
+description: Restore the installed compiler before configuring GHC and Cabal
+inputs:
+  ghc-version:
+    description: Exact GHC version
+    required: true
+outputs:
+  cabal-store:
+    description: Cabal dependency store
+    value: ${{ steps.haskell.outputs.cabal-store }}
+runs:
+  using: composite
+  steps:
+    - name: Locate GHCup installation
+      if: runner.os != 'Windows'
+      id: root
+      shell: bash
+      run: |
+        mkdir -p "$HOME/.ghcup"
+        toolchain_root="$(cd "$HOME/.ghcup" && pwd -P)"
+        echo "path=$toolchain_root" >> "$GITHUB_OUTPUT"
+    - name: Restore installed compiler
+      if: runner.os != 'Windows'
+      uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
+      with:
+        path: |
+          ${{ steps.root.outputs.path }}/ghc/${{ inputs.ghc-version }}
+          ${{ steps.root.outputs.path }}/bin
+          ${{ steps.root.outputs.path }}/cabal/3.16.1.0
+        key: toolchain-v2-${{ runner.os }}-${{ runner.arch }}-${{ env.ImageOS }}-${{ env.ImageVersion }}-ghc-${{ inputs.ghc-version }}-cabal-3.16.1.0
+    - uses: haskell-actions/setup@7fd2bb5ca789761088fbc831406b2910e47e56f1 # v2
+      id: haskell
+      with:
+        ghc-version: ${{ inputs.ghc-version }}
+        cabal-version: '3.16.1.0'
+        cabal-update: false

@@ -8,12 +8,22 @@ on:
   pull_request:
     paths-ignore: ['docs/**', 'mkdocs.yml', 'requirements-docs.txt', 'tools/build_docs.py', 'README.md']
   workflow_dispatch:
+    inputs:
+      full-matrix:
+        description: Run all compiler and portability combinations
+        type: boolean
+        default: true
+  workflow_call:
+    inputs:
+      full-matrix:
+        type: boolean
+        default: false
 
 permissions:
   contents: read
 
 concurrency:
-  group: validate-${{ github.event.pull_request.number || github.ref }}
+  group: validate-${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true
 
 jobs:
@@ -21,16 +31,14 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        ghc: ['9.6.7', '9.10.3']
-        buildtype: [debug, release]
+        include: ${{ fromJSON(inputs.full-matrix && '[{"ghc":"9.6.7","buildtype":"debug","primary":false},{"ghc":"9.6.7","buildtype":"release","primary":false},{"ghc":"9.10.3","buildtype":"debug","primary":false},{"ghc":"9.10.3","buildtype":"release","primary":true}]' || '[{"ghc":"9.10.3","buildtype":"debug","primary":true}]') }}
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
-      - uses: haskell-actions/setup@7fd2bb5ca789761088fbc831406b2910e47e56f1 # v2
+      - uses: ./.github/actions/setup-haskell
         id: haskell
         with:
           ghc-version: ${{ matrix.ghc }}
-          cabal-version: '3.16.1.0'
       - uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
         with:
           path: |
@@ -52,7 +60,7 @@ jobs:
           sudo apt-get install -y liblapacke-dev libopenblas-dev zlib1g-dev cmake ninja-build clang
           python -m pip install meson==1.8.5 numpy cffi
       - name: Wave compiler
-        if: matrix.ghc == '9.10.3' && matrix.buildtype == 'release'
+        if: matrix.primary
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
@@ -66,7 +74,7 @@ jobs:
       - name: Build and integration tests
         run: |
           wave_tests=auto
-          if [ '${{ matrix.ghc }}' = '9.10.3' ] && [ '${{ matrix.buildtype }}' = release ]; then
+          if [ '${{ matrix.primary }}' = true ]; then
             wave_tests=enabled
           fi
           meson setup build-ci --buildtype=${{ matrix.buildtype }} -Doffline=true -Dwerror=true -Dpython_bindings=enabled -Dwave_bindings="$wave_tests" -Dbenchmarks=true
@@ -75,10 +83,10 @@ jobs:
           python tools/check_install.py build-ci
           python tools/check_abi.py build-ci/libhmath.so
       - name: Sanitized metadata and DLPack fuzzing
-        if: matrix.ghc == '9.10.3' && matrix.buildtype == 'release'
+        if: matrix.primary
         run: python tools/run_fuzz.py --runs=100000 --output=build-ci/fuzz.log
       - name: Native benchmark smoke
-        if: matrix.ghc == '9.10.3' && matrix.buildtype == 'release'
+        if: matrix.primary
         run: |
           python tools/benchmark.py --library=build-ci/libhmath.so --native=build-ci/hmath-native-benchmark --iterations=10 --output=build-ci/benchmark.json
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
@@ -95,11 +103,10 @@ jobs:
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
-      - uses: haskell-actions/setup@7fd2bb5ca789761088fbc831406b2910e47e56f1 # v2
+      - uses: ./.github/actions/setup-haskell
         id: haskell
         with:
           ghc-version: '9.10.3'
-          cabal-version: '3.16.1.0'
       - uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
         with:
           path: |
@@ -133,6 +140,7 @@ jobs:
         run: cabal bench hmath-criterion -fvalidation-frameworks -fcriterion-benchmarks --benchmark-options='--iters 1'
 
   portability-build:
+    if: inputs.full-matrix
     # Build probes do not establish full native platform support.
     strategy:
       fail-fast: false
@@ -141,11 +149,10 @@ jobs:
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
-      - uses: haskell-actions/setup@7fd2bb5ca789761088fbc831406b2910e47e56f1 # v2
+      - uses: ./.github/actions/setup-haskell
         id: haskell
         with:
           ghc-version: '9.10.3'
-          cabal-version: '3.16.1.0'
       - uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
         with:
           path: |
