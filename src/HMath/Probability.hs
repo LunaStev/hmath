@@ -3,10 +3,10 @@
 {- | Checked probability models. Gamma uses shape/scale, geometric and negative
 binomial count failures before successes, Gumbel/GEV model maxima, Student-t
 is standardized, and triangular parameters are lower/mode/upper. Discrete
-densities are zero away from integer support; CDF=P(X<=x), survival=P(X>x).
+densities are zero away from integer support; CDF=P(X\<=x), survival=P(X>x).
 Quantiles use inf{x:F(x)>=p}. Log zero is -infinity by contract.
 Finite reference summation/integration budgets are explicit in the code.
-DiscreteUniform endpoints must be exactly representable integers (|bound|<=2^53),
+DiscreteUniform endpoints must be exactly representable integers (|bound|\<=2^53),
 and Skellam log-mass order is capped at 1000000; CDF tails outside its finite
 numerical summation window saturate to zero/one.
 -}
@@ -340,7 +340,7 @@ logSumExp xs = let m = maximum xs in if isInfinite m then m else m + log (sum (m
 density :: Distribution -> Double -> Either MathError Double
 density d x = exp <$> logDensity d x
 
--- | P(X<=x). Gamma/beta and classical transformed families use analytic special-function identities. Remaining finite-support continuous cases use 2048-panel Simpson integration; Skellam drops a tail beyond 14 standard deviations plus 20 counts.
+-- | P(X\<=x). Gamma/beta and classical transformed families use analytic special-function identities. Remaining finite-support continuous cases use 2048-panel Simpson integration; Skellam drops a tail beyond 14 standard deviations plus 20 counts.
 cdf :: Distribution -> Double -> Either MathError Double
 cdf d x = do
     validateDistribution d
@@ -877,7 +877,7 @@ wishartLogDensity nu scale x = do
             - lg
         )
 
--- | Reference Wishart draw as the sum of nu Gaussian outer products; requires integer nu>=p and nu<=100000.
+-- | Reference Wishart draw as the sum of nu Gaussian outer products; requires integer nu>=p and nu\<=100000.
 sampleWishart :: Int -> Matrix Double -> R.RNG -> Either MathError (Matrix Double, R.RNG)
 sampleWishart nu scale r = do
     let p = fst (shape scale)

@@ -20,52 +20,7 @@ concurrency:
 jobs:
   build:
     if: github.repository == 'wavefnd/hmath' && github.ref == 'refs/heads/master'
-    runs-on: ubuntu-24.04
-    outputs:
-      version: ${{ steps.version.outputs.version }}
-    steps:
-      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
-        with:
-          persist-credentials: false
-      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
-        with:
-          python-version: '3.12'
-      - uses: haskell-actions/setup@7fd2bb5ca789761088fbc831406b2910e47e56f1 # v2
-        with:
-          ghc-version: '9.10.3'
-          cabal-version: '3.16.1.0'
-      - name: Read package version
-        id: version
-        run: |
-          python - <<'PY'
-          import os
-          import pathlib
-          import tomllib
-          metadata = tomllib.loads(pathlib.Path('pyproject.toml').read_text())
-          with open(os.environ['GITHUB_OUTPUT'], 'a') as output:
-              print('version=' + metadata['project']['version'], file=output)
-          PY
-      - name: Build and validate the distributions
-        run: |
-          python -m pip install build twine numpy cffi
-          python -m build --outdir dist
-          python -m twine check --strict dist/*
-          cabal update
-          python meson-build.py . build-python/libhmath.so build-python/libhmath.so.1 --builddir build-python/cabal
-          python -m pip install dist/*.whl
-          HMATH_LIBRARY="$PWD/build-python/libhmath.so" python - <<'PY'
-          import pathlib
-          import runpy
-          import hmath
-          if 'site-packages' not in pathlib.Path(hmath.__file__).parts:
-              raise SystemExit('Validation must import the installed wheel')
-          runpy.run_path('bindings/python/test_bindings.py', run_name='__main__')
-          PY
-      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
-        with:
-          name: python-distributions
-          path: dist/*
-          if-no-files-found: error
+    uses: ./.github/workflows/python-wheels.yml
 
   publish:
     needs: build

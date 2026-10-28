@@ -311,13 +311,13 @@ erfcx x
 normalCDF :: Double -> Either MathError Double
 normalCDF x = (/ 2) <$> erfc (-x / sqrt 2)
 
--- | Standard-normal inverse CDF for 0<p<1. Symmetry preserves tiny upper-tail probabilities before bounded bisection.
+-- | Standard-normal inverse CDF for 0\<p\<1. Symmetry preserves tiny upper-tail probabilities before bounded bisection.
 normalQuantile :: Double -> Either MathError Double
 normalQuantile p = do
     require (finite p && p > 0 && p < 1) "normal quantile requires 0<p<1"
     if p > 0.5 then negate <$> normalQuantile (1 - p) else bisect 100 (-40) 0 p normalCDF
 
--- | Real inverse error function for -1<x<1, using the normal inverse identity.
+-- | Real inverse error function for -1\<x\<1, using the normal inverse identity.
 inverseErf :: Double -> Either MathError Double
 inverseErf x = do
     require (finite x && abs x < 1) "inverseErf requires -1<x<1"
@@ -334,7 +334,7 @@ bisect n lo hi target f
 fact :: Int -> Double
 fact n = product [1 .. fromIntegral n]
 
--- | Dawson integral for |x|<=100; scaled quadrature below |x|=10, inverse-power asymptotics above.
+-- | Dawson integral for |x|\<=100; scaled quadrature below |x|=10, inverse-power asymptotics above.
 dawson :: Double -> Either MathError SFResult
 dawson x = do
     require (finite x && abs x <= 100) "Dawson supports |x|<=100"
@@ -376,7 +376,7 @@ exponentialIntegral n x = do
                     estimate answer errorEstimate
 
 {- | Real principal-value Ei for x>0; logarithmic integral li(x)=Ei(log x),
-with the real PV continuation on 0<x<1.
+with the real PV continuation on 0\<x\<1.
 -}
 logarithmicIntegral :: Double -> Either MathError SFResult
 logarithmicIntegral x = do
@@ -390,7 +390,7 @@ logarithmicIntegral x = do
             value <- series 10000 y (\n t -> t * y * fromIntegral n / fromIntegral ((n + 1) * (n + 1)))
             estimate (0.5772156649015329 + log y + sfValue value) (sfError value)
 
--- | Real Si(x) on |x|<=1000, with its removable singularity explicitly filled at zero.
+-- | Real Si(x) on |x|\<=1000, with its removable singularity explicitly filled at zero.
 sineIntegral :: Double -> Either MathError SFResult
 sineIntegral x = do
     require (finite x && abs x <= 1000) "Si supports |x|<=1000"
@@ -404,7 +404,7 @@ sineIntegral x = do
                 (\t -> if t == 0 then 1 else sin t / t)
                 (linearSegments 0 x (max 1 (ceiling (abs x))))
 
-{- | Real Ci(x) on 0<x<=1000, using phase-resolved quadrature near zero and
+{- | Real Ci(x) on 0\<x\<=1000, using phase-resolved quadrature near zero and
 inverse-power oscillatory asymptotics above x=50.
 -}
 cosineIntegral :: Double -> Either MathError SFResult
@@ -433,7 +433,7 @@ integrateSegments f knots = do
     parts <- mapM (uncurry (integrate f)) (zip knots (drop 1 knots))
     estimate (sum (map sfValue parts)) (sum (map sfError parts))
 
-{- | Fresnel (C,S), phase pi*t^2/2, |x|<=100. Phase-sized subintervals prevent
+{- | Fresnel (C,S), phase pi*t^2/2, |x|\<=100. Phase-sized subintervals prevent
 oscillatory quadrature aliasing; above |x|=8 inverse-power asymptotics avoid it.
 -}
 fresnel :: Double -> Either MathError (SFResult, SFResult)
@@ -459,7 +459,7 @@ fresnel x = do
             pure (c, ss)
 
 {- | Legendre incomplete elliptic integrals, parameter m (not modulus k),
-real branch |phi|<=pi/2, m<1; Pi additionally n<1.
+real branch |phi|\<=pi/2, m\<1; Pi additionally n\<1.
 -}
 ellipticF :: Double -> Double -> Either MathError SFResult
 ellipticF phi m = elliptic phi m 0 0
@@ -468,7 +468,7 @@ ellipticF phi m = elliptic phi m 0 0
 ellipticE :: Double -> Double -> Either MathError SFResult
 ellipticE phi m = elliptic phi m 0 1
 
--- | Legendre third-kind integral with arguments characteristic n, amplitude phi, parameter m; n<1, m<1, |phi|<=pi/2.
+-- | Legendre third-kind integral with arguments characteristic n, amplitude phi, parameter m; n\<1, m\<1, |phi|\<=pi/2.
 ellipticPi :: Double -> Double -> Double -> Either MathError SFResult
 ellipticPi n phi m = elliptic phi m n 2
 
@@ -485,7 +485,7 @@ elliptic phi m n kind = do
         0
         phi
 
-{- | Real (sn,cn,dn), |u|<=10^6 and 0<=m<1, using periodic amplitude
+{- | Real (sn,cn,dn), |u|\<=10^6 and 0\<=m\<1, using periodic amplitude
 inversion. The complete period uses AGM; the argument cap prevents accumulated
 period uncertainty from being presented as a resolved large-argument phase.
 -}
@@ -516,19 +516,19 @@ jacobiElliptic u m = do
     let sn = sgn * sin phi; cn = (if reflected then -1 else 1) * cos phi
     pure (sn, cn, sqrt (1 - m * sn * sn))
 
--- | Integer-order J_n(x) from libm, |n|<=100000 and finite real x.
+-- | Integer-order J_n(x) from libm, |n|\<=100000 and finite real x.
 besselJ :: Int -> Double -> Either MathError Double
 besselJ n x = do
     require (abs (toInteger n) <= 100000 && finite x) "Bessel J integer order budget exceeded"
     checked (realToFrac (cJn (fromIntegral n) (realToFrac x)))
 
--- | Integer-order Y_n(x) from libm, |n|<=100000 and x>0.
+-- | Integer-order Y_n(x) from libm, |n|\<=100000 and x>0.
 besselY :: Int -> Double -> Either MathError Double
 besselY n x = do
     require (abs (toInteger n) <= 100000 && finite x && x > 0) "Bessel Y integer order, x>0 required"
     checked (realToFrac (cYn (fromIntegral n) (realToFrac x)))
 
--- | Modified Bessel I_n(x) via its convergent series, integer order 0..100 and |x|<=700. Overflow is an error.
+-- | Modified Bessel I_n(x) via its convergent series, integer order 0..100 and |x|\<=700. Overflow is an error.
 besselI :: Int -> Double -> Either MathError SFResult
 besselI n x = do
     require (n >= 0 && n <= 100 && finite x && abs x <= 700) "Bessel I order 0..100, |x|<=700"
@@ -538,7 +538,7 @@ besselI n x = do
         ((x / 2) ^ n / g)
         (\k t -> t * x * x / (4 * fromIntegral k * (fromIntegral k + fromIntegral n)))
 
--- | exp(-|x|)*I_n(x). Uses the power series for |x|<=50 and asymptotics when n<=20 and |x|>n^2.
+-- | exp(-|x|)*I_n(x). Uses the power series for |x|\<=50 and asymptotics when n\<=20 and |x|>n^2.
 scaledBesselI :: Int -> Double -> Either MathError SFResult
 scaledBesselI n x
     | abs x <= 50 = do s <- besselI n x; estimate (exp (-abs x) * sfValue s) (exp (-abs x) * sfError s)
@@ -642,7 +642,7 @@ hankel kind n x = do
     pure (j :+ (if kind == 1 then y else -y))
 
 {- | Airy Ai,Bi and derivatives solve y''=x y by convergent Maclaurin series.
-The bounded real reference domain |x|<=8 avoids severe recessive cancellation.
+The bounded real reference domain |x|\<=8 avoids severe recessive cancellation.
 -}
 airy :: Double -> Either MathError (SFResult, SFResult, SFResult, SFResult)
 airy x = do
@@ -661,7 +661,7 @@ airy x = do
         (b, bd) = eval (sqrt 3 * a0) (-sqrt 3 * a1)
     pure (a, ad, b, bd)
 
--- | Real Struve H_nu(x) by a convergent series; nu>-3/2 and 0<=x<=30.
+-- | Real Struve H_nu(x) by a convergent series; nu>-3/2 and 0\<=x\<=30.
 struve :: Double -> Double -> Either MathError SFResult
 struve nu x = do
     require (finite (nu + x) && nu > -1.5 && x >= 0 && x <= 30) "Struve H requires nu>-1.5,0<=x<=30"
@@ -671,7 +671,7 @@ struve nu x = do
         ((x / 2) ** (nu + 1) / (sqrt pi / 2 * g))
         (\k t -> -t * x * x / (4 * (fromIntegral k + 0.5) * (fromIntegral k + nu + 0.5)))
 
--- | Generalized pFq power series. Requires p<=q or p=q+1 with |z|<1 and no nonpositive-integer denominator parameters; finite budget 10000 terms.
+-- | Generalized pFq power series. Requires p\<=q or p=q+1 with |z|\<1 and no nonpositive-integer denominator parameters; finite budget 10000 terms.
 hypergeometric :: [Double] -> [Double] -> Double -> Either MathError SFResult
 hypergeometric as bs z = do
     require
@@ -702,7 +702,7 @@ hypergeometric1F1 a b z
         estimate (exp z * sfValue value) (exp z * sfError value)
     | otherwise = hypergeometric [a] [b] z
 
--- | Gauss 2F1(a,b;c;z) in the real power-series disk |z|<1.
+-- | Gauss 2F1(a,b;c;z) in the real power-series disk |z|\<1.
 hypergeometric2F1 :: Double -> Double -> Double -> Double -> Either MathError SFResult
 hypergeometric2F1 a b c z = hypergeometric [a, b] [c] z
 
@@ -721,11 +721,11 @@ complex1F1 a b z = go 1 1 1
                     then Left NonFiniteResult
                     else if magnitude u < 1e-14 * max 1 (magnitude q) then Right q else go (k + 1) u q
 
--- | Legendre P_n(x), n=0..1000 and |x|<=1.
+-- | Legendre P_n(x), n=0..1000 and |x|\<=1.
 legendre :: Int -> Double -> Either MathError Double
 legendre n x = associatedLegendre n 0 x
 
--- | Associated P_l^m(x) with Condon--Shortley phase, 0<=m<=l<=1000 and |x|<=1.
+-- | Associated P_l^m(x) with Condon--Shortley phase, 0\<=m\<=l\<=1000 and |x|\<=1.
 associatedLegendre :: Int -> Int -> Double -> Either MathError Double
 associatedLegendre l m x = do
     require
@@ -772,7 +772,7 @@ hurwitzZeta s q = do
         (sum terms + a ** (1 - s) / (s - 1) + 0.5 * a ** (-s) + sum correction)
         (abs (last correction))
 
--- | Real zeta: Euler--Maclaurin for s>1, Euler-transformed eta for 0<s<1 and reflection for -170<s<0. The pole s=1 is rejected.
+-- | Real zeta: Euler--Maclaurin for s>1, Euler-transformed eta for 0\<s\<1 and reflection for -170\<s\<0. The pole s=1 is rejected.
 riemannZeta :: Double -> Either MathError SFResult
 riemannZeta s
     | s > 1 = hurwitzZeta s 1
@@ -797,13 +797,13 @@ riemannZeta s
             den = 1 - 2 ** (1 - s)
         estimate (sum terms / den) (abs (last terms / den) + 1e-14 / abs den)
 
--- | Real polylog Li_s(z) in the convergent power-series disk |z|<1; no cross-cut continuation is implied.
+-- | Real polylog Li_s(z) in the convergent power-series disk |z|\<1; no cross-cut continuation is implied.
 polylogarithm :: Double -> Double -> Either MathError SFResult
 polylogarithm s z = do
     require (finite (s + z) && abs z < 1) "real polylog power series needs |z|<1"
     series 100000 z (\k t -> t * z * (fromIntegral k / fromIntegral (k + 1)) ** s)
 
--- | Real Li_2(x) for x<=1, with reflection and negative-axis transformations for convergent evaluation.
+-- | Real Li_2(x) for x\<=1, with reflection and negative-axis transformations for convergent evaluation.
 dilogarithm :: Double -> Either MathError SFResult
 dilogarithm x
     | x == 1 = Right (SFResult (pi * pi / 6) 1e-15)
@@ -815,7 +815,7 @@ dilogarithm x
     | x > 0.5 && x < 1 = do s <- dilogarithm (1 - x); estimate (pi * pi / 6 - log x * log (1 - x) - sfValue s) (sfError s)
     | otherwise = polylogarithm 2 x
 
--- | Real Lambert W branch 0 or -1, x>=-1/e and x<0 on branch -1, using bounded Halley iteration.
+-- | Real Lambert W branch 0 or -1, x>=-1/e and x\<0 on branch -1, using bounded Halley iteration.
 lambertW :: Int -> Double -> Either MathError SFResult
 lambertW branch x = do
     require
@@ -864,11 +864,11 @@ clausen theta = do
             then Right (SFResult 0 0)
             else integrate (\u -> if u == 0 then 0 else -2 * x * u * log (abs (2 * sin (x * u * u / 2)))) 0 1
 
--- | Complete normalized Fermi--Dirac integral F_order(eta), 0<=order<=20, |eta|<=100.
+-- | Complete normalized Fermi--Dirac integral F_order(eta), 0\<=order\<=20, |eta|\<=100.
 fermiDirac :: Double -> Double -> Either MathError SFResult
 fermiDirac order eta = quantumIntegral False order eta
 
--- | Complete normalized Bose--Einstein integral, same order range, -100<=eta<=0 and positive order at eta=0.
+-- | Complete normalized Bose--Einstein integral, same order range, -100\<=eta\<=0 and positive order at eta=0.
 boseEinstein :: Double -> Double -> Either MathError SFResult
 boseEinstein order eta = quantumIntegral True order eta
 
@@ -895,8 +895,8 @@ quantumIntegral bose order eta = do
 {- | Regular and irregular Coulomb waves F_l,G_l. The regular function follows
 the convergent hypergeometric representation. G is integrated backwards from
 a first-order asymptotic boundary at R>=300 using RK4; its error estimate
-includes the omitted O((l(l+1)+eta^2)/R) term. Real reference domain l<=8,
-|eta|<=3, 0.5<=rho<=30. This is deliberately not a high-accuracy scattering solver.
+includes the omitted O((l(l+1)+eta^2)/R) term. Real reference domain l\<=8,
+|eta|\<=3, 0.5\<=rho\<=30. This is deliberately not a high-accuracy scattering solver.
 -}
 coulombWave :: Int -> Double -> Double -> Either MathError (SFResult, SFResult)
 coulombWave l eta rho = do
@@ -979,7 +979,7 @@ gegenbauer n a x = do
         | otherwise =
             let j = fromIntegral (k + 1) in go (k + 1) q ((2 * (j + a) * x * q - (j + 2 * a - 1) * p) / (j + 1))
 
--- | Real D_nu(x) via Kummer's representation; reference |x|<=6, |nu|<=10.
+-- | Real D_nu(x) via Kummer's representation; reference |x|\<=6, |nu|\<=10.
 parabolicCylinder :: Double -> Double -> Either MathError SFResult
 parabolicCylinder nu x = do
     require
@@ -997,7 +997,7 @@ parabolicCylinder nu x = do
 
 {- | Mathieu ce_n (even=True) or se_n, from a 32-term Fourier Galerkin
 eigenproblem. ce(0)=1 or se'(0)=1. Error estimates the last coefficient;
-reference 0<=n<=12, |q|<=10, any real x. Characteristic value is returned.
+reference 0\<=n\<=12, |q|\<=10, any real x. Characteristic value is returned.
 -}
 mathieu :: Bool -> Int -> Double -> Double -> Either MathError (Double, SFResult)
 mathieu evenMode n q x = do
@@ -1065,7 +1065,7 @@ choose n k
         product [fromIntegral (n - k + 1) .. fromIntegral n] `div` product [1 .. fromIntegral k]
 
 {- | Angular momenta and projections are encoded as doubled integers, allowing
-half-integers exactly. Factorial Racah sums have j<=30 and return selection
+half-integers exactly. Factorial Racah sums have j\<=30 and return selection
 rule zeros rather than factorials of negative arguments.
 -}
 wigner3j :: Int -> Int -> Int -> Int -> Int -> Int -> Either MathError Double
@@ -1172,7 +1172,7 @@ wigner9j js = do
             [0 .. 60]
     checked (sum terms)
 
--- | Clebsch--Gordan coefficient <j1 m1,j2 m2|j m> through the Condon--Shortley 3j convention; all arguments doubled integers.
+-- | Clebsch--Gordan coefficient \<j1 m1,j2 m2|j m> through the Condon--Shortley 3j convention; all arguments doubled integers.
 clebschGordan :: Int -> Int -> Int -> Int -> Int -> Int -> Either MathError Double
 clebschGordan j1 m1 j2 m2 j m = do
     v <- wigner3j j1 j2 j m1 m2 (-m)

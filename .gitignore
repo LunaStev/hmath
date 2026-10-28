@@ -32,4 +32,5 @@ __pycache__/
 # Local Cabal overrides
 /cabal.project.local
 /cabal.project.local~
-/docs/
+/site/
+/*.egg-info/

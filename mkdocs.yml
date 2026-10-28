@@ -1,0 +1,59 @@
+site_name: HMath
+site_description: HMath mathematics and numerical computing documentation
+site_url: https://wavefnd.github.io/hmath/
+repo_url: https://github.com/wavefnd/hmath
+repo_name: wavefnd/hmath
+edit_uri: edit/master/docs/
+copyright: HMath contributors · MPL-2.0
+strict: true
+theme:
+  name: material
+  language: en
+  features:
+    - navigation.sections
+    - navigation.top
+    - navigation.footer
+    - content.code.copy
+  palette:
+    - scheme: default
+      primary: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+plugins:
+  - search
+markdown_extensions:
+  - admonition
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.superfences
+  - pymdownx.snippets:
+      check_paths: true
+  - toc:
+      permalink: true
+nav:
+  - Overview: index.md
+  - Getting started:
+      - Installation: getting-started/installation.md
+      - First calculation: getting-started/first-calculation.md
+  - How-to guides:
+      - NumPy interoperability: guides/numpy.md
+      - C integration: guides/c.md
+      - Wave integration: guides/wave.md
+      - Build from source: guides/build.md
+      - Troubleshooting: guides/troubleshooting.md
+  - Reference:
+      - Python API: reference/python.md
+      - C ABI: reference/c.md
+      - Wave API: reference/wave.md
+      - Haskell modules: reference/haskell.md
+      - Dense linear algebra: linear-algebra.md
+  - Explanation:
+      - Architecture and ownership: explanation/architecture.md
+      - Compatibility and releases: explanation/releases.md
+  - Contributing: contributing.md

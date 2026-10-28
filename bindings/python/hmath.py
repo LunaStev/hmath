@@ -1,5 +1,5 @@
 # SPDX-License-Identifier: MPL-2.0
-"""Binary64 HMath ABI 1. Set HMATH_LIBRARY to the installed shared library.
+"""Binary64 HMath ABI 1, with its native library included in binary wheels.
 
 Tensor owns one native reference. close()/with provide deterministic cleanup;
 __del__ is a fallback. Arrays are copied by default. from_numpy(copy=False)
@@ -10,17 +10,13 @@ not invalidate an existing NumPy view. The process owner shuts down explicitly.
 """
 
 import ctypes as C
-import ctypes.util
-import os
 import threading
 import weakref
 from itertools import islice
 
-_lib = C.CDLL(
-    os.environ.get("HMATH_LIBRARY")
-    or ctypes.util.find_library("hmath")
-    or "libhmath.so"
-)
+from _hmath_native import library_path
+
+_lib = C.CDLL(library_path())
 P, Z, D = C.c_void_p, C.c_size_t, C.c_double
 
 

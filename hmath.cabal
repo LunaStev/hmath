@@ -2,7 +2,7 @@ cabal-version:      3.0
 -- SPDX-License-Identifier: MPL-2.0
 
 name:               hmath
-version:            1.0.0
+version:            1.0.1
 synopsis:           General-purpose mathematics library written in Haskell
 description:
     HMath is a general-purpose mathematics library written in Haskell.
@@ -19,11 +19,24 @@ extra-source-files:
     .clang-format
     .github/workflows/publish-python.yml
     .github/workflows/validate.yml
+    .github/workflows/python-wheels.yml
+    .github/workflows/docs.yml
+    MANIFEST.in
+    setup.py
+    mkdocs.yml
+    requirements-docs.txt
+    docs/**/*.md
     README.md
     ROADMAP.md
     bindings/python/LICENSE
     bindings/python/hmath.py
     bindings/python/hmath_cffi.py
+    bindings/python/_hmath_native/__init__.py
+    bindings/python/_hmath_native/licenses/NOTICE
+    bindings/python/_hmath_native/licenses/GHC-LICENSE
+    bindings/python/_hmath_native/licenses/LIBFFI-LICENSE
+    bindings/python/_hmath_native/licenses/GMP-COPYING.LESSERv3
+    bindings/python/_hmath_native/licenses/GMP-COPYINGv3
     pyproject.toml
     bindings/python/test_bindings.py
     bindings/wave/hmath.wave
@@ -62,6 +75,10 @@ extra-source-files:
     test/native/header_c99.c
     test/native/wrong_abi.c
     tools/benchmark.py
+    tools/build_python_wheel.sh
+    tools/check_python_wheel.py
+    tools/build_docs.py
+    tools/check_docs_examples.py
     tools/check_abi.py
     tools/check_install.py
     tools/check_interchange.py

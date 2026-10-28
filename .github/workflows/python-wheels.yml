@@ -1,0 +1,73 @@
+# SPDX-License-Identifier: MPL-2.0
+name: Python wheels
+
+on:
+  push:
+    branches: [master]
+    paths-ignore: ['docs/**', 'mkdocs.yml', 'requirements-docs.txt', 'tools/build_docs.py', 'README.md']
+  pull_request:
+    paths-ignore: ['docs/**', 'mkdocs.yml', 'requirements-docs.txt', 'tools/build_docs.py', 'README.md']
+  workflow_call:
+    outputs:
+      version:
+        description: Version read from the built package metadata
+        value: ${{ jobs.build.outputs.version }}
+
+permissions:
+  contents: read
+
+concurrency:
+  group: python-wheels-${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: ${{ github.event_name != 'workflow_dispatch' }}
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    outputs:
+      version: ${{ steps.version.outputs.version }}
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - name: Read package version
+        id: version
+        run: |
+          python - <<'PY'
+          import os, pathlib, tomllib
+          version = tomllib.loads(pathlib.Path('pyproject.toml').read_text())['project']['version']
+          with open(os.environ['GITHUB_OUTPUT'], 'a') as output:
+              print('version=' + version, file=output)
+          PY
+      - name: Build self-contained manylinux wheel and source distribution
+        run: |
+          docker run --rm --volume "$PWD:/io" \
+            quay.io/pypa/manylinux_2_28_x86_64@sha256:e0adf18521ad35192df733a6c62d35df7801957d24e0470238aacecfab2188a3 \
+            bash /io/tools/build_python_wheel.sh
+          python -m pip install twine
+          python -m twine check --strict dist/*
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: python-distributions
+          path: dist/*
+          if-no-files-found: error
+
+  test:
+    needs: build
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      matrix:
+        python: ['3.9', '3.10', '3.11', '3.12', '3.13', '3.14']
+    container: python:${{ matrix.python }}-slim-bookworm
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: actions/download-artifact@018cc2cf5baa6db3ef3c5f8a56943fffe632ef53 # v6
+        with:
+          name: python-distributions
+          path: /tmp/hmath-distributions
+      - name: Verify installation without GHC or a system HMath library
+        run: |
+          python -m pip install /tmp/hmath-distributions/*.whl
+          cd "$RUNNER_TEMP"
+          python "$GITHUB_WORKSPACE/tools/check_python_wheel.py"
+          python -m pip install numpy cffi
+          python "$GITHUB_WORKSPACE/tools/check_python_wheel.py" "$GITHUB_WORKSPACE/bindings/python/test_bindings.py"
+          python "$GITHUB_WORKSPACE/tools/check_docs_examples.py"
