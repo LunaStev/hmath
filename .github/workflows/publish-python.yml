@@ -107,7 +107,14 @@ jobs:
           RELEASE_SHA: ${{ github.sha }}
         run: |
           tag="v$RELEASE_VERSION"
-          existing="$(gh api "repos/$GH_REPO/commits/$tag" --jq .sha 2>/dev/null || true)"
+          error_log="$RUNNER_TEMP/release-tag-error.log"
+          if ! existing="$(gh api "repos/$GH_REPO/commits/$tag" --jq .sha 2>"$error_log")"; then
+            if ! grep -Eq '\(HTTP (404|422)\)' "$error_log"; then
+              cat "$error_log" >&2
+              exit 1
+            fi
+            existing=""
+          fi
           if [ -n "$existing" ] && [ "$existing" != "$RELEASE_SHA" ]; then
             echo "Tag $tag points to another commit; refusing to publish mismatched artifacts."
             exit 1
