@@ -9,6 +9,8 @@ from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import urlsplit
 
+import markdown
+
 # Match the reader's numerical task before exposing the module hierarchy.
 AREAS = {
     "Foundations": (
@@ -384,8 +386,13 @@ def generate_reference(reference, docs, data, html_pages):
         index.append(
             f"\n[Browse functions in this area](haskell/{catalog_path.name}).\n"
         )
+    index_content = "".join(index)
+    preview = Document(markdown.markdown(index_content, extensions=["tables"]))
+    table_cells = {node.text() for node in preview.root.walk() if node.tag == "td"}
+    if indexed.keys() - table_cells:
+        raise ValueError("Haskell module index rows must render inside tables")
     with (docs / "reference/haskell.md").open("a") as output:
-        output.write("\n".join(index))
+        output.write(index_content)
     exports = {
         symbol
         for module in modules
