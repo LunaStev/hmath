@@ -27,7 +27,8 @@ runs:
         path: |
           ${{ steps.root.outputs.path }}/ghc/${{ inputs.ghc-version }}
           ${{ steps.root.outputs.path }}/bin
-        key: toolchain-v1-${{ runner.os }}-${{ runner.arch }}-${{ env.ImageOS }}-${{ env.ImageVersion }}-ghc-${{ inputs.ghc-version }}-cabal-3.16.1.0
+          ${{ steps.root.outputs.path }}/cabal/3.16.1.0
+        key: toolchain-v2-${{ runner.os }}-${{ runner.arch }}-${{ env.ImageOS }}-${{ env.ImageVersion }}-ghc-${{ inputs.ghc-version }}-cabal-3.16.1.0
     - uses: haskell-actions/setup@7fd2bb5ca789761088fbc831406b2910e47e56f1 # v2
       id: haskell
       with:
