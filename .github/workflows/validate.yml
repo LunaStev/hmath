@@ -51,11 +51,6 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y liblapacke-dev libopenblas-dev zlib1g-dev cmake ninja-build clang
           python -m pip install meson==1.8.5 numpy cffi
-      - name: Differential validation dependencies
-        if: matrix.ghc == '9.10.3' && matrix.buildtype == 'release'
-        run: |
-          python -m pip install scipy h5py pyarrow onnx
-          cabal update
       - name: Wave compiler
         if: matrix.ghc == '9.10.3' && matrix.buildtype == 'release'
         env:
@@ -79,18 +74,12 @@ jobs:
           meson test -C build-ci --print-errorlogs
           python tools/check_install.py build-ci
           python tools/check_abi.py build-ci/libhmath.so
-      - name: Properties and interchange
-        if: matrix.ghc == '9.10.3' && matrix.buildtype == 'release'
-        run: |
-          cabal test hmath-properties -fvalidation-frameworks -fcriterion-benchmarks --test-show-details=direct
-          python tools/check_interchange.py --builddir=build-interchange --require-optional
       - name: Sanitized metadata and DLPack fuzzing
         if: matrix.ghc == '9.10.3' && matrix.buildtype == 'release'
         run: python tools/run_fuzz.py --runs=100000 --output=build-ci/fuzz.log
-      - name: Criterion fixture and native benchmark smoke
+      - name: Native benchmark smoke
         if: matrix.ghc == '9.10.3' && matrix.buildtype == 'release'
         run: |
-          cabal bench hmath-criterion -fvalidation-frameworks -fcriterion-benchmarks --benchmark-options='--iters 1'
           python tools/benchmark.py --library=build-ci/libhmath.so --native=build-ci/hmath-native-benchmark --iterations=10 --output=build-ci/benchmark.json
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         if: always()
@@ -101,6 +90,47 @@ jobs:
             build-ci/hmath-build.json
             build-ci/fuzz.log
             build-ci/benchmark.*
+
+  extended:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: haskell-actions/setup@7fd2bb5ca789761088fbc831406b2910e47e56f1 # v2
+        id: haskell
+        with:
+          ghc-version: '9.10.3'
+          cabal-version: '3.16.1.0'
+      - uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
+        with:
+          path: |
+            ~/.cabal/packages
+            ${{ steps.haskell.outputs.cabal-store }}
+            dist-newstyle
+            build-ci/cabal
+            build-interchange/cabal
+          key: cabal-extended-${{ runner.os }}-9.10.3-${{ hashFiles('hmath.cabal', 'cabal.project', 'src/**', 'cbits/**', 'test/**', 'bench/**') }}
+          restore-keys: |
+            cabal-extended-${{ runner.os }}-9.10.3-
+            cabal-${{ runner.os }}-9.10.3-release-
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: pyproject.toml
+      - name: Extended validation dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y liblapacke-dev libopenblas-dev zlib1g-dev
+          python -m pip install numpy scipy h5py pyarrow onnx
+          cabal update
+      - name: Build all extended components with one plan
+        run: cabal build test:hmath-properties bench:hmath-criterion exe:hmath-interchange-driver -fvalidation-frameworks -fcriterion-benchmarks -j2
+      - name: Properties and interchange
+        run: |
+          cabal test hmath-properties -fvalidation-frameworks -fcriterion-benchmarks --test-show-details=direct
+          python tools/check_interchange.py --builddir=dist-newstyle --cabal-flag=validation-frameworks --cabal-flag=criterion-benchmarks --require-optional
+      - name: Criterion fixture smoke
+        run: cabal bench hmath-criterion -fvalidation-frameworks -fcriterion-benchmarks --benchmark-options='--iters 1'
 
   portability-build:
     # Build probes do not establish full native platform support.

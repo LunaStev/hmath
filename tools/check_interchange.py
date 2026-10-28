@@ -11,9 +11,11 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--builddir", type=Path, required=True)
     parser.add_argument("--require-optional", action="store_true")
+    parser.add_argument("--cabal-flag", action="append", default=[])
     args = parser.parse_args()
     root = Path(__file__).resolve().parent.parent
     common = ["--builddir=" + str(args.builddir.resolve())]
+    common += ["-f" + flag for flag in args.cabal_flag]
     subprocess.run(
         ["cabal", "build", "exe:hmath-interchange-driver", *common],
         cwd=root,
