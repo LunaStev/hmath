@@ -9,10 +9,6 @@ on:
         type: choice
         options: [testpypi, pypi]
         default: testpypi
-      version:
-        description: Version already committed in pyproject.toml
-        type: string
-        required: true
 
 permissions:
   contents: read
@@ -38,18 +34,14 @@ jobs:
         with:
           ghc-version: '9.10.3'
           cabal-version: '3.16.1.0'
-      - name: Check requested version
+      - name: Read package version
         id: version
-        env:
-          REQUESTED_VERSION: ${{ inputs.version }}
         run: |
           python - <<'PY'
           import os
           import pathlib
           import tomllib
           metadata = tomllib.loads(pathlib.Path('pyproject.toml').read_text())
-          if metadata['project']['version'] != os.environ['REQUESTED_VERSION']:
-              raise SystemExit('Requested version does not match the committed Python package version')
           with open(os.environ['GITHUB_OUTPUT'], 'a') as output:
               print('version=' + metadata['project']['version'], file=output)
           PY
