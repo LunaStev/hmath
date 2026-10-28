@@ -2,15 +2,19 @@
 
 module Main where
 
-import HMath
-import LinearSpec (linearTests)
-import LUSpec (luTests)
-import MatrixSpec (matrixTests)
-import ScalarBatchSpec (scalarBatchTests)
 import AlgebraBatchSpec (algebraBatchTests)
-import LinearBatchSpec (linearBatchTests, linearBatchIOTests)
-import NumericalBatchSpec (numericalBatchTests)
+import DifferentiableBatchSpec (differentiableBatchTests)
+import HMath
 import IterativeBatchSpec (iterativeBatchTests)
+import LUSpec (luTests)
+import LinearBatchSpec (linearBatchIOTests, linearBatchTests)
+import LinearSpec (linearTests)
+import MachineLearningBatchSpec (machineLearningBatchTests)
+import MatrixSpec (matrixTests)
+import NumericalBatchSpec (numericalBatchTests)
+import ProbabilityBatchSpec (probabilityBatchIOTests, probabilityBatchTests)
+import ScalarBatchSpec (scalarBatchTests)
+import SignalBatchSpec (signalBatchIOTests, signalBatchTests)
 import SparseSpectralSpec (sparseSpectralTests)
 
 main :: IO ()
@@ -24,13 +28,39 @@ main = do
     check "matrix addition" testMatrixAddition
     check "matrix multiplication" testMatrixMultiplication
     check "matrix transpose" testMatrixTranspose
-    let groups = matrixTests ++ linearTests ++ luTests ++ scalarBatchTests
-            ++ algebraBatchTests ++ linearBatchTests ++ numericalBatchTests
-            ++ iterativeBatchTests ++ sparseSpectralTests
+    let groups =
+            matrixTests
+                ++ linearTests
+                ++ luTests
+                ++ scalarBatchTests
+                ++ algebraBatchTests
+                ++ linearBatchTests
+                ++ numericalBatchTests
+                ++ iterativeBatchTests
+                ++ sparseSpectralTests
+                ++ machineLearningBatchTests
+                ++ probabilityBatchTests
+                ++ signalBatchTests
+                ++ differentiableBatchTests
     mapM_ (uncurry check) groups
     ioGroups <- linearBatchIOTests
     mapM_ (uncurry check) ioGroups
-    putStrLn ("Passed " ++ show (9 + length groups + length ioGroups) ++ " test groups.")
+    probabilityGroups <- probabilityBatchIOTests
+    mapM_ (uncurry check) probabilityGroups
+    signalGroups <-
+        mapM (\(name, action) -> do result <- action; pure (name, result)) signalBatchIOTests
+    mapM_ (uncurry check) signalGroups
+    putStrLn
+        ( "Passed "
+            ++ show
+                ( 9
+                    + length groups
+                    + length ioGroups
+                    + length probabilityGroups
+                    + length signalGroups
+                )
+            ++ " test groups."
+        )
 
 check :: String -> Bool -> IO ()
 check name result =
@@ -40,16 +70,18 @@ check name result =
 
 testMatrixAddition :: Bool
 testMatrixAddition =
-    case (fromList 2 2 [1, 2, 3, 4 :: Int],
-          fromList 2 2 [5, 6, 7, 8]) of
+    case ( fromList 2 2 [1, 2, 3, 4 :: Int]
+         , fromList 2 2 [5, 6, 7, 8]
+         ) of
         (Just a, Just b) ->
             fmap toList (addMatrix a b) == Just [6, 8, 10, 12]
         _ -> False
 
 testMatrixMultiplication :: Bool
 testMatrixMultiplication =
-    case (fromList 2 3 [1, 2, 3, 4, 5, 6 :: Int],
-          fromList 3 2 [7, 8, 9, 10, 11, 12]) of
+    case ( fromList 2 3 [1, 2, 3, 4, 5, 6 :: Int]
+         , fromList 3 2 [7, 8, 9, 10, 11, 12]
+         ) of
         (Just a, Just b) ->
             fmap toList (multiply a b) == Just [58, 64, 139, 154]
         _ -> False
