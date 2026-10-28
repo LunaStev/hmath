@@ -39,4 +39,14 @@ data MathError
       -- ^ LU arithmetic produced a NaN or infinity, including overflow.
     | RightHandSideMismatch Int Int
       -- ^ Expected right-hand-side row count, then actual row count.
+    | DomainError String
+      -- ^ An operation's mathematical input domain was violated.
+    | InvalidArgument String
+      -- ^ A configuration, shape, or index argument is invalid.
+    | NonConvergence String Int
+      -- ^ Algorithm name and exhausted iteration or evaluation budget.
+    | RankDeficient Int
+      -- ^ Estimated numerical rank is insufficient for the requested solve.
+    | NotPositiveDefinite Int
+      -- ^ A Cholesky pivot is not strictly positive, at a zero-based index.
     deriving (Eq, Show)

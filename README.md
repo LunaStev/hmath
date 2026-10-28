@@ -13,7 +13,7 @@ The project is in early development. The native build currently targets Linux, a
 
 ## Build and test
 
-Requires GHC, Cabal, a C11 compiler, Meson >= 0.63, Ninja, and Python 3.
+Requires GHC, Cabal, a C11 compiler, Meson >= 0.63, Ninja, Python 3, and the LAPACKE development library.
 
 ```sh
 git clone https://github.com/wavefnd/hmath.git
@@ -40,7 +40,7 @@ main = do
         pure (toList (transposeMatrix matrix))   -- Right [1,3,2,4]
 ```
 
-Checked operations return `Either MathError` for invalid shapes or lengths. More examples are available in [examples/haskell/Main.hs](examples/haskell/Main.hs).
+Checked operations return `Either MathError` for invalid shapes or lengths. More examples are available in [examples/haskell](examples/haskell).
 
 ## C and Python
 

@@ -6,6 +6,12 @@ import HMath
 import LinearSpec (linearTests)
 import LUSpec (luTests)
 import MatrixSpec (matrixTests)
+import ScalarBatchSpec (scalarBatchTests)
+import AlgebraBatchSpec (algebraBatchTests)
+import LinearBatchSpec (linearBatchTests, linearBatchIOTests)
+import NumericalBatchSpec (numericalBatchTests)
+import IterativeBatchSpec (iterativeBatchTests)
+import SparseSpectralSpec (sparseSpectralTests)
 
 main :: IO ()
 main = do
@@ -18,8 +24,13 @@ main = do
     check "matrix addition" testMatrixAddition
     check "matrix multiplication" testMatrixMultiplication
     check "matrix transpose" testMatrixTranspose
-    mapM_ (uncurry check) (matrixTests ++ linearTests ++ luTests)
-    putStrLn ("Passed " ++ show (9 + length matrixTests + length linearTests + length luTests) ++ " test groups.")
+    let groups = matrixTests ++ linearTests ++ luTests ++ scalarBatchTests
+            ++ algebraBatchTests ++ linearBatchTests ++ numericalBatchTests
+            ++ iterativeBatchTests ++ sparseSpectralTests
+    mapM_ (uncurry check) groups
+    ioGroups <- linearBatchIOTests
+    mapM_ (uncurry check) ioGroups
+    putStrLn ("Passed " ++ show (9 + length groups + length ioGroups) ++ " test groups.")
 
 check :: String -> Bool -> IO ()
 check name result =
