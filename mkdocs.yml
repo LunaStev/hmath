@@ -47,13 +47,13 @@ nav:
       - Wave integration: guides/wave.md
       - Build from source: guides/build.md
       - Troubleshooting: guides/troubleshooting.md
-  - Reference:
-      - Python API: reference/python.md
-      - C ABI: reference/c.md
-      - Wave API: reference/wave.md
-      - Haskell modules: reference/haskell.md
       - Dense linear algebra: linear-algebra.md
   - Explanation:
       - Architecture and ownership: explanation/architecture.md
       - Compatibility and releases: explanation/releases.md
   - Contributing: contributing.md
+  - API Reference:
+      - Python API: reference/python.md
+      - C ABI: reference/c.md
+      - Wave API: reference/wave.md
+      - Haskell API: reference/haskell.md

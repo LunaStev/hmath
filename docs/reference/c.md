@@ -34,3 +34,13 @@ an array. Only supported CPU tensor layouts are accepted.
 ```c
 --8<-- "include/hmath_dlpack.h"
 ```
+
+## Native backend providers
+
+The native backend header defines provider selection, integer-width contracts,
+and the BLAS/LAPACK bridge. It is an internal adapter contract used by Haskell's
+backend integration, separate from the public ABI-1 tensor API above.
+
+```c
+--8<-- "include/hmath_backend.h"
+```
