@@ -3,7 +3,11 @@
 module Main where
 
 import AlgebraBatchSpec (algebraBatchTests)
+import ApplicationBatchSpec (applicationBatchTests)
 import DifferentiableBatchSpec (differentiableBatchTests)
+import DiscreteBatchSpec (discreteBatchTests)
+import ExpressionBatchSpec (expressionBatchTests)
+import GeometryBatchSpec (geometryBatchTests)
 import HMath
 import IterativeBatchSpec (iterativeBatchTests)
 import LUSpec (luTests)
@@ -42,6 +46,10 @@ main = do
                 ++ probabilityBatchTests
                 ++ signalBatchTests
                 ++ differentiableBatchTests
+                ++ applicationBatchTests
+                ++ discreteBatchTests
+                ++ expressionBatchTests
+                ++ geometryBatchTests
     mapM_ (uncurry check) groups
     ioGroups <- linearBatchIOTests
     mapM_ (uncurry check) ioGroups
