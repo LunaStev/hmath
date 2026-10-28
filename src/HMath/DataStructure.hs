@@ -67,6 +67,7 @@ module HMath.DataStructure (
 
 import Data.Array (Array, array, elems, listArray, (!), (//))
 import Data.Bits
+import qualified Data.Foldable as Foldable (foldl')
 import qualified Data.Map.Strict as M
 import Data.Word (Word64)
 import HMath.Error (MathError (..))
@@ -82,7 +83,7 @@ data Fenwick = Fenwick Int (Array Int Integer) deriving (Eq, Show)
 fenwick :: [Integer] -> Either MathError Fenwick
 fenwick xs = do
     checkSize (length xs)
-    foldl'
+    Foldable.foldl'
         (\p (i, x) -> p >>= fenwickAdd i x)
         (Right (Fenwick (length xs) (listArray (1, length xs) (replicate (length xs) 0))))
         (zip [0 ..] xs)
@@ -206,10 +207,10 @@ monotonicMinima width xs
 nextGreater :: (Ord a) => [a] -> [Maybe Int]
 nextGreater xs = map (\i -> M.lookup i result) [0 .. length xs - 1]
   where
-    (_, result) = foldl' step ([], M.empty) (zip [0 :: Int ..] xs)
+    (_, result) = Foldable.foldl' step ([], M.empty) (zip [0 :: Int ..] xs)
     step (stack, out) (i, x) =
         let (popped, keep) = span ((< x) . snd) stack
-         in ((i, x) : keep, foldl' (\m (j, _) -> M.insert j i m) out popped)
+         in ((i, x) : keep, Foldable.foldl' (\m (j, _) -> M.insert j i m) out popped)
 
 -- | Leftist binary min heap, O(log n) merge/insert/delete-min comparisons.
 data Heap a = Empty | Node Int a (Heap a) (Heap a) deriving (Eq, Show)
@@ -233,7 +234,7 @@ heapPop :: (Ord a) => Heap a -> Maybe (a, Heap a)
 heapPop Empty = Nothing
 heapPop (Node _ x l r) = Just (x, mergeHeap l r)
 heapFromList :: (Ord a) => [a] -> Heap a
-heapFromList = foldl' (flip heapInsert) Empty
+heapFromList = Foldable.foldl' (flip heapInsert) Empty
 
 {- | Complete binary min heap in an array. Persistence copies the backing
 array; sift operations make O(log n) comparisons.
@@ -241,7 +242,9 @@ array; sift operations make O(log n) comparisons.
 newtype BinaryHeap = BinaryHeap (Array Int Integer) deriving (Eq, Show)
 
 binaryHeap :: [Integer] -> Either MathError BinaryHeap
-binaryHeap xs = do checkSize (length xs); pure (foldl' (flip binaryInsert) (BinaryHeap (listArray (0, -1) [])) xs)
+binaryHeap xs = do
+    checkSize (length xs)
+    pure (Foldable.foldl' (flip binaryInsert) (BinaryHeap (listArray (0, -1) [])) xs)
 binaryInsert :: Integer -> BinaryHeap -> BinaryHeap
 binaryInsert value (BinaryHeap old) = BinaryHeap (bubble (length values) (listArray (0, length values) (values ++ [value])))
   where
@@ -332,7 +335,7 @@ bloom m k
     | m <= 0 || m > 1048576 || k <= 0 || k > 64 = Left (InvalidArgument "invalid Bloom dimensions")
     | otherwise = Right (Bloom m k 0 0)
 bloomInsert :: Word64 -> Bloom -> Bloom
-bloomInsert x (Bloom m k bits count) = Bloom m k (foldl' setBit bits (hashes k m x)) (count + 1)
+bloomInsert x (Bloom m k bits count) = Bloom m k (Foldable.foldl' setBit bits (hashes k m x)) (count + 1)
 bloomMember :: Word64 -> Bloom -> Bool
 bloomMember x (Bloom m k bits _) = all (testBit bits) (hashes k m x)
 
@@ -357,7 +360,7 @@ countMinAdd x delta (CountMin w d counts total)
             ( CountMin
                 w
                 d
-                (foldl' (\m key -> M.insertWith (+) key delta m) counts (zip [0 ..] (hashes d w x)))
+                (Foldable.foldl' (\m key -> M.insertWith (+) key delta m) counts (zip [0 ..] (hashes d w x)))
                 (total + delta)
             )
 countMinEstimate :: Word64 -> CountMin -> Integer

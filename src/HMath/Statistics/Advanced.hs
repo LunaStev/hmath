@@ -89,6 +89,7 @@ module HMath.Statistics.Advanced (
     huberLocation,
 ) where
 
+import qualified Data.Foldable as Foldable (foldl')
 import Data.List (group, sort, sortOn, transpose)
 import HMath.Error
 import HMath.Matrix (fromListChecked, toList)
@@ -419,7 +420,7 @@ histogramND edges points weights = do
                 | (es, x) <- zip edges p
                 ]
         pairs =
-            [ (foldl' (\a (d, i) -> a * d + i) 0 (zip dims ix), w)
+            [ (Foldable.foldl' (\a (d, i) -> a * d + i) 0 (zip dims ix), w)
             | (p, w) <- zip points weights
             , Just ix <- [index p]
             ]
@@ -892,7 +893,7 @@ benjaminiHochberg ps = do
         adjusted =
             reverse
                 ( snd
-                    ( foldl'
+                    ( Foldable.foldl'
                         ( \(previous, acc) (rank, (i, p)) -> let q = min previous (p * fromIntegral n / fromIntegral rank) in (q, (i, q) : acc)
                         )
                         (1, [])

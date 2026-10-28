@@ -44,6 +44,7 @@ module HMath.Algorithms (
 ) where
 
 import Data.Array (elems, listArray, (!), (//))
+import qualified Data.Foldable as Foldable (foldl')
 import Data.List (group, sort, sortOn)
 import qualified Data.Map.Strict as M
 import HMath.Error (MathError (..))
@@ -165,7 +166,7 @@ heapsort xs = elems (extract (n - 1) built)
         left = 2 * i + 1
         right = left + 1
         child = if right < size && ar ! right > ar ! left then right else left
-    built = foldl' (\ar i -> sift ar n i) a [n `div` 2 - 1, n `div` 2 - 2 .. 0]
+    built = Foldable.foldl' (\ar i -> sift ar n i) a [n `div` 2 - 1, n `div` 2 - 2 .. 0]
     extract i ar | i <= 0 = ar | otherwise = extract (i - 1) (sift (swap ar 0 i) i 0)
 
 introsort :: (Ord a) => [a] -> [a]
@@ -301,7 +302,7 @@ memoizedDP b recurrence target
             | otherwise -> do
                 let (base, terms) = recurrence x
                 (v, f, c) <-
-                    foldl'
+                    Foldable.foldl'
                         ( \result (j, w) -> do (v, f, c) <- result; (u, f', c') <- go f (x : stack) c j; pure (v + w * u, f', c')
                         )
                         (Right (base, fuel - 1, cache))
@@ -331,7 +332,7 @@ integerMatrixPower a powerIndex
 polynomialHash :: Integer -> Integer -> [Integer] -> Either MathError Integer
 polynomialHash base modulus xs
     | modulus <= 1 = Left (InvalidArgument "hash modulus must exceed one")
-    | otherwise = Right (foldl' (\h x -> (h * base + x) `mod` modulus) 0 xs)
+    | otherwise = Right (Foldable.foldl' (\h x -> (h * base + x) `mod` modulus) 0 xs)
 
 -- | Noncryptographic polynomial rolling hash; equal hashes can collide.
 rollingHashes :: Integer -> Integer -> Int -> [Integer] -> Either MathError [Integer]

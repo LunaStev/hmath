@@ -4,6 +4,7 @@
 module ProbabilityBatchSpec (probabilityBatchTests, probabilityBatchIOTests) where
 
 import Data.Complex (realPart)
+import qualified Data.Foldable as Foldable (foldl')
 import Data.List (nub, sort)
 import Data.Word (Word64)
 import HMath.Error
@@ -920,7 +921,7 @@ contractTests =
         Right (xs, _) -> abs (sum xs / 2000 - expected) < tolerance
         _ -> False
 foldUpdates :: [Double] -> Either MathError A.Streaming
-foldUpdates = foldl' (\acc x -> acc >>= \s -> A.updateStreaming s x) (Right A.emptyStreaming)
+foldUpdates = Foldable.foldl' (\acc x -> acc >>= \s -> A.updateStreaming s x) (Right A.emptyStreaming)
 testHMM :: Either MathError P.HMM
 testHMM = P.hmm [0.6, 0.4] [[0.7, 0.3], [0.4, 0.6]] [[0.5, 0.5], [0.1, 0.9]]
 probabilityBatchIOTests :: IO [(String, Bool)]

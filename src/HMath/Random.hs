@@ -60,6 +60,7 @@ module HMath.Random (
 ) where
 
 import Data.Bits
+import qualified Data.Foldable as Foldable (foldl')
 import Data.Int (Int32)
 import Data.List (transpose)
 import Data.Word
@@ -152,7 +153,7 @@ mtNext s = (temper (fromIntegral (xs !! i)), take 624 xs ++ [fromIntegral (i + 1
   where
     i0 = fromIntegral (last s) :: Int
     old = map fromIntegral (take 624 s) :: [Word32]
-    twist = foldl' upd old [0 .. 623]
+    twist = Foldable.foldl' upd old [0 .. 623]
     upd a j =
         let y = (a !! j .&. 0x80000000) .|. (a !! ((j + 1) `mod` 624) .&. 0x7fffffff)
             v = a !! ((j + 397) `mod` 624) `xor` (y `shiftR` 1) `xor` (if odd y then 0x9908b0df else 0)
@@ -221,7 +222,7 @@ chacha c ks = zipWith (+) initial (iterate double initial !! 10)
             b2 = rotateL (b1 `xor` d2) 7
          in set e e2 (set d d2 (set b b2 (set a a2 xs)))
     double xs =
-        foldl'
+        Foldable.foldl'
             quarter
             xs
             [ (0, 4, 8, 12)
@@ -460,7 +461,7 @@ aliasTable ws = do
     build ps as (s : ss) (l : ls) =
         let q = ps !! l + ps !! s - 1; np = set l q ps; na = set s l as
          in if q < 1 then build np na (l : ss) ls else build np na ss (l : ls)
-    build ps as ss ls = AliasTable (foldl' (\a i -> set i 1 a) ps (ss ++ ls)) as
+    build ps as ss ls = AliasTable (Foldable.foldl' (\a i -> set i 1 a) ps (ss ++ ls)) as
 
 -- | Draw an index from an already validated alias table, using one uniform integer and one uniform real.
 aliasSample :: AliasTable -> RNG -> Either MathError (Int, RNG)
@@ -572,7 +573,7 @@ gibbs n fs initial r
     | otherwise = go n initial r []
   where
     sweep x s =
-        foldl'
+        Foldable.foldl'
             ( \acc (i, f) -> do
                 (y, t) <- acc
                 (v, z) <- f y t
@@ -680,11 +681,16 @@ sobol dimension index
                 | otherwise =
                     let v = vs !! (j - s) `xor` (vs !! (j - s) `shiftR` s)
                         w =
-                            foldl' (\x k -> if testBit (a :: Int) (s - 1 - k) then x `xor` vs !! (j - k) else x) v [1 .. s - 1]
+                            Foldable.foldl'
+                                (\x k -> if testBit (a :: Int) (s - 1 - k) then x `xor` vs !! (j - k) else x)
+                                v
+                                [1 .. s - 1]
                      in go (vs ++ [w]) (j + 1)
          in go start s
     gray = index `xor` (index `shiftR` 1)
-    coordinate d = fromIntegral (foldl' xor 0 [v | (j, v) <- zip [0 ..] (dirs d), testBit gray j]) / 4294967296
+    coordinate d =
+        fromIntegral (Foldable.foldl' xor 0 [v | (j, v) <- zip [0 ..] (dirs d), testBit gray j])
+            / 4294967296
 
 -- | Faure's Pascal digital transform in the least prime base >= dimension.
 faure :: Int -> Int -> Either MathError [Double]
@@ -742,5 +748,6 @@ entropySeed =
         ReadMode
         ( \h -> do
             cs <- mapM (\_ -> hGetChar h) [0 .. 7 :: Int]
-            pure (foldl' (\a (i, c) -> a .|. fromIntegral (fromEnum c) `shiftL` (8 * i)) 0 (zip [0 ..] cs))
+            pure
+                (Foldable.foldl' (\a (i, c) -> a .|. fromIntegral (fromEnum c) `shiftL` (8 * i)) 0 (zip [0 ..] cs))
         )

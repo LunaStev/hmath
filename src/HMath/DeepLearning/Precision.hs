@@ -26,6 +26,7 @@ module HMath.DeepLearning.Precision (
     clipGradients,
 ) where
 
+import qualified Data.Foldable as Foldable (foldl')
 import Data.Int (Int32, Int8)
 import qualified HMath.Autodiff as AD
 import HMath.Error
@@ -134,7 +135,8 @@ reducedGemm precision a b = do
                 bv = map convert (T.tensorValues b)
                 fp32 x = realToFrac x :: Float
                 vals =
-                    [ realToFrac (foldl' (+) 0 [fp32 (av !! (i * k + t)) * fp32 (bv !! (t * n + j)) | t <- [0 .. k - 1]])
+                    [ realToFrac
+                        (Foldable.foldl' (+) 0 [fp32 (av !! (i * k + t)) * fp32 (bv !! (t * n + j)) | t <- [0 .. k - 1]])
                     | i <- [0 .. m - 1]
                     , j <- [0 .. n - 1]
                     ]

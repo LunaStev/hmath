@@ -81,6 +81,7 @@ module HMath.Special (
 ) where
 
 import Data.Complex hiding (phase)
+import qualified Data.Foldable as Foldable (foldl')
 import Foreign.C.Types
 import HMath.Error
 import HMath.Matrix (fromListChecked, toList)
@@ -371,7 +372,7 @@ exponentialIntegral n x = do
                         advance (v, e) k =
                             let fk = fromIntegral k; term = exp (-x) - x * v
                              in (term / fk, (x * e + 4e-16 * (abs (exp (-x)) + abs (x * v))) / fk)
-                        (answer, errorEstimate) = foldl' advance (first, sfError value) [1 .. n - 1]
+                        (answer, errorEstimate) = Foldable.foldl' advance (first, sfError value) [1 .. n - 1]
                     estimate answer errorEstimate
 
 {- | Real principal-value Ei for x>0; logarithmic integral li(x)=Ei(log x),

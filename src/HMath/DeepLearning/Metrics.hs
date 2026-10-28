@@ -17,6 +17,7 @@ module HMath.DeepLearning.Metrics (
     marginRankingLoss,
 ) where
 
+import qualified Data.Foldable as Foldable (foldl')
 import Data.List (groupBy, sortBy)
 import HMath.Error
 import qualified HMath.Tensor as T
@@ -115,7 +116,7 @@ prAUC truth scores = do
                 recall = fromIntegral tp' / fromIntegral positives
                 precision = fromIntegral tp' / fromIntegral (tp' + fp')
              in (tp', fp', recall, precision, area + (recall - oldRecall) * (precision + oldPrecision) / 2)
-        (_, _, _, _, auc) = foldl' update (0 :: Int, 0 :: Int, 0, 1, 0) groups
+        (_, _, _, _, auc) = Foldable.foldl' update (0 :: Int, 0 :: Int, 0, 1, 0) groups
     Right auc
 
 -- | Exponentiate the negative mean true-token log probability; empty or positive log probabilities fail.

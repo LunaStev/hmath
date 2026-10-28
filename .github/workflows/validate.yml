@@ -71,7 +71,7 @@ jobs:
         if: matrix.ghc == '9.10.3' && matrix.buildtype == 'release'
         run: |
           python -m pip install build twine
-          python -m build bindings/python --outdir dist
+          python -m build --outdir dist
           python -m twine check --strict dist/*
           python -m pip install dist/*.whl
           HMATH_LIBRARY="$PWD/build-ci/libhmath.so" python - <<'PY'
@@ -96,7 +96,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [macos-14, windows-2022]
+        os: [macos-15, windows-2022]
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4

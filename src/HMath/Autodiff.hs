@@ -59,6 +59,7 @@ module HMath.Autodiff (
 
 import Control.Monad (foldM)
 import Data.Complex (Complex ((:+)))
+import qualified Data.Foldable as Foldable (foldl')
 import qualified Data.IntMap.Strict as IM
 import HMath.Error
 import qualified HMath.Tensor as T
@@ -313,7 +314,7 @@ runTape ::
     CompiledGraph -> [Double] -> Either MathError (Double, [(Int, Pullback)], IM.IntMap Double)
 runTape (CompiledGraph n root nodes) xs = do
     if length xs /= n then Left (VectorLengthMismatch n (length xs)) else finite xs
-    (vs, edges) <- foldl' step (Right (IM.empty, [])) nodes
+    (vs, edges) <- Foldable.foldl' step (Right (IM.empty, [])) nodes
     Right (vs IM.! root, edges, vs)
   where
     step acc (i, node) = do
@@ -348,7 +349,7 @@ runTape (CompiledGraph n root nodes) xs = do
 runValue :: CompiledGraph -> [Double] -> Either MathError (Double, (), ())
 runValue (CompiledGraph n root ns) xs = do
     if n /= length xs then Left (VectorLengthMismatch n (length xs)) else finite xs
-    vs <- foldl' step (Right IM.empty) ns
+    vs <- Foldable.foldl' step (Right IM.empty) ns
     Right (vs IM.! root, (), ())
   where
     step acc (i, node) = do
@@ -389,14 +390,14 @@ valueAndGradient f xs = do
                         (_, partials) <- valueAndGradient recipe primals
                         Right (zip ids partials)
                 let adjoint = IM.findWithDefault 0 i as
-                    next = foldl' (\m (j, d) -> IM.insertWith (+) j (adjoint * d) m) as derivatives
+                    next = Foldable.foldl' (\m (j, d) -> IM.insertWith (+) j (adjoint * d) m) as derivatives
                 finite (IM.elems next)
                 Right next
             )
             (IM.singleton root 1)
             edges
     let grads =
-            foldl'
+            Foldable.foldl'
                 (\m (i, node) -> case node of Input k -> IM.insertWith (+) k (IM.findWithDefault 0 i adj) m; _ -> m)
                 IM.empty
                 nodes

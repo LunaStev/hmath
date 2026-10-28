@@ -55,6 +55,7 @@ module HMath.Fourier (
 ) where
 
 import Data.Complex (Complex ((:+)), cis, conjugate, imagPart, magnitude, phase, realPart)
+import qualified Data.Foldable as Foldable (foldl')
 import Foreign.Marshal.Array (peekArray, pokeArray)
 import Foreign.Ptr (Ptr, nullPtr)
 import HMath.Error (MathError (..))
@@ -241,7 +242,7 @@ fftND direction dims xs = do
             && product dims == length xs
         )
         "invalid ND FFT shape"
-    foldl' axis (Right xs) [0 .. length dims - 1]
+    Foldable.foldl' axis (Right xs) [0 .. length dims - 1]
   where
     axis result a = do
         values <- result
@@ -468,7 +469,7 @@ goertzel :: Double -> [Double] -> Either MathError (Complex Double)
 goertzel omega xs = do
     require (finite omega && all finite xs && not (null xs)) "invalid Goertzel input"
     let c = 2 * cos omega
-        (s1, s2) = foldl' (\(a, b) x -> (x + c * a - b, a)) (0, 0) xs
+        (s1, s2) = Foldable.foldl' (\(a, b) x -> (x + c * a - b, a)) (0, 0) xs
         -- Final phase rotates the usual resonator to arbitrary-frequency DFT.
         value = ((s1 :+ 0) - cis (-omega) * (s2 :+ 0)) * cis (-omega * fromIntegral (length xs - 1))
     _ <- checkC [value]

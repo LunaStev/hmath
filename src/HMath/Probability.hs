@@ -56,6 +56,7 @@ module HMath.Probability (
 ) where
 
 import Control.Monad (foldM)
+import qualified Data.Foldable as Foldable (foldl')
 import Data.List (maximumBy, sort)
 import Data.Ord (comparing)
 import HMath.Error
@@ -1004,7 +1005,7 @@ viterbi model@(HMM initial trans es) obs = do
                 ]
             | j <- [0 .. length initial - 1]
             ]
-        (score, path) = maximumBy (comparing fst) (foldl' step start (drop 1 obs))
+        (score, path) = maximumBy (comparing fst) (Foldable.foldl' step start (drop 1 obs))
     require (finite score) "HMM no possible state path"
     pure (path, score)
 

@@ -10,6 +10,7 @@ module HMath.Optimization.Global (GlobalMethod (..), globalMinimize, basinHoppin
 
 import Control.Monad (foldM)
 import Data.Complex (realPart)
+import qualified Data.Foldable as Foldable (foldl')
 import Data.List (sortOn)
 import Data.Word (Word64)
 import HMath.Error
@@ -36,14 +37,18 @@ clip :: [(Double, Double)] -> [Double] -> [Double]
 clip bounds = zipWith (\(lo, hi) x -> max lo (min hi x)) bounds
 uniformPoint :: [(Double, Double)] -> RNG -> ([Double], RNG)
 uniformPoint bounds rng =
-    foldl'
+    Foldable.foldl'
         (\(xs, s) (lo, hi) -> let (u, t) = uniform s in (xs ++ [lo + (hi - lo) * u], t))
         ([], rng)
         bounds
 normals :: Int -> RNG -> Either MathError ([Double], RNG)
 normals n = sampleN n (normal 0 1)
 population :: Int -> [(Double, Double)] -> RNG -> ([[Double]], RNG)
-population n bounds rng = foldl' (\(xs, s) _ -> let (x, t) = uniformPoint bounds s in (xs ++ [x], t)) ([], rng) [1 .. n]
+population n bounds rng =
+    Foldable.foldl'
+        (\(xs, s) _ -> let (x, t) = uniformPoint bounds s in (xs ++ [x], t))
+        ([], rng)
+        [1 .. n]
 score :: Objective -> [[Double]] -> Either MathError [([Double], Double)]
 score f = mapM (\x -> do y <- checkedValue f x; Right (x, y))
 bestResult :: Int -> Int -> Bool -> [([Double], Double)] -> OptimizeResult
@@ -126,7 +131,7 @@ globalMinimize method size seed o bounds f = do
                             (forcedU, s4) = uniform s3
                             forced = min (dim - 1) (floor (forcedU * fromIntegral dim))
                             (crossed, s5) =
-                                foldl'
+                                Foldable.foldl'
                                     ( \(vs, st) (j, (orig, new)) -> let (u, t) = uniform st in (vs ++ [if j == forced || u < 0.9 then new else orig], t)
                                     )
                                     ([], s4)
@@ -165,7 +170,7 @@ globalMinimize method size seed o bounds f = do
         | otherwise = do
             let global = fst (sortOn snd personal !! 0)
                 (pairs, s) =
-                    foldl'
+                    Foldable.foldl'
                         ( \(acc, state) ((x, _), (vel, (best, _))) ->
                             let (u, s1) = uniform state
                                 (v, s2) = uniform s1
@@ -214,7 +219,7 @@ globalMinimize method size seed o bounds f = do
                 rawWeights = [log (fromIntegral mu + 0.5) - log (fromIntegral i) | i <- [1 .. mu]]
                 weights = scale (1 / sum rawWeights) rawWeights
                 muEff = 1 / dot weights weights
-                mean' = foldl' add (replicate dim 0) (zipWith (\w (x, _) -> scale w x) weights selected)
+                mean' = Foldable.foldl' add (replicate dim 0) (zipWith (\w (x, _) -> scale w x) weights selected)
                 y = scale (1 / sigma) (sub mean' mean)
                 dimension = fromIntegral dim
                 cc = (4 + muEff / dimension) / (dimension + 4 + 2 * muEff / dimension)
@@ -227,7 +232,7 @@ globalMinimize method size seed o bounds f = do
                 c1 = 2 / ((fromIntegral dim + 1.3) ^ (2 :: Int) + muEff)
                 cmu = min (1 - c1) (2 * (muEff - 2 + 1 / muEff) / ((fromIntegral dim + 2) ^ (2 :: Int) + muEff))
                 rankMu =
-                    foldl'
+                    Foldable.foldl'
                         (zipWith (zipWith (+)))
                         (replicate dim (replicate dim 0))
                         [ map (scale w) (outer d d)

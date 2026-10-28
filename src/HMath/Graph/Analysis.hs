@@ -33,6 +33,7 @@ module HMath.Graph.Analysis (
 ) where
 
 import Data.Bits (shiftR, xor)
+import qualified Data.Foldable as Foldable (foldl')
 import Data.List (nub, permutations, sort)
 import qualified Data.Map.Strict as M
 import qualified Data.Set as S
@@ -53,7 +54,7 @@ bipartiteColors g = mapM (`M.lookup` final) (allVertices g)
   where
     color known [] = Just known
     color known (v : vs) = do
-        next <- foldl' (assign v) (Just known) (weakNeighbors g v)
+        next <- Foldable.foldl' (assign v) (Just known) (weakNeighbors g v)
         color next (vs ++ [u | u <- weakNeighbors g v, M.notMember u known])
     assign v previous u = do
         m <- previous
@@ -63,7 +64,7 @@ bipartiteColors g = mapM (`M.lookup` final) (allVertices g)
                 | otherwise -> Just m
             Nothing -> Just (M.insert u (not (m M.! v)) m)
     result =
-        foldl'
+        Foldable.foldl'
             (\p v -> do m <- p; if M.member v m then Just m else color (M.insert v False m) [v])
             (Just M.empty)
             (allVertices g)
@@ -76,7 +77,7 @@ greedyColoring g
     | otherwise = Right (map (colors M.!) (allVertices g))
   where
     colors =
-        foldl'
+        Foldable.foldl'
             ( \m v ->
                 let forbidden = [color | u <- weakNeighbors g v, Just color <- [M.lookup u m]]
                     c = length (takeWhile (`elem` forbidden) [0 ..])
@@ -100,7 +101,7 @@ exactColoring fuel g = do
         | left <= 0 = Left (NonConvergence "exact coloring" fuel)
         | length assigned == vertexCount g = Right (Just assigned, left - 1)
         | otherwise =
-            foldl'
+            Foldable.foldl'
                 ( \p c -> do
                     (answer, r) <- p
                     case answer of { Just _ -> pure (answer, r); Nothing -> assign r k (assigned ++ [c]) }
@@ -158,7 +159,7 @@ hamiltonianPath fuel g
         | left <= 0 = Left (NonConvergence "Hamiltonian path" fuel)
         | length path == vertexCount g = Right (Just path, left - 1)
         | otherwise =
-            foldl'
+            Foldable.foldl'
                 (\p v -> do (answer, r) <- p; maybe (visit r (path ++ [v])) (\a -> pure (Just a, r)) answer)
                 (Right (Nothing, left - 1))
                 [v | v <- nub [u | (u, _, _) <- neighbors g (last path)], v `notElem` path]
@@ -266,7 +267,7 @@ degreeCentrality g =
 -- Brandes' unweighted accumulation; parallel arcs count as distinct shortest
 -- edge paths, consistent with the graph's multigraph interpretation.
 betweennessCentrality :: Graph -> [Double]
-betweennessCentrality g = map (/ if directed g then 1 else 2) (foldl' source (replicate n 0) (allVertices g))
+betweennessCentrality g = map (/ if directed g then 1 else 2) (Foldable.foldl' source (replicate n 0) (allVertices g))
   where
     n = vertexCount g
     source central start =
@@ -283,13 +284,13 @@ betweennessCentrality g = map (/ if directed g then 1 else 2) (foldl' source (re
                                     , M.insertWith (++) u [v] parentMap
                                     )
                                 else (pending, updated, counts, parentMap)
-                    (nextQueue, nextDistances, nextCounts, nextParents) = foldl' visit (queue, dist, sigma, predecessors) (neighbors g v)
+                    (nextQueue, nextDistances, nextCounts, nextParents) = Foldable.foldl' visit (queue, dist, sigma, predecessors) (neighbors g v)
                  in walk nextQueue nextDistances nextCounts nextParents (v : order)
             (_, pathCounts, parents, stack) = walk [start] (M.singleton start (0 :: Int)) (M.singleton start (1 :: Double)) M.empty []
             delta =
-                foldl'
+                Foldable.foldl'
                     ( \d w ->
-                        foldl'
+                        Foldable.foldl'
                             ( \acc v -> M.insertWith (+) v ((pathCounts M.! v) / (pathCounts M.! w) * (1 + M.findWithDefault 0 w d)) acc
                             )
                             d
@@ -305,7 +306,7 @@ unweightedDistances g start = go (M.singleton start 0) [start]
     go dist [] = dist
     go dist (v : vs) =
         let fresh = S.toAscList (S.fromList [u | (u, _, _) <- neighbors g v, M.notMember u dist])
-            next = foldl' (\m u -> M.insert u (dist M.! v + 1) m) dist fresh
+            next = Foldable.foldl' (\m u -> M.insert u (dist M.! v + 1) m) dist fresh
          in go next (vs ++ fresh)
 closenessCentrality :: Graph -> [Double]
 closenessCentrality g =
@@ -522,7 +523,7 @@ labelPropagation steps g = do
                                     winners = [l | (l, w) <- M.toAscList votes, w == top]
                                  in if old `elem` winners then old else winners !! 0
                  in take v current ++ [best] ++ drop (v + 1) current
-            next = foldl' update labels (allVertices g)
+            next = Foldable.foldl' update labels (allVertices g)
          in if next == labels
                 then Right labels
                 else
@@ -556,7 +557,7 @@ louvain budget g = do
                 level left coarse mapped
     local fuel current labels = do
         (next, left) <-
-            foldl'
+            Foldable.foldl'
                 ( \p v -> do
                     (assignment, r) <- p
                     baseline <- modularity current assignment
