@@ -55,6 +55,39 @@ with Tensor([0.1, 0.2]) as samples:
     assert math.isclose(samples.sum(), 0.3, rel_tol=1e-12, abs_tol=1e-15)
 ```
 
+## Python reduction and matrix-product behavior
+
+The Python wrappers call the checked native tensor kernels, not every
+algorithm exposed by the Haskell library. The current reference path gathers
+logical elements into contiguous native scratch arrays before entering
+`HMath.FFI`. Sum uses ordinary Haskell `sum`; dot uses `HMath.Linear.dot`,
+which sums corresponding products. Matrix multiplication accumulates each
+cell in increasing inner-index order. These descriptions identify the current
+implementation, not a cross-release promise of bit-for-bit reduction order.
+
+The mathematical definition of a sum or dot product does not imply exact
+accumulation, compensated summation, or a correctly rounded final answer.
+Finite inputs can produce a non-finite computed result, which is rejected.
+Conversely, a finite accepted result can still have substantial relative error
+when cancellation makes the true result small. No universal error tolerance
+is implied by accepting a result. The checked path is distinct from legacy
+native calls that retain their own non-finite policies.
+
+For `a.dot(b)`, all corresponding elements are reduced to a Python float and
+the shapes must match exactly. This is not NumPy's rank-dependent `dot`.
+For `a @ b`, `(m, k)` and `(k, n)` produce `(m, n)`; the binding supports rank
+two only. The `m*k*n` work limit bounds computation, not numerical error.
+A compatible zero inner dimension yields a zero matrix, while a zero outer
+dimension yields an empty result. See the
+[Python calculations reference](../reference/python.md#calculations) for
+individual contracts, budgets, and costs.
+
+Input conversion is another numerical step. Python integers do not remain
+arbitrary-precision integers inside a Tensor: they are converted to binary64.
+Likewise, copying a NumPy integer array to float64 can round values before
+any HMath calculation takes place. For copied versus borrowed data and
+lifetime guarantees, see [NumPy interoperability](../guides/numpy.md).
+
 ## Residual, conditioning, and rank
 
 For a proposed solution of $A x = b$, the residual is
@@ -89,3 +122,5 @@ bounds on every possible callback.
 - [SciPy linear solve](https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.solve.html): shape contracts and singular/ill-conditioned systems.
 - [GNU Scientific Library linear algebra](https://www.gnu.org/software/gsl/doc/html/linalg.html): decompositions, rank, and numerical tolerances.
 - [Python `math.isclose`](https://docs.python.org/3/library/math.html#math.isclose): approximate comparison semantics.
+- [NumPy sum](https://numpy.org/doc/stable/reference/generated/numpy.sum.html): an example of documenting implementation-specific reduction precision; its algorithm is not an HMath guarantee.
+- [HMath native boundary](https://github.com/wavefnd/hmath/blob/master/cbits/native.c), [Haskell FFI kernels](https://github.com/wavefnd/hmath/blob/master/src/HMath/FFI.hs), and [linear operations](https://github.com/wavefnd/hmath/blob/master/src/HMath/Linear.hs): implementation sources for the Python numerical path.
