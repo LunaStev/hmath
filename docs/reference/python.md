@@ -206,6 +206,8 @@ shutdown()
 
 ### `hmath.HMathError(status)`
 
+<a id="hmath.HMathError"></a>
+
 Represent a failed native checked operation.
 
 #### Parameters
@@ -522,6 +524,8 @@ with Tensor.from_numpy(source) as copied:
 ## Inspection and conversion
 
 ### `hmath.Tensor.shape`
+
+<a id="hmath.Tensor.shape"></a>
 
 Read the tensor’s dimensions.
 
@@ -953,6 +957,8 @@ with Tensor([], (2, 0)) as a, Tensor([], (0, 3)) as b:
 
 ### `hmath.Tensor.reshape(shape)`
 
+<a id="hmath.Tensor.reshape"></a>
+
 Create a new shape over the same contiguous storage.
 
 #### Parameters
@@ -1209,6 +1215,8 @@ assert hc.add(2, 3) == 5.0
 
 ### `hmath_cffi.HMathError(status)`
 
+<a id="hmath_cffi.HMathError"></a>
+
 Represent a failed native checked operation.
 
 #### Parameters
@@ -1287,6 +1295,8 @@ need to wrap `Tensor.sum()` or `add()` in another `check()`.
 
 
 ### `hmath_cffi.Tensor(values, shape=None)`
+
+<a id="hmath_cffi.Tensor"></a>
 
 Copy flat values into a new immutable tensor.
 
