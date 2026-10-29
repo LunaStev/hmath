@@ -122,5 +122,3 @@ bounds on every possible callback.
 - [SciPy linear solve](https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.solve.html): shape contracts and singular/ill-conditioned systems.
 - [GNU Scientific Library linear algebra](https://www.gnu.org/software/gsl/doc/html/linalg.html): decompositions, rank, and numerical tolerances.
 - [Python `math.isclose`](https://docs.python.org/3/library/math.html#math.isclose): approximate comparison semantics.
-- [NumPy sum](https://numpy.org/doc/stable/reference/generated/numpy.sum.html): an example of documenting implementation-specific reduction precision; its algorithm is not an HMath guarantee.
-- [HMath native boundary](https://github.com/wavefnd/hmath/blob/master/cbits/native.c), [Haskell FFI kernels](https://github.com/wavefnd/hmath/blob/master/src/HMath/FFI.hs), and [linear operations](https://github.com/wavefnd/hmath/blob/master/src/HMath/Linear.hs): implementation sources for the Python numerical path.
