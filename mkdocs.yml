@@ -34,7 +34,6 @@ plugins:
   - search
 markdown_extensions:
   - admonition
-  - def_list
   - pymdownx.arithmatex:
       generic: true
   - pymdownx.highlight:
