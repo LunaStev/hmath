@@ -76,6 +76,7 @@ jobs:
           cabal check
           cabal build lib:hmath flib:hmath --offline -O0
   ready:
+    name: Release candidate verified
     needs: [preflight, validate, distributions, haskell-source]
     runs-on: ubuntu-24.04
     steps:
