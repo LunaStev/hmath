@@ -9,10 +9,6 @@ on:
         type: choice
         options: [testpypi, pypi]
         default: testpypi
-      candidate_run_id:
-        description: Prepared run ID (blank resumes the staged candidate or selects the latest successful preparation for this commit)
-        type: string
-        required: false
 
 permissions:
   contents: read
@@ -32,15 +28,64 @@ jobs:
       source_sha: ${{ steps.candidate.outputs.candidate_sha }}
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
-      - name: Select an existing verified candidate without rebuilding it
+      - name: Resume a staged candidate or prepare this source
         id: candidate
         env:
           GH_TOKEN: ${{ github.token }}
-          CANDIDATE_RUN_ID: ${{ inputs.candidate_run_id }}
-        run: python tools/select_release_candidate.py --repository "$GITHUB_REPOSITORY" --commit "$GITHUB_SHA" --run-id "$CANDIDATE_RUN_ID"
+        run: |
+          python - <<'PY'
+          import os
+          import sys
+          sys.path.insert(0, "tools")
+          import select_release_candidate as selector
+
+          repository = os.environ["GITHUB_REPOSITORY"]
+          commit = os.environ["GITHUB_SHA"]
+          version = selector.release_version()
+          receipt = selector._receipt_run(repository, version)
+          if receipt:
+              run_id = receipt["candidate_run_id"]
+              source = receipt["candidate_sha"]
+              run = selector.gh_read(f"repos/{repository}/actions/runs/{run_id}")
+              if run.get("path") == selector.WORKFLOW:
+                  selector.validate_run(run, repository, source, run_id)
+              else:
+                  if (str(run.get("id")) != run_id
+                      or run.get("repository", {}).get("full_name", "").casefold() != repository.casefold()
+                      or run.get("path") != ".github/workflows/publish-python.yml"
+                      or run.get("head_sha") != source
+                      or run.get("head_branch") != "master"
+                      or run.get("event") != "workflow_dispatch"
+                      or run.get("status") != "completed"):
+                      raise ValueError("staged candidate does not belong to a completed release run")
+                  pages = selector.gh_read(
+                      f"repos/{repository}/actions/runs/{run_id}/jobs?filter=all&per_page=100",
+                      paginate=True,
+                  )
+                  ready = [job for page in pages for job in page["jobs"]
+                           if job["name"].split("/")[-1].strip() == "Release candidate verified"]
+                  if not ready or not any(job["status"] == "completed" and job["conclusion"] == "success"
+                                          for job in ready):
+                      raise ValueError("staged release never completed candidate verification")
+              if selector.source_version(repository, source) != version:
+                  raise ValueError("staged candidate version differs from its source")
+          else:
+              # First publication builds and verifies its own candidate in this run.
+              run_id, source = "", commit
+          with open(os.environ["GITHUB_OUTPUT"], "a") as output:
+              print(f"candidate_run_id={run_id}", file=output)
+              print(f"candidate_sha={source}", file=output)
+              print(f"version={version}", file=output)
+          PY
+
+  prepare:
+    needs: select
+    if: needs.select.outputs.run_id == ''
+    uses: ./.github/workflows/prepare-release.yml
 
   publish:
-    needs: select
+    needs: [select, prepare]
+    if: ${{ !cancelled() && needs.select.result == 'success' && (needs.select.outputs.run_id != '' || needs.prepare.result == 'success') }}
     runs-on: ubuntu-24.04
     environment:
       name: ${{ inputs.index }}
@@ -53,13 +98,13 @@ jobs:
       - name: Download the selected immutable candidate
         env:
           GH_TOKEN: ${{ github.token }}
-          CANDIDATE_RUN_ID: ${{ needs.select.outputs.run_id }}
+          CANDIDATE_RUN_ID: ${{ needs.select.outputs.run_id || github.run_id }}
         run: gh run download "$CANDIDATE_RUN_ID" --repo "$GITHUB_REPOSITORY" --name release-candidate --dir candidate
       - name: Verify all artifacts and source identity
         env:
           SOURCE_SHA: ${{ needs.select.outputs.source_sha }}
           VERSION: ${{ needs.select.outputs.version }}
-          RUN_ID: ${{ needs.select.outputs.run_id }}
+          RUN_ID: ${{ needs.select.outputs.run_id || github.run_id }}
         run: python tools/verify_release_candidate.py candidate --commit "$SOURCE_SHA" --version "$VERSION" --run-id "$RUN_ID"
       - name: Verify existing package hashes before external writes
         id: remote
