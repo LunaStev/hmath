@@ -20,6 +20,10 @@ concurrency:
 
 jobs:
   select:
+    # Draft releases require push access to be visible in the releases API.
+    permissions:
+      contents: write
+      actions: read
     if: github.repository == 'wavefnd/hmath' && github.ref == 'refs/heads/master'
     runs-on: ubuntu-24.04
     outputs:
