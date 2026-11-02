@@ -109,7 +109,6 @@ extra-source-files:
     include/hmath_error.h
     test/native/autodiff_contracts.c
     test/native/autodiff_bindings.py
-    .github/workflows/prepare-release.yml
     tools/generate_numeric_bindings.py
     tools/check_binding_coverage.py
     tools/check_numeric_equivalence.py
