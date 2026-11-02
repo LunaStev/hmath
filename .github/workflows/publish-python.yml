@@ -78,14 +78,95 @@ jobs:
               print(f"version={version}", file=output)
           PY
 
-  prepare:
+  preflight:
     needs: select
     if: needs.select.outputs.run_id == ''
-    uses: ./.github/workflows/prepare-release.yml
+    runs-on: ubuntu-24.04
+    outputs:
+      version: ${{ steps.version.outputs.version }}
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        with:
+          python-version: '3.12'
+      - uses: ./.github/actions/setup-haskell
+        with:
+          ghc-version: '9.10.3'
+      - uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
+        with:
+          path: build-docs/cabal
+          key: docs-haddock-${{ hashFiles('hmath.cabal', 'cabal.project', 'src/**', 'cbits/**') }}
+          restore-keys: docs-haddock-
+      - name: Check every public API before preparing a complete release
+        run: |
+          python -m pip install -r requirements-docs.txt
+          python tools/generate_numeric_bindings.py --check
+          python tools/generate_matrix_bindings.py --check
+          python tools/build_docs.py
+          interface=$(python - <<'PY'
+          import json, pathlib
+          plan = json.loads(pathlib.Path('build-docs/cabal/cache/plan.json').read_text())
+          library = next(u for u in plan['install-plan'] if u.get('pkg-name') == 'hmath' and u.get('component-name') == 'lib')
+          print(pathlib.Path(library['dist-dir']) / 'doc/html/hmath/hmath.haddock')
+          PY
+          )
+          python tools/check_binding_coverage.py --interface "$interface" --require-complete
+      - name: Read the single project version
+        id: version
+        run: echo "version=$(python tools/release_version.py)" >> "$GITHUB_OUTPUT"
+  validate:
+    needs: preflight
+    uses: ./.github/workflows/validate.yml
+    with:
+      full-matrix: true
+  distributions:
+    needs: preflight
+    uses: ./.github/workflows/python-wheels.yml
+  haskell-source:
+    needs: distributions
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: ./.github/actions/setup-haskell
+        with:
+          ghc-version: '9.10.3'
+      - uses: actions/download-artifact@018cc2cf5baa6db3ef3c5f8a56943fffe632ef53 # v6
+        with:
+          name: native-distributions
+          path: source-artifacts
+      - name: Build the actual Cabal source archive
+        run: |
+          version=$(python tools/release_version.py)
+          mkdir "$RUNNER_TEMP/hmath-source"
+          tar -xzf "source-artifacts/hmath-$version.tar.gz" -C "$RUNNER_TEMP/hmath-source"
+          cd "$RUNNER_TEMP/hmath-source/hmath-$version"
+          cabal check
+          cabal build lib:hmath flib:hmath --offline -O0
+  ready:
+    name: Release candidate verified
+    needs: [preflight, validate, distributions, haskell-source]
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        with:
+          python-version: '3.12'
+      - uses: actions/download-artifact@018cc2cf5baa6db3ef3c5f8a56943fffe632ef53 # v6
+        with:
+          pattern: '*-distributions'
+          path: candidate
+          merge-multiple: true
+      - name: Record checksums and source identity
+        run: python tools/release_manifest.py candidate --commit "$GITHUB_SHA" --run-id "$GITHUB_RUN_ID"
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: release-candidate
+          path: candidate/*
+          if-no-files-found: error
 
   publish:
-    needs: [select, prepare]
-    if: ${{ !cancelled() && needs.select.result == 'success' && (needs.select.outputs.run_id != '' || needs.prepare.result == 'success') }}
+    needs: [select, ready]
+    if: ${{ !cancelled() && needs.select.result == 'success' && (needs.select.outputs.run_id != '' || needs.ready.result == 'success') }}
     runs-on: ubuntu-24.04
     environment:
       name: ${{ inputs.index }}
@@ -106,32 +187,34 @@ jobs:
           VERSION: ${{ needs.select.outputs.version }}
           RUN_ID: ${{ needs.select.outputs.run_id || github.run_id }}
         run: python tools/verify_release_candidate.py candidate --commit "$SOURCE_SHA" --version "$VERSION" --run-id "$RUN_ID"
-      - name: Verify existing package hashes before external writes
+      - name: Verify existing Python package hashes before external writes
         id: remote
         env:
-          SOURCE_SHA: ${{ needs.select.outputs.source_sha }}
-        run: python tools/check_release_remote.py --python candidate --native candidate --commit "$SOURCE_SHA" --index '${{ inputs.index }}'
-      - name: Require Hackage configuration for a new Haskell upload
-        if: inputs.index == 'pypi' && steps.remote.outputs.haskell_complete != 'true'
-        env:
-          HACKAGE_TOKEN: ${{ secrets.HACKAGE_TOKEN }}
-        run: test -n "$HACKAGE_TOKEN"
+          VERSION: ${{ needs.select.outputs.version }}
+          INDEX: ${{ inputs.index }}
+        run: |
+          python - <<'PY'
+          import os
+          import sys
+          from pathlib import Path
+          sys.path.insert(0, "tools")
+          from check_release_remote import fetch, python_status
+
+          files = sorted(Path("candidate").glob("*.whl")) + sorted(Path("candidate").glob("hmath_python-*.tar.gz"))
+          if not files:
+              raise ValueError("missing Python distributions")
+          host = "pypi.org" if os.environ["INDEX"] == "pypi" else "test.pypi.org"
+          version = os.environ["VERSION"]
+          complete = python_status(files, fetch(f"https://{host}/pypi/hmath-python/{version}/json"))
+          with open(os.environ["GITHUB_OUTPUT"], "a") as output:
+              print(f"python_complete={str(complete).lower()}", file=output)
+          PY
       - name: Verify and stage all GitHub assets before package publication
         if: inputs.index == 'pypi'
         env:
           GH_TOKEN: ${{ github.token }}
           SOURCE_SHA: ${{ needs.select.outputs.source_sha }}
         run: python tools/publish_github_release.py candidate --repository "$GITHUB_REPOSITORY" --commit "$SOURCE_SHA" --stage-only
-      - uses: ./.github/actions/setup-haskell
-        if: inputs.index == 'pypi' && steps.remote.outputs.haskell_complete != 'true'
-        with:
-          ghc-version: '9.10.3'
-      - name: Publish the verified Cabal source package
-        if: inputs.index == 'pypi' && steps.remote.outputs.haskell_complete != 'true'
-        env:
-          HACKAGE_TOKEN: ${{ secrets.HACKAGE_TOKEN }}
-          VERSION: ${{ needs.select.outputs.version }}
-        run: cabal upload --publish --token="$HACKAGE_TOKEN" "candidate/hmath-$VERSION.tar.gz"
       - name: Stage Python-only upload files
         run: |
           mkdir dist
