@@ -187,32 +187,34 @@ jobs:
           VERSION: ${{ needs.select.outputs.version }}
           RUN_ID: ${{ needs.select.outputs.run_id || github.run_id }}
         run: python tools/verify_release_candidate.py candidate --commit "$SOURCE_SHA" --version "$VERSION" --run-id "$RUN_ID"
-      - name: Verify existing package hashes before external writes
+      - name: Verify existing Python package hashes before external writes
         id: remote
         env:
-          SOURCE_SHA: ${{ needs.select.outputs.source_sha }}
-        run: python tools/check_release_remote.py --python candidate --native candidate --commit "$SOURCE_SHA" --index '${{ inputs.index }}'
-      - name: Require Hackage configuration for a new Haskell upload
-        if: inputs.index == 'pypi' && steps.remote.outputs.haskell_complete != 'true'
-        env:
-          HACKAGE_TOKEN: ${{ secrets.HACKAGE_TOKEN }}
-        run: test -n "$HACKAGE_TOKEN"
+          VERSION: ${{ needs.select.outputs.version }}
+          INDEX: ${{ inputs.index }}
+        run: |
+          python - <<'PY'
+          import os
+          import sys
+          from pathlib import Path
+          sys.path.insert(0, "tools")
+          from check_release_remote import fetch, python_status
+
+          files = sorted(Path("candidate").glob("*.whl")) + sorted(Path("candidate").glob("hmath_python-*.tar.gz"))
+          if not files:
+              raise ValueError("missing Python distributions")
+          host = "pypi.org" if os.environ["INDEX"] == "pypi" else "test.pypi.org"
+          version = os.environ["VERSION"]
+          complete = python_status(files, fetch(f"https://{host}/pypi/hmath-python/{version}/json"))
+          with open(os.environ["GITHUB_OUTPUT"], "a") as output:
+              print(f"python_complete={str(complete).lower()}", file=output)
+          PY
       - name: Verify and stage all GitHub assets before package publication
         if: inputs.index == 'pypi'
         env:
           GH_TOKEN: ${{ github.token }}
           SOURCE_SHA: ${{ needs.select.outputs.source_sha }}
         run: python tools/publish_github_release.py candidate --repository "$GITHUB_REPOSITORY" --commit "$SOURCE_SHA" --stage-only
-      - uses: ./.github/actions/setup-haskell
-        if: inputs.index == 'pypi' && steps.remote.outputs.haskell_complete != 'true'
-        with:
-          ghc-version: '9.10.3'
-      - name: Publish the verified Cabal source package
-        if: inputs.index == 'pypi' && steps.remote.outputs.haskell_complete != 'true'
-        env:
-          HACKAGE_TOKEN: ${{ secrets.HACKAGE_TOKEN }}
-          VERSION: ${{ needs.select.outputs.version }}
-        run: cabal upload --publish --token="$HACKAGE_TOKEN" "candidate/hmath-$VERSION.tar.gz"
       - name: Stage Python-only upload files
         run: |
           mkdir dist
