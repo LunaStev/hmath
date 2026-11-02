@@ -59,7 +59,7 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y liblapacke-dev libopenblas-dev zlib1g-dev cmake ninja-build clang
-          python -m pip install meson==1.8.5 numpy cffi
+          python -m pip install -r requirements-codegen.txt meson==1.8.5 numpy cffi
       - name: Wave compiler
         if: matrix.primary
         env:

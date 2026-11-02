@@ -23,7 +23,9 @@ jobs:
         with:
           python-version: '3.12'
           cache: pip
-          cache-dependency-path: requirements-docs.txt
+          cache-dependency-path: |
+            requirements-docs.txt
+            requirements-codegen.txt
       - uses: ./.github/actions/setup-haskell
         with:
           ghc-version: '9.10.3'

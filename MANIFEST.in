@@ -1,5 +1,5 @@
 include LICENSE README.md CHANGELOG.md ROADMAP.md hmath.cabal cabal.project meson-build.py
-include meson.build meson_options.txt mkdocs.yml requirements-docs.txt fourmolu.yaml .clang-format
+include meson.build meson_options.txt mkdocs.yml requirements-docs.txt requirements-codegen.txt fourmolu.yaml .clang-format
 recursive-include src *.hs
 recursive-include cbits *.c *.h
 recursive-include include *.h

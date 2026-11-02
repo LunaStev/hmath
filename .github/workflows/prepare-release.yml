@@ -32,9 +32,9 @@ jobs:
           restore-keys: docs-haddock-
       - name: Check every public API before preparing a complete release
         run: |
+          python -m pip install -r requirements-docs.txt
           python tools/generate_numeric_bindings.py --check
           python tools/generate_matrix_bindings.py --check
-          python -m pip install -r requirements-docs.txt
           python tools/build_docs.py
           interface=$(python - <<'PY'
           import json, pathlib

@@ -35,7 +35,7 @@ const char *hmath_status_string(hmath_status s) {
     return (unsigned)s < sizeof names / sizeof names[0] ? names[s] : "unknown status";
 }
 uint32_t hmath_abi_version(void) { return HMATH_ABI_VERSION; }
-const char *hmath_library_version(void) { return "1.0.2"; }
+const char *hmath_library_version(void) { return "1.1.0"; }
 const char *hmath_build_info(void) {
     return "HMath ABI 1; C11; GHC threaded RTS; scalar binary32/64; tensor binary64; max-rank=8";
 }
