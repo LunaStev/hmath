@@ -33,17 +33,89 @@ if get_option('offline')
     build_args += ['--offline']
 endif
 hmath_sources = files(
-    'hmath.cabal',
     'cabal.project',
+    'cbits/algebra.c',
+    'cbits/autodiff_bindings.c',
     'cbits/backend.c',
+    'cbits/buffer.c',
+    'cbits/bytes.c',
+    'cbits/deeplearning.c',
+    'cbits/error_wire.c',
+    'cbits/execution.c',
+    'cbits/expression.c',
+    'cbits/foundation.c',
+    'cbits/geometry.c',
+    'cbits/graph_bindings.c',
+    'cbits/image.c',
+    'cbits/interchange.c',
     'cbits/interchange_io.c',
+    'cbits/linear.c',
+    'cbits/machinelearning.c',
+    'cbits/matrix_bindings.c',
+    'cbits/matrix_internal.h',
+    'cbits/matrix_value.c',
     'cbits/native.c',
     'cbits/native_dlpack.c',
     'cbits/native_internal.h',
+    'cbits/numeric_generated.c',
+    'cbits/numeric_internal.h',
+    'cbits/numeric_objects.c',
+    'cbits/numeric_types.c',
+    'cbits/numerical.c',
+    'cbits/optimization.c',
+    'cbits/optimization_all.c',
+    'cbits/polynomial.c',
+    'cbits/rotations.c',
     'cbits/runtime.c',
+    'cbits/scalar_extras.c',
+    'cbits/shape.c',
+    'cbits/spectral.c',
+    'cbits/stochastic.c',
+    'cbits/tensor_bindings.c',
+    'cbits/timeseries.c',
+    'cbits/units.c',
+    'cbits/value.c',
+    'cbits/value_internal.h',
+    'hmath.cabal',
     'include/hmath.h',
+    'include/hmath_algebra.h',
+    'include/hmath_autodiff.h',
     'include/hmath_backend.h',
+    'include/hmath_buffer.h',
+    'include/hmath_bytes.h',
+    'include/hmath_callback.h',
+    'include/hmath_deeplearning.h',
     'include/hmath_dlpack.h',
+    'include/hmath_error.h',
+    'include/hmath_execution.h',
+    'include/hmath_expression.h',
+    'include/hmath_expression_error.h',
+    'include/hmath_foundation.h',
+    'include/hmath_geometry.h',
+    'include/hmath_graph.h',
+    'include/hmath_image.h',
+    'include/hmath_interchange.h',
+    'include/hmath_interchange_error.h',
+    'include/hmath_linear.h',
+    'include/hmath_machinelearning.h',
+    'include/hmath_matrix.h',
+    'include/hmath_matrix_value.h',
+    'include/hmath_numeric.h',
+    'include/hmath_numeric_objects.h',
+    'include/hmath_numeric_types.h',
+    'include/hmath_numerical.h',
+    'include/hmath_optimization.h',
+    'include/hmath_optimization_all.h',
+    'include/hmath_polynomial.h',
+    'include/hmath_rotations.h',
+    'include/hmath_scalar_extras.h',
+    'include/hmath_shape.h',
+    'include/hmath_spectral.h',
+    'include/hmath_stochastic.h',
+    'include/hmath_tensor_bindings.h',
+    'include/hmath_timeseries.h',
+    'include/hmath_units.h',
+    'include/hmath_value.h',
     'src/HMath.hs',
     'src/HMath/API.hs',
     'src/HMath/API/Algebra.hs',
@@ -69,6 +141,59 @@ hmath_sources = files(
     'src/HMath/Error.hs',
     'src/HMath/Expression.hs',
     'src/HMath/FFI.hs',
+    'src/HMath/FFI/AlgebraAll.hs',
+    'src/HMath/FFI/AlgebraCodec.hs',
+    'src/HMath/FFI/Autodiff.hs',
+    'src/HMath/FFI/AutodiffChecked.hs',
+    'src/HMath/FFI/AutodiffValue.hs',
+    'src/HMath/FFI/Boundary.hs',
+    'src/HMath/FFI/Buffer.hs',
+    'src/HMath/FFI/Buffer/Codec.hs',
+    'src/HMath/FFI/Bytes.hs',
+    'src/HMath/FFI/Coefficient.hs',
+    'src/HMath/FFI/DeepLearning.hs',
+    'src/HMath/FFI/Execution.hs',
+    'src/HMath/FFI/Expression.hs',
+    'src/HMath/FFI/Foundation.hs',
+    'src/HMath/FFI/FoundationCodec.hs',
+    'src/HMath/FFI/Geometry.hs',
+    'src/HMath/FFI/Graph.hs',
+    'src/HMath/FFI/GraphCodec.hs',
+    'src/HMath/FFI/Image.hs',
+    'src/HMath/FFI/InterchangeAll.hs',
+    'src/HMath/FFI/InterchangeCodec.hs',
+    'src/HMath/FFI/InterchangeElement.hs',
+    'src/HMath/FFI/InterchangeError.hs',
+    'src/HMath/FFI/LinearAll.hs',
+    'src/HMath/FFI/LinearCodec.hs',
+    'src/HMath/FFI/MachineLearning.hs',
+    'src/HMath/FFI/MachineLearning/Codec.hs',
+    'src/HMath/FFI/MachineLearning/Types.hs',
+    'src/HMath/FFI/MathError.hs',
+    'src/HMath/FFI/Matrix.hs',
+    'src/HMath/FFI/MatrixValue.hs',
+    'src/HMath/FFI/Numeric.hs',
+    'src/HMath/FFI/NumericObjects.hs',
+    'src/HMath/FFI/NumericTypes.hs',
+    'src/HMath/FFI/NumericTypes/Core.hs',
+    'src/HMath/FFI/NumericalAll.hs',
+    'src/HMath/FFI/NumericalCodec.hs',
+    'src/HMath/FFI/OptimizationAll.hs',
+    'src/HMath/FFI/Optimizer.hs',
+    'src/HMath/FFI/Ordering.hs',
+    'src/HMath/FFI/Polynomial.hs',
+    'src/HMath/FFI/RandomCodec.hs',
+    'src/HMath/FFI/Rotations.hs',
+    'src/HMath/FFI/ScalarExtras.hs',
+    'src/HMath/FFI/ShapeAll.hs',
+    'src/HMath/FFI/ShapeCodec.hs',
+    'src/HMath/FFI/SpectralAll.hs',
+    'src/HMath/FFI/Stochastic.hs',
+    'src/HMath/FFI/TensorAll.hs',
+    'src/HMath/FFI/TensorCodec.hs',
+    'src/HMath/FFI/TimeSeries.hs',
+    'src/HMath/FFI/Units.hs',
+    'src/HMath/FFI/Value.hs',
     'src/HMath/Fourier.hs',
     'src/HMath/Geometry.hs',
     'src/HMath/Geometry/Collision.hs',
@@ -149,6 +274,7 @@ hmath_sources = files(
     'src/HMath/Trigonometry.hs',
     'src/HMath/Units.hs',
     'src/HMath/Vector.hs',
+
 )
 
 # The ABI epoch is independent of the package release version.
@@ -164,7 +290,7 @@ hmath = custom_target('hmath', output: library_names, input: hmath_sources,
     build_by_default: true, console: true, install: true,
     install_dir: get_option('libdir'), install_tag: 'runtime')
 hmath_library = hmath[0]
-install_headers('include/hmath.h', 'include/hmath_dlpack.h')
+install_headers('include/hmath.h', 'include/hmath_algebra.h', 'include/hmath_autodiff.h', 'include/hmath_buffer.h', 'include/hmath_bytes.h', 'include/hmath_callback.h', 'include/hmath_deeplearning.h', 'include/hmath_dlpack.h', 'include/hmath_error.h', 'include/hmath_execution.h', 'include/hmath_expression.h', 'include/hmath_expression_error.h', 'include/hmath_foundation.h', 'include/hmath_geometry.h', 'include/hmath_graph.h', 'include/hmath_image.h', 'include/hmath_interchange.h', 'include/hmath_interchange_error.h', 'include/hmath_linear.h', 'include/hmath_machinelearning.h', 'include/hmath_matrix.h', 'include/hmath_matrix_value.h', 'include/hmath_numeric.h', 'include/hmath_numeric_objects.h', 'include/hmath_numeric_types.h', 'include/hmath_numerical.h', 'include/hmath_optimization.h', 'include/hmath_optimization_all.h', 'include/hmath_polynomial.h', 'include/hmath_rotations.h', 'include/hmath_scalar_extras.h', 'include/hmath_shape.h', 'include/hmath_spectral.h', 'include/hmath_stochastic.h', 'include/hmath_tensor_bindings.h', 'include/hmath_timeseries.h', 'include/hmath_units.h', 'include/hmath_value.h')
 install_data('LICENSE', install_dir: get_option('datadir') / 'licenses/hmath')
 hmath_dep = declare_dependency(link_with: hmath_library, include_directories: include_directories('include'))
 meson.override_dependency('hmath', hmath_dep)
@@ -203,6 +329,132 @@ if get_option('tests')
         dependencies: hmath_dep, override_options: ['c_std=c99'],
         build_rpath: meson.current_build_dir())
     test('hmath-c99-header', header_test)
+    numeric_contracts = executable('hmath-numeric-contracts', 'test/native/numeric_contracts.c',
+        dependencies: hmath_dep, override_options: ['c_std=c99'],
+        build_rpath: meson.current_build_dir())
+    test('hmath-numeric-contracts', numeric_contracts)
+    matrix_contracts = executable('hmath-matrix-contracts', 'test/native/matrix_contracts.c',
+        dependencies: hmath_dep, override_options: ['c_std=c99'],
+        build_rpath: meson.current_build_dir())
+    test('hmath-matrix-contracts', matrix_contracts)
+    ad_contracts = executable('hmath-autodiff-contracts', 'test/native/autodiff_contracts.c',
+        dependencies: hmath_dep, override_options: ['c_std=c99'],
+        build_rpath: meson.current_build_dir())
+    test('hmath-autodiff-contracts', ad_contracts)
+    storage_contracts = executable('hmath-kernel-storage',
+        ['test/native/kernel_storage.c', 'cbits/native.c', 'cbits/error_wire.c'],
+        dependencies: dependency('threads'),
+        include_directories: include_directories('include', 'cbits'))
+    test('hmath-kernel-storage', storage_contracts)
+
+    if add_languages('cpp', required: false)
+        numeric_cpp = executable('hmath-numeric-cpp', 'test/native/numeric_contracts.cpp',
+            dependencies: hmath_dep, override_options: ['cpp_std=c++17'],
+            build_rpath: meson.current_build_dir())
+        test('hmath-numeric-cpp', numeric_cpp)
+        foreach contract : ['tensor_contracts', 'deeplearning_contracts', 'autodiff_checked_contracts', 'foundation_contracts', 'interchange_contracts']
+            cpp_client = executable('hmath-' + contract + '-cpp', 'test/native/' + contract + '.cpp',
+                dependencies: hmath_dep, override_options: ['cpp_std=c++17'],
+                build_rpath: meson.current_build_dir())
+            test('hmath-' + contract + '-cpp', cpp_client)
+        endforeach
+    endif
+    test('hmath-generated-bindings', python,
+        args: [files('tools/generate_numeric_bindings.py'), '--check'])
+    foreach domain : ['graph', 'matrix', 'matrix_value', 'polynomial', 'units', 'optimization', 'timeseries', 'rotation', 'image', 'expression', 'linear', 'numerical', 'geometry', 'stochastic', 'spectral', 'foundation', 'algebra', 'shape', 'tensor', 'deeplearning', 'machinelearning', 'interchange']
+        test('hmath-generated-' + domain, python,
+            args: [files('tools/generate_' + domain + '_bindings.py'), '--check'])
+    endforeach
+    foreach domain : ['matrix_value', 'polynomial', 'numeric_types', 'graph', 'optimization', 'units', 'rotation', 'timeseries', 'image', 'expression', 'linear', 'geometry', 'stochastic', 'numerical', 'spectral', 'structural_matrix', 'foundation', 'algebra', 'shape', 'machinelearning', 'tensor', 'deeplearning']
+        test('hmath-' + domain + '-equivalence', python,
+            args: [files('tools/check_' + domain + '_equivalence.py'), '--library', hmath_library.full_path()],
+            depends: hmath, timeout: 300)
+    endforeach
+    test('hmath-interchange-bindings-equivalence', python,
+        args: [files('tools/check_interchange_bindings_equivalence.py'), '--library', hmath_library.full_path()],
+        depends: hmath, timeout: 300)
+    foreach domain : ['value', 'polynomial', 'optimization', 'units', 'expression', 'linear', 'stochastic', 'numerical', 'spectral', 'foundation', 'tensor', 'deeplearning', 'interchange']
+        test('hmath-' + domain + '-python', python,
+            args: [files('test/native/' + domain + '_bindings.py')],
+            env: {'HMATH_LIBRARY': hmath_library.full_path(), 'PYTHONPATH': meson.current_source_dir() / 'bindings/python'}, depends: hmath)
+    endforeach
+    foreach contract : ['numeric_variants', 'polynomial_contracts', 'execution_smoke', 'numeric_types', 'rotations', 'optimization_contracts', 'structured_contracts', 'image', 'expression_contracts', 'geometry', 'stochastic_contracts', 'linear_contracts', 'foundation_contracts', 'structural_matrix_contracts', 'machinelearning', 'tensor_contracts', 'deeplearning_contracts', 'autodiff_checked_contracts', 'spectral_contracts', 'scalar_extras', 'interchange_contracts']
+        client = executable('hmath-' + contract, 'test/native/' + contract + '.c',
+            dependencies: hmath_dep, override_options: ['c_std=c99'],
+            build_rpath: meson.current_build_dir())
+        test('hmath-' + contract, client)
+    endforeach
+    test('hmath-callback-errors', python,
+        args: [files('test/native/callback_errors.py')],
+        env: {'HMATH_LIBRARY': hmath_library.full_path(), 'PYTHONPATH': meson.current_source_dir() / 'bindings/python'}, depends: hmath)
+    test('hmath-release-candidate', python, args: [files('test/release_candidate.py')])
+    test('hmath-release-publishing', python, args: [files('test/release_publishing.py')])
+    test('hmath-scalar-extras', python, args: [files('tools/check_scalar_extras.py'), '--library', hmath_library.full_path()], depends: hmath, timeout: 300)
+    test('hmath-generated-scalar-extras', python, args: [files('tools/generate_scalar_extras.py'), '--check'])
+    test('hmath-generated-numeric-types', python, args: [files('tools/generate_numeric_types.py'), '--check'])
+    test('hmath-generated-numeric-objects', python,
+        args: [files('tools/generate_numeric_objects.py'), '--check'])
+    test('hmath-numeric-objects-equivalence', python,
+        args: [files('tools/check_numeric_objects_equivalence.py'), '--library', hmath_library.full_path()],
+        depends: hmath, timeout: 300)
+    test('hmath-numeric-equality-equivalence', python,
+        args: [files('tools/check_numeric_equality.py'), '--library', hmath_library.full_path()],
+        depends: hmath, timeout: 300)
+    numeric_objects_client = executable('hmath-numeric-objects-contracts', 'test/native/numeric_objects_contracts.c',
+        dependencies: hmath_dep, override_options: ['c_std=c99'],
+        build_rpath: meson.current_build_dir())
+    test('hmath-numeric-objects-contracts', numeric_objects_client)
+    if add_languages('cpp', required: false)
+        numeric_objects_cpp = executable('hmath-numeric-objects-contracts-cpp', 'test/native/numeric_objects_contracts.cpp',
+            dependencies: hmath_dep, override_options: ['cpp_std=c++17'],
+            build_rpath: meson.current_build_dir())
+        test('hmath-numeric-objects-contracts-cpp', numeric_objects_cpp)
+    endif
+
+    test('hmath-generated-buffer', python,
+        args: [files('tools/generate_buffer_bindings.py'), '--check'])
+    test('hmath-buffer-equivalence', python,
+        args: [files('tools/check_buffer_equivalence.py'), '--library', hmath_library.full_path()],
+        depends: hmath, timeout: 300)
+    buffer_client = executable('hmath-buffer-contracts', 'test/native/buffer_contracts.c',
+        dependencies: hmath_dep, override_options: ['c_std=c99'],
+        build_rpath: meson.current_build_dir())
+    test('hmath-buffer-contracts', buffer_client)
+    if add_languages('cpp', required: false)
+        buffer_cpp = executable('hmath-buffer-contracts-cpp', 'test/native/buffer_contracts.cpp',
+            dependencies: hmath_dep, override_options: ['cpp_std=c++17'],
+            build_rpath: meson.current_build_dir())
+        test('hmath-buffer-contracts-cpp', buffer_cpp)
+    endif
+
+    test('hmath-binding-coverage', python,
+        args: [files('tools/check_binding_coverage.py')])
+    test('hmath-expanded-python', python,
+        args: [files('test/native/expanded_bindings.py')],
+        env: {'HMATH_LIBRARY': hmath_library.full_path()}, depends: hmath)
+    oracle_optimization = '2'
+    if buildtype == 'debug'
+        oracle_optimization = '0'
+    elif buildtype == 'minsize'
+        oracle_optimization = '1'
+    endif
+    test('hmath-numeric-equivalence', python,
+        args: [files('tools/check_numeric_equivalence.py'), '--library', hmath_library.full_path(), '--oracle-builddir', meson.current_build_dir() / 'numeric-oracle', '--optimization', oracle_optimization],
+        depends: hmath, timeout: 300)
+    test('hmath-matrix-equivalence', python,
+        args: [files('tools/check_matrix_equivalence.py'), '--library', hmath_library.full_path()],
+        depends: hmath, timeout: 300)
+    test('hmath-autodiff-equivalence', python,
+        args: [files('tools/check_autodiff_equivalence.py'), '--library', hmath_library.full_path()],
+        depends: hmath, timeout: 300)
+    test('hmath-autodiff-coefficients', python,
+        args: [files('tools/check_autodiff_coefficients.py'), '--library', hmath_library.full_path()],
+        depends: hmath, timeout: 300)
+    test('hmath-autodiff-python', python,
+        args: [files('test/native/autodiff_bindings.py')],
+        env: {'HMATH_LIBRARY': hmath_library.full_path()}, depends: hmath)
+
+
     if host_machine.system() != 'windows'
         contract_test = executable('hmath-native-contracts', 'test/native/contracts.c',
             dependencies: [hmath_dep, dependency('threads')],
@@ -216,6 +468,11 @@ if get_option('tests')
     if not get_option('python_bindings').disabled()
         python_modules = run_command(python, '-c', 'import numpy, cffi', check: false)
         if python_modules.returncode() == 0
+            if get_option('native_backend') and host_machine.system() == 'linux'
+                test('hmath-execution', python,
+                    args: [files('tools/check_execution.py'), '--library', hmath_library.full_path()],
+                    depends: hmath, timeout: 180)
+            endif
             test('hmath-python-bindings', python, args: [files('bindings/python/test_bindings.py')],
                  env: {'HMATH_LIBRARY': hmath_library.full_path()}, depends: hmath)
             test('hmath-numpy-dlpack', python, args: [files('test/native/dlpack_numpy.py')],

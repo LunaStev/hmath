@@ -1,0 +1,226 @@
+{
+  "schema": 1,
+  "bindings": [
+    {
+      "symbol": "HMath.Error.MathError",
+      "c": [
+        "hmath_math_error",
+        "hmath_last_math_error"
+      ],
+      "python": "hmath.errors.MathError",
+      "specializations": [
+        "all 21 original constructors; Int and full Char string payloads"
+      ]
+    },
+    {
+      "symbol": "HMath.Error.NegativeDimensions",
+      "c": [
+        "HMATH_MATH_NEGATIVE_DIMENSIONS"
+      ],
+      "python": "hmath.errors.NegativeDimensions",
+      "specializations": [
+        "original constructor payloads; checked callback Left and queried errors"
+      ]
+    },
+    {
+      "symbol": "HMath.Error.ElementCountOverflow",
+      "c": [
+        "HMATH_MATH_ELEMENT_COUNT_OVERFLOW"
+      ],
+      "python": "hmath.errors.ElementCountOverflow",
+      "specializations": [
+        "original constructor payloads; checked callback Left and queried errors"
+      ]
+    },
+    {
+      "symbol": "HMath.Error.ElementCountMismatch",
+      "c": [
+        "HMATH_MATH_ELEMENT_COUNT_MISMATCH"
+      ],
+      "python": "hmath.errors.ElementCountMismatch",
+      "specializations": [
+        "original constructor payloads; checked callback Left and queried errors"
+      ]
+    },
+    {
+      "symbol": "HMath.Error.ShapeMismatch",
+      "c": [
+        "HMATH_MATH_SHAPE_MISMATCH"
+      ],
+      "python": "hmath.errors.ShapeMismatch",
+      "specializations": [
+        "original constructor payloads; checked callback Left and queried errors"
+      ]
+    },
+    {
+      "symbol": "HMath.Error.InnerDimensionMismatch",
+      "c": [
+        "HMATH_MATH_INNER_DIMENSION_MISMATCH"
+      ],
+      "python": "hmath.errors.InnerDimensionMismatch",
+      "specializations": [
+        "original constructor payloads; checked callback Left and queried errors"
+      ]
+    },
+    {
+      "symbol": "HMath.Error.IndexOutOfBounds",
+      "c": [
+        "HMATH_MATH_INDEX_OUT_OF_BOUNDS"
+      ],
+      "python": "hmath.errors.IndexOutOfBounds",
+      "specializations": [
+        "original constructor payloads; checked callback Left and queried errors"
+      ]
+    },
+    {
+      "symbol": "HMath.Error.SliceOutOfBounds",
+      "c": [
+        "HMATH_MATH_SLICE_OUT_OF_BOUNDS"
+      ],
+      "python": "hmath.errors.SliceOutOfBounds",
+      "specializations": [
+        "original constructor payloads; checked callback Left and queried errors"
+      ]
+    },
+    {
+      "symbol": "HMath.Error.VectorLengthMismatch",
+      "c": [
+        "HMATH_MATH_VECTOR_LENGTH_MISMATCH"
+      ],
+      "python": "hmath.errors.VectorLengthMismatch",
+      "specializations": [
+        "original constructor payloads; checked callback Left and queried errors"
+      ]
+    },
+    {
+      "symbol": "HMath.Error.NonSquareMatrix",
+      "c": [
+        "HMATH_MATH_NON_SQUARE_MATRIX"
+      ],
+      "python": "hmath.errors.NonSquareMatrix",
+      "specializations": [
+        "original constructor payloads; checked callback Left and queried errors"
+      ]
+    },
+    {
+      "symbol": "HMath.Error.InvalidTolerance",
+      "c": [
+        "HMATH_MATH_INVALID_TOLERANCE"
+      ],
+      "python": "hmath.errors.InvalidTolerance",
+      "specializations": [
+        "original constructor payloads; checked callback Left and queried errors"
+      ]
+    },
+    {
+      "symbol": "HMath.Error.SingularMatrix",
+      "c": [
+        "HMATH_MATH_SINGULAR_MATRIX"
+      ],
+      "python": "hmath.errors.SingularMatrix",
+      "specializations": [
+        "original constructor payloads; checked callback Left and queried errors"
+      ]
+    },
+    {
+      "symbol": "HMath.Error.NearSingularMatrix",
+      "c": [
+        "HMATH_MATH_NEAR_SINGULAR_MATRIX"
+      ],
+      "python": "hmath.errors.NearSingularMatrix",
+      "specializations": [
+        "original constructor payloads; checked callback Left and queried errors"
+      ]
+    },
+    {
+      "symbol": "HMath.Error.NonFiniteMatrixEntry",
+      "c": [
+        "HMATH_MATH_NON_FINITE_MATRIX_ENTRY"
+      ],
+      "python": "hmath.errors.NonFiniteMatrixEntry",
+      "specializations": [
+        "original constructor payloads; checked callback Left and queried errors"
+      ]
+    },
+    {
+      "symbol": "HMath.Error.NonFiniteVectorEntry",
+      "c": [
+        "HMATH_MATH_NON_FINITE_VECTOR_ENTRY"
+      ],
+      "python": "hmath.errors.NonFiniteVectorEntry",
+      "specializations": [
+        "original constructor payloads; checked callback Left and queried errors"
+      ]
+    },
+    {
+      "symbol": "HMath.Error.NonFiniteResult",
+      "c": [
+        "HMATH_MATH_NON_FINITE_RESULT"
+      ],
+      "python": "hmath.errors.NonFiniteResult",
+      "specializations": [
+        "original constructor payloads; checked callback Left and queried errors"
+      ]
+    },
+    {
+      "symbol": "HMath.Error.RightHandSideMismatch",
+      "c": [
+        "HMATH_MATH_RIGHT_HAND_SIDE_MISMATCH"
+      ],
+      "python": "hmath.errors.RightHandSideMismatch",
+      "specializations": [
+        "original constructor payloads; checked callback Left and queried errors"
+      ]
+    },
+    {
+      "symbol": "HMath.Error.DomainError",
+      "c": [
+        "HMATH_MATH_DOMAIN_ERROR"
+      ],
+      "python": "hmath.errors.DomainError",
+      "specializations": [
+        "original constructor payloads; checked callback Left and queried errors"
+      ]
+    },
+    {
+      "symbol": "HMath.Error.InvalidArgument",
+      "c": [
+        "HMATH_MATH_INVALID_ARGUMENT"
+      ],
+      "python": "hmath.errors.InvalidArgument",
+      "specializations": [
+        "original constructor payloads; checked callback Left and queried errors"
+      ]
+    },
+    {
+      "symbol": "HMath.Error.NonConvergence",
+      "c": [
+        "HMATH_MATH_NON_CONVERGENCE"
+      ],
+      "python": "hmath.errors.NonConvergence",
+      "specializations": [
+        "original constructor payloads; checked callback Left and queried errors"
+      ]
+    },
+    {
+      "symbol": "HMath.Error.RankDeficient",
+      "c": [
+        "HMATH_MATH_RANK_DEFICIENT"
+      ],
+      "python": "hmath.errors.RankDeficient",
+      "specializations": [
+        "original constructor payloads; checked callback Left and queried errors"
+      ]
+    },
+    {
+      "symbol": "HMath.Error.NotPositiveDefinite",
+      "c": [
+        "HMATH_MATH_NOT_POSITIVE_DEFINITE"
+      ],
+      "python": "hmath.errors.NotPositiveDefinite",
+      "specializations": [
+        "original constructor payloads; checked callback Left and queried errors"
+      ]
+    }
+  ]
+}

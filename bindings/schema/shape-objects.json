@@ -1,0 +1,220 @@
+{
+  "schema": 1,
+  "bindings": [
+    {
+      "symbol": "HMath.API.Shape.Coordinates",
+      "c": [
+        "hmath_value",
+        "hmath_value_release"
+      ],
+      "python": "hmath.shape.Coordinates",
+      "specializations": [
+        "actual original type-level witness and source checks"
+      ]
+    },
+    {
+      "symbol": "HMath.API.Shape.KnownShape",
+      "c": [
+        "hmath_value",
+        "hmath_value_release"
+      ],
+      "python": "hmath.shape.KnownShape",
+      "specializations": [
+        "actual original type-level witness and source checks"
+      ]
+    },
+    {
+      "symbol": "HMath.API.Shape.MatrixShape",
+      "c": [
+        "hmath_shape_matrix_shape"
+      ],
+      "python": "hmath.shape.matrix_shape",
+      "specializations": [
+        "actual reified source type indices; numeric/Bool/String/Exact structural elements; no numeric coercion"
+      ]
+    },
+    {
+      "symbol": "HMath.API.Shape.ScalarShape",
+      "c": [
+        "hmath_shape_scalar_shape"
+      ],
+      "python": "hmath.shape.scalar_shape",
+      "specializations": [
+        "actual reified source type indices; numeric/Bool/String/Exact structural elements; no numeric coercion"
+      ]
+    },
+    {
+      "symbol": "HMath.API.Shape.Shape",
+      "c": [
+        "hmath_value",
+        "hmath_value_release"
+      ],
+      "python": "hmath.shape.Shape",
+      "specializations": [
+        "actual original type-level witness and source checks"
+      ]
+    },
+    {
+      "symbol": "HMath.API.Shape.StaticMatrix",
+      "c": [
+        "hmath_value",
+        "hmath_value_release"
+      ],
+      "python": "hmath.shape.StaticMatrix",
+      "specializations": [
+        "actual original type-level witness and source checks"
+      ]
+    },
+    {
+      "symbol": "HMath.API.Shape.StaticTensor",
+      "c": [
+        "hmath_value",
+        "hmath_value_release"
+      ],
+      "python": "hmath.shape.StaticTensor",
+      "specializations": [
+        "actual original type-level witness and source checks"
+      ]
+    },
+    {
+      "symbol": "HMath.API.Shape.VectorShape",
+      "c": [
+        "hmath_shape_vector_shape"
+      ],
+      "python": "hmath.shape.vector_shape",
+      "specializations": [
+        "actual reified source type indices; numeric/Bool/String/Exact structural elements; no numeric coercion"
+      ]
+    },
+    {
+      "symbol": "HMath.API.Shape.coordinateValues",
+      "c": [
+        "hmath_shape_coordinate_values"
+      ],
+      "python": "hmath.shape.coordinate_values",
+      "specializations": [
+        "actual reified source type indices; numeric/Bool/String/Exact structural elements; no numeric coercion"
+      ]
+    },
+    {
+      "symbol": "HMath.API.Shape.coordinates",
+      "c": [
+        "hmath_shape_coordinates"
+      ],
+      "python": "hmath.shape.coordinates",
+      "specializations": [
+        "actual reified source type indices; numeric/Bool/String/Exact structural elements; no numeric coercion"
+      ]
+    },
+    {
+      "symbol": "HMath.API.Shape.coordinatesToVector",
+      "c": [
+        "hmath_shape_coordinates_to_vector"
+      ],
+      "python": "hmath.shape.coordinates_to_vector",
+      "specializations": [
+        "actual reified source type indices; numeric/Bool/String/Exact structural elements; no numeric coercion"
+      ]
+    },
+    {
+      "symbol": "HMath.API.Shape.dynamicMatrix",
+      "c": [
+        "hmath_shape_dynamic_matrix"
+      ],
+      "python": "hmath.shape.dynamic_matrix",
+      "specializations": [
+        "actual reified source type indices; numeric/Bool/String/Exact structural elements; no numeric coercion"
+      ]
+    },
+    {
+      "symbol": "HMath.API.Shape.dynamicTensor",
+      "c": [
+        "hmath_shape_dynamic_tensor"
+      ],
+      "python": "hmath.shape.dynamic_tensor",
+      "specializations": [
+        "actual reified source type indices; numeric/Bool/String/Exact structural elements; no numeric coercion"
+      ]
+    },
+    {
+      "symbol": "HMath.API.Shape.makeShape",
+      "c": [
+        "hmath_shape_make_shape"
+      ],
+      "python": "hmath.shape.make_shape",
+      "specializations": [
+        "actual reified source type indices; numeric/Bool/String/Exact structural elements; no numeric coercion"
+      ]
+    },
+    {
+      "symbol": "HMath.API.Shape.reflectedShape",
+      "c": [
+        "hmath_shape_reflected_shape"
+      ],
+      "python": "hmath.shape.reflected_shape",
+      "specializations": [
+        "actual reified source type indices; numeric/Bool/String/Exact structural elements; no numeric coercion"
+      ]
+    },
+    {
+      "symbol": "HMath.API.Shape.shapeDimensions",
+      "c": [
+        "hmath_shape_shape_dimensions"
+      ],
+      "python": "hmath.shape.shape_dimensions",
+      "specializations": [
+        "actual reified source type indices; numeric/Bool/String/Exact structural elements; no numeric coercion"
+      ]
+    },
+    {
+      "symbol": "HMath.API.Shape.shapeElements",
+      "c": [
+        "hmath_shape_shape_elements"
+      ],
+      "python": "hmath.shape.shape_elements",
+      "specializations": [
+        "actual reified source type indices; numeric/Bool/String/Exact structural elements; no numeric coercion"
+      ]
+    },
+    {
+      "symbol": "HMath.API.Shape.staticMatrix",
+      "c": [
+        "hmath_shape_static_matrix"
+      ],
+      "python": "hmath.shape.static_matrix",
+      "specializations": [
+        "actual reified source type indices; numeric/Bool/String/Exact structural elements; no numeric coercion"
+      ]
+    },
+    {
+      "symbol": "HMath.API.Shape.staticMultiply",
+      "c": [
+        "hmath_shape_static_multiply"
+      ],
+      "python": "hmath.shape.static_multiply",
+      "specializations": [
+        "actual reified source type indices; numeric/Bool/String/Exact structural elements; no numeric coercion"
+      ]
+    },
+    {
+      "symbol": "HMath.API.Shape.staticTensor",
+      "c": [
+        "hmath_shape_static_tensor"
+      ],
+      "python": "hmath.shape.static_tensor",
+      "specializations": [
+        "actual reified source type indices; numeric/Bool/String/Exact structural elements; no numeric coercion"
+      ]
+    },
+    {
+      "symbol": "HMath.API.Shape.staticTranspose",
+      "c": [
+        "hmath_shape_static_transpose"
+      ],
+      "python": "hmath.shape.static_transpose",
+      "specializations": [
+        "actual reified source type indices; numeric/Bool/String/Exact structural elements; no numeric coercion"
+      ]
+    }
+  ]
+}

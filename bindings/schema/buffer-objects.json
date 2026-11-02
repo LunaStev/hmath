@@ -1,0 +1,255 @@
+{
+  "schema": 1,
+  "bindings": [
+    {
+      "symbol": "HMath.API.Buffer.Boxed",
+      "c": [
+        "hmath_buffer_boxed_object"
+      ],
+      "python": "hmath.buffer.Boxed",
+      "specializations": [
+        "actual original container; generic owned elements or actual standard Storable witnesses"
+      ]
+    },
+    {
+      "symbol": "HMath.API.Buffer.UnboxedDouble",
+      "c": [
+        "hmath_buffer_unboxed_double_object"
+      ],
+      "python": "hmath.buffer.UnboxedDouble",
+      "specializations": [
+        "actual original container; generic owned elements or actual standard Storable witnesses"
+      ]
+    },
+    {
+      "symbol": "HMath.API.Buffer.STBuffer",
+      "c": [
+        "hmath_buffer_st_buffer_object"
+      ],
+      "python": "hmath.buffer.STBuffer",
+      "specializations": [
+        "actual original container; generic owned elements or actual standard Storable witnesses"
+      ]
+    },
+    {
+      "symbol": "HMath.API.Buffer.IOBuffer",
+      "c": [
+        "hmath_buffer_io_buffer_object"
+      ],
+      "python": "hmath.buffer.IOBuffer",
+      "specializations": [
+        "actual original container; generic owned elements or actual standard Storable witnesses"
+      ]
+    },
+    {
+      "symbol": "HMath.API.Buffer.lazyBoxed",
+      "c": [
+        "hmath_buffer_lazy_boxed"
+      ],
+      "python": "hmath.buffer.lazy_boxed",
+      "specializations": [
+        "original source structure and scope; exact generic values / standard original Storable instances where constrained"
+      ]
+    },
+    {
+      "symbol": "HMath.API.Buffer.strictBoxed",
+      "c": [
+        "hmath_buffer_strict_boxed"
+      ],
+      "python": "hmath.buffer.strict_boxed",
+      "specializations": [
+        "original source structure and scope; exact generic values / standard original Storable instances where constrained"
+      ]
+    },
+    {
+      "symbol": "HMath.API.Buffer.boxedValues",
+      "c": [
+        "hmath_buffer_boxed_values"
+      ],
+      "python": "hmath.buffer.boxed_values",
+      "specializations": [
+        "original source structure and scope; exact generic values / standard original Storable instances where constrained"
+      ]
+    },
+    {
+      "symbol": "HMath.API.Buffer.boxedLength",
+      "c": [
+        "hmath_buffer_boxed_length"
+      ],
+      "python": "hmath.buffer.boxed_length",
+      "specializations": [
+        "original source structure and scope; exact generic values / standard original Storable instances where constrained"
+      ]
+    },
+    {
+      "symbol": "HMath.API.Buffer.mapStrict",
+      "c": [
+        "hmath_buffer_map_strict"
+      ],
+      "python": "hmath.buffer.map_strict",
+      "specializations": [
+        "original source structure and scope; exact generic values / standard original Storable instances where constrained"
+      ]
+    },
+    {
+      "symbol": "HMath.API.Buffer.unboxedDouble",
+      "c": [
+        "hmath_buffer_unboxed_double"
+      ],
+      "python": "hmath.buffer.unboxed_double",
+      "specializations": [
+        "original source structure and scope; exact generic values / standard original Storable instances where constrained"
+      ]
+    },
+    {
+      "symbol": "HMath.API.Buffer.unboxedValues",
+      "c": [
+        "hmath_buffer_unboxed_values"
+      ],
+      "python": "hmath.buffer.unboxed_values",
+      "specializations": [
+        "original source structure and scope; exact generic values / standard original Storable instances where constrained"
+      ]
+    },
+    {
+      "symbol": "HMath.API.Buffer.runSTBuffer",
+      "c": [
+        "hmath_buffer_run_st_buffer"
+      ],
+      "python": "hmath.buffer.run_st_buffer",
+      "specializations": [
+        "original source structure and scope; exact generic values / standard original Storable instances where constrained"
+      ]
+    },
+    {
+      "symbol": "HMath.API.Buffer.thawSTBuffer",
+      "c": [
+        "hmath_buffer_thaw_st_buffer"
+      ],
+      "python": "hmath.buffer.thaw_st_buffer",
+      "specializations": [
+        "original source structure and scope; exact generic values / standard original Storable instances where constrained"
+      ]
+    },
+    {
+      "symbol": "HMath.API.Buffer.freezeSTBuffer",
+      "c": [
+        "hmath_buffer_freeze_st_buffer"
+      ],
+      "python": "hmath.buffer.freeze_st_buffer",
+      "specializations": [
+        "original source structure and scope; exact generic values / standard original Storable instances where constrained"
+      ]
+    },
+    {
+      "symbol": "HMath.API.Buffer.readSTBuffer",
+      "c": [
+        "hmath_buffer_read_st_buffer"
+      ],
+      "python": "hmath.buffer.read_st_buffer",
+      "specializations": [
+        "original source structure and scope; exact generic values / standard original Storable instances where constrained"
+      ]
+    },
+    {
+      "symbol": "HMath.API.Buffer.writeSTBuffer",
+      "c": [
+        "hmath_buffer_write_st_buffer"
+      ],
+      "python": "hmath.buffer.write_st_buffer",
+      "specializations": [
+        "original source structure and scope; exact generic values / standard original Storable instances where constrained"
+      ]
+    },
+    {
+      "symbol": "HMath.API.Buffer.newIOBuffer",
+      "c": [
+        "hmath_buffer_new_io_buffer"
+      ],
+      "python": "hmath.buffer.new_io_buffer",
+      "specializations": [
+        "original source structure and scope; exact generic values / standard original Storable instances where constrained"
+      ]
+    },
+    {
+      "symbol": "HMath.API.Buffer.thawIOBuffer",
+      "c": [
+        "hmath_buffer_thaw_io_buffer"
+      ],
+      "python": "hmath.buffer.thaw_io_buffer",
+      "specializations": [
+        "original source structure and scope; exact generic values / standard original Storable instances where constrained"
+      ]
+    },
+    {
+      "symbol": "HMath.API.Buffer.freezeIOBuffer",
+      "c": [
+        "hmath_buffer_freeze_io_buffer"
+      ],
+      "python": "hmath.buffer.freeze_io_buffer",
+      "specializations": [
+        "original source structure and scope; exact generic values / standard original Storable instances where constrained"
+      ]
+    },
+    {
+      "symbol": "HMath.API.Buffer.ioBufferLength",
+      "c": [
+        "hmath_buffer_io_buffer_length"
+      ],
+      "python": "hmath.buffer.io_buffer_length",
+      "specializations": [
+        "original source structure and scope; exact generic values / standard original Storable instances where constrained"
+      ]
+    },
+    {
+      "symbol": "HMath.API.Buffer.readIOBuffer",
+      "c": [
+        "hmath_buffer_read_io_buffer"
+      ],
+      "python": "hmath.buffer.read_io_buffer",
+      "specializations": [
+        "original source structure and scope; exact generic values / standard original Storable instances where constrained"
+      ]
+    },
+    {
+      "symbol": "HMath.API.Buffer.writeIOBuffer",
+      "c": [
+        "hmath_buffer_write_io_buffer"
+      ],
+      "python": "hmath.buffer.write_io_buffer",
+      "specializations": [
+        "original source structure and scope; exact generic values / standard original Storable instances where constrained"
+      ]
+    },
+    {
+      "symbol": "HMath.API.Buffer.withIOBuffer",
+      "c": [
+        "hmath_buffer_with_io_buffer"
+      ],
+      "python": "hmath.buffer.with_io_buffer",
+      "specializations": [
+        "original source structure and scope; exact generic values / standard original Storable instances where constrained"
+      ]
+    },
+    {
+      "symbol": "HMath.API.Buffer.unboxedToBoxed",
+      "c": [
+        "hmath_buffer_unboxed_to_boxed"
+      ],
+      "python": "hmath.buffer.unboxed_to_boxed",
+      "specializations": [
+        "original source structure and scope; exact generic values / standard original Storable instances where constrained"
+      ]
+    },
+    {
+      "symbol": "HMath.API.Buffer.boxedToUnboxed",
+      "c": [
+        "hmath_buffer_boxed_to_unboxed"
+      ],
+      "python": "hmath.buffer.boxed_to_unboxed",
+      "specializations": [
+        "original source structure and scope; exact generic values / standard original Storable instances where constrained"
+      ]
+    }
+  ]
+}

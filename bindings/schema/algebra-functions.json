@@ -1,0 +1,1496 @@
+{
+  "functions": [
+    {
+      "module": "HMath.Algebra",
+      "name": "linearCombination",
+      "args": [
+        [
+          "v"
+        ],
+        [
+          "list",
+          [
+            "tuple",
+            [
+              "s"
+            ],
+            [
+              "v"
+            ]
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "v"
+        ]
+      ],
+      "constraints": "(Module s v)",
+      "signature": "v -> [(s, v)] -> Either MathError v",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Algebra",
+      "name": "semiringLaws",
+      "args": [
+        [
+          "list",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "list",
+        [
+          "tuple",
+          [
+            "String"
+          ],
+          [
+            "Bool"
+          ]
+        ]
+      ],
+      "constraints": "(Eq a, Semiring a)",
+      "signature": "[a] -> [(String, Bool)]",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Algebra",
+      "name": "ringLaws",
+      "args": [
+        [
+          "list",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "list",
+        [
+          "tuple",
+          [
+            "String"
+          ],
+          [
+            "Bool"
+          ]
+        ]
+      ],
+      "constraints": "(Eq a, Ring a)",
+      "signature": "[a] -> [(String, Bool)]",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Algebra",
+      "name": "fieldLaws",
+      "args": [
+        [
+          "list",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "list",
+        [
+          "tuple",
+          [
+            "String"
+          ],
+          [
+            "Bool"
+          ]
+        ]
+      ],
+      "constraints": "(Eq a, Field a)",
+      "signature": "[a] -> [(String, Bool)]",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Algebra",
+      "name": "groupLaws",
+      "args": [
+        [
+          "list",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "list",
+        [
+          "tuple",
+          [
+            "String"
+          ],
+          [
+            "Bool"
+          ]
+        ]
+      ],
+      "constraints": "(Eq a, Group a)",
+      "signature": "[a] -> [(String, Bool)]",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Algebra",
+      "name": "moduleLaws",
+      "args": [
+        [
+          "list",
+          [
+            "s"
+          ]
+        ],
+        [
+          "list",
+          [
+            "v"
+          ]
+        ]
+      ],
+      "result": [
+        "list",
+        [
+          "tuple",
+          [
+            "String"
+          ],
+          [
+            "Bool"
+          ]
+        ]
+      ],
+      "constraints": "(Eq v, Module s v)",
+      "signature": "[s] -> [v] -> [(String, Bool)]",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Algebra",
+      "name": "modular",
+      "args": [
+        [
+          "Integer"
+        ],
+        [
+          "Integer"
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "Modular"
+        ]
+      ],
+      "constraints": "",
+      "signature": "Integer -> Integer -> Either MathError Modular",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Algebra",
+      "name": "modularValue",
+      "args": [
+        [
+          "Modular"
+        ]
+      ],
+      "result": [
+        "Integer"
+      ],
+      "constraints": "",
+      "signature": "Modular -> Integer",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Algebra",
+      "name": "modularModulus",
+      "args": [
+        [
+          "Modular"
+        ]
+      ],
+      "result": [
+        "Integer"
+      ],
+      "constraints": "",
+      "signature": "Modular -> Integer",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Algebra",
+      "name": "addModular",
+      "args": [
+        [
+          "Modular"
+        ],
+        [
+          "Modular"
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "Modular"
+        ]
+      ],
+      "constraints": "",
+      "signature": "Modular -> Modular -> Either MathError Modular",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Algebra",
+      "name": "subtractModular",
+      "args": [
+        [
+          "Modular"
+        ],
+        [
+          "Modular"
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "Modular"
+        ]
+      ],
+      "constraints": "",
+      "signature": "Modular -> Modular -> Either MathError Modular",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Algebra",
+      "name": "multiplyModular",
+      "args": [
+        [
+          "Modular"
+        ],
+        [
+          "Modular"
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "Modular"
+        ]
+      ],
+      "constraints": "",
+      "signature": "Modular -> Modular -> Either MathError Modular",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Algebra",
+      "name": "inverseModular",
+      "args": [
+        [
+          "Modular"
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "Modular"
+        ]
+      ],
+      "constraints": "",
+      "signature": "Modular -> Either MathError Modular",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Algebra",
+      "name": "powerModular",
+      "args": [
+        [
+          "Modular"
+        ],
+        [
+          "Integer"
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "Modular"
+        ]
+      ],
+      "constraints": "",
+      "signature": "Modular -> Integer -> Either MathError Modular",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Algebra",
+      "name": "finiteField",
+      "args": [
+        [
+          "Int"
+        ],
+        [
+          "Integer"
+        ],
+        [
+          "list",
+          [
+            "Integer"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "FiniteField"
+        ]
+      ],
+      "constraints": "",
+      "signature": "Int -> Integer -> [Integer] -> Either MathError FiniteField",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Algebra",
+      "name": "primeField",
+      "args": [
+        [
+          "Int"
+        ],
+        [
+          "Integer"
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "FiniteField"
+        ]
+      ],
+      "constraints": "",
+      "signature": "Int -> Integer -> Either MathError FiniteField",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Algebra",
+      "name": "fieldCharacteristic",
+      "args": [
+        [
+          "FiniteField"
+        ]
+      ],
+      "result": [
+        "Integer"
+      ],
+      "constraints": "",
+      "signature": "FiniteField -> Integer",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Algebra",
+      "name": "fieldDegree",
+      "args": [
+        [
+          "FiniteField"
+        ]
+      ],
+      "result": [
+        "Int"
+      ],
+      "constraints": "",
+      "signature": "FiniteField -> Int",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Algebra",
+      "name": "fieldCardinality",
+      "args": [
+        [
+          "FiniteField"
+        ]
+      ],
+      "result": [
+        "Integer"
+      ],
+      "constraints": "",
+      "signature": "FiniteField -> Integer",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Algebra",
+      "name": "fieldModulus",
+      "args": [
+        [
+          "FiniteField"
+        ]
+      ],
+      "result": [
+        "list",
+        [
+          "Integer"
+        ]
+      ],
+      "constraints": "",
+      "signature": "FiniteField -> [Integer]",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Algebra",
+      "name": "fieldElement",
+      "args": [
+        [
+          "FiniteField"
+        ],
+        [
+          "list",
+          [
+            "Integer"
+          ]
+        ]
+      ],
+      "result": [
+        "FieldElement"
+      ],
+      "constraints": "",
+      "signature": "FiniteField -> [Integer] -> FieldElement",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Algebra",
+      "name": "fieldElementCoefficients",
+      "args": [
+        [
+          "FieldElement"
+        ]
+      ],
+      "result": [
+        "list",
+        [
+          "Integer"
+        ]
+      ],
+      "constraints": "",
+      "signature": "FieldElement -> [Integer]",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Algebra",
+      "name": "fieldElements",
+      "args": [
+        [
+          "Int"
+        ],
+        [
+          "FiniteField"
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "list",
+          [
+            "FieldElement"
+          ]
+        ]
+      ],
+      "constraints": "",
+      "signature": "Int -> FiniteField -> Either MathError [FieldElement]",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Algebra",
+      "name": "addField",
+      "args": [
+        [
+          "FieldElement"
+        ],
+        [
+          "FieldElement"
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "FieldElement"
+        ]
+      ],
+      "constraints": "",
+      "signature": "FieldElement -> FieldElement -> Either MathError FieldElement",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Algebra",
+      "name": "negateField",
+      "args": [
+        [
+          "FieldElement"
+        ]
+      ],
+      "result": [
+        "FieldElement"
+      ],
+      "constraints": "",
+      "signature": "FieldElement -> FieldElement",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Algebra",
+      "name": "subtractField",
+      "args": [
+        [
+          "FieldElement"
+        ],
+        [
+          "FieldElement"
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "FieldElement"
+        ]
+      ],
+      "constraints": "",
+      "signature": "FieldElement -> FieldElement -> Either MathError FieldElement",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Algebra",
+      "name": "multiplyField",
+      "args": [
+        [
+          "FieldElement"
+        ],
+        [
+          "FieldElement"
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "FieldElement"
+        ]
+      ],
+      "constraints": "",
+      "signature": "FieldElement -> FieldElement -> Either MathError FieldElement",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Algebra",
+      "name": "inverseFieldElement",
+      "args": [
+        [
+          "FieldElement"
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "FieldElement"
+        ]
+      ],
+      "constraints": "",
+      "signature": "FieldElement -> Either MathError FieldElement",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Algebra",
+      "name": "powerField",
+      "args": [
+        [
+          "FieldElement"
+        ],
+        [
+          "Integer"
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "FieldElement"
+        ]
+      ],
+      "constraints": "",
+      "signature": "FieldElement -> Integer -> Either MathError FieldElement",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Algebra",
+      "name": "finiteFieldLaws",
+      "args": [
+        [
+          "Int"
+        ],
+        [
+          "FiniteField"
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "list",
+          [
+            "tuple",
+            [
+              "String"
+            ],
+            [
+              "Bool"
+            ]
+          ]
+        ]
+      ],
+      "constraints": "",
+      "signature": "Int -> FiniteField -> Either MathError [(String, Bool)]",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Algebra",
+      "name": "getAdditive",
+      "args": [
+        [
+          "Additive",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "a"
+      ],
+      "constraints": "",
+      "signature": "Additive -> field",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Algebra",
+      "name": "Additive",
+      "args": [
+        [
+          "a"
+        ]
+      ],
+      "result": [
+        "Additive",
+        [
+          "a"
+        ]
+      ],
+      "constraints": "",
+      "signature": "constructor",
+      "constructor": true
+    },
+    {
+      "module": "HMath.API.Algebra",
+      "name": "horner",
+      "args": [
+        [
+          "list",
+          [
+            "a"
+          ]
+        ],
+        [
+          "a"
+        ]
+      ],
+      "result": [
+        "a"
+      ],
+      "constraints": "(Ring a)",
+      "signature": "[a] -> a -> a",
+      "constructor": false
+    },
+    {
+      "module": "HMath.API.Algebra",
+      "name": "innerProduct",
+      "args": [
+        [
+          "list",
+          [
+            "a"
+          ]
+        ],
+        [
+          "list",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "a"
+        ]
+      ],
+      "constraints": "(Scalar a)",
+      "signature": "[a] -> [a] -> Either MathError a",
+      "constructor": false
+    },
+    {
+      "module": "HMath.API.Algebra",
+      "name": "getExact",
+      "args": [
+        [
+          "Exact"
+        ]
+      ],
+      "result": [
+        "Rational"
+      ],
+      "constraints": "",
+      "signature": "Exact -> field",
+      "constructor": false
+    },
+    {
+      "module": "HMath.API.Algebra",
+      "name": "Exact",
+      "args": [
+        [
+          "Rational"
+        ]
+      ],
+      "result": [
+        "Exact"
+      ],
+      "constraints": "",
+      "signature": "constructor",
+      "constructor": true
+    },
+    {
+      "module": "HMath.Algebra",
+      "name": "zero",
+      "args": [],
+      "result": [
+        "a"
+      ],
+      "constraints": "Semiring (original instances only)",
+      "signature": "a",
+      "wire_signature": "a",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Algebra",
+      "name": "one",
+      "args": [],
+      "result": [
+        "a"
+      ],
+      "constraints": "Semiring (original instances only)",
+      "signature": "a",
+      "wire_signature": "a",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Algebra",
+      "name": "plus",
+      "args": [
+        [
+          "a"
+        ],
+        [
+          "a"
+        ]
+      ],
+      "result": [
+        "a"
+      ],
+      "constraints": "Semiring (original instances only)",
+      "signature": "a -> a -> a",
+      "wire_signature": "a -> a -> a",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Algebra",
+      "name": "times",
+      "args": [
+        [
+          "a"
+        ],
+        [
+          "a"
+        ]
+      ],
+      "result": [
+        "a"
+      ],
+      "constraints": "Semiring (original instances only)",
+      "signature": "a -> a -> a",
+      "wire_signature": "a -> a -> a",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Algebra",
+      "name": "negateRing",
+      "args": [
+        [
+          "a"
+        ]
+      ],
+      "result": [
+        "a"
+      ],
+      "constraints": "Ring (original instances only)",
+      "signature": "a -> a",
+      "wire_signature": "a -> a",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Algebra",
+      "name": "inverseField",
+      "args": [
+        [
+          "a"
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "a"
+        ]
+      ],
+      "constraints": "Field (original instances only)",
+      "signature": "a -> Either MathError a",
+      "wire_signature": "a -> Either MathError a",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Algebra",
+      "name": "groupIdentity",
+      "args": [],
+      "result": [
+        "Additive",
+        [
+          "a"
+        ]
+      ],
+      "constraints": "Group (original instances only)",
+      "signature": "a",
+      "wire_signature": "Additive a",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Algebra",
+      "name": "groupCombine",
+      "args": [
+        [
+          "Additive",
+          [
+            "a"
+          ]
+        ],
+        [
+          "Additive",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "Additive",
+        [
+          "a"
+        ]
+      ],
+      "constraints": "Group (original instances only)",
+      "signature": "a -> a -> a",
+      "wire_signature": "Additive a -> Additive a -> Additive a",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Algebra",
+      "name": "groupInverse",
+      "args": [
+        [
+          "Additive",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "Additive",
+        [
+          "a"
+        ]
+      ],
+      "constraints": "Group (original instances only)",
+      "signature": "a -> a",
+      "wire_signature": "Additive a -> Additive a",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Algebra",
+      "name": "moduleScale",
+      "args": [
+        [
+          "a"
+        ],
+        [
+          "list",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "list",
+        [
+          "a"
+        ]
+      ],
+      "constraints": "Module (original instances only)",
+      "signature": "scalar -> vector -> vector",
+      "wire_signature": "a -> [a] -> [a]",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Algebra",
+      "name": "moduleAdd",
+      "args": [
+        [
+          "list",
+          [
+            "a"
+          ]
+        ],
+        [
+          "list",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "list",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "constraints": "Module (original instances only)",
+      "signature": "vector -> vector -> Either MathError vector",
+      "wire_signature": "[a] -> [a] -> Either MathError [a]",
+      "constructor": false
+    },
+    {
+      "module": "HMath.API.Algebra",
+      "name": "zero",
+      "args": [],
+      "result": [
+        "a"
+      ],
+      "constraints": "Ring (original instances only)",
+      "signature": "a",
+      "wire_signature": "a",
+      "constructor": false
+    },
+    {
+      "module": "HMath.API.Algebra",
+      "name": "one",
+      "args": [],
+      "result": [
+        "a"
+      ],
+      "constraints": "Ring (original instances only)",
+      "signature": "a",
+      "wire_signature": "a",
+      "constructor": false
+    },
+    {
+      "module": "HMath.API.Algebra",
+      "name": "plus",
+      "args": [
+        [
+          "a"
+        ],
+        [
+          "a"
+        ]
+      ],
+      "result": [
+        "a"
+      ],
+      "constraints": "Ring (original instances only)",
+      "signature": "a -> a -> a",
+      "wire_signature": "a -> a -> a",
+      "constructor": false
+    },
+    {
+      "module": "HMath.API.Algebra",
+      "name": "times",
+      "args": [
+        [
+          "a"
+        ],
+        [
+          "a"
+        ]
+      ],
+      "result": [
+        "a"
+      ],
+      "constraints": "Ring (original instances only)",
+      "signature": "a -> a -> a",
+      "wire_signature": "a -> a -> a",
+      "constructor": false
+    },
+    {
+      "module": "HMath.API.Algebra",
+      "name": "negative",
+      "args": [
+        [
+          "a"
+        ]
+      ],
+      "result": [
+        "a"
+      ],
+      "constraints": "Ring (original instances only)",
+      "signature": "a -> a",
+      "wire_signature": "a -> a",
+      "constructor": false
+    },
+    {
+      "module": "HMath.API.Algebra",
+      "name": "integer",
+      "args": [
+        [
+          "Integer"
+        ]
+      ],
+      "result": [
+        "a"
+      ],
+      "constraints": "Ring (original instances only)",
+      "signature": "Integer -> a",
+      "wire_signature": "Integer -> a",
+      "constructor": false
+    },
+    {
+      "module": "HMath.API.Algebra",
+      "name": "invert",
+      "args": [
+        [
+          "a"
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "a"
+        ]
+      ],
+      "constraints": "Field (original instances only)",
+      "signature": "a -> Either MathError a",
+      "wire_signature": "a -> Either MathError a",
+      "constructor": false
+    },
+    {
+      "module": "HMath.API.Algebra",
+      "name": "conjugateScalar",
+      "args": [
+        [
+          "a"
+        ]
+      ],
+      "result": [
+        "a"
+      ],
+      "constraints": "Scalar (original instances only)",
+      "signature": "a -> a",
+      "wire_signature": "a -> a",
+      "constructor": false
+    },
+    {
+      "module": "HMath.API.Algebra",
+      "name": "machineEpsilon",
+      "args": [],
+      "result": [
+        "Double"
+      ],
+      "constraints": "FloatingPoint (original instances only)",
+      "signature": "proxy a -> Double",
+      "wire_signature": "Double",
+      "constructor": false
+    },
+    {
+      "module": "HMath.API.Algebra",
+      "name": "finiteScalar",
+      "args": [
+        [
+          "a"
+        ]
+      ],
+      "result": [
+        "Bool"
+      ],
+      "constraints": "FloatingPoint (original instances only)",
+      "signature": "a -> Bool",
+      "wire_signature": "a -> Bool",
+      "constructor": false
+    },
+    {
+      "module": "HMath.API.Algebra",
+      "name": "rational",
+      "args": [
+        [
+          "Rational"
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "a"
+        ]
+      ],
+      "constraints": "Numeric (original instances only)",
+      "signature": "Rational -> Either MathError a",
+      "wire_signature": "Rational -> Either MathError a",
+      "constructor": false
+    },
+    {
+      "module": "HMath.API.Algebra",
+      "name": "matrixDimensions",
+      "args": [
+        [
+          "Matrix",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "tuple",
+        [
+          "Int"
+        ],
+        [
+          "Int"
+        ]
+      ],
+      "constraints": "MatrixLike (original instances only)",
+      "signature": "m a -> (Int, Int)",
+      "wire_signature": "Matrix a -> (Int,Int)",
+      "constructor": false
+    },
+    {
+      "module": "HMath.API.Algebra",
+      "name": "matrixElements",
+      "args": [
+        [
+          "Matrix",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "list",
+        [
+          "a"
+        ]
+      ],
+      "constraints": "MatrixLike (original instances only)",
+      "signature": "m a -> [a]",
+      "wire_signature": "Matrix a -> [a]",
+      "constructor": false
+    },
+    {
+      "module": "HMath.API.Algebra",
+      "name": "matrixConstruct",
+      "args": [
+        [
+          "Int"
+        ],
+        [
+          "Int"
+        ],
+        [
+          "list",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "Matrix",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "constraints": "MatrixLike (original instances only)",
+      "signature": "Int -> Int -> [a] -> Either MathError (m a)",
+      "wire_signature": "Int -> Int -> [a] -> Either MathError (Matrix a)",
+      "constructor": false
+    },
+    {
+      "module": "HMath.API.Algebra",
+      "name": "tensorDimensions",
+      "args": [
+        [
+          "Tensor",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "list",
+        [
+          "Int"
+        ]
+      ],
+      "constraints": "TensorLike (original instances only)",
+      "signature": "t a -> [Int]",
+      "wire_signature": "Tensor a -> [Int]",
+      "constructor": false
+    },
+    {
+      "module": "HMath.API.Algebra",
+      "name": "tensorElements",
+      "args": [
+        [
+          "Tensor",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "list",
+        [
+          "a"
+        ]
+      ],
+      "constraints": "TensorLike (original instances only)",
+      "signature": "t a -> [a]",
+      "wire_signature": "Tensor a -> [a]",
+      "constructor": false
+    },
+    {
+      "module": "HMath.API.Algebra",
+      "name": "tensorConstruct",
+      "args": [
+        [
+          "list",
+          [
+            "Int"
+          ]
+        ],
+        [
+          "list",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "Tensor",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "constraints": "TensorLike (original instances only)",
+      "signature": "[Int] -> [a] -> Either MathError (t a)",
+      "wire_signature": "[Int] -> [a] -> Either MathError (Tensor a)",
+      "constructor": false
+    },
+    {
+      "module": "HMath.API.Algebra",
+      "name": "vectorPlus",
+      "args": [
+        [
+          "Vector",
+          [
+            "a"
+          ]
+        ],
+        [
+          "Vector",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "Vector",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "constraints": "VectorSpace (original instances only)",
+      "signature": "(Num a) => v a -> v a -> Either MathError (v a)",
+      "wire_signature": "Vector a -> Vector a -> Either MathError (Vector a)",
+      "constructor": false
+    },
+    {
+      "module": "HMath.API.Algebra",
+      "name": "vectorScale",
+      "args": [
+        [
+          "a"
+        ],
+        [
+          "Vector",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "Vector",
+        [
+          "a"
+        ]
+      ],
+      "constraints": "VectorSpace (original instances only)",
+      "signature": "(Num a) => a -> v a -> v a",
+      "wire_signature": "a -> Vector a -> Vector a",
+      "constructor": false
+    },
+    {
+      "module": "HMath.API.Algebra",
+      "name": "differential",
+      "args": [
+        [
+          "Dual",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "a"
+      ],
+      "constraints": "Differentiable (original instances only)",
+      "signature": "a -> Differential a",
+      "wire_signature": "Dual a -> a",
+      "constructor": false
+    }
+  ],
+  "types": {
+    "Additive": {
+      "module": "HMath.Algebra",
+      "alias": "A",
+      "namespace": "algebra",
+      "name": "Additive",
+      "params": [
+        "a"
+      ]
+    },
+    "Modular": {
+      "module": "HMath.Algebra",
+      "alias": "A",
+      "namespace": "algebra",
+      "name": "Modular",
+      "params": []
+    },
+    "FiniteField": {
+      "module": "HMath.Algebra",
+      "alias": "A",
+      "namespace": "algebra",
+      "name": "FiniteField",
+      "params": []
+    },
+    "FieldElement": {
+      "module": "HMath.Algebra",
+      "alias": "A",
+      "namespace": "algebra",
+      "name": "FieldElement",
+      "params": []
+    },
+    "Exact": {
+      "module": "HMath.API.Algebra",
+      "alias": "P",
+      "namespace": "algebra_api",
+      "name": "Exact",
+      "params": []
+    }
+  }
+}

@@ -55,17 +55,22 @@ class Producer:
     def __dlpack_device__(self):
         return (1, 0)
 
-    def __dlpack__(self, stream=None, **_kwargs):
+    def __dlpack__(self, stream=None, *, max_version=None, **_kwargs):
         if stream is not None:
             raise BufferError("CPU export has no stream")
+        # DLPack consumers negotiate versioned capsules explicitly. Older
+        # supported NumPy versions request the legacy capsule by omitting this.
+        self.exported_versioned = (
+            self.versioned and max_version is not None and max_version >= (1, 0)
+        )
         managed = pointer()
         export = (
             library.hmath_dlpack_export_versioned
-            if self.versioned
+            if self.exported_versioned
             else library.hmath_dlpack_export
         )
         hmath._check(export(self.tensor._live(), C.byref(managed)))
-        name = b"dltensor_versioned" if self.versioned else b"dltensor"
+        name = b"dltensor_versioned" if self.exported_versioned else b"dltensor"
         # This test consumes every capsule immediately with np.from_dlpack.
         # Production capsule wrappers also need an unconsumed-capsule destructor.
         return capsule_new(managed, name, None)
@@ -73,17 +78,18 @@ class Producer:
 
 for versioned in (False, True):
     tensor = hmath.Tensor([1, 2, 3, 4], (2, 2))
-    array = np.from_dlpack(Producer(tensor, versioned))
+    producer = Producer(tensor, versioned)
+    array = np.from_dlpack(producer)
     tensor.close()
     del tensor
     gc.collect()
     assert array.shape == (2, 2)
     assert np.array_equal(array, [[1, 2], [3, 4]])
-    if versioned:
+    if producer.exported_versioned:
         assert not array.flags.writeable
     del array
     gc.collect()
 
 print(
-    "NumPy DLPack strided import, legacy copy export and readonly versioned export passed"
+    "NumPy DLPack strided import, legacy exports and negotiated versioned export passed"
 )

@@ -1,5 +1,7 @@
 # SPDX-License-Identifier: MPL-2.0
-"""Binary64 HMath ABI 1, with its native library included in binary wheels.
+"""HMath ABI 1, with its native library included in binary wheels.
+
+Tensor uses binary64. Numeric namespaces also provide binary32 scalar APIs.
 
 Tensor owns one native reference. close()/with provide deterministic cleanup;
 __del__ is a fallback. Arrays are copied by default. from_numpy(copy=False)
@@ -14,7 +16,152 @@ import threading
 import weakref
 from itertools import islice
 
-from _hmath_native import library_path
+from _hmath_native import (
+    buffer_values as buffer,
+    algebra,
+    algebra_api,
+    convergence_values as convergence,
+    shape_values as shape,
+    deeplearning_layers,
+    machinelearning,
+    interchange,
+    algorithms,
+    vector,
+    matrix_advanced,
+    decomposition,
+    iterative,
+    lapack,
+    sparse,
+    sparse_spectral,
+    backend,
+    calculus,
+    root,
+    ode,
+    pde,
+    api_algebra,
+    autodiff,
+    basic,
+    combinatorics,
+    complex,
+    constants,
+    datastructure,
+    deeplearning_core,
+    deeplearning_metrics,
+    deeplearning_precision,
+    discrete,
+    errors,
+    execution,
+    expression,
+    fourier,
+    geometry,
+    geometry_primitives,
+    graph_core,
+    graph,
+    image,
+    image_color,
+    interpolation,
+    library_path,
+    linear,
+    matrix,
+    numbertheory,
+    numeric,
+    numeric_types,
+    optimization,
+    optimization_common,
+    polynomial,
+    probability,
+    quaternion,
+    random,
+    rotation,
+    scalar,
+    signal,
+    special,
+    statistics,
+    statistics_advanced,
+    symbolic,
+    tensor,
+    timeseries,
+    timeseries_core,
+    timeseries_diagnostics,
+    trigonometry,
+    units,
+)
+
+__all__ = [
+    "buffer",
+    "algebra",
+    "algebra_api",
+    "convergence",
+    "shape",
+    "deeplearning_layers",
+    "machinelearning",
+    "interchange",
+    "HMathError",
+    "Tensor",
+    "add",
+    "algorithms",
+    "vector",
+    "matrix_advanced",
+    "decomposition",
+    "iterative",
+    "lapack",
+    "sparse",
+    "sparse_spectral",
+    "backend",
+    "calculus",
+    "root",
+    "ode",
+    "pde",
+    "api_algebra",
+    "autodiff",
+    "basic",
+    "combinatorics",
+    "complex",
+    "constants",
+    "datastructure",
+    "deeplearning_core",
+    "deeplearning_metrics",
+    "deeplearning_precision",
+    "discrete",
+    "errors",
+    "execution",
+    "expression",
+    "fourier",
+    "geometry",
+    "geometry_primitives",
+    "graph_core",
+    "graph",
+    "image",
+    "image_color",
+    "initialize",
+    "interpolation",
+    "linear",
+    "matrix",
+    "numbertheory",
+    "numeric",
+    "numeric_types",
+    "optimization",
+    "optimization_common",
+    "polynomial",
+    "probability",
+    "quaternion",
+    "random",
+    "rotation",
+    "scalar",
+    "shutdown",
+    "signal",
+    "special",
+    "statistics",
+    "statistics_advanced",
+    "symbolic",
+    "tensor",
+    "timeseries",
+    "timeseries_core",
+    "timeseries_diagnostics",
+    "trigonometry",
+    "units",
+]
+
 
 _lib = C.CDLL(library_path())
 P, Z, D = C.c_void_p, C.c_size_t, C.c_double
@@ -68,6 +215,21 @@ _sig("hmath_tensor_reshape", C.c_int, P, C.POINTER(Z), Z, C.POINTER(P))
 class HMathError(RuntimeError):
     def __init__(self, status):
         self.status = status
+        self.math_error = None
+        self.expression_error = None
+        self.interchange_error = None
+        if status == 11:
+            from _hmath_native._math_error import last_math_error
+
+            self.math_error = last_math_error(_lib)
+        elif status == 12:
+            from _hmath_native._expression_error import last_expression_error
+
+            self.expression_error = last_expression_error(_lib)
+        elif status == 13:
+            from _hmath_native._interchange_error import last_interchange_error
+
+            self.interchange_error = last_interchange_error(_lib)
         super().__init__(_lib.hmath_last_error_message().decode("utf-8", "replace"))
 
 

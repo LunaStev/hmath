@@ -199,6 +199,15 @@ def check_reference(interface=None):
             *python_signatures(),
         )
     }
+    from generate_numeric_bindings import generate
+
+    for name, generated in generate().items():
+        path = ROOT / name
+        if not path.exists() or path.read_text() != generated:
+            raise ValueError(f"Stale numeric API implementation/reference: {name}")
+    counts["Numeric functions (C/Python)"] = len(
+        json.loads((ROOT / "bindings/schema/numeric.json").read_text())["functions"]
+    )
     c = set()
     c_parameters, c_signatures = {}, {}
     for header in ("hmath.h", "hmath_dlpack.h"):

@@ -1,0 +1,26 @@
+{
+  "schema": 1,
+  "extends": "numeric.json",
+  "bindings": [
+    {
+      "symbol": "HMath.Fourier.fftShift",
+      "c": [
+        "hmath_fourier_value_fft_shift"
+      ],
+      "python": "hmath.fourier.fft_shift",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Fourier.ifftShift",
+      "c": [
+        "hmath_fourier_value_ifft_shift"
+      ],
+      "python": "hmath.fourier.ifft_shift",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    }
+  ]
+}

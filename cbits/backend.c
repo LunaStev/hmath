@@ -604,3 +604,32 @@ int32_t hmath_lapack_solve(int32_t n, double *a, double *b) {
     free(pivots);
     return result > INT32_MAX || result < INT32_MIN ? -10001 : (int32_t)result;
 }
+
+int hm_backend_has_real_gemm(hmath_backend *backend, int precision) {
+    return backend && (precision == 32 || precision == 64) &&
+           bsym(backend, precision == 32 ? "cblas_sgemm" : "cblas_dgemm") != NULL;
+}
+int hm_backend_real_gemm(hmath_backend *backend, int precision, int64_t m, int64_t n, int64_t k,
+                         const void *alpha, const void *a, int64_t lda,
+                         const void *b, int64_t ldb, const void *beta, void *c, int64_t ldc) {
+    if (!backend || m < 0 || n < 0 || k < 0 || lda < k || ldb < n || ldc < n ||
+        (backend->bits == 32 && (m > INT32_MAX || n > INT32_MAX || k > INT32_MAX ||
+                                lda > INT32_MAX || ldb > INT32_MAX || ldc > INT32_MAX)))
+        return 2;
+    if (!hm_backend_has_real_gemm(backend, precision))
+        return 1;
+#define REAL_GEMM(real, integer, symbol_name) \
+    ((void (*)(int, int, int, integer, integer, integer, real, const real *, integer, \
+                const real *, integer, real, real *, integer))bsym(backend, symbol_name))( \
+        101, 111, 111, (integer)m, (integer)n, (integer)k, *(const real *)alpha, \
+        a, (integer)lda, b, (integer)ldb, *(const real *)beta, c, (integer)ldc)
+    if (backend->bits == 32) {
+        if (precision == 32) { REAL_GEMM(float, int32_t, "cblas_sgemm"); }
+        else { REAL_GEMM(double, int32_t, "cblas_dgemm"); }
+    } else {
+        if (precision == 32) { REAL_GEMM(float, int64_t, "cblas_sgemm"); }
+        else { REAL_GEMM(double, int64_t, "cblas_dgemm"); }
+    }
+#undef REAL_GEMM
+    return 0;
+}

@@ -44,6 +44,16 @@ extra-source-files:
     bench/native.c
     cabal.project
     cbits/native_internal.h
+    cbits/numeric_internal.h
+    bindings/schema/*.json
+    bindings/schema/*.txt
+    bindings/python/_hmath_native/*.py
+    include/hmath_numeric.h
+    include/hmath_optimization.h
+    include/hmath_matrix.h
+    include/hmath_autodiff.h
+    include/hmath_execution.h
+    include/hmath_error.h
     examples/c/main.c
     examples/haskell/Domains.hs
     examples/haskell/Foundations.hs
@@ -77,6 +87,34 @@ extra-source-files:
     tools/benchmark.py
     tools/build_python_wheel.sh
     tools/check_python_wheel.py
+    tools/build_c_sdk.py
+    tools/check_c_sdk.py
+    tools/release_version.py
+    tools/release_manifest.py
+    tools/check_release_remote.py
+    tools/publish_github_release.py
+    tools/generate_matrix_bindings.py
+    tools/check_matrix_equivalence.py
+    tools/check_autodiff_equivalence.py
+    test/native/matrix_contracts.c
+    test/native/kernel_storage.c
+    test/native/execution_blas_spy.c
+    tools/check_execution.py
+    tools/numeric_specializations.py
+    tools/select_release_candidate.py
+    tools/verify_release_candidate.py
+    test/native/execution_smoke.c
+    include/hmath_execution.h
+    include/hmath_error.h
+    test/native/autodiff_contracts.c
+    test/native/autodiff_bindings.py
+    .github/workflows/prepare-release.yml
+    tools/generate_numeric_bindings.py
+    tools/check_binding_coverage.py
+    tools/check_numeric_equivalence.py
+    test/native/numeric_contracts.c
+    test/native/numeric_contracts.cpp
+    test/native/expanded_bindings.py
     tools/build_docs.py
     tools/check_docs_examples.py
     tools/check_abi.py
@@ -85,8 +123,155 @@ extra-source-files:
     tools/interchange_adapters.py
     tools/run_fuzz.py
     tools/run_wave.py
+    cbits/value_internal.h
+    cbits/matrix_internal.h
+    include/hmath_value.h
+    include/hmath_matrix_value.h
+    include/hmath_polynomial.h
+    include/hmath_graph.h
+    include/hmath_numeric_types.h
+    include/hmath_optimization_all.h
+    test/release_candidate.py
+    test/release_publishing.py
+    test/native/numeric_variants.c
+    test/native/value_bindings.py
+    test/native/polynomial_bindings.py
+    test/native/polynomial_contracts.c
+    tools/generate_graph_bindings.py
+    tools/check_haskell_doc_examples.py
+    tools/check_docs_links.py
+    tools/check_api_docs.py
+    tools/check_polynomial_equivalence.py
+    tools/check_matrix_value_equivalence.py
+    tools/haskell_reference.py
+    tools/generate_numeric_types.py
+    tools/generate_polynomial_bindings.py
+    tools/generate_matrix_value_bindings.py
+    tools/check_numeric_types_equivalence.py
+    tools/generate_units_bindings.py
+    tools/check_optimization_equivalence.py
+    tools/check_graph_equivalence.py
+    include/hmath_units.h
+    tools/generate_optimization_bindings.py
+    tools/check_units_equivalence.py
+    test/native/units_bindings.py
+    test/native/optimization_bindings.py
+    test/native/numeric_types.c
+    include/hmath_timeseries.h
+    include/hmath_rotations.h
+    include/hmath_expression_error.h
+    tools/generate_rotation_bindings.py
+    tools/generate_linear_bindings.py
+    tools/check_rotation_equivalence.py
+    tools/generate_timeseries_bindings.py
+    tools/generate_expression_bindings.py
+    test/native/rotations.c
+    test/native/optimization_contracts.c
+    test/native/structured_contracts.c
+    tools/check_timeseries_equivalence.py
+    include/hmath_image.h
+    include/hmath_expression.h
+    tools/check_image_equivalence.py
+    tools/generate_image_bindings.py
+    include/hmath_linear.h
+    include/hmath_numerical.h
+    tools/check_linear_equivalence.py
+    tools/generate_numerical_bindings.py
+    tools/generate_geometry_bindings.py
+    tools/check_expression_equivalence.py
+    test/native/expression_bindings.py
+    test/native/image.c
+    test/native/expression_contracts.c
+    include/hmath_geometry.h
+    include/hmath_stochastic.h
+    include/hmath_spectral.h
+    tools/generate_stochastic_bindings.py
+    tools/check_numerical_equivalence.py
+    tools/check_stochastic_equivalence.py
+    tools/check_geometry_equivalence.py
+    tools/generate_spectral_bindings.py
+    test/native/stochastic_bindings.py
+    test/native/linear_bindings.py
+    test/native/geometry.c
+    test/native/stochastic_contracts.c
+    test/native/linear_contracts.c
+    include/hmath_tensor_bindings.h
+    include/hmath_deeplearning.h
+    include/hmath_machinelearning.h
+    include/hmath_bytes.h
+    include/hmath_interchange_error.h
+    tools/generate_tensor_bindings.py
+    tools/generate_deeplearning_bindings.py
+    tools/generate_machinelearning_bindings.py
+    tools/check_spectral_equivalence.py
+    tools/check_structural_matrix_equivalence.py
+    test/native/numerical_bindings.py
 
 extra-doc-files: CHANGELOG.md
+
+    .github/workflows/compatibility.yml
+    include/hmath_algebra.h
+    include/hmath_callback.h
+    include/hmath_foundation.h
+    include/hmath_interchange.h
+    include/hmath_scalar_extras.h
+    include/hmath_shape.h
+    test/native/foundation_bindings.py
+    test/native/foundation_contracts.c
+    test/native/machinelearning.c
+    test/native/structural_matrix_contracts.c
+    test/native/tensor_bindings.py
+    test/native/tensor_contracts.c
+    tools/check_algebra_equivalence.py
+    tools/check_foundation_equivalence.py
+    tools/check_machinelearning_equivalence.py
+    tools/check_scalar_extras.py
+    tools/check_shape_equivalence.py
+    tools/check_tensor_equivalence.py
+    tools/generate_algebra_bindings.py
+    tools/generate_foundation_bindings.py
+    tools/generate_interchange_bindings.py
+    tools/generate_scalar_extras.py
+    tools/generate_shape_bindings.py
+
+    include/hmath_buffer.h
+    test/native/callback_errors.py
+    test/native/deeplearning_contracts.c
+    test/native/scalar_extras.c
+    test/native/spectral_bindings.py
+    test/native/spectral_contracts.c
+    tools/check_deeplearning_equivalence.py
+    tools/check_interchange_bindings_equivalence.py
+    tools/generate_buffer_bindings.py
+
+    include/hmath_numeric_objects.h
+    test/native/autodiff_checked_contracts.c
+    test/native/autodiff_checked_contracts.cpp
+    test/native/buffer_contracts.c
+    test/native/buffer_contracts.cpp
+    test/native/deeplearning_bindings.py
+    test/native/deeplearning_contracts.cpp
+    test/native/foundation_contracts.cpp
+    test/native/interchange_bindings.py
+    test/native/interchange_contracts.c
+    test/native/interchange_contracts.cpp
+    test/native/tensor_contracts.cpp
+    tools/check_autodiff_coefficients.py
+    tools/check_buffer_equivalence.py
+    tools/generate_numeric_objects.py
+
+    include/*.h
+    cbits/*.h
+    tools/*.py
+    tools/*.sh
+    test/native/*.c
+    test/native/*.cpp
+    test/native/*.py
+    test/*.py
+    .github/workflows/*.yml
+    .github/actions/setup-haskell/action.yml
+    docs/stylesheets/*.css
+    docs/javascripts/*.js
 
 flag native-backend
     description: Enable runtime loading of native BLAS and LAPACK providers
@@ -245,7 +430,7 @@ library
     ghc-options:         -Wall
 
     include-dirs:        include
-    install-includes:    hmath.h hmath_dlpack.h
+    install-includes:    hmath.h hmath_algebra.h hmath_autodiff.h hmath_buffer.h hmath_bytes.h hmath_callback.h hmath_deeplearning.h hmath_dlpack.h hmath_error.h hmath_execution.h hmath_expression.h hmath_expression_error.h hmath_foundation.h hmath_geometry.h hmath_graph.h hmath_image.h hmath_interchange.h hmath_interchange_error.h hmath_linear.h hmath_machinelearning.h hmath_matrix.h hmath_matrix_value.h hmath_numeric.h hmath_numeric_objects.h hmath_numeric_types.h hmath_numerical.h hmath_optimization.h hmath_optimization_all.h hmath_polynomial.h hmath_rotations.h hmath_scalar_extras.h hmath_shape.h hmath_spectral.h hmath_stochastic.h hmath_tensor_bindings.h hmath_timeseries.h hmath_units.h hmath_value.h
 
     if os(windows)
         cc-options:      -DHMATH_WINDOWS
@@ -260,21 +445,187 @@ foreign-library hmath
     hs-source-dirs:     src
 
     other-modules:
-        HMath.FFI
+        HMath.API.Algebra
+        HMath.API.Buffer
+        HMath.API.Convergence
+        HMath.API.Shape
+        HMath.Algebra
+        HMath.Algorithms
+        HMath.Autodiff
+        HMath.Backend
         HMath.Basic
+        HMath.Calculus
+        HMath.Combinatorics
+        HMath.Complex
+        HMath.Constants
+        HMath.DataStructure
+        HMath.DeepLearning.Core
+        HMath.DeepLearning.Layers
+        HMath.DeepLearning.Metrics
+        HMath.DeepLearning.Precision
+        HMath.Discrete
         HMath.Error
+        HMath.Expression
+        HMath.FFI
+        HMath.FFI.AlgebraAll
+        HMath.FFI.AlgebraCodec
+        HMath.FFI.Autodiff
+        HMath.FFI.AutodiffChecked
+        HMath.FFI.AutodiffValue
+        HMath.FFI.Boundary
+        HMath.FFI.Buffer
+        HMath.FFI.Buffer.Codec
+        HMath.FFI.Bytes
+        HMath.FFI.Coefficient
+        HMath.FFI.DeepLearning
+        HMath.FFI.Execution
+        HMath.FFI.Expression
+        HMath.FFI.Foundation
+        HMath.FFI.FoundationCodec
+        HMath.FFI.Geometry
+        HMath.FFI.Graph
+        HMath.FFI.GraphCodec
+        HMath.FFI.Image
+        HMath.FFI.InterchangeAll
+        HMath.FFI.InterchangeCodec
+        HMath.FFI.InterchangeElement
+        HMath.FFI.InterchangeError
+        HMath.FFI.LinearAll
+        HMath.FFI.LinearCodec
+        HMath.FFI.MachineLearning
+        HMath.FFI.MachineLearning.Codec
+        HMath.FFI.MachineLearning.Types
+        HMath.FFI.MathError
+        HMath.FFI.Matrix
+        HMath.FFI.MatrixValue
+        HMath.FFI.Numeric
+        HMath.FFI.NumericObjects
+        HMath.FFI.NumericTypes
+        HMath.FFI.NumericTypes.Core
+        HMath.FFI.NumericalAll
+        HMath.FFI.NumericalCodec
+        HMath.FFI.OptimizationAll
+        HMath.FFI.Optimizer
+        HMath.FFI.Ordering
+        HMath.FFI.Polynomial
+        HMath.FFI.RandomCodec
+        HMath.FFI.Rotations
+        HMath.FFI.ScalarExtras
+        HMath.FFI.ShapeAll
+        HMath.FFI.ShapeCodec
+        HMath.FFI.SpectralAll
+        HMath.FFI.Stochastic
+        HMath.FFI.TensorAll
+        HMath.FFI.TensorCodec
+        HMath.FFI.TimeSeries
+        HMath.FFI.Units
+        HMath.FFI.Value
+        HMath.Fourier
+        HMath.Geometry
+        HMath.Geometry.Collision
+        HMath.Geometry.Internal
+        HMath.Geometry.Polygon
+        HMath.Geometry.Primitives
+        HMath.Geometry.Spatial
+        HMath.Geometry.Transform
+        HMath.Geometry.Triangulation
+        HMath.Graph
+        HMath.Graph.Analysis
+        HMath.Graph.Core
+        HMath.Graph.Flow
+        HMath.Graph.Paths
+        HMath.Image.Color
+        HMath.Image.Core
+        HMath.Image.Filter
+        HMath.Image.Histogram
+        HMath.Image.Measure
+        HMath.Image.Spatial
+        HMath.Interchange.Array
+        HMath.Interchange.Binary
+        HMath.Interchange.Compression
+        HMath.Interchange.IO
+        HMath.Interchange.Numpy
+        HMath.Interchange.Text
+        HMath.Interpolation
         HMath.Linear
+        HMath.MachineLearning
+        HMath.MachineLearning.Clustering
+        HMath.MachineLearning.Decomposition
+        HMath.MachineLearning.Internal
+        HMath.MachineLearning.Neighbors
+        HMath.MachineLearning.Preprocessing
+        HMath.MachineLearning.Regression
+        HMath.Matrix
+        HMath.Matrix.Advanced
+        HMath.Matrix.Decomposition
+        HMath.Matrix.Internal
+        HMath.Matrix.Iterative
+        HMath.Matrix.LAPACK
+        HMath.Matrix.LU
+        HMath.Matrix.QR
+        HMath.NumberTheory
+        HMath.Numeric
+        HMath.ODE
+        HMath.ODE.Tableau
+        HMath.Optimization.Common
+        HMath.Optimization.Constrained
+        HMath.Optimization.FirstOrder
+        HMath.Optimization.Global
+        HMath.Optimization.Local
+        HMath.PDE
+        HMath.Polynomial
+        HMath.Probability
+        HMath.Quaternion
+        HMath.Random
+        HMath.Root
+        HMath.Rotation
+        HMath.Scalar
+        HMath.Signal
+        HMath.Signal.Internal
+        HMath.Sparse
+        HMath.Sparse.Spectral
+        HMath.Special
         HMath.Statistics
+        HMath.Statistics.Advanced
+        HMath.Symbolic
+        HMath.Tensor
+        HMath.Tensor.Mutable
+        HMath.TimeSeries
+        HMath.TimeSeries.Core
+        HMath.TimeSeries.Diagnostics
+        HMath.TimeSeries.Models
+        HMath.Trigonometry
+        HMath.Units
+        HMath.Vector
 
     build-depends:
-        base >= 4.16 && < 5
+        base >= 4.16 && < 5,
+        array >= 0.5 && < 0.6,
+        containers >= 0.6 && < 0.9,
+        bytestring >= 0.11 && < 0.13,
+        binary >= 0.8 && < 0.9,
+        text >= 1.2 && < 2.2
 
     default-language:   Haskell2010
     ghc-options:        -Wall -threaded
 
     include-dirs:       include cbits
-    c-sources:          cbits/runtime.c cbits/native.c cbits/native_dlpack.c
+    c-sources:          cbits/algebra.c cbits/autodiff_bindings.c cbits/backend.c cbits/buffer.c cbits/bytes.c cbits/deeplearning.c cbits/error_wire.c cbits/execution.c cbits/expression.c cbits/foundation.c cbits/geometry.c cbits/graph_bindings.c cbits/image.c cbits/interchange.c cbits/interchange_io.c cbits/linear.c cbits/machinelearning.c cbits/matrix_bindings.c cbits/matrix_value.c cbits/native.c cbits/native_dlpack.c cbits/numeric_generated.c cbits/numeric_objects.c cbits/numeric_types.c cbits/numerical.c cbits/optimization.c cbits/optimization_all.c cbits/polynomial.c cbits/rotations.c cbits/runtime.c cbits/scalar_extras.c cbits/shape.c cbits/spectral.c cbits/stochastic.c cbits/tensor_bindings.c cbits/timeseries.c cbits/units.c cbits/value.c
     cc-options:         -std=c11 -DHMATH_BUILD_SHARED
+    if flag(interchange-zlib)
+        cc-options: -DHMATH_HAVE_ZLIB
+        extra-libraries: z
+    if os(windows)
+        cc-options: -DHMATH_WINDOWS
+    else
+        cc-options: -DHMATH_UNIX
+    if !os(windows)
+        cc-options: -fvisibility=hidden
+    if os(linux)
+        extra-libraries: dl pthread
+    if !flag(native-backend)
+        cc-options: -DHMATH_DISABLE_NATIVE
+
 
     if os(windows)
         options:        standalone

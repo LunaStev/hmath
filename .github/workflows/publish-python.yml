@@ -1,5 +1,5 @@
 # SPDX-License-Identifier: MPL-2.0
-name: Publish Python and GitHub Release
+name: Publish HMath release
 
 on:
   workflow_dispatch:
@@ -9,73 +9,102 @@ on:
         type: choice
         options: [testpypi, pypi]
         default: testpypi
+      candidate_run_id:
+        description: Prepared run ID (blank resumes the staged candidate or selects the latest successful preparation for this commit)
+        type: string
+        required: false
 
 permissions:
   contents: read
+  actions: read
 
 concurrency:
-  group: publish-python-${{ inputs.index }}
+  group: publish-hmath-${{ inputs.index }}
   cancel-in-progress: false
 
 jobs:
-  build:
+  select:
     if: github.repository == 'wavefnd/hmath' && github.ref == 'refs/heads/master'
-    uses: ./.github/workflows/python-wheels.yml
+    runs-on: ubuntu-24.04
+    outputs:
+      run_id: ${{ steps.candidate.outputs.candidate_run_id }}
+      version: ${{ steps.candidate.outputs.version }}
+      source_sha: ${{ steps.candidate.outputs.candidate_sha }}
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - name: Select an existing verified candidate without rebuilding it
+        id: candidate
+        env:
+          GH_TOKEN: ${{ github.token }}
+          CANDIDATE_RUN_ID: ${{ inputs.candidate_run_id }}
+        run: python tools/select_release_candidate.py --repository "$GITHUB_REPOSITORY" --commit "$GITHUB_SHA" --run-id "$CANDIDATE_RUN_ID"
 
   publish:
-    needs: build
+    needs: select
     runs-on: ubuntu-24.04
     environment:
       name: ${{ inputs.index }}
     permissions:
       id-token: write
+      contents: write
+      actions: read
     steps:
-      - uses: actions/download-artifact@018cc2cf5baa6db3ef3c5f8a56943fffe632ef53 # v6
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - name: Download the selected immutable candidate
+        env:
+          GH_TOKEN: ${{ github.token }}
+          CANDIDATE_RUN_ID: ${{ needs.select.outputs.run_id }}
+        run: gh run download "$CANDIDATE_RUN_ID" --repo "$GITHUB_REPOSITORY" --name release-candidate --dir candidate
+      - name: Verify all artifacts and source identity
+        env:
+          SOURCE_SHA: ${{ needs.select.outputs.source_sha }}
+          VERSION: ${{ needs.select.outputs.version }}
+          RUN_ID: ${{ needs.select.outputs.run_id }}
+        run: python tools/verify_release_candidate.py candidate --commit "$SOURCE_SHA" --version "$VERSION" --run-id "$RUN_ID"
+      - name: Verify existing package hashes before external writes
+        id: remote
+        env:
+          SOURCE_SHA: ${{ needs.select.outputs.source_sha }}
+        run: python tools/check_release_remote.py --python candidate --native candidate --commit "$SOURCE_SHA" --index '${{ inputs.index }}'
+      - name: Require Hackage configuration for a new Haskell upload
+        if: inputs.index == 'pypi' && steps.remote.outputs.haskell_complete != 'true'
+        env:
+          HACKAGE_TOKEN: ${{ secrets.HACKAGE_TOKEN }}
+        run: test -n "$HACKAGE_TOKEN"
+      - name: Verify and stage all GitHub assets before package publication
+        if: inputs.index == 'pypi'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          SOURCE_SHA: ${{ needs.select.outputs.source_sha }}
+        run: python tools/publish_github_release.py candidate --repository "$GITHUB_REPOSITORY" --commit "$SOURCE_SHA" --stage-only
+      - uses: ./.github/actions/setup-haskell
+        if: inputs.index == 'pypi' && steps.remote.outputs.haskell_complete != 'true'
         with:
-          name: python-distributions
-          path: dist/
+          ghc-version: '9.10.3'
+      - name: Publish the verified Cabal source package
+        if: inputs.index == 'pypi' && steps.remote.outputs.haskell_complete != 'true'
+        env:
+          HACKAGE_TOKEN: ${{ secrets.HACKAGE_TOKEN }}
+          VERSION: ${{ needs.select.outputs.version }}
+        run: cabal upload --publish --token="$HACKAGE_TOKEN" "candidate/hmath-$VERSION.tar.gz"
+      - name: Stage Python-only upload files
+        run: |
+          mkdir dist
+          cp candidate/*.whl candidate/hmath_python-*.tar.gz dist/
       - name: Publish to TestPyPI
-        if: inputs.index == 'testpypi'
+        if: inputs.index == 'testpypi' && steps.remote.outputs.python_complete != 'true'
         uses: pypa/gh-action-pypi-publish@7245906fb61fa33a13554f9d5fb856fe61758086 # release/v1
         with:
           repository-url: https://test.pypi.org/legacy/
+          skip-existing: true
       - name: Publish to PyPI
-        if: inputs.index == 'pypi'
+        if: inputs.index == 'pypi' && steps.remote.outputs.python_complete != 'true'
         uses: pypa/gh-action-pypi-publish@7245906fb61fa33a13554f9d5fb856fe61758086 # release/v1
-
-  github-release:
-    if: inputs.index == 'pypi'
-    needs: [build, publish]
-    runs-on: ubuntu-24.04
-    permissions:
-      contents: write
-    steps:
-      - uses: actions/download-artifact@018cc2cf5baa6db3ef3c5f8a56943fffe632ef53 # v6
         with:
-          name: python-distributions
-          path: dist/
-      - name: Create the versioned GitHub release
+          skip-existing: true
+      - name: Publish the staged GitHub release
+        if: inputs.index == 'pypi'
         env:
           GH_TOKEN: ${{ github.token }}
-          GH_REPO: ${{ github.repository }}
-          RELEASE_VERSION: ${{ needs.build.outputs.version }}
-          RELEASE_SHA: ${{ github.sha }}
-        run: |
-          tag="v$RELEASE_VERSION"
-          error_log="$RUNNER_TEMP/release-tag-error.log"
-          if ! existing="$(gh api "repos/$GH_REPO/commits/$tag" --jq .sha 2>"$error_log")"; then
-            if ! grep -Eq '\(HTTP (404|422)\)' "$error_log"; then
-              cat "$error_log" >&2
-              exit 1
-            fi
-            existing=""
-          fi
-          if [ -n "$existing" ] && [ "$existing" != "$RELEASE_SHA" ]; then
-            echo "Tag $tag points to another commit; refusing to publish mismatched artifacts."
-            exit 1
-          fi
-          gh release create "$tag" dist/* \
-            --target "$RELEASE_SHA" \
-            --title "HMath $RELEASE_VERSION" \
-            --generate-notes \
-            --latest
+          SOURCE_SHA: ${{ needs.select.outputs.source_sha }}
+        run: python tools/publish_github_release.py candidate --repository "$GITHUB_REPOSITORY" --commit "$SOURCE_SHA"

@@ -67,9 +67,42 @@ nav:
       - Numerical conventions: explanation/numerical-conventions.md
       - Compatibility and releases: explanation/releases.md
   - Contributing: contributing.md
+  - Release process: guides/releasing.md
   - API Reference:
       - Python API: reference/python.md
       - C ABI: reference/c.md
+      - Exact numeric types: reference/numeric-types.md
+      - Numeric type functions: reference/numeric-type-functions.md
+      - Exact units: reference/units-values.md
+      - Error contracts: reference/errors.md
+      - Quaternions and rotations: reference/rotations.md
+      - Time series: reference/timeseries-bindings.md
+      - Structured values: reference/values.md
+      - Polynomial bindings: reference/polynomial.md
+      - Generic matrix values: reference/matrix-values.md
+      - Image bindings: reference/image-bindings.md
+      - Expressions and symbolic algebra: reference/expression-bindings.md
+      - Extended linear algebra: reference/linear-bindings.md
+      - Probability and random generators: reference/stochastic.md
+      - Signal, Fourier and interpolation: reference/spectral-bindings.md
+      - Geometry: reference/geometry-bindings.md
+      - Numerical solvers: reference/numerical-solvers.md
+      - Graph bindings: reference/graph-bindings.md
+      - Numeric bindings: reference/numeric-bindings.md
+      - Generic numeric instances: reference/numeric-objects.md
+      - Foundation collections: reference/foundation.md
+      - Algebra and exact domains: reference/algebra-values.md
+      - Static shapes: reference/shapes.md
+      - Typed tensor operations: reference/tensor-bindings.md
+      - Deep learning: reference/deeplearning-bindings.md
+      - Machine learning: reference/machinelearning-bindings.md
+      - Complex and special functions: reference/scalar-extras.md
+      - Array and file interchange: reference/interchange-bindings.md
+      - Matrix bindings: reference/matrix-bindings.md
+      - Autodiff bindings: reference/autodiff-bindings.md
+      - Buffer execution: reference/execution.md
+      - Typed storage buffers: reference/buffer-bindings.md
+      - Optimizer bindings: reference/optimization-bindings.md
       - Wave API: reference/wave.md
       - Haskell API: reference/haskell.md
       - QR contracts (Haskell): reference/qr.md

@@ -24,6 +24,13 @@ int hmath_backend_gemm(hmath_backend *, int complex_values, int trans_a, int tra
  * is an explicit ABI declaration. HMATH_BACKEND=pure disables native dispatch.
  * The loader is initialized once. Unknown custom ABIs are never inferred. */
 int hmath_lapack_available(void);
+/* Internal real buffer GEMM. FP32 is optional; missing SGEMM does not reject an
+ * otherwise valid existing provider. ldc is explicit for padded row storage. */
+int hm_backend_has_real_gemm(hmath_backend *backend, int precision);
+int hm_backend_real_gemm(hmath_backend *backend, int precision, int64_t m, int64_t n, int64_t k,
+                         const void *alpha, const void *a, int64_t lda,
+                         const void *b, int64_t ldb, const void *beta, void *c, int64_t ldc);
+
 #ifdef __cplusplus
 }
 #endif

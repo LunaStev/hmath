@@ -1,0 +1,11 @@
+{
+  "schema": 1,
+  "kind": "new-buffer-execution-api",
+  "note": "Not counted as full coverage of HMath.Backend.gemm or its Backend/Transpose APIs.",
+  "c": ["hmath_execution_create", "hmath_execution_retain", "hmath_execution_release", "hmath_execution_gemm_f32", "hmath_execution_gemm_f64"],
+  "python": ["hmath.execution.Execution", "hmath.execution.Execution.gemm", "hmath.execution.Execution.matmul"],
+  "reference_arithmetic": ["HMath.Matrix.multiplyChecked", "HMath.Matrix.scaleMatrix", "HMath.Matrix.addMatrixChecked"],
+  "precisions": ["Float", "Double"],
+  "layouts": ["row-major consecutive columns with optional row padding"],
+  "unsupported": ["negative strides", "non-consecutive columns", "transpose flags"]
+}

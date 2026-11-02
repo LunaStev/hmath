@@ -1,0 +1,1225 @@
+{
+  "schema": 1,
+  "bindings": [
+    {
+      "symbol": "HMath.Numeric.roundRational",
+      "c": [
+        "hmath_numeric_types_round_rational"
+      ],
+      "python": "hmath.numeric_types.round_rational",
+      "specializations": [
+        "typed opaque representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Numeric.classify",
+      "c": [
+        "hmath_numeric_types_classify"
+      ],
+      "python": "hmath.numeric_types.classify",
+      "specializations": [
+        "typed opaque representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Numeric.frexp",
+      "c": [
+        "hmath_numeric_types_frexp"
+      ],
+      "python": "hmath.numeric_types.frexp",
+      "specializations": [
+        "typed opaque representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Numeric.numericLimits",
+      "c": [
+        "hmath_numeric_types_numeric_limits"
+      ],
+      "python": "hmath.numeric_types.numeric_limits",
+      "specializations": [
+        "typed opaque representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Numeric.integerLimits",
+      "c": [
+        "hmath_numeric_types_integer_limits"
+      ],
+      "python": "hmath.numeric_types.integer_limits",
+      "specializations": [
+        "typed opaque representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Numeric.float16Limits",
+      "c": [
+        "hmath_numeric_types_float16_limits"
+      ],
+      "python": "hmath.numeric_types.float16_limits",
+      "specializations": [
+        "typed opaque representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Numeric.bfloat16Limits",
+      "c": [
+        "hmath_numeric_types_bfloat16_limits"
+      ],
+      "python": "hmath.numeric_types.bfloat16_limits",
+      "specializations": [
+        "typed opaque representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Numeric.NumericLimits",
+      "c": [
+        "hmath_numeric_types_numeric_limits_record"
+      ],
+      "python": "hmath.numeric_types.numeric_limits_record",
+      "specializations": [
+        "typed opaque representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Numeric.minimumNormal",
+      "c": [
+        "hmath_numeric_types_minimum_normal"
+      ],
+      "python": "hmath.numeric_types.minimum_normal",
+      "specializations": [
+        "typed opaque representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Numeric.minimumSubnormal",
+      "c": [
+        "hmath_numeric_types_minimum_subnormal"
+      ],
+      "python": "hmath.numeric_types.minimum_subnormal",
+      "specializations": [
+        "typed opaque representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Numeric.maximumFinite",
+      "c": [
+        "hmath_numeric_types_maximum_finite"
+      ],
+      "python": "hmath.numeric_types.maximum_finite",
+      "specializations": [
+        "typed opaque representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Numeric.machineEpsilon",
+      "c": [
+        "hmath_numeric_types_machine_epsilon"
+      ],
+      "python": "hmath.numeric_types.machine_epsilon",
+      "specializations": [
+        "typed opaque representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Numeric.significandDigits",
+      "c": [
+        "hmath_numeric_types_significand_digits"
+      ],
+      "python": "hmath.numeric_types.significand_digits",
+      "specializations": [
+        "typed opaque representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Numeric.minimumExponent",
+      "c": [
+        "hmath_numeric_types_minimum_exponent"
+      ],
+      "python": "hmath.numeric_types.minimum_exponent",
+      "specializations": [
+        "typed opaque representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Numeric.maximumExponent",
+      "c": [
+        "hmath_numeric_types_maximum_exponent"
+      ],
+      "python": "hmath.numeric_types.maximum_exponent",
+      "specializations": [
+        "typed opaque representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Numeric.safeIntegralCast",
+      "c": [
+        "hmath_numeric_types_safe_integral_cast"
+      ],
+      "python": "hmath.numeric_types.safe_integral_cast",
+      "specializations": [
+        "typed opaque representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Numeric.saturatingCast",
+      "c": [
+        "hmath_numeric_types_saturating_cast"
+      ],
+      "python": "hmath.numeric_types.saturating_cast",
+      "specializations": [
+        "typed opaque representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Numeric.realToIntegral",
+      "c": [
+        "hmath_numeric_types_real_to_integral"
+      ],
+      "python": "hmath.numeric_types.real_to_integral",
+      "specializations": [
+        "typed opaque representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Numeric.narrowFloat",
+      "c": [
+        "hmath_numeric_types_narrow_float"
+      ],
+      "python": "hmath.numeric_types.narrow_float",
+      "specializations": [
+        "typed opaque representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Numeric.float16",
+      "c": [
+        "hmath_numeric_types_float16"
+      ],
+      "python": "hmath.numeric_types.float16",
+      "specializations": [
+        "typed opaque representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Numeric.bfloat16",
+      "c": [
+        "hmath_numeric_types_bfloat16"
+      ],
+      "python": "hmath.numeric_types.bfloat16",
+      "specializations": [
+        "typed opaque representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Numeric.float16FromBits",
+      "c": [
+        "hmath_numeric_types_float16_from_bits"
+      ],
+      "python": "hmath.numeric_types.float16_from_bits",
+      "specializations": [
+        "typed opaque representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Numeric.bfloat16FromBits",
+      "c": [
+        "hmath_numeric_types_bfloat16_from_bits"
+      ],
+      "python": "hmath.numeric_types.bfloat16_from_bits",
+      "specializations": [
+        "typed opaque representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Numeric.float16Bits",
+      "c": [
+        "hmath_numeric_types_float16_bits"
+      ],
+      "python": "hmath.numeric_types.float16_bits",
+      "specializations": [
+        "typed opaque representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Numeric.bfloat16Bits",
+      "c": [
+        "hmath_numeric_types_bfloat16_bits"
+      ],
+      "python": "hmath.numeric_types.bfloat16_bits",
+      "specializations": [
+        "typed opaque representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Numeric.fromFloat16",
+      "c": [
+        "hmath_numeric_types_from_float16"
+      ],
+      "python": "hmath.numeric_types.from_float16",
+      "specializations": [
+        "typed opaque representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Numeric.fromBFloat16",
+      "c": [
+        "hmath_numeric_types_from_bfloat16"
+      ],
+      "python": "hmath.numeric_types.from_bfloat16",
+      "specializations": [
+        "typed opaque representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Numeric.Rounded",
+      "c": [
+        "hmath_numeric_types_rounded"
+      ],
+      "python": "hmath.numeric_types.rounded",
+      "specializations": [
+        "typed opaque representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Numeric.roundedValue",
+      "c": [
+        "hmath_numeric_types_rounded_value"
+      ],
+      "python": "hmath.numeric_types.rounded_value",
+      "specializations": [
+        "typed opaque representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Numeric.numericalExceptions",
+      "c": [
+        "hmath_numeric_types_numerical_exceptions"
+      ],
+      "python": "hmath.numeric_types.numerical_exceptions",
+      "specializations": [
+        "typed opaque representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Numeric.bigFloat",
+      "c": [
+        "hmath_numeric_types_big_float"
+      ],
+      "python": "hmath.numeric_types.big_float",
+      "specializations": [
+        "typed opaque representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Numeric.extended",
+      "c": [
+        "hmath_numeric_types_extended"
+      ],
+      "python": "hmath.numeric_types.extended",
+      "specializations": [
+        "typed opaque representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Numeric.bigPrecision",
+      "c": [
+        "hmath_numeric_types_big_precision"
+      ],
+      "python": "hmath.numeric_types.big_precision",
+      "specializations": [
+        "typed opaque representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Numeric.bigRational",
+      "c": [
+        "hmath_numeric_types_big_rational"
+      ],
+      "python": "hmath.numeric_types.big_rational",
+      "specializations": [
+        "typed opaque representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Numeric.bigToDouble",
+      "c": [
+        "hmath_numeric_types_big_to_double"
+      ],
+      "python": "hmath.numeric_types.big_to_double",
+      "specializations": [
+        "typed opaque representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Numeric.bigAdd",
+      "c": [
+        "hmath_numeric_types_big_add"
+      ],
+      "python": "hmath.numeric_types.big_add",
+      "specializations": [
+        "typed opaque representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Numeric.bigSubtract",
+      "c": [
+        "hmath_numeric_types_big_subtract"
+      ],
+      "python": "hmath.numeric_types.big_subtract",
+      "specializations": [
+        "typed opaque representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Numeric.bigMultiply",
+      "c": [
+        "hmath_numeric_types_big_multiply"
+      ],
+      "python": "hmath.numeric_types.big_multiply",
+      "specializations": [
+        "typed opaque representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Numeric.bigDivide",
+      "c": [
+        "hmath_numeric_types_big_divide"
+      ],
+      "python": "hmath.numeric_types.big_divide",
+      "specializations": [
+        "typed opaque representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Numeric.bigSqrt",
+      "c": [
+        "hmath_numeric_types_big_sqrt"
+      ],
+      "python": "hmath.numeric_types.big_sqrt",
+      "specializations": [
+        "typed opaque representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Numeric.bigExp",
+      "c": [
+        "hmath_numeric_types_big_exp"
+      ],
+      "python": "hmath.numeric_types.big_exp",
+      "specializations": [
+        "typed opaque representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Numeric.bigLog",
+      "c": [
+        "hmath_numeric_types_big_log"
+      ],
+      "python": "hmath.numeric_types.big_log",
+      "specializations": [
+        "typed opaque representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Numeric.mixedAdd",
+      "c": [
+        "hmath_numeric_types_mixed_add"
+      ],
+      "python": "hmath.numeric_types.mixed_add",
+      "specializations": [
+        "typed opaque representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Numeric.mixedMultiply",
+      "c": [
+        "hmath_numeric_types_mixed_multiply"
+      ],
+      "python": "hmath.numeric_types.mixed_multiply",
+      "specializations": [
+        "typed opaque representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Numeric.fixed",
+      "c": [
+        "hmath_numeric_types_fixed"
+      ],
+      "python": "hmath.numeric_types.fixed",
+      "specializations": [
+        "typed opaque representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Numeric.fixedRational",
+      "c": [
+        "hmath_numeric_types_fixed_rational"
+      ],
+      "python": "hmath.numeric_types.fixed_rational",
+      "specializations": [
+        "typed opaque representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Numeric.fixedAdd",
+      "c": [
+        "hmath_numeric_types_fixed_add"
+      ],
+      "python": "hmath.numeric_types.fixed_add",
+      "specializations": [
+        "typed opaque representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Numeric.fixedMultiply",
+      "c": [
+        "hmath_numeric_types_fixed_multiply"
+      ],
+      "python": "hmath.numeric_types.fixed_multiply",
+      "specializations": [
+        "typed opaque representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Numeric.fixedDivide",
+      "c": [
+        "hmath_numeric_types_fixed_divide"
+      ],
+      "python": "hmath.numeric_types.fixed_divide",
+      "specializations": [
+        "typed opaque representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Numeric.decimal",
+      "c": [
+        "hmath_numeric_types_decimal"
+      ],
+      "python": "hmath.numeric_types.decimal",
+      "specializations": [
+        "typed opaque representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Numeric.decimalRational",
+      "c": [
+        "hmath_numeric_types_decimal_rational"
+      ],
+      "python": "hmath.numeric_types.decimal_rational",
+      "specializations": [
+        "typed opaque representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Numeric.decimalAdd",
+      "c": [
+        "hmath_numeric_types_decimal_add"
+      ],
+      "python": "hmath.numeric_types.decimal_add",
+      "specializations": [
+        "typed opaque representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Numeric.decimalMultiply",
+      "c": [
+        "hmath_numeric_types_decimal_multiply"
+      ],
+      "python": "hmath.numeric_types.decimal_multiply",
+      "specializations": [
+        "typed opaque representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Numeric.decimalDivide",
+      "c": [
+        "hmath_numeric_types_decimal_divide"
+      ],
+      "python": "hmath.numeric_types.decimal_divide",
+      "specializations": [
+        "typed opaque representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Numeric.fixedScale",
+      "c": [
+        "hmath_numeric_types_fixed_scale"
+      ],
+      "python": "hmath.numeric_types.fixed_scale",
+      "specializations": [
+        "typed opaque representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Numeric.fixedCoefficient",
+      "c": [
+        "hmath_numeric_types_fixed_coefficient"
+      ],
+      "python": "hmath.numeric_types.fixed_coefficient",
+      "specializations": [
+        "typed opaque representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Numeric.interval",
+      "c": [
+        "hmath_numeric_types_interval"
+      ],
+      "python": "hmath.numeric_types.interval",
+      "specializations": [
+        "typed opaque representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Numeric.intervalBounds",
+      "c": [
+        "hmath_numeric_types_interval_bounds"
+      ],
+      "python": "hmath.numeric_types.interval_bounds",
+      "specializations": [
+        "typed opaque representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Numeric.intervalContains",
+      "c": [
+        "hmath_numeric_types_interval_contains"
+      ],
+      "python": "hmath.numeric_types.interval_contains",
+      "specializations": [
+        "typed opaque representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Numeric.intervalAdd",
+      "c": [
+        "hmath_numeric_types_interval_add"
+      ],
+      "python": "hmath.numeric_types.interval_add",
+      "specializations": [
+        "typed opaque representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Numeric.intervalSubtract",
+      "c": [
+        "hmath_numeric_types_interval_subtract"
+      ],
+      "python": "hmath.numeric_types.interval_subtract",
+      "specializations": [
+        "typed opaque representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Numeric.intervalMultiply",
+      "c": [
+        "hmath_numeric_types_interval_multiply"
+      ],
+      "python": "hmath.numeric_types.interval_multiply",
+      "specializations": [
+        "typed opaque representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Numeric.intervalDivide",
+      "c": [
+        "hmath_numeric_types_interval_divide"
+      ],
+      "python": "hmath.numeric_types.interval_divide",
+      "specializations": [
+        "typed opaque representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Numeric.Dual",
+      "c": [
+        "hmath_numeric_types_dual"
+      ],
+      "python": "hmath.numeric_types.dual",
+      "specializations": [
+        "typed opaque representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Numeric.primal",
+      "c": [
+        "hmath_numeric_types_primal"
+      ],
+      "python": "hmath.numeric_types.primal",
+      "specializations": [
+        "typed opaque representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Numeric.tangent",
+      "c": [
+        "hmath_numeric_types_tangent"
+      ],
+      "python": "hmath.numeric_types.tangent",
+      "specializations": [
+        "typed opaque representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Numeric.derivative",
+      "c": [
+        "hmath_numeric_types_derivative"
+      ],
+      "python": "hmath.numeric_types.derivative",
+      "specializations": [
+        "typed opaque representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Numeric.Quaternion",
+      "c": [
+        "hmath_numeric_types_quaternion"
+      ],
+      "python": "hmath.numeric_types.quaternion",
+      "specializations": [
+        "typed opaque representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Numeric.quaternionConjugate",
+      "c": [
+        "hmath_numeric_types_quaternion_conjugate"
+      ],
+      "python": "hmath.numeric_types.quaternion_conjugate",
+      "specializations": [
+        "typed opaque representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Numeric.quaternionNorm",
+      "c": [
+        "hmath_numeric_types_quaternion_norm"
+      ],
+      "python": "hmath.numeric_types.quaternion_norm",
+      "specializations": [
+        "typed opaque representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Numeric.quaternionInverse",
+      "c": [
+        "hmath_numeric_types_quaternion_inverse"
+      ],
+      "python": "hmath.numeric_types.quaternion_inverse",
+      "specializations": [
+        "typed opaque representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Numeric.DualQuaternion",
+      "c": [
+        "hmath_numeric_types_dual_quaternion"
+      ],
+      "python": "hmath.numeric_types.dual_quaternion",
+      "specializations": [
+        "typed opaque representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Numeric.dualQuaternionMultiply",
+      "c": [
+        "hmath_numeric_types_dual_quaternion_multiply"
+      ],
+      "python": "hmath.numeric_types.dual_quaternion_multiply",
+      "specializations": [
+        "typed opaque representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Numeric.dualQuaternionInverse",
+      "c": [
+        "hmath_numeric_types_dual_quaternion_inverse"
+      ],
+      "python": "hmath.numeric_types.dual_quaternion_inverse",
+      "specializations": [
+        "typed opaque representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Numeric.rotateVector",
+      "c": [
+        "hmath_numeric_types_rotate_vector"
+      ],
+      "python": "hmath.numeric_types.rotate_vector",
+      "specializations": [
+        "typed opaque representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Numeric.rigidTransform",
+      "c": [
+        "hmath_numeric_types_rigid_transform"
+      ],
+      "python": "hmath.numeric_types.rigid_transform",
+      "specializations": [
+        "typed opaque representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Numeric.transformPoint",
+      "c": [
+        "hmath_numeric_types_transform_point"
+      ],
+      "python": "hmath.numeric_types.transform_point",
+      "specializations": [
+        "typed opaque representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Constants.Constant",
+      "c": [
+        "hmath_numeric_types_constant"
+      ],
+      "python": "hmath.numeric_types.constant",
+      "specializations": [
+        "typed opaque representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Constants.constantName",
+      "c": [
+        "hmath_numeric_types_constant_name"
+      ],
+      "python": "hmath.numeric_types.constant_name",
+      "specializations": [
+        "typed opaque representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Constants.constantValue",
+      "c": [
+        "hmath_numeric_types_constant_value"
+      ],
+      "python": "hmath.numeric_types.constant_value",
+      "specializations": [
+        "typed opaque representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Constants.standardUncertainty",
+      "c": [
+        "hmath_numeric_types_standard_uncertainty"
+      ],
+      "python": "hmath.numeric_types.standard_uncertainty",
+      "specializations": [
+        "typed opaque representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Constants.approximationBound",
+      "c": [
+        "hmath_numeric_types_approximation_bound"
+      ],
+      "python": "hmath.numeric_types.approximation_bound",
+      "specializations": [
+        "typed opaque representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Constants.constantUnit",
+      "c": [
+        "hmath_numeric_types_constant_unit"
+      ],
+      "python": "hmath.numeric_types.constant_unit",
+      "specializations": [
+        "typed opaque representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Constants.constantSource",
+      "c": [
+        "hmath_numeric_types_constant_source"
+      ],
+      "python": "hmath.numeric_types.constant_source",
+      "specializations": [
+        "typed opaque representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Constants.constantAs",
+      "c": [
+        "hmath_numeric_types_constant_as"
+      ],
+      "python": "hmath.numeric_types.constant_as",
+      "specializations": [
+        "typed opaque representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Constants.mathematicalConstants",
+      "c": [
+        "hmath_numeric_types_mathematical_constants"
+      ],
+      "python": "hmath.numeric_types.mathematical_constants",
+      "specializations": [
+        "typed opaque representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Constants.physicalConstants",
+      "c": [
+        "hmath_numeric_types_physical_constants"
+      ],
+      "python": "hmath.numeric_types.physical_constants",
+      "specializations": [
+        "typed opaque representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Constants.speedOfLight",
+      "c": [
+        "hmath_numeric_types_speed_of_light"
+      ],
+      "python": "hmath.numeric_types.speed_of_light",
+      "specializations": [
+        "typed opaque representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Constants.planckConstant",
+      "c": [
+        "hmath_numeric_types_planck_constant"
+      ],
+      "python": "hmath.numeric_types.planck_constant",
+      "specializations": [
+        "typed opaque representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Constants.elementaryCharge",
+      "c": [
+        "hmath_numeric_types_elementary_charge"
+      ],
+      "python": "hmath.numeric_types.elementary_charge",
+      "specializations": [
+        "typed opaque representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Constants.boltzmannConstant",
+      "c": [
+        "hmath_numeric_types_boltzmann_constant"
+      ],
+      "python": "hmath.numeric_types.boltzmann_constant",
+      "specializations": [
+        "typed opaque representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Constants.avogadroConstant",
+      "c": [
+        "hmath_numeric_types_avogadro_constant"
+      ],
+      "python": "hmath.numeric_types.avogadro_constant",
+      "specializations": [
+        "typed opaque representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Constants.gravitationalConstant",
+      "c": [
+        "hmath_numeric_types_gravitational_constant"
+      ],
+      "python": "hmath.numeric_types.gravitational_constant",
+      "specializations": [
+        "typed opaque representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Constants.electronMass",
+      "c": [
+        "hmath_numeric_types_electron_mass"
+      ],
+      "python": "hmath.numeric_types.electron_mass",
+      "specializations": [
+        "typed opaque representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Constants.astronomicalUnit",
+      "c": [
+        "hmath_numeric_types_astronomical_unit"
+      ],
+      "python": "hmath.numeric_types.astronomical_unit",
+      "specializations": [
+        "typed opaque representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Numeric.Float16",
+      "c": [
+        "hmath_numeric_types_float16_from_bits"
+      ],
+      "python": "hmath.numeric_types.float16_from_bits",
+      "specializations": [
+        "original opaque Haskell type"
+      ]
+    },
+    {
+      "symbol": "HMath.Numeric.BFloat16",
+      "c": [
+        "hmath_numeric_types_bfloat16_from_bits"
+      ],
+      "python": "hmath.numeric_types.bfloat16_from_bits",
+      "specializations": [
+        "original opaque Haskell type"
+      ]
+    },
+    {
+      "symbol": "HMath.Numeric.BigFloat",
+      "c": [
+        "hmath_numeric_types_big_float"
+      ],
+      "python": "hmath.numeric_types.big_float",
+      "specializations": [
+        "original opaque Haskell type"
+      ]
+    },
+    {
+      "symbol": "HMath.Numeric.Fixed",
+      "c": [
+        "hmath_numeric_types_fixed"
+      ],
+      "python": "hmath.numeric_types.fixed",
+      "specializations": [
+        "original opaque Haskell type"
+      ]
+    },
+    {
+      "symbol": "HMath.Numeric.Decimal",
+      "c": [
+        "hmath_numeric_types_decimal"
+      ],
+      "python": "hmath.numeric_types.decimal",
+      "specializations": [
+        "original opaque Haskell type"
+      ]
+    },
+    {
+      "symbol": "HMath.Numeric.Interval",
+      "c": [
+        "hmath_numeric_types_interval"
+      ],
+      "python": "hmath.numeric_types.interval",
+      "specializations": [
+        "original opaque Haskell type"
+      ]
+    },
+    {
+      "symbol": "HMath.Numeric.RoundingMode",
+      "c": [
+        "hmath_numeric_types_round_rational"
+      ],
+      "python": "hmath.numeric_types.RoundingMode",
+      "specializations": [
+        "lossless enum representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Numeric.NearestEven",
+      "c": [
+        "hmath_numeric_types_round_rational"
+      ],
+      "python": "hmath.numeric_types.RoundingMode.NEAREST_EVEN",
+      "specializations": [
+        "lossless enum representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Numeric.TowardZero",
+      "c": [
+        "hmath_numeric_types_round_rational"
+      ],
+      "python": "hmath.numeric_types.RoundingMode.TOWARD_ZERO",
+      "specializations": [
+        "lossless enum representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Numeric.TowardPositive",
+      "c": [
+        "hmath_numeric_types_round_rational"
+      ],
+      "python": "hmath.numeric_types.RoundingMode.TOWARD_POSITIVE",
+      "specializations": [
+        "lossless enum representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Numeric.TowardNegative",
+      "c": [
+        "hmath_numeric_types_round_rational"
+      ],
+      "python": "hmath.numeric_types.RoundingMode.TOWARD_NEGATIVE",
+      "specializations": [
+        "lossless enum representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Numeric.NumericException",
+      "c": [
+        "hmath_numeric_types_rounded"
+      ],
+      "python": "hmath.numeric_types.NumericException",
+      "specializations": [
+        "lossless enum representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Numeric.InvalidOperation",
+      "c": [
+        "hmath_numeric_types_rounded"
+      ],
+      "python": "hmath.numeric_types.NumericException.INVALID_OPERATION",
+      "specializations": [
+        "lossless enum representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Numeric.DivisionByZero",
+      "c": [
+        "hmath_numeric_types_rounded"
+      ],
+      "python": "hmath.numeric_types.NumericException.DIVISION_BY_ZERO",
+      "specializations": [
+        "lossless enum representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Numeric.NumericOverflow",
+      "c": [
+        "hmath_numeric_types_rounded"
+      ],
+      "python": "hmath.numeric_types.NumericException.NUMERIC_OVERFLOW",
+      "specializations": [
+        "lossless enum representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Numeric.NumericUnderflow",
+      "c": [
+        "hmath_numeric_types_rounded"
+      ],
+      "python": "hmath.numeric_types.NumericException.NUMERIC_UNDERFLOW",
+      "specializations": [
+        "lossless enum representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Numeric.Inexact",
+      "c": [
+        "hmath_numeric_types_rounded"
+      ],
+      "python": "hmath.numeric_types.NumericException.INEXACT",
+      "specializations": [
+        "lossless enum representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Numeric.IEEEClass",
+      "c": [
+        "hmath_numeric_types_classify"
+      ],
+      "python": "hmath.numeric_types.IEEEClass",
+      "specializations": [
+        "lossless enum representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Numeric.NotANumber",
+      "c": [
+        "hmath_numeric_types_classify"
+      ],
+      "python": "hmath.numeric_types.IEEEClass.NOT_A_NUMBER",
+      "specializations": [
+        "lossless enum representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Numeric.PositiveInfinity",
+      "c": [
+        "hmath_numeric_types_classify"
+      ],
+      "python": "hmath.numeric_types.IEEEClass.POSITIVE_INFINITY",
+      "specializations": [
+        "lossless enum representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Numeric.NegativeInfinity",
+      "c": [
+        "hmath_numeric_types_classify"
+      ],
+      "python": "hmath.numeric_types.IEEEClass.NEGATIVE_INFINITY",
+      "specializations": [
+        "lossless enum representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Numeric.PositiveZero",
+      "c": [
+        "hmath_numeric_types_classify"
+      ],
+      "python": "hmath.numeric_types.IEEEClass.POSITIVE_ZERO",
+      "specializations": [
+        "lossless enum representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Numeric.NegativeZero",
+      "c": [
+        "hmath_numeric_types_classify"
+      ],
+      "python": "hmath.numeric_types.IEEEClass.NEGATIVE_ZERO",
+      "specializations": [
+        "lossless enum representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Numeric.Subnormal",
+      "c": [
+        "hmath_numeric_types_classify"
+      ],
+      "python": "hmath.numeric_types.IEEEClass.SUBNORMAL",
+      "specializations": [
+        "lossless enum representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Numeric.Normal",
+      "c": [
+        "hmath_numeric_types_classify"
+      ],
+      "python": "hmath.numeric_types.IEEEClass.NORMAL",
+      "specializations": [
+        "lossless enum representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Numeric.Float32",
+      "c": [
+        "hmath_value_f32"
+      ],
+      "python": "hmath.numeric_types.number",
+      "specializations": [
+        "float32"
+      ]
+    },
+    {
+      "symbol": "HMath.Numeric.Float64",
+      "c": [
+        "hmath_value_f64"
+      ],
+      "python": "hmath.numeric_types.number",
+      "specializations": [
+        "float64"
+      ]
+    }
+  ]
+}

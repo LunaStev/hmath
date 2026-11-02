@@ -1,0 +1,1395 @@
+{
+  "schema": 1,
+  "bindings": [
+    {
+      "symbol": "HMath.Geometry.Internal.Point2",
+      "c": [
+        "hmath_geometry_point2_object"
+      ],
+      "python": "hmath.geometry.Point2",
+      "specializations": [
+        "original opaque type"
+      ]
+    },
+    {
+      "symbol": "HMath.Geometry.Internal.Point3",
+      "c": [
+        "hmath_geometry_point3_object"
+      ],
+      "python": "hmath.geometry.Point3",
+      "specializations": [
+        "original opaque type"
+      ]
+    },
+    {
+      "symbol": "HMath.Geometry.Internal.Orientation",
+      "c": [
+        "hmath_geometry_orientation_object"
+      ],
+      "python": "hmath.geometry.Orientation",
+      "specializations": [
+        "original opaque type"
+      ]
+    },
+    {
+      "symbol": "HMath.Geometry.Internal.Location",
+      "c": [
+        "hmath_geometry_location_object"
+      ],
+      "python": "hmath.geometry.Location",
+      "specializations": [
+        "original opaque type"
+      ]
+    },
+    {
+      "symbol": "HMath.Geometry.Polygon.HullAlgorithm",
+      "c": [
+        "hmath_geometry_hull_algorithm_object"
+      ],
+      "python": "hmath.geometry.HullAlgorithm",
+      "specializations": [
+        "original opaque type"
+      ]
+    },
+    {
+      "symbol": "HMath.Geometry.Polygon.BooleanOperation",
+      "c": [
+        "hmath_geometry_boolean_operation_object"
+      ],
+      "python": "hmath.geometry.BooleanOperation",
+      "specializations": [
+        "original opaque type"
+      ]
+    },
+    {
+      "symbol": "HMath.Geometry.Primitives.Metric",
+      "c": [
+        "hmath_geometry_metric_object"
+      ],
+      "python": "hmath.geometry.Metric",
+      "specializations": [
+        "original opaque type"
+      ]
+    },
+    {
+      "symbol": "HMath.Geometry.Primitives.Intersection2",
+      "c": [
+        "hmath_geometry_intersection2_object"
+      ],
+      "python": "hmath.geometry.Intersection2",
+      "specializations": [
+        "original opaque type"
+      ]
+    },
+    {
+      "symbol": "HMath.Geometry.Primitives.CircleIntersection",
+      "c": [
+        "hmath_geometry_circle_intersection_object"
+      ],
+      "python": "hmath.geometry.CircleIntersection",
+      "specializations": [
+        "original opaque type"
+      ]
+    },
+    {
+      "symbol": "HMath.Geometry.Spatial.SpatialKind",
+      "c": [
+        "hmath_geometry_spatial_kind_object"
+      ],
+      "python": "hmath.geometry.SpatialKind",
+      "specializations": [
+        "original opaque type"
+      ]
+    },
+    {
+      "symbol": "HMath.Geometry.Spatial.PointCloud",
+      "c": [
+        "hmath_geometry_point_cloud_object"
+      ],
+      "python": "hmath.geometry.PointCloud",
+      "specializations": [
+        "original opaque type"
+      ]
+    },
+    {
+      "symbol": "HMath.Geometry.Spatial.SpatialIndex",
+      "c": [
+        "hmath_geometry_spatial_index_object"
+      ],
+      "python": "hmath.geometry.SpatialIndex",
+      "specializations": [
+        "original opaque type"
+      ]
+    },
+    {
+      "symbol": "HMath.Geometry.Triangulation.IndexedTriangle",
+      "c": [
+        "hmath_geometry_indexed_triangle_object"
+      ],
+      "python": "hmath.geometry.IndexedTriangle",
+      "specializations": [
+        "exact original Int triple"
+      ]
+    },
+    {
+      "symbol": "HMath.Geometry.Collision.Penetration",
+      "c": [
+        "hmath_geometry_penetration"
+      ],
+      "python": "hmath.geometry.penetration",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Geometry.Collision.epa",
+      "c": [
+        "hmath_geometry_epa"
+      ],
+      "python": "hmath.geometry.epa",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Geometry.Collision.gjk",
+      "c": [
+        "hmath_geometry_gjk"
+      ],
+      "python": "hmath.geometry.gjk",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Geometry.Collision.penetrationDepth",
+      "c": [
+        "hmath_geometry_penetration_depth"
+      ],
+      "python": "hmath.geometry.penetration_depth",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Geometry.Collision.penetrationError",
+      "c": [
+        "hmath_geometry_penetration_error"
+      ],
+      "python": "hmath.geometry.penetration_error",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Geometry.Collision.penetrationIterations",
+      "c": [
+        "hmath_geometry_penetration_iterations"
+      ],
+      "python": "hmath.geometry.penetration_iterations",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Geometry.Collision.penetrationNormal",
+      "c": [
+        "hmath_geometry_penetration_normal"
+      ],
+      "python": "hmath.geometry.penetration_normal",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Geometry.Collision.separatingAxis",
+      "c": [
+        "hmath_geometry_separating_axis"
+      ],
+      "python": "hmath.geometry.separating_axis",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Geometry.Internal.AABB",
+      "c": [
+        "hmath_geometry_aabb"
+      ],
+      "python": "hmath.geometry.aabb",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Geometry.Internal.Boundary",
+      "c": [
+        "hmath_geometry_boundary"
+      ],
+      "python": "hmath.geometry.boundary",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Geometry.Internal.Capsule",
+      "c": [
+        "hmath_geometry_capsule"
+      ],
+      "python": "hmath.geometry.capsule",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Geometry.Internal.Circle",
+      "c": [
+        "hmath_geometry_circle"
+      ],
+      "python": "hmath.geometry.circle",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Geometry.Internal.Clockwise",
+      "c": [
+        "hmath_geometry_clockwise"
+      ],
+      "python": "hmath.geometry.clockwise",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Geometry.Internal.Collinear",
+      "c": [
+        "hmath_geometry_collinear"
+      ],
+      "python": "hmath.geometry.collinear",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Geometry.Internal.Cone",
+      "c": [
+        "hmath_geometry_cone"
+      ],
+      "python": "hmath.geometry.cone",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Geometry.Internal.Counterclockwise",
+      "c": [
+        "hmath_geometry_counterclockwise"
+      ],
+      "python": "hmath.geometry.counterclockwise",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Geometry.Internal.Cylinder",
+      "c": [
+        "hmath_geometry_cylinder"
+      ],
+      "python": "hmath.geometry.cylinder",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Geometry.Internal.Ellipse",
+      "c": [
+        "hmath_geometry_ellipse"
+      ],
+      "python": "hmath.geometry.ellipse",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Geometry.Internal.Frustum",
+      "c": [
+        "hmath_geometry_frustum"
+      ],
+      "python": "hmath.geometry.frustum",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Geometry.Internal.Inside",
+      "c": [
+        "hmath_geometry_inside"
+      ],
+      "python": "hmath.geometry.inside",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Geometry.Internal.Line",
+      "c": [
+        "hmath_geometry_line"
+      ],
+      "python": "hmath.geometry.line",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Geometry.Internal.OBB",
+      "c": [
+        "hmath_geometry_obb"
+      ],
+      "python": "hmath.geometry.obb",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Geometry.Internal.Outside",
+      "c": [
+        "hmath_geometry_outside"
+      ],
+      "python": "hmath.geometry.outside",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Geometry.Internal.P2",
+      "c": [
+        "hmath_geometry_p2"
+      ],
+      "python": "hmath.geometry.p2",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Geometry.Internal.P3",
+      "c": [
+        "hmath_geometry_p3"
+      ],
+      "python": "hmath.geometry.p3",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Geometry.Internal.Plane",
+      "c": [
+        "hmath_geometry_plane"
+      ],
+      "python": "hmath.geometry.plane",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Geometry.Internal.PointND",
+      "c": [
+        "hmath_geometry_point_nd_raw"
+      ],
+      "python": "hmath.geometry.point_nd_raw",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Geometry.Internal.Polygon",
+      "c": [
+        "hmath_geometry_polygon"
+      ],
+      "python": "hmath.geometry.polygon",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Geometry.Internal.Ray",
+      "c": [
+        "hmath_geometry_ray"
+      ],
+      "python": "hmath.geometry.ray",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Geometry.Internal.Rectangle",
+      "c": [
+        "hmath_geometry_rectangle"
+      ],
+      "python": "hmath.geometry.rectangle",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Geometry.Internal.Segment",
+      "c": [
+        "hmath_geometry_segment"
+      ],
+      "python": "hmath.geometry.segment",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Geometry.Internal.Sphere",
+      "c": [
+        "hmath_geometry_sphere"
+      ],
+      "python": "hmath.geometry.sphere",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Geometry.Internal.Triangle",
+      "c": [
+        "hmath_geometry_triangle"
+      ],
+      "python": "hmath.geometry.triangle",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Geometry.Internal.point2",
+      "c": [
+        "hmath_geometry_point2"
+      ],
+      "python": "hmath.geometry.point2",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Geometry.Internal.point3",
+      "c": [
+        "hmath_geometry_point3"
+      ],
+      "python": "hmath.geometry.point3",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Geometry.Internal.pointND",
+      "c": [
+        "hmath_geometry_point_nd"
+      ],
+      "python": "hmath.geometry.point_nd",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Geometry.Polygon.Difference",
+      "c": [
+        "hmath_geometry_difference"
+      ],
+      "python": "hmath.geometry.difference",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Geometry.Polygon.GiftWrapping",
+      "c": [
+        "hmath_geometry_gift_wrapping"
+      ],
+      "python": "hmath.geometry.gift_wrapping",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Geometry.Polygon.GrahamScan",
+      "c": [
+        "hmath_geometry_graham_scan"
+      ],
+      "python": "hmath.geometry.graham_scan",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Geometry.Polygon.Intersection",
+      "c": [
+        "hmath_geometry_intersection"
+      ],
+      "python": "hmath.geometry.intersection",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Geometry.Polygon.MonotoneChain",
+      "c": [
+        "hmath_geometry_monotone_chain"
+      ],
+      "python": "hmath.geometry.monotone_chain",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Geometry.Polygon.Quickhull",
+      "c": [
+        "hmath_geometry_quickhull"
+      ],
+      "python": "hmath.geometry.quickhull",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Geometry.Polygon.Union",
+      "c": [
+        "hmath_geometry_union"
+      ],
+      "python": "hmath.geometry.union",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Geometry.Polygon.clipPolygon",
+      "c": [
+        "hmath_geometry_clip_polygon"
+      ],
+      "python": "hmath.geometry.clip_polygon",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Geometry.Polygon.convexHull",
+      "c": [
+        "hmath_geometry_convex_hull"
+      ],
+      "python": "hmath.geometry.convex_hull",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Geometry.Polygon.minimumBoundingCircle",
+      "c": [
+        "hmath_geometry_minimum_bounding_circle"
+      ],
+      "python": "hmath.geometry.minimum_bounding_circle",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Geometry.Polygon.minimumBoundingRectangle",
+      "c": [
+        "hmath_geometry_minimum_bounding_rectangle"
+      ],
+      "python": "hmath.geometry.minimum_bounding_rectangle",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Geometry.Polygon.minkowskiSum",
+      "c": [
+        "hmath_geometry_minkowski_sum"
+      ],
+      "python": "hmath.geometry.minkowski_sum",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Geometry.Polygon.polygonArea",
+      "c": [
+        "hmath_geometry_polygon_area"
+      ],
+      "python": "hmath.geometry.polygon_area",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Geometry.Polygon.polygonBoolean",
+      "c": [
+        "hmath_geometry_polygon_boolean"
+      ],
+      "python": "hmath.geometry.polygon_boolean",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Geometry.Polygon.polygonCentroid",
+      "c": [
+        "hmath_geometry_polygon_centroid"
+      ],
+      "python": "hmath.geometry.polygon_centroid",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Geometry.Polygon.shoelace",
+      "c": [
+        "hmath_geometry_shoelace"
+      ],
+      "python": "hmath.geometry.shoelace",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Geometry.Primitives.Chebyshev",
+      "c": [
+        "hmath_geometry_chebyshev"
+      ],
+      "python": "hmath.geometry.chebyshev",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Geometry.Primitives.CirclePoints",
+      "c": [
+        "hmath_geometry_circle_points"
+      ],
+      "python": "hmath.geometry.circle_points",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Geometry.Primitives.CoincidentCircles",
+      "c": [
+        "hmath_geometry_coincident_circles"
+      ],
+      "python": "hmath.geometry.coincident_circles",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Geometry.Primitives.CoincidentLine",
+      "c": [
+        "hmath_geometry_coincident_line"
+      ],
+      "python": "hmath.geometry.coincident_line",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Geometry.Primitives.DisjointCircles",
+      "c": [
+        "hmath_geometry_disjoint_circles"
+      ],
+      "python": "hmath.geometry.disjoint_circles",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Geometry.Primitives.Euclidean",
+      "c": [
+        "hmath_geometry_euclidean"
+      ],
+      "python": "hmath.geometry.euclidean",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Geometry.Primitives.IntersectionPoint",
+      "c": [
+        "hmath_geometry_intersection_point"
+      ],
+      "python": "hmath.geometry.intersection_point",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Geometry.Primitives.Manhattan",
+      "c": [
+        "hmath_geometry_manhattan"
+      ],
+      "python": "hmath.geometry.manhattan",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Geometry.Primitives.Minkowski",
+      "c": [
+        "hmath_geometry_minkowski"
+      ],
+      "python": "hmath.geometry.minkowski",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Geometry.Primitives.NoIntersection",
+      "c": [
+        "hmath_geometry_no_intersection"
+      ],
+      "python": "hmath.geometry.no_intersection",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Geometry.Primitives.OverlapSegment",
+      "c": [
+        "hmath_geometry_overlap_segment"
+      ],
+      "python": "hmath.geometry.overlap_segment",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Geometry.Primitives.boxContains",
+      "c": [
+        "hmath_geometry_box_contains"
+      ],
+      "python": "hmath.geometry.box_contains",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Geometry.Primitives.boxSDF",
+      "c": [
+        "hmath_geometry_box_sdf"
+      ],
+      "python": "hmath.geometry.box_sdf",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Geometry.Primitives.capsuleSDF",
+      "c": [
+        "hmath_geometry_capsule_sdf"
+      ],
+      "python": "hmath.geometry.capsule_sdf",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Geometry.Primitives.circleIntersection",
+      "c": [
+        "hmath_geometry_circle_intersection"
+      ],
+      "python": "hmath.geometry.circle_intersection",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Geometry.Primitives.circumcenter",
+      "c": [
+        "hmath_geometry_circumcenter"
+      ],
+      "python": "hmath.geometry.circumcenter",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Geometry.Primitives.coneSDF",
+      "c": [
+        "hmath_geometry_cone_sdf"
+      ],
+      "python": "hmath.geometry.cone_sdf",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Geometry.Primitives.cosineDistance",
+      "c": [
+        "hmath_geometry_cosine_distance"
+      ],
+      "python": "hmath.geometry.cosine_distance",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Geometry.Primitives.cylinderSDF",
+      "c": [
+        "hmath_geometry_cylinder_sdf"
+      ],
+      "python": "hmath.geometry.cylinder_sdf",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Geometry.Primitives.distance",
+      "c": [
+        "hmath_geometry_distance"
+      ],
+      "python": "hmath.geometry.distance",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Geometry.Primitives.ellipseContains",
+      "c": [
+        "hmath_geometry_ellipse_contains"
+      ],
+      "python": "hmath.geometry.ellipse_contains",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Geometry.Primitives.hausdorffDistance",
+      "c": [
+        "hmath_geometry_hausdorff_distance"
+      ],
+      "python": "hmath.geometry.hausdorff_distance",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Geometry.Primitives.incenter",
+      "c": [
+        "hmath_geometry_incenter"
+      ],
+      "python": "hmath.geometry.incenter",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Geometry.Primitives.incircle",
+      "c": [
+        "hmath_geometry_incircle"
+      ],
+      "python": "hmath.geometry.incircle",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Geometry.Primitives.lineIntersection",
+      "c": [
+        "hmath_geometry_line_intersection"
+      ],
+      "python": "hmath.geometry.line_intersection",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Geometry.Primitives.linePlaneIntersection",
+      "c": [
+        "hmath_geometry_line_plane_intersection"
+      ],
+      "python": "hmath.geometry.line_plane_intersection",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Geometry.Primitives.mahalanobisDistance",
+      "c": [
+        "hmath_geometry_mahalanobis_distance"
+      ],
+      "python": "hmath.geometry.mahalanobis_distance",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Geometry.Primitives.obbSDF",
+      "c": [
+        "hmath_geometry_obb_sdf"
+      ],
+      "python": "hmath.geometry.obb_sdf",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Geometry.Primitives.orientation",
+      "c": [
+        "hmath_geometry_orientation"
+      ],
+      "python": "hmath.geometry.orientation",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Geometry.Primitives.planeIntersection",
+      "c": [
+        "hmath_geometry_plane_intersection"
+      ],
+      "python": "hmath.geometry.plane_intersection",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Geometry.Primitives.pointLineDistance",
+      "c": [
+        "hmath_geometry_point_line_distance"
+      ],
+      "python": "hmath.geometry.point_line_distance",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Geometry.Primitives.pointPlaneDistance",
+      "c": [
+        "hmath_geometry_point_plane_distance"
+      ],
+      "python": "hmath.geometry.point_plane_distance",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Geometry.Primitives.pointSegmentDistance",
+      "c": [
+        "hmath_geometry_point_segment_distance"
+      ],
+      "python": "hmath.geometry.point_segment_distance",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Geometry.Primitives.polygonLocation",
+      "c": [
+        "hmath_geometry_polygon_location"
+      ],
+      "python": "hmath.geometry.polygon_location",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Geometry.Primitives.rayBox",
+      "c": [
+        "hmath_geometry_ray_box"
+      ],
+      "python": "hmath.geometry.ray_box",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Geometry.Primitives.raySphere",
+      "c": [
+        "hmath_geometry_ray_sphere"
+      ],
+      "python": "hmath.geometry.ray_sphere",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Geometry.Primitives.rayTriangle",
+      "c": [
+        "hmath_geometry_ray_triangle"
+      ],
+      "python": "hmath.geometry.ray_triangle",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Geometry.Primitives.segmentIntersection",
+      "c": [
+        "hmath_geometry_segment_intersection"
+      ],
+      "python": "hmath.geometry.segment_intersection",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Geometry.Primitives.sphereContains",
+      "c": [
+        "hmath_geometry_sphere_contains"
+      ],
+      "python": "hmath.geometry.sphere_contains",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Geometry.Primitives.sphereSDF",
+      "c": [
+        "hmath_geometry_sphere_sdf"
+      ],
+      "python": "hmath.geometry.sphere_sdf",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Geometry.Primitives.triangleBarycentric",
+      "c": [
+        "hmath_geometry_triangle_barycentric"
+      ],
+      "python": "hmath.geometry.triangle_barycentric",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Geometry.Primitives.triangleIntersection",
+      "c": [
+        "hmath_geometry_triangle_intersection"
+      ],
+      "python": "hmath.geometry.triangle_intersection",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Geometry.Primitives.triangleLocation",
+      "c": [
+        "hmath_geometry_triangle_location"
+      ],
+      "python": "hmath.geometry.triangle_location",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Geometry.Spatial.BVH",
+      "c": [
+        "hmath_geometry_bvh"
+      ],
+      "python": "hmath.geometry.bvh",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Geometry.Spatial.BallTree",
+      "c": [
+        "hmath_geometry_ball_tree"
+      ],
+      "python": "hmath.geometry.ball_tree",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Geometry.Spatial.KDTree",
+      "c": [
+        "hmath_geometry_kd_tree"
+      ],
+      "python": "hmath.geometry.kd_tree",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Geometry.Spatial.NeighborQuery",
+      "c": [
+        "hmath_geometry_neighbor_query"
+      ],
+      "python": "hmath.geometry.neighbor_query",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Geometry.Spatial.Octree",
+      "c": [
+        "hmath_geometry_octree"
+      ],
+      "python": "hmath.geometry.octree",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Geometry.Spatial.Quadtree",
+      "c": [
+        "hmath_geometry_quadtree"
+      ],
+      "python": "hmath.geometry.quadtree",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Geometry.Spatial.RTree",
+      "c": [
+        "hmath_geometry_r_tree"
+      ],
+      "python": "hmath.geometry.r_tree",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Geometry.Spatial.SpatialHash",
+      "c": [
+        "hmath_geometry_spatial_hash"
+      ],
+      "python": "hmath.geometry.spatial_hash",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Geometry.Spatial.buildSpatialIndex",
+      "c": [
+        "hmath_geometry_build_spatial_index"
+      ],
+      "python": "hmath.geometry.build_spatial_index",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Geometry.Spatial.cloudPoints",
+      "c": [
+        "hmath_geometry_cloud_points"
+      ],
+      "python": "hmath.geometry.cloud_points",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Geometry.Spatial.nearestQuery",
+      "c": [
+        "hmath_geometry_nearest_query"
+      ],
+      "python": "hmath.geometry.nearest_query",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Geometry.Spatial.pointCloud",
+      "c": [
+        "hmath_geometry_point_cloud"
+      ],
+      "python": "hmath.geometry.point_cloud",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Geometry.Spatial.queryExhaustive",
+      "c": [
+        "hmath_geometry_query_exhaustive"
+      ],
+      "python": "hmath.geometry.query_exhaustive",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Geometry.Spatial.queryLeaves",
+      "c": [
+        "hmath_geometry_query_leaves"
+      ],
+      "python": "hmath.geometry.query_leaves",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Geometry.Spatial.queryNeighbors",
+      "c": [
+        "hmath_geometry_query_neighbors"
+      ],
+      "python": "hmath.geometry.query_neighbors",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Geometry.Spatial.radiusQuery",
+      "c": [
+        "hmath_geometry_radius_query"
+      ],
+      "python": "hmath.geometry.radius_query",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Geometry.Spatial.rangeQuery",
+      "c": [
+        "hmath_geometry_range_query"
+      ],
+      "python": "hmath.geometry.range_query",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Geometry.Transform.affineTransform",
+      "c": [
+        "hmath_geometry_affine_transform"
+      ],
+      "python": "hmath.geometry.affine_transform",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Geometry.Transform.applyTransform",
+      "c": [
+        "hmath_geometry_apply_transform"
+      ],
+      "python": "hmath.geometry.apply_transform",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Geometry.Transform.composeTransforms",
+      "c": [
+        "hmath_geometry_compose_transforms"
+      ],
+      "python": "hmath.geometry.compose_transforms",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Geometry.Transform.cullBox",
+      "c": [
+        "hmath_geometry_cull_box"
+      ],
+      "python": "hmath.geometry.cull_box",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Geometry.Transform.cullSphere",
+      "c": [
+        "hmath_geometry_cull_sphere"
+      ],
+      "python": "hmath.geometry.cull_sphere",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Geometry.Transform.extractFrustum",
+      "c": [
+        "hmath_geometry_extract_frustum"
+      ],
+      "python": "hmath.geometry.extract_frustum",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Geometry.Transform.inverseTransform",
+      "c": [
+        "hmath_geometry_inverse_transform"
+      ],
+      "python": "hmath.geometry.inverse_transform",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Geometry.Transform.lookAt",
+      "c": [
+        "hmath_geometry_look_at"
+      ],
+      "python": "hmath.geometry.look_at",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Geometry.Transform.orthographic",
+      "c": [
+        "hmath_geometry_orthographic"
+      ],
+      "python": "hmath.geometry.orthographic",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Geometry.Transform.perspective",
+      "c": [
+        "hmath_geometry_perspective"
+      ],
+      "python": "hmath.geometry.perspective",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Geometry.Triangulation.constrainedDelaunay",
+      "c": [
+        "hmath_geometry_constrained_delaunay"
+      ],
+      "python": "hmath.geometry.constrained_delaunay",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Geometry.Triangulation.delaunay",
+      "c": [
+        "hmath_geometry_delaunay"
+      ],
+      "python": "hmath.geometry.delaunay",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Geometry.Triangulation.earClip",
+      "c": [
+        "hmath_geometry_ear_clip"
+      ],
+      "python": "hmath.geometry.ear_clip",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Geometry.Triangulation.voronoi",
+      "c": [
+        "hmath_geometry_voronoi"
+      ],
+      "python": "hmath.geometry.voronoi",
+      "specializations": [
+        "original concrete types"
+      ]
+    }
+  ]
+}

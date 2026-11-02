@@ -1,0 +1,1035 @@
+{
+  "schema": 1,
+  "bindings": [
+    {
+      "symbol": "HMath.Tensor.RowMajor",
+      "c": [
+        "hmath_tensor_object_row_major_create"
+      ],
+      "python": "hmath.tensor.RowMajor",
+      "specializations": [
+        "original typed elements: Float/Double/Integer/Rational/complex/fixed integers/Bool/String and available Numeric towers; structural codecs retain actual types and instances"
+      ]
+    },
+    {
+      "symbol": "HMath.Tensor.ColumnMajor",
+      "c": [
+        "hmath_tensor_object_column_major_create"
+      ],
+      "python": "hmath.tensor.ColumnMajor",
+      "specializations": [
+        "original typed elements: Float/Double/Integer/Rational/complex/fixed integers/Bool/String and available Numeric towers; structural codecs retain actual types and instances"
+      ]
+    },
+    {
+      "symbol": "HMath.Tensor.Strided",
+      "c": [
+        "hmath_tensor_object_strided_create"
+      ],
+      "python": "hmath.tensor.Strided",
+      "specializations": [
+        "original typed elements: Float/Double/Integer/Rational/complex/fixed integers/Bool/String and available Numeric towers; structural codecs retain actual types and instances"
+      ]
+    },
+    {
+      "symbol": "HMath.Tensor.CPU",
+      "c": [
+        "hmath_tensor_object_cpu_create"
+      ],
+      "python": "hmath.tensor.CPU",
+      "specializations": [
+        "original typed elements: Float/Double/Integer/Rational/complex/fixed integers/Bool/String and available Numeric towers; structural codecs retain actual types and instances"
+      ]
+    },
+    {
+      "symbol": "HMath.Tensor.tensorColumnMajor",
+      "c": [
+        "hmath_tensor_object_tensor_column_major"
+      ],
+      "python": "hmath.tensor.tensor_column_major",
+      "specializations": [
+        "original typed elements: Float/Double/Integer/Rational/complex/fixed integers/Bool/String and available Numeric towers; structural codecs retain actual types and instances"
+      ]
+    },
+    {
+      "symbol": "HMath.Tensor.tensorFull",
+      "c": [
+        "hmath_tensor_object_tensor_full"
+      ],
+      "python": "hmath.tensor.tensor_full",
+      "specializations": [
+        "original typed elements: Float/Double/Integer/Rational/complex/fixed integers/Bool/String and available Numeric towers; structural codecs retain actual types and instances"
+      ]
+    },
+    {
+      "symbol": "HMath.Tensor.tensorZeros",
+      "c": [
+        "hmath_tensor_object_tensor_zeros"
+      ],
+      "python": "hmath.tensor.tensor_zeros",
+      "specializations": [
+        "original typed elements: Float/Double/Integer/Rational/complex/fixed integers/Bool/String and available Numeric towers; structural codecs retain actual types and instances"
+      ]
+    },
+    {
+      "symbol": "HMath.Tensor.tensorOnes",
+      "c": [
+        "hmath_tensor_object_tensor_ones"
+      ],
+      "python": "hmath.tensor.tensor_ones",
+      "specializations": [
+        "original typed elements: Float/Double/Integer/Rational/complex/fixed integers/Bool/String and available Numeric towers; structural codecs retain actual types and instances"
+      ]
+    },
+    {
+      "symbol": "HMath.Tensor.tensorArange",
+      "c": [
+        "hmath_tensor_object_tensor_arange"
+      ],
+      "python": "hmath.tensor.tensor_arange",
+      "specializations": [
+        "original typed elements: Float/Double/Integer/Rational/complex/fixed integers/Bool/String and available Numeric towers; structural codecs retain actual types and instances"
+      ]
+    },
+    {
+      "symbol": "HMath.Tensor.tensorLinspace",
+      "c": [
+        "hmath_tensor_object_tensor_linspace"
+      ],
+      "python": "hmath.tensor.tensor_linspace",
+      "specializations": [
+        "original typed elements: Float/Double/Integer/Rational/complex/fixed integers/Bool/String and available Numeric towers; structural codecs retain actual types and instances"
+      ]
+    },
+    {
+      "symbol": "HMath.Tensor.tensorLogspace",
+      "c": [
+        "hmath_tensor_object_tensor_logspace"
+      ],
+      "python": "hmath.tensor.tensor_logspace",
+      "specializations": [
+        "original typed elements: Float/Double/Integer/Rational/complex/fixed integers/Bool/String and available Numeric towers; structural codecs retain actual types and instances"
+      ]
+    },
+    {
+      "symbol": "HMath.Tensor.tensorRandom",
+      "c": [
+        "hmath_tensor_object_tensor_random"
+      ],
+      "python": "hmath.tensor.tensor_random",
+      "specializations": [
+        "original typed elements: Float/Double/Integer/Rational/complex/fixed integers/Bool/String and available Numeric towers; structural codecs retain actual types and instances"
+      ]
+    },
+    {
+      "symbol": "HMath.Tensor.tensorStrides",
+      "c": [
+        "hmath_tensor_object_tensor_strides"
+      ],
+      "python": "hmath.tensor.tensor_strides",
+      "specializations": [
+        "original typed elements: Float/Double/Integer/Rational/complex/fixed integers/Bool/String and available Numeric towers; structural codecs retain actual types and instances"
+      ]
+    },
+    {
+      "symbol": "HMath.Tensor.tensorOffset",
+      "c": [
+        "hmath_tensor_object_tensor_offset"
+      ],
+      "python": "hmath.tensor.tensor_offset",
+      "specializations": [
+        "original typed elements: Float/Double/Integer/Rational/complex/fixed integers/Bool/String and available Numeric towers; structural codecs retain actual types and instances"
+      ]
+    },
+    {
+      "symbol": "HMath.Tensor.tensorDType",
+      "c": [
+        "hmath_tensor_object_tensor_d_type"
+      ],
+      "python": "hmath.tensor.tensor_dtype",
+      "specializations": [
+        "original typed elements: Float/Double/Integer/Rational/complex/fixed integers/Bool/String and available Numeric towers; structural codecs retain actual types and instances"
+      ]
+    },
+    {
+      "symbol": "HMath.Tensor.tensorDevice",
+      "c": [
+        "hmath_tensor_object_tensor_device"
+      ],
+      "python": "hmath.tensor.tensor_device",
+      "specializations": [
+        "original typed elements: Float/Double/Integer/Rational/complex/fixed integers/Bool/String and available Numeric towers; structural codecs retain actual types and instances"
+      ]
+    },
+    {
+      "symbol": "HMath.Tensor.tensorLayout",
+      "c": [
+        "hmath_tensor_object_tensor_layout"
+      ],
+      "python": "hmath.tensor.tensor_layout",
+      "specializations": [
+        "original typed elements: Float/Double/Integer/Rational/complex/fixed integers/Bool/String and available Numeric towers; structural codecs retain actual types and instances"
+      ]
+    },
+    {
+      "symbol": "HMath.Tensor.numel",
+      "c": [
+        "hmath_tensor_object_numel"
+      ],
+      "python": "hmath.tensor.numel",
+      "specializations": [
+        "original typed elements: Float/Double/Integer/Rational/complex/fixed integers/Bool/String and available Numeric towers; structural codecs retain actual types and instances"
+      ]
+    },
+    {
+      "symbol": "HMath.Tensor.isContiguous",
+      "c": [
+        "hmath_tensor_object_is_contiguous"
+      ],
+      "python": "hmath.tensor.is_contiguous",
+      "specializations": [
+        "original typed elements: Float/Double/Integer/Rational/complex/fixed integers/Bool/String and available Numeric towers; structural codecs retain actual types and instances"
+      ]
+    },
+    {
+      "symbol": "HMath.Tensor.contiguous",
+      "c": [
+        "hmath_tensor_object_contiguous"
+      ],
+      "python": "hmath.tensor.contiguous",
+      "specializations": [
+        "original typed elements: Float/Double/Integer/Rational/complex/fixed integers/Bool/String and available Numeric towers; structural codecs retain actual types and instances"
+      ]
+    },
+    {
+      "symbol": "HMath.Tensor.indexTensor",
+      "c": [
+        "hmath_tensor_object_index_tensor"
+      ],
+      "python": "hmath.tensor.index_tensor",
+      "specializations": [
+        "original typed elements: Float/Double/Integer/Rational/complex/fixed integers/Bool/String and available Numeric towers; structural codecs retain actual types and instances"
+      ]
+    },
+    {
+      "symbol": "HMath.Tensor.sliceTensor",
+      "c": [
+        "hmath_tensor_object_slice_tensor"
+      ],
+      "python": "hmath.tensor.slice_tensor",
+      "specializations": [
+        "original typed elements: Float/Double/Integer/Rational/complex/fixed integers/Bool/String and available Numeric towers; structural codecs retain actual types and instances"
+      ]
+    },
+    {
+      "symbol": "HMath.Tensor.fancyIndex",
+      "c": [
+        "hmath_tensor_object_fancy_index"
+      ],
+      "python": "hmath.tensor.fancy_index",
+      "specializations": [
+        "original typed elements: Float/Double/Integer/Rational/complex/fixed integers/Bool/String and available Numeric towers; structural codecs retain actual types and instances"
+      ]
+    },
+    {
+      "symbol": "HMath.Tensor.gather",
+      "c": [
+        "hmath_tensor_object_gather"
+      ],
+      "python": "hmath.tensor.gather",
+      "specializations": [
+        "original typed elements: Float/Double/Integer/Rational/complex/fixed integers/Bool/String and available Numeric towers; structural codecs retain actual types and instances"
+      ]
+    },
+    {
+      "symbol": "HMath.Tensor.booleanIndex",
+      "c": [
+        "hmath_tensor_object_boolean_index"
+      ],
+      "python": "hmath.tensor.boolean_index",
+      "specializations": [
+        "original typed elements: Float/Double/Integer/Rational/complex/fixed integers/Bool/String and available Numeric towers; structural codecs retain actual types and instances"
+      ]
+    },
+    {
+      "symbol": "HMath.Tensor.scatter",
+      "c": [
+        "hmath_tensor_object_scatter"
+      ],
+      "python": "hmath.tensor.scatter",
+      "specializations": [
+        "original typed elements: Float/Double/Integer/Rational/complex/fixed integers/Bool/String and available Numeric towers; structural codecs retain actual types and instances"
+      ]
+    },
+    {
+      "symbol": "HMath.Tensor.scatterAdd",
+      "c": [
+        "hmath_tensor_object_scatter_add"
+      ],
+      "python": "hmath.tensor.scatter_add",
+      "specializations": [
+        "original typed elements: Float/Double/Integer/Rational/complex/fixed integers/Bool/String and available Numeric towers; structural codecs retain actual types and instances"
+      ]
+    },
+    {
+      "symbol": "HMath.Tensor.reshapeTensor",
+      "c": [
+        "hmath_tensor_object_reshape_tensor"
+      ],
+      "python": "hmath.tensor.reshape_tensor",
+      "specializations": [
+        "original typed elements: Float/Double/Integer/Rational/complex/fixed integers/Bool/String and available Numeric towers; structural codecs retain actual types and instances"
+      ]
+    },
+    {
+      "symbol": "HMath.Tensor.flattenTensor",
+      "c": [
+        "hmath_tensor_object_flatten_tensor"
+      ],
+      "python": "hmath.tensor.flatten_tensor",
+      "specializations": [
+        "original typed elements: Float/Double/Integer/Rational/complex/fixed integers/Bool/String and available Numeric towers; structural codecs retain actual types and instances"
+      ]
+    },
+    {
+      "symbol": "HMath.Tensor.squeeze",
+      "c": [
+        "hmath_tensor_object_squeeze"
+      ],
+      "python": "hmath.tensor.squeeze",
+      "specializations": [
+        "original typed elements: Float/Double/Integer/Rational/complex/fixed integers/Bool/String and available Numeric towers; structural codecs retain actual types and instances"
+      ]
+    },
+    {
+      "symbol": "HMath.Tensor.unsqueeze",
+      "c": [
+        "hmath_tensor_object_unsqueeze"
+      ],
+      "python": "hmath.tensor.unsqueeze",
+      "specializations": [
+        "original typed elements: Float/Double/Integer/Rational/complex/fixed integers/Bool/String and available Numeric towers; structural codecs retain actual types and instances"
+      ]
+    },
+    {
+      "symbol": "HMath.Tensor.expand",
+      "c": [
+        "hmath_tensor_object_expand"
+      ],
+      "python": "hmath.tensor.expand",
+      "specializations": [
+        "original typed elements: Float/Double/Integer/Rational/complex/fixed integers/Bool/String and available Numeric towers; structural codecs retain actual types and instances"
+      ]
+    },
+    {
+      "symbol": "HMath.Tensor.permute",
+      "c": [
+        "hmath_tensor_object_permute"
+      ],
+      "python": "hmath.tensor.permute",
+      "specializations": [
+        "original typed elements: Float/Double/Integer/Rational/complex/fixed integers/Bool/String and available Numeric towers; structural codecs retain actual types and instances"
+      ]
+    },
+    {
+      "symbol": "HMath.Tensor.transposeTensor",
+      "c": [
+        "hmath_tensor_object_transpose_tensor"
+      ],
+      "python": "hmath.tensor.transpose_tensor",
+      "specializations": [
+        "original typed elements: Float/Double/Integer/Rational/complex/fixed integers/Bool/String and available Numeric towers; structural codecs retain actual types and instances"
+      ]
+    },
+    {
+      "symbol": "HMath.Tensor.moveAxis",
+      "c": [
+        "hmath_tensor_object_move_axis"
+      ],
+      "python": "hmath.tensor.move_axis",
+      "specializations": [
+        "original typed elements: Float/Double/Integer/Rational/complex/fixed integers/Bool/String and available Numeric towers; structural codecs retain actual types and instances"
+      ]
+    },
+    {
+      "symbol": "HMath.Tensor.swapAxes",
+      "c": [
+        "hmath_tensor_object_swap_axes"
+      ],
+      "python": "hmath.tensor.swap_axes",
+      "specializations": [
+        "original typed elements: Float/Double/Integer/Rational/complex/fixed integers/Bool/String and available Numeric towers; structural codecs retain actual types and instances"
+      ]
+    },
+    {
+      "symbol": "HMath.Tensor.broadcastTo",
+      "c": [
+        "hmath_tensor_object_broadcast_to"
+      ],
+      "python": "hmath.tensor.broadcast_to",
+      "specializations": [
+        "original typed elements: Float/Double/Integer/Rational/complex/fixed integers/Bool/String and available Numeric towers; structural codecs retain actual types and instances"
+      ]
+    },
+    {
+      "symbol": "HMath.Tensor.repeatTensor",
+      "c": [
+        "hmath_tensor_object_repeat_tensor"
+      ],
+      "python": "hmath.tensor.repeat_tensor",
+      "specializations": [
+        "original typed elements: Float/Double/Integer/Rational/complex/fixed integers/Bool/String and available Numeric towers; structural codecs retain actual types and instances"
+      ]
+    },
+    {
+      "symbol": "HMath.Tensor.tile",
+      "c": [
+        "hmath_tensor_object_tile"
+      ],
+      "python": "hmath.tensor.tile",
+      "specializations": [
+        "original typed elements: Float/Double/Integer/Rational/complex/fixed integers/Bool/String and available Numeric towers; structural codecs retain actual types and instances"
+      ]
+    },
+    {
+      "symbol": "HMath.Tensor.concatenate",
+      "c": [
+        "hmath_tensor_object_concatenate"
+      ],
+      "python": "hmath.tensor.concatenate",
+      "specializations": [
+        "original typed elements: Float/Double/Integer/Rational/complex/fixed integers/Bool/String and available Numeric towers; structural codecs retain actual types and instances"
+      ]
+    },
+    {
+      "symbol": "HMath.Tensor.stack",
+      "c": [
+        "hmath_tensor_object_stack"
+      ],
+      "python": "hmath.tensor.stack",
+      "specializations": [
+        "original typed elements: Float/Double/Integer/Rational/complex/fixed integers/Bool/String and available Numeric towers; structural codecs retain actual types and instances"
+      ]
+    },
+    {
+      "symbol": "HMath.Tensor.splitTensor",
+      "c": [
+        "hmath_tensor_object_split_tensor"
+      ],
+      "python": "hmath.tensor.split_tensor",
+      "specializations": [
+        "original typed elements: Float/Double/Integer/Rational/complex/fixed integers/Bool/String and available Numeric towers; structural codecs retain actual types and instances"
+      ]
+    },
+    {
+      "symbol": "HMath.Tensor.chunkTensor",
+      "c": [
+        "hmath_tensor_object_chunk_tensor"
+      ],
+      "python": "hmath.tensor.chunk_tensor",
+      "specializations": [
+        "original typed elements: Float/Double/Integer/Rational/complex/fixed integers/Bool/String and available Numeric towers; structural codecs retain actual types and instances"
+      ]
+    },
+    {
+      "symbol": "HMath.Tensor.padTensor",
+      "c": [
+        "hmath_tensor_object_pad_tensor"
+      ],
+      "python": "hmath.tensor.pad_tensor",
+      "specializations": [
+        "original typed elements: Float/Double/Integer/Rational/complex/fixed integers/Bool/String and available Numeric towers; structural codecs retain actual types and instances"
+      ]
+    },
+    {
+      "symbol": "HMath.Tensor.roll",
+      "c": [
+        "hmath_tensor_object_roll"
+      ],
+      "python": "hmath.tensor.roll",
+      "specializations": [
+        "original typed elements: Float/Double/Integer/Rational/complex/fixed integers/Bool/String and available Numeric towers; structural codecs retain actual types and instances"
+      ]
+    },
+    {
+      "symbol": "HMath.Tensor.flipTensor",
+      "c": [
+        "hmath_tensor_object_flip_tensor"
+      ],
+      "python": "hmath.tensor.flip_tensor",
+      "specializations": [
+        "original typed elements: Float/Double/Integer/Rational/complex/fixed integers/Bool/String and available Numeric towers; structural codecs retain actual types and instances"
+      ]
+    },
+    {
+      "symbol": "HMath.Tensor.rotate",
+      "c": [
+        "hmath_tensor_object_rotate"
+      ],
+      "python": "hmath.tensor.rotate",
+      "specializations": [
+        "original typed elements: Float/Double/Integer/Rational/complex/fixed integers/Bool/String and available Numeric towers; structural codecs retain actual types and instances"
+      ]
+    },
+    {
+      "symbol": "HMath.Tensor.sortTensor",
+      "c": [
+        "hmath_tensor_object_sort_tensor"
+      ],
+      "python": "hmath.tensor.sort_tensor",
+      "specializations": [
+        "original typed elements: Float/Double/Integer/Rational/complex/fixed integers/Bool/String and available Numeric towers; structural codecs retain actual types and instances"
+      ]
+    },
+    {
+      "symbol": "HMath.Tensor.unique",
+      "c": [
+        "hmath_tensor_object_unique"
+      ],
+      "python": "hmath.tensor.unique",
+      "specializations": [
+        "original typed elements: Float/Double/Integer/Rational/complex/fixed integers/Bool/String and available Numeric towers; structural codecs retain actual types and instances"
+      ]
+    },
+    {
+      "symbol": "HMath.Tensor.argsort",
+      "c": [
+        "hmath_tensor_object_argsort"
+      ],
+      "python": "hmath.tensor.argsort",
+      "specializations": [
+        "original typed elements: Float/Double/Integer/Rational/complex/fixed integers/Bool/String and available Numeric towers; structural codecs retain actual types and instances"
+      ]
+    },
+    {
+      "symbol": "HMath.Tensor.topk",
+      "c": [
+        "hmath_tensor_object_topk"
+      ],
+      "python": "hmath.tensor.topk",
+      "specializations": [
+        "original typed elements: Float/Double/Integer/Rational/complex/fixed integers/Bool/String and available Numeric towers; structural codecs retain actual types and instances"
+      ]
+    },
+    {
+      "symbol": "HMath.Tensor.nonzero",
+      "c": [
+        "hmath_tensor_object_nonzero"
+      ],
+      "python": "hmath.tensor.nonzero",
+      "specializations": [
+        "original typed elements: Float/Double/Integer/Rational/complex/fixed integers/Bool/String and available Numeric towers; structural codecs retain actual types and instances"
+      ]
+    },
+    {
+      "symbol": "HMath.Tensor.whereTensor",
+      "c": [
+        "hmath_tensor_object_where_tensor"
+      ],
+      "python": "hmath.tensor.where_tensor",
+      "specializations": [
+        "original typed elements: Float/Double/Integer/Rational/complex/fixed integers/Bool/String and available Numeric towers; structural codecs retain actual types and instances"
+      ]
+    },
+    {
+      "symbol": "HMath.Tensor.maskedFill",
+      "c": [
+        "hmath_tensor_object_masked_fill"
+      ],
+      "python": "hmath.tensor.masked_fill",
+      "specializations": [
+        "original typed elements: Float/Double/Integer/Rational/complex/fixed integers/Bool/String and available Numeric towers; structural codecs retain actual types and instances"
+      ]
+    },
+    {
+      "symbol": "HMath.Tensor.maskedSelect",
+      "c": [
+        "hmath_tensor_object_masked_select"
+      ],
+      "python": "hmath.tensor.masked_select",
+      "specializations": [
+        "original typed elements: Float/Double/Integer/Rational/complex/fixed integers/Bool/String and available Numeric towers; structural codecs retain actual types and instances"
+      ]
+    },
+    {
+      "symbol": "HMath.Tensor.mapTensor",
+      "c": [
+        "hmath_tensor_object_map_tensor"
+      ],
+      "python": "hmath.tensor.map_tensor",
+      "specializations": [
+        "original typed elements: Float/Double/Integer/Rational/complex/fixed integers/Bool/String and available Numeric towers; structural codecs retain actual types and instances"
+      ]
+    },
+    {
+      "symbol": "HMath.Tensor.zipTensor",
+      "c": [
+        "hmath_tensor_object_zip_tensor"
+      ],
+      "python": "hmath.tensor.zip_tensor",
+      "specializations": [
+        "original typed elements: Float/Double/Integer/Rational/complex/fixed integers/Bool/String and available Numeric towers; structural codecs retain actual types and instances"
+      ]
+    },
+    {
+      "symbol": "HMath.Tensor.tensorAdd",
+      "c": [
+        "hmath_tensor_object_tensor_add"
+      ],
+      "python": "hmath.tensor.tensor_add",
+      "specializations": [
+        "original typed elements: Float/Double/Integer/Rational/complex/fixed integers/Bool/String and available Numeric towers; structural codecs retain actual types and instances"
+      ]
+    },
+    {
+      "symbol": "HMath.Tensor.tensorSubtract",
+      "c": [
+        "hmath_tensor_object_tensor_subtract"
+      ],
+      "python": "hmath.tensor.tensor_subtract",
+      "specializations": [
+        "original typed elements: Float/Double/Integer/Rational/complex/fixed integers/Bool/String and available Numeric towers; structural codecs retain actual types and instances"
+      ]
+    },
+    {
+      "symbol": "HMath.Tensor.tensorMultiply",
+      "c": [
+        "hmath_tensor_object_tensor_multiply"
+      ],
+      "python": "hmath.tensor.tensor_multiply",
+      "specializations": [
+        "original typed elements: Float/Double/Integer/Rational/complex/fixed integers/Bool/String and available Numeric towers; structural codecs retain actual types and instances"
+      ]
+    },
+    {
+      "symbol": "HMath.Tensor.tensorDivide",
+      "c": [
+        "hmath_tensor_object_tensor_divide"
+      ],
+      "python": "hmath.tensor.tensor_divide",
+      "specializations": [
+        "original typed elements: Float/Double/Integer/Rational/complex/fixed integers/Bool/String and available Numeric towers; structural codecs retain actual types and instances"
+      ]
+    },
+    {
+      "symbol": "HMath.Tensor.tensorEqual",
+      "c": [
+        "hmath_tensor_object_tensor_equal"
+      ],
+      "python": "hmath.tensor.tensor_equal",
+      "specializations": [
+        "original typed elements: Float/Double/Integer/Rational/complex/fixed integers/Bool/String and available Numeric towers; structural codecs retain actual types and instances"
+      ]
+    },
+    {
+      "symbol": "HMath.Tensor.tensorLess",
+      "c": [
+        "hmath_tensor_object_tensor_less"
+      ],
+      "python": "hmath.tensor.tensor_less",
+      "specializations": [
+        "original typed elements: Float/Double/Integer/Rational/complex/fixed integers/Bool/String and available Numeric towers; structural codecs retain actual types and instances"
+      ]
+    },
+    {
+      "symbol": "HMath.Tensor.tensorAnd",
+      "c": [
+        "hmath_tensor_object_tensor_and"
+      ],
+      "python": "hmath.tensor.tensor_and",
+      "specializations": [
+        "original typed elements: Float/Double/Integer/Rational/complex/fixed integers/Bool/String and available Numeric towers; structural codecs retain actual types and instances"
+      ]
+    },
+    {
+      "symbol": "HMath.Tensor.tensorOr",
+      "c": [
+        "hmath_tensor_object_tensor_or"
+      ],
+      "python": "hmath.tensor.tensor_or",
+      "specializations": [
+        "original typed elements: Float/Double/Integer/Rational/complex/fixed integers/Bool/String and available Numeric towers; structural codecs retain actual types and instances"
+      ]
+    },
+    {
+      "symbol": "HMath.Tensor.tensorNot",
+      "c": [
+        "hmath_tensor_object_tensor_not"
+      ],
+      "python": "hmath.tensor.tensor_not",
+      "specializations": [
+        "original typed elements: Float/Double/Integer/Rational/complex/fixed integers/Bool/String and available Numeric towers; structural codecs retain actual types and instances"
+      ]
+    },
+    {
+      "symbol": "HMath.Tensor.promoteTensor",
+      "c": [
+        "hmath_tensor_object_promote_tensor"
+      ],
+      "python": "hmath.tensor.promote_tensor",
+      "specializations": [
+        "original typed elements: Float/Double/Integer/Rational/complex/fixed integers/Bool/String and available Numeric towers; structural codecs retain actual types and instances"
+      ]
+    },
+    {
+      "symbol": "HMath.Tensor.sumAxes",
+      "c": [
+        "hmath_tensor_object_sum_axes"
+      ],
+      "python": "hmath.tensor.sum_axes",
+      "specializations": [
+        "original typed elements: Float/Double/Integer/Rational/complex/fixed integers/Bool/String and available Numeric towers; structural codecs retain actual types and instances"
+      ]
+    },
+    {
+      "symbol": "HMath.Tensor.productAxes",
+      "c": [
+        "hmath_tensor_object_product_axes"
+      ],
+      "python": "hmath.tensor.product_axes",
+      "specializations": [
+        "original typed elements: Float/Double/Integer/Rational/complex/fixed integers/Bool/String and available Numeric towers; structural codecs retain actual types and instances"
+      ]
+    },
+    {
+      "symbol": "HMath.Tensor.meanAxes",
+      "c": [
+        "hmath_tensor_object_mean_axes"
+      ],
+      "python": "hmath.tensor.mean_axes",
+      "specializations": [
+        "original typed elements: Float/Double/Integer/Rational/complex/fixed integers/Bool/String and available Numeric towers; structural codecs retain actual types and instances"
+      ]
+    },
+    {
+      "symbol": "HMath.Tensor.varianceAxes",
+      "c": [
+        "hmath_tensor_object_variance_axes"
+      ],
+      "python": "hmath.tensor.variance_axes",
+      "specializations": [
+        "original typed elements: Float/Double/Integer/Rational/complex/fixed integers/Bool/String and available Numeric towers; structural codecs retain actual types and instances"
+      ]
+    },
+    {
+      "symbol": "HMath.Tensor.normAxes",
+      "c": [
+        "hmath_tensor_object_norm_axes"
+      ],
+      "python": "hmath.tensor.norm_axes",
+      "specializations": [
+        "original typed elements: Float/Double/Integer/Rational/complex/fixed integers/Bool/String and available Numeric towers; structural codecs retain actual types and instances"
+      ]
+    },
+    {
+      "symbol": "HMath.Tensor.minAxes",
+      "c": [
+        "hmath_tensor_object_min_axes"
+      ],
+      "python": "hmath.tensor.min_axes",
+      "specializations": [
+        "original typed elements: Float/Double/Integer/Rational/complex/fixed integers/Bool/String and available Numeric towers; structural codecs retain actual types and instances"
+      ]
+    },
+    {
+      "symbol": "HMath.Tensor.maxAxes",
+      "c": [
+        "hmath_tensor_object_max_axes"
+      ],
+      "python": "hmath.tensor.max_axes",
+      "specializations": [
+        "original typed elements: Float/Double/Integer/Rational/complex/fixed integers/Bool/String and available Numeric towers; structural codecs retain actual types and instances"
+      ]
+    },
+    {
+      "symbol": "HMath.Tensor.argmin",
+      "c": [
+        "hmath_tensor_object_argmin"
+      ],
+      "python": "hmath.tensor.argmin",
+      "specializations": [
+        "original typed elements: Float/Double/Integer/Rational/complex/fixed integers/Bool/String and available Numeric towers; structural codecs retain actual types and instances"
+      ]
+    },
+    {
+      "symbol": "HMath.Tensor.argmax",
+      "c": [
+        "hmath_tensor_object_argmax"
+      ],
+      "python": "hmath.tensor.argmax",
+      "specializations": [
+        "original typed elements: Float/Double/Integer/Rational/complex/fixed integers/Bool/String and available Numeric towers; structural codecs retain actual types and instances"
+      ]
+    },
+    {
+      "symbol": "HMath.Tensor.cumulativeSum",
+      "c": [
+        "hmath_tensor_object_cumulative_sum"
+      ],
+      "python": "hmath.tensor.cumulative_sum",
+      "specializations": [
+        "original typed elements: Float/Double/Integer/Rational/complex/fixed integers/Bool/String and available Numeric towers; structural codecs retain actual types and instances"
+      ]
+    },
+    {
+      "symbol": "HMath.Tensor.cumulativeProduct",
+      "c": [
+        "hmath_tensor_object_cumulative_product"
+      ],
+      "python": "hmath.tensor.cumulative_product",
+      "specializations": [
+        "original typed elements: Float/Double/Integer/Rational/complex/fixed integers/Bool/String and available Numeric towers; structural codecs retain actual types and instances"
+      ]
+    },
+    {
+      "symbol": "HMath.Tensor.tensordot",
+      "c": [
+        "hmath_tensor_object_tensordot"
+      ],
+      "python": "hmath.tensor.tensordot",
+      "specializations": [
+        "original typed elements: Float/Double/Integer/Rational/complex/fixed integers/Bool/String and available Numeric towers; structural codecs retain actual types and instances"
+      ]
+    },
+    {
+      "symbol": "HMath.Tensor.einsum",
+      "c": [
+        "hmath_tensor_object_einsum"
+      ],
+      "python": "hmath.tensor.einsum",
+      "specializations": [
+        "original typed elements: Float/Double/Integer/Rational/complex/fixed integers/Bool/String and available Numeric towers; structural codecs retain actual types and instances"
+      ]
+    },
+    {
+      "symbol": "HMath.Tensor.batchedMatmul",
+      "c": [
+        "hmath_tensor_object_batched_matmul"
+      ],
+      "python": "hmath.tensor.batched_matmul",
+      "specializations": [
+        "original typed elements: Float/Double/Integer/Rational/complex/fixed integers/Bool/String and available Numeric towers; structural codecs retain actual types and instances"
+      ]
+    },
+    {
+      "symbol": "HMath.Tensor.tensorKronecker",
+      "c": [
+        "hmath_tensor_object_tensor_kronecker"
+      ],
+      "python": "hmath.tensor.tensor_kronecker",
+      "specializations": [
+        "original typed elements: Float/Double/Integer/Rational/complex/fixed integers/Bool/String and available Numeric towers; structural codecs retain actual types and instances"
+      ]
+    },
+    {
+      "symbol": "HMath.Tensor.serializeTensor",
+      "c": [
+        "hmath_tensor_object_serialize_tensor"
+      ],
+      "python": "hmath.tensor.serialize_tensor",
+      "specializations": [
+        "original typed elements: Float/Double/Integer/Rational/complex/fixed integers/Bool/String and available Numeric towers; structural codecs retain actual types and instances"
+      ]
+    },
+    {
+      "symbol": "HMath.Tensor.deserializeTensor",
+      "c": [
+        "hmath_tensor_object_deserialize_tensor"
+      ],
+      "python": "hmath.tensor.deserialize_tensor",
+      "specializations": [
+        "original typed elements: Float/Double/Integer/Rational/complex/fixed integers/Bool/String and available Numeric towers; structural codecs retain actual types and instances"
+      ]
+    },
+    {
+      "symbol": "HMath.Tensor.inputGraph",
+      "c": [
+        "hmath_tensor_object_input_graph"
+      ],
+      "python": "hmath.tensor.input_graph",
+      "specializations": [
+        "original typed elements: Float/Double/Integer/Rational/complex/fixed integers/Bool/String and available Numeric towers; structural codecs retain actual types and instances"
+      ]
+    },
+    {
+      "symbol": "HMath.Tensor.mapGraph",
+      "c": [
+        "hmath_tensor_object_map_graph"
+      ],
+      "python": "hmath.tensor.map_graph",
+      "specializations": [
+        "original typed elements: Float/Double/Integer/Rational/complex/fixed integers/Bool/String and available Numeric towers; structural codecs retain actual types and instances"
+      ]
+    },
+    {
+      "symbol": "HMath.Tensor.zipGraph",
+      "c": [
+        "hmath_tensor_object_zip_graph"
+      ],
+      "python": "hmath.tensor.zip_graph",
+      "specializations": [
+        "original typed elements: Float/Double/Integer/Rational/complex/fixed integers/Bool/String and available Numeric towers; structural codecs retain actual types and instances"
+      ]
+    },
+    {
+      "symbol": "HMath.Tensor.evaluateGraph",
+      "c": [
+        "hmath_tensor_object_evaluate_graph"
+      ],
+      "python": "hmath.tensor.evaluate_graph",
+      "specializations": [
+        "original typed elements: Float/Double/Integer/Rational/complex/fixed integers/Bool/String and available Numeric towers; structural codecs retain actual types and instances"
+      ]
+    },
+    {
+      "symbol": "HMath.Tensor.Mutable.newMutable",
+      "c": [
+        "hmath_tensor_object_new_mutable"
+      ],
+      "python": "hmath.tensor.new_mutable",
+      "specializations": [
+        "actual original Storable element types; shared pinned views; explicit scoped borrowed buffer"
+      ]
+    },
+    {
+      "symbol": "HMath.Tensor.Mutable.thawTensor",
+      "c": [
+        "hmath_tensor_object_thaw_tensor"
+      ],
+      "python": "hmath.tensor.thaw_tensor",
+      "specializations": [
+        "actual original Storable element types; shared pinned views; explicit scoped borrowed buffer"
+      ]
+    },
+    {
+      "symbol": "HMath.Tensor.Mutable.freezeTensor",
+      "c": [
+        "hmath_tensor_object_freeze_tensor"
+      ],
+      "python": "hmath.tensor.freeze_tensor",
+      "specializations": [
+        "actual original Storable element types; shared pinned views; explicit scoped borrowed buffer"
+      ]
+    },
+    {
+      "symbol": "HMath.Tensor.Mutable.mutableShape",
+      "c": [
+        "hmath_tensor_object_mutable_shape"
+      ],
+      "python": "hmath.tensor.mutable_shape",
+      "specializations": [
+        "actual original Storable element types; shared pinned views; explicit scoped borrowed buffer"
+      ]
+    },
+    {
+      "symbol": "HMath.Tensor.Mutable.readMutable",
+      "c": [
+        "hmath_tensor_object_read_mutable"
+      ],
+      "python": "hmath.tensor.read_mutable",
+      "specializations": [
+        "actual original Storable element types; shared pinned views; explicit scoped borrowed buffer"
+      ]
+    },
+    {
+      "symbol": "HMath.Tensor.Mutable.writeMutable",
+      "c": [
+        "hmath_tensor_object_write_mutable"
+      ],
+      "python": "hmath.tensor.write_mutable",
+      "specializations": [
+        "actual original Storable element types; shared pinned views; explicit scoped borrowed buffer"
+      ]
+    },
+    {
+      "symbol": "HMath.Tensor.Mutable.modifyMutable",
+      "c": [
+        "hmath_tensor_object_modify_mutable"
+      ],
+      "python": "hmath.tensor.modify_mutable",
+      "specializations": [
+        "actual original Storable element types; shared pinned views; explicit scoped borrowed buffer"
+      ]
+    },
+    {
+      "symbol": "HMath.Tensor.Mutable.sliceMutable",
+      "c": [
+        "hmath_tensor_object_slice_mutable"
+      ],
+      "python": "hmath.tensor.slice_mutable",
+      "specializations": [
+        "actual original Storable element types; shared pinned views; explicit scoped borrowed buffer"
+      ]
+    },
+    {
+      "symbol": "HMath.Tensor.Mutable.transposeMutable",
+      "c": [
+        "hmath_tensor_object_transpose_mutable"
+      ],
+      "python": "hmath.tensor.transpose_mutable",
+      "specializations": [
+        "actual original Storable element types; shared pinned views; explicit scoped borrowed buffer"
+      ]
+    },
+    {
+      "symbol": "HMath.Tensor.Mutable.mutableAlignment",
+      "c": [
+        "hmath_tensor_object_mutable_alignment"
+      ],
+      "python": "hmath.tensor.mutable_alignment",
+      "specializations": [
+        "actual original Storable element types; shared pinned views; explicit scoped borrowed buffer"
+      ]
+    },
+    {
+      "symbol": "HMath.Tensor.Mutable.withMutableBuffer",
+      "c": [
+        "hmath_tensor_object_with_mutable_buffer"
+      ],
+      "python": "hmath.tensor.with_mutable_buffer",
+      "specializations": [
+        "actual original Storable element types; shared pinned views; explicit scoped borrowed buffer"
+      ]
+    },
+    {
+      "symbol": "HMath.Tensor.TensorGraph",
+      "c": [
+        "hmath_value"
+      ],
+      "python": "hmath.tensor.TensorGraph",
+      "specializations": [
+        "actual typed original object; no legacy rank/element cap"
+      ]
+    },
+    {
+      "symbol": "HMath.Tensor.Layout",
+      "c": [
+        "hmath_value"
+      ],
+      "python": "hmath.tensor.Layout",
+      "specializations": [
+        "actual typed original object; no legacy rank/element cap"
+      ]
+    },
+    {
+      "symbol": "HMath.Tensor.Device",
+      "c": [
+        "hmath_value"
+      ],
+      "python": "hmath.tensor.Device",
+      "specializations": [
+        "actual typed original object; no legacy rank/element cap"
+      ]
+    },
+    {
+      "symbol": "HMath.Tensor.Mutable.MutableTensor",
+      "c": [
+        "hmath_value"
+      ],
+      "python": "hmath.tensor.MutableTensor",
+      "specializations": [
+        "original Storable ForeignPtr with shared views; Scalar Float/Double/complex/fixed integers/Bool and exposed structural Storable instances"
+      ]
+    }
+  ]
+}

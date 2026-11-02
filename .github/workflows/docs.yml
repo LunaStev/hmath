@@ -36,14 +36,11 @@ jobs:
         run: |
           python -m pip install -r requirements-docs.txt
           python tools/build_docs.py
-      - name: Verify Python documentation examples against the released package
+      - name: Verify Python examples against this source revision
         run: |
-          python - <<'PY'
-          import pathlib, subprocess, sys, tomllib
-          version = tomllib.loads(pathlib.Path('pyproject.toml').read_text())['project']['version']
-          subprocess.run([sys.executable, '-m', 'pip', 'install', f'hmath-python[numpy,cffi]=={version}'], check=True)
-          PY
-          python tools/check_docs_examples.py
+          python -m pip install numpy cffi
+          python meson-build.py . build-docs/libhmath.so --builddir build-docs/cabal --offline
+          HMATH_LIBRARY="$PWD/build-docs/libhmath.so" PYTHONPATH="$PWD/bindings/python" python tools/check_docs_examples.py
       - uses: actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa # v3
         with:
           path: site

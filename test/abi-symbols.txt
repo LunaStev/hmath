@@ -43,3 +43,7 @@ hmath_tensor_reshape
 hmath_tensor_retain
 hmath_tensor_sum
 hmath_vector_copy
+hmath_initialize_optimizer
+hmath_optimizer_state_retain
+hmath_optimizer_state_release
+hmath_optimizer_step

@@ -1,11 +1,38 @@
 # Python API
 
-`hmath` is the primary interface. Calculations use finite IEEE 754 binary64
-values. Tensors are immutable and do not broadcast implicitly. NumPy is needed
-only for the conversion methods. Python code blocks run in documentation checks;
-the final-shutdown example is displayed separately.
+`hmath` exposes the native library through Python functions and owned objects.
+The `Tensor` class below is the original finite binary64 storage interface.
+The typed namespaces also expose FP32, exact integers and rationals, complex
+values, algorithms, models and mutable tensors with their original contracts.
+NumPy is optional except for array interoperability and borrowed execution.
 
-## Function index
+## Domain namespaces
+
+Import a namespace with `from hmath import matrix`, then call its functions.
+Each reference lists Python signatures, C entry points, source semantics,
+precision, errors and ownership. A function's documented dtype selects an
+original concrete Haskell instance; it does not change the algorithm.
+
+| Task | Reference |
+| --- | --- |
+| Scalar arithmetic and elementary functions | [Numeric functions](numeric-bindings.md), [complex and special functions](scalar-extras.md) |
+| Exact and lower-precision representations | [Numeric types](numeric-types.md), [type functions](numeric-type-functions.md), [units](units-values.md) |
+| Matrices, vectors and linear systems | [Matrix](matrix-bindings.md), [generic matrix](matrix-values.md), [extended linear algebra](linear-bindings.md) |
+| Polynomial and symbolic calculation | [Polynomials](polynomial.md), [expressions and symbolic algebra](expression-bindings.md) |
+| Differentiation, integration and differential equations | [Numerical solvers](numerical-solvers.md) |
+| Automatic differentiation and optimization | [Autodiff](autodiff-bindings.md), [optimizers](optimization-bindings.md) |
+| General typed tensors and neural layers | [Tensors](tensor-bindings.md), [deep learning](deeplearning-bindings.md) |
+| Model fitting, preprocessing and neighbors | [Machine learning](machinelearning-bindings.md) |
+| Randomness, probability and time series | [Random and probability](stochastic.md), [time series](timeseries-bindings.md) |
+| Signals, transforms and interpolation | [Signal/Fourier/interpolation](spectral-bindings.md) |
+| Graphs, geometry, rotations and images | [Graphs](graph-bindings.md), [geometry](geometry-bindings.md), [rotations](rotations.md), [images](image-bindings.md) |
+| Collections, algebra and static shapes | [Foundation](foundation.md), [algebra](algebra-values.md), [shape](shapes.md) |
+| Binary/text/NumPy formats, streaming and mapped files | [Interchange](interchange-bindings.md) |
+| Borrowed FP32/FP64 execution | [Buffer execution](execution.md) |
+| Immutable, scoped ST and synchronized IO storage | [Typed buffers](buffer-bindings.md) |
+| Shared object and callback contracts | [Structured values](values.md), [errors](errors.md) |
+
+## Binary64 tensor function index
 
 | API | Purpose |
 | --- | --- |
@@ -42,7 +69,7 @@ the final-shutdown example is displayed separately.
 | [hmath_cffi.Tensor.__enter__](#hmath_cffitensor__enter__) | Enter a context that owns this tensor handle. |
 | [hmath_cffi.Tensor.__exit__](#hmath_cffitensor__exit__args) | Close the tensor when leaving a context. |
 
-## Common contracts
+## Binary64 tensor contracts
 
 - Shapes contain at most **8** nonnegative Python integers (not booleans).
   Each dimension and the total size are bounded by **1,048,576**. Empty

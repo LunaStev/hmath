@@ -1,0 +1,2135 @@
+{
+  "schema": 1,
+  "bindings": [
+    {
+      "symbol": "HMath.Expression.SourcePos",
+      "c": [
+        "hmath_expression_source_pos_create"
+      ],
+      "python": "hmath.expression.SourcePos",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Expression.unknownPosition",
+      "c": [
+        "hmath_expression_unknown_position"
+      ],
+      "python": "hmath.expression.unknown_position",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Expression.sourceOffset",
+      "c": [
+        "hmath_expression_source_offset"
+      ],
+      "python": "hmath.expression.source_offset",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Expression.sourceLine",
+      "c": [
+        "hmath_expression_source_line"
+      ],
+      "python": "hmath.expression.source_line",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Expression.sourceColumn",
+      "c": [
+        "hmath_expression_source_column"
+      ],
+      "python": "hmath.expression.source_column",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Expression.Negate",
+      "c": [
+        "hmath_expression_negate_create"
+      ],
+      "python": "hmath.expression.Negate",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Expression.Add",
+      "c": [
+        "hmath_expression_add_create"
+      ],
+      "python": "hmath.expression.Add",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Expression.Subtract",
+      "c": [
+        "hmath_expression_subtract_create"
+      ],
+      "python": "hmath.expression.Subtract",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Expression.Multiply",
+      "c": [
+        "hmath_expression_multiply_create"
+      ],
+      "python": "hmath.expression.Multiply",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Expression.Divide",
+      "c": [
+        "hmath_expression_divide_create"
+      ],
+      "python": "hmath.expression.Divide",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Expression.Power",
+      "c": [
+        "hmath_expression_power_create"
+      ],
+      "python": "hmath.expression.Power",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Expression.Pi",
+      "c": [
+        "hmath_expression_pi_create"
+      ],
+      "python": "hmath.expression.Pi",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Expression.Euler",
+      "c": [
+        "hmath_expression_euler_create"
+      ],
+      "python": "hmath.expression.Euler",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Expression.Tau",
+      "c": [
+        "hmath_expression_tau_create"
+      ],
+      "python": "hmath.expression.Tau",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Expression.ExactRational",
+      "c": [
+        "hmath_expression_exact_rational_create"
+      ],
+      "python": "hmath.expression.ExactRational",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Expression.Float64",
+      "c": [
+        "hmath_expression_float64_create"
+      ],
+      "python": "hmath.expression.Float64",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Expression.SyntaxError",
+      "c": [
+        "hmath_expression_syntax_error_create"
+      ],
+      "python": "hmath.expression.SyntaxError",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Expression.UnknownName",
+      "c": [
+        "hmath_expression_unknown_name_create"
+      ],
+      "python": "hmath.expression.UnknownName",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Expression.TypeMismatch",
+      "c": [
+        "hmath_expression_type_mismatch_create"
+      ],
+      "python": "hmath.expression.TypeMismatch",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Expression.DomainFailure",
+      "c": [
+        "hmath_expression_domain_failure_create"
+      ],
+      "python": "hmath.expression.DomainFailure",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Expression.NonFinite",
+      "c": [
+        "hmath_expression_non_finite_create"
+      ],
+      "python": "hmath.expression.NonFinite",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Expression.StepLimit",
+      "c": [
+        "hmath_expression_step_limit_create"
+      ],
+      "python": "hmath.expression.StepLimit",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Expression.DepthLimit",
+      "c": [
+        "hmath_expression_depth_limit_create"
+      ],
+      "python": "hmath.expression.DepthLimit",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Expression.MemoryLimit",
+      "c": [
+        "hmath_expression_memory_limit_create"
+      ],
+      "python": "hmath.expression.MemoryLimit",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Expression.InvalidLimits",
+      "c": [
+        "hmath_expression_invalid_limits_create"
+      ],
+      "python": "hmath.expression.InvalidLimits",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Expression.Unsupported",
+      "c": [
+        "hmath_expression_unsupported_create"
+      ],
+      "python": "hmath.expression.Unsupported",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Expression.Sin",
+      "c": [
+        "hmath_expression_sin_create"
+      ],
+      "python": "hmath.expression.Sin",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Expression.Cos",
+      "c": [
+        "hmath_expression_cos_create"
+      ],
+      "python": "hmath.expression.Cos",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Expression.Tan",
+      "c": [
+        "hmath_expression_tan_create"
+      ],
+      "python": "hmath.expression.Tan",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Expression.Exp",
+      "c": [
+        "hmath_expression_exp_create"
+      ],
+      "python": "hmath.expression.Exp",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Expression.Log",
+      "c": [
+        "hmath_expression_log_create"
+      ],
+      "python": "hmath.expression.Log",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Expression.Sqrt",
+      "c": [
+        "hmath_expression_sqrt_create"
+      ],
+      "python": "hmath.expression.Sqrt",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Expression.Abs",
+      "c": [
+        "hmath_expression_abs_create"
+      ],
+      "python": "hmath.expression.Abs",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Expression.Signum",
+      "c": [
+        "hmath_expression_signum_create"
+      ],
+      "python": "hmath.expression.Signum",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Expression.Floor",
+      "c": [
+        "hmath_expression_floor_create"
+      ],
+      "python": "hmath.expression.Floor",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Expression.Ceiling",
+      "c": [
+        "hmath_expression_ceiling_create"
+      ],
+      "python": "hmath.expression.Ceiling",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Expression.Min",
+      "c": [
+        "hmath_expression_min_create"
+      ],
+      "python": "hmath.expression.Min",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Expression.Max",
+      "c": [
+        "hmath_expression_max_create"
+      ],
+      "python": "hmath.expression.Max",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Expression.Asin",
+      "c": [
+        "hmath_expression_asin_create"
+      ],
+      "python": "hmath.expression.Asin",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Expression.Acos",
+      "c": [
+        "hmath_expression_acos_create"
+      ],
+      "python": "hmath.expression.Acos",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Expression.Atan",
+      "c": [
+        "hmath_expression_atan_create"
+      ],
+      "python": "hmath.expression.Atan",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Expression.Sinh",
+      "c": [
+        "hmath_expression_sinh_create"
+      ],
+      "python": "hmath.expression.Sinh",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Expression.Cosh",
+      "c": [
+        "hmath_expression_cosh_create"
+      ],
+      "python": "hmath.expression.Cosh",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Expression.Tanh",
+      "c": [
+        "hmath_expression_tanh_create"
+      ],
+      "python": "hmath.expression.Tanh",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Expression.Expr",
+      "c": [
+        "hmath_expression_expr_create"
+      ],
+      "python": "hmath.expression.Expr",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Expression.expressionPosition",
+      "c": [
+        "hmath_expression_expression_position"
+      ],
+      "python": "hmath.expression.expression_position",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Expression.expressionNode",
+      "c": [
+        "hmath_expression_expression_node"
+      ],
+      "python": "hmath.expression.expression_node",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Expression.Literal",
+      "c": [
+        "hmath_expression_literal_create"
+      ],
+      "python": "hmath.expression.Literal",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Expression.Variable",
+      "c": [
+        "hmath_expression_variable_create"
+      ],
+      "python": "hmath.expression.Variable",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Expression.Constant",
+      "c": [
+        "hmath_expression_constant_create"
+      ],
+      "python": "hmath.expression.Constant",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Expression.Unary",
+      "c": [
+        "hmath_expression_unary_create"
+      ],
+      "python": "hmath.expression.Unary",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Expression.Binary",
+      "c": [
+        "hmath_expression_binary_create"
+      ],
+      "python": "hmath.expression.Binary",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Expression.Call",
+      "c": [
+        "hmath_expression_call_create"
+      ],
+      "python": "hmath.expression.Call",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Expression.Let",
+      "c": [
+        "hmath_expression_let_create"
+      ],
+      "python": "hmath.expression.Let",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Expression.literal",
+      "c": [
+        "hmath_expression_literal"
+      ],
+      "python": "hmath.expression.literal",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Expression.variable",
+      "c": [
+        "hmath_expression_variable"
+      ],
+      "python": "hmath.expression.variable",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Expression.constant",
+      "c": [
+        "hmath_expression_constant"
+      ],
+      "python": "hmath.expression.constant",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Expression.unary",
+      "c": [
+        "hmath_expression_unary"
+      ],
+      "python": "hmath.expression.unary",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Expression.binary",
+      "c": [
+        "hmath_expression_binary"
+      ],
+      "python": "hmath.expression.binary",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Expression.call",
+      "c": [
+        "hmath_expression_call"
+      ],
+      "python": "hmath.expression.call",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Expression.letIn",
+      "c": [
+        "hmath_expression_let_in"
+      ],
+      "python": "hmath.expression.let_in",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Expression.Limits",
+      "c": [
+        "hmath_expression_limits_create"
+      ],
+      "python": "hmath.expression.Limits",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Expression.defaultLimits",
+      "c": [
+        "hmath_expression_default_limits"
+      ],
+      "python": "hmath.expression.default_limits",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Expression.maximumSteps",
+      "c": [
+        "hmath_expression_maximum_steps"
+      ],
+      "python": "hmath.expression.maximum_steps",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Expression.maximumDepth",
+      "c": [
+        "hmath_expression_maximum_depth"
+      ],
+      "python": "hmath.expression.maximum_depth",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Expression.maximumNodes",
+      "c": [
+        "hmath_expression_maximum_nodes"
+      ],
+      "python": "hmath.expression.maximum_nodes",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Expression.maximumInputChars",
+      "c": [
+        "hmath_expression_maximum_input_chars"
+      ],
+      "python": "hmath.expression.maximum_input_chars",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Expression.maximumIntegerBits",
+      "c": [
+        "hmath_expression_maximum_integer_bits"
+      ],
+      "python": "hmath.expression.maximum_integer_bits",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Expression.maximumCacheEntries",
+      "c": [
+        "hmath_expression_maximum_cache_entries"
+      ],
+      "python": "hmath.expression.maximum_cache_entries",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Expression.ExprError",
+      "c": [
+        "hmath_expression_expr_error_create"
+      ],
+      "python": "hmath.expression.ExprError",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Expression.errorKind",
+      "c": [
+        "hmath_expression_error_kind_get"
+      ],
+      "python": "hmath.expression.error_kind",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Expression.errorPosition",
+      "c": [
+        "hmath_expression_error_position"
+      ],
+      "python": "hmath.expression.error_position",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Expression.errorMessage",
+      "c": [
+        "hmath_expression_error_message"
+      ],
+      "python": "hmath.expression.error_message",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Expression.validateLimits",
+      "c": [
+        "hmath_expression_validate_limits"
+      ],
+      "python": "hmath.expression.validate_limits",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Expression.validateExpression",
+      "c": [
+        "hmath_expression_validate_expression"
+      ],
+      "python": "hmath.expression.validate_expression",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Expression.parseExpression",
+      "c": [
+        "hmath_expression_parse_expression"
+      ],
+      "python": "hmath.expression.parse_expression",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Expression.prettyExpression",
+      "c": [
+        "hmath_expression_pretty_expression"
+      ],
+      "python": "hmath.expression.pretty_expression",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Expression.freeVariables",
+      "c": [
+        "hmath_expression_free_variables"
+      ],
+      "python": "hmath.expression.free_variables",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Expression.ExactValue",
+      "c": [
+        "hmath_expression_exact_value_create"
+      ],
+      "python": "hmath.expression.ExactValue",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Expression.FloatValue",
+      "c": [
+        "hmath_expression_float_value_create"
+      ],
+      "python": "hmath.expression.FloatValue",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Expression.defaultRegistry",
+      "c": [
+        "hmath_expression_default_registry"
+      ],
+      "python": "hmath.expression.default_registry",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Expression.emptyRegistry",
+      "c": [
+        "hmath_expression_empty_registry"
+      ],
+      "python": "hmath.expression.empty_registry",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Expression.registerFunction",
+      "c": [
+        "hmath_expression_register_function"
+      ],
+      "python": "hmath.expression.register_function",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Expression.allowedFunctions",
+      "c": [
+        "hmath_expression_allowed_functions"
+      ],
+      "python": "hmath.expression.allowed_functions",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Expression.typeCheckExpression",
+      "c": [
+        "hmath_expression_type_check_expression"
+      ],
+      "python": "hmath.expression.type_check_expression",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Expression.evaluateExpression",
+      "c": [
+        "hmath_expression_evaluate_expression"
+      ],
+      "python": "hmath.expression.evaluate_expression",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Expression.evaluateText",
+      "c": [
+        "hmath_expression_evaluate_text"
+      ],
+      "python": "hmath.expression.evaluate_text",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Expression.evaluateCompiled",
+      "c": [
+        "hmath_expression_evaluate_compiled"
+      ],
+      "python": "hmath.expression.evaluate_compiled",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Expression.compileExpression",
+      "c": [
+        "hmath_expression_compile_expression"
+      ],
+      "python": "hmath.expression.compile_expression",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Expression.compiledNodeCount",
+      "c": [
+        "hmath_expression_compiled_node_count"
+      ],
+      "python": "hmath.expression.compiled_node_count",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Expression.optimizeExpression",
+      "c": [
+        "hmath_expression_optimize_expression"
+      ],
+      "python": "hmath.expression.optimize_expression",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Expression.emptyExpressionCache",
+      "c": [
+        "hmath_expression_empty_expression_cache"
+      ],
+      "python": "hmath.expression.empty_expression_cache",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Expression.cacheSize",
+      "c": [
+        "hmath_expression_cache_size"
+      ],
+      "python": "hmath.expression.cache_size",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Expression.cachedExpression",
+      "c": [
+        "hmath_expression_cached_expression"
+      ],
+      "python": "hmath.expression.cached_expression",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Expression.formatScientific",
+      "c": [
+        "hmath_expression_format_scientific"
+      ],
+      "python": "hmath.expression.format_scientific",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Expression.formatRadix",
+      "c": [
+        "hmath_expression_format_radix"
+      ],
+      "python": "hmath.expression.format_radix",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Expression.serializeExpression",
+      "c": [
+        "hmath_expression_serialize_expression"
+      ],
+      "python": "hmath.expression.serialize_expression",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Expression.deserializeExpression",
+      "c": [
+        "hmath_expression_deserialize_expression"
+      ],
+      "python": "hmath.expression.deserialize_expression",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Expression.expressionHash",
+      "c": [
+        "hmath_expression_expression_hash"
+      ],
+      "python": "hmath.expression.expression_hash",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Symbolic.Real",
+      "c": [
+        "hmath_symbolic_real_create"
+      ],
+      "python": "hmath.symbolic.Real",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Symbolic.NonZero",
+      "c": [
+        "hmath_symbolic_non_zero_create"
+      ],
+      "python": "hmath.symbolic.NonZero",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Symbolic.Positive",
+      "c": [
+        "hmath_symbolic_positive_create"
+      ],
+      "python": "hmath.symbolic.Positive",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Symbolic.NonNegative",
+      "c": [
+        "hmath_symbolic_non_negative_create"
+      ],
+      "python": "hmath.symbolic.NonNegative",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Symbolic.Integral",
+      "c": [
+        "hmath_symbolic_integral_create"
+      ],
+      "python": "hmath.symbolic.Integral",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Symbolic.Negative",
+      "c": [
+        "hmath_symbolic_negative_create"
+      ],
+      "python": "hmath.symbolic.Negative",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Symbolic.NonPositive",
+      "c": [
+        "hmath_symbolic_non_positive_create"
+      ],
+      "python": "hmath.symbolic.NonPositive",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Symbolic.FromLeft",
+      "c": [
+        "hmath_symbolic_from_left_create"
+      ],
+      "python": "hmath.symbolic.FromLeft",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Symbolic.FromRight",
+      "c": [
+        "hmath_symbolic_from_right_create"
+      ],
+      "python": "hmath.symbolic.FromRight",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Symbolic.TwoSided",
+      "c": [
+        "hmath_symbolic_two_sided_create"
+      ],
+      "python": "hmath.symbolic.TwoSided",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Symbolic.Equal",
+      "c": [
+        "hmath_symbolic_equal_create"
+      ],
+      "python": "hmath.symbolic.Equal",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Symbolic.NotEqual",
+      "c": [
+        "hmath_symbolic_not_equal_create"
+      ],
+      "python": "hmath.symbolic.NotEqual",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Symbolic.Less",
+      "c": [
+        "hmath_symbolic_less_create"
+      ],
+      "python": "hmath.symbolic.Less",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Symbolic.LessEqual",
+      "c": [
+        "hmath_symbolic_less_equal_create"
+      ],
+      "python": "hmath.symbolic.LessEqual",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Symbolic.Greater",
+      "c": [
+        "hmath_symbolic_greater_create"
+      ],
+      "python": "hmath.symbolic.Greater",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Symbolic.GreaterEqual",
+      "c": [
+        "hmath_symbolic_greater_equal_create"
+      ],
+      "python": "hmath.symbolic.GreaterEqual",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Symbolic.assumptions",
+      "c": [
+        "hmath_symbolic_assumptions"
+      ],
+      "python": "hmath.symbolic.assumptions",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Symbolic.noAssumptions",
+      "c": [
+        "hmath_symbolic_no_assumptions"
+      ],
+      "python": "hmath.symbolic.no_assumptions",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Symbolic.proves",
+      "c": [
+        "hmath_symbolic_proves"
+      ],
+      "python": "hmath.symbolic.proves",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Symbolic.SymbolicOptions",
+      "c": [
+        "hmath_symbolic_symbolic_options_create"
+      ],
+      "python": "hmath.symbolic.SymbolicOptions",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Symbolic.defaultSymbolicOptions",
+      "c": [
+        "hmath_symbolic_default_symbolic_options"
+      ],
+      "python": "hmath.symbolic.default_symbolic_options",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Symbolic.symbolicLimits",
+      "c": [
+        "hmath_symbolic_symbolic_limits"
+      ],
+      "python": "hmath.symbolic.symbolic_limits",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Symbolic.symbolicAssumptions",
+      "c": [
+        "hmath_symbolic_symbolic_assumptions"
+      ],
+      "python": "hmath.symbolic.symbolic_assumptions",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Symbolic.normalize",
+      "c": [
+        "hmath_symbolic_normalize"
+      ],
+      "python": "hmath.symbolic.normalize",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Symbolic.simplify",
+      "c": [
+        "hmath_symbolic_simplify"
+      ],
+      "python": "hmath.symbolic.simplify",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Symbolic.expand",
+      "c": [
+        "hmath_symbolic_expand"
+      ],
+      "python": "hmath.symbolic.expand",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Symbolic.collectTerms",
+      "c": [
+        "hmath_symbolic_collect_terms"
+      ],
+      "python": "hmath.symbolic.collect_terms",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Symbolic.trigonometricSimplify",
+      "c": [
+        "hmath_symbolic_trigonometric_simplify"
+      ],
+      "python": "hmath.symbolic.trigonometric_simplify",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Symbolic.logarithmicSimplify",
+      "c": [
+        "hmath_symbolic_logarithmic_simplify"
+      ],
+      "python": "hmath.symbolic.logarithmic_simplify",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Symbolic.factorPolynomial",
+      "c": [
+        "hmath_symbolic_factor_polynomial"
+      ],
+      "python": "hmath.symbolic.factor_polynomial",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Symbolic.rationalSimplify",
+      "c": [
+        "hmath_symbolic_rational_simplify"
+      ],
+      "python": "hmath.symbolic.rational_simplify",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Symbolic.differentiate",
+      "c": [
+        "hmath_symbolic_differentiate"
+      ],
+      "python": "hmath.symbolic.differentiate",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Symbolic.integrateBasic",
+      "c": [
+        "hmath_symbolic_integrate_basic"
+      ],
+      "python": "hmath.symbolic.integrate_basic",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Symbolic.toPolynomial",
+      "c": [
+        "hmath_symbolic_to_polynomial"
+      ],
+      "python": "hmath.symbolic.to_polynomial",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Symbolic.exactPolynomialRoots",
+      "c": [
+        "hmath_symbolic_exact_polynomial_roots"
+      ],
+      "python": "hmath.symbolic.exact_polynomial_roots",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Symbolic.numericalPolynomialRoots",
+      "c": [
+        "hmath_symbolic_numerical_polynomial_roots"
+      ],
+      "python": "hmath.symbolic.numerical_polynomial_roots",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Symbolic.PolynomialFactorization",
+      "c": [
+        "hmath_symbolic_polynomial_factorization_create"
+      ],
+      "python": "hmath.symbolic.PolynomialFactorization",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Symbolic.factorLeading",
+      "c": [
+        "hmath_symbolic_factor_leading"
+      ],
+      "python": "hmath.symbolic.factor_leading",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Symbolic.factorTerms",
+      "c": [
+        "hmath_symbolic_factor_terms"
+      ],
+      "python": "hmath.symbolic.factor_terms",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Symbolic.substitute",
+      "c": [
+        "hmath_symbolic_substitute"
+      ],
+      "python": "hmath.symbolic.substitute",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Symbolic.Any",
+      "c": [
+        "hmath_symbolic_any_create"
+      ],
+      "python": "hmath.symbolic.Any",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Symbolic.Exactly",
+      "c": [
+        "hmath_symbolic_exactly_create"
+      ],
+      "python": "hmath.symbolic.Exactly",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Symbolic.UnaryPattern",
+      "c": [
+        "hmath_symbolic_unary_pattern_create"
+      ],
+      "python": "hmath.symbolic.UnaryPattern",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Symbolic.BinaryPattern",
+      "c": [
+        "hmath_symbolic_binary_pattern_create"
+      ],
+      "python": "hmath.symbolic.BinaryPattern",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Symbolic.CallPattern",
+      "c": [
+        "hmath_symbolic_call_pattern_create"
+      ],
+      "python": "hmath.symbolic.CallPattern",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Symbolic.matchPattern",
+      "c": [
+        "hmath_symbolic_match_pattern"
+      ],
+      "python": "hmath.symbolic.match_pattern",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Symbolic.RewriteRule",
+      "c": [
+        "hmath_symbolic_rewrite_rule_create"
+      ],
+      "python": "hmath.symbolic.RewriteRule",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Symbolic.rewritePattern",
+      "c": [
+        "hmath_symbolic_rewrite_pattern"
+      ],
+      "python": "hmath.symbolic.rewrite_pattern",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Symbolic.rewriteReplacement",
+      "c": [
+        "hmath_symbolic_rewrite_replacement"
+      ],
+      "python": "hmath.symbolic.rewrite_replacement",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Symbolic.rewriteRequirements",
+      "c": [
+        "hmath_symbolic_rewrite_requirements"
+      ],
+      "python": "hmath.symbolic.rewrite_requirements",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Symbolic.applyRewrite",
+      "c": [
+        "hmath_symbolic_apply_rewrite"
+      ],
+      "python": "hmath.symbolic.apply_rewrite",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Symbolic.gradient",
+      "c": [
+        "hmath_symbolic_gradient"
+      ],
+      "python": "hmath.symbolic.gradient",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Symbolic.hessian",
+      "c": [
+        "hmath_symbolic_hessian"
+      ],
+      "python": "hmath.symbolic.hessian",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Symbolic.jacobian",
+      "c": [
+        "hmath_symbolic_jacobian"
+      ],
+      "python": "hmath.symbolic.jacobian",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Symbolic.integrateByParts",
+      "c": [
+        "hmath_symbolic_integrate_by_parts"
+      ],
+      "python": "hmath.symbolic.integrate_by_parts",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Symbolic.integrateSubstitution",
+      "c": [
+        "hmath_symbolic_integrate_substitution"
+      ],
+      "python": "hmath.symbolic.integrate_substitution",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Symbolic.integrateRational",
+      "c": [
+        "hmath_symbolic_integrate_rational"
+      ],
+      "python": "hmath.symbolic.integrate_rational",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Symbolic.FiniteLimit",
+      "c": [
+        "hmath_symbolic_finite_limit_create"
+      ],
+      "python": "hmath.symbolic.FiniteLimit",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Symbolic.PositiveInfinity",
+      "c": [
+        "hmath_symbolic_positive_infinity_create"
+      ],
+      "python": "hmath.symbolic.PositiveInfinity",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Symbolic.NegativeInfinity",
+      "c": [
+        "hmath_symbolic_negative_infinity_create"
+      ],
+      "python": "hmath.symbolic.NegativeInfinity",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Symbolic.DoesNotExist",
+      "c": [
+        "hmath_symbolic_does_not_exist_create"
+      ],
+      "python": "hmath.symbolic.DoesNotExist",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Symbolic.symbolicLimit",
+      "c": [
+        "hmath_symbolic_symbolic_limit"
+      ],
+      "python": "hmath.symbolic.symbolic_limit",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Symbolic.Series",
+      "c": [
+        "hmath_symbolic_series_create"
+      ],
+      "python": "hmath.symbolic.Series",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Symbolic.seriesCenter",
+      "c": [
+        "hmath_symbolic_series_center"
+      ],
+      "python": "hmath.symbolic.series_center",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Symbolic.seriesMinimumPower",
+      "c": [
+        "hmath_symbolic_series_minimum_power"
+      ],
+      "python": "hmath.symbolic.series_minimum_power",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Symbolic.seriesTerms",
+      "c": [
+        "hmath_symbolic_series_terms"
+      ],
+      "python": "hmath.symbolic.series_terms",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Symbolic.taylorSeries",
+      "c": [
+        "hmath_symbolic_taylor_series"
+      ],
+      "python": "hmath.symbolic.taylor_series",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Symbolic.laurentSeries",
+      "c": [
+        "hmath_symbolic_laurent_series"
+      ],
+      "python": "hmath.symbolic.laurent_series",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Symbolic.maclaurinSeries",
+      "c": [
+        "hmath_symbolic_maclaurin_series"
+      ],
+      "python": "hmath.symbolic.maclaurin_series",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Symbolic.formalPowerSeries",
+      "c": [
+        "hmath_symbolic_formal_power_series"
+      ],
+      "python": "hmath.symbolic.formal_power_series",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Symbolic.multiplyFormalSeries",
+      "c": [
+        "hmath_symbolic_multiply_formal_series"
+      ],
+      "python": "hmath.symbolic.multiply_formal_series",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Symbolic.reciprocalFormalSeries",
+      "c": [
+        "hmath_symbolic_reciprocal_formal_series"
+      ],
+      "python": "hmath.symbolic.reciprocal_formal_series",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Symbolic.fromPolynomial",
+      "c": [
+        "hmath_symbolic_from_polynomial"
+      ],
+      "python": "hmath.symbolic.from_polynomial",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Symbolic.Relation",
+      "c": [
+        "hmath_symbolic_relation_create"
+      ],
+      "python": "hmath.symbolic.Relation",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Symbolic.Truth",
+      "c": [
+        "hmath_symbolic_truth_create"
+      ],
+      "python": "hmath.symbolic.Truth",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Symbolic.Unresolved",
+      "c": [
+        "hmath_symbolic_unresolved_create"
+      ],
+      "python": "hmath.symbolic.Unresolved",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Symbolic.simplifyRelation",
+      "c": [
+        "hmath_symbolic_simplify_relation"
+      ],
+      "python": "hmath.symbolic.simplify_relation",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Symbolic.solveLinearInequality",
+      "c": [
+        "hmath_symbolic_solve_linear_inequality"
+      ],
+      "python": "hmath.symbolic.solve_linear_inequality",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Symbolic.Inconsistent",
+      "c": [
+        "hmath_symbolic_inconsistent_create"
+      ],
+      "python": "hmath.symbolic.Inconsistent",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Symbolic.ParametricSolution",
+      "c": [
+        "hmath_symbolic_parametric_solution_create"
+      ],
+      "python": "hmath.symbolic.ParametricSolution",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Symbolic.solveLinearEquations",
+      "c": [
+        "hmath_symbolic_solve_linear_equations"
+      ],
+      "python": "hmath.symbolic.solve_linear_equations",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Symbolic.symbolicMatrix",
+      "c": [
+        "hmath_symbolic_symbolic_matrix"
+      ],
+      "python": "hmath.symbolic.symbolic_matrix",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Symbolic.matrixExpressions",
+      "c": [
+        "hmath_symbolic_matrix_expressions"
+      ],
+      "python": "hmath.symbolic.matrix_expressions",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Symbolic.matrixAdd",
+      "c": [
+        "hmath_symbolic_matrix_add"
+      ],
+      "python": "hmath.symbolic.matrix_add",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Symbolic.matrixMultiply",
+      "c": [
+        "hmath_symbolic_matrix_multiply"
+      ],
+      "python": "hmath.symbolic.matrix_multiply",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Symbolic.symbolicDeterminant",
+      "c": [
+        "hmath_symbolic_symbolic_determinant"
+      ],
+      "python": "hmath.symbolic.symbolic_determinant",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Symbolic.Guarded",
+      "c": [
+        "hmath_symbolic_guarded_create"
+      ],
+      "python": "hmath.symbolic.Guarded",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Symbolic.guardedValue",
+      "c": [
+        "hmath_symbolic_guarded_value"
+      ],
+      "python": "hmath.symbolic.guarded_value",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Symbolic.requiredConditions",
+      "c": [
+        "hmath_symbolic_required_conditions"
+      ],
+      "python": "hmath.symbolic.required_conditions",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Symbolic.symbolicEigenvalues",
+      "c": [
+        "hmath_symbolic_symbolic_eigenvalues"
+      ],
+      "python": "hmath.symbolic.symbolic_eigenvalues",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Symbolic.numericalSubstitution",
+      "c": [
+        "hmath_symbolic_numerical_substitution"
+      ],
+      "python": "hmath.symbolic.numerical_substitution",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Symbolic.toLaTeX",
+      "c": [
+        "hmath_symbolic_to_la_te_x"
+      ],
+      "python": "hmath.symbolic.to_la_te_x",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Symbolic.toMathML",
+      "c": [
+        "hmath_symbolic_to_math_ml"
+      ],
+      "python": "hmath.symbolic.to_math_ml",
+      "specializations": [
+        "original exact Rational/Double expression domain; lossless positioned AST and original ExprError"
+      ]
+    },
+    {
+      "symbol": "HMath.Expression.BinaryOp",
+      "c": [
+        "hmath_value"
+      ],
+      "python": "hmath.expression.BinaryOp",
+      "specializations": [
+        "original typed record/sum/opaque value; explicit closed enum or shared Value representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Expression.Bindings",
+      "c": [
+        "hmath_value"
+      ],
+      "python": "hmath.expression.Bindings",
+      "specializations": [
+        "original typed record/sum/opaque value; explicit closed enum or shared Value representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Expression.Builtin",
+      "c": [
+        "hmath_value"
+      ],
+      "python": "hmath.expression.Builtin",
+      "specializations": [
+        "original typed record/sum/opaque value; explicit closed enum or shared Value representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Expression.Compiled",
+      "c": [
+        "hmath_value"
+      ],
+      "python": "hmath.expression.Compiled",
+      "specializations": [
+        "original typed record/sum/opaque value; explicit closed enum or shared Value representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Expression.ErrorKind",
+      "c": [
+        "hmath_value"
+      ],
+      "python": "hmath.expression.ErrorKind",
+      "specializations": [
+        "original typed record/sum/opaque value; explicit closed enum or shared Value representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Expression.ExprNode",
+      "c": [
+        "hmath_value"
+      ],
+      "python": "hmath.expression.ExprNode",
+      "specializations": [
+        "original typed record/sum/opaque value; explicit closed enum or shared Value representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Expression.ExpressionCache",
+      "c": [
+        "hmath_value"
+      ],
+      "python": "hmath.expression.ExpressionCache",
+      "specializations": [
+        "original typed record/sum/opaque value; explicit closed enum or shared Value representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Expression.NamedConstant",
+      "c": [
+        "hmath_value"
+      ],
+      "python": "hmath.expression.NamedConstant",
+      "specializations": [
+        "original typed record/sum/opaque value; explicit closed enum or shared Value representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Expression.Precision",
+      "c": [
+        "hmath_value"
+      ],
+      "python": "hmath.expression.Precision",
+      "specializations": [
+        "original typed record/sum/opaque value; explicit closed enum or shared Value representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Expression.Registry",
+      "c": [
+        "hmath_value"
+      ],
+      "python": "hmath.expression.Registry",
+      "specializations": [
+        "original typed record/sum/opaque value; explicit closed enum or shared Value representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Expression.UnaryOp",
+      "c": [
+        "hmath_value"
+      ],
+      "python": "hmath.expression.UnaryOp",
+      "specializations": [
+        "original typed record/sum/opaque value; explicit closed enum or shared Value representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Expression.Value",
+      "c": [
+        "hmath_value"
+      ],
+      "python": "hmath.expression.Value",
+      "specializations": [
+        "original typed record/sum/opaque value; explicit closed enum or shared Value representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Symbolic.Assumptions",
+      "c": [
+        "hmath_value"
+      ],
+      "python": "hmath.symbolic.Assumptions",
+      "specializations": [
+        "original typed record/sum/opaque value; explicit closed enum or shared Value representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Symbolic.Direction",
+      "c": [
+        "hmath_value"
+      ],
+      "python": "hmath.symbolic.Direction",
+      "specializations": [
+        "original typed record/sum/opaque value; explicit closed enum or shared Value representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Symbolic.LimitResult",
+      "c": [
+        "hmath_value"
+      ],
+      "python": "hmath.symbolic.LimitResult",
+      "specializations": [
+        "original typed record/sum/opaque value; explicit closed enum or shared Value representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Symbolic.LinearSolution",
+      "c": [
+        "hmath_value"
+      ],
+      "python": "hmath.symbolic.LinearSolution",
+      "specializations": [
+        "original typed record/sum/opaque value; explicit closed enum or shared Value representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Symbolic.Pattern",
+      "c": [
+        "hmath_value"
+      ],
+      "python": "hmath.symbolic.Pattern",
+      "specializations": [
+        "original typed record/sum/opaque value; explicit closed enum or shared Value representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Symbolic.Property",
+      "c": [
+        "hmath_value"
+      ],
+      "python": "hmath.symbolic.Property",
+      "specializations": [
+        "original typed record/sum/opaque value; explicit closed enum or shared Value representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Symbolic.RelationOp",
+      "c": [
+        "hmath_value"
+      ],
+      "python": "hmath.symbolic.RelationOp",
+      "specializations": [
+        "original typed record/sum/opaque value; explicit closed enum or shared Value representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Symbolic.RelationResult",
+      "c": [
+        "hmath_value"
+      ],
+      "python": "hmath.symbolic.RelationResult",
+      "specializations": [
+        "original typed record/sum/opaque value; explicit closed enum or shared Value representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Symbolic.SymbolicMatrix",
+      "c": [
+        "hmath_value"
+      ],
+      "python": "hmath.symbolic.SymbolicMatrix",
+      "specializations": [
+        "original typed record/sum/opaque value; explicit closed enum or shared Value representation"
+      ]
+    }
+  ]
+}

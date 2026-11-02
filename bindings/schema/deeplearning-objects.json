@@ -1,0 +1,1295 @@
+{
+  "schema": 1,
+  "bindings": [
+    {
+      "symbol": "HMath.DeepLearning.Core.Sigmoid",
+      "c": [
+        "hmath_neural_core_sigmoid_create"
+      ],
+      "python": "hmath.deeplearning_core.Sigmoid",
+      "specializations": [
+        "original fixed Double/INT8/FP16/BF16/AD graph rules as declared; full original RNG state and all result diagnostics"
+      ]
+    },
+    {
+      "symbol": "HMath.DeepLearning.Core.Tanh",
+      "c": [
+        "hmath_neural_core_tanh_create"
+      ],
+      "python": "hmath.deeplearning_core.Tanh",
+      "specializations": [
+        "original fixed Double/INT8/FP16/BF16/AD graph rules as declared; full original RNG state and all result diagnostics"
+      ]
+    },
+    {
+      "symbol": "HMath.DeepLearning.Core.ReLU",
+      "c": [
+        "hmath_neural_core_relu_create"
+      ],
+      "python": "hmath.deeplearning_core.ReLU",
+      "specializations": [
+        "original fixed Double/INT8/FP16/BF16/AD graph rules as declared; full original RNG state and all result diagnostics"
+      ]
+    },
+    {
+      "symbol": "HMath.DeepLearning.Core.SELU",
+      "c": [
+        "hmath_neural_core_selu_create"
+      ],
+      "python": "hmath.deeplearning_core.SELU",
+      "specializations": [
+        "original fixed Double/INT8/FP16/BF16/AD graph rules as declared; full original RNG state and all result diagnostics"
+      ]
+    },
+    {
+      "symbol": "HMath.DeepLearning.Core.GELU",
+      "c": [
+        "hmath_neural_core_gelu_create"
+      ],
+      "python": "hmath.deeplearning_core.GELU",
+      "specializations": [
+        "original fixed Double/INT8/FP16/BF16/AD graph rules as declared; full original RNG state and all result diagnostics"
+      ]
+    },
+    {
+      "symbol": "HMath.DeepLearning.Core.SiLU",
+      "c": [
+        "hmath_neural_core_silu_create"
+      ],
+      "python": "hmath.deeplearning_core.SiLU",
+      "specializations": [
+        "original fixed Double/INT8/FP16/BF16/AD graph rules as declared; full original RNG state and all result diagnostics"
+      ]
+    },
+    {
+      "symbol": "HMath.DeepLearning.Core.Mish",
+      "c": [
+        "hmath_neural_core_mish_create"
+      ],
+      "python": "hmath.deeplearning_core.Mish",
+      "specializations": [
+        "original fixed Double/INT8/FP16/BF16/AD graph rules as declared; full original RNG state and all result diagnostics"
+      ]
+    },
+    {
+      "symbol": "HMath.DeepLearning.Core.Softplus",
+      "c": [
+        "hmath_neural_core_softplus_create"
+      ],
+      "python": "hmath.deeplearning_core.Softplus",
+      "specializations": [
+        "original fixed Double/INT8/FP16/BF16/AD graph rules as declared; full original RNG state and all result diagnostics"
+      ]
+    },
+    {
+      "symbol": "HMath.DeepLearning.Core.Softsign",
+      "c": [
+        "hmath_neural_core_softsign_create"
+      ],
+      "python": "hmath.deeplearning_core.Softsign",
+      "specializations": [
+        "original fixed Double/INT8/FP16/BF16/AD graph rules as declared; full original RNG state and all result diagnostics"
+      ]
+    },
+    {
+      "symbol": "HMath.DeepLearning.Core.HardSigmoid",
+      "c": [
+        "hmath_neural_core_hard_sigmoid_create"
+      ],
+      "python": "hmath.deeplearning_core.HardSigmoid",
+      "specializations": [
+        "original fixed Double/INT8/FP16/BF16/AD graph rules as declared; full original RNG state and all result diagnostics"
+      ]
+    },
+    {
+      "symbol": "HMath.DeepLearning.Core.HardSwish",
+      "c": [
+        "hmath_neural_core_hard_swish_create"
+      ],
+      "python": "hmath.deeplearning_core.HardSwish",
+      "specializations": [
+        "original fixed Double/INT8/FP16/BF16/AD graph rules as declared; full original RNG state and all result diagnostics"
+      ]
+    },
+    {
+      "symbol": "HMath.DeepLearning.Core.LeakyReLU",
+      "c": [
+        "hmath_neural_core_leaky_relu_create"
+      ],
+      "python": "hmath.deeplearning_core.LeakyReLU",
+      "specializations": [
+        "original fixed Double/INT8/FP16/BF16/AD graph rules as declared; full original RNG state and all result diagnostics"
+      ]
+    },
+    {
+      "symbol": "HMath.DeepLearning.Core.PReLU",
+      "c": [
+        "hmath_neural_core_prelu_create"
+      ],
+      "python": "hmath.deeplearning_core.PReLU",
+      "specializations": [
+        "original fixed Double/INT8/FP16/BF16/AD graph rules as declared; full original RNG state and all result diagnostics"
+      ]
+    },
+    {
+      "symbol": "HMath.DeepLearning.Core.ELU",
+      "c": [
+        "hmath_neural_core_elu_create"
+      ],
+      "python": "hmath.deeplearning_core.ELU",
+      "specializations": [
+        "original fixed Double/INT8/FP16/BF16/AD graph rules as declared; full original RNG state and all result diagnostics"
+      ]
+    },
+    {
+      "symbol": "HMath.DeepLearning.Core.Sum",
+      "c": [
+        "hmath_neural_core_sum_create"
+      ],
+      "python": "hmath.deeplearning_core.Sum",
+      "specializations": [
+        "original fixed Double/INT8/FP16/BF16/AD graph rules as declared; full original RNG state and all result diagnostics"
+      ]
+    },
+    {
+      "symbol": "HMath.DeepLearning.Core.Mean",
+      "c": [
+        "hmath_neural_core_mean_create"
+      ],
+      "python": "hmath.deeplearning_core.Mean",
+      "specializations": [
+        "original fixed Double/INT8/FP16/BF16/AD graph rules as declared; full original RNG state and all result diagnostics"
+      ]
+    },
+    {
+      "symbol": "HMath.DeepLearning.Core.MeanSquaredError",
+      "c": [
+        "hmath_neural_core_mean_squared_error_create"
+      ],
+      "python": "hmath.deeplearning_core.MeanSquaredError",
+      "specializations": [
+        "original fixed Double/INT8/FP16/BF16/AD graph rules as declared; full original RNG state and all result diagnostics"
+      ]
+    },
+    {
+      "symbol": "HMath.DeepLearning.Core.MeanAbsoluteError",
+      "c": [
+        "hmath_neural_core_mean_absolute_error_create"
+      ],
+      "python": "hmath.deeplearning_core.MeanAbsoluteError",
+      "specializations": [
+        "original fixed Double/INT8/FP16/BF16/AD graph rules as declared; full original RNG state and all result diagnostics"
+      ]
+    },
+    {
+      "symbol": "HMath.DeepLearning.Core.BinaryCrossEntropy",
+      "c": [
+        "hmath_neural_core_binary_cross_entropy_create"
+      ],
+      "python": "hmath.deeplearning_core.BinaryCrossEntropy",
+      "specializations": [
+        "original fixed Double/INT8/FP16/BF16/AD graph rules as declared; full original RNG state and all result diagnostics"
+      ]
+    },
+    {
+      "symbol": "HMath.DeepLearning.Core.CategoricalCrossEntropy",
+      "c": [
+        "hmath_neural_core_categorical_cross_entropy_create"
+      ],
+      "python": "hmath.deeplearning_core.CategoricalCrossEntropy",
+      "specializations": [
+        "original fixed Double/INT8/FP16/BF16/AD graph rules as declared; full original RNG state and all result diagnostics"
+      ]
+    },
+    {
+      "symbol": "HMath.DeepLearning.Core.NegativeLogLikelihood",
+      "c": [
+        "hmath_neural_core_negative_log_likelihood_create"
+      ],
+      "python": "hmath.deeplearning_core.NegativeLogLikelihood",
+      "specializations": [
+        "original fixed Double/INT8/FP16/BF16/AD graph rules as declared; full original RNG state and all result diagnostics"
+      ]
+    },
+    {
+      "symbol": "HMath.DeepLearning.Core.KLDivergence",
+      "c": [
+        "hmath_neural_core_kl_divergence_create"
+      ],
+      "python": "hmath.deeplearning_core.KLDivergence",
+      "specializations": [
+        "original fixed Double/INT8/FP16/BF16/AD graph rules as declared; full original RNG state and all result diagnostics"
+      ]
+    },
+    {
+      "symbol": "HMath.DeepLearning.Core.CosineLoss",
+      "c": [
+        "hmath_neural_core_cosine_loss_create"
+      ],
+      "python": "hmath.deeplearning_core.CosineLoss",
+      "specializations": [
+        "original fixed Double/INT8/FP16/BF16/AD graph rules as declared; full original RNG state and all result diagnostics"
+      ]
+    },
+    {
+      "symbol": "HMath.DeepLearning.Core.Huber",
+      "c": [
+        "hmath_neural_core_huber_create"
+      ],
+      "python": "hmath.deeplearning_core.Huber",
+      "specializations": [
+        "original fixed Double/INT8/FP16/BF16/AD graph rules as declared; full original RNG state and all result diagnostics"
+      ]
+    },
+    {
+      "symbol": "HMath.DeepLearning.Core.SmoothL1",
+      "c": [
+        "hmath_neural_core_smooth_l1_create"
+      ],
+      "python": "hmath.deeplearning_core.SmoothL1",
+      "specializations": [
+        "original fixed Double/INT8/FP16/BF16/AD graph rules as declared; full original RNG state and all result diagnostics"
+      ]
+    },
+    {
+      "symbol": "HMath.DeepLearning.Core.Hinge",
+      "c": [
+        "hmath_neural_core_hinge_create"
+      ],
+      "python": "hmath.deeplearning_core.Hinge",
+      "specializations": [
+        "original fixed Double/INT8/FP16/BF16/AD graph rules as declared; full original RNG state and all result diagnostics"
+      ]
+    },
+    {
+      "symbol": "HMath.DeepLearning.Core.activation",
+      "c": [
+        "hmath_neural_core_activation"
+      ],
+      "python": "hmath.deeplearning_core.activation",
+      "specializations": [
+        "original fixed Double/INT8/FP16/BF16/AD graph rules as declared; full original RNG state and all result diagnostics"
+      ]
+    },
+    {
+      "symbol": "HMath.DeepLearning.Core.activationDerivative",
+      "c": [
+        "hmath_neural_core_activation_derivative"
+      ],
+      "python": "hmath.deeplearning_core.activation_derivative",
+      "specializations": [
+        "original fixed Double/INT8/FP16/BF16/AD graph rules as declared; full original RNG state and all result diagnostics"
+      ]
+    },
+    {
+      "symbol": "HMath.DeepLearning.Core.activationExpr",
+      "c": [
+        "hmath_neural_core_activation_expr"
+      ],
+      "python": "hmath.deeplearning_core.activation_expr",
+      "specializations": [
+        "original fixed Double/INT8/FP16/BF16/AD graph rules as declared; full original RNG state and all result diagnostics"
+      ]
+    },
+    {
+      "symbol": "HMath.DeepLearning.Core.softmaxExpr",
+      "c": [
+        "hmath_neural_core_softmax_expr"
+      ],
+      "python": "hmath.deeplearning_core.softmax_expr",
+      "specializations": [
+        "original fixed Double/INT8/FP16/BF16/AD graph rules as declared; full original RNG state and all result diagnostics"
+      ]
+    },
+    {
+      "symbol": "HMath.DeepLearning.Core.logSoftmaxExpr",
+      "c": [
+        "hmath_neural_core_log_softmax_expr"
+      ],
+      "python": "hmath.deeplearning_core.log_softmax_expr",
+      "specializations": [
+        "original fixed Double/INT8/FP16/BF16/AD graph rules as declared; full original RNG state and all result diagnostics"
+      ]
+    },
+    {
+      "symbol": "HMath.DeepLearning.Core.sparsemaxExpr",
+      "c": [
+        "hmath_neural_core_sparsemax_expr"
+      ],
+      "python": "hmath.deeplearning_core.sparsemax_expr",
+      "specializations": [
+        "original fixed Double/INT8/FP16/BF16/AD graph rules as declared; full original RNG state and all result diagnostics"
+      ]
+    },
+    {
+      "symbol": "HMath.DeepLearning.Core.loss",
+      "c": [
+        "hmath_neural_core_loss"
+      ],
+      "python": "hmath.deeplearning_core.loss",
+      "specializations": [
+        "original fixed Double/INT8/FP16/BF16/AD graph rules as declared; full original RNG state and all result diagnostics"
+      ]
+    },
+    {
+      "symbol": "HMath.DeepLearning.Core.lossGradient",
+      "c": [
+        "hmath_neural_core_loss_gradient"
+      ],
+      "python": "hmath.deeplearning_core.loss_gradient",
+      "specializations": [
+        "original fixed Double/INT8/FP16/BF16/AD graph rules as declared; full original RNG state and all result diagnostics"
+      ]
+    },
+    {
+      "symbol": "HMath.DeepLearning.Core.lossExpr",
+      "c": [
+        "hmath_neural_core_loss_expr"
+      ],
+      "python": "hmath.deeplearning_core.loss_expr",
+      "specializations": [
+        "original fixed Double/INT8/FP16/BF16/AD graph rules as declared; full original RNG state and all result diagnostics"
+      ]
+    },
+    {
+      "symbol": "HMath.DeepLearning.Core.binaryCrossEntropyLogits",
+      "c": [
+        "hmath_neural_core_binary_cross_entropy_logits"
+      ],
+      "python": "hmath.deeplearning_core.binary_cross_entropy_logits",
+      "specializations": [
+        "original fixed Double/INT8/FP16/BF16/AD graph rules as declared; full original RNG state and all result diagnostics"
+      ]
+    },
+    {
+      "symbol": "HMath.DeepLearning.Core.ctcLoss",
+      "c": [
+        "hmath_neural_core_ctc_loss"
+      ],
+      "python": "hmath.deeplearning_core.ctc_loss",
+      "specializations": [
+        "original fixed Double/INT8/FP16/BF16/AD graph rules as declared; full original RNG state and all result diagnostics"
+      ]
+    },
+    {
+      "symbol": "HMath.DeepLearning.Core.ctcLossGradient",
+      "c": [
+        "hmath_neural_core_ctc_loss_gradient"
+      ],
+      "python": "hmath.deeplearning_core.ctc_loss_gradient",
+      "specializations": [
+        "original fixed Double/INT8/FP16/BF16/AD graph rules as declared; full original RNG state and all result diagnostics"
+      ]
+    },
+    {
+      "symbol": "HMath.DeepLearning.Core.ctcLossExpr",
+      "c": [
+        "hmath_neural_core_ctc_loss_expr"
+      ],
+      "python": "hmath.deeplearning_core.ctc_loss_expr",
+      "specializations": [
+        "original fixed Double/INT8/FP16/BF16/AD graph rules as declared; full original RNG state and all result diagnostics"
+      ]
+    },
+    {
+      "symbol": "HMath.DeepLearning.Layers.Training",
+      "c": [
+        "hmath_neural_layers_training_create"
+      ],
+      "python": "hmath.deeplearning_layers.Training.TRAINING",
+      "specializations": [
+        "original fixed Double/INT8/FP16/BF16/AD graph rules as declared; full original RNG state and all result diagnostics"
+      ]
+    },
+    {
+      "symbol": "HMath.DeepLearning.Layers.Inference",
+      "c": [
+        "hmath_neural_layers_inference_create"
+      ],
+      "python": "hmath.deeplearning_layers.Inference",
+      "specializations": [
+        "original fixed Double/INT8/FP16/BF16/AD graph rules as declared; full original RNG state and all result diagnostics"
+      ]
+    },
+    {
+      "symbol": "HMath.DeepLearning.Layers.dropout",
+      "c": [
+        "hmath_neural_layers_dropout"
+      ],
+      "python": "hmath.deeplearning_layers.dropout",
+      "specializations": [
+        "original fixed Double/INT8/FP16/BF16/AD graph rules as declared; full original RNG state and all result diagnostics"
+      ]
+    },
+    {
+      "symbol": "HMath.DeepLearning.Layers.spatialDropout",
+      "c": [
+        "hmath_neural_layers_spatial_dropout"
+      ],
+      "python": "hmath.deeplearning_layers.spatial_dropout",
+      "specializations": [
+        "original fixed Double/INT8/FP16/BF16/AD graph rules as declared; full original RNG state and all result diagnostics"
+      ]
+    },
+    {
+      "symbol": "HMath.DeepLearning.Layers.BatchNormState",
+      "c": [
+        "hmath_neural_layers_batch_norm_state_create"
+      ],
+      "python": "hmath.deeplearning_layers.BatchNormState",
+      "specializations": [
+        "original fixed Double/INT8/FP16/BF16/AD graph rules as declared; full original RNG state and all result diagnostics"
+      ]
+    },
+    {
+      "symbol": "HMath.DeepLearning.Layers.runningMean",
+      "c": [
+        "hmath_neural_layers_running_mean"
+      ],
+      "python": "hmath.deeplearning_layers.running_mean",
+      "specializations": [
+        "original fixed Double/INT8/FP16/BF16/AD graph rules as declared; full original RNG state and all result diagnostics"
+      ]
+    },
+    {
+      "symbol": "HMath.DeepLearning.Layers.runningVariance",
+      "c": [
+        "hmath_neural_layers_running_variance"
+      ],
+      "python": "hmath.deeplearning_layers.running_variance",
+      "specializations": [
+        "original fixed Double/INT8/FP16/BF16/AD graph rules as declared; full original RNG state and all result diagnostics"
+      ]
+    },
+    {
+      "symbol": "HMath.DeepLearning.Layers.batchesSeen",
+      "c": [
+        "hmath_neural_layers_batches_seen"
+      ],
+      "python": "hmath.deeplearning_layers.batches_seen",
+      "specializations": [
+        "original fixed Double/INT8/FP16/BF16/AD graph rules as declared; full original RNG state and all result diagnostics"
+      ]
+    },
+    {
+      "symbol": "HMath.DeepLearning.Layers.batchNorm",
+      "c": [
+        "hmath_neural_layers_batch_norm"
+      ],
+      "python": "hmath.deeplearning_layers.batch_norm",
+      "specializations": [
+        "original fixed Double/INT8/FP16/BF16/AD graph rules as declared; full original RNG state and all result diagnostics"
+      ]
+    },
+    {
+      "symbol": "HMath.DeepLearning.Layers.layerNorm",
+      "c": [
+        "hmath_neural_layers_layer_norm"
+      ],
+      "python": "hmath.deeplearning_layers.layer_norm",
+      "specializations": [
+        "original fixed Double/INT8/FP16/BF16/AD graph rules as declared; full original RNG state and all result diagnostics"
+      ]
+    },
+    {
+      "symbol": "HMath.DeepLearning.Layers.rmsNorm",
+      "c": [
+        "hmath_neural_layers_rms_norm"
+      ],
+      "python": "hmath.deeplearning_layers.rms_norm",
+      "specializations": [
+        "original fixed Double/INT8/FP16/BF16/AD graph rules as declared; full original RNG state and all result diagnostics"
+      ]
+    },
+    {
+      "symbol": "HMath.DeepLearning.Layers.instanceNorm",
+      "c": [
+        "hmath_neural_layers_instance_norm"
+      ],
+      "python": "hmath.deeplearning_layers.instance_norm",
+      "specializations": [
+        "original fixed Double/INT8/FP16/BF16/AD graph rules as declared; full original RNG state and all result diagnostics"
+      ]
+    },
+    {
+      "symbol": "HMath.DeepLearning.Layers.groupNorm",
+      "c": [
+        "hmath_neural_layers_group_norm"
+      ],
+      "python": "hmath.deeplearning_layers.group_norm",
+      "specializations": [
+        "original fixed Double/INT8/FP16/BF16/AD graph rules as declared; full original RNG state and all result diagnostics"
+      ]
+    },
+    {
+      "symbol": "HMath.DeepLearning.Layers.weightNorm",
+      "c": [
+        "hmath_neural_layers_weight_norm"
+      ],
+      "python": "hmath.deeplearning_layers.weight_norm",
+      "specializations": [
+        "original fixed Double/INT8/FP16/BF16/AD graph rules as declared; full original RNG state and all result diagnostics"
+      ]
+    },
+    {
+      "symbol": "HMath.DeepLearning.Layers.XavierUniform",
+      "c": [
+        "hmath_neural_layers_xavier_uniform_create"
+      ],
+      "python": "hmath.deeplearning_layers.XavierUniform",
+      "specializations": [
+        "original fixed Double/INT8/FP16/BF16/AD graph rules as declared; full original RNG state and all result diagnostics"
+      ]
+    },
+    {
+      "symbol": "HMath.DeepLearning.Layers.XavierNormal",
+      "c": [
+        "hmath_neural_layers_xavier_normal_create"
+      ],
+      "python": "hmath.deeplearning_layers.XavierNormal",
+      "specializations": [
+        "original fixed Double/INT8/FP16/BF16/AD graph rules as declared; full original RNG state and all result diagnostics"
+      ]
+    },
+    {
+      "symbol": "HMath.DeepLearning.Layers.KaimingUniform",
+      "c": [
+        "hmath_neural_layers_kaiming_uniform_create"
+      ],
+      "python": "hmath.deeplearning_layers.KaimingUniform",
+      "specializations": [
+        "original fixed Double/INT8/FP16/BF16/AD graph rules as declared; full original RNG state and all result diagnostics"
+      ]
+    },
+    {
+      "symbol": "HMath.DeepLearning.Layers.KaimingNormal",
+      "c": [
+        "hmath_neural_layers_kaiming_normal_create"
+      ],
+      "python": "hmath.deeplearning_layers.KaimingNormal",
+      "specializations": [
+        "original fixed Double/INT8/FP16/BF16/AD graph rules as declared; full original RNG state and all result diagnostics"
+      ]
+    },
+    {
+      "symbol": "HMath.DeepLearning.Layers.Orthogonal",
+      "c": [
+        "hmath_neural_layers_orthogonal_create"
+      ],
+      "python": "hmath.deeplearning_layers.Orthogonal",
+      "specializations": [
+        "original fixed Double/INT8/FP16/BF16/AD graph rules as declared; full original RNG state and all result diagnostics"
+      ]
+    },
+    {
+      "symbol": "HMath.DeepLearning.Layers.TruncatedNormal",
+      "c": [
+        "hmath_neural_layers_truncated_normal_create"
+      ],
+      "python": "hmath.deeplearning_layers.TruncatedNormal",
+      "specializations": [
+        "original fixed Double/INT8/FP16/BF16/AD graph rules as declared; full original RNG state and all result diagnostics"
+      ]
+    },
+    {
+      "symbol": "HMath.DeepLearning.Layers.initializeWeights",
+      "c": [
+        "hmath_neural_layers_initialize_weights"
+      ],
+      "python": "hmath.deeplearning_layers.initialize_weights",
+      "specializations": [
+        "original fixed Double/INT8/FP16/BF16/AD graph rules as declared; full original RNG state and all result diagnostics"
+      ]
+    },
+    {
+      "symbol": "HMath.DeepLearning.Layers.embedding",
+      "c": [
+        "hmath_neural_layers_embedding"
+      ],
+      "python": "hmath.deeplearning_layers.embedding",
+      "specializations": [
+        "original fixed Double/INT8/FP16/BF16/AD graph rules as declared; full original RNG state and all result diagnostics"
+      ]
+    },
+    {
+      "symbol": "HMath.DeepLearning.Layers.dense",
+      "c": [
+        "hmath_neural_layers_dense"
+      ],
+      "python": "hmath.deeplearning_layers.dense",
+      "specializations": [
+        "original fixed Double/INT8/FP16/BF16/AD graph rules as declared; full original RNG state and all result diagnostics"
+      ]
+    },
+    {
+      "symbol": "HMath.DeepLearning.Layers.denseAD",
+      "c": [
+        "hmath_neural_layers_dense_ad"
+      ],
+      "python": "hmath.deeplearning_layers.dense_ad",
+      "specializations": [
+        "original fixed Double/INT8/FP16/BF16/AD graph rules as declared; full original RNG state and all result diagnostics"
+      ]
+    },
+    {
+      "symbol": "HMath.DeepLearning.Layers.ConvOptions",
+      "c": [
+        "hmath_neural_layers_conv_options_create"
+      ],
+      "python": "hmath.deeplearning_layers.ConvOptions",
+      "specializations": [
+        "original fixed Double/INT8/FP16/BF16/AD graph rules as declared; full original RNG state and all result diagnostics"
+      ]
+    },
+    {
+      "symbol": "HMath.DeepLearning.Layers.convolutionStride",
+      "c": [
+        "hmath_neural_layers_convolution_stride"
+      ],
+      "python": "hmath.deeplearning_layers.convolution_stride",
+      "specializations": [
+        "original fixed Double/INT8/FP16/BF16/AD graph rules as declared; full original RNG state and all result diagnostics"
+      ]
+    },
+    {
+      "symbol": "HMath.DeepLearning.Layers.convolutionPadding",
+      "c": [
+        "hmath_neural_layers_convolution_padding"
+      ],
+      "python": "hmath.deeplearning_layers.convolution_padding",
+      "specializations": [
+        "original fixed Double/INT8/FP16/BF16/AD graph rules as declared; full original RNG state and all result diagnostics"
+      ]
+    },
+    {
+      "symbol": "HMath.DeepLearning.Layers.convolutionDilation",
+      "c": [
+        "hmath_neural_layers_convolution_dilation"
+      ],
+      "python": "hmath.deeplearning_layers.convolution_dilation",
+      "specializations": [
+        "original fixed Double/INT8/FP16/BF16/AD graph rules as declared; full original RNG state and all result diagnostics"
+      ]
+    },
+    {
+      "symbol": "HMath.DeepLearning.Layers.convolutionGroups",
+      "c": [
+        "hmath_neural_layers_convolution_groups"
+      ],
+      "python": "hmath.deeplearning_layers.convolution_groups",
+      "specializations": [
+        "original fixed Double/INT8/FP16/BF16/AD graph rules as declared; full original RNG state and all result diagnostics"
+      ]
+    },
+    {
+      "symbol": "HMath.DeepLearning.Layers.convolution",
+      "c": [
+        "hmath_neural_layers_convolution"
+      ],
+      "python": "hmath.deeplearning_layers.convolution",
+      "specializations": [
+        "original fixed Double/INT8/FP16/BF16/AD graph rules as declared; full original RNG state and all result diagnostics"
+      ]
+    },
+    {
+      "symbol": "HMath.DeepLearning.Layers.depthwiseConvolution",
+      "c": [
+        "hmath_neural_layers_depthwise_convolution"
+      ],
+      "python": "hmath.deeplearning_layers.depthwise_convolution",
+      "specializations": [
+        "original fixed Double/INT8/FP16/BF16/AD graph rules as declared; full original RNG state and all result diagnostics"
+      ]
+    },
+    {
+      "symbol": "HMath.DeepLearning.Layers.convolutionAD",
+      "c": [
+        "hmath_neural_layers_convolution_ad"
+      ],
+      "python": "hmath.deeplearning_layers.convolution_ad",
+      "specializations": [
+        "original fixed Double/INT8/FP16/BF16/AD graph rules as declared; full original RNG state and all result diagnostics"
+      ]
+    },
+    {
+      "symbol": "HMath.DeepLearning.Layers.transposedConvolution",
+      "c": [
+        "hmath_neural_layers_transposed_convolution"
+      ],
+      "python": "hmath.deeplearning_layers.transposed_convolution",
+      "specializations": [
+        "original fixed Double/INT8/FP16/BF16/AD graph rules as declared; full original RNG state and all result diagnostics"
+      ]
+    },
+    {
+      "symbol": "HMath.DeepLearning.Layers.MaxPool",
+      "c": [
+        "hmath_neural_layers_max_pool_create"
+      ],
+      "python": "hmath.deeplearning_layers.MaxPool",
+      "specializations": [
+        "original fixed Double/INT8/FP16/BF16/AD graph rules as declared; full original RNG state and all result diagnostics"
+      ]
+    },
+    {
+      "symbol": "HMath.DeepLearning.Layers.AveragePool",
+      "c": [
+        "hmath_neural_layers_average_pool_create"
+      ],
+      "python": "hmath.deeplearning_layers.AveragePool",
+      "specializations": [
+        "original fixed Double/INT8/FP16/BF16/AD graph rules as declared; full original RNG state and all result diagnostics"
+      ]
+    },
+    {
+      "symbol": "HMath.DeepLearning.Layers.pooling",
+      "c": [
+        "hmath_neural_layers_pooling"
+      ],
+      "python": "hmath.deeplearning_layers.pooling",
+      "specializations": [
+        "original fixed Double/INT8/FP16/BF16/AD graph rules as declared; full original RNG state and all result diagnostics"
+      ]
+    },
+    {
+      "symbol": "HMath.DeepLearning.Layers.adaptivePooling",
+      "c": [
+        "hmath_neural_layers_adaptive_pooling"
+      ],
+      "python": "hmath.deeplearning_layers.adaptive_pooling",
+      "specializations": [
+        "original fixed Double/INT8/FP16/BF16/AD graph rules as declared; full original RNG state and all result diagnostics"
+      ]
+    },
+    {
+      "symbol": "HMath.DeepLearning.Layers.globalPooling",
+      "c": [
+        "hmath_neural_layers_global_pooling"
+      ],
+      "python": "hmath.deeplearning_layers.global_pooling",
+      "specializations": [
+        "original fixed Double/INT8/FP16/BF16/AD graph rules as declared; full original RNG state and all result diagnostics"
+      ]
+    },
+    {
+      "symbol": "HMath.DeepLearning.Layers.scaledDotProductAttention",
+      "c": [
+        "hmath_neural_layers_scaled_dot_product_attention"
+      ],
+      "python": "hmath.deeplearning_layers.scaled_dot_product_attention",
+      "specializations": [
+        "original fixed Double/INT8/FP16/BF16/AD graph rules as declared; full original RNG state and all result diagnostics"
+      ]
+    },
+    {
+      "symbol": "HMath.DeepLearning.Layers.multiheadAttention",
+      "c": [
+        "hmath_neural_layers_multihead_attention"
+      ],
+      "python": "hmath.deeplearning_layers.multihead_attention",
+      "specializations": [
+        "original fixed Double/INT8/FP16/BF16/AD graph rules as declared; full original RNG state and all result diagnostics"
+      ]
+    },
+    {
+      "symbol": "HMath.DeepLearning.Layers.causalMask",
+      "c": [
+        "hmath_neural_layers_causal_mask"
+      ],
+      "python": "hmath.deeplearning_layers.causal_mask",
+      "specializations": [
+        "original fixed Double/INT8/FP16/BF16/AD graph rules as declared; full original RNG state and all result diagnostics"
+      ]
+    },
+    {
+      "symbol": "HMath.DeepLearning.Layers.rotaryEmbedding",
+      "c": [
+        "hmath_neural_layers_rotary_embedding"
+      ],
+      "python": "hmath.deeplearning_layers.rotary_embedding",
+      "specializations": [
+        "original fixed Double/INT8/FP16/BF16/AD graph rules as declared; full original RNG state and all result diagnostics"
+      ]
+    },
+    {
+      "symbol": "HMath.DeepLearning.Layers.sinusoidalEncoding",
+      "c": [
+        "hmath_neural_layers_sinusoidal_encoding"
+      ],
+      "python": "hmath.deeplearning_layers.sinusoidal_encoding",
+      "specializations": [
+        "original fixed Double/INT8/FP16/BF16/AD graph rules as declared; full original RNG state and all result diagnostics"
+      ]
+    },
+    {
+      "symbol": "HMath.DeepLearning.Layers.alibiBias",
+      "c": [
+        "hmath_neural_layers_alibi_bias"
+      ],
+      "python": "hmath.deeplearning_layers.alibi_bias",
+      "specializations": [
+        "original fixed Double/INT8/FP16/BF16/AD graph rules as declared; full original RNG state and all result diagnostics"
+      ]
+    },
+    {
+      "symbol": "HMath.DeepLearning.Layers.emptyCache",
+      "c": [
+        "hmath_neural_layers_empty_cache"
+      ],
+      "python": "hmath.deeplearning_layers.empty_cache",
+      "specializations": [
+        "original fixed Double/INT8/FP16/BF16/AD graph rules as declared; full original RNG state and all result diagnostics"
+      ]
+    },
+    {
+      "symbol": "HMath.DeepLearning.Layers.appendCache",
+      "c": [
+        "hmath_neural_layers_append_cache"
+      ],
+      "python": "hmath.deeplearning_layers.append_cache",
+      "specializations": [
+        "original fixed Double/INT8/FP16/BF16/AD graph rules as declared; full original RNG state and all result diagnostics"
+      ]
+    },
+    {
+      "symbol": "HMath.DeepLearning.Layers.cacheValues",
+      "c": [
+        "hmath_neural_layers_cache_values"
+      ],
+      "python": "hmath.deeplearning_layers.cache_values",
+      "specializations": [
+        "original fixed Double/INT8/FP16/BF16/AD graph rules as declared; full original RNG state and all result diagnostics"
+      ]
+    },
+    {
+      "symbol": "HMath.DeepLearning.Layers.transformerFeedForward",
+      "c": [
+        "hmath_neural_layers_transformer_feed_forward"
+      ],
+      "python": "hmath.deeplearning_layers.transformer_feed_forward",
+      "specializations": [
+        "original fixed Double/INT8/FP16/BF16/AD graph rules as declared; full original RNG state and all result diagnostics"
+      ]
+    },
+    {
+      "symbol": "HMath.DeepLearning.Layers.layerNormAD",
+      "c": [
+        "hmath_neural_layers_layer_norm_ad"
+      ],
+      "python": "hmath.deeplearning_layers.layer_norm_ad",
+      "specializations": [
+        "original fixed Double/INT8/FP16/BF16/AD graph rules as declared; full original RNG state and all result diagnostics"
+      ]
+    },
+    {
+      "symbol": "HMath.DeepLearning.Layers.rmsNormAD",
+      "c": [
+        "hmath_neural_layers_rms_norm_ad"
+      ],
+      "python": "hmath.deeplearning_layers.rms_norm_ad",
+      "specializations": [
+        "original fixed Double/INT8/FP16/BF16/AD graph rules as declared; full original RNG state and all result diagnostics"
+      ]
+    },
+    {
+      "symbol": "HMath.DeepLearning.Layers.scaledDotProductAttentionAD",
+      "c": [
+        "hmath_neural_layers_scaled_dot_product_attention_ad"
+      ],
+      "python": "hmath.deeplearning_layers.scaled_dot_product_attention_ad",
+      "specializations": [
+        "original fixed Double/INT8/FP16/BF16/AD graph rules as declared; full original RNG state and all result diagnostics"
+      ]
+    },
+    {
+      "symbol": "HMath.DeepLearning.Precision.Symmetric",
+      "c": [
+        "hmath_neural_precision_symmetric_create"
+      ],
+      "python": "hmath.deeplearning_precision.Symmetric",
+      "specializations": [
+        "original fixed Double/INT8/FP16/BF16/AD graph rules as declared; full original RNG state and all result diagnostics"
+      ]
+    },
+    {
+      "symbol": "HMath.DeepLearning.Precision.Asymmetric",
+      "c": [
+        "hmath_neural_precision_asymmetric_create"
+      ],
+      "python": "hmath.deeplearning_precision.Asymmetric",
+      "specializations": [
+        "original fixed Double/INT8/FP16/BF16/AD graph rules as declared; full original RNG state and all result diagnostics"
+      ]
+    },
+    {
+      "symbol": "HMath.DeepLearning.Precision.quantize",
+      "c": [
+        "hmath_neural_precision_quantize"
+      ],
+      "python": "hmath.deeplearning_precision.quantize",
+      "specializations": [
+        "original fixed Double/INT8/FP16/BF16/AD graph rules as declared; full original RNG state and all result diagnostics"
+      ]
+    },
+    {
+      "symbol": "HMath.DeepLearning.Precision.dequantize",
+      "c": [
+        "hmath_neural_precision_dequantize"
+      ],
+      "python": "hmath.deeplearning_precision.dequantize",
+      "specializations": [
+        "original fixed Double/INT8/FP16/BF16/AD graph rules as declared; full original RNG state and all result diagnostics"
+      ]
+    },
+    {
+      "symbol": "HMath.DeepLearning.Precision.quantizedValues",
+      "c": [
+        "hmath_neural_precision_quantized_values"
+      ],
+      "python": "hmath.deeplearning_precision.quantized_values",
+      "specializations": [
+        "original fixed Double/INT8/FP16/BF16/AD graph rules as declared; full original RNG state and all result diagnostics"
+      ]
+    },
+    {
+      "symbol": "HMath.DeepLearning.Precision.quantizationScales",
+      "c": [
+        "hmath_neural_precision_quantization_scales"
+      ],
+      "python": "hmath.deeplearning_precision.quantization_scales",
+      "specializations": [
+        "original fixed Double/INT8/FP16/BF16/AD graph rules as declared; full original RNG state and all result diagnostics"
+      ]
+    },
+    {
+      "symbol": "HMath.DeepLearning.Precision.quantizationZeroPoints",
+      "c": [
+        "hmath_neural_precision_quantization_zero_points"
+      ],
+      "python": "hmath.deeplearning_precision.quantization_zero_points",
+      "specializations": [
+        "original fixed Double/INT8/FP16/BF16/AD graph rules as declared; full original RNG state and all result diagnostics"
+      ]
+    },
+    {
+      "symbol": "HMath.DeepLearning.Precision.int8Gemm",
+      "c": [
+        "hmath_neural_precision_int8_gemm"
+      ],
+      "python": "hmath.deeplearning_precision.int8_gemm",
+      "specializations": [
+        "original fixed Double/INT8/FP16/BF16/AD graph rules as declared; full original RNG state and all result diagnostics"
+      ]
+    },
+    {
+      "symbol": "HMath.DeepLearning.Precision.FP16",
+      "c": [
+        "hmath_neural_precision_fp16_create"
+      ],
+      "python": "hmath.deeplearning_precision.FP16",
+      "specializations": [
+        "original fixed Double/INT8/FP16/BF16/AD graph rules as declared; full original RNG state and all result diagnostics"
+      ]
+    },
+    {
+      "symbol": "HMath.DeepLearning.Precision.BF16",
+      "c": [
+        "hmath_neural_precision_bf16_create"
+      ],
+      "python": "hmath.deeplearning_precision.BF16",
+      "specializations": [
+        "original fixed Double/INT8/FP16/BF16/AD graph rules as declared; full original RNG state and all result diagnostics"
+      ]
+    },
+    {
+      "symbol": "HMath.DeepLearning.Precision.reducedGemm",
+      "c": [
+        "hmath_neural_precision_reduced_gemm"
+      ],
+      "python": "hmath.deeplearning_precision.reduced_gemm",
+      "specializations": [
+        "original fixed Double/INT8/FP16/BF16/AD graph rules as declared; full original RNG state and all result diagnostics"
+      ]
+    },
+    {
+      "symbol": "HMath.DeepLearning.Precision.LossScaler",
+      "c": [
+        "hmath_neural_precision_loss_scaler_create"
+      ],
+      "python": "hmath.deeplearning_precision.LossScaler",
+      "specializations": [
+        "original fixed Double/INT8/FP16/BF16/AD graph rules as declared; full original RNG state and all result diagnostics"
+      ]
+    },
+    {
+      "symbol": "HMath.DeepLearning.Precision.lossScale",
+      "c": [
+        "hmath_neural_precision_loss_scale"
+      ],
+      "python": "hmath.deeplearning_precision.loss_scale",
+      "specializations": [
+        "original fixed Double/INT8/FP16/BF16/AD graph rules as declared; full original RNG state and all result diagnostics"
+      ]
+    },
+    {
+      "symbol": "HMath.DeepLearning.Precision.scaleGrowthInterval",
+      "c": [
+        "hmath_neural_precision_scale_growth_interval"
+      ],
+      "python": "hmath.deeplearning_precision.scale_growth_interval",
+      "specializations": [
+        "original fixed Double/INT8/FP16/BF16/AD graph rules as declared; full original RNG state and all result diagnostics"
+      ]
+    },
+    {
+      "symbol": "HMath.DeepLearning.Precision.finiteSteps",
+      "c": [
+        "hmath_neural_precision_finite_steps"
+      ],
+      "python": "hmath.deeplearning_precision.finite_steps",
+      "specializations": [
+        "original fixed Double/INT8/FP16/BF16/AD graph rules as declared; full original RNG state and all result diagnostics"
+      ]
+    },
+    {
+      "symbol": "HMath.DeepLearning.Precision.initialLossScaler",
+      "c": [
+        "hmath_neural_precision_initial_loss_scaler"
+      ],
+      "python": "hmath.deeplearning_precision.initial_loss_scaler",
+      "specializations": [
+        "original fixed Double/INT8/FP16/BF16/AD graph rules as declared; full original RNG state and all result diagnostics"
+      ]
+    },
+    {
+      "symbol": "HMath.DeepLearning.Precision.scaleLoss",
+      "c": [
+        "hmath_neural_precision_scale_loss"
+      ],
+      "python": "hmath.deeplearning_precision.scale_loss",
+      "specializations": [
+        "original fixed Double/INT8/FP16/BF16/AD graph rules as declared; full original RNG state and all result diagnostics"
+      ]
+    },
+    {
+      "symbol": "HMath.DeepLearning.Precision.unscaleGradients",
+      "c": [
+        "hmath_neural_precision_unscale_gradients"
+      ],
+      "python": "hmath.deeplearning_precision.unscale_gradients",
+      "specializations": [
+        "original fixed Double/INT8/FP16/BF16/AD graph rules as declared; full original RNG state and all result diagnostics"
+      ]
+    },
+    {
+      "symbol": "HMath.DeepLearning.Precision.updateLossScaler",
+      "c": [
+        "hmath_neural_precision_update_loss_scaler"
+      ],
+      "python": "hmath.deeplearning_precision.update_loss_scaler",
+      "specializations": [
+        "original fixed Double/INT8/FP16/BF16/AD graph rules as declared; full original RNG state and all result diagnostics"
+      ]
+    },
+    {
+      "symbol": "HMath.DeepLearning.Metrics.ClassificationMetrics",
+      "c": [
+        "hmath_neural_metrics_classification_metrics_create"
+      ],
+      "python": "hmath.deeplearning_metrics.ClassificationMetrics",
+      "specializations": [
+        "original fixed Double/INT8/FP16/BF16/AD graph rules as declared; full original RNG state and all result diagnostics"
+      ]
+    },
+    {
+      "symbol": "HMath.DeepLearning.Metrics.accuracy",
+      "c": [
+        "hmath_neural_metrics_accuracy"
+      ],
+      "python": "hmath.deeplearning_metrics.accuracy",
+      "specializations": [
+        "original fixed Double/INT8/FP16/BF16/AD graph rules as declared; full original RNG state and all result diagnostics"
+      ]
+    },
+    {
+      "symbol": "HMath.DeepLearning.Metrics.precisionByClass",
+      "c": [
+        "hmath_neural_metrics_precision_by_class"
+      ],
+      "python": "hmath.deeplearning_metrics.precision_by_class",
+      "specializations": [
+        "original fixed Double/INT8/FP16/BF16/AD graph rules as declared; full original RNG state and all result diagnostics"
+      ]
+    },
+    {
+      "symbol": "HMath.DeepLearning.Metrics.recallByClass",
+      "c": [
+        "hmath_neural_metrics_recall_by_class"
+      ],
+      "python": "hmath.deeplearning_metrics.recall_by_class",
+      "specializations": [
+        "original fixed Double/INT8/FP16/BF16/AD graph rules as declared; full original RNG state and all result diagnostics"
+      ]
+    },
+    {
+      "symbol": "HMath.DeepLearning.Metrics.f1ByClass",
+      "c": [
+        "hmath_neural_metrics_f1_by_class"
+      ],
+      "python": "hmath.deeplearning_metrics.f1_by_class",
+      "specializations": [
+        "original fixed Double/INT8/FP16/BF16/AD graph rules as declared; full original RNG state and all result diagnostics"
+      ]
+    },
+    {
+      "symbol": "HMath.DeepLearning.Metrics.confusionMatrix",
+      "c": [
+        "hmath_neural_metrics_confusion_matrix"
+      ],
+      "python": "hmath.deeplearning_metrics.confusion_matrix",
+      "specializations": [
+        "original fixed Double/INT8/FP16/BF16/AD graph rules as declared; full original RNG state and all result diagnostics"
+      ]
+    },
+    {
+      "symbol": "HMath.DeepLearning.Metrics.classificationMetrics",
+      "c": [
+        "hmath_neural_metrics_classification_metrics"
+      ],
+      "python": "hmath.deeplearning_metrics.classification_metrics",
+      "specializations": [
+        "original fixed Double/INT8/FP16/BF16/AD graph rules as declared; full original RNG state and all result diagnostics"
+      ]
+    },
+    {
+      "symbol": "HMath.DeepLearning.Metrics.topKAccuracy",
+      "c": [
+        "hmath_neural_metrics_top_k_accuracy"
+      ],
+      "python": "hmath.deeplearning_metrics.top_k_accuracy",
+      "specializations": [
+        "original fixed Double/INT8/FP16/BF16/AD graph rules as declared; full original RNG state and all result diagnostics"
+      ]
+    },
+    {
+      "symbol": "HMath.DeepLearning.Metrics.rocAUC",
+      "c": [
+        "hmath_neural_metrics_roc_auc"
+      ],
+      "python": "hmath.deeplearning_metrics.roc_auc",
+      "specializations": [
+        "original fixed Double/INT8/FP16/BF16/AD graph rules as declared; full original RNG state and all result diagnostics"
+      ]
+    },
+    {
+      "symbol": "HMath.DeepLearning.Metrics.prAUC",
+      "c": [
+        "hmath_neural_metrics_pr_auc"
+      ],
+      "python": "hmath.deeplearning_metrics.pr_auc",
+      "specializations": [
+        "original fixed Double/INT8/FP16/BF16/AD graph rules as declared; full original RNG state and all result diagnostics"
+      ]
+    },
+    {
+      "symbol": "HMath.DeepLearning.Metrics.cosineSimilarityMatrix",
+      "c": [
+        "hmath_neural_metrics_cosine_similarity_matrix"
+      ],
+      "python": "hmath.deeplearning_metrics.cosine_similarity_matrix",
+      "specializations": [
+        "original fixed Double/INT8/FP16/BF16/AD graph rules as declared; full original RNG state and all result diagnostics"
+      ]
+    },
+    {
+      "symbol": "HMath.DeepLearning.Core.Activation",
+      "c": [
+        "hmath_value"
+      ],
+      "python": "hmath.deeplearning_core.Activation",
+      "specializations": [
+        "actual original closed selector, state or opaque object; no reconstructed numerical approximation"
+      ]
+    },
+    {
+      "symbol": "HMath.DeepLearning.Core.Loss",
+      "c": [
+        "hmath_value"
+      ],
+      "python": "hmath.deeplearning_core.Loss",
+      "specializations": [
+        "actual original closed selector, state or opaque object; no reconstructed numerical approximation"
+      ]
+    },
+    {
+      "symbol": "HMath.DeepLearning.Core.Reduction",
+      "c": [
+        "hmath_value"
+      ],
+      "python": "hmath.deeplearning_core.Reduction",
+      "specializations": [
+        "actual original closed selector, state or opaque object; no reconstructed numerical approximation"
+      ]
+    },
+    {
+      "symbol": "HMath.DeepLearning.Layers.Initializer",
+      "c": [
+        "hmath_value"
+      ],
+      "python": "hmath.deeplearning_layers.Initializer",
+      "specializations": [
+        "actual original closed selector, state or opaque object; no reconstructed numerical approximation"
+      ]
+    },
+    {
+      "symbol": "HMath.DeepLearning.Layers.KVCache",
+      "c": [
+        "hmath_value"
+      ],
+      "python": "hmath.deeplearning_layers.KVCache",
+      "specializations": [
+        "actual original closed selector, state or opaque object; no reconstructed numerical approximation"
+      ]
+    },
+    {
+      "symbol": "HMath.DeepLearning.Layers.PoolMode",
+      "c": [
+        "hmath_value"
+      ],
+      "python": "hmath.deeplearning_layers.PoolMode",
+      "specializations": [
+        "actual original closed selector, state or opaque object; no reconstructed numerical approximation"
+      ]
+    },
+    {
+      "symbol": "HMath.DeepLearning.Precision.Precision",
+      "c": [
+        "hmath_value"
+      ],
+      "python": "hmath.deeplearning_precision.Precision",
+      "specializations": [
+        "actual original closed selector, state or opaque object; no reconstructed numerical approximation"
+      ]
+    },
+    {
+      "symbol": "HMath.DeepLearning.Precision.Quantization",
+      "c": [
+        "hmath_value"
+      ],
+      "python": "hmath.deeplearning_precision.Quantization",
+      "specializations": [
+        "actual original closed selector, state or opaque object; no reconstructed numerical approximation"
+      ]
+    },
+    {
+      "symbol": "HMath.DeepLearning.Precision.QuantizedTensor",
+      "c": [
+        "hmath_value"
+      ],
+      "python": "hmath.deeplearning_precision.QuantizedTensor",
+      "specializations": [
+        "actual original closed selector, state or opaque object; no reconstructed numerical approximation"
+      ]
+    }
+  ]
+}

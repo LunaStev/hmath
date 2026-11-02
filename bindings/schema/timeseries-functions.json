@@ -1,0 +1,510 @@
+{
+  "schema": 1,
+  "functions": [
+    {
+      "module": "HMath.TimeSeries.Core",
+      "name": "BackwardFill",
+      "signature": "Fill"
+    },
+    {
+      "module": "HMath.TimeSeries.Core",
+      "name": "BinLast",
+      "signature": "Resampling"
+    },
+    {
+      "module": "HMath.TimeSeries.Core",
+      "name": "BinMean",
+      "signature": "Resampling"
+    },
+    {
+      "module": "HMath.TimeSeries.Core",
+      "name": "ForwardFill",
+      "signature": "Fill"
+    },
+    {
+      "module": "HMath.TimeSeries.Core",
+      "name": "Inner",
+      "signature": "Alignment"
+    },
+    {
+      "module": "HMath.TimeSeries.Core",
+      "name": "LeftAligned",
+      "signature": "Alignment"
+    },
+    {
+      "module": "HMath.TimeSeries.Core",
+      "name": "LinearFill",
+      "signature": "Fill"
+    },
+    {
+      "module": "HMath.TimeSeries.Core",
+      "name": "LinearSamples",
+      "signature": "Resampling"
+    },
+    {
+      "module": "HMath.TimeSeries.Core",
+      "name": "MovingMaximum",
+      "signature": "Rolling"
+    },
+    {
+      "module": "HMath.TimeSeries.Core",
+      "name": "MovingMean",
+      "signature": "Rolling"
+    },
+    {
+      "module": "HMath.TimeSeries.Core",
+      "name": "MovingMinimum",
+      "signature": "Rolling"
+    },
+    {
+      "module": "HMath.TimeSeries.Core",
+      "name": "MovingSD",
+      "signature": "Rolling"
+    },
+    {
+      "module": "HMath.TimeSeries.Core",
+      "name": "MovingVariance",
+      "signature": "Rolling"
+    },
+    {
+      "module": "HMath.TimeSeries.Core",
+      "name": "Outer",
+      "signature": "Alignment"
+    },
+    {
+      "module": "HMath.TimeSeries.Core",
+      "name": "align",
+      "signature": "Alignment -> Series -> Series -> Either MathError (Series, Series)"
+    },
+    {
+      "module": "HMath.TimeSeries.Core",
+      "name": "autocorrelation",
+      "signature": "Int -> [Double] -> Either MathError [Double]"
+    },
+    {
+      "module": "HMath.TimeSeries.Core",
+      "name": "crossCorrelation",
+      "signature": "Int -> [Double] -> [Double] -> Either MathError Double"
+    },
+    {
+      "module": "HMath.TimeSeries.Core",
+      "name": "cumulativeReturns",
+      "signature": "[Double] -> Either MathError [Double]"
+    },
+    {
+      "module": "HMath.TimeSeries.Core",
+      "name": "difference",
+      "signature": "Int -> Int -> [Double] -> Either MathError [Double]"
+    },
+    {
+      "module": "HMath.TimeSeries.Core",
+      "name": "durbinLevinson",
+      "signature": "[Double] -> Either MathError ([Double], Double, [Double])"
+    },
+    {
+      "module": "HMath.TimeSeries.Core",
+      "name": "exponentialAverage",
+      "signature": "Double -> [Double] -> Either MathError [Double]"
+    },
+    {
+      "module": "HMath.TimeSeries.Core",
+      "name": "fillMissing",
+      "signature": "Fill -> Series -> Either MathError Series"
+    },
+    {
+      "module": "HMath.TimeSeries.Core",
+      "name": "isRegular",
+      "signature": "Double -> Series -> Either MathError Bool"
+    },
+    {
+      "module": "HMath.TimeSeries.Core",
+      "name": "logarithmicReturns",
+      "signature": "[Double] -> Either MathError [Double]"
+    },
+    {
+      "module": "HMath.TimeSeries.Core",
+      "name": "observations",
+      "signature": "Series -> [(Double, Maybe Double)]"
+    },
+    {
+      "module": "HMath.TimeSeries.Core",
+      "name": "partialAutocorrelation",
+      "signature": "Int -> [Double] -> Either MathError [Double]"
+    },
+    {
+      "module": "HMath.TimeSeries.Core",
+      "name": "regularSeries",
+      "signature": "Double -> Double -> [Maybe Double] -> Either MathError Series"
+    },
+    {
+      "module": "HMath.TimeSeries.Core",
+      "name": "resample",
+      "signature": "Resampling -> Double -> Double -> Int -> Series -> Either MathError Series"
+    },
+    {
+      "module": "HMath.TimeSeries.Core",
+      "name": "rolling",
+      "signature": "Rolling -> Int -> [Double] -> Either MathError [Double]"
+    },
+    {
+      "module": "HMath.TimeSeries.Core",
+      "name": "series",
+      "signature": "[(Double, Maybe Double)] -> Either MathError Series"
+    },
+    {
+      "module": "HMath.TimeSeries.Core",
+      "name": "seriesValues",
+      "signature": "Series -> Either MathError [Double]"
+    },
+    {
+      "module": "HMath.TimeSeries.Core",
+      "name": "weightedAverage",
+      "signature": "[Double] -> [Double] -> Either MathError [Double]"
+    },
+    {
+      "module": "HMath.TimeSeries.Core",
+      "name": "yuleWalker",
+      "signature": "Int -> [Double] -> Either MathError ([Double], Double, Double)"
+    },
+    {
+      "module": "HMath.TimeSeries.Diagnostics",
+      "name": "DTWResult",
+      "signature": "Double -> [(Int, Int)] -> DTWResult"
+    },
+    {
+      "module": "HMath.TimeSeries.Diagnostics",
+      "name": "Level",
+      "signature": "Deterministic"
+    },
+    {
+      "module": "HMath.TimeSeries.Diagnostics",
+      "name": "LinearTrend",
+      "signature": "Deterministic"
+    },
+    {
+      "module": "HMath.TimeSeries.Diagnostics",
+      "name": "MAE",
+      "signature": "ForecastMetric"
+    },
+    {
+      "module": "HMath.TimeSeries.Diagnostics",
+      "name": "MAPE",
+      "signature": "ForecastMetric"
+    },
+    {
+      "module": "HMath.TimeSeries.Diagnostics",
+      "name": "MASE",
+      "signature": "Int -> [Double] -> ForecastMetric"
+    },
+    {
+      "module": "HMath.TimeSeries.Diagnostics",
+      "name": "MSE",
+      "signature": "ForecastMetric"
+    },
+    {
+      "module": "HMath.TimeSeries.Diagnostics",
+      "name": "RMSE",
+      "signature": "ForecastMetric"
+    },
+    {
+      "module": "HMath.TimeSeries.Diagnostics",
+      "name": "SMAPE",
+      "signature": "ForecastMetric"
+    },
+    {
+      "module": "HMath.TimeSeries.Diagnostics",
+      "name": "Stationarity",
+      "signature": "Double -> [(Double, Double)] -> Int -> String -> Stationarity"
+    },
+    {
+      "module": "HMath.TimeSeries.Diagnostics",
+      "name": "anomalies",
+      "signature": "Double -> [Double] -> Either MathError [Int]"
+    },
+    {
+      "module": "HMath.TimeSeries.Diagnostics",
+      "name": "augmentedDickeyFuller",
+      "signature": "Deterministic -> Int -> [Double] -> Either MathError Stationarity"
+    },
+    {
+      "module": "HMath.TimeSeries.Diagnostics",
+      "name": "changePoints",
+      "signature": "Double -> Int -> [Double] -> Either MathError [Int]"
+    },
+    {
+      "module": "HMath.TimeSeries.Diagnostics",
+      "name": "cusum",
+      "signature": "Double -> Double -> Double -> Double -> [Double] -> Either MathError [Int]"
+    },
+    {
+      "module": "HMath.TimeSeries.Diagnostics",
+      "name": "dtwDistance",
+      "signature": "DTWResult -> Double"
+    },
+    {
+      "module": "HMath.TimeSeries.Diagnostics",
+      "name": "dtwPath",
+      "signature": "DTWResult -> [(Int, Int)]"
+    },
+    {
+      "module": "HMath.TimeSeries.Diagnostics",
+      "name": "dynamicTimeWarping",
+      "signature": "Int -> [Double] -> [Double] -> Either MathError DTWResult"
+    },
+    {
+      "module": "HMath.TimeSeries.Diagnostics",
+      "name": "forecastError",
+      "signature": "ForecastMetric -> [Double] -> [Double] -> Either MathError Double"
+    },
+    {
+      "module": "HMath.TimeSeries.Diagnostics",
+      "name": "kpss",
+      "signature": "Deterministic -> Int -> [Double] -> Either MathError Stationarity"
+    },
+    {
+      "module": "HMath.TimeSeries.Diagnostics",
+      "name": "spectrum",
+      "signature": "Double -> [Double] -> Either MathError [(Double, Double)]"
+    },
+    {
+      "module": "HMath.TimeSeries.Diagnostics",
+      "name": "stationarityCriticalValues",
+      "signature": "Stationarity -> [(Double, Double)]"
+    },
+    {
+      "module": "HMath.TimeSeries.Diagnostics",
+      "name": "stationarityNull",
+      "signature": "Stationarity -> String"
+    },
+    {
+      "module": "HMath.TimeSeries.Diagnostics",
+      "name": "stationarityObservations",
+      "signature": "Stationarity -> Int"
+    },
+    {
+      "module": "HMath.TimeSeries.Diagnostics",
+      "name": "stationarityStatistic",
+      "signature": "Stationarity -> Double"
+    },
+    {
+      "module": "HMath.TimeSeries.Models",
+      "name": "Decomposition",
+      "signature": "[Double] -> [Double] -> [Double] -> Decomposition"
+    },
+    {
+      "module": "HMath.TimeSeries.Models",
+      "name": "Holt",
+      "signature": "Double -> Double -> Smoothing"
+    },
+    {
+      "module": "HMath.TimeSeries.Models",
+      "name": "HoltWinters",
+      "signature": "Int -> Double -> Double -> Double -> Smoothing"
+    },
+    {
+      "module": "HMath.TimeSeries.Models",
+      "name": "SARIMAOrder",
+      "signature": "Int -> Int -> Int -> Int -> Int -> Int -> Int -> SARIMAOrder"
+    },
+    {
+      "module": "HMath.TimeSeries.Models",
+      "name": "STLConfig",
+      "signature": "Int -> Int -> Int -> Int -> Int -> Int -> STLConfig"
+    },
+    {
+      "module": "HMath.TimeSeries.Models",
+      "name": "Simple",
+      "signature": "Double -> Smoothing"
+    },
+    {
+      "module": "HMath.TimeSeries.Models",
+      "name": "arCoefficients",
+      "signature": "ARModel -> [Double]"
+    },
+    {
+      "module": "HMath.TimeSeries.Models",
+      "name": "arOrder",
+      "signature": "SARIMAOrder -> Int"
+    },
+    {
+      "module": "HMath.TimeSeries.Models",
+      "name": "arimaInnovationVariance",
+      "signature": "ARIMAModel -> Double"
+    },
+    {
+      "module": "HMath.TimeSeries.Models",
+      "name": "arimaParameters",
+      "signature": "ARIMAModel -> [Double]"
+    },
+    {
+      "module": "HMath.TimeSeries.Models",
+      "name": "arimaResiduals",
+      "signature": "ARIMAModel -> [Double]"
+    },
+    {
+      "module": "HMath.TimeSeries.Models",
+      "name": "decompose",
+      "signature": "Int -> [Double] -> Either MathError Decomposition"
+    },
+    {
+      "module": "HMath.TimeSeries.Models",
+      "name": "defaultSTLConfig",
+      "signature": "Int -> STLConfig"
+    },
+    {
+      "module": "HMath.TimeSeries.Models",
+      "name": "differenceOrder",
+      "signature": "SARIMAOrder -> Int"
+    },
+    {
+      "module": "HMath.TimeSeries.Models",
+      "name": "fitAR",
+      "signature": "Int -> [Double] -> Either MathError ARModel"
+    },
+    {
+      "module": "HMath.TimeSeries.Models",
+      "name": "fitARIMA",
+      "signature": "OptimizeOptions -> Int -> Int -> Int -> [Double] -> Either MathError ARIMAModel"
+    },
+    {
+      "module": "HMath.TimeSeries.Models",
+      "name": "fitARMA",
+      "signature": "OptimizeOptions -> Int -> Int -> [Double] -> Either MathError ARIMAModel"
+    },
+    {
+      "module": "HMath.TimeSeries.Models",
+      "name": "fitMA",
+      "signature": "OptimizeOptions -> Int -> [Double] -> Either MathError ARIMAModel"
+    },
+    {
+      "module": "HMath.TimeSeries.Models",
+      "name": "fitSARIMA",
+      "signature": "OptimizeOptions -> SARIMAOrder -> [Double] -> Either MathError ARIMAModel"
+    },
+    {
+      "module": "HMath.TimeSeries.Models",
+      "name": "fitVAR",
+      "signature": "Int -> [[Double]] -> Either MathError VARModel"
+    },
+    {
+      "module": "HMath.TimeSeries.Models",
+      "name": "forecastAR",
+      "signature": "Int -> ARModel -> Either MathError [Double]"
+    },
+    {
+      "module": "HMath.TimeSeries.Models",
+      "name": "forecastARIMA",
+      "signature": "Int -> ARIMAModel -> Either MathError [Double]"
+    },
+    {
+      "module": "HMath.TimeSeries.Models",
+      "name": "forecastVAR",
+      "signature": "Int -> VARModel -> Either MathError [[Double]]"
+    },
+    {
+      "module": "HMath.TimeSeries.Models",
+      "name": "kalmanSeries",
+      "signature": "[[Double]] -> [[Double]] -> [[Double]] -> [[Double]] -> GaussianState -> [[Double]] -> Either MathError [GaussianState]"
+    },
+    {
+      "module": "HMath.TimeSeries.Models",
+      "name": "maOrder",
+      "signature": "SARIMAOrder -> Int"
+    },
+    {
+      "module": "HMath.TimeSeries.Models",
+      "name": "remainderComponent",
+      "signature": "Decomposition -> [Double]"
+    },
+    {
+      "module": "HMath.TimeSeries.Models",
+      "name": "seasonalAROrder",
+      "signature": "SARIMAOrder -> Int"
+    },
+    {
+      "module": "HMath.TimeSeries.Models",
+      "name": "seasonalComponent",
+      "signature": "Decomposition -> [Double]"
+    },
+    {
+      "module": "HMath.TimeSeries.Models",
+      "name": "seasonalDifferenceOrder",
+      "signature": "SARIMAOrder -> Int"
+    },
+    {
+      "module": "HMath.TimeSeries.Models",
+      "name": "seasonalMAOrder",
+      "signature": "SARIMAOrder -> Int"
+    },
+    {
+      "module": "HMath.TimeSeries.Models",
+      "name": "seasonalPeriod",
+      "signature": "SARIMAOrder -> Int"
+    },
+    {
+      "module": "HMath.TimeSeries.Models",
+      "name": "smoothForecast",
+      "signature": "Smoothing -> Int -> [Double] -> Either MathError ([Double], [Double])"
+    },
+    {
+      "module": "HMath.TimeSeries.Models",
+      "name": "stl",
+      "signature": "STLConfig -> [Double] -> Either MathError Decomposition"
+    },
+    {
+      "module": "HMath.TimeSeries.Models",
+      "name": "stlInnerIterations",
+      "signature": "STLConfig -> Int"
+    },
+    {
+      "module": "HMath.TimeSeries.Models",
+      "name": "stlLowPassWindow",
+      "signature": "STLConfig -> Int"
+    },
+    {
+      "module": "HMath.TimeSeries.Models",
+      "name": "stlPeriod",
+      "signature": "STLConfig -> Int"
+    },
+    {
+      "module": "HMath.TimeSeries.Models",
+      "name": "stlRobustIterations",
+      "signature": "STLConfig -> Int"
+    },
+    {
+      "module": "HMath.TimeSeries.Models",
+      "name": "stlSeasonalWindow",
+      "signature": "STLConfig -> Int"
+    },
+    {
+      "module": "HMath.TimeSeries.Models",
+      "name": "stlTrendWindow",
+      "signature": "STLConfig -> Int"
+    },
+    {
+      "module": "HMath.TimeSeries.Models",
+      "name": "trendComponent",
+      "signature": "Decomposition -> [Double]"
+    },
+    {
+      "module": "HMath.TimeSeries.Models",
+      "name": "varCoefficients",
+      "signature": "VARModel -> [[Double]]"
+    },
+    {
+      "module": "HMath.Signal",
+      "name": "gaussianState",
+      "signature": "[Double] -> [[Double]] -> Either MathError GaussianState"
+    },
+    {
+      "module": "HMath.Signal",
+      "name": "stateMean",
+      "signature": "GaussianState -> [Double]"
+    },
+    {
+      "module": "HMath.Signal",
+      "name": "stateCovariance",
+      "signature": "GaussianState -> [[Double]]"
+    }
+  ]
+}

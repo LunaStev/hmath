@@ -1,0 +1,203 @@
+{
+  "schema": 1,
+  "additional_specializations": [
+    {
+      "symbol": "HMath.Basic.clamp",
+      "additional_c": "hmath_basic_clamp_value",
+      "python": "hmath.basic.clamp",
+      "instances": "actual existing Coefficient/AD dictionaries allowed by original constraints; Ord/Eq-only functions additionally use supported native label dictionaries"
+    },
+    {
+      "symbol": "HMath.Basic.lerp",
+      "additional_c": "hmath_basic_lerp_value",
+      "python": "hmath.basic.lerp",
+      "instances": "actual existing Coefficient/AD dictionaries allowed by original constraints; Ord/Eq-only functions additionally use supported native label dictionaries"
+    },
+    {
+      "symbol": "HMath.Scalar.add",
+      "additional_c": "hmath_scalar_add_value",
+      "python": "hmath.scalar.add",
+      "instances": "actual existing Coefficient/AD dictionaries allowed by original constraints; Ord/Eq-only functions additionally use supported native label dictionaries"
+    },
+    {
+      "symbol": "HMath.Scalar.subtractScalar",
+      "additional_c": "hmath_scalar_subtract_scalar_value",
+      "python": "hmath.scalar.subtract_scalar",
+      "instances": "actual existing Coefficient/AD dictionaries allowed by original constraints; Ord/Eq-only functions additionally use supported native label dictionaries"
+    },
+    {
+      "symbol": "HMath.Scalar.multiply",
+      "additional_c": "hmath_scalar_multiply_value",
+      "python": "hmath.scalar.multiply",
+      "instances": "actual existing Coefficient/AD dictionaries allowed by original constraints; Ord/Eq-only functions additionally use supported native label dictionaries"
+    },
+    {
+      "symbol": "HMath.Scalar.minimumScalar",
+      "additional_c": "hmath_scalar_minimum_scalar_value",
+      "python": "hmath.scalar.minimum_scalar",
+      "instances": "actual existing Coefficient/AD dictionaries allowed by original constraints; Ord/Eq-only functions additionally use supported native label dictionaries"
+    },
+    {
+      "symbol": "HMath.Scalar.maximumScalar",
+      "additional_c": "hmath_scalar_maximum_scalar_value",
+      "python": "hmath.scalar.maximum_scalar",
+      "instances": "actual existing Coefficient/AD dictionaries allowed by original constraints; Ord/Eq-only functions additionally use supported native label dictionaries"
+    },
+    {
+      "symbol": "HMath.Scalar.absolute",
+      "additional_c": "hmath_scalar_absolute_value",
+      "python": "hmath.scalar.absolute",
+      "instances": "actual existing Coefficient/AD dictionaries allowed by original constraints; Ord/Eq-only functions additionally use supported native label dictionaries"
+    },
+    {
+      "symbol": "HMath.Scalar.sign",
+      "additional_c": "hmath_scalar_sign_value",
+      "python": "hmath.scalar.sign",
+      "instances": "actual existing Coefficient/AD dictionaries allowed by original constraints; Ord/Eq-only functions additionally use supported native label dictionaries"
+    },
+    {
+      "symbol": "HMath.Scalar.positiveModulo",
+      "additional_c": "hmath_scalar_positive_modulo_value",
+      "python": "hmath.scalar.positive_modulo",
+      "instances": "actual existing Coefficient/AD dictionaries allowed by original constraints; Ord/Eq-only functions additionally use supported native label dictionaries"
+    },
+    {
+      "symbol": "HMath.Scalar.cumulativeSum",
+      "additional_c": "hmath_scalar_cumulative_sum_value",
+      "python": "hmath.scalar.cumulative_sum",
+      "instances": "actual existing Coefficient/AD dictionaries allowed by original constraints; Ord/Eq-only functions additionally use supported native label dictionaries"
+    },
+    {
+      "symbol": "HMath.Scalar.cumulativeProduct",
+      "additional_c": "hmath_scalar_cumulative_product_value",
+      "python": "hmath.scalar.cumulative_product",
+      "instances": "actual existing Coefficient/AD dictionaries allowed by original constraints; Ord/Eq-only functions additionally use supported native label dictionaries"
+    },
+    {
+      "symbol": "HMath.Scalar.prefixSum",
+      "additional_c": "hmath_scalar_prefix_sum_value",
+      "python": "hmath.scalar.prefix_sum",
+      "instances": "actual existing Coefficient/AD dictionaries allowed by original constraints; Ord/Eq-only functions additionally use supported native label dictionaries"
+    },
+    {
+      "symbol": "HMath.Statistics.mean",
+      "additional_c": "hmath_statistics_mean_value",
+      "python": "hmath.statistics.mean",
+      "instances": "actual existing Coefficient/AD dictionaries allowed by original constraints; Ord/Eq-only functions additionally use supported native label dictionaries"
+    },
+    {
+      "symbol": "HMath.Statistics.variance",
+      "additional_c": "hmath_statistics_variance_value",
+      "python": "hmath.statistics.variance",
+      "instances": "actual existing Coefficient/AD dictionaries allowed by original constraints; Ord/Eq-only functions additionally use supported native label dictionaries"
+    },
+    {
+      "symbol": "HMath.Statistics.standardDeviation",
+      "additional_c": "hmath_statistics_standard_deviation_value",
+      "python": "hmath.statistics.standard_deviation",
+      "instances": "actual existing Coefficient/AD dictionaries allowed by original constraints; Ord/Eq-only functions additionally use supported native label dictionaries"
+    },
+    {
+      "symbol": "HMath.Statistics.median",
+      "additional_c": "hmath_statistics_median_value",
+      "python": "hmath.statistics.median",
+      "instances": "actual existing Coefficient/AD dictionaries allowed by original constraints; Ord/Eq-only functions additionally use supported native label dictionaries"
+    },
+    {
+      "symbol": "HMath.Linear.dot",
+      "additional_c": "hmath_linear_dot_value",
+      "python": "hmath.linear.dot",
+      "instances": "actual existing Coefficient/AD dictionaries allowed by original constraints; Ord/Eq-only functions additionally use supported native label dictionaries"
+    },
+    {
+      "symbol": "HMath.Linear.dotChecked",
+      "additional_c": "hmath_linear_dot_checked_value",
+      "python": "hmath.linear.dot_checked",
+      "instances": "actual existing Coefficient/AD dictionaries allowed by original constraints; Ord/Eq-only functions additionally use supported native label dictionaries"
+    },
+    {
+      "symbol": "HMath.Linear.magnitude",
+      "additional_c": "hmath_linear_magnitude_value",
+      "python": "hmath.linear.magnitude",
+      "instances": "actual existing Coefficient/AD dictionaries allowed by original constraints; Ord/Eq-only functions additionally use supported native label dictionaries"
+    },
+    {
+      "symbol": "HMath.Linear.normalize",
+      "additional_c": "hmath_linear_normalize_value",
+      "python": "hmath.linear.normalize",
+      "instances": "actual existing Coefficient/AD dictionaries allowed by original constraints; Ord/Eq-only functions additionally use supported native label dictionaries"
+    },
+    {
+      "symbol": "HMath.Linear.add",
+      "additional_c": "hmath_linear_add_value",
+      "python": "hmath.linear.add",
+      "instances": "actual existing Coefficient/AD dictionaries allowed by original constraints; Ord/Eq-only functions additionally use supported native label dictionaries"
+    },
+    {
+      "symbol": "HMath.Linear.addChecked",
+      "additional_c": "hmath_linear_add_checked_value",
+      "python": "hmath.linear.add_checked",
+      "instances": "actual existing Coefficient/AD dictionaries allowed by original constraints; Ord/Eq-only functions additionally use supported native label dictionaries"
+    },
+    {
+      "symbol": "HMath.Linear.subtractChecked",
+      "additional_c": "hmath_linear_subtract_checked_value",
+      "python": "hmath.linear.subtract_checked",
+      "instances": "actual existing Coefficient/AD dictionaries allowed by original constraints; Ord/Eq-only functions additionally use supported native label dictionaries"
+    },
+    {
+      "symbol": "HMath.Linear.scale",
+      "additional_c": "hmath_linear_scale_value",
+      "python": "hmath.linear.scale",
+      "instances": "actual existing Coefficient/AD dictionaries allowed by original constraints; Ord/Eq-only functions additionally use supported native label dictionaries"
+    },
+    {
+      "symbol": "HMath.Scalar.saturatingAdd",
+      "additional_c": "hmath_scalar_saturating_add_value",
+      "python": "hmath.scalar.saturating_add",
+      "instances": "actual existing Coefficient/AD dictionaries allowed by original constraints; Ord/Eq-only functions additionally use supported native label dictionaries"
+    },
+    {
+      "symbol": "HMath.Scalar.saturatingSubtract",
+      "additional_c": "hmath_scalar_saturating_subtract_value",
+      "python": "hmath.scalar.saturating_subtract",
+      "instances": "actual existing Coefficient/AD dictionaries allowed by original constraints; Ord/Eq-only functions additionally use supported native label dictionaries"
+    },
+    {
+      "symbol": "HMath.Scalar.saturatingMultiply",
+      "additional_c": "hmath_scalar_saturating_multiply_value",
+      "python": "hmath.scalar.saturating_multiply",
+      "instances": "actual existing Coefficient/AD dictionaries allowed by original constraints; Ord/Eq-only functions additionally use supported native label dictionaries"
+    },
+    {
+      "symbol": "HMath.Scalar.checkedAdd",
+      "additional_c": "hmath_scalar_checked_add_value",
+      "python": "hmath.scalar.checked_add",
+      "instances": "actual existing Coefficient/AD dictionaries allowed by original constraints; Ord/Eq-only functions additionally use supported native label dictionaries"
+    },
+    {
+      "symbol": "HMath.Scalar.checkedSubtract",
+      "additional_c": "hmath_scalar_checked_subtract_value",
+      "python": "hmath.scalar.checked_subtract",
+      "instances": "actual existing Coefficient/AD dictionaries allowed by original constraints; Ord/Eq-only functions additionally use supported native label dictionaries"
+    },
+    {
+      "symbol": "HMath.Scalar.checkedMultiply",
+      "additional_c": "hmath_scalar_checked_multiply_value",
+      "python": "hmath.scalar.checked_multiply",
+      "instances": "actual existing Coefficient/AD dictionaries allowed by original constraints; Ord/Eq-only functions additionally use supported native label dictionaries"
+    },
+    {
+      "symbol": "HMath.Geometry.Primitives.hammingDistance",
+      "additional_c": "hmath_geometry_primitives_hamming_distance_value",
+      "python": "hmath.geometry_primitives.hamming_distance",
+      "instances": "actual existing Coefficient/AD dictionaries allowed by original constraints; Ord/Eq-only functions additionally use supported native label dictionaries"
+    },
+    {
+      "symbol": "HMath.Geometry.Primitives.jaccardDistance",
+      "additional_c": "hmath_geometry_primitives_jaccard_distance_value",
+      "python": "hmath.geometry_primitives.jaccard_distance",
+      "instances": "actual existing Coefficient/AD dictionaries allowed by original constraints; Ord/Eq-only functions additionally use supported native label dictionaries"
+    }
+  ]
+}

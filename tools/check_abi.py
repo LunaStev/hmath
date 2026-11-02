@@ -17,9 +17,29 @@ def main():
         for line in (root / "test/abi-symbols.txt").read_text().splitlines()
         if line and not line.startswith("#")
     }
+    expected.update(
+        (root / "bindings/schema/numeric-symbols.txt").read_text().splitlines()
+    )
+    for header in (root / "include").glob("hmath*.h"):
+        expected.update(
+            re.findall(
+                r"HMATH_API\s+[\w\s*]+?\b(hmath_\w+)\s*\(",
+                header.read_text(),
+            )
+        )
     dynamic = subprocess.check_output(["readelf", "-d", str(args.library)], text=True)
     if not re.search(r"\(SONAME\).*\[libhmath\.so\.1\]", dynamic):
         raise RuntimeError("C ABI epoch 1 requires SONAME libhmath.so.1")
+    undefined = subprocess.check_output(
+        ["nm", "-D", "--undefined-only", str(args.library)], text=True
+    )
+    internal = {
+        line.split()[-1]
+        for line in undefined.splitlines()
+        if line.split() and line.split()[-1].startswith(("hm_", "hmath_"))
+    }
+    if internal:
+        raise RuntimeError(f"Unresolved internal FFI symbols: {sorted(internal)}")
     output = subprocess.check_output(
         ["nm", "-D", "--defined-only", str(args.library)], text=True
     )

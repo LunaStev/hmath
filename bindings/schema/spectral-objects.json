@@ -1,0 +1,1735 @@
+{
+  "schema": 1,
+  "bindings": [
+    {
+      "symbol": "HMath.Signal.Filter",
+      "c": [
+        "hmath_signal_value_filter_object"
+      ],
+      "python": "hmath.signal.Filter",
+      "specializations": [
+        "original concrete type"
+      ]
+    },
+    {
+      "symbol": "HMath.Signal.FilterFamily",
+      "c": [
+        "hmath_signal_value_filter_family_object"
+      ],
+      "python": "hmath.signal.FilterFamily",
+      "specializations": [
+        "original concrete type"
+      ]
+    },
+    {
+      "symbol": "HMath.Signal.FilterBand",
+      "c": [
+        "hmath_signal_value_filter_band_object"
+      ],
+      "python": "hmath.signal.FilterBand",
+      "specializations": [
+        "original concrete type"
+      ]
+    },
+    {
+      "symbol": "HMath.Signal.Window",
+      "c": [
+        "hmath_signal_value_window_object"
+      ],
+      "python": "hmath.signal.Window",
+      "specializations": [
+        "original concrete type"
+      ]
+    },
+    {
+      "symbol": "HMath.Signal.Wavelet",
+      "c": [
+        "hmath_signal_value_wavelet_object"
+      ],
+      "python": "hmath.signal.Wavelet",
+      "specializations": [
+        "original concrete type"
+      ]
+    },
+    {
+      "symbol": "HMath.Signal.WaveletTree",
+      "c": [
+        "hmath_signal_value_wavelet_tree_object"
+      ],
+      "python": "hmath.signal.WaveletTree",
+      "specializations": [
+        "original concrete type"
+      ]
+    },
+    {
+      "symbol": "HMath.Signal.MotherWavelet",
+      "c": [
+        "hmath_signal_value_mother_wavelet_object"
+      ],
+      "python": "hmath.signal.MotherWavelet",
+      "specializations": [
+        "original concrete type"
+      ]
+    },
+    {
+      "symbol": "HMath.Signal.WaveletPacket",
+      "c": [
+        "hmath_signal_value_wavelet_packet_object"
+      ],
+      "python": "hmath.signal.WaveletPacket",
+      "specializations": [
+        "original concrete type"
+      ]
+    },
+    {
+      "symbol": "HMath.Interpolation.Extrapolation",
+      "c": [
+        "hmath_interpolation_value_extrapolation_object"
+      ],
+      "python": "hmath.interpolation.Extrapolation",
+      "specializations": [
+        "original concrete type"
+      ]
+    },
+    {
+      "symbol": "HMath.Interpolation.InterpolationMethod",
+      "c": [
+        "hmath_interpolation_value_interpolation_method_object"
+      ],
+      "python": "hmath.interpolation.InterpolationMethod",
+      "specializations": [
+        "original concrete type"
+      ]
+    },
+    {
+      "symbol": "HMath.Interpolation.SplineBoundary",
+      "c": [
+        "hmath_interpolation_value_spline_boundary_object"
+      ],
+      "python": "hmath.interpolation.SplineBoundary",
+      "specializations": [
+        "original concrete type"
+      ]
+    },
+    {
+      "symbol": "HMath.Interpolation.PiecewisePolynomial",
+      "c": [
+        "hmath_interpolation_value_piecewise_polynomial_object"
+      ],
+      "python": "hmath.interpolation.PiecewisePolynomial",
+      "specializations": [
+        "original concrete type"
+      ]
+    },
+    {
+      "symbol": "HMath.Interpolation.BSpline",
+      "c": [
+        "hmath_interpolation_value_b_spline_object"
+      ],
+      "python": "hmath.interpolation.BSpline",
+      "specializations": [
+        "original concrete type"
+      ]
+    },
+    {
+      "symbol": "HMath.Interpolation.RadialKernel",
+      "c": [
+        "hmath_interpolation_value_radial_kernel_object"
+      ],
+      "python": "hmath.interpolation.RadialKernel",
+      "specializations": [
+        "original concrete type"
+      ]
+    },
+    {
+      "symbol": "HMath.Interpolation.RBF",
+      "c": [
+        "hmath_interpolation_value_rbf_object"
+      ],
+      "python": "hmath.interpolation.RBF",
+      "specializations": [
+        "original concrete type"
+      ]
+    },
+    {
+      "symbol": "HMath.Fourier.Direction",
+      "c": [
+        "hmath_fourier_value_direction_object"
+      ],
+      "python": "hmath.fourier.Direction",
+      "specializations": [
+        "original concrete type"
+      ]
+    },
+    {
+      "symbol": "HMath.Fourier.FFTAlgorithm",
+      "c": [
+        "hmath_fourier_value_fft_algorithm_object"
+      ],
+      "python": "hmath.fourier.FFTAlgorithm",
+      "specializations": [
+        "original concrete type"
+      ]
+    },
+    {
+      "symbol": "HMath.Fourier.FFTPlan",
+      "c": [
+        "hmath_fourier_value_fft_plan_object"
+      ],
+      "python": "hmath.fourier.FFTPlan",
+      "specializations": [
+        "original concrete type"
+      ]
+    },
+    {
+      "symbol": "HMath.Fourier.TransformType",
+      "c": [
+        "hmath_fourier_value_transform_type_object"
+      ],
+      "python": "hmath.fourier.TransformType",
+      "specializations": [
+        "original concrete type"
+      ]
+    },
+    {
+      "symbol": "HMath.Fourier.STFT",
+      "c": [
+        "hmath_fourier_value_stft_object"
+      ],
+      "python": "hmath.fourier.STFT",
+      "specializations": [
+        "original concrete type"
+      ]
+    },
+    {
+      "symbol": "HMath.Signal.iir",
+      "c": [
+        "hmath_signal_value_iir"
+      ],
+      "python": "hmath.signal.iir",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Signal.fir",
+      "c": [
+        "hmath_signal_value_fir"
+      ],
+      "python": "hmath.signal.fir",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Signal.filterCoefficients",
+      "c": [
+        "hmath_signal_value_filter_coefficients"
+      ],
+      "python": "hmath.signal.filter_coefficients",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Signal.filterState",
+      "c": [
+        "hmath_signal_value_filter_state"
+      ],
+      "python": "hmath.signal.filter_state",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Signal.resetFilter",
+      "c": [
+        "hmath_signal_value_reset_filter"
+      ],
+      "python": "hmath.signal.reset_filter",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Signal.filterSignal",
+      "c": [
+        "hmath_signal_value_filter_signal"
+      ],
+      "python": "hmath.signal.filter_signal",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Signal.frequencyResponse",
+      "c": [
+        "hmath_signal_value_frequency_response"
+      ],
+      "python": "hmath.signal.frequency_response",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Signal.Butterworth",
+      "c": [
+        "hmath_signal_value_butterworth"
+      ],
+      "python": "hmath.signal.butterworth",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Signal.ChebyshevI",
+      "c": [
+        "hmath_signal_value_chebyshev_i"
+      ],
+      "python": "hmath.signal.chebyshev_i",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Signal.ChebyshevII",
+      "c": [
+        "hmath_signal_value_chebyshev_ii"
+      ],
+      "python": "hmath.signal.chebyshev_ii",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Signal.Elliptic",
+      "c": [
+        "hmath_signal_value_elliptic"
+      ],
+      "python": "hmath.signal.elliptic",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Signal.Bessel",
+      "c": [
+        "hmath_signal_value_bessel"
+      ],
+      "python": "hmath.signal.bessel",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Signal.Lowpass",
+      "c": [
+        "hmath_signal_value_lowpass"
+      ],
+      "python": "hmath.signal.lowpass",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Signal.Highpass",
+      "c": [
+        "hmath_signal_value_highpass"
+      ],
+      "python": "hmath.signal.highpass",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Signal.Bandpass",
+      "c": [
+        "hmath_signal_value_bandpass"
+      ],
+      "python": "hmath.signal.bandpass",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Signal.Bandstop",
+      "c": [
+        "hmath_signal_value_bandstop"
+      ],
+      "python": "hmath.signal.bandstop",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Signal.designIIR",
+      "c": [
+        "hmath_signal_value_design_iir"
+      ],
+      "python": "hmath.signal.design_iir",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Signal.notch",
+      "c": [
+        "hmath_signal_value_notch"
+      ],
+      "python": "hmath.signal.notch",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Signal.allPass",
+      "c": [
+        "hmath_signal_value_all_pass"
+      ],
+      "python": "hmath.signal.all_pass",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Signal.wiener",
+      "c": [
+        "hmath_signal_value_wiener"
+      ],
+      "python": "hmath.signal.wiener",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Signal.Hann",
+      "c": [
+        "hmath_signal_value_hann"
+      ],
+      "python": "hmath.signal.hann",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Signal.Hamming",
+      "c": [
+        "hmath_signal_value_hamming"
+      ],
+      "python": "hmath.signal.hamming",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Signal.Blackman",
+      "c": [
+        "hmath_signal_value_blackman"
+      ],
+      "python": "hmath.signal.blackman",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Signal.Bartlett",
+      "c": [
+        "hmath_signal_value_bartlett"
+      ],
+      "python": "hmath.signal.bartlett",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Signal.Kaiser",
+      "c": [
+        "hmath_signal_value_kaiser"
+      ],
+      "python": "hmath.signal.kaiser",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Signal.Gaussian",
+      "c": [
+        "hmath_signal_value_gaussian"
+      ],
+      "python": "hmath.signal.gaussian",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Signal.Tukey",
+      "c": [
+        "hmath_signal_value_tukey"
+      ],
+      "python": "hmath.signal.tukey",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Signal.FlatTop",
+      "c": [
+        "hmath_signal_value_flat_top"
+      ],
+      "python": "hmath.signal.flat_top",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Signal.DolphChebyshev",
+      "c": [
+        "hmath_signal_value_dolph_chebyshev"
+      ],
+      "python": "hmath.signal.dolph_chebyshev",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Signal.window",
+      "c": [
+        "hmath_signal_value_window"
+      ],
+      "python": "hmath.signal.window",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Signal.windowedSinc",
+      "c": [
+        "hmath_signal_value_windowed_sinc"
+      ],
+      "python": "hmath.signal.windowed_sinc",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Signal.Peak",
+      "c": [
+        "hmath_signal_value_peak"
+      ],
+      "python": "hmath.signal.peak",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Signal.peakIndex",
+      "c": [
+        "hmath_signal_value_peak_index"
+      ],
+      "python": "hmath.signal.peak_index",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Signal.peakHeight",
+      "c": [
+        "hmath_signal_value_peak_height"
+      ],
+      "python": "hmath.signal.peak_height",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Signal.peakProminence",
+      "c": [
+        "hmath_signal_value_peak_prominence"
+      ],
+      "python": "hmath.signal.peak_prominence",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Signal.peakWidth",
+      "c": [
+        "hmath_signal_value_peak_width"
+      ],
+      "python": "hmath.signal.peak_width",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Signal.peaks",
+      "c": [
+        "hmath_signal_value_peaks"
+      ],
+      "python": "hmath.signal.peaks",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Signal.kalman",
+      "c": [
+        "hmath_signal_value_kalman"
+      ],
+      "python": "hmath.signal.kalman",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Signal.extendedKalman",
+      "c": [
+        "hmath_signal_value_extended_kalman"
+      ],
+      "python": "hmath.signal.extended_kalman",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Signal.unscentedKalman",
+      "c": [
+        "hmath_signal_value_unscented_kalman"
+      ],
+      "python": "hmath.signal.unscented_kalman",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Signal.Haar",
+      "c": [
+        "hmath_signal_value_haar"
+      ],
+      "python": "hmath.signal.haar",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Signal.Daubechies2",
+      "c": [
+        "hmath_signal_value_daubechies2"
+      ],
+      "python": "hmath.signal.daubechies2",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Signal.Daubechies4",
+      "c": [
+        "hmath_signal_value_daubechies4"
+      ],
+      "python": "hmath.signal.daubechies4",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Signal.Biorthogonal53",
+      "c": [
+        "hmath_signal_value_biorthogonal53"
+      ],
+      "python": "hmath.signal.biorthogonal53",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Signal.waveletApproximation",
+      "c": [
+        "hmath_signal_value_wavelet_approximation"
+      ],
+      "python": "hmath.signal.wavelet_approximation",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Signal.waveletDetails",
+      "c": [
+        "hmath_signal_value_wavelet_details"
+      ],
+      "python": "hmath.signal.wavelet_details",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Signal.dwt",
+      "c": [
+        "hmath_signal_value_dwt"
+      ],
+      "python": "hmath.signal.dwt",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Signal.idwt",
+      "c": [
+        "hmath_signal_value_idwt"
+      ],
+      "python": "hmath.signal.idwt",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Signal.Morlet",
+      "c": [
+        "hmath_signal_value_morlet"
+      ],
+      "python": "hmath.signal.morlet",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Signal.MexicanHat",
+      "c": [
+        "hmath_signal_value_mexican_hat"
+      ],
+      "python": "hmath.signal.mexican_hat",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Signal.GaussianDerivative",
+      "c": [
+        "hmath_signal_value_gaussian_derivative"
+      ],
+      "python": "hmath.signal.gaussian_derivative",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Signal.cwt",
+      "c": [
+        "hmath_signal_value_cwt"
+      ],
+      "python": "hmath.signal.cwt",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Signal.waveletPackets",
+      "c": [
+        "hmath_signal_value_wavelet_packets"
+      ],
+      "python": "hmath.signal.wavelet_packets",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Signal.inverseWaveletPackets",
+      "c": [
+        "hmath_signal_value_inverse_wavelet_packets"
+      ],
+      "python": "hmath.signal.inverse_wavelet_packets",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Signal.packetBands",
+      "c": [
+        "hmath_signal_value_packet_bands"
+      ],
+      "python": "hmath.signal.packet_bands",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Signal.waveletDenoise",
+      "c": [
+        "hmath_signal_value_wavelet_denoise"
+      ],
+      "python": "hmath.signal.wavelet_denoise",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Interpolation.Reject",
+      "c": [
+        "hmath_interpolation_value_reject"
+      ],
+      "python": "hmath.interpolation.reject",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Interpolation.Clamp",
+      "c": [
+        "hmath_interpolation_value_clamp"
+      ],
+      "python": "hmath.interpolation.clamp",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Interpolation.Extrapolate",
+      "c": [
+        "hmath_interpolation_value_extrapolate"
+      ],
+      "python": "hmath.interpolation.extrapolate",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Interpolation.Nearest",
+      "c": [
+        "hmath_interpolation_value_nearest"
+      ],
+      "python": "hmath.interpolation.nearest",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Interpolation.Linear",
+      "c": [
+        "hmath_interpolation_value_linear"
+      ],
+      "python": "hmath.interpolation.linear",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Interpolation.Lagrange",
+      "c": [
+        "hmath_interpolation_value_lagrange"
+      ],
+      "python": "hmath.interpolation.lagrange",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Interpolation.Newton",
+      "c": [
+        "hmath_interpolation_value_newton"
+      ],
+      "python": "hmath.interpolation.newton",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Interpolation.Barycentric",
+      "c": [
+        "hmath_interpolation_value_barycentric"
+      ],
+      "python": "hmath.interpolation.barycentric",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Interpolation.Natural",
+      "c": [
+        "hmath_interpolation_value_natural"
+      ],
+      "python": "hmath.interpolation.natural",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Interpolation.Clamped",
+      "c": [
+        "hmath_interpolation_value_clamped"
+      ],
+      "python": "hmath.interpolation.clamped",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Interpolation.Periodic",
+      "c": [
+        "hmath_interpolation_value_periodic"
+      ],
+      "python": "hmath.interpolation.periodic",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Interpolation.Gaussian",
+      "c": [
+        "hmath_interpolation_value_gaussian"
+      ],
+      "python": "hmath.interpolation.gaussian",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Interpolation.Multiquadric",
+      "c": [
+        "hmath_interpolation_value_multiquadric"
+      ],
+      "python": "hmath.interpolation.multiquadric",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Interpolation.InverseMultiquadric",
+      "c": [
+        "hmath_interpolation_value_inverse_multiquadric"
+      ],
+      "python": "hmath.interpolation.inverse_multiquadric",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Interpolation.ThinPlate",
+      "c": [
+        "hmath_interpolation_value_thin_plate"
+      ],
+      "python": "hmath.interpolation.thin_plate",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Interpolation.Cubic",
+      "c": [
+        "hmath_interpolation_value_cubic"
+      ],
+      "python": "hmath.interpolation.cubic",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Interpolation.Approximation",
+      "c": [
+        "hmath_interpolation_value_approximation"
+      ],
+      "python": "hmath.interpolation.approximation",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Interpolation.approximationCoefficients",
+      "c": [
+        "hmath_interpolation_value_approximation_coefficients"
+      ],
+      "python": "hmath.interpolation.approximation_coefficients",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Interpolation.approximationError",
+      "c": [
+        "hmath_interpolation_value_approximation_error"
+      ],
+      "python": "hmath.interpolation.approximation_error",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Interpolation.approximationIterations",
+      "c": [
+        "hmath_interpolation_value_approximation_iterations"
+      ],
+      "python": "hmath.interpolation.approximation_iterations",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Interpolation.interpolate",
+      "c": [
+        "hmath_interpolation_value_interpolate"
+      ],
+      "python": "hmath.interpolation.interpolate",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Interpolation.hermite",
+      "c": [
+        "hmath_interpolation_value_hermite"
+      ],
+      "python": "hmath.interpolation.hermite",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Interpolation.piecewisePolynomial",
+      "c": [
+        "hmath_interpolation_value_piecewise_polynomial"
+      ],
+      "python": "hmath.interpolation.piecewise_polynomial",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Interpolation.piecewiseKnots",
+      "c": [
+        "hmath_interpolation_value_piecewise_knots"
+      ],
+      "python": "hmath.interpolation.piecewise_knots",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Interpolation.evaluatePiecewise",
+      "c": [
+        "hmath_interpolation_value_evaluate_piecewise"
+      ],
+      "python": "hmath.interpolation.evaluate_piecewise",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Interpolation.differentiatePiecewise",
+      "c": [
+        "hmath_interpolation_value_differentiate_piecewise"
+      ],
+      "python": "hmath.interpolation.differentiate_piecewise",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Interpolation.integratePiecewise",
+      "c": [
+        "hmath_interpolation_value_integrate_piecewise"
+      ],
+      "python": "hmath.interpolation.integrate_piecewise",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Interpolation.cubicHermite",
+      "c": [
+        "hmath_interpolation_value_cubic_hermite"
+      ],
+      "python": "hmath.interpolation.cubic_hermite",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Interpolation.cubicSpline",
+      "c": [
+        "hmath_interpolation_value_cubic_spline"
+      ],
+      "python": "hmath.interpolation.cubic_spline",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Interpolation.pchip",
+      "c": [
+        "hmath_interpolation_value_pchip"
+      ],
+      "python": "hmath.interpolation.pchip",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Interpolation.akima",
+      "c": [
+        "hmath_interpolation_value_akima"
+      ],
+      "python": "hmath.interpolation.akima",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Interpolation.smoothingSpline",
+      "c": [
+        "hmath_interpolation_value_smoothing_spline"
+      ],
+      "python": "hmath.interpolation.smoothing_spline",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Interpolation.bSpline",
+      "c": [
+        "hmath_interpolation_value_b_spline"
+      ],
+      "python": "hmath.interpolation.b_spline",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Interpolation.evaluateBSpline",
+      "c": [
+        "hmath_interpolation_value_evaluate_b_spline"
+      ],
+      "python": "hmath.interpolation.evaluate_b_spline",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Interpolation.derivativeBSpline",
+      "c": [
+        "hmath_interpolation_value_derivative_b_spline"
+      ],
+      "python": "hmath.interpolation.derivative_b_spline",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Interpolation.insertKnot",
+      "c": [
+        "hmath_interpolation_value_insert_knot"
+      ],
+      "python": "hmath.interpolation.insert_knot",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Interpolation.rationalBezier",
+      "c": [
+        "hmath_interpolation_value_rational_bezier"
+      ],
+      "python": "hmath.interpolation.rational_bezier",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Interpolation.bezier",
+      "c": [
+        "hmath_interpolation_value_bezier"
+      ],
+      "python": "hmath.interpolation.bezier",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Interpolation.kochanekBartels",
+      "c": [
+        "hmath_interpolation_value_kochanek_bartels"
+      ],
+      "python": "hmath.interpolation.kochanek_bartels",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Interpolation.cardinalSpline",
+      "c": [
+        "hmath_interpolation_value_cardinal_spline"
+      ],
+      "python": "hmath.interpolation.cardinal_spline",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Interpolation.catmullRom",
+      "c": [
+        "hmath_interpolation_value_catmull_rom"
+      ],
+      "python": "hmath.interpolation.catmull_rom",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Interpolation.curveIntegral",
+      "c": [
+        "hmath_interpolation_value_curve_integral"
+      ],
+      "python": "hmath.interpolation.curve_integral",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Interpolation.arcLength",
+      "c": [
+        "hmath_interpolation_value_arc_length"
+      ],
+      "python": "hmath.interpolation.arc_length",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Interpolation.gridInterpolate",
+      "c": [
+        "hmath_interpolation_value_grid_interpolate"
+      ],
+      "python": "hmath.interpolation.grid_interpolate",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Interpolation.fitRBF",
+      "c": [
+        "hmath_interpolation_value_fit_rbf"
+      ],
+      "python": "hmath.interpolation.fit_rbf",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Interpolation.evaluateRBF",
+      "c": [
+        "hmath_interpolation_value_evaluate_rbf"
+      ],
+      "python": "hmath.interpolation.evaluate_rbf",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Interpolation.inverseDistance",
+      "c": [
+        "hmath_interpolation_value_inverse_distance"
+      ],
+      "python": "hmath.interpolation.inverse_distance",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Interpolation.shepard",
+      "c": [
+        "hmath_interpolation_value_shepard"
+      ],
+      "python": "hmath.interpolation.shepard",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Interpolation.kriging",
+      "c": [
+        "hmath_interpolation_value_kriging"
+      ],
+      "python": "hmath.interpolation.kriging",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Interpolation.polynomialFit",
+      "c": [
+        "hmath_interpolation_value_polynomial_fit"
+      ],
+      "python": "hmath.interpolation.polynomial_fit",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Interpolation.chebyshevApproximate",
+      "c": [
+        "hmath_interpolation_value_chebyshev_approximate"
+      ],
+      "python": "hmath.interpolation.chebyshev_approximate",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Interpolation.pade",
+      "c": [
+        "hmath_interpolation_value_pade"
+      ],
+      "python": "hmath.interpolation.pade",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Interpolation.rationalFit",
+      "c": [
+        "hmath_interpolation_value_rational_fit"
+      ],
+      "python": "hmath.interpolation.rational_fit",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Interpolation.remez",
+      "c": [
+        "hmath_interpolation_value_remez"
+      ],
+      "python": "hmath.interpolation.remez",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Interpolation.nonlinearFit",
+      "c": [
+        "hmath_interpolation_value_nonlinear_fit"
+      ],
+      "python": "hmath.interpolation.nonlinear_fit",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Interpolation.interpolationError",
+      "c": [
+        "hmath_interpolation_value_interpolation_error"
+      ],
+      "python": "hmath.interpolation.interpolation_error",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Fourier.Forward",
+      "c": [
+        "hmath_fourier_value_forward"
+      ],
+      "python": "hmath.fourier.forward",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Fourier.Inverse",
+      "c": [
+        "hmath_fourier_value_inverse"
+      ],
+      "python": "hmath.fourier.inverse",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Fourier.Automatic",
+      "c": [
+        "hmath_fourier_value_automatic"
+      ],
+      "python": "hmath.fourier.automatic",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Fourier.Direct",
+      "c": [
+        "hmath_fourier_value_direct"
+      ],
+      "python": "hmath.fourier.direct",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Fourier.Radix2",
+      "c": [
+        "hmath_fourier_value_radix2"
+      ],
+      "python": "hmath.fourier.radix2",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Fourier.Radix4",
+      "c": [
+        "hmath_fourier_value_radix4"
+      ],
+      "python": "hmath.fourier.radix4",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Fourier.MixedRadix",
+      "c": [
+        "hmath_fourier_value_mixed_radix"
+      ],
+      "python": "hmath.fourier.mixed_radix",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Fourier.SplitRadix",
+      "c": [
+        "hmath_fourier_value_split_radix"
+      ],
+      "python": "hmath.fourier.split_radix",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Fourier.Bluestein",
+      "c": [
+        "hmath_fourier_value_bluestein"
+      ],
+      "python": "hmath.fourier.bluestein",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Fourier.Rader",
+      "c": [
+        "hmath_fourier_value_rader"
+      ],
+      "python": "hmath.fourier.rader",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Fourier.TypeI",
+      "c": [
+        "hmath_fourier_value_type_i"
+      ],
+      "python": "hmath.fourier.type_i",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Fourier.TypeII",
+      "c": [
+        "hmath_fourier_value_type_ii"
+      ],
+      "python": "hmath.fourier.type_ii",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Fourier.TypeIII",
+      "c": [
+        "hmath_fourier_value_type_iii"
+      ],
+      "python": "hmath.fourier.type_iii",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Fourier.TypeIV",
+      "c": [
+        "hmath_fourier_value_type_iv"
+      ],
+      "python": "hmath.fourier.type_iv",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Fourier.planFFT",
+      "c": [
+        "hmath_fourier_value_plan_fft"
+      ],
+      "python": "hmath.fourier.plan_fft",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Fourier.executeFFT",
+      "c": [
+        "hmath_fourier_value_execute_fft"
+      ],
+      "python": "hmath.fourier.execute_fft",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Fourier.fft",
+      "c": [
+        "hmath_fourier_value_fft"
+      ],
+      "python": "hmath.fourier.fft",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Fourier.ifft",
+      "c": [
+        "hmath_fourier_value_ifft"
+      ],
+      "python": "hmath.fourier.ifft",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Fourier.dft",
+      "c": [
+        "hmath_fourier_value_dft"
+      ],
+      "python": "hmath.fourier.dft",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Fourier.realFFT",
+      "c": [
+        "hmath_fourier_value_real_fft"
+      ],
+      "python": "hmath.fourier.real_fft",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Fourier.inverseRealFFT",
+      "c": [
+        "hmath_fourier_value_inverse_real_fft"
+      ],
+      "python": "hmath.fourier.inverse_real_fft",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Fourier.fftBatch",
+      "c": [
+        "hmath_fourier_value_fft_batch"
+      ],
+      "python": "hmath.fourier.fft_batch",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Fourier.fftND",
+      "c": [
+        "hmath_fourier_value_fft_nd"
+      ],
+      "python": "hmath.fourier.fft_nd",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Fourier.dct",
+      "c": [
+        "hmath_fourier_value_dct"
+      ],
+      "python": "hmath.fourier.dct",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Fourier.idct",
+      "c": [
+        "hmath_fourier_value_idct"
+      ],
+      "python": "hmath.fourier.idct",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Fourier.dst",
+      "c": [
+        "hmath_fourier_value_dst"
+      ],
+      "python": "hmath.fourier.dst",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Fourier.idst",
+      "c": [
+        "hmath_fourier_value_idst"
+      ],
+      "python": "hmath.fourier.idst",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Fourier.stftFrames",
+      "c": [
+        "hmath_fourier_value_stft_frames"
+      ],
+      "python": "hmath.fourier.stft_frames",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Fourier.stft",
+      "c": [
+        "hmath_fourier_value_stft"
+      ],
+      "python": "hmath.fourier.stft",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Fourier.istft",
+      "c": [
+        "hmath_fourier_value_istft"
+      ],
+      "python": "hmath.fourier.istft",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Fourier.magnitudeSpectrum",
+      "c": [
+        "hmath_fourier_value_magnitude_spectrum"
+      ],
+      "python": "hmath.fourier.magnitude_spectrum",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Fourier.phaseSpectrum",
+      "c": [
+        "hmath_fourier_value_phase_spectrum"
+      ],
+      "python": "hmath.fourier.phase_spectrum",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Fourier.powerSpectrum",
+      "c": [
+        "hmath_fourier_value_power_spectrum"
+      ],
+      "python": "hmath.fourier.power_spectrum",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Fourier.crossSpectrum",
+      "c": [
+        "hmath_fourier_value_cross_spectrum"
+      ],
+      "python": "hmath.fourier.cross_spectrum",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Fourier.spectrogram",
+      "c": [
+        "hmath_fourier_value_spectrogram"
+      ],
+      "python": "hmath.fourier.spectrogram",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Fourier.analyticSignal",
+      "c": [
+        "hmath_fourier_value_analytic_signal"
+      ],
+      "python": "hmath.fourier.analytic_signal",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Fourier.chirpZ",
+      "c": [
+        "hmath_fourier_value_chirp_z"
+      ],
+      "python": "hmath.fourier.chirp_z",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Fourier.goertzel",
+      "c": [
+        "hmath_fourier_value_goertzel"
+      ],
+      "python": "hmath.fourier.goertzel",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Fourier.fftConvolve",
+      "c": [
+        "hmath_fourier_value_fft_convolve"
+      ],
+      "python": "hmath.fourier.fft_convolve",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Fourier.fftCorrelate",
+      "c": [
+        "hmath_fourier_value_fft_correlate"
+      ],
+      "python": "hmath.fourier.fft_correlate",
+      "specializations": [
+        "original binary64/exact/structured source types; Estimate payload remains generic"
+      ]
+    },
+    {
+      "symbol": "HMath.Fourier.fftInPlace",
+      "c": [
+        "hmath_fourier_value_fft_in_place"
+      ],
+      "python": "hmath.fourier.fft_in_place",
+      "specializations": [
+        "original in-place binary64 complex buffer with borrowed lifetime"
+      ]
+    }
+  ]
+}

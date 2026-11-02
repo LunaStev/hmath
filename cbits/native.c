@@ -10,6 +10,7 @@
 static _Thread_local hmath_status last_code;
 static _Thread_local char last_message[256];
 hmath_status hm_error(hmath_status code, const char *message) {
+    hm_clear_math_error();
     last_code = code;
     (void)snprintf(last_message, sizeof last_message, "%s", message ? message : "");
     return code;
@@ -27,13 +28,16 @@ const char *hmath_status_string(hmath_status s) {
                                         "cancelled",
                                         "bounds error",
                                         "busy",
-                                        "unsupported"};
+                                        "unsupported",
+                                        "Haskell MathError",
+                                        "Haskell ExprError",
+                                        "Haskell InterchangeError"};
     return (unsigned)s < sizeof names / sizeof names[0] ? names[s] : "unknown status";
 }
 uint32_t hmath_abi_version(void) { return HMATH_ABI_VERSION; }
 const char *hmath_library_version(void) { return "1.0.2"; }
 const char *hmath_build_info(void) {
-    return "HMath ABI 1; C11; GHC threaded RTS; binary64; max-rank=8";
+    return "HMath ABI 1; C11; GHC threaded RTS; scalar binary32/64; tensor binary64; max-rank=8";
 }
 const char *hmath_backend_version(void) {
     return "native tensor kernels: Haskell reference binary64";
@@ -311,14 +315,22 @@ hmath_status hmath_tensor_reshape(const hmath_tensor *t, const size_t *shape, si
     *out = r;
     return hm_error(HMATH_OK, "");
 }
-static hmath_status gather_values(const hmath_tensor *t, double **out) {
+/* Borrow contiguous storage for the whole synchronous call. Only strided
+ * inputs need gathered scratch; the caller owns a live tensor reference. */
+static hmath_status kernel_values(const hmath_tensor *t, const double **values, double **scratch) {
     if (!t)
         return hm_error(HMATH_INVALID_ARGUMENT, "NULL tensor");
-    *out = malloc((t->count ? t->count : 1) * sizeof(double));
-    if (!*out)
+    *scratch = NULL;
+    if (is_contiguous(t)) {
+        *values = t->storage->data;
+        return HMATH_OK;
+    }
+    *scratch = malloc((t->count ? t->count : 1) * sizeof(double));
+    if (!*scratch)
         return hm_error(HMATH_ALLOCATION_FAILED, "kernel scratch allocation failed");
     for (size_t i = 0; i < t->count; ++i)
-        (*out)[i] = t->storage->data[element_offset(t, i)];
+        (*scratch)[i] = t->storage->data[element_offset(t, i)];
+    *values = *scratch;
     return HMATH_OK;
 }
 static int same_shape(const hmath_tensor *a, const hmath_tensor *b) {
@@ -361,19 +373,20 @@ static hmath_status scalar_kernel(hmath_context *context, int op, const hmath_te
     hmath_status s = hm_enter(context);
     if (s)
         return s;
-    double *xs = NULL, *ys = NULL, result;
-    s = gather_values(a, &xs);
+    const double *xs = NULL, *ys = NULL;
+    double *x_scratch = NULL, *y_scratch = NULL, result;
+    s = kernel_values(a, &xs, &x_scratch);
     if (!s && b)
-        s = gather_values(b, &ys);
+        s = kernel_values(b, &ys, &y_scratch);
     if (s) {
-        free(xs);
-        free(ys);
+        free(x_scratch);
+        free(y_scratch);
         hm_leave();
         return s;
     }
     int code = hm_haskell_kernel(op, xs, ys, a->count, 0, 0, 0, &result);
-    free(xs);
-    free(ys);
+    free(x_scratch);
+    free(y_scratch);
     s = finish_kernel(context, code);
     if (!s)
         *out = result;
@@ -417,29 +430,32 @@ static hmath_status tensor_kernel(hmath_context *context, int op, const hmath_te
     hmath_status s = hm_enter(context);
     if (s)
         return s;
-    double *xs = NULL, *ys = NULL, *result = NULL;
-    s = gather_values(a, &xs);
+    const double *xs = NULL, *ys = NULL;
+    double *x_scratch = NULL, *y_scratch = NULL, *result = NULL;
+    s = kernel_values(a, &xs, &x_scratch);
     if (!s)
-        s = gather_values(b, &ys);
-    if (!s) {
-        result = malloc((n ? n : 1) * sizeof(double));
-        if (!result)
-            s = hm_error(HMATH_ALLOCATION_FAILED, "result allocation failed");
-    }
+        s = kernel_values(b, &ys, &y_scratch);
+    if (!s)
+        s = hmath_buffer_alloc(n * sizeof(double), 64, (void **)&result);
     if (s) {
-        free(xs);
-        free(ys);
-        free(result);
+        free(x_scratch);
+        free(y_scratch);
+        hmath_buffer_free(result);
         hm_leave();
         return s;
     }
     int code = hm_haskell_kernel(op, xs, ys, a->count, rows, inner, columns, result);
-    free(xs);
-    free(ys);
+    free(x_scratch);
+    free(y_scratch);
     s = finish_kernel(context, code);
-    if (!s)
-        s = hmath_tensor_copy(result, n, shape, rank, out);
-    free(result);
+    if (!s) {
+        /* The kernel already wrote the final aligned storage. Borrow takes its
+         * ownership only on success; no second allocation/copy is needed. */
+        s = hmath_tensor_borrow(result, n, shape, NULL, rank, owned_deleter, NULL, out);
+        if (!s)
+            result = NULL;
+    }
+    hmath_buffer_free(result);
     return s;
 }
 hmath_status hmath_tensor_add(hmath_context *c, const hmath_tensor *a, const hmath_tensor *b,

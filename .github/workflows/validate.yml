@@ -46,6 +46,7 @@ jobs:
             ${{ steps.haskell.outputs.cabal-store }}
             dist-newstyle
             build-ci/cabal
+            build-ci/numeric-oracle
             build-interchange/cabal
           key: cabal-${{ runner.os }}-${{ matrix.ghc }}-${{ matrix.buildtype }}-${{ hashFiles('hmath.cabal', 'cabal.project', 'src/**', 'cbits/**', 'test/**', 'bench/**') }}
           restore-keys: cabal-${{ runner.os }}-${{ matrix.ghc }}-${{ matrix.buildtype }}-
@@ -114,6 +115,7 @@ jobs:
             ${{ steps.haskell.outputs.cabal-store }}
             dist-newstyle
             build-ci/cabal
+            build-ci/numeric-oracle
             build-interchange/cabal
           key: cabal-extended-${{ runner.os }}-9.10.3-${{ hashFiles('hmath.cabal', 'cabal.project', 'src/**', 'cbits/**', 'test/**', 'bench/**') }}
           restore-keys: |

@@ -1,0 +1,662 @@
+{
+  "schema": 1,
+  "bindings": [
+    {
+      "symbol": "HMath.Matrix.LU.determinant",
+      "c": [
+        "hmath_dense_lu_determinant_f32",
+        "hmath_dense_lu_determinant_f64"
+      ],
+      "python": "hmath.matrix.determinant",
+      "specializations": [
+        "Float",
+        "Double"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.LU.determinantLU",
+      "c": [
+        "hmath_dense_lu_determinant_lu_f32",
+        "hmath_dense_lu_determinant_lu_f64"
+      ],
+      "python": "hmath.matrix.determinant_lu",
+      "specializations": [
+        "Float",
+        "Double"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.LU.inverse",
+      "c": [
+        "hmath_dense_lu_inverse_f32",
+        "hmath_dense_lu_inverse_f64"
+      ],
+      "python": "hmath.matrix.inverse",
+      "specializations": [
+        "Float",
+        "Double"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.LU.luDecompose",
+      "c": [
+        "hmath_dense_lu_lu_decompose_f32",
+        "hmath_dense_lu_lu_decompose_f64"
+      ],
+      "python": "hmath.matrix.lu_decompose",
+      "specializations": [
+        "Float",
+        "Double"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.LU.luDecomposeWithTolerance",
+      "c": [
+        "hmath_dense_lu_lu_decompose_with_tolerance_f32",
+        "hmath_dense_lu_lu_decompose_with_tolerance_f64"
+      ],
+      "python": "hmath.matrix.lu_decompose_with_tolerance",
+      "specializations": [
+        "Float",
+        "Double"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.LU.luLower",
+      "c": [
+        "hmath_dense_lu_lu_lower_f32",
+        "hmath_dense_lu_lu_lower_f64"
+      ],
+      "python": "hmath.matrix.lu_lower",
+      "specializations": [
+        "Float",
+        "Double"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.LU.luPermutation",
+      "c": [
+        "hmath_dense_lu_lu_permutation_f32",
+        "hmath_dense_lu_lu_permutation_f64"
+      ],
+      "python": "hmath.matrix.lu_permutation",
+      "specializations": [
+        "Float",
+        "Double"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.LU.luUpper",
+      "c": [
+        "hmath_dense_lu_lu_upper_f32",
+        "hmath_dense_lu_lu_upper_f64"
+      ],
+      "python": "hmath.matrix.lu_upper",
+      "specializations": [
+        "Float",
+        "Double"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.LU.solve",
+      "c": [
+        "hmath_dense_lu_solve_f32",
+        "hmath_dense_lu_solve_f64"
+      ],
+      "python": "hmath.matrix.solve",
+      "specializations": [
+        "Float",
+        "Double"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.LU.solveLU",
+      "c": [
+        "hmath_dense_lu_solve_lu_f32",
+        "hmath_dense_lu_solve_lu_f64"
+      ],
+      "python": "hmath.matrix.solve_lu",
+      "specializations": [
+        "Float",
+        "Double"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.LU.solveMatrix",
+      "c": [
+        "hmath_dense_lu_solve_matrix_f32",
+        "hmath_dense_lu_solve_matrix_f64"
+      ],
+      "python": "hmath.matrix.solve_matrix",
+      "specializations": [
+        "Float",
+        "Double"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.LU.solveMatrixLU",
+      "c": [
+        "hmath_dense_lu_solve_matrix_lu_f32",
+        "hmath_dense_lu_solve_matrix_lu_f64"
+      ],
+      "python": "hmath.matrix.solve_matrix_lu",
+      "specializations": [
+        "Float",
+        "Double"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.QR.applyQ",
+      "c": [
+        "hmath_dense_qr_apply_q_f32",
+        "hmath_dense_qr_apply_q_f64"
+      ],
+      "python": "hmath.matrix.apply_q",
+      "specializations": [
+        "Float",
+        "Double"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.QR.applyQT",
+      "c": [
+        "hmath_dense_qr_apply_qt_f32",
+        "hmath_dense_qr_apply_qt_f64"
+      ],
+      "python": "hmath.matrix.apply_qt",
+      "specializations": [
+        "Float",
+        "Double"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.QR.leastSquares",
+      "c": [
+        "hmath_dense_qr_least_squares_f32",
+        "hmath_dense_qr_least_squares_f64"
+      ],
+      "python": "hmath.matrix.least_squares",
+      "specializations": [
+        "Float",
+        "Double"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.QR.leastSquaresMatrix",
+      "c": [
+        "hmath_dense_qr_least_squares_matrix_f32",
+        "hmath_dense_qr_least_squares_matrix_f64"
+      ],
+      "python": "hmath.matrix.least_squares_matrix",
+      "specializations": [
+        "Float",
+        "Double"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.QR.qrDecompose",
+      "c": [
+        "hmath_dense_qr_qr_decompose_f32",
+        "hmath_dense_qr_qr_decompose_f64"
+      ],
+      "python": "hmath.matrix.qr_decompose",
+      "specializations": [
+        "Float",
+        "Double"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.QR.qrDecomposeWithTolerance",
+      "c": [
+        "hmath_dense_qr_qr_decompose_with_tolerance_f32",
+        "hmath_dense_qr_qr_decompose_with_tolerance_f64"
+      ],
+      "python": "hmath.matrix.qr_decompose_with_tolerance",
+      "specializations": [
+        "Float",
+        "Double"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.QR.qrPermutation",
+      "c": [
+        "hmath_dense_qr_qr_permutation_f32",
+        "hmath_dense_qr_qr_permutation_f64"
+      ],
+      "python": "hmath.matrix.qr_permutation",
+      "specializations": [
+        "Float",
+        "Double"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.QR.qrQ",
+      "c": [
+        "hmath_dense_qr_qr_q_f32",
+        "hmath_dense_qr_qr_q_f64"
+      ],
+      "python": "hmath.matrix.qr_q",
+      "specializations": [
+        "Float",
+        "Double"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.QR.qrR",
+      "c": [
+        "hmath_dense_qr_qr_r_f32",
+        "hmath_dense_qr_qr_r_f64"
+      ],
+      "python": "hmath.matrix.qr_r",
+      "specializations": [
+        "Float",
+        "Double"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.QR.qrRank",
+      "c": [
+        "hmath_dense_qr_qr_rank_f32",
+        "hmath_dense_qr_qr_rank_f64"
+      ],
+      "python": "hmath.matrix.qr_rank",
+      "specializations": [
+        "Float",
+        "Double"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.QR.ridgeSolve",
+      "c": [
+        "hmath_dense_qr_ridge_solve_f32",
+        "hmath_dense_qr_ridge_solve_f64"
+      ],
+      "python": "hmath.matrix.ridge_solve",
+      "specializations": [
+        "Float",
+        "Double"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.QR.ridgeSolveMatrix",
+      "c": [
+        "hmath_dense_qr_ridge_solve_matrix_f32",
+        "hmath_dense_qr_ridge_solve_matrix_f64"
+      ],
+      "python": "hmath.matrix.ridge_solve_matrix",
+      "specializations": [
+        "Float",
+        "Double"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.QR.solveMatrixQR",
+      "c": [
+        "hmath_dense_qr_solve_matrix_qr_f32",
+        "hmath_dense_qr_solve_matrix_qr_f64"
+      ],
+      "python": "hmath.matrix.solve_matrix_qr",
+      "specializations": [
+        "Float",
+        "Double"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.QR.solveQR",
+      "c": [
+        "hmath_dense_qr_solve_qr_f32",
+        "hmath_dense_qr_solve_qr_f64"
+      ],
+      "python": "hmath.matrix.solve_qr",
+      "specializations": [
+        "Float",
+        "Double"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.addMatrix",
+      "c": [
+        "hmath_dense_add_matrix_f32",
+        "hmath_dense_add_matrix_f64"
+      ],
+      "python": "hmath.matrix.add_matrix",
+      "specializations": [
+        "Float",
+        "Double"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.addMatrixChecked",
+      "c": [
+        "hmath_dense_add_matrix_checked_f32",
+        "hmath_dense_add_matrix_checked_f64"
+      ],
+      "python": "hmath.matrix.add_matrix_checked",
+      "specializations": [
+        "Float",
+        "Double"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.at",
+      "c": [
+        "hmath_dense_at_f32",
+        "hmath_dense_at_f64"
+      ],
+      "python": "hmath.matrix.at",
+      "specializations": [
+        "Float",
+        "Double"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.atChecked",
+      "c": [
+        "hmath_dense_at_checked_f32",
+        "hmath_dense_at_checked_f64"
+      ],
+      "python": "hmath.matrix.at_checked",
+      "specializations": [
+        "Float",
+        "Double"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.diagonal",
+      "c": [
+        "hmath_dense_diagonal_f32",
+        "hmath_dense_diagonal_f64"
+      ],
+      "python": "hmath.matrix.diagonal",
+      "specializations": [
+        "Float",
+        "Double"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.diagonalChecked",
+      "c": [
+        "hmath_dense_diagonal_checked_f32",
+        "hmath_dense_diagonal_checked_f64"
+      ],
+      "python": "hmath.matrix.diagonal_checked",
+      "specializations": [
+        "Float",
+        "Double"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.fromList",
+      "c": [
+        "hmath_dense_from_list_f32",
+        "hmath_dense_from_list_f64"
+      ],
+      "python": "hmath.matrix.from_list",
+      "specializations": [
+        "Float",
+        "Double"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.fromListChecked",
+      "c": [
+        "hmath_dense_from_list_checked_f32",
+        "hmath_dense_from_list_checked_f64"
+      ],
+      "python": "hmath.matrix.from_list_checked",
+      "specializations": [
+        "Float",
+        "Double"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.hadamard",
+      "c": [
+        "hmath_dense_hadamard_f32",
+        "hmath_dense_hadamard_f64"
+      ],
+      "python": "hmath.matrix.hadamard",
+      "specializations": [
+        "Float",
+        "Double"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.hadamardChecked",
+      "c": [
+        "hmath_dense_hadamard_checked_f32",
+        "hmath_dense_hadamard_checked_f64"
+      ],
+      "python": "hmath.matrix.hadamard_checked",
+      "specializations": [
+        "Float",
+        "Double"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.identity",
+      "c": [
+        "hmath_dense_identity_f32",
+        "hmath_dense_identity_f64"
+      ],
+      "python": "hmath.matrix.identity",
+      "specializations": [
+        "Float",
+        "Double"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.identityChecked",
+      "c": [
+        "hmath_dense_identity_checked_f32",
+        "hmath_dense_identity_checked_f64"
+      ],
+      "python": "hmath.matrix.identity_checked",
+      "specializations": [
+        "Float",
+        "Double"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.multiply",
+      "c": [
+        "hmath_dense_multiply_f32",
+        "hmath_dense_multiply_f64"
+      ],
+      "python": "hmath.matrix.multiply",
+      "specializations": [
+        "Float",
+        "Double"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.multiplyChecked",
+      "c": [
+        "hmath_dense_multiply_checked_f32",
+        "hmath_dense_multiply_checked_f64"
+      ],
+      "python": "hmath.matrix.multiply_checked",
+      "specializations": [
+        "Float",
+        "Double"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.reshape",
+      "c": [
+        "hmath_dense_reshape_f32",
+        "hmath_dense_reshape_f64"
+      ],
+      "python": "hmath.matrix.reshape",
+      "specializations": [
+        "Float",
+        "Double"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.reshapeChecked",
+      "c": [
+        "hmath_dense_reshape_checked_f32",
+        "hmath_dense_reshape_checked_f64"
+      ],
+      "python": "hmath.matrix.reshape_checked",
+      "specializations": [
+        "Float",
+        "Double"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.scaleMatrix",
+      "c": [
+        "hmath_dense_scale_matrix_f32",
+        "hmath_dense_scale_matrix_f64"
+      ],
+      "python": "hmath.matrix.scale_matrix",
+      "specializations": [
+        "Float",
+        "Double"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.sliceMatrix",
+      "c": [
+        "hmath_dense_slice_matrix_f32",
+        "hmath_dense_slice_matrix_f64"
+      ],
+      "python": "hmath.matrix.slice_matrix",
+      "specializations": [
+        "Float",
+        "Double"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.sliceMatrixChecked",
+      "c": [
+        "hmath_dense_slice_matrix_checked_f32",
+        "hmath_dense_slice_matrix_checked_f64"
+      ],
+      "python": "hmath.matrix.slice_matrix_checked",
+      "specializations": [
+        "Float",
+        "Double"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.subtractMatrix",
+      "c": [
+        "hmath_dense_subtract_matrix_f32",
+        "hmath_dense_subtract_matrix_f64"
+      ],
+      "python": "hmath.matrix.subtract_matrix",
+      "specializations": [
+        "Float",
+        "Double"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.subtractMatrixChecked",
+      "c": [
+        "hmath_dense_subtract_matrix_checked_f32",
+        "hmath_dense_subtract_matrix_checked_f64"
+      ],
+      "python": "hmath.matrix.subtract_matrix_checked",
+      "specializations": [
+        "Float",
+        "Double"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.transposeMatrix",
+      "c": [
+        "hmath_dense_transpose_matrix_f32",
+        "hmath_dense_transpose_matrix_f64"
+      ],
+      "python": "hmath.matrix.transpose_matrix",
+      "specializations": [
+        "Float",
+        "Double"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.zeroMatrix",
+      "c": [
+        "hmath_dense_zero_matrix_f32",
+        "hmath_dense_zero_matrix_f64"
+      ],
+      "python": "hmath.matrix.zero_matrix",
+      "specializations": [
+        "Float",
+        "Double"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.zeroMatrixChecked",
+      "c": [
+        "hmath_dense_zero_matrix_checked_f32",
+        "hmath_dense_zero_matrix_checked_f64"
+      ],
+      "python": "hmath.matrix.zero_matrix_checked",
+      "specializations": [
+        "Float",
+        "Double"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.shape",
+      "c": [
+        "hmath_dense_shape"
+      ],
+      "python": "hmath.matrix.shape",
+      "specializations": [
+        "Float",
+        "Double"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.toList",
+      "c": [
+        "hmath_dense_count",
+        "hmath_dense_values_f32",
+        "hmath_dense_values_f64"
+      ],
+      "python": "hmath.matrix.to_list",
+      "specializations": [
+        "Float",
+        "Double"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.Matrix",
+      "c": [
+        "hmath_dense_matrix"
+      ],
+      "python": "hmath.matrix.Matrix",
+      "specializations": [
+        "Float",
+        "Double"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.LU.LU",
+      "c": [
+        "hmath_dense_lu"
+      ],
+      "python": "hmath.matrix.LU",
+      "specializations": [
+        "Float",
+        "Double"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.QR.QR",
+      "c": [
+        "hmath_dense_qr"
+      ],
+      "python": "hmath.matrix.QR",
+      "specializations": [
+        "Float",
+        "Double"
+      ]
+    }
+  ]
+}

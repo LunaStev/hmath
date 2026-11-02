@@ -1,0 +1,167 @@
+{
+  "schema": 1,
+  "bindings": [
+    {
+      "symbol": "HMath.Optimization.FirstOrder.initializeOptimizer",
+      "c": [
+        "hmath_initialize_optimizer"
+      ],
+      "python": "hmath.optimization.initialize_optimizer",
+      "specializations": [
+        "Double"
+      ]
+    },
+    {
+      "symbol": "HMath.Optimization.FirstOrder.optimizerStep",
+      "c": [
+        "hmath_optimizer_step"
+      ],
+      "python": "hmath.optimization.optimizer_step",
+      "specializations": [
+        "Double"
+      ]
+    },
+    {
+      "symbol": "HMath.Optimization.FirstOrder.OptimizerState",
+      "c": [
+        "hmath_optimizer_state",
+        "hmath_optimizer_state_retain",
+        "hmath_optimizer_state_release"
+      ],
+      "python": "hmath.optimization.OptimizerState",
+      "specializations": [
+        "Double"
+      ]
+    },
+    {
+      "symbol": "HMath.Optimization.FirstOrder.GradientMethod",
+      "c": [
+        "hmath_gradient_method"
+      ],
+      "python": "hmath.optimization.GradientMethod",
+      "specializations": [
+        "enum"
+      ]
+    },
+    {
+      "symbol": "HMath.Optimization.FirstOrder.GradientDescent",
+      "c": [
+        "HMATH_GRADIENT_DESCENT"
+      ],
+      "python": "hmath.optimization.GradientMethod.GRADIENT_DESCENT",
+      "specializations": [
+        "enum-constructor"
+      ]
+    },
+    {
+      "symbol": "HMath.Optimization.FirstOrder.Momentum",
+      "c": [
+        "HMATH_MOMENTUM"
+      ],
+      "python": "hmath.optimization.GradientMethod.MOMENTUM",
+      "specializations": [
+        "enum-constructor"
+      ]
+    },
+    {
+      "symbol": "HMath.Optimization.FirstOrder.Nesterov",
+      "c": [
+        "HMATH_NESTEROV"
+      ],
+      "python": "hmath.optimization.GradientMethod.NESTEROV",
+      "specializations": [
+        "enum-constructor"
+      ]
+    },
+    {
+      "symbol": "HMath.Optimization.FirstOrder.AdaGrad",
+      "c": [
+        "HMATH_ADAGRAD"
+      ],
+      "python": "hmath.optimization.GradientMethod.ADAGRAD",
+      "specializations": [
+        "enum-constructor"
+      ]
+    },
+    {
+      "symbol": "HMath.Optimization.FirstOrder.RMSProp",
+      "c": [
+        "HMATH_RMSPROP"
+      ],
+      "python": "hmath.optimization.GradientMethod.RMSPROP",
+      "specializations": [
+        "enum-constructor"
+      ]
+    },
+    {
+      "symbol": "HMath.Optimization.FirstOrder.AdaDelta",
+      "c": [
+        "HMATH_ADADELTA"
+      ],
+      "python": "hmath.optimization.GradientMethod.ADADELTA",
+      "specializations": [
+        "enum-constructor"
+      ]
+    },
+    {
+      "symbol": "HMath.Optimization.FirstOrder.Adam",
+      "c": [
+        "HMATH_ADAM"
+      ],
+      "python": "hmath.optimization.GradientMethod.ADAM",
+      "specializations": [
+        "enum-constructor"
+      ]
+    },
+    {
+      "symbol": "HMath.Optimization.FirstOrder.AdamW",
+      "c": [
+        "HMATH_ADAMW"
+      ],
+      "python": "hmath.optimization.GradientMethod.ADAMW",
+      "specializations": [
+        "enum-constructor"
+      ]
+    },
+    {
+      "symbol": "HMath.Optimization.FirstOrder.AMSGrad",
+      "c": [
+        "HMATH_AMSGRAD"
+      ],
+      "python": "hmath.optimization.GradientMethod.AMSGRAD",
+      "specializations": [
+        "enum-constructor"
+      ]
+    },
+    {
+      "symbol": "HMath.Optimization.FirstOrder.AdaMax",
+      "c": [
+        "HMATH_ADAMAX"
+      ],
+      "python": "hmath.optimization.GradientMethod.ADAMAX",
+      "specializations": [
+        "enum-constructor"
+      ]
+    },
+    {
+      "symbol": "HMath.Optimization.FirstOrder.Nadam",
+      "c": [
+        "HMATH_NADAM"
+      ],
+      "python": "hmath.optimization.GradientMethod.NADAM",
+      "specializations": [
+        "enum-constructor"
+      ]
+    },
+    {
+      "symbol": "HMath.Optimization.FirstOrder.RAdam",
+      "c": [
+        "HMATH_RADAM"
+      ],
+      "python": "hmath.optimization.GradientMethod.RADAM",
+      "specializations": [
+        "enum-constructor"
+      ]
+    }
+  ]
+}

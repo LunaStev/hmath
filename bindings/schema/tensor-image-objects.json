@@ -1,0 +1,46 @@
+{
+  "schema": 1,
+  "extends": "image-objects.json",
+  "bindings": [
+    {
+      "symbol": "HMath.Tensor.tensor",
+      "c": [
+        "hmath_tensor_object_tensor"
+      ],
+      "python": "hmath.tensor.tensor",
+      "specializations": [
+        "original typed elements: Float/Double/Integer/Rational/complex/fixed integers/Bool/String and available Numeric towers; structural codecs retain actual types and instances"
+      ]
+    },
+    {
+      "symbol": "HMath.Tensor.tensorValues",
+      "c": [
+        "hmath_tensor_object_tensor_values"
+      ],
+      "python": "hmath.tensor.tensor_values",
+      "specializations": [
+        "original typed elements: Float/Double/Integer/Rational/complex/fixed integers/Bool/String and available Numeric towers; structural codecs retain actual types and instances"
+      ]
+    },
+    {
+      "symbol": "HMath.Tensor.tensorShape",
+      "c": [
+        "hmath_tensor_object_tensor_shape"
+      ],
+      "python": "hmath.tensor.tensor_shape",
+      "specializations": [
+        "original typed elements: Float/Double/Integer/Rational/complex/fixed integers/Bool/String and available Numeric towers; structural codecs retain actual types and instances"
+      ]
+    },
+    {
+      "symbol": "HMath.Tensor.Tensor",
+      "c": [
+        "hmath_value"
+      ],
+      "python": "hmath.tensor.Tensor",
+      "specializations": [
+        "actual typed original object; no legacy rank/element cap"
+      ]
+    }
+  ]
+}

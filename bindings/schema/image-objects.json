@@ -1,0 +1,915 @@
+{
+  "schema": 1,
+  "bindings": [
+    {
+      "symbol": "HMath.Image.Core.Image",
+      "c": [
+        "hmath_image_image_object"
+      ],
+      "python": "hmath.image.Image",
+      "specializations": [
+        "original concrete type"
+      ]
+    },
+    {
+      "symbol": "HMath.Tensor.Tensor",
+      "c": [
+        "hmath_image_tensor_double_object"
+      ],
+      "python": "hmath.image.TensorDouble",
+      "specializations": [
+        "Double only"
+      ]
+    },
+    {
+      "symbol": "HMath.Image.Core.Boundary",
+      "c": [
+        "hmath_image_boundary_object"
+      ],
+      "python": "hmath.image.Boundary",
+      "specializations": [
+        "original concrete type"
+      ]
+    },
+    {
+      "symbol": "HMath.Image.Filter.GradientOperator",
+      "c": [
+        "hmath_image_gradient_operator_object"
+      ],
+      "python": "hmath.image.GradientOperator",
+      "specializations": [
+        "original concrete type"
+      ]
+    },
+    {
+      "symbol": "HMath.Image.Filter.Morphology",
+      "c": [
+        "hmath_image_morphology_object"
+      ],
+      "python": "hmath.image.Morphology",
+      "specializations": [
+        "original concrete type"
+      ]
+    },
+    {
+      "symbol": "HMath.Image.Measure.TemplateMetric",
+      "c": [
+        "hmath_image_template_metric_object"
+      ],
+      "python": "hmath.image.TemplateMetric",
+      "specializations": [
+        "original concrete type"
+      ]
+    },
+    {
+      "symbol": "HMath.Image.Spatial.Interpolation",
+      "c": [
+        "hmath_image_interpolation_object"
+      ],
+      "python": "hmath.image.Interpolation",
+      "specializations": [
+        "original concrete type"
+      ]
+    },
+    {
+      "symbol": "HMath.Image.Spatial.Connectivity",
+      "c": [
+        "hmath_image_connectivity_object"
+      ],
+      "python": "hmath.image.Connectivity",
+      "specializations": [
+        "original concrete type"
+      ]
+    },
+    {
+      "symbol": "HMath.Image.Color.ColorSpace",
+      "c": [
+        "hmath_image_color_space_object"
+      ],
+      "python": "hmath.image.ColorSpace",
+      "specializations": [
+        "original concrete type"
+      ]
+    },
+    {
+      "symbol": "HMath.Image.Core.image",
+      "c": [
+        "hmath_image_image"
+      ],
+      "python": "hmath.image.image",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Image.Core.fromTensor",
+      "c": [
+        "hmath_image_from_tensor"
+      ],
+      "python": "hmath.image.from_tensor",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Image.Core.toTensor",
+      "c": [
+        "hmath_image_to_tensor"
+      ],
+      "python": "hmath.image.to_tensor",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Image.Core.imageShape",
+      "c": [
+        "hmath_image_image_shape"
+      ],
+      "python": "hmath.image.image_shape",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Image.Core.imageChannels",
+      "c": [
+        "hmath_image_image_channels"
+      ],
+      "python": "hmath.image.image_channels",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Image.Core.imageValues",
+      "c": [
+        "hmath_image_image_values"
+      ],
+      "python": "hmath.image.image_values",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Image.Core.pixel",
+      "c": [
+        "hmath_image_pixel"
+      ],
+      "python": "hmath.image.pixel",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Image.Core.channel",
+      "c": [
+        "hmath_image_channel"
+      ],
+      "python": "hmath.image.channel",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Image.Core.combineChannels",
+      "c": [
+        "hmath_image_combine_channels"
+      ],
+      "python": "hmath.image.combine_channels",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Image.Core.mapImage",
+      "c": [
+        "hmath_image_map_image"
+      ],
+      "python": "hmath.image.map_image",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Image.Core.zipImage",
+      "c": [
+        "hmath_image_zip_image"
+      ],
+      "python": "hmath.image.zip_image",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Image.Core.normalize",
+      "c": [
+        "hmath_image_normalize"
+      ],
+      "python": "hmath.image.normalize",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Image.Core.brightness",
+      "c": [
+        "hmath_image_brightness"
+      ],
+      "python": "hmath.image.brightness",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Image.Core.contrast",
+      "c": [
+        "hmath_image_contrast"
+      ],
+      "python": "hmath.image.contrast",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Image.Core.gamma",
+      "c": [
+        "hmath_image_gamma"
+      ],
+      "python": "hmath.image.gamma",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Image.Core.Constant",
+      "c": [
+        "hmath_image_constant"
+      ],
+      "python": "hmath.image.constant",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Image.Core.Clamp",
+      "c": [
+        "hmath_image_clamp"
+      ],
+      "python": "hmath.image.clamp",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Image.Core.Reflect",
+      "c": [
+        "hmath_image_reflect"
+      ],
+      "python": "hmath.image.reflect",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Image.Core.Wrap",
+      "c": [
+        "hmath_image_wrap"
+      ],
+      "python": "hmath.image.wrap",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Image.Filter.convolve",
+      "c": [
+        "hmath_image_convolve"
+      ],
+      "python": "hmath.image.convolve",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Image.Filter.correlate",
+      "c": [
+        "hmath_image_correlate"
+      ],
+      "python": "hmath.image.correlate",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Image.Filter.gaussianBlur",
+      "c": [
+        "hmath_image_gaussian_blur"
+      ],
+      "python": "hmath.image.gaussian_blur",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Image.Filter.boxBlur",
+      "c": [
+        "hmath_image_box_blur"
+      ],
+      "python": "hmath.image.box_blur",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Image.Filter.medianBlur",
+      "c": [
+        "hmath_image_median_blur"
+      ],
+      "python": "hmath.image.median_blur",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Image.Filter.bilateralBlur",
+      "c": [
+        "hmath_image_bilateral_blur"
+      ],
+      "python": "hmath.image.bilateral_blur",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Image.Filter.sharpen",
+      "c": [
+        "hmath_image_sharpen"
+      ],
+      "python": "hmath.image.sharpen",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Image.Filter.gradient",
+      "c": [
+        "hmath_image_gradient"
+      ],
+      "python": "hmath.image.gradient",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Image.Filter.laplacian",
+      "c": [
+        "hmath_image_laplacian"
+      ],
+      "python": "hmath.image.laplacian",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Image.Filter.canny",
+      "c": [
+        "hmath_image_canny"
+      ],
+      "python": "hmath.image.canny",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Image.Filter.morphology",
+      "c": [
+        "hmath_image_morphology"
+      ],
+      "python": "hmath.image.morphology",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Image.Filter.morphologicalGradient",
+      "c": [
+        "hmath_image_morphological_gradient"
+      ],
+      "python": "hmath.image.morphological_gradient",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Image.Filter.validateBoundary",
+      "c": [
+        "hmath_image_validate_boundary"
+      ],
+      "python": "hmath.image.validate_boundary",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Image.Filter.scalar2D",
+      "c": [
+        "hmath_image_scalar2_d"
+      ],
+      "python": "hmath.image.scalar2_d",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Image.Filter.windowOffsets",
+      "c": [
+        "hmath_image_window_offsets"
+      ],
+      "python": "hmath.image.window_offsets",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Image.Filter.Sobel",
+      "c": [
+        "hmath_image_sobel"
+      ],
+      "python": "hmath.image.sobel",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Image.Filter.Prewitt",
+      "c": [
+        "hmath_image_prewitt"
+      ],
+      "python": "hmath.image.prewitt",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Image.Filter.Scharr",
+      "c": [
+        "hmath_image_scharr"
+      ],
+      "python": "hmath.image.scharr",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Image.Filter.Erosion",
+      "c": [
+        "hmath_image_erosion"
+      ],
+      "python": "hmath.image.erosion",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Image.Filter.Dilation",
+      "c": [
+        "hmath_image_dilation"
+      ],
+      "python": "hmath.image.dilation",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Image.Filter.Opening",
+      "c": [
+        "hmath_image_opening"
+      ],
+      "python": "hmath.image.opening",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Image.Filter.Closing",
+      "c": [
+        "hmath_image_closing"
+      ],
+      "python": "hmath.image.closing",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Image.Histogram.histogram",
+      "c": [
+        "hmath_image_histogram"
+      ],
+      "python": "hmath.image.histogram",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Image.Histogram.equalizeHistogram",
+      "c": [
+        "hmath_image_equalize_histogram"
+      ],
+      "python": "hmath.image.equalize_histogram",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Image.Histogram.clahe",
+      "c": [
+        "hmath_image_clahe"
+      ],
+      "python": "hmath.image.clahe",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Image.Histogram.threshold",
+      "c": [
+        "hmath_image_threshold"
+      ],
+      "python": "hmath.image.threshold",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Image.Histogram.otsu",
+      "c": [
+        "hmath_image_otsu"
+      ],
+      "python": "hmath.image.otsu",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Image.Histogram.adaptiveThreshold",
+      "c": [
+        "hmath_image_adaptive_threshold"
+      ],
+      "python": "hmath.image.adaptive_threshold",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Image.Measure.templateMatch",
+      "c": [
+        "hmath_image_template_match"
+      ],
+      "python": "hmath.image.template_match",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Image.Measure.rawMoment",
+      "c": [
+        "hmath_image_raw_moment"
+      ],
+      "python": "hmath.image.raw_moment",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Image.Measure.centralMoment",
+      "c": [
+        "hmath_image_central_moment"
+      ],
+      "python": "hmath.image.central_moment",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Image.Measure.imageCentroid",
+      "c": [
+        "hmath_image_image_centroid"
+      ],
+      "python": "hmath.image.image_centroid",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Image.Measure.integralImage",
+      "c": [
+        "hmath_image_integral_image"
+      ],
+      "python": "hmath.image.integral_image",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Image.Measure.rectangleSum",
+      "c": [
+        "hmath_image_rectangle_sum"
+      ],
+      "python": "hmath.image.rectangle_sum",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Image.Measure.meanSquaredError",
+      "c": [
+        "hmath_image_mean_squared_error"
+      ],
+      "python": "hmath.image.mean_squared_error",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Image.Measure.peakSignalToNoise",
+      "c": [
+        "hmath_image_peak_signal_to_noise"
+      ],
+      "python": "hmath.image.peak_signal_to_noise",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Image.Measure.structuralSimilarity",
+      "c": [
+        "hmath_image_structural_similarity"
+      ],
+      "python": "hmath.image.structural_similarity",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Image.Measure.SquaredDifference",
+      "c": [
+        "hmath_image_squared_difference"
+      ],
+      "python": "hmath.image.squared_difference",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Image.Measure.NormalizedCorrelation",
+      "c": [
+        "hmath_image_normalized_correlation"
+      ],
+      "python": "hmath.image.normalized_correlation",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Image.Spatial.resize",
+      "c": [
+        "hmath_image_resize"
+      ],
+      "python": "hmath.image.resize",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Image.Spatial.warp",
+      "c": [
+        "hmath_image_warp"
+      ],
+      "python": "hmath.image.warp",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Image.Spatial.translate",
+      "c": [
+        "hmath_image_translate"
+      ],
+      "python": "hmath.image.translate",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Image.Spatial.rotate",
+      "c": [
+        "hmath_image_rotate"
+      ],
+      "python": "hmath.image.rotate",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Image.Spatial.connectedComponents",
+      "c": [
+        "hmath_image_connected_components"
+      ],
+      "python": "hmath.image.connected_components",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Image.Spatial.distanceTransform",
+      "c": [
+        "hmath_image_distance_transform"
+      ],
+      "python": "hmath.image.distance_transform",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Image.Spatial.Nearest",
+      "c": [
+        "hmath_image_nearest"
+      ],
+      "python": "hmath.image.nearest",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Image.Spatial.Bilinear",
+      "c": [
+        "hmath_image_bilinear"
+      ],
+      "python": "hmath.image.bilinear",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Image.Spatial.Bicubic",
+      "c": [
+        "hmath_image_bicubic"
+      ],
+      "python": "hmath.image.bicubic",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Image.Spatial.Lanczos",
+      "c": [
+        "hmath_image_lanczos"
+      ],
+      "python": "hmath.image.lanczos",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Image.Spatial.AxisConnected",
+      "c": [
+        "hmath_image_axis_connected"
+      ],
+      "python": "hmath.image.axis_connected",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Image.Spatial.FullyConnected",
+      "c": [
+        "hmath_image_fully_connected"
+      ],
+      "python": "hmath.image.fully_connected",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Image.Color.convertColor",
+      "c": [
+        "hmath_image_convert_color"
+      ],
+      "python": "hmath.image.convert_color",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Image.Color.grayscale",
+      "c": [
+        "hmath_image_grayscale"
+      ],
+      "python": "hmath.image.grayscale",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Image.Color.SRGB",
+      "c": [
+        "hmath_image_srgb"
+      ],
+      "python": "hmath.image.srgb",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Image.Color.LinearRGB",
+      "c": [
+        "hmath_image_linear_rgb"
+      ],
+      "python": "hmath.image.linear_rgb",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Image.Color.HSV",
+      "c": [
+        "hmath_image_hsv"
+      ],
+      "python": "hmath.image.hsv",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Image.Color.HSL",
+      "c": [
+        "hmath_image_hsl"
+      ],
+      "python": "hmath.image.hsl",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Image.Color.XYZ",
+      "c": [
+        "hmath_image_xyz"
+      ],
+      "python": "hmath.image.xyz",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Image.Color.Lab",
+      "c": [
+        "hmath_image_lab"
+      ],
+      "python": "hmath.image.lab",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Image.Color.YCbCr",
+      "c": [
+        "hmath_image_y_cb_cr"
+      ],
+      "python": "hmath.image.y_cb_cr",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Tensor.tensor",
+      "c": [
+        "hmath_image_tensor"
+      ],
+      "python": "hmath.image.tensor",
+      "specializations": [
+        "Double only"
+      ]
+    },
+    {
+      "symbol": "HMath.Tensor.tensorShape",
+      "c": [
+        "hmath_image_tensor_shape"
+      ],
+      "python": "hmath.image.tensor_shape",
+      "specializations": [
+        "Double only"
+      ]
+    },
+    {
+      "symbol": "HMath.Tensor.tensorValues",
+      "c": [
+        "hmath_image_tensor_values"
+      ],
+      "python": "hmath.image.tensor_values",
+      "specializations": [
+        "Double only"
+      ]
+    }
+  ]
+}

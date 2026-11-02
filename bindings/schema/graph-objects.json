@@ -1,0 +1,1105 @@
+{
+  "schema": 1,
+  "bindings": [
+    {
+      "symbol": "HMath.Graph.Core.Graph",
+      "c": [
+        "hmath_graph_graph_object"
+      ],
+      "python": "hmath.graph.Graph",
+      "specializations": [
+        "original concrete type"
+      ]
+    },
+    {
+      "symbol": "HMath.Graph.Core.BipartiteGraph",
+      "c": [
+        "hmath_graph_bipartite_graph_object"
+      ],
+      "python": "hmath.graph.BipartiteGraph",
+      "specializations": [
+        "original concrete type"
+      ]
+    },
+    {
+      "symbol": "HMath.Graph.Core.Hypergraph",
+      "c": [
+        "hmath_graph_hypergraph_object"
+      ],
+      "python": "hmath.graph.Hypergraph",
+      "specializations": [
+        "original concrete type"
+      ]
+    },
+    {
+      "symbol": "HMath.Graph.Flow.Network",
+      "c": [
+        "hmath_graph_network_object"
+      ],
+      "python": "hmath.graph.Network",
+      "specializations": [
+        "original concrete type"
+      ]
+    },
+    {
+      "symbol": "HMath.Graph.Analysis.betweennessCentrality",
+      "c": [
+        "hmath_graph_betweenness_centrality"
+      ],
+      "python": "hmath.graph.betweenness_centrality",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Graph.Analysis.bipartiteColors",
+      "c": [
+        "hmath_graph_bipartite_colors"
+      ],
+      "python": "hmath.graph.bipartite_colors",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Graph.Analysis.closenessCentrality",
+      "c": [
+        "hmath_graph_closeness_centrality"
+      ],
+      "python": "hmath.graph.closeness_centrality",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Graph.Analysis.clusteringCoefficients",
+      "c": [
+        "hmath_graph_clustering_coefficients"
+      ],
+      "python": "hmath.graph.clustering_coefficients",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Graph.Analysis.degreeCentrality",
+      "c": [
+        "hmath_graph_degree_centrality"
+      ],
+      "python": "hmath.graph.degree_centrality",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Graph.Analysis.density",
+      "c": [
+        "hmath_graph_density"
+      ],
+      "python": "hmath.graph.density",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Graph.Analysis.diameterRadius",
+      "c": [
+        "hmath_graph_diameter_radius"
+      ],
+      "python": "hmath.graph.diameter_radius",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Graph.Analysis.eigenvectorCentrality",
+      "c": [
+        "hmath_graph_eigenvector_centrality"
+      ],
+      "python": "hmath.graph.eigenvector_centrality",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Graph.Analysis.eulerianPath",
+      "c": [
+        "hmath_graph_eulerian_path"
+      ],
+      "python": "hmath.graph.eulerian_path",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Graph.Analysis.exactColoring",
+      "c": [
+        "hmath_graph_exact_coloring"
+      ],
+      "python": "hmath.graph.exact_coloring",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Graph.Analysis.graphEditDistance",
+      "c": [
+        "hmath_graph_graph_edit_distance"
+      ],
+      "python": "hmath.graph.graph_edit_distance",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Graph.Analysis.graphLaplacian",
+      "c": [
+        "hmath_graph_graph_laplacian"
+      ],
+      "python": "hmath.graph.graph_laplacian",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Graph.Analysis.graphSimilarity",
+      "c": [
+        "hmath_graph_graph_similarity"
+      ],
+      "python": "hmath.graph.graph_similarity",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Graph.Analysis.greedyColoring",
+      "c": [
+        "hmath_graph_greedy_coloring"
+      ],
+      "python": "hmath.graph.greedy_coloring",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Graph.Analysis.hamiltonianPath",
+      "c": [
+        "hmath_graph_hamiltonian_path"
+      ],
+      "python": "hmath.graph.hamiltonian_path",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Graph.Analysis.katzCentrality",
+      "c": [
+        "hmath_graph_katz_centrality"
+      ],
+      "python": "hmath.graph.katz_centrality",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Graph.Analysis.labelPropagation",
+      "c": [
+        "hmath_graph_label_propagation"
+      ],
+      "python": "hmath.graph.label_propagation",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Graph.Analysis.laplacianSpectrum",
+      "c": [
+        "hmath_graph_laplacian_spectrum"
+      ],
+      "python": "hmath.graph.laplacian_spectrum",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Graph.Analysis.louvain",
+      "c": [
+        "hmath_graph_louvain"
+      ],
+      "python": "hmath.graph.louvain",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Graph.Analysis.modularity",
+      "c": [
+        "hmath_graph_modularity"
+      ],
+      "python": "hmath.graph.modularity",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Graph.Analysis.nearestNeighborTour",
+      "c": [
+        "hmath_graph_nearest_neighbor_tour"
+      ],
+      "python": "hmath.graph.nearest_neighbor_tour",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Graph.Analysis.pageRank",
+      "c": [
+        "hmath_graph_page_rank"
+      ],
+      "python": "hmath.graph.page_rank",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Graph.Analysis.randomWalk",
+      "c": [
+        "hmath_graph_random_walk"
+      ],
+      "python": "hmath.graph.random_walk",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Graph.Analysis.twoOptTour",
+      "c": [
+        "hmath_graph_two_opt_tour"
+      ],
+      "python": "hmath.graph.two_opt_tour",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Graph.Core.CSR",
+      "c": [
+        "hmath_graph_csr"
+      ],
+      "python": "hmath.graph.csr",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Graph.Core.Edge",
+      "c": [
+        "hmath_graph_edge"
+      ],
+      "python": "hmath.graph.edge",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Graph.Core.adjacencyList",
+      "c": [
+        "hmath_graph_adjacency_list"
+      ],
+      "python": "hmath.graph.adjacency_list",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Graph.Core.adjacencyMatrix",
+      "c": [
+        "hmath_graph_adjacency_matrix"
+      ],
+      "python": "hmath.graph.adjacency_matrix",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Graph.Core.arcs",
+      "c": [
+        "hmath_graph_arcs"
+      ],
+      "python": "hmath.graph.arcs",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Graph.Core.articulationPoints",
+      "c": [
+        "hmath_graph_articulation_points"
+      ],
+      "python": "hmath.graph.articulation_points",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Graph.Core.bfs",
+      "c": [
+        "hmath_graph_bfs"
+      ],
+      "python": "hmath.graph.bfs",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Graph.Core.bipartiteBase",
+      "c": [
+        "hmath_graph_bipartite_base"
+      ],
+      "python": "hmath.graph.bipartite_base",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Graph.Core.bipartiteGraph",
+      "c": [
+        "hmath_graph_bipartite_graph"
+      ],
+      "python": "hmath.graph.bipartite_graph",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Graph.Core.bipartiteParts",
+      "c": [
+        "hmath_graph_bipartite_parts"
+      ],
+      "python": "hmath.graph.bipartite_parts",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Graph.Core.boruvka",
+      "c": [
+        "hmath_graph_boruvka"
+      ],
+      "python": "hmath.graph.boruvka",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Graph.Core.bridges",
+      "c": [
+        "hmath_graph_bridges"
+      ],
+      "python": "hmath.graph.bridges",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Graph.Core.checkVertex",
+      "c": [
+        "hmath_graph_check_vertex"
+      ],
+      "python": "hmath.graph.check_vertex",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Graph.Core.connectedComponents",
+      "c": [
+        "hmath_graph_connected_components"
+      ],
+      "python": "hmath.graph.connected_components",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Graph.Core.csrDirected",
+      "c": [
+        "hmath_graph_csr_directed"
+      ],
+      "python": "hmath.graph.csr_directed",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Graph.Core.csrIds",
+      "c": [
+        "hmath_graph_csr_ids"
+      ],
+      "python": "hmath.graph.csr_ids",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Graph.Core.csrOffsets",
+      "c": [
+        "hmath_graph_csr_offsets"
+      ],
+      "python": "hmath.graph.csr_offsets",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Graph.Core.csrOrientations",
+      "c": [
+        "hmath_graph_csr_orientations"
+      ],
+      "python": "hmath.graph.csr_orientations",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Graph.Core.csrTargets",
+      "c": [
+        "hmath_graph_csr_targets"
+      ],
+      "python": "hmath.graph.csr_targets",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Graph.Core.csrVertices",
+      "c": [
+        "hmath_graph_csr_vertices"
+      ],
+      "python": "hmath.graph.csr_vertices",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Graph.Core.csrWeights",
+      "c": [
+        "hmath_graph_csr_weights"
+      ],
+      "python": "hmath.graph.csr_weights",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Graph.Core.deserializeBipartiteGraph",
+      "c": [
+        "hmath_graph_deserialize_bipartite_graph"
+      ],
+      "python": "hmath.graph.deserialize_bipartite_graph",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Graph.Core.deserializeGraph",
+      "c": [
+        "hmath_graph_deserialize_graph"
+      ],
+      "python": "hmath.graph.deserialize_graph",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Graph.Core.deserializeHypergraph",
+      "c": [
+        "hmath_graph_deserialize_hypergraph"
+      ],
+      "python": "hmath.graph.deserialize_hypergraph",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Graph.Core.dfs",
+      "c": [
+        "hmath_graph_dfs"
+      ],
+      "python": "hmath.graph.dfs",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Graph.Core.directed",
+      "c": [
+        "hmath_graph_directed"
+      ],
+      "python": "hmath.graph.directed",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Graph.Core.edgeFrom",
+      "c": [
+        "hmath_graph_edge_from"
+      ],
+      "python": "hmath.graph.edge_from",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Graph.Core.edgeId",
+      "c": [
+        "hmath_graph_edge_id"
+      ],
+      "python": "hmath.graph.edge_id",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Graph.Core.edgeTo",
+      "c": [
+        "hmath_graph_edge_to"
+      ],
+      "python": "hmath.graph.edge_to",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Graph.Core.edgeWeight",
+      "c": [
+        "hmath_graph_edge_weight"
+      ],
+      "python": "hmath.graph.edge_weight",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Graph.Core.edges",
+      "c": [
+        "hmath_graph_edges"
+      ],
+      "python": "hmath.graph.edges",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Graph.Core.fromAdjacencyList",
+      "c": [
+        "hmath_graph_from_adjacency_list"
+      ],
+      "python": "hmath.graph.from_adjacency_list",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Graph.Core.fromAdjacencyMatrix",
+      "c": [
+        "hmath_graph_from_adjacency_matrix"
+      ],
+      "python": "hmath.graph.from_adjacency_matrix",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Graph.Core.fromCSR",
+      "c": [
+        "hmath_graph_from_csr"
+      ],
+      "python": "hmath.graph.from_csr",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Graph.Core.fromLabeledAdjacencyMatrix",
+      "c": [
+        "hmath_graph_from_labeled_adjacency_matrix"
+      ],
+      "python": "hmath.graph.from_labeled_adjacency_matrix",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Graph.Core.graph",
+      "c": [
+        "hmath_graph_graph"
+      ],
+      "python": "hmath.graph.graph",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Graph.Core.hasCycle",
+      "c": [
+        "hmath_graph_has_cycle"
+      ],
+      "python": "hmath.graph.has_cycle",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Graph.Core.hyperVertices",
+      "c": [
+        "hmath_graph_hyper_vertices"
+      ],
+      "python": "hmath.graph.hyper_vertices",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Graph.Core.hyperedges",
+      "c": [
+        "hmath_graph_hyperedges"
+      ],
+      "python": "hmath.graph.hyperedges",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Graph.Core.hypergraph",
+      "c": [
+        "hmath_graph_hypergraph"
+      ],
+      "python": "hmath.graph.hypergraph",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Graph.Core.iterativeDeepening",
+      "c": [
+        "hmath_graph_iterative_deepening"
+      ],
+      "python": "hmath.graph.iterative_deepening",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Graph.Core.kosarajuSCC",
+      "c": [
+        "hmath_graph_kosaraju_scc"
+      ],
+      "python": "hmath.graph.kosaraju_scc",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Graph.Core.kruskal",
+      "c": [
+        "hmath_graph_kruskal"
+      ],
+      "python": "hmath.graph.kruskal",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Graph.Core.neighbors",
+      "c": [
+        "hmath_graph_neighbors"
+      ],
+      "python": "hmath.graph.neighbors",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Graph.Core.prim",
+      "c": [
+        "hmath_graph_prim"
+      ],
+      "python": "hmath.graph.prim",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Graph.Core.requireUndirected",
+      "c": [
+        "hmath_graph_require_undirected"
+      ],
+      "python": "hmath.graph.require_undirected",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Graph.Core.serializeBipartiteGraph",
+      "c": [
+        "hmath_graph_serialize_bipartite_graph"
+      ],
+      "python": "hmath.graph.serialize_bipartite_graph",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Graph.Core.serializeGraph",
+      "c": [
+        "hmath_graph_serialize_graph"
+      ],
+      "python": "hmath.graph.serialize_graph",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Graph.Core.serializeHypergraph",
+      "c": [
+        "hmath_graph_serialize_hypergraph"
+      ],
+      "python": "hmath.graph.serialize_hypergraph",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Graph.Core.tarjanSCC",
+      "c": [
+        "hmath_graph_tarjan_scc"
+      ],
+      "python": "hmath.graph.tarjan_scc",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Graph.Core.toCSR",
+      "c": [
+        "hmath_graph_to_csr"
+      ],
+      "python": "hmath.graph.to_csr",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Graph.Core.topologicalSort",
+      "c": [
+        "hmath_graph_topological_sort"
+      ],
+      "python": "hmath.graph.topological_sort",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Graph.Core.vertexCount",
+      "c": [
+        "hmath_graph_vertex_count"
+      ],
+      "python": "hmath.graph.vertex_count",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Graph.Flow.FlowResult",
+      "c": [
+        "hmath_graph_flow_result"
+      ],
+      "python": "hmath.graph.flow_result",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Graph.Flow.NetworkEdge",
+      "c": [
+        "hmath_graph_network_edge"
+      ],
+      "python": "hmath.graph.network_edge",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Graph.Flow.dinic",
+      "c": [
+        "hmath_graph_dinic"
+      ],
+      "python": "hmath.graph.dinic",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Graph.Flow.edgeFlows",
+      "c": [
+        "hmath_graph_edge_flows"
+      ],
+      "python": "hmath.graph.edge_flows",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Graph.Flow.edmondsKarp",
+      "c": [
+        "hmath_graph_edmonds_karp"
+      ],
+      "python": "hmath.graph.edmonds_karp",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Graph.Flow.flowCost",
+      "c": [
+        "hmath_graph_flow_cost"
+      ],
+      "python": "hmath.graph.flow_cost",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Graph.Flow.flowValue",
+      "c": [
+        "hmath_graph_flow_value"
+      ],
+      "python": "hmath.graph.flow_value",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Graph.Flow.fordFulkerson",
+      "c": [
+        "hmath_graph_ford_fulkerson"
+      ],
+      "python": "hmath.graph.ford_fulkerson",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Graph.Flow.hopcroftKarp",
+      "c": [
+        "hmath_graph_hopcroft_karp"
+      ],
+      "python": "hmath.graph.hopcroft_karp",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Graph.Flow.hungarian",
+      "c": [
+        "hmath_graph_hungarian"
+      ],
+      "python": "hmath.graph.hungarian",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Graph.Flow.minimumCostMaximumFlow",
+      "c": [
+        "hmath_graph_minimum_cost_maximum_flow"
+      ],
+      "python": "hmath.graph.minimum_cost_maximum_flow",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Graph.Flow.minimumCut",
+      "c": [
+        "hmath_graph_minimum_cut"
+      ],
+      "python": "hmath.graph.minimum_cut",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Graph.Flow.network",
+      "c": [
+        "hmath_graph_network"
+      ],
+      "python": "hmath.graph.network",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Graph.Flow.networkCapacity",
+      "c": [
+        "hmath_graph_network_capacity"
+      ],
+      "python": "hmath.graph.network_capacity",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Graph.Flow.networkCost",
+      "c": [
+        "hmath_graph_network_cost"
+      ],
+      "python": "hmath.graph.network_cost",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Graph.Flow.networkEdgeId",
+      "c": [
+        "hmath_graph_network_edge_id"
+      ],
+      "python": "hmath.graph.network_edge_id",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Graph.Flow.networkEdges",
+      "c": [
+        "hmath_graph_network_edges"
+      ],
+      "python": "hmath.graph.network_edges",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Graph.Flow.networkFrom",
+      "c": [
+        "hmath_graph_network_from"
+      ],
+      "python": "hmath.graph.network_from",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Graph.Flow.networkTo",
+      "c": [
+        "hmath_graph_network_to"
+      ],
+      "python": "hmath.graph.network_to",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Graph.Flow.pushRelabel",
+      "c": [
+        "hmath_graph_push_relabel"
+      ],
+      "python": "hmath.graph.push_relabel",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Graph.Paths.aStar",
+      "c": [
+        "hmath_graph_a_star"
+      ],
+      "python": "hmath.graph.a_star",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Graph.Paths.bellmanFord",
+      "c": [
+        "hmath_graph_bellman_ford"
+      ],
+      "python": "hmath.graph.bellman_ford",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Graph.Paths.bidirectionalDijkstra",
+      "c": [
+        "hmath_graph_bidirectional_dijkstra"
+      ],
+      "python": "hmath.graph.bidirectional_dijkstra",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Graph.Paths.dijkstra",
+      "c": [
+        "hmath_graph_dijkstra"
+      ],
+      "python": "hmath.graph.dijkstra",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Graph.Paths.floydWarshall",
+      "c": [
+        "hmath_graph_floyd_warshall"
+      ],
+      "python": "hmath.graph.floyd_warshall",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Graph.Paths.johnson",
+      "c": [
+        "hmath_graph_johnson"
+      ],
+      "python": "hmath.graph.johnson",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Graph.Paths.kShortestPaths",
+      "c": [
+        "hmath_graph_k_shortest_paths"
+      ],
+      "python": "hmath.graph.k_shortest_paths",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Graph.Paths.longestDAGPaths",
+      "c": [
+        "hmath_graph_longest_dag_paths"
+      ],
+      "python": "hmath.graph.longest_dag_paths",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Graph.Paths.multiSourceDijkstra",
+      "c": [
+        "hmath_graph_multi_source_dijkstra"
+      ],
+      "python": "hmath.graph.multi_source_dijkstra",
+      "specializations": [
+        "original concrete types"
+      ]
+    }
+  ]
+}

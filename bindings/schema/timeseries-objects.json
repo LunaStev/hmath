@@ -1,0 +1,1025 @@
+{
+  "schema": 1,
+  "bindings": [
+    {
+      "symbol": "HMath.TimeSeries.Core.Series",
+      "c": [
+        "hmath_timeseries_series_object"
+      ],
+      "python": "hmath.timeseries.Series",
+      "specializations": [
+        "original concrete type"
+      ]
+    },
+    {
+      "symbol": "HMath.TimeSeries.Core.Alignment",
+      "c": [
+        "hmath_timeseries_alignment_object"
+      ],
+      "python": "hmath.timeseries.Alignment",
+      "specializations": [
+        "original concrete type"
+      ]
+    },
+    {
+      "symbol": "HMath.TimeSeries.Core.Fill",
+      "c": [
+        "hmath_timeseries_fill_object"
+      ],
+      "python": "hmath.timeseries.Fill",
+      "specializations": [
+        "original concrete type"
+      ]
+    },
+    {
+      "symbol": "HMath.TimeSeries.Core.Resampling",
+      "c": [
+        "hmath_timeseries_resampling_object"
+      ],
+      "python": "hmath.timeseries.Resampling",
+      "specializations": [
+        "original concrete type"
+      ]
+    },
+    {
+      "symbol": "HMath.TimeSeries.Core.Rolling",
+      "c": [
+        "hmath_timeseries_rolling_object"
+      ],
+      "python": "hmath.timeseries.Rolling",
+      "specializations": [
+        "original concrete type"
+      ]
+    },
+    {
+      "symbol": "HMath.TimeSeries.Diagnostics.Deterministic",
+      "c": [
+        "hmath_timeseries_deterministic_object"
+      ],
+      "python": "hmath.timeseries.Deterministic",
+      "specializations": [
+        "original concrete type"
+      ]
+    },
+    {
+      "symbol": "HMath.TimeSeries.Diagnostics.ForecastMetric",
+      "c": [
+        "hmath_timeseries_forecast_metric_object"
+      ],
+      "python": "hmath.timeseries.ForecastMetric",
+      "specializations": [
+        "original concrete type"
+      ]
+    },
+    {
+      "symbol": "HMath.TimeSeries.Models.ARIMAModel",
+      "c": [
+        "hmath_timeseries_arima_model_object"
+      ],
+      "python": "hmath.timeseries.ARIMAModel",
+      "specializations": [
+        "original concrete type"
+      ]
+    },
+    {
+      "symbol": "HMath.TimeSeries.Models.ARModel",
+      "c": [
+        "hmath_timeseries_ar_model_object"
+      ],
+      "python": "hmath.timeseries.ARModel",
+      "specializations": [
+        "original concrete type"
+      ]
+    },
+    {
+      "symbol": "HMath.TimeSeries.Models.Smoothing",
+      "c": [
+        "hmath_timeseries_smoothing_object"
+      ],
+      "python": "hmath.timeseries.Smoothing",
+      "specializations": [
+        "original concrete type"
+      ]
+    },
+    {
+      "symbol": "HMath.TimeSeries.Models.VARModel",
+      "c": [
+        "hmath_timeseries_var_model_object"
+      ],
+      "python": "hmath.timeseries.VARModel",
+      "specializations": [
+        "original concrete type"
+      ]
+    },
+    {
+      "symbol": "HMath.Signal.GaussianState",
+      "c": [
+        "hmath_timeseries_gaussian_state_object"
+      ],
+      "python": "hmath.timeseries.GaussianState",
+      "specializations": [
+        "original concrete type"
+      ]
+    },
+    {
+      "symbol": "HMath.TimeSeries.Core.BackwardFill",
+      "c": [
+        "hmath_timeseries_backward_fill"
+      ],
+      "python": "hmath.timeseries.backward_fill",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.TimeSeries.Core.BinLast",
+      "c": [
+        "hmath_timeseries_bin_last"
+      ],
+      "python": "hmath.timeseries.bin_last",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.TimeSeries.Core.BinMean",
+      "c": [
+        "hmath_timeseries_bin_mean"
+      ],
+      "python": "hmath.timeseries.bin_mean",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.TimeSeries.Core.ForwardFill",
+      "c": [
+        "hmath_timeseries_forward_fill"
+      ],
+      "python": "hmath.timeseries.forward_fill",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.TimeSeries.Core.Inner",
+      "c": [
+        "hmath_timeseries_inner"
+      ],
+      "python": "hmath.timeseries.inner",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.TimeSeries.Core.LeftAligned",
+      "c": [
+        "hmath_timeseries_left_aligned"
+      ],
+      "python": "hmath.timeseries.left_aligned",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.TimeSeries.Core.LinearFill",
+      "c": [
+        "hmath_timeseries_linear_fill"
+      ],
+      "python": "hmath.timeseries.linear_fill",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.TimeSeries.Core.LinearSamples",
+      "c": [
+        "hmath_timeseries_linear_samples"
+      ],
+      "python": "hmath.timeseries.linear_samples",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.TimeSeries.Core.MovingMaximum",
+      "c": [
+        "hmath_timeseries_moving_maximum"
+      ],
+      "python": "hmath.timeseries.moving_maximum",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.TimeSeries.Core.MovingMean",
+      "c": [
+        "hmath_timeseries_moving_mean"
+      ],
+      "python": "hmath.timeseries.moving_mean",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.TimeSeries.Core.MovingMinimum",
+      "c": [
+        "hmath_timeseries_moving_minimum"
+      ],
+      "python": "hmath.timeseries.moving_minimum",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.TimeSeries.Core.MovingSD",
+      "c": [
+        "hmath_timeseries_moving_sd"
+      ],
+      "python": "hmath.timeseries.moving_sd",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.TimeSeries.Core.MovingVariance",
+      "c": [
+        "hmath_timeseries_moving_variance"
+      ],
+      "python": "hmath.timeseries.moving_variance",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.TimeSeries.Core.Outer",
+      "c": [
+        "hmath_timeseries_outer"
+      ],
+      "python": "hmath.timeseries.outer",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.TimeSeries.Core.align",
+      "c": [
+        "hmath_timeseries_align"
+      ],
+      "python": "hmath.timeseries.align",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.TimeSeries.Core.durbinLevinson",
+      "c": [
+        "hmath_timeseries_durbin_levinson"
+      ],
+      "python": "hmath.timeseries.durbin_levinson",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.TimeSeries.Core.fillMissing",
+      "c": [
+        "hmath_timeseries_fill_missing"
+      ],
+      "python": "hmath.timeseries.fill_missing",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.TimeSeries.Core.isRegular",
+      "c": [
+        "hmath_timeseries_is_regular"
+      ],
+      "python": "hmath.timeseries.is_regular",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.TimeSeries.Core.observations",
+      "c": [
+        "hmath_timeseries_observations"
+      ],
+      "python": "hmath.timeseries.observations",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.TimeSeries.Core.regularSeries",
+      "c": [
+        "hmath_timeseries_regular_series"
+      ],
+      "python": "hmath.timeseries.regular_series",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.TimeSeries.Core.resample",
+      "c": [
+        "hmath_timeseries_resample"
+      ],
+      "python": "hmath.timeseries.resample",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.TimeSeries.Core.rolling",
+      "c": [
+        "hmath_timeseries_rolling"
+      ],
+      "python": "hmath.timeseries.rolling",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.TimeSeries.Core.series",
+      "c": [
+        "hmath_timeseries_series"
+      ],
+      "python": "hmath.timeseries.series",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.TimeSeries.Core.seriesValues",
+      "c": [
+        "hmath_timeseries_series_values"
+      ],
+      "python": "hmath.timeseries.series_values",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.TimeSeries.Core.yuleWalker",
+      "c": [
+        "hmath_timeseries_yule_walker"
+      ],
+      "python": "hmath.timeseries.yule_walker",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.TimeSeries.Diagnostics.DTWResult",
+      "c": [
+        "hmath_timeseries_dtw_result"
+      ],
+      "python": "hmath.timeseries.dtw_result",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.TimeSeries.Diagnostics.Level",
+      "c": [
+        "hmath_timeseries_level"
+      ],
+      "python": "hmath.timeseries.level",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.TimeSeries.Diagnostics.LinearTrend",
+      "c": [
+        "hmath_timeseries_linear_trend"
+      ],
+      "python": "hmath.timeseries.linear_trend",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.TimeSeries.Diagnostics.MAE",
+      "c": [
+        "hmath_timeseries_mae"
+      ],
+      "python": "hmath.timeseries.mae",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.TimeSeries.Diagnostics.MAPE",
+      "c": [
+        "hmath_timeseries_mape"
+      ],
+      "python": "hmath.timeseries.mape",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.TimeSeries.Diagnostics.MASE",
+      "c": [
+        "hmath_timeseries_mase"
+      ],
+      "python": "hmath.timeseries.mase",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.TimeSeries.Diagnostics.MSE",
+      "c": [
+        "hmath_timeseries_mse"
+      ],
+      "python": "hmath.timeseries.mse",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.TimeSeries.Diagnostics.RMSE",
+      "c": [
+        "hmath_timeseries_rmse"
+      ],
+      "python": "hmath.timeseries.rmse",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.TimeSeries.Diagnostics.SMAPE",
+      "c": [
+        "hmath_timeseries_smape"
+      ],
+      "python": "hmath.timeseries.smape",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.TimeSeries.Diagnostics.Stationarity",
+      "c": [
+        "hmath_timeseries_stationarity"
+      ],
+      "python": "hmath.timeseries.stationarity",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.TimeSeries.Diagnostics.augmentedDickeyFuller",
+      "c": [
+        "hmath_timeseries_augmented_dickey_fuller"
+      ],
+      "python": "hmath.timeseries.augmented_dickey_fuller",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.TimeSeries.Diagnostics.dtwDistance",
+      "c": [
+        "hmath_timeseries_dtw_distance"
+      ],
+      "python": "hmath.timeseries.dtw_distance",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.TimeSeries.Diagnostics.dtwPath",
+      "c": [
+        "hmath_timeseries_dtw_path"
+      ],
+      "python": "hmath.timeseries.dtw_path",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.TimeSeries.Diagnostics.dynamicTimeWarping",
+      "c": [
+        "hmath_timeseries_dynamic_time_warping"
+      ],
+      "python": "hmath.timeseries.dynamic_time_warping",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.TimeSeries.Diagnostics.forecastError",
+      "c": [
+        "hmath_timeseries_forecast_error"
+      ],
+      "python": "hmath.timeseries.forecast_error",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.TimeSeries.Diagnostics.kpss",
+      "c": [
+        "hmath_timeseries_kpss"
+      ],
+      "python": "hmath.timeseries.kpss",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.TimeSeries.Diagnostics.spectrum",
+      "c": [
+        "hmath_timeseries_spectrum"
+      ],
+      "python": "hmath.timeseries.spectrum",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.TimeSeries.Diagnostics.stationarityCriticalValues",
+      "c": [
+        "hmath_timeseries_stationarity_critical_values"
+      ],
+      "python": "hmath.timeseries.stationarity_critical_values",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.TimeSeries.Diagnostics.stationarityNull",
+      "c": [
+        "hmath_timeseries_stationarity_null"
+      ],
+      "python": "hmath.timeseries.stationarity_null",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.TimeSeries.Diagnostics.stationarityObservations",
+      "c": [
+        "hmath_timeseries_stationarity_observations"
+      ],
+      "python": "hmath.timeseries.stationarity_observations",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.TimeSeries.Diagnostics.stationarityStatistic",
+      "c": [
+        "hmath_timeseries_stationarity_statistic"
+      ],
+      "python": "hmath.timeseries.stationarity_statistic",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.TimeSeries.Models.Decomposition",
+      "c": [
+        "hmath_timeseries_decomposition"
+      ],
+      "python": "hmath.timeseries.decomposition",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.TimeSeries.Models.Holt",
+      "c": [
+        "hmath_timeseries_holt"
+      ],
+      "python": "hmath.timeseries.holt",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.TimeSeries.Models.HoltWinters",
+      "c": [
+        "hmath_timeseries_holt_winters"
+      ],
+      "python": "hmath.timeseries.holt_winters",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.TimeSeries.Models.SARIMAOrder",
+      "c": [
+        "hmath_timeseries_sarima_order"
+      ],
+      "python": "hmath.timeseries.sarima_order",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.TimeSeries.Models.STLConfig",
+      "c": [
+        "hmath_timeseries_stl_config"
+      ],
+      "python": "hmath.timeseries.stl_config",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.TimeSeries.Models.Simple",
+      "c": [
+        "hmath_timeseries_simple"
+      ],
+      "python": "hmath.timeseries.simple",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.TimeSeries.Models.arCoefficients",
+      "c": [
+        "hmath_timeseries_ar_coefficients"
+      ],
+      "python": "hmath.timeseries.ar_coefficients",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.TimeSeries.Models.arOrder",
+      "c": [
+        "hmath_timeseries_ar_order"
+      ],
+      "python": "hmath.timeseries.ar_order",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.TimeSeries.Models.arimaInnovationVariance",
+      "c": [
+        "hmath_timeseries_arima_innovation_variance"
+      ],
+      "python": "hmath.timeseries.arima_innovation_variance",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.TimeSeries.Models.arimaParameters",
+      "c": [
+        "hmath_timeseries_arima_parameters"
+      ],
+      "python": "hmath.timeseries.arima_parameters",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.TimeSeries.Models.arimaResiduals",
+      "c": [
+        "hmath_timeseries_arima_residuals"
+      ],
+      "python": "hmath.timeseries.arima_residuals",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.TimeSeries.Models.decompose",
+      "c": [
+        "hmath_timeseries_decompose"
+      ],
+      "python": "hmath.timeseries.decompose",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.TimeSeries.Models.defaultSTLConfig",
+      "c": [
+        "hmath_timeseries_default_stl_config"
+      ],
+      "python": "hmath.timeseries.default_stl_config",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.TimeSeries.Models.differenceOrder",
+      "c": [
+        "hmath_timeseries_difference_order"
+      ],
+      "python": "hmath.timeseries.difference_order",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.TimeSeries.Models.fitAR",
+      "c": [
+        "hmath_timeseries_fit_ar"
+      ],
+      "python": "hmath.timeseries.fit_ar",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.TimeSeries.Models.fitARIMA",
+      "c": [
+        "hmath_timeseries_fit_arima"
+      ],
+      "python": "hmath.timeseries.fit_arima",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.TimeSeries.Models.fitARMA",
+      "c": [
+        "hmath_timeseries_fit_arma"
+      ],
+      "python": "hmath.timeseries.fit_arma",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.TimeSeries.Models.fitMA",
+      "c": [
+        "hmath_timeseries_fit_ma"
+      ],
+      "python": "hmath.timeseries.fit_ma",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.TimeSeries.Models.fitSARIMA",
+      "c": [
+        "hmath_timeseries_fit_sarima"
+      ],
+      "python": "hmath.timeseries.fit_sarima",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.TimeSeries.Models.fitVAR",
+      "c": [
+        "hmath_timeseries_fit_var"
+      ],
+      "python": "hmath.timeseries.fit_var",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.TimeSeries.Models.forecastAR",
+      "c": [
+        "hmath_timeseries_forecast_ar"
+      ],
+      "python": "hmath.timeseries.forecast_ar",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.TimeSeries.Models.forecastARIMA",
+      "c": [
+        "hmath_timeseries_forecast_arima"
+      ],
+      "python": "hmath.timeseries.forecast_arima",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.TimeSeries.Models.forecastVAR",
+      "c": [
+        "hmath_timeseries_forecast_var"
+      ],
+      "python": "hmath.timeseries.forecast_var",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.TimeSeries.Models.kalmanSeries",
+      "c": [
+        "hmath_timeseries_kalman_series"
+      ],
+      "python": "hmath.timeseries.kalman_series",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.TimeSeries.Models.maOrder",
+      "c": [
+        "hmath_timeseries_ma_order"
+      ],
+      "python": "hmath.timeseries.ma_order",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.TimeSeries.Models.remainderComponent",
+      "c": [
+        "hmath_timeseries_remainder_component"
+      ],
+      "python": "hmath.timeseries.remainder_component",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.TimeSeries.Models.seasonalAROrder",
+      "c": [
+        "hmath_timeseries_seasonal_ar_order"
+      ],
+      "python": "hmath.timeseries.seasonal_ar_order",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.TimeSeries.Models.seasonalComponent",
+      "c": [
+        "hmath_timeseries_seasonal_component"
+      ],
+      "python": "hmath.timeseries.seasonal_component",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.TimeSeries.Models.seasonalDifferenceOrder",
+      "c": [
+        "hmath_timeseries_seasonal_difference_order"
+      ],
+      "python": "hmath.timeseries.seasonal_difference_order",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.TimeSeries.Models.seasonalMAOrder",
+      "c": [
+        "hmath_timeseries_seasonal_ma_order"
+      ],
+      "python": "hmath.timeseries.seasonal_ma_order",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.TimeSeries.Models.seasonalPeriod",
+      "c": [
+        "hmath_timeseries_seasonal_period"
+      ],
+      "python": "hmath.timeseries.seasonal_period",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.TimeSeries.Models.smoothForecast",
+      "c": [
+        "hmath_timeseries_smooth_forecast"
+      ],
+      "python": "hmath.timeseries.smooth_forecast",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.TimeSeries.Models.stl",
+      "c": [
+        "hmath_timeseries_stl"
+      ],
+      "python": "hmath.timeseries.stl",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.TimeSeries.Models.stlInnerIterations",
+      "c": [
+        "hmath_timeseries_stl_inner_iterations"
+      ],
+      "python": "hmath.timeseries.stl_inner_iterations",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.TimeSeries.Models.stlLowPassWindow",
+      "c": [
+        "hmath_timeseries_stl_low_pass_window"
+      ],
+      "python": "hmath.timeseries.stl_low_pass_window",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.TimeSeries.Models.stlPeriod",
+      "c": [
+        "hmath_timeseries_stl_period"
+      ],
+      "python": "hmath.timeseries.stl_period",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.TimeSeries.Models.stlRobustIterations",
+      "c": [
+        "hmath_timeseries_stl_robust_iterations"
+      ],
+      "python": "hmath.timeseries.stl_robust_iterations",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.TimeSeries.Models.stlSeasonalWindow",
+      "c": [
+        "hmath_timeseries_stl_seasonal_window"
+      ],
+      "python": "hmath.timeseries.stl_seasonal_window",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.TimeSeries.Models.stlTrendWindow",
+      "c": [
+        "hmath_timeseries_stl_trend_window"
+      ],
+      "python": "hmath.timeseries.stl_trend_window",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.TimeSeries.Models.trendComponent",
+      "c": [
+        "hmath_timeseries_trend_component"
+      ],
+      "python": "hmath.timeseries.trend_component",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.TimeSeries.Models.varCoefficients",
+      "c": [
+        "hmath_timeseries_var_coefficients"
+      ],
+      "python": "hmath.timeseries.var_coefficients",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Signal.gaussianState",
+      "c": [
+        "hmath_timeseries_gaussian_state"
+      ],
+      "python": "hmath.timeseries.gaussian_state",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Signal.stateMean",
+      "c": [
+        "hmath_timeseries_state_mean"
+      ],
+      "python": "hmath.timeseries.state_mean",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.Signal.stateCovariance",
+      "c": [
+        "hmath_timeseries_state_covariance"
+      ],
+      "python": "hmath.timeseries.state_covariance",
+      "specializations": [
+        "original concrete types"
+      ]
+    }
+  ]
+}

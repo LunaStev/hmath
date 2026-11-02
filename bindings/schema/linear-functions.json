@@ -1,0 +1,8468 @@
+{
+  "functions": [
+    {
+      "module": "HMath.Vector",
+      "name": "vector",
+      "args": [
+        [
+          "list",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "Vector",
+        [
+          "a"
+        ]
+      ],
+      "constraints": "",
+      "signature": "[a] -> Vector a",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Vector",
+      "name": "vectorValues",
+      "args": [
+        [
+          "Vector",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "list",
+        [
+          "a"
+        ]
+      ],
+      "constraints": "",
+      "signature": "Vector a -> [a]",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Vector",
+      "name": "vectorDimension",
+      "args": [
+        [
+          "Vector",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "Int"
+      ],
+      "constraints": "",
+      "signature": "Vector a -> Int",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Vector",
+      "name": "fixedVector",
+      "args": [
+        [
+          "list",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "FixedVector",
+          [
+            "n"
+          ],
+          [
+            "a"
+          ]
+        ]
+      ],
+      "constraints": "(KnownNat n)",
+      "signature": "[a] -> Either MathError (FixedVector n a)",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Vector",
+      "name": "fixedValues",
+      "args": [
+        [
+          "FixedVector",
+          [
+            "n"
+          ],
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "list",
+        [
+          "a"
+        ]
+      ],
+      "constraints": "",
+      "signature": "FixedVector n a -> [a]",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Vector",
+      "name": "sparseVector",
+      "args": [
+        [
+          "Int"
+        ],
+        [
+          "list",
+          [
+            "tuple",
+            [
+              "Int"
+            ],
+            [
+              "a"
+            ]
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "SparseVector",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "constraints": "(Eq a, Num a)",
+      "signature": "Int -> [(Int, a)] -> Either MathError (SparseVector a)",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Vector",
+      "name": "sparseVectorValues",
+      "args": [
+        [
+          "SparseVector",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "list",
+        [
+          "a"
+        ]
+      ],
+      "constraints": "(Num a)",
+      "signature": "SparseVector a -> [a]",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Vector",
+      "name": "vectorSlice",
+      "args": [
+        [
+          "Int"
+        ],
+        [
+          "Int"
+        ],
+        [
+          "Vector",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "Vector",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "constraints": "",
+      "signature": "Int -> Int -> Vector a -> Either MathError (Vector a)",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Vector",
+      "name": "vectorConcat",
+      "args": [
+        [
+          "list",
+          [
+            "Vector",
+            [
+              "a"
+            ]
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "Vector",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "constraints": "",
+      "signature": "[Vector a] -> Either MathError (Vector a)",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Vector",
+      "name": "vectorAdd",
+      "args": [
+        [
+          "Vector",
+          [
+            "a"
+          ]
+        ],
+        [
+          "Vector",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "Vector",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "constraints": "(Num a)",
+      "signature": "Vector a -> Vector a -> Either MathError (Vector a)",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Vector",
+      "name": "vectorSubtract",
+      "args": [
+        [
+          "Vector",
+          [
+            "a"
+          ]
+        ],
+        [
+          "Vector",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "Vector",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "constraints": "(Num a)",
+      "signature": "Vector a -> Vector a -> Either MathError (Vector a)",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Vector",
+      "name": "vectorScale",
+      "args": [
+        [
+          "a"
+        ],
+        [
+          "Vector",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "Vector",
+        [
+          "a"
+        ]
+      ],
+      "constraints": "(Num a)",
+      "signature": "a -> Vector a -> Vector a",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Vector",
+      "name": "vectorDot",
+      "args": [
+        [
+          "Vector",
+          [
+            "a"
+          ]
+        ],
+        [
+          "Vector",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "a"
+        ]
+      ],
+      "constraints": "(Num a)",
+      "signature": "Vector a -> Vector a -> Either MathError a",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Vector",
+      "name": "cross",
+      "args": [
+        [
+          "Vector",
+          [
+            "a"
+          ]
+        ],
+        [
+          "Vector",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "Vector",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "constraints": "(Num a)",
+      "signature": "Vector a -> Vector a -> Either MathError (Vector a)",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Vector",
+      "name": "outer",
+      "args": [
+        [
+          "Vector",
+          [
+            "a"
+          ]
+        ],
+        [
+          "Vector",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "Matrix",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "constraints": "(Num a)",
+      "signature": "Vector a -> Vector a -> Either MathError (Matrix a)",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Vector",
+      "name": "triple",
+      "args": [
+        [
+          "Vector",
+          [
+            "a"
+          ]
+        ],
+        [
+          "Vector",
+          [
+            "a"
+          ]
+        ],
+        [
+          "Vector",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "a"
+        ]
+      ],
+      "constraints": "(Num a)",
+      "signature": "Vector a -> Vector a -> Vector a -> Either MathError a",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Vector",
+      "name": "norm0",
+      "args": [
+        [
+          "Vector",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "Int"
+      ],
+      "constraints": "(Eq a, Num a)",
+      "signature": "Vector a -> Int",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Vector",
+      "name": "norm1",
+      "args": [
+        [
+          "Vector",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "a"
+      ],
+      "constraints": "(Num a)",
+      "signature": "Vector a -> a",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Vector",
+      "name": "norm2",
+      "args": [
+        [
+          "Vector",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "a"
+      ],
+      "constraints": "(RealFloat a)",
+      "signature": "Vector a -> a",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Vector",
+      "name": "normInfinity",
+      "args": [
+        [
+          "Vector",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "a"
+      ],
+      "constraints": "(Ord a, Num a)",
+      "signature": "Vector a -> a",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Vector",
+      "name": "normP",
+      "args": [
+        [
+          "a"
+        ],
+        [
+          "Vector",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "a"
+        ]
+      ],
+      "constraints": "(RealFloat a)",
+      "signature": "a -> Vector a -> Either MathError a",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Vector",
+      "name": "normalizeVector",
+      "args": [
+        [
+          "Vector",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "Vector",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "constraints": "(RealFloat a)",
+      "signature": "Vector a -> Either MathError (Vector a)",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Vector",
+      "name": "project",
+      "args": [
+        [
+          "Vector",
+          [
+            "a"
+          ]
+        ],
+        [
+          "Vector",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "Vector",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "constraints": "(RealFloat a)",
+      "signature": "Vector a -> Vector a -> Either MathError (Vector a)",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Vector",
+      "name": "reflect",
+      "args": [
+        [
+          "Vector",
+          [
+            "a"
+          ]
+        ],
+        [
+          "Vector",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "Vector",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "constraints": "(RealFloat a)",
+      "signature": "Vector a -> Vector a -> Either MathError (Vector a)",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Vector",
+      "name": "refract",
+      "args": [
+        [
+          "a"
+        ],
+        [
+          "Vector",
+          [
+            "a"
+          ]
+        ],
+        [
+          "Vector",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "Vector",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "constraints": "(RealFloat a)",
+      "signature": "a -> Vector a -> Vector a -> Either MathError (Vector a)",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Vector",
+      "name": "distance",
+      "args": [
+        [
+          "Vector",
+          [
+            "a"
+          ]
+        ],
+        [
+          "Vector",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "a"
+        ]
+      ],
+      "constraints": "(RealFloat a)",
+      "signature": "Vector a -> Vector a -> Either MathError a",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Vector",
+      "name": "cosineSimilarity",
+      "args": [
+        [
+          "Vector",
+          [
+            "a"
+          ]
+        ],
+        [
+          "Vector",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "a"
+        ]
+      ],
+      "constraints": "(RealFloat a)",
+      "signature": "Vector a -> Vector a -> Either MathError a",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Vector",
+      "name": "angle",
+      "args": [
+        [
+          "Vector",
+          [
+            "a"
+          ]
+        ],
+        [
+          "Vector",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "a"
+        ]
+      ],
+      "constraints": "(RealFloat a)",
+      "signature": "Vector a -> Vector a -> Either MathError a",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Vector",
+      "name": "gramSchmidt",
+      "args": [
+        [
+          "a"
+        ],
+        [
+          "list",
+          [
+            "Vector",
+            [
+              "a"
+            ]
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "list",
+          [
+            "Vector",
+            [
+              "a"
+            ]
+          ]
+        ]
+      ],
+      "constraints": "(RealFloat a)",
+      "signature": "a -> [Vector a] -> Either MathError [Vector a]",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Matrix.Advanced",
+      "name": "generateMatrix",
+      "args": [
+        [
+          "Int"
+        ],
+        [
+          "Int"
+        ],
+        [
+          "function",
+          [
+            "Int"
+          ],
+          [
+            "Int"
+          ],
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "Matrix",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "constraints": "",
+      "signature": "Int -> Int -> (Int -> Int -> a) -> Either MathError (Matrix a)",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Matrix.Advanced",
+      "name": "triangularMatrix",
+      "args": [
+        [
+          "Bool"
+        ],
+        [
+          "Matrix",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "Matrix",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "constraints": "(Num a)",
+      "signature": "Bool -> Matrix a -> Either MathError (Matrix a)",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Matrix.Advanced",
+      "name": "symmetricMatrix",
+      "args": [
+        [
+          "Matrix",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "Matrix",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "constraints": "(Fractional a)",
+      "signature": "Matrix a -> Either MathError (Matrix a)",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Matrix.Advanced",
+      "name": "hermitianMatrix",
+      "args": [
+        [
+          "Matrix",
+          [
+            "Complex",
+            [
+              "a"
+            ]
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "Matrix",
+          [
+            "Complex",
+            [
+              "a"
+            ]
+          ]
+        ]
+      ],
+      "constraints": "(RealFloat a)",
+      "signature": "Matrix (Complex a) -> Either MathError (Matrix (Complex a))",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Matrix.Advanced",
+      "name": "permutationMatrix",
+      "args": [
+        [
+          "list",
+          [
+            "Int"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "Matrix",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "constraints": "(Num a)",
+      "signature": "[Int] -> Either MathError (Matrix a)",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Matrix.Advanced",
+      "name": "blockMatrix",
+      "args": [
+        [
+          "list",
+          [
+            "list",
+            [
+              "Matrix",
+              [
+                "a"
+              ]
+            ]
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "Matrix",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "constraints": "",
+      "signature": "[[Matrix a]] -> Either MathError (Matrix a)",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Matrix.Advanced",
+      "name": "bandedMatrix",
+      "args": [
+        [
+          "Int"
+        ],
+        [
+          "Int"
+        ],
+        [
+          "list",
+          [
+            "tuple",
+            [
+              "Int"
+            ],
+            [
+              "list",
+              [
+                "a"
+              ]
+            ]
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "Matrix",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "constraints": "(Num a)",
+      "signature": "Int -> Int -> [(Int, [a])] -> Either MathError (Matrix a)",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Matrix.Advanced",
+      "name": "conjugateTranspose",
+      "args": [
+        [
+          "Matrix",
+          [
+            "Complex",
+            [
+              "a"
+            ]
+          ]
+        ]
+      ],
+      "result": [
+        "Matrix",
+        [
+          "Complex",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "constraints": "(RealFloat a)",
+      "signature": "Matrix (Complex a) -> Matrix (Complex a)",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Matrix.Advanced",
+      "name": "zipMatrixWith",
+      "args": [
+        [
+          "function",
+          [
+            "a"
+          ],
+          [
+            "b"
+          ],
+          [
+            "c"
+          ]
+        ],
+        [
+          "Matrix",
+          [
+            "a"
+          ]
+        ],
+        [
+          "Matrix",
+          [
+            "b"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "Matrix",
+          [
+            "c"
+          ]
+        ]
+      ],
+      "constraints": "",
+      "signature": "(a -> b -> c) -> Matrix a -> Matrix b -> Either MathError (Matrix c)",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Matrix.Advanced",
+      "name": "batchedMultiply",
+      "args": [
+        [
+          "list",
+          [
+            "Matrix",
+            [
+              "a"
+            ]
+          ]
+        ],
+        [
+          "list",
+          [
+            "Matrix",
+            [
+              "a"
+            ]
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "list",
+          [
+            "Matrix",
+            [
+              "a"
+            ]
+          ]
+        ]
+      ],
+      "constraints": "(Num a)",
+      "signature": "[Matrix a] -> [Matrix a] -> Either MathError [Matrix a]",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Matrix.Advanced",
+      "name": "kronecker",
+      "args": [
+        [
+          "Matrix",
+          [
+            "a"
+          ]
+        ],
+        [
+          "Matrix",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "Matrix",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "constraints": "(Num a)",
+      "signature": "Matrix a -> Matrix a -> Either MathError (Matrix a)",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Matrix.Advanced",
+      "name": "khatriRao",
+      "args": [
+        [
+          "Matrix",
+          [
+            "a"
+          ]
+        ],
+        [
+          "Matrix",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "Matrix",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "constraints": "(Num a)",
+      "signature": "Matrix a -> Matrix a -> Either MathError (Matrix a)",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Matrix.Advanced",
+      "name": "matrixPower",
+      "args": [
+        [
+          "Integer"
+        ],
+        [
+          "Matrix",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "Matrix",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "constraints": "(RealFloat a)",
+      "signature": "Integer -> Matrix a -> Either MathError (Matrix a)",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Matrix.Advanced",
+      "name": "trace",
+      "args": [
+        [
+          "Matrix",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "a"
+        ]
+      ],
+      "constraints": "(Num a)",
+      "signature": "Matrix a -> Either MathError a",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Matrix.Advanced",
+      "name": "matrixNorm1",
+      "args": [
+        [
+          "Matrix",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "a"
+      ],
+      "constraints": "(Ord a, Num a)",
+      "signature": "Matrix a -> a",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Matrix.Advanced",
+      "name": "matrixNormInfinity",
+      "args": [
+        [
+          "Matrix",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "a"
+      ],
+      "constraints": "(Ord a, Num a)",
+      "signature": "Matrix a -> a",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Matrix.Advanced",
+      "name": "frobeniusNorm",
+      "args": [
+        [
+          "Matrix",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "a"
+      ],
+      "constraints": "(RealFloat a)",
+      "signature": "Matrix a -> a",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Matrix.Advanced",
+      "name": "spectralNorm",
+      "args": [
+        [
+          "Matrix",
+          [
+            "Double"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "Double"
+        ]
+      ],
+      "constraints": "",
+      "signature": "Matrix Double -> Either MathError Double",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Matrix.Advanced",
+      "name": "matrixRank",
+      "args": [
+        [
+          "Double"
+        ],
+        [
+          "Matrix",
+          [
+            "Double"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "Int"
+        ]
+      ],
+      "constraints": "",
+      "signature": "Double -> Matrix Double -> Either MathError Int",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Matrix.Advanced",
+      "name": "pseudoinverse",
+      "args": [
+        [
+          "Double"
+        ],
+        [
+          "Matrix",
+          [
+            "Double"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "Matrix",
+          [
+            "Double"
+          ]
+        ]
+      ],
+      "constraints": "",
+      "signature": "Double -> Matrix Double -> Either MathError (Matrix Double)",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Matrix.Advanced",
+      "name": "conditionNumber",
+      "args": [
+        [
+          "Matrix",
+          [
+            "Double"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "Double"
+        ]
+      ],
+      "constraints": "",
+      "signature": "Matrix Double -> Either MathError Double",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Matrix.Advanced",
+      "name": "columnSpace",
+      "args": [
+        [
+          "Double"
+        ],
+        [
+          "Matrix",
+          [
+            "Double"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "Matrix",
+          [
+            "Double"
+          ]
+        ]
+      ],
+      "constraints": "",
+      "signature": "Double -> Matrix Double -> Either MathError (Matrix Double)",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Matrix.Advanced",
+      "name": "rowSpace",
+      "args": [
+        [
+          "Double"
+        ],
+        [
+          "Matrix",
+          [
+            "Double"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "Matrix",
+          [
+            "Double"
+          ]
+        ]
+      ],
+      "constraints": "",
+      "signature": "Double -> Matrix Double -> Either MathError (Matrix Double)",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Matrix.Advanced",
+      "name": "nullSpace",
+      "args": [
+        [
+          "Double"
+        ],
+        [
+          "Matrix",
+          [
+            "Double"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "Matrix",
+          [
+            "Double"
+          ]
+        ]
+      ],
+      "constraints": "",
+      "signature": "Double -> Matrix Double -> Either MathError (Matrix Double)",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Matrix.Advanced",
+      "name": "changeCoordinates",
+      "args": [
+        [
+          "Matrix",
+          [
+            "a"
+          ]
+        ],
+        [
+          "Matrix",
+          [
+            "a"
+          ]
+        ],
+        [
+          "list",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "list",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "constraints": "(RealFloat a)",
+      "signature": "Matrix a -> Matrix a -> [a] -> Either MathError [a]",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Matrix.Advanced",
+      "name": "matrixExp",
+      "args": [
+        [
+          "a"
+        ],
+        [
+          "Int"
+        ],
+        [
+          "Matrix",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "Matrix",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "constraints": "(RealFloat a)",
+      "signature": "a -> Int -> Matrix a -> Either MathError (Matrix a)",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Matrix.Advanced",
+      "name": "matrixLog",
+      "args": [
+        [
+          "Matrix",
+          [
+            "Double"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "Matrix",
+          [
+            "Double"
+          ]
+        ]
+      ],
+      "constraints": "",
+      "signature": "Matrix Double -> Either MathError (Matrix Double)",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Matrix.Advanced",
+      "name": "matrixSqrt",
+      "args": [
+        [
+          "Matrix",
+          [
+            "Double"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "Matrix",
+          [
+            "Double"
+          ]
+        ]
+      ],
+      "constraints": "",
+      "signature": "Matrix Double -> Either MathError (Matrix Double)",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Matrix.Advanced",
+      "name": "polar",
+      "args": [
+        [
+          "Matrix",
+          [
+            "Double"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "tuple",
+          [
+            "Matrix",
+            [
+              "Double"
+            ]
+          ],
+          [
+            "Matrix",
+            [
+              "Double"
+            ]
+          ]
+        ]
+      ],
+      "constraints": "",
+      "signature": "Matrix Double -> Either MathError (Matrix Double, Matrix Double)",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Matrix.Advanced",
+      "name": "complexPseudoinverse",
+      "args": [
+        [
+          "Double"
+        ],
+        [
+          "Matrix",
+          [
+            "Complex",
+            [
+              "Double"
+            ]
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "Matrix",
+          [
+            "Complex",
+            [
+              "Double"
+            ]
+          ]
+        ]
+      ],
+      "constraints": "",
+      "signature": "Double -> Matrix (Complex Double) -> Either MathError (Matrix (Complex Double))",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Matrix.Advanced",
+      "name": "matrixSqrtGeneral",
+      "args": [
+        [
+          "Double"
+        ],
+        [
+          "Int"
+        ],
+        [
+          "Matrix",
+          [
+            "Double"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "Matrix",
+          [
+            "Double"
+          ]
+        ]
+      ],
+      "constraints": "",
+      "signature": "Double -> Int -> Matrix Double -> Either MathError (Matrix Double)",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Matrix.Advanced",
+      "name": "matrixLogGeneral",
+      "args": [
+        [
+          "Double"
+        ],
+        [
+          "Int"
+        ],
+        [
+          "Matrix",
+          [
+            "Double"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "Matrix",
+          [
+            "Double"
+          ]
+        ]
+      ],
+      "constraints": "",
+      "signature": "Double -> Int -> Matrix Double -> Either MathError (Matrix Double)",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Matrix.Decomposition",
+      "name": "gaussianElimination",
+      "args": [
+        [
+          "a"
+        ],
+        [
+          "Matrix",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "tuple",
+          [
+            "Matrix",
+            [
+              "a"
+            ]
+          ],
+          [
+            "list",
+            [
+              "Int"
+            ]
+          ]
+        ]
+      ],
+      "constraints": "(RealFloat a)",
+      "signature": "a -> Matrix a -> Either MathError (Matrix a, [Int])",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Matrix.Decomposition",
+      "name": "gaussJordan",
+      "args": [
+        [
+          "a"
+        ],
+        [
+          "Matrix",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "tuple",
+          [
+            "Matrix",
+            [
+              "a"
+            ]
+          ],
+          [
+            "list",
+            [
+              "Int"
+            ]
+          ]
+        ]
+      ],
+      "constraints": "(RealFloat a)",
+      "signature": "a -> Matrix a -> Either MathError (Matrix a, [Int])",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Matrix.Decomposition",
+      "name": "cholesky",
+      "args": [
+        [
+          "Matrix",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "Matrix",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "constraints": "(RealFloat a)",
+      "signature": "Matrix a -> Either MathError (Matrix a)",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Matrix.Decomposition",
+      "name": "ldlt",
+      "args": [
+        [
+          "Matrix",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "tuple",
+          [
+            "Matrix",
+            [
+              "a"
+            ]
+          ],
+          [
+            "list",
+            [
+              "a"
+            ]
+          ]
+        ]
+      ],
+      "constraints": "(RealFloat a)",
+      "signature": "Matrix a -> Either MathError (Matrix a, [a])",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Matrix.Decomposition",
+      "name": "givensQR",
+      "args": [
+        [
+          "Matrix",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "tuple",
+          [
+            "Matrix",
+            [
+              "a"
+            ]
+          ],
+          [
+            "Matrix",
+            [
+              "a"
+            ]
+          ]
+        ]
+      ],
+      "constraints": "(RealFloat a)",
+      "signature": "Matrix a -> Either MathError (Matrix a, Matrix a)",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Matrix.Decomposition",
+      "name": "bidiagonalize",
+      "args": [
+        [
+          "Matrix",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "Bidiagonal",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "constraints": "(RealFloat a)",
+      "signature": "Matrix a -> Either MathError (Bidiagonal a)",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Matrix.Decomposition",
+      "name": "tridiagonalize",
+      "args": [
+        [
+          "Matrix",
+          [
+            "Double"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "tuple",
+          [
+            "Matrix",
+            [
+              "Double"
+            ]
+          ],
+          [
+            "Matrix",
+            [
+              "Double"
+            ]
+          ]
+        ]
+      ],
+      "constraints": "",
+      "signature": "Matrix Double -> Either MathError (Matrix Double, Matrix Double)",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Matrix.Decomposition",
+      "name": "powerIteration",
+      "args": [
+        [
+          "a"
+        ],
+        [
+          "Int"
+        ],
+        [
+          "Matrix",
+          [
+            "a"
+          ]
+        ],
+        [
+          "list",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "Iteration",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "constraints": "(RealFloat a)",
+      "signature": "a -> Int -> Matrix a -> [a] -> Either MathError (Iteration a)",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Matrix.Decomposition",
+      "name": "inverseIteration",
+      "args": [
+        [
+          "a"
+        ],
+        [
+          "Int"
+        ],
+        [
+          "a"
+        ],
+        [
+          "Matrix",
+          [
+            "a"
+          ]
+        ],
+        [
+          "list",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "Iteration",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "constraints": "(RealFloat a)",
+      "signature": "a -> Int -> a -> Matrix a -> [a] -> Either MathError (Iteration a)",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Matrix.Decomposition",
+      "name": "rayleighIteration",
+      "args": [
+        [
+          "a"
+        ],
+        [
+          "Int"
+        ],
+        [
+          "Matrix",
+          [
+            "a"
+          ]
+        ],
+        [
+          "list",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "Iteration",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "constraints": "(RealFloat a)",
+      "signature": "a -> Int -> Matrix a -> [a] -> Either MathError (Iteration a)",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Matrix.Decomposition",
+      "name": "arnoldi",
+      "args": [
+        [
+          "a"
+        ],
+        [
+          "Int"
+        ],
+        [
+          "Matrix",
+          [
+            "a"
+          ]
+        ],
+        [
+          "list",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "Arnoldi",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "constraints": "(RealFloat a)",
+      "signature": "a -> Int -> Matrix a -> [a] -> Either MathError (Arnoldi a)",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Matrix.Decomposition",
+      "name": "lanczos",
+      "args": [
+        [
+          "a"
+        ],
+        [
+          "Int"
+        ],
+        [
+          "Matrix",
+          [
+            "a"
+          ]
+        ],
+        [
+          "list",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "Arnoldi",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "constraints": "(RealFloat a)",
+      "signature": "a -> Int -> Matrix a -> [a] -> Either MathError (Arnoldi a)",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Matrix.Decomposition",
+      "name": "qrIteration",
+      "args": [
+        [
+          "a"
+        ],
+        [
+          "Int"
+        ],
+        [
+          "Matrix",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "tuple",
+          [
+            "Matrix",
+            [
+              "a"
+            ]
+          ],
+          [
+            "Matrix",
+            [
+              "a"
+            ]
+          ]
+        ]
+      ],
+      "constraints": "(RealFloat a)",
+      "signature": "a -> Int -> Matrix a -> Either MathError (Matrix a, Matrix a)",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Matrix.Decomposition",
+      "name": "jordanChains",
+      "args": [
+        [
+          "a"
+        ],
+        [
+          "Matrix",
+          [
+            "a"
+          ]
+        ],
+        [
+          "list",
+          [
+            "tuple",
+            [
+              "a"
+            ],
+            [
+              "list",
+              [
+                "list",
+                [
+                  "a"
+                ]
+              ]
+            ]
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "tuple",
+          [
+            "Matrix",
+            [
+              "a"
+            ]
+          ],
+          [
+            "Matrix",
+            [
+              "a"
+            ]
+          ]
+        ]
+      ],
+      "constraints": "(RealFloat a)",
+      "signature": "a -> Matrix a -> [(a, [[a]])] -> Either MathError (Matrix a, Matrix a)",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Matrix.Decomposition",
+      "name": "jordanForm",
+      "args": [
+        [
+          "Matrix",
+          [
+            "Rational"
+          ]
+        ],
+        [
+          "list",
+          [
+            "Rational"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "tuple",
+          [
+            "Matrix",
+            [
+              "Rational"
+            ]
+          ],
+          [
+            "Matrix",
+            [
+              "Rational"
+            ]
+          ]
+        ]
+      ],
+      "constraints": "",
+      "signature": "Matrix Rational -> [Rational] -> Either MathError (Matrix Rational, Matrix Rational)",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Matrix.Decomposition",
+      "name": "bidiagonalU",
+      "args": [
+        [
+          "Bidiagonal",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "Matrix",
+        [
+          "a"
+        ]
+      ],
+      "constraints": "",
+      "signature": "Bidiagonal -> field",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Matrix.Decomposition",
+      "name": "bidiagonalB",
+      "args": [
+        [
+          "Bidiagonal",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "Matrix",
+        [
+          "a"
+        ]
+      ],
+      "constraints": "",
+      "signature": "Bidiagonal -> field",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Matrix.Decomposition",
+      "name": "bidiagonalV",
+      "args": [
+        [
+          "Bidiagonal",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "Matrix",
+        [
+          "a"
+        ]
+      ],
+      "constraints": "",
+      "signature": "Bidiagonal -> field",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Matrix.Decomposition",
+      "name": "Bidiagonal",
+      "args": [
+        [
+          "Matrix",
+          [
+            "a"
+          ]
+        ],
+        [
+          "Matrix",
+          [
+            "a"
+          ]
+        ],
+        [
+          "Matrix",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "Bidiagonal",
+        [
+          "a"
+        ]
+      ],
+      "constraints": "",
+      "signature": "constructor",
+      "constructor": true
+    },
+    {
+      "module": "HMath.Matrix.Decomposition",
+      "name": "iterationValue",
+      "args": [
+        [
+          "Iteration",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "a"
+      ],
+      "constraints": "",
+      "signature": "Iteration -> field",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Matrix.Decomposition",
+      "name": "iterationVector",
+      "args": [
+        [
+          "Iteration",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "list",
+        [
+          "a"
+        ]
+      ],
+      "constraints": "",
+      "signature": "Iteration -> field",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Matrix.Decomposition",
+      "name": "iterationResidual",
+      "args": [
+        [
+          "Iteration",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "a"
+      ],
+      "constraints": "",
+      "signature": "Iteration -> field",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Matrix.Decomposition",
+      "name": "iterationCount",
+      "args": [
+        [
+          "Iteration",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "Int"
+      ],
+      "constraints": "",
+      "signature": "Iteration -> field",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Matrix.Decomposition",
+      "name": "Iteration",
+      "args": [
+        [
+          "a"
+        ],
+        [
+          "list",
+          [
+            "a"
+          ]
+        ],
+        [
+          "a"
+        ],
+        [
+          "Int"
+        ]
+      ],
+      "result": [
+        "Iteration",
+        [
+          "a"
+        ]
+      ],
+      "constraints": "",
+      "signature": "constructor",
+      "constructor": true
+    },
+    {
+      "module": "HMath.Matrix.Decomposition",
+      "name": "arnoldiBasis",
+      "args": [
+        [
+          "Arnoldi",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "Matrix",
+        [
+          "a"
+        ]
+      ],
+      "constraints": "",
+      "signature": "Arnoldi -> field",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Matrix.Decomposition",
+      "name": "arnoldiHessenberg",
+      "args": [
+        [
+          "Arnoldi",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "Matrix",
+        [
+          "a"
+        ]
+      ],
+      "constraints": "",
+      "signature": "Arnoldi -> field",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Matrix.Decomposition",
+      "name": "Arnoldi",
+      "args": [
+        [
+          "Matrix",
+          [
+            "a"
+          ]
+        ],
+        [
+          "Matrix",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "Arnoldi",
+        [
+          "a"
+        ]
+      ],
+      "constraints": "",
+      "signature": "constructor",
+      "constructor": true
+    },
+    {
+      "module": "HMath.Matrix.Iterative",
+      "name": "defaultIterativeOptions",
+      "args": [],
+      "result": [
+        "IterativeOptions",
+        [
+          "a"
+        ]
+      ],
+      "constraints": "(Fractional a)",
+      "signature": "IterativeOptions a",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Matrix.Iterative",
+      "name": "applyPreconditioner",
+      "args": [
+        [
+          "Preconditioner",
+          [
+            "a"
+          ]
+        ],
+        [
+          "list",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "list",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "constraints": "",
+      "signature": "Preconditioner a -> [a] -> Either MathError [a]",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Matrix.Iterative",
+      "name": "identityPreconditioner",
+      "args": [
+        [
+          "Int"
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "Preconditioner",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "constraints": "(RealFloat a)",
+      "signature": "Int -> Either MathError (Preconditioner a)",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Matrix.Iterative",
+      "name": "jacobiPreconditioner",
+      "args": [
+        [
+          "Matrix",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "Preconditioner",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "constraints": "(RealFloat a)",
+      "signature": "Matrix a -> Either MathError (Preconditioner a)",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Matrix.Iterative",
+      "name": "blockJacobiPreconditioner",
+      "args": [
+        [
+          "list",
+          [
+            "Int"
+          ]
+        ],
+        [
+          "Matrix",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "Preconditioner",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "constraints": "(RealFloat a)",
+      "signature": "[Int] -> Matrix a -> Either MathError (Preconditioner a)",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Matrix.Iterative",
+      "name": "ilu0Preconditioner",
+      "args": [
+        [
+          "Matrix",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "Preconditioner",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "constraints": "(RealFloat a)",
+      "signature": "Matrix a -> Either MathError (Preconditioner a)",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Matrix.Iterative",
+      "name": "ic0Preconditioner",
+      "args": [
+        [
+          "Matrix",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "Preconditioner",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "constraints": "(RealFloat a)",
+      "signature": "Matrix a -> Either MathError (Preconditioner a)",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Matrix.Iterative",
+      "name": "conjugateGradient",
+      "args": [
+        [
+          "IterativeOptions",
+          [
+            "a"
+          ]
+        ],
+        [
+          "Matrix",
+          [
+            "a"
+          ]
+        ],
+        [
+          "list",
+          [
+            "a"
+          ]
+        ],
+        [
+          "list",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "IterativeResult",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "constraints": "(RealFloat a)",
+      "signature": "IterativeOptions a -> Matrix a -> [a] -> [a] -> Either MathError (IterativeResult a)",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Matrix.Iterative",
+      "name": "preconditionedCG",
+      "args": [
+        [
+          "IterativeOptions",
+          [
+            "a"
+          ]
+        ],
+        [
+          "Preconditioner",
+          [
+            "a"
+          ]
+        ],
+        [
+          "Matrix",
+          [
+            "a"
+          ]
+        ],
+        [
+          "list",
+          [
+            "a"
+          ]
+        ],
+        [
+          "list",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "IterativeResult",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "constraints": "(RealFloat a)",
+      "signature": "IterativeOptions a -> Preconditioner a -> Matrix a -> [a] -> [a] -> Either MathError (IterativeResult a)",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Matrix.Iterative",
+      "name": "gmres",
+      "args": [
+        [
+          "IterativeOptions",
+          [
+            "a"
+          ]
+        ],
+        [
+          "Int"
+        ],
+        [
+          "Matrix",
+          [
+            "a"
+          ]
+        ],
+        [
+          "list",
+          [
+            "a"
+          ]
+        ],
+        [
+          "list",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "IterativeResult",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "constraints": "(RealFloat a)",
+      "signature": "IterativeOptions a -> Int -> Matrix a -> [a] -> [a] -> Either MathError (IterativeResult a)",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Matrix.Iterative",
+      "name": "minres",
+      "args": [
+        [
+          "IterativeOptions",
+          [
+            "a"
+          ]
+        ],
+        [
+          "Matrix",
+          [
+            "a"
+          ]
+        ],
+        [
+          "list",
+          [
+            "a"
+          ]
+        ],
+        [
+          "list",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "IterativeResult",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "constraints": "(RealFloat a)",
+      "signature": "IterativeOptions a -> Matrix a -> [a] -> [a] -> Either MathError (IterativeResult a)",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Matrix.Iterative",
+      "name": "bicg",
+      "args": [
+        [
+          "IterativeOptions",
+          [
+            "a"
+          ]
+        ],
+        [
+          "Matrix",
+          [
+            "a"
+          ]
+        ],
+        [
+          "list",
+          [
+            "a"
+          ]
+        ],
+        [
+          "list",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "IterativeResult",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "constraints": "(RealFloat a)",
+      "signature": "IterativeOptions a -> Matrix a -> [a] -> [a] -> Either MathError (IterativeResult a)",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Matrix.Iterative",
+      "name": "bicgstab",
+      "args": [
+        [
+          "IterativeOptions",
+          [
+            "a"
+          ]
+        ],
+        [
+          "Matrix",
+          [
+            "a"
+          ]
+        ],
+        [
+          "list",
+          [
+            "a"
+          ]
+        ],
+        [
+          "list",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "IterativeResult",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "constraints": "(RealFloat a)",
+      "signature": "IterativeOptions a -> Matrix a -> [a] -> [a] -> Either MathError (IterativeResult a)",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Matrix.Iterative",
+      "name": "lsqr",
+      "args": [
+        [
+          "IterativeOptions",
+          [
+            "a"
+          ]
+        ],
+        [
+          "Matrix",
+          [
+            "a"
+          ]
+        ],
+        [
+          "list",
+          [
+            "a"
+          ]
+        ],
+        [
+          "list",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "IterativeResult",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "constraints": "(RealFloat a)",
+      "signature": "IterativeOptions a -> Matrix a -> [a] -> [a] -> Either MathError (IterativeResult a)",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Matrix.Iterative",
+      "name": "lsmr",
+      "args": [
+        [
+          "IterativeOptions",
+          [
+            "a"
+          ]
+        ],
+        [
+          "Matrix",
+          [
+            "a"
+          ]
+        ],
+        [
+          "list",
+          [
+            "a"
+          ]
+        ],
+        [
+          "list",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "IterativeResult",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "constraints": "(RealFloat a)",
+      "signature": "IterativeOptions a -> Matrix a -> [a] -> [a] -> Either MathError (IterativeResult a)",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Matrix.Iterative",
+      "name": "jacobiSolve",
+      "args": [
+        [
+          "IterativeOptions",
+          [
+            "a"
+          ]
+        ],
+        [
+          "Matrix",
+          [
+            "a"
+          ]
+        ],
+        [
+          "list",
+          [
+            "a"
+          ]
+        ],
+        [
+          "list",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "IterativeResult",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "constraints": "(RealFloat a)",
+      "signature": "IterativeOptions a -> Matrix a -> [a] -> [a] -> Either MathError (IterativeResult a)",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Matrix.Iterative",
+      "name": "gaussSeidelSolve",
+      "args": [
+        [
+          "IterativeOptions",
+          [
+            "a"
+          ]
+        ],
+        [
+          "Matrix",
+          [
+            "a"
+          ]
+        ],
+        [
+          "list",
+          [
+            "a"
+          ]
+        ],
+        [
+          "list",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "IterativeResult",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "constraints": "(RealFloat a)",
+      "signature": "IterativeOptions a -> Matrix a -> [a] -> [a] -> Either MathError (IterativeResult a)",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Matrix.Iterative",
+      "name": "sorSolve",
+      "args": [
+        [
+          "IterativeOptions",
+          [
+            "a"
+          ]
+        ],
+        [
+          "a"
+        ],
+        [
+          "Matrix",
+          [
+            "a"
+          ]
+        ],
+        [
+          "list",
+          [
+            "a"
+          ]
+        ],
+        [
+          "list",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "IterativeResult",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "constraints": "(RealFloat a)",
+      "signature": "IterativeOptions a -> a -> Matrix a -> [a] -> [a] -> Either MathError (IterativeResult a)",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Matrix.Iterative",
+      "name": "iterativeRefinement",
+      "args": [
+        [
+          "IterativeOptions",
+          [
+            "a"
+          ]
+        ],
+        [
+          "Matrix",
+          [
+            "a"
+          ]
+        ],
+        [
+          "list",
+          [
+            "a"
+          ]
+        ],
+        [
+          "list",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "IterativeResult",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "constraints": "(RealFloat a)",
+      "signature": "IterativeOptions a -> Matrix a -> [a] -> [a] -> Either MathError (IterativeResult a)",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Matrix.Iterative",
+      "name": "absoluteTolerance",
+      "args": [
+        [
+          "IterativeOptions",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "a"
+      ],
+      "constraints": "",
+      "signature": "IterativeOptions -> field",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Matrix.Iterative",
+      "name": "relativeTolerance",
+      "args": [
+        [
+          "IterativeOptions",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "a"
+      ],
+      "constraints": "",
+      "signature": "IterativeOptions -> field",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Matrix.Iterative",
+      "name": "maximumIterations",
+      "args": [
+        [
+          "IterativeOptions",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "Int"
+      ],
+      "constraints": "",
+      "signature": "IterativeOptions -> field",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Matrix.Iterative",
+      "name": "IterativeOptions",
+      "args": [
+        [
+          "a"
+        ],
+        [
+          "a"
+        ],
+        [
+          "Int"
+        ]
+      ],
+      "result": [
+        "IterativeOptions",
+        [
+          "a"
+        ]
+      ],
+      "constraints": "",
+      "signature": "constructor",
+      "constructor": true
+    },
+    {
+      "module": "HMath.Matrix.Iterative",
+      "name": "iterativeSolution",
+      "args": [
+        [
+          "IterativeResult",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "list",
+        [
+          "a"
+        ]
+      ],
+      "constraints": "",
+      "signature": "IterativeResult -> field",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Matrix.Iterative",
+      "name": "iterativeIterations",
+      "args": [
+        [
+          "IterativeResult",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "Int"
+      ],
+      "constraints": "",
+      "signature": "IterativeResult -> field",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Matrix.Iterative",
+      "name": "iterativeResidualNorm",
+      "args": [
+        [
+          "IterativeResult",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "a"
+      ],
+      "constraints": "",
+      "signature": "IterativeResult -> field",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Matrix.Iterative",
+      "name": "iterativeNormalResidualNorm",
+      "args": [
+        [
+          "IterativeResult",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "a"
+      ],
+      "constraints": "",
+      "signature": "IterativeResult -> field",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Matrix.Iterative",
+      "name": "IterativeResult",
+      "args": [
+        [
+          "list",
+          [
+            "a"
+          ]
+        ],
+        [
+          "Int"
+        ],
+        [
+          "a"
+        ],
+        [
+          "a"
+        ]
+      ],
+      "result": [
+        "IterativeResult",
+        [
+          "a"
+        ]
+      ],
+      "constraints": "",
+      "signature": "constructor",
+      "constructor": true
+    },
+    {
+      "module": "HMath.Matrix.LAPACK",
+      "name": "svd",
+      "args": [
+        [
+          "Matrix",
+          [
+            "Double"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "SVD"
+        ]
+      ],
+      "constraints": "",
+      "signature": "Matrix Double -> Either MathError SVD",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Matrix.LAPACK",
+      "name": "fullSVD",
+      "args": [
+        [
+          "Matrix",
+          [
+            "Double"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "SVD"
+        ]
+      ],
+      "constraints": "",
+      "signature": "Matrix Double -> Either MathError SVD",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Matrix.LAPACK",
+      "name": "truncatedSVD",
+      "args": [
+        [
+          "Int"
+        ],
+        [
+          "Matrix",
+          [
+            "Double"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "SVD"
+        ]
+      ],
+      "constraints": "",
+      "signature": "Int -> Matrix Double -> Either MathError SVD",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Matrix.LAPACK",
+      "name": "randomizedSVD",
+      "args": [
+        [
+          "Int"
+        ],
+        [
+          "Int"
+        ],
+        [
+          "Int"
+        ],
+        [
+          "Integer"
+        ],
+        [
+          "Matrix",
+          [
+            "Double"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "SVD"
+        ]
+      ],
+      "constraints": "",
+      "signature": "Int -> Int -> Int -> Integer -> Matrix Double -> Either MathError SVD",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Matrix.LAPACK",
+      "name": "eigen",
+      "args": [
+        [
+          "Matrix",
+          [
+            "Double"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "Eigen"
+        ]
+      ],
+      "constraints": "",
+      "signature": "Matrix Double -> Either MathError Eigen",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Matrix.LAPACK",
+      "name": "symmetricEigen",
+      "args": [
+        [
+          "Matrix",
+          [
+            "Double"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "Eigen"
+        ]
+      ],
+      "constraints": "",
+      "signature": "Matrix Double -> Either MathError Eigen",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Matrix.LAPACK",
+      "name": "generalizedEigen",
+      "args": [
+        [
+          "Matrix",
+          [
+            "Double"
+          ]
+        ],
+        [
+          "Matrix",
+          [
+            "Double"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "GeneralizedEigen"
+        ]
+      ],
+      "constraints": "",
+      "signature": "Matrix Double -> Matrix Double -> Either MathError GeneralizedEigen",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Matrix.LAPACK",
+      "name": "schur",
+      "args": [
+        [
+          "Matrix",
+          [
+            "Double"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "Schur"
+        ]
+      ],
+      "constraints": "",
+      "signature": "Matrix Double -> Either MathError Schur",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Matrix.LAPACK",
+      "name": "qz",
+      "args": [
+        [
+          "Matrix",
+          [
+            "Double"
+          ]
+        ],
+        [
+          "Matrix",
+          [
+            "Double"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "QZ"
+        ]
+      ],
+      "constraints": "",
+      "signature": "Matrix Double -> Matrix Double -> Either MathError QZ",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Matrix.LAPACK",
+      "name": "hessenberg",
+      "args": [
+        [
+          "Matrix",
+          [
+            "Double"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "Hessenberg"
+        ]
+      ],
+      "constraints": "",
+      "signature": "Matrix Double -> Either MathError Hessenberg",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Matrix.LAPACK",
+      "name": "balance",
+      "args": [
+        [
+          "Matrix",
+          [
+            "Double"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "Balance"
+        ]
+      ],
+      "constraints": "",
+      "signature": "Matrix Double -> Either MathError Balance",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Matrix.LAPACK",
+      "name": "complexSVD",
+      "args": [
+        [
+          "Matrix",
+          [
+            "Complex",
+            [
+              "Double"
+            ]
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "ComplexSVD"
+        ]
+      ],
+      "constraints": "",
+      "signature": "Matrix (Complex Double) -> Either MathError ComplexSVD",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Matrix.LAPACK",
+      "name": "complexEigen",
+      "args": [
+        [
+          "Matrix",
+          [
+            "Complex",
+            [
+              "Double"
+            ]
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "Eigen"
+        ]
+      ],
+      "constraints": "",
+      "signature": "Matrix (Complex Double) -> Either MathError Eigen",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Matrix.LAPACK",
+      "name": "svdU",
+      "args": [
+        [
+          "SVD"
+        ]
+      ],
+      "result": [
+        "Matrix",
+        [
+          "Double"
+        ]
+      ],
+      "constraints": "",
+      "signature": "SVD -> field",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Matrix.LAPACK",
+      "name": "singularValues",
+      "args": [
+        [
+          "SVD"
+        ]
+      ],
+      "result": [
+        "list",
+        [
+          "Double"
+        ]
+      ],
+      "constraints": "",
+      "signature": "SVD -> field",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Matrix.LAPACK",
+      "name": "svdVT",
+      "args": [
+        [
+          "SVD"
+        ]
+      ],
+      "result": [
+        "Matrix",
+        [
+          "Double"
+        ]
+      ],
+      "constraints": "",
+      "signature": "SVD -> field",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Matrix.LAPACK",
+      "name": "SVD",
+      "args": [
+        [
+          "Matrix",
+          [
+            "Double"
+          ]
+        ],
+        [
+          "list",
+          [
+            "Double"
+          ]
+        ],
+        [
+          "Matrix",
+          [
+            "Double"
+          ]
+        ]
+      ],
+      "result": [
+        "SVD"
+      ],
+      "constraints": "",
+      "signature": "constructor",
+      "constructor": true
+    },
+    {
+      "module": "HMath.Matrix.LAPACK",
+      "name": "eigenvalues",
+      "args": [
+        [
+          "Eigen"
+        ]
+      ],
+      "result": [
+        "list",
+        [
+          "Complex",
+          [
+            "Double"
+          ]
+        ]
+      ],
+      "constraints": "",
+      "signature": "Eigen -> field",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Matrix.LAPACK",
+      "name": "eigenvectors",
+      "args": [
+        [
+          "Eigen"
+        ]
+      ],
+      "result": [
+        "Matrix",
+        [
+          "Complex",
+          [
+            "Double"
+          ]
+        ]
+      ],
+      "constraints": "",
+      "signature": "Eigen -> field",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Matrix.LAPACK",
+      "name": "Eigen",
+      "args": [
+        [
+          "list",
+          [
+            "Complex",
+            [
+              "Double"
+            ]
+          ]
+        ],
+        [
+          "Matrix",
+          [
+            "Complex",
+            [
+              "Double"
+            ]
+          ]
+        ]
+      ],
+      "result": [
+        "Eigen"
+      ],
+      "constraints": "",
+      "signature": "constructor",
+      "constructor": true
+    },
+    {
+      "module": "HMath.Matrix.LAPACK",
+      "name": "eigenAlpha",
+      "args": [
+        [
+          "GeneralizedEigen"
+        ]
+      ],
+      "result": [
+        "list",
+        [
+          "Complex",
+          [
+            "Double"
+          ]
+        ]
+      ],
+      "constraints": "",
+      "signature": "GeneralizedEigen -> field",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Matrix.LAPACK",
+      "name": "eigenBeta",
+      "args": [
+        [
+          "GeneralizedEigen"
+        ]
+      ],
+      "result": [
+        "list",
+        [
+          "Double"
+        ]
+      ],
+      "constraints": "",
+      "signature": "GeneralizedEigen -> field",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Matrix.LAPACK",
+      "name": "generalizedEigenvectors",
+      "args": [
+        [
+          "GeneralizedEigen"
+        ]
+      ],
+      "result": [
+        "Matrix",
+        [
+          "Complex",
+          [
+            "Double"
+          ]
+        ]
+      ],
+      "constraints": "",
+      "signature": "GeneralizedEigen -> field",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Matrix.LAPACK",
+      "name": "GeneralizedEigen",
+      "args": [
+        [
+          "list",
+          [
+            "Complex",
+            [
+              "Double"
+            ]
+          ]
+        ],
+        [
+          "list",
+          [
+            "Double"
+          ]
+        ],
+        [
+          "Matrix",
+          [
+            "Complex",
+            [
+              "Double"
+            ]
+          ]
+        ]
+      ],
+      "result": [
+        "GeneralizedEigen"
+      ],
+      "constraints": "",
+      "signature": "constructor",
+      "constructor": true
+    },
+    {
+      "module": "HMath.Matrix.LAPACK",
+      "name": "schurQ",
+      "args": [
+        [
+          "Schur"
+        ]
+      ],
+      "result": [
+        "Matrix",
+        [
+          "Double"
+        ]
+      ],
+      "constraints": "",
+      "signature": "Schur -> field",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Matrix.LAPACK",
+      "name": "schurT",
+      "args": [
+        [
+          "Schur"
+        ]
+      ],
+      "result": [
+        "Matrix",
+        [
+          "Double"
+        ]
+      ],
+      "constraints": "",
+      "signature": "Schur -> field",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Matrix.LAPACK",
+      "name": "schurEigenvalues",
+      "args": [
+        [
+          "Schur"
+        ]
+      ],
+      "result": [
+        "list",
+        [
+          "Complex",
+          [
+            "Double"
+          ]
+        ]
+      ],
+      "constraints": "",
+      "signature": "Schur -> field",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Matrix.LAPACK",
+      "name": "Schur",
+      "args": [
+        [
+          "Matrix",
+          [
+            "Double"
+          ]
+        ],
+        [
+          "Matrix",
+          [
+            "Double"
+          ]
+        ],
+        [
+          "list",
+          [
+            "Complex",
+            [
+              "Double"
+            ]
+          ]
+        ]
+      ],
+      "result": [
+        "Schur"
+      ],
+      "constraints": "",
+      "signature": "constructor",
+      "constructor": true
+    },
+    {
+      "module": "HMath.Matrix.LAPACK",
+      "name": "qzQ",
+      "args": [
+        [
+          "QZ"
+        ]
+      ],
+      "result": [
+        "Matrix",
+        [
+          "Double"
+        ]
+      ],
+      "constraints": "",
+      "signature": "QZ -> field",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Matrix.LAPACK",
+      "name": "qzZ",
+      "args": [
+        [
+          "QZ"
+        ]
+      ],
+      "result": [
+        "Matrix",
+        [
+          "Double"
+        ]
+      ],
+      "constraints": "",
+      "signature": "QZ -> field",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Matrix.LAPACK",
+      "name": "qzS",
+      "args": [
+        [
+          "QZ"
+        ]
+      ],
+      "result": [
+        "Matrix",
+        [
+          "Double"
+        ]
+      ],
+      "constraints": "",
+      "signature": "QZ -> field",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Matrix.LAPACK",
+      "name": "qzT",
+      "args": [
+        [
+          "QZ"
+        ]
+      ],
+      "result": [
+        "Matrix",
+        [
+          "Double"
+        ]
+      ],
+      "constraints": "",
+      "signature": "QZ -> field",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Matrix.LAPACK",
+      "name": "qzAlpha",
+      "args": [
+        [
+          "QZ"
+        ]
+      ],
+      "result": [
+        "list",
+        [
+          "Complex",
+          [
+            "Double"
+          ]
+        ]
+      ],
+      "constraints": "",
+      "signature": "QZ -> field",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Matrix.LAPACK",
+      "name": "qzBeta",
+      "args": [
+        [
+          "QZ"
+        ]
+      ],
+      "result": [
+        "list",
+        [
+          "Double"
+        ]
+      ],
+      "constraints": "",
+      "signature": "QZ -> field",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Matrix.LAPACK",
+      "name": "QZ",
+      "args": [
+        [
+          "Matrix",
+          [
+            "Double"
+          ]
+        ],
+        [
+          "Matrix",
+          [
+            "Double"
+          ]
+        ],
+        [
+          "Matrix",
+          [
+            "Double"
+          ]
+        ],
+        [
+          "Matrix",
+          [
+            "Double"
+          ]
+        ],
+        [
+          "list",
+          [
+            "Complex",
+            [
+              "Double"
+            ]
+          ]
+        ],
+        [
+          "list",
+          [
+            "Double"
+          ]
+        ]
+      ],
+      "result": [
+        "QZ"
+      ],
+      "constraints": "",
+      "signature": "constructor",
+      "constructor": true
+    },
+    {
+      "module": "HMath.Matrix.LAPACK",
+      "name": "hessenbergQ",
+      "args": [
+        [
+          "Hessenberg"
+        ]
+      ],
+      "result": [
+        "Matrix",
+        [
+          "Double"
+        ]
+      ],
+      "constraints": "",
+      "signature": "Hessenberg -> field",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Matrix.LAPACK",
+      "name": "hessenbergH",
+      "args": [
+        [
+          "Hessenberg"
+        ]
+      ],
+      "result": [
+        "Matrix",
+        [
+          "Double"
+        ]
+      ],
+      "constraints": "",
+      "signature": "Hessenberg -> field",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Matrix.LAPACK",
+      "name": "Hessenberg",
+      "args": [
+        [
+          "Matrix",
+          [
+            "Double"
+          ]
+        ],
+        [
+          "Matrix",
+          [
+            "Double"
+          ]
+        ]
+      ],
+      "result": [
+        "Hessenberg"
+      ],
+      "constraints": "",
+      "signature": "constructor",
+      "constructor": true
+    },
+    {
+      "module": "HMath.Matrix.LAPACK",
+      "name": "balancedMatrix",
+      "args": [
+        [
+          "Balance"
+        ]
+      ],
+      "result": [
+        "Matrix",
+        [
+          "Double"
+        ]
+      ],
+      "constraints": "",
+      "signature": "Balance -> field",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Matrix.LAPACK",
+      "name": "balanceScales",
+      "args": [
+        [
+          "Balance"
+        ]
+      ],
+      "result": [
+        "list",
+        [
+          "Double"
+        ]
+      ],
+      "constraints": "",
+      "signature": "Balance -> field",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Matrix.LAPACK",
+      "name": "Balance",
+      "args": [
+        [
+          "Matrix",
+          [
+            "Double"
+          ]
+        ],
+        [
+          "list",
+          [
+            "Double"
+          ]
+        ]
+      ],
+      "result": [
+        "Balance"
+      ],
+      "constraints": "",
+      "signature": "constructor",
+      "constructor": true
+    },
+    {
+      "module": "HMath.Matrix.LAPACK",
+      "name": "complexU",
+      "args": [
+        [
+          "ComplexSVD"
+        ]
+      ],
+      "result": [
+        "Matrix",
+        [
+          "Complex",
+          [
+            "Double"
+          ]
+        ]
+      ],
+      "constraints": "",
+      "signature": "ComplexSVD -> field",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Matrix.LAPACK",
+      "name": "complexSingularValues",
+      "args": [
+        [
+          "ComplexSVD"
+        ]
+      ],
+      "result": [
+        "list",
+        [
+          "Double"
+        ]
+      ],
+      "constraints": "",
+      "signature": "ComplexSVD -> field",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Matrix.LAPACK",
+      "name": "complexVT",
+      "args": [
+        [
+          "ComplexSVD"
+        ]
+      ],
+      "result": [
+        "Matrix",
+        [
+          "Complex",
+          [
+            "Double"
+          ]
+        ]
+      ],
+      "constraints": "",
+      "signature": "ComplexSVD -> field",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Matrix.LAPACK",
+      "name": "ComplexSVD",
+      "args": [
+        [
+          "Matrix",
+          [
+            "Complex",
+            [
+              "Double"
+            ]
+          ]
+        ],
+        [
+          "list",
+          [
+            "Double"
+          ]
+        ],
+        [
+          "Matrix",
+          [
+            "Complex",
+            [
+              "Double"
+            ]
+          ]
+        ]
+      ],
+      "result": [
+        "ComplexSVD"
+      ],
+      "constraints": "",
+      "signature": "constructor",
+      "constructor": true
+    },
+    {
+      "module": "HMath.Sparse",
+      "name": "sparse",
+      "args": [
+        [
+          "Int"
+        ],
+        [
+          "Int"
+        ],
+        [
+          "list",
+          [
+            "tuple",
+            [
+              "Int"
+            ],
+            [
+              "Int"
+            ],
+            [
+              "a"
+            ]
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "Sparse",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "constraints": "(Eq a, Num a)",
+      "signature": "Int -> Int -> [(Int, Int, a)] -> Either MathError (Sparse a)",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Sparse",
+      "name": "sparseShape",
+      "args": [
+        [
+          "Sparse",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "tuple",
+        [
+          "Int"
+        ],
+        [
+          "Int"
+        ]
+      ],
+      "constraints": "",
+      "signature": "Sparse a -> (Int, Int)",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Sparse",
+      "name": "sparseEntries",
+      "args": [
+        [
+          "Sparse",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "list",
+        [
+          "tuple",
+          [
+            "Int"
+          ],
+          [
+            "Int"
+          ],
+          [
+            "a"
+          ]
+        ]
+      ],
+      "constraints": "",
+      "signature": "Sparse a -> [(Int, Int, a)]",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Sparse",
+      "name": "nonzeros",
+      "args": [
+        [
+          "Sparse",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "Int"
+      ],
+      "constraints": "",
+      "signature": "Sparse a -> Int",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Sparse",
+      "name": "fromFormat",
+      "args": [
+        [
+          "SparseFormat",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "Sparse",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "constraints": "(Eq a, Num a)",
+      "signature": "SparseFormat a -> Either MathError (Sparse a)",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Sparse",
+      "name": "toCOO",
+      "args": [
+        [
+          "Sparse",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "SparseFormat",
+        [
+          "a"
+        ]
+      ],
+      "constraints": "",
+      "signature": "Sparse a -> SparseFormat a",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Sparse",
+      "name": "toCSR",
+      "args": [
+        [
+          "Sparse",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "SparseFormat",
+        [
+          "a"
+        ]
+      ],
+      "constraints": "",
+      "signature": "Sparse a -> SparseFormat a",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Sparse",
+      "name": "toCSC",
+      "args": [
+        [
+          "Sparse",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "SparseFormat",
+        [
+          "a"
+        ]
+      ],
+      "constraints": "",
+      "signature": "Sparse a -> SparseFormat a",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Sparse",
+      "name": "toDIA",
+      "args": [
+        [
+          "Sparse",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "SparseFormat",
+        [
+          "a"
+        ]
+      ],
+      "constraints": "(Num a)",
+      "signature": "Sparse a -> SparseFormat a",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Sparse",
+      "name": "toBSR",
+      "args": [
+        [
+          "Int"
+        ],
+        [
+          "Int"
+        ],
+        [
+          "Sparse",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "SparseFormat",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "constraints": "(Num a)",
+      "signature": "Int -> Int -> Sparse a -> Either MathError (SparseFormat a)",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Sparse",
+      "name": "toELLPACK",
+      "args": [
+        [
+          "Sparse",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "SparseFormat",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "constraints": "(Num a)",
+      "signature": "Sparse a -> Either MathError (SparseFormat a)",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Sparse",
+      "name": "sparseToDense",
+      "args": [
+        [
+          "Sparse",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "Matrix",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "constraints": "(Num a)",
+      "signature": "Sparse a -> Either MathError (Matrix a)",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Sparse",
+      "name": "denseToSparse",
+      "args": [
+        [
+          "Matrix",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "Sparse",
+        [
+          "a"
+        ]
+      ],
+      "constraints": "(Eq a, Num a)",
+      "signature": "Matrix a -> Sparse a",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Sparse",
+      "name": "sparseTranspose",
+      "args": [
+        [
+          "Sparse",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "Sparse",
+        [
+          "a"
+        ]
+      ],
+      "constraints": "",
+      "signature": "Sparse a -> Sparse a",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Sparse",
+      "name": "sparseAdd",
+      "args": [
+        [
+          "Sparse",
+          [
+            "a"
+          ]
+        ],
+        [
+          "Sparse",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "Sparse",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "constraints": "(Eq a, Num a)",
+      "signature": "Sparse a -> Sparse a -> Either MathError (Sparse a)",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Sparse",
+      "name": "sparseSubtract",
+      "args": [
+        [
+          "Sparse",
+          [
+            "a"
+          ]
+        ],
+        [
+          "Sparse",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "Sparse",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "constraints": "(Eq a, Num a)",
+      "signature": "Sparse a -> Sparse a -> Either MathError (Sparse a)",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Sparse",
+      "name": "spmv",
+      "args": [
+        [
+          "Sparse",
+          [
+            "a"
+          ]
+        ],
+        [
+          "list",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "list",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "constraints": "(Num a)",
+      "signature": "Sparse a -> [a] -> Either MathError [a]",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Sparse",
+      "name": "spmm",
+      "args": [
+        [
+          "Sparse",
+          [
+            "a"
+          ]
+        ],
+        [
+          "Sparse",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "Sparse",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "constraints": "(Eq a, Num a)",
+      "signature": "Sparse a -> Sparse a -> Either MathError (Sparse a)",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Sparse",
+      "name": "sparseKronecker",
+      "args": [
+        [
+          "Sparse",
+          [
+            "a"
+          ]
+        ],
+        [
+          "Sparse",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "Sparse",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "constraints": "(Eq a, Num a)",
+      "signature": "Sparse a -> Sparse a -> Either MathError (Sparse a)",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Sparse",
+      "name": "sparseTriangularSolve",
+      "args": [
+        [
+          "Bool"
+        ],
+        [
+          "Sparse",
+          [
+            "a"
+          ]
+        ],
+        [
+          "list",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "list",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "constraints": "(RealFloat a)",
+      "signature": "Bool -> Sparse a -> [a] -> Either MathError [a]",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Sparse",
+      "name": "sparseDiagonalSolve",
+      "args": [
+        [
+          "Sparse",
+          [
+            "a"
+          ]
+        ],
+        [
+          "list",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "list",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "constraints": "(RealFloat a)",
+      "signature": "Sparse a -> [a] -> Either MathError [a]",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Sparse",
+      "name": "sparseLULower",
+      "args": [
+        [
+          "SparseLU",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "Sparse",
+        [
+          "a"
+        ]
+      ],
+      "constraints": "",
+      "signature": "SparseLU a -> Sparse a",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Sparse",
+      "name": "sparseLUUpper",
+      "args": [
+        [
+          "SparseLU",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "Sparse",
+        [
+          "a"
+        ]
+      ],
+      "constraints": "",
+      "signature": "SparseLU a -> Sparse a",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Sparse",
+      "name": "sparseLUPermutation",
+      "args": [
+        [
+          "SparseLU",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "list",
+        [
+          "Int"
+        ]
+      ],
+      "constraints": "",
+      "signature": "SparseLU a -> [Int]",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Sparse",
+      "name": "sparseLU",
+      "args": [
+        [
+          "a"
+        ],
+        [
+          "Sparse",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "SparseLU",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "constraints": "(RealFloat a)",
+      "signature": "a -> Sparse a -> Either MathError (SparseLU a)",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Sparse",
+      "name": "sparseSolveLU",
+      "args": [
+        [
+          "SparseLU",
+          [
+            "a"
+          ]
+        ],
+        [
+          "list",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "list",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "constraints": "(RealFloat a)",
+      "signature": "SparseLU a -> [a] -> Either MathError [a]",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Sparse",
+      "name": "sparseCholesky",
+      "args": [
+        [
+          "Sparse",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "Sparse",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "constraints": "(RealFloat a)",
+      "signature": "Sparse a -> Either MathError (Sparse a)",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Sparse",
+      "name": "sparseQRUpper",
+      "args": [
+        [
+          "SparseQR",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "Sparse",
+        [
+          "a"
+        ]
+      ],
+      "constraints": "",
+      "signature": "SparseQR a -> Sparse a",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Sparse",
+      "name": "sparseQR",
+      "args": [
+        [
+          "Sparse",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "SparseQR",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "constraints": "(RealFloat a)",
+      "signature": "Sparse a -> Either MathError (SparseQR a)",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Sparse",
+      "name": "sparseQRApplyQT",
+      "args": [
+        [
+          "SparseQR",
+          [
+            "a"
+          ]
+        ],
+        [
+          "list",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "list",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "constraints": "(RealFloat a)",
+      "signature": "SparseQR a -> [a] -> Either MathError [a]",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Sparse",
+      "name": "sparseGraph",
+      "args": [
+        [
+          "Sparse",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "list",
+          [
+            "tuple",
+            [
+              "Int"
+            ],
+            [
+              "list",
+              [
+                "tuple",
+                [
+                  "Int"
+                ],
+                [
+                  "a"
+                ]
+              ]
+            ]
+          ]
+        ]
+      ],
+      "constraints": "",
+      "signature": "Sparse a -> Either MathError [(Int, [(Int, a)])]",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Sparse",
+      "name": "sparseStorageBytes",
+      "args": [
+        [
+          "Int"
+        ],
+        [
+          "Sparse",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "Integer"
+        ]
+      ],
+      "constraints": "",
+      "signature": "Int -> Sparse a -> Either MathError Integer",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Sparse",
+      "name": "sparseTensor",
+      "args": [
+        [
+          "list",
+          [
+            "Int"
+          ]
+        ],
+        [
+          "list",
+          [
+            "tuple",
+            [
+              "list",
+              [
+                "Int"
+              ]
+            ],
+            [
+              "a"
+            ]
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "SparseTensor",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "constraints": "(Eq a, Num a)",
+      "signature": "[Int] -> [([Int], a)] -> Either MathError (SparseTensor a)",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Sparse",
+      "name": "sparseTensorShape",
+      "args": [
+        [
+          "SparseTensor",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "list",
+        [
+          "Int"
+        ]
+      ],
+      "constraints": "",
+      "signature": "SparseTensor a -> [Int]",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Sparse",
+      "name": "sparseTensorEntries",
+      "args": [
+        [
+          "SparseTensor",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "list",
+        [
+          "tuple",
+          [
+            "list",
+            [
+              "Int"
+            ]
+          ],
+          [
+            "a"
+          ]
+        ]
+      ],
+      "constraints": "",
+      "signature": "SparseTensor a -> [([Int], a)]",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Sparse",
+      "name": "sparseTensorLookup",
+      "args": [
+        [
+          "SparseTensor",
+          [
+            "a"
+          ]
+        ],
+        [
+          "list",
+          [
+            "Int"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "a"
+        ]
+      ],
+      "constraints": "(Num a)",
+      "signature": "SparseTensor a -> [Int] -> Either MathError a",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Sparse",
+      "name": "sparseEigenReference",
+      "args": [
+        [
+          "Integer"
+        ],
+        [
+          "Sparse",
+          [
+            "Double"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "Eigen"
+        ]
+      ],
+      "constraints": "",
+      "signature": "Integer -> Sparse Double -> Either MathError Eigen",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Sparse",
+      "name": "sparseSVDReference",
+      "args": [
+        [
+          "Integer"
+        ],
+        [
+          "Sparse",
+          [
+            "Double"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "SVD"
+        ]
+      ],
+      "constraints": "",
+      "signature": "Integer -> Sparse Double -> Either MathError SVD",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Sparse",
+      "name": "COO",
+      "args": [
+        [
+          "Int"
+        ],
+        [
+          "Int"
+        ],
+        [
+          "list",
+          [
+            "tuple",
+            [
+              "Int"
+            ],
+            [
+              "Int"
+            ],
+            [
+              "a"
+            ]
+          ]
+        ]
+      ],
+      "result": [
+        "SparseFormat",
+        [
+          "a"
+        ]
+      ],
+      "constraints": "",
+      "signature": "constructor",
+      "constructor": true
+    },
+    {
+      "module": "HMath.Sparse",
+      "name": "CSR",
+      "args": [
+        [
+          "Int"
+        ],
+        [
+          "Int"
+        ],
+        [
+          "list",
+          [
+            "Int"
+          ]
+        ],
+        [
+          "list",
+          [
+            "Int"
+          ]
+        ],
+        [
+          "list",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "SparseFormat",
+        [
+          "a"
+        ]
+      ],
+      "constraints": "",
+      "signature": "constructor",
+      "constructor": true
+    },
+    {
+      "module": "HMath.Sparse",
+      "name": "CSC",
+      "args": [
+        [
+          "Int"
+        ],
+        [
+          "Int"
+        ],
+        [
+          "list",
+          [
+            "Int"
+          ]
+        ],
+        [
+          "list",
+          [
+            "Int"
+          ]
+        ],
+        [
+          "list",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "SparseFormat",
+        [
+          "a"
+        ]
+      ],
+      "constraints": "",
+      "signature": "constructor",
+      "constructor": true
+    },
+    {
+      "module": "HMath.Sparse",
+      "name": "DIA",
+      "args": [
+        [
+          "Int"
+        ],
+        [
+          "Int"
+        ],
+        [
+          "list",
+          [
+            "tuple",
+            [
+              "Int"
+            ],
+            [
+              "list",
+              [
+                "a"
+              ]
+            ]
+          ]
+        ]
+      ],
+      "result": [
+        "SparseFormat",
+        [
+          "a"
+        ]
+      ],
+      "constraints": "",
+      "signature": "constructor",
+      "constructor": true
+    },
+    {
+      "module": "HMath.Sparse",
+      "name": "BSR",
+      "args": [
+        [
+          "Int"
+        ],
+        [
+          "Int"
+        ],
+        [
+          "Int"
+        ],
+        [
+          "Int"
+        ],
+        [
+          "list",
+          [
+            "Int"
+          ]
+        ],
+        [
+          "list",
+          [
+            "Int"
+          ]
+        ],
+        [
+          "list",
+          [
+            "list",
+            [
+              "a"
+            ]
+          ]
+        ]
+      ],
+      "result": [
+        "SparseFormat",
+        [
+          "a"
+        ]
+      ],
+      "constraints": "",
+      "signature": "constructor",
+      "constructor": true
+    },
+    {
+      "module": "HMath.Sparse",
+      "name": "ELLPACK",
+      "args": [
+        [
+          "Int"
+        ],
+        [
+          "Int"
+        ],
+        [
+          "Int"
+        ],
+        [
+          "list",
+          [
+            "Int"
+          ]
+        ],
+        [
+          "list",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "SparseFormat",
+        [
+          "a"
+        ]
+      ],
+      "constraints": "",
+      "signature": "constructor",
+      "constructor": true
+    },
+    {
+      "module": "HMath.Sparse.Spectral",
+      "name": "defaultSparseSpectralOptions",
+      "args": [],
+      "result": [
+        "SparseSpectralOptions",
+        [
+          "a"
+        ]
+      ],
+      "constraints": "(Fractional a)",
+      "signature": "SparseSpectralOptions a",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Sparse.Spectral",
+      "name": "sparseDominantEigen",
+      "args": [
+        [
+          "SparseSpectralOptions",
+          [
+            "a"
+          ]
+        ],
+        [
+          "Sparse",
+          [
+            "a"
+          ]
+        ],
+        [
+          "list",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "SparseEigenResult",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "constraints": "(RealFloat a)",
+      "signature": "SparseSpectralOptions a -> Sparse a -> [a] -> Either MathError (SparseEigenResult a)",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Sparse.Spectral",
+      "name": "sparseTruncatedSVD",
+      "args": [
+        [
+          "SparseSpectralOptions",
+          [
+            "a"
+          ]
+        ],
+        [
+          "Int"
+        ],
+        [
+          "Integer"
+        ],
+        [
+          "Sparse",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "SparseSVD",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "constraints": "(RealFloat a)",
+      "signature": "SparseSpectralOptions a -> Int -> Integer -> Sparse a -> Either MathError (SparseSVD a)",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Sparse.Spectral",
+      "name": "sparseAbsoluteTolerance",
+      "args": [
+        [
+          "SparseSpectralOptions",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "a"
+      ],
+      "constraints": "",
+      "signature": "SparseSpectralOptions -> field",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Sparse.Spectral",
+      "name": "sparseRelativeTolerance",
+      "args": [
+        [
+          "SparseSpectralOptions",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "a"
+      ],
+      "constraints": "",
+      "signature": "SparseSpectralOptions -> field",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Sparse.Spectral",
+      "name": "sparseIterationLimit",
+      "args": [
+        [
+          "SparseSpectralOptions",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "Int"
+      ],
+      "constraints": "",
+      "signature": "SparseSpectralOptions -> field",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Sparse.Spectral",
+      "name": "sparseWorkspaceLimit",
+      "args": [
+        [
+          "SparseSpectralOptions",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "Integer"
+      ],
+      "constraints": "",
+      "signature": "SparseSpectralOptions -> field",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Sparse.Spectral",
+      "name": "SparseSpectralOptions",
+      "args": [
+        [
+          "a"
+        ],
+        [
+          "a"
+        ],
+        [
+          "Int"
+        ],
+        [
+          "Integer"
+        ]
+      ],
+      "result": [
+        "SparseSpectralOptions",
+        [
+          "a"
+        ]
+      ],
+      "constraints": "",
+      "signature": "constructor",
+      "constructor": true
+    },
+    {
+      "module": "HMath.Sparse.Spectral",
+      "name": "sparseEigenvalue",
+      "args": [
+        [
+          "SparseEigenResult",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "a"
+      ],
+      "constraints": "",
+      "signature": "SparseEigenResult -> field",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Sparse.Spectral",
+      "name": "sparseEigenvector",
+      "args": [
+        [
+          "SparseEigenResult",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "list",
+        [
+          "a"
+        ]
+      ],
+      "constraints": "",
+      "signature": "SparseEigenResult -> field",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Sparse.Spectral",
+      "name": "sparseEigenResidual",
+      "args": [
+        [
+          "SparseEigenResult",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "a"
+      ],
+      "constraints": "",
+      "signature": "SparseEigenResult -> field",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Sparse.Spectral",
+      "name": "sparseEigenIterations",
+      "args": [
+        [
+          "SparseEigenResult",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "Int"
+      ],
+      "constraints": "",
+      "signature": "SparseEigenResult -> field",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Sparse.Spectral",
+      "name": "SparseEigenResult",
+      "args": [
+        [
+          "a"
+        ],
+        [
+          "list",
+          [
+            "a"
+          ]
+        ],
+        [
+          "a"
+        ],
+        [
+          "Int"
+        ]
+      ],
+      "result": [
+        "SparseEigenResult",
+        [
+          "a"
+        ]
+      ],
+      "constraints": "",
+      "signature": "constructor",
+      "constructor": true
+    },
+    {
+      "module": "HMath.Sparse.Spectral",
+      "name": "sparseSingularValues",
+      "args": [
+        [
+          "SparseSVD",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "list",
+        [
+          "a"
+        ]
+      ],
+      "constraints": "",
+      "signature": "SparseSVD -> field",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Sparse.Spectral",
+      "name": "sparseLeftVectors",
+      "args": [
+        [
+          "SparseSVD",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "list",
+        [
+          "list",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "constraints": "",
+      "signature": "SparseSVD -> field",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Sparse.Spectral",
+      "name": "sparseRightVectors",
+      "args": [
+        [
+          "SparseSVD",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "list",
+        [
+          "list",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "constraints": "",
+      "signature": "SparseSVD -> field",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Sparse.Spectral",
+      "name": "sparseSingularResiduals",
+      "args": [
+        [
+          "SparseSVD",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "list",
+        [
+          "tuple",
+          [
+            "a"
+          ],
+          [
+            "a"
+          ]
+        ]
+      ],
+      "constraints": "",
+      "signature": "SparseSVD -> field",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Sparse.Spectral",
+      "name": "sparseSingularIterations",
+      "args": [
+        [
+          "SparseSVD",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "list",
+        [
+          "Int"
+        ]
+      ],
+      "constraints": "",
+      "signature": "SparseSVD -> field",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Sparse.Spectral",
+      "name": "SparseSVD",
+      "args": [
+        [
+          "list",
+          [
+            "a"
+          ]
+        ],
+        [
+          "list",
+          [
+            "list",
+            [
+              "a"
+            ]
+          ]
+        ],
+        [
+          "list",
+          [
+            "list",
+            [
+              "a"
+            ]
+          ]
+        ],
+        [
+          "list",
+          [
+            "tuple",
+            [
+              "a"
+            ],
+            [
+              "a"
+            ]
+          ]
+        ],
+        [
+          "list",
+          [
+            "Int"
+          ]
+        ]
+      ],
+      "result": [
+        "SparseSVD",
+        [
+          "a"
+        ]
+      ],
+      "constraints": "",
+      "signature": "constructor",
+      "constructor": true
+    },
+    {
+      "module": "HMath.Backend",
+      "name": "backendInfo",
+      "args": [
+        [
+          "Backend"
+        ]
+      ],
+      "result": [
+        "BackendInfo"
+      ],
+      "constraints": "",
+      "signature": "Backend -> BackendInfo",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Backend",
+      "name": "pureBackend",
+      "args": [],
+      "result": [
+        "Backend"
+      ],
+      "constraints": "",
+      "signature": "Backend",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Backend",
+      "name": "lapackAvailable",
+      "args": [],
+      "result": [
+        "IO",
+        [
+          "Bool"
+        ]
+      ],
+      "constraints": "",
+      "signature": "IO Bool",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Backend",
+      "name": "selectBackend",
+      "args": [
+        [
+          "BackendRequest"
+        ]
+      ],
+      "result": [
+        "IO",
+        [
+          "Either",
+          [
+            "MathError"
+          ],
+          [
+            "Backend"
+          ]
+        ]
+      ],
+      "constraints": "",
+      "signature": "BackendRequest -> IO (Either MathError Backend)",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Backend",
+      "name": "setBackendThreads",
+      "args": [
+        [
+          "Backend"
+        ],
+        [
+          "Int"
+        ]
+      ],
+      "result": [
+        "IO",
+        [
+          "Either",
+          [
+            "MathError"
+          ],
+          [
+            "unit"
+          ]
+        ]
+      ],
+      "constraints": "",
+      "signature": "Backend -> Int -> IO (Either MathError ())",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Backend",
+      "name": "lapackStatus",
+      "args": [
+        [
+          "String"
+        ],
+        [
+          "Int"
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "unit"
+        ]
+      ],
+      "constraints": "",
+      "signature": "String -> Int -> Either MathError ()",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Backend",
+      "name": "matrixFromLayout",
+      "args": [
+        [
+          "BackendLayout"
+        ],
+        [
+          "Int"
+        ],
+        [
+          "Int"
+        ],
+        [
+          "list",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "Matrix",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "constraints": "",
+      "signature": "BackendLayout -> Int -> Int -> [a] -> Either MathError (M.Matrix a)",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Backend",
+      "name": "matrixToLayout",
+      "args": [
+        [
+          "BackendLayout"
+        ],
+        [
+          "Matrix",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "list",
+        [
+          "a"
+        ]
+      ],
+      "constraints": "",
+      "signature": "BackendLayout -> M.Matrix a -> [a]",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Backend",
+      "name": "axpy",
+      "args": [
+        [
+          "Backend"
+        ],
+        [
+          "Double"
+        ],
+        [
+          "list",
+          [
+            "Double"
+          ]
+        ],
+        [
+          "list",
+          [
+            "Double"
+          ]
+        ]
+      ],
+      "result": [
+        "IO",
+        [
+          "Either",
+          [
+            "MathError"
+          ],
+          [
+            "list",
+            [
+              "Double"
+            ]
+          ]
+        ]
+      ],
+      "constraints": "",
+      "signature": "Backend -> Double -> [Double] -> [Double] -> IO (Either MathError [Double])",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Backend",
+      "name": "dot",
+      "args": [
+        [
+          "Backend"
+        ],
+        [
+          "list",
+          [
+            "Double"
+          ]
+        ],
+        [
+          "list",
+          [
+            "Double"
+          ]
+        ]
+      ],
+      "result": [
+        "IO",
+        [
+          "Either",
+          [
+            "MathError"
+          ],
+          [
+            "Double"
+          ]
+        ]
+      ],
+      "constraints": "",
+      "signature": "Backend -> [Double] -> [Double] -> IO (Either MathError Double)",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Backend",
+      "name": "nrm2",
+      "args": [
+        [
+          "Backend"
+        ],
+        [
+          "list",
+          [
+            "Double"
+          ]
+        ]
+      ],
+      "result": [
+        "IO",
+        [
+          "Either",
+          [
+            "MathError"
+          ],
+          [
+            "Double"
+          ]
+        ]
+      ],
+      "constraints": "",
+      "signature": "Backend -> [Double] -> IO (Either MathError Double)",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Backend",
+      "name": "gemv",
+      "args": [
+        [
+          "Backend"
+        ],
+        [
+          "Transpose"
+        ],
+        [
+          "Double"
+        ],
+        [
+          "Matrix",
+          [
+            "Double"
+          ]
+        ],
+        [
+          "list",
+          [
+            "Double"
+          ]
+        ],
+        [
+          "Double"
+        ],
+        [
+          "list",
+          [
+            "Double"
+          ]
+        ]
+      ],
+      "result": [
+        "IO",
+        [
+          "Either",
+          [
+            "MathError"
+          ],
+          [
+            "list",
+            [
+              "Double"
+            ]
+          ]
+        ]
+      ],
+      "constraints": "",
+      "signature": "Backend -> Transpose -> Double -> M.Matrix Double -> [Double] -> Double -> [Double] -> IO (Either MathError [Double])",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Backend",
+      "name": "gemm",
+      "args": [
+        [
+          "Backend"
+        ],
+        [
+          "Transpose"
+        ],
+        [
+          "Transpose"
+        ],
+        [
+          "Double"
+        ],
+        [
+          "Matrix",
+          [
+            "Double"
+          ]
+        ],
+        [
+          "Matrix",
+          [
+            "Double"
+          ]
+        ],
+        [
+          "Double"
+        ],
+        [
+          "Matrix",
+          [
+            "Double"
+          ]
+        ]
+      ],
+      "result": [
+        "IO",
+        [
+          "Either",
+          [
+            "MathError"
+          ],
+          [
+            "Matrix",
+            [
+              "Double"
+            ]
+          ]
+        ]
+      ],
+      "constraints": "",
+      "signature": "Backend -> Transpose -> Transpose -> Double -> M.Matrix Double -> M.Matrix Double -> Double -> M.Matrix Double -> IO (Either MathError (M.Matrix Double))",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Backend",
+      "name": "complexGemm",
+      "args": [
+        [
+          "Backend"
+        ],
+        [
+          "Transpose"
+        ],
+        [
+          "Transpose"
+        ],
+        [
+          "Complex",
+          [
+            "Double"
+          ]
+        ],
+        [
+          "Matrix",
+          [
+            "Complex",
+            [
+              "Double"
+            ]
+          ]
+        ],
+        [
+          "Matrix",
+          [
+            "Complex",
+            [
+              "Double"
+            ]
+          ]
+        ],
+        [
+          "Complex",
+          [
+            "Double"
+          ]
+        ],
+        [
+          "Matrix",
+          [
+            "Complex",
+            [
+              "Double"
+            ]
+          ]
+        ]
+      ],
+      "result": [
+        "IO",
+        [
+          "Either",
+          [
+            "MathError"
+          ],
+          [
+            "Matrix",
+            [
+              "Complex",
+              [
+                "Double"
+              ]
+            ]
+          ]
+        ]
+      ],
+      "constraints": "",
+      "signature": "Backend -> Transpose -> Transpose -> Complex Double -> M.Matrix (Complex Double) -> M.Matrix (Complex Double) -> Complex Double -> M.Matrix (Complex Double) -> IO (Either MathError (M.Matrix (Complex Double)))",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Backend",
+      "name": "complexAxpy",
+      "args": [
+        [
+          "Backend"
+        ],
+        [
+          "Complex",
+          [
+            "Double"
+          ]
+        ],
+        [
+          "list",
+          [
+            "Complex",
+            [
+              "Double"
+            ]
+          ]
+        ],
+        [
+          "list",
+          [
+            "Complex",
+            [
+              "Double"
+            ]
+          ]
+        ]
+      ],
+      "result": [
+        "IO",
+        [
+          "Either",
+          [
+            "MathError"
+          ],
+          [
+            "list",
+            [
+              "Complex",
+              [
+                "Double"
+              ]
+            ]
+          ]
+        ]
+      ],
+      "constraints": "",
+      "signature": "Backend -> Complex Double -> [Complex Double] -> [Complex Double] -> IO (Either MathError [Complex Double])",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Backend",
+      "name": "complexDot",
+      "args": [
+        [
+          "Backend"
+        ],
+        [
+          "Bool"
+        ],
+        [
+          "list",
+          [
+            "Complex",
+            [
+              "Double"
+            ]
+          ]
+        ],
+        [
+          "list",
+          [
+            "Complex",
+            [
+              "Double"
+            ]
+          ]
+        ]
+      ],
+      "result": [
+        "IO",
+        [
+          "Either",
+          [
+            "MathError"
+          ],
+          [
+            "Complex",
+            [
+              "Double"
+            ]
+          ]
+        ]
+      ],
+      "constraints": "",
+      "signature": "Backend -> Bool -> [Complex Double] -> [Complex Double] -> IO (Either MathError (Complex Double))",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Backend",
+      "name": "complexNrm2",
+      "args": [
+        [
+          "Backend"
+        ],
+        [
+          "list",
+          [
+            "Complex",
+            [
+              "Double"
+            ]
+          ]
+        ]
+      ],
+      "result": [
+        "IO",
+        [
+          "Either",
+          [
+            "MathError"
+          ],
+          [
+            "Double"
+          ]
+        ]
+      ],
+      "constraints": "",
+      "signature": "Backend -> [Complex Double] -> IO (Either MathError Double)",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Backend",
+      "name": "complexGemv",
+      "args": [
+        [
+          "Backend"
+        ],
+        [
+          "Transpose"
+        ],
+        [
+          "Complex",
+          [
+            "Double"
+          ]
+        ],
+        [
+          "Matrix",
+          [
+            "Complex",
+            [
+              "Double"
+            ]
+          ]
+        ],
+        [
+          "list",
+          [
+            "Complex",
+            [
+              "Double"
+            ]
+          ]
+        ],
+        [
+          "Complex",
+          [
+            "Double"
+          ]
+        ],
+        [
+          "list",
+          [
+            "Complex",
+            [
+              "Double"
+            ]
+          ]
+        ]
+      ],
+      "result": [
+        "IO",
+        [
+          "Either",
+          [
+            "MathError"
+          ],
+          [
+            "list",
+            [
+              "Complex",
+              [
+                "Double"
+              ]
+            ]
+          ]
+        ]
+      ],
+      "constraints": "",
+      "signature": "Backend -> Transpose -> Complex Double -> M.Matrix (Complex Double) -> [Complex Double] -> Complex Double -> [Complex Double] -> IO (Either MathError [Complex Double])",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Backend",
+      "name": "batchedGemm",
+      "args": [
+        [
+          "Backend"
+        ],
+        [
+          "Transpose"
+        ],
+        [
+          "Transpose"
+        ],
+        [
+          "Double"
+        ],
+        [
+          "Double"
+        ],
+        [
+          "list",
+          [
+            "tuple",
+            [
+              "Matrix",
+              [
+                "Double"
+              ]
+            ],
+            [
+              "Matrix",
+              [
+                "Double"
+              ]
+            ],
+            [
+              "Matrix",
+              [
+                "Double"
+              ]
+            ]
+          ]
+        ]
+      ],
+      "result": [
+        "IO",
+        [
+          "Either",
+          [
+            "MathError"
+          ],
+          [
+            "list",
+            [
+              "Matrix",
+              [
+                "Double"
+              ]
+            ]
+          ]
+        ]
+      ],
+      "constraints": "",
+      "signature": "Backend -> Transpose -> Transpose -> Double -> Double -> [(M.Matrix Double, M.Matrix Double, M.Matrix Double)] -> IO (Either MathError [M.Matrix Double])",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Backend",
+      "name": "stridedBatchedGemm",
+      "args": [
+        [
+          "Backend"
+        ],
+        [
+          "Int"
+        ],
+        [
+          "Int"
+        ],
+        [
+          "Int"
+        ],
+        [
+          "Int"
+        ],
+        [
+          "Int"
+        ],
+        [
+          "list",
+          [
+            "Double"
+          ]
+        ],
+        [
+          "Int"
+        ],
+        [
+          "list",
+          [
+            "Double"
+          ]
+        ]
+      ],
+      "result": [
+        "IO",
+        [
+          "Either",
+          [
+            "MathError"
+          ],
+          [
+            "list",
+            [
+              "Matrix",
+              [
+                "Double"
+              ]
+            ]
+          ]
+        ]
+      ],
+      "constraints": "",
+      "signature": "Backend -> Int -> Int -> Int -> Int -> Int -> [Double] -> Int -> [Double] -> IO (Either MathError [M.Matrix Double])",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Backend",
+      "name": "backendLU",
+      "args": [
+        [
+          "Backend"
+        ],
+        [
+          "Matrix",
+          [
+            "Double"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "LU",
+          [
+            "Double"
+          ]
+        ]
+      ],
+      "constraints": "",
+      "signature": "Backend -> M.Matrix Double -> Either MathError (LU.LU Double)",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Backend",
+      "name": "backendQR",
+      "args": [
+        [
+          "Backend"
+        ],
+        [
+          "Matrix",
+          [
+            "Double"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "QR",
+          [
+            "Double"
+          ]
+        ]
+      ],
+      "constraints": "",
+      "signature": "Backend -> M.Matrix Double -> Either MathError (QR.QR Double)",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Backend",
+      "name": "backendSolve",
+      "args": [
+        [
+          "Backend"
+        ],
+        [
+          "Matrix",
+          [
+            "Double"
+          ]
+        ],
+        [
+          "list",
+          [
+            "Double"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "list",
+          [
+            "Double"
+          ]
+        ]
+      ],
+      "constraints": "",
+      "signature": "Backend -> M.Matrix Double -> [Double] -> Either MathError [Double]",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Backend",
+      "name": "backendCholesky",
+      "args": [
+        [
+          "Backend"
+        ],
+        [
+          "Matrix",
+          [
+            "Double"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "Matrix",
+          [
+            "Double"
+          ]
+        ]
+      ],
+      "constraints": "",
+      "signature": "Backend -> M.Matrix Double -> Either MathError (M.Matrix Double)",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Backend",
+      "name": "backendLeastSquares",
+      "args": [
+        [
+          "Backend"
+        ],
+        [
+          "Matrix",
+          [
+            "Double"
+          ]
+        ],
+        [
+          "list",
+          [
+            "Double"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "list",
+          [
+            "Double"
+          ]
+        ]
+      ],
+      "constraints": "",
+      "signature": "Backend -> M.Matrix Double -> [Double] -> Either MathError [Double]",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Backend",
+      "name": "backendSVD",
+      "args": [
+        [
+          "Backend"
+        ],
+        [
+          "Matrix",
+          [
+            "Double"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "SVD"
+        ]
+      ],
+      "constraints": "",
+      "signature": "Backend -> M.Matrix Double -> Either MathError L.SVD",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Backend",
+      "name": "backendSymmetricEigen",
+      "args": [
+        [
+          "Backend"
+        ],
+        [
+          "Matrix",
+          [
+            "Double"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "Eigen"
+        ]
+      ],
+      "constraints": "",
+      "signature": "Backend -> M.Matrix Double -> Either MathError L.Eigen",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Backend",
+      "name": "pureSymmetricEigen",
+      "args": [
+        [
+          "Matrix",
+          [
+            "Double"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "Eigen"
+        ]
+      ],
+      "constraints": "",
+      "signature": "M.Matrix Double -> Either MathError L.Eigen",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Backend",
+      "name": "pureSVD",
+      "args": [
+        [
+          "Matrix",
+          [
+            "Double"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "SVD"
+        ]
+      ],
+      "constraints": "",
+      "signature": "M.Matrix Double -> Either MathError L.SVD",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Backend",
+      "name": "Pure",
+      "args": [],
+      "result": [
+        "Provider"
+      ],
+      "constraints": "",
+      "signature": "constructor",
+      "constructor": true
+    },
+    {
+      "module": "HMath.Backend",
+      "name": "OpenBLAS",
+      "args": [],
+      "result": [
+        "Provider"
+      ],
+      "constraints": "",
+      "signature": "constructor",
+      "constructor": true
+    },
+    {
+      "module": "HMath.Backend",
+      "name": "BLIS",
+      "args": [],
+      "result": [
+        "Provider"
+      ],
+      "constraints": "",
+      "signature": "constructor",
+      "constructor": true
+    },
+    {
+      "module": "HMath.Backend",
+      "name": "OneMKL",
+      "args": [],
+      "result": [
+        "Provider"
+      ],
+      "constraints": "",
+      "signature": "constructor",
+      "constructor": true
+    },
+    {
+      "module": "HMath.Backend",
+      "name": "Accelerate",
+      "args": [],
+      "result": [
+        "Provider"
+      ],
+      "constraints": "",
+      "signature": "constructor",
+      "constructor": true
+    },
+    {
+      "module": "HMath.Backend",
+      "name": "LP64",
+      "args": [],
+      "result": [
+        "IntegerABI"
+      ],
+      "constraints": "",
+      "signature": "constructor",
+      "constructor": true
+    },
+    {
+      "module": "HMath.Backend",
+      "name": "ILP64",
+      "args": [],
+      "result": [
+        "IntegerABI"
+      ],
+      "constraints": "",
+      "signature": "constructor",
+      "constructor": true
+    },
+    {
+      "module": "HMath.Backend",
+      "name": "AutoBackend",
+      "args": [],
+      "result": [
+        "BackendRequest"
+      ],
+      "constraints": "",
+      "signature": "constructor",
+      "constructor": true
+    },
+    {
+      "module": "HMath.Backend",
+      "name": "RequireBackend",
+      "args": [
+        [
+          "Provider"
+        ],
+        [
+          "IntegerABI"
+        ],
+        [
+          "Maybe",
+          [
+            "String"
+          ]
+        ]
+      ],
+      "result": [
+        "BackendRequest"
+      ],
+      "constraints": "",
+      "signature": "constructor",
+      "constructor": true
+    },
+    {
+      "module": "HMath.Backend",
+      "name": "selectedProvider",
+      "args": [
+        [
+          "BackendInfo"
+        ]
+      ],
+      "result": [
+        "Provider"
+      ],
+      "constraints": "",
+      "signature": "BackendInfo -> field",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Backend",
+      "name": "selectedIntegerABI",
+      "args": [
+        [
+          "BackendInfo"
+        ]
+      ],
+      "result": [
+        "IntegerABI"
+      ],
+      "constraints": "",
+      "signature": "BackendInfo -> field",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Backend",
+      "name": "BackendInfo",
+      "args": [
+        [
+          "Provider"
+        ],
+        [
+          "IntegerABI"
+        ]
+      ],
+      "result": [
+        "BackendInfo"
+      ],
+      "constraints": "",
+      "signature": "constructor",
+      "constructor": true
+    },
+    {
+      "module": "HMath.Backend",
+      "name": "RowMajor",
+      "args": [],
+      "result": [
+        "BackendLayout"
+      ],
+      "constraints": "",
+      "signature": "constructor",
+      "constructor": true
+    },
+    {
+      "module": "HMath.Backend",
+      "name": "ColumnMajor",
+      "args": [],
+      "result": [
+        "BackendLayout"
+      ],
+      "constraints": "",
+      "signature": "constructor",
+      "constructor": true
+    },
+    {
+      "module": "HMath.Backend",
+      "name": "NoTranspose",
+      "args": [],
+      "result": [
+        "Transpose"
+      ],
+      "constraints": "",
+      "signature": "constructor",
+      "constructor": true
+    },
+    {
+      "module": "HMath.Backend",
+      "name": "Transpose",
+      "args": [],
+      "result": [
+        "Transpose"
+      ],
+      "constraints": "",
+      "signature": "constructor",
+      "constructor": true
+    },
+    {
+      "module": "HMath.Backend",
+      "name": "ConjugateTranspose",
+      "args": [],
+      "result": [
+        "Transpose"
+      ],
+      "constraints": "",
+      "signature": "constructor",
+      "constructor": true
+    }
+  ],
+  "types": {
+    "Vector": {
+      "module": "HMath.Vector",
+      "alias": "V",
+      "namespace": "vector",
+      "name": "Vector",
+      "params": [
+        "a"
+      ]
+    },
+    "FixedVector": {
+      "module": "HMath.Vector",
+      "alias": "V",
+      "namespace": "vector",
+      "name": "FixedVector",
+      "params": [
+        "n",
+        "a"
+      ]
+    },
+    "SparseVector": {
+      "module": "HMath.Vector",
+      "alias": "V",
+      "namespace": "vector",
+      "name": "SparseVector",
+      "params": [
+        "a"
+      ]
+    },
+    "Bidiagonal": {
+      "module": "HMath.Matrix.Decomposition",
+      "alias": "D",
+      "namespace": "decomposition",
+      "name": "Bidiagonal",
+      "params": [
+        "a"
+      ]
+    },
+    "Iteration": {
+      "module": "HMath.Matrix.Decomposition",
+      "alias": "D",
+      "namespace": "decomposition",
+      "name": "Iteration",
+      "params": [
+        "a"
+      ]
+    },
+    "Arnoldi": {
+      "module": "HMath.Matrix.Decomposition",
+      "alias": "D",
+      "namespace": "decomposition",
+      "name": "Arnoldi",
+      "params": [
+        "a"
+      ]
+    },
+    "IterativeOptions": {
+      "module": "HMath.Matrix.Iterative",
+      "alias": "I",
+      "namespace": "iterative",
+      "name": "IterativeOptions",
+      "params": [
+        "a"
+      ]
+    },
+    "IterativeResult": {
+      "module": "HMath.Matrix.Iterative",
+      "alias": "I",
+      "namespace": "iterative",
+      "name": "IterativeResult",
+      "params": [
+        "a"
+      ]
+    },
+    "Preconditioner": {
+      "module": "HMath.Matrix.Iterative",
+      "alias": "I",
+      "namespace": "iterative",
+      "name": "Preconditioner",
+      "params": [
+        "a"
+      ]
+    },
+    "SVD": {
+      "module": "HMath.Matrix.LAPACK",
+      "alias": "L",
+      "namespace": "lapack",
+      "name": "SVD",
+      "params": []
+    },
+    "Eigen": {
+      "module": "HMath.Matrix.LAPACK",
+      "alias": "L",
+      "namespace": "lapack",
+      "name": "Eigen",
+      "params": []
+    },
+    "GeneralizedEigen": {
+      "module": "HMath.Matrix.LAPACK",
+      "alias": "L",
+      "namespace": "lapack",
+      "name": "GeneralizedEigen",
+      "params": []
+    },
+    "Schur": {
+      "module": "HMath.Matrix.LAPACK",
+      "alias": "L",
+      "namespace": "lapack",
+      "name": "Schur",
+      "params": []
+    },
+    "QZ": {
+      "module": "HMath.Matrix.LAPACK",
+      "alias": "L",
+      "namespace": "lapack",
+      "name": "QZ",
+      "params": []
+    },
+    "Hessenberg": {
+      "module": "HMath.Matrix.LAPACK",
+      "alias": "L",
+      "namespace": "lapack",
+      "name": "Hessenberg",
+      "params": []
+    },
+    "Balance": {
+      "module": "HMath.Matrix.LAPACK",
+      "alias": "L",
+      "namespace": "lapack",
+      "name": "Balance",
+      "params": []
+    },
+    "ComplexSVD": {
+      "module": "HMath.Matrix.LAPACK",
+      "alias": "L",
+      "namespace": "lapack",
+      "name": "ComplexSVD",
+      "params": []
+    },
+    "Sparse": {
+      "module": "HMath.Sparse",
+      "alias": "S",
+      "namespace": "sparse",
+      "name": "Sparse",
+      "params": [
+        "a"
+      ]
+    },
+    "SparseFormat": {
+      "module": "HMath.Sparse",
+      "alias": "S",
+      "namespace": "sparse",
+      "name": "SparseFormat",
+      "params": [
+        "a"
+      ]
+    },
+    "SparseLU": {
+      "module": "HMath.Sparse",
+      "alias": "S",
+      "namespace": "sparse",
+      "name": "SparseLU",
+      "params": [
+        "a"
+      ]
+    },
+    "SparseQR": {
+      "module": "HMath.Sparse",
+      "alias": "S",
+      "namespace": "sparse",
+      "name": "SparseQR",
+      "params": [
+        "a"
+      ]
+    },
+    "SparseTensor": {
+      "module": "HMath.Sparse",
+      "alias": "S",
+      "namespace": "sparse",
+      "name": "SparseTensor",
+      "params": [
+        "a"
+      ]
+    },
+    "SparseSpectralOptions": {
+      "module": "HMath.Sparse.Spectral",
+      "alias": "P",
+      "namespace": "sparse_spectral",
+      "name": "SparseSpectralOptions",
+      "params": [
+        "a"
+      ]
+    },
+    "SparseEigenResult": {
+      "module": "HMath.Sparse.Spectral",
+      "alias": "P",
+      "namespace": "sparse_spectral",
+      "name": "SparseEigenResult",
+      "params": [
+        "a"
+      ]
+    },
+    "SparseSVD": {
+      "module": "HMath.Sparse.Spectral",
+      "alias": "P",
+      "namespace": "sparse_spectral",
+      "name": "SparseSVD",
+      "params": [
+        "a"
+      ]
+    },
+    "Provider": {
+      "module": "HMath.Backend",
+      "alias": "B",
+      "namespace": "backend",
+      "name": "Provider",
+      "params": []
+    },
+    "IntegerABI": {
+      "module": "HMath.Backend",
+      "alias": "B",
+      "namespace": "backend",
+      "name": "IntegerABI",
+      "params": []
+    },
+    "BackendRequest": {
+      "module": "HMath.Backend",
+      "alias": "B",
+      "namespace": "backend",
+      "name": "BackendRequest",
+      "params": []
+    },
+    "BackendInfo": {
+      "module": "HMath.Backend",
+      "alias": "B",
+      "namespace": "backend",
+      "name": "BackendInfo",
+      "params": []
+    },
+    "Backend": {
+      "module": "HMath.Backend",
+      "alias": "B",
+      "namespace": "backend",
+      "name": "Backend",
+      "params": []
+    },
+    "BackendLayout": {
+      "module": "HMath.Backend",
+      "alias": "B",
+      "namespace": "backend",
+      "name": "BackendLayout",
+      "params": []
+    },
+    "Transpose": {
+      "module": "HMath.Backend",
+      "alias": "B",
+      "namespace": "backend",
+      "name": "Transpose",
+      "params": []
+    }
+  },
+  "fields": {
+    "Vector": [],
+    "FixedVector": [],
+    "SparseVector": [],
+    "Bidiagonal": [
+      [
+        "bidiagonalU",
+        [
+          "Matrix",
+          [
+            "a"
+          ]
+        ]
+      ],
+      [
+        "bidiagonalB",
+        [
+          "Matrix",
+          [
+            "a"
+          ]
+        ]
+      ],
+      [
+        "bidiagonalV",
+        [
+          "Matrix",
+          [
+            "a"
+          ]
+        ]
+      ]
+    ],
+    "Iteration": [
+      [
+        "iterationValue",
+        [
+          "a"
+        ]
+      ],
+      [
+        "iterationVector",
+        [
+          "list",
+          [
+            "a"
+          ]
+        ]
+      ],
+      [
+        "iterationResidual",
+        [
+          "a"
+        ]
+      ],
+      [
+        "iterationCount",
+        [
+          "Int"
+        ]
+      ]
+    ],
+    "Arnoldi": [
+      [
+        "arnoldiBasis",
+        [
+          "Matrix",
+          [
+            "a"
+          ]
+        ]
+      ],
+      [
+        "arnoldiHessenberg",
+        [
+          "Matrix",
+          [
+            "a"
+          ]
+        ]
+      ]
+    ],
+    "IterativeOptions": [
+      [
+        "absoluteTolerance",
+        [
+          "a"
+        ]
+      ],
+      [
+        "relativeTolerance",
+        [
+          "a"
+        ]
+      ],
+      [
+        "maximumIterations",
+        [
+          "Int"
+        ]
+      ]
+    ],
+    "IterativeResult": [
+      [
+        "iterativeSolution",
+        [
+          "list",
+          [
+            "a"
+          ]
+        ]
+      ],
+      [
+        "iterativeIterations",
+        [
+          "Int"
+        ]
+      ],
+      [
+        "iterativeResidualNorm",
+        [
+          "a"
+        ]
+      ],
+      [
+        "iterativeNormalResidualNorm",
+        [
+          "a"
+        ]
+      ]
+    ],
+    "Preconditioner": [],
+    "SVD": [
+      [
+        "svdU",
+        [
+          "Matrix",
+          [
+            "Double"
+          ]
+        ]
+      ],
+      [
+        "singularValues",
+        [
+          "list",
+          [
+            "Double"
+          ]
+        ]
+      ],
+      [
+        "svdVT",
+        [
+          "Matrix",
+          [
+            "Double"
+          ]
+        ]
+      ]
+    ],
+    "Eigen": [
+      [
+        "eigenvalues",
+        [
+          "list",
+          [
+            "Complex",
+            [
+              "Double"
+            ]
+          ]
+        ]
+      ],
+      [
+        "eigenvectors",
+        [
+          "Matrix",
+          [
+            "Complex",
+            [
+              "Double"
+            ]
+          ]
+        ]
+      ]
+    ],
+    "GeneralizedEigen": [
+      [
+        "eigenAlpha",
+        [
+          "list",
+          [
+            "Complex",
+            [
+              "Double"
+            ]
+          ]
+        ]
+      ],
+      [
+        "eigenBeta",
+        [
+          "list",
+          [
+            "Double"
+          ]
+        ]
+      ],
+      [
+        "generalizedEigenvectors",
+        [
+          "Matrix",
+          [
+            "Complex",
+            [
+              "Double"
+            ]
+          ]
+        ]
+      ]
+    ],
+    "Schur": [
+      [
+        "schurQ",
+        [
+          "Matrix",
+          [
+            "Double"
+          ]
+        ]
+      ],
+      [
+        "schurT",
+        [
+          "Matrix",
+          [
+            "Double"
+          ]
+        ]
+      ],
+      [
+        "schurEigenvalues",
+        [
+          "list",
+          [
+            "Complex",
+            [
+              "Double"
+            ]
+          ]
+        ]
+      ]
+    ],
+    "QZ": [
+      [
+        "qzQ",
+        [
+          "Matrix",
+          [
+            "Double"
+          ]
+        ]
+      ],
+      [
+        "qzZ",
+        [
+          "Matrix",
+          [
+            "Double"
+          ]
+        ]
+      ],
+      [
+        "qzS",
+        [
+          "Matrix",
+          [
+            "Double"
+          ]
+        ]
+      ],
+      [
+        "qzT",
+        [
+          "Matrix",
+          [
+            "Double"
+          ]
+        ]
+      ],
+      [
+        "qzAlpha",
+        [
+          "list",
+          [
+            "Complex",
+            [
+              "Double"
+            ]
+          ]
+        ]
+      ],
+      [
+        "qzBeta",
+        [
+          "list",
+          [
+            "Double"
+          ]
+        ]
+      ]
+    ],
+    "Hessenberg": [
+      [
+        "hessenbergQ",
+        [
+          "Matrix",
+          [
+            "Double"
+          ]
+        ]
+      ],
+      [
+        "hessenbergH",
+        [
+          "Matrix",
+          [
+            "Double"
+          ]
+        ]
+      ]
+    ],
+    "Balance": [
+      [
+        "balancedMatrix",
+        [
+          "Matrix",
+          [
+            "Double"
+          ]
+        ]
+      ],
+      [
+        "balanceScales",
+        [
+          "list",
+          [
+            "Double"
+          ]
+        ]
+      ]
+    ],
+    "ComplexSVD": [
+      [
+        "complexU",
+        [
+          "Matrix",
+          [
+            "Complex",
+            [
+              "Double"
+            ]
+          ]
+        ]
+      ],
+      [
+        "complexSingularValues",
+        [
+          "list",
+          [
+            "Double"
+          ]
+        ]
+      ],
+      [
+        "complexVT",
+        [
+          "Matrix",
+          [
+            "Complex",
+            [
+              "Double"
+            ]
+          ]
+        ]
+      ]
+    ],
+    "Sparse": [],
+    "SparseFormat": [],
+    "SparseLU": [],
+    "SparseQR": [],
+    "SparseTensor": [],
+    "SparseSpectralOptions": [
+      [
+        "sparseAbsoluteTolerance",
+        [
+          "a"
+        ]
+      ],
+      [
+        "sparseRelativeTolerance",
+        [
+          "a"
+        ]
+      ],
+      [
+        "sparseIterationLimit",
+        [
+          "Int"
+        ]
+      ],
+      [
+        "sparseWorkspaceLimit",
+        [
+          "Integer"
+        ]
+      ]
+    ],
+    "SparseEigenResult": [
+      [
+        "sparseEigenvalue",
+        [
+          "a"
+        ]
+      ],
+      [
+        "sparseEigenvector",
+        [
+          "list",
+          [
+            "a"
+          ]
+        ]
+      ],
+      [
+        "sparseEigenResidual",
+        [
+          "a"
+        ]
+      ],
+      [
+        "sparseEigenIterations",
+        [
+          "Int"
+        ]
+      ]
+    ],
+    "SparseSVD": [
+      [
+        "sparseSingularValues",
+        [
+          "list",
+          [
+            "a"
+          ]
+        ]
+      ],
+      [
+        "sparseLeftVectors",
+        [
+          "list",
+          [
+            "list",
+            [
+              "a"
+            ]
+          ]
+        ]
+      ],
+      [
+        "sparseRightVectors",
+        [
+          "list",
+          [
+            "list",
+            [
+              "a"
+            ]
+          ]
+        ]
+      ],
+      [
+        "sparseSingularResiduals",
+        [
+          "list",
+          [
+            "tuple",
+            [
+              "a"
+            ],
+            [
+              "a"
+            ]
+          ]
+        ]
+      ],
+      [
+        "sparseSingularIterations",
+        [
+          "list",
+          [
+            "Int"
+          ]
+        ]
+      ]
+    ],
+    "Provider": [],
+    "IntegerABI": [],
+    "BackendRequest": [],
+    "BackendInfo": [
+      [
+        "selectedProvider",
+        [
+          "Provider"
+        ]
+      ],
+      [
+        "selectedIntegerABI",
+        [
+          "IntegerABI"
+        ]
+      ]
+    ],
+    "Backend": [],
+    "BackendLayout": [],
+    "Transpose": []
+  }
+}
