@@ -1,0 +1,645 @@
+{
+  "schema": 1,
+  "functions": [
+    {
+      "module": "HMath.Geometry.Collision",
+      "name": "Penetration",
+      "signature": "Double -> Point2 -> Double -> Int -> Penetration"
+    },
+    {
+      "module": "HMath.Geometry.Collision",
+      "name": "epa",
+      "signature": "Int -> Double -> [Point2] -> [Point2] -> Either MathError (Maybe Penetration)"
+    },
+    {
+      "module": "HMath.Geometry.Collision",
+      "name": "gjk",
+      "signature": "Int -> [Point2] -> [Point2] -> Either MathError Bool"
+    },
+    {
+      "module": "HMath.Geometry.Collision",
+      "name": "penetrationDepth",
+      "signature": "Penetration -> Double"
+    },
+    {
+      "module": "HMath.Geometry.Collision",
+      "name": "penetrationError",
+      "signature": "Penetration -> Double"
+    },
+    {
+      "module": "HMath.Geometry.Collision",
+      "name": "penetrationIterations",
+      "signature": "Penetration -> Int"
+    },
+    {
+      "module": "HMath.Geometry.Collision",
+      "name": "penetrationNormal",
+      "signature": "Penetration -> Point2"
+    },
+    {
+      "module": "HMath.Geometry.Collision",
+      "name": "separatingAxis",
+      "signature": "[Point2] -> [Point2] -> Either MathError (Maybe Penetration)"
+    },
+    {
+      "module": "HMath.Geometry.Internal",
+      "name": "AABB",
+      "signature": "PointND -> PointND -> AABB"
+    },
+    {
+      "module": "HMath.Geometry.Internal",
+      "name": "Boundary",
+      "signature": "Location"
+    },
+    {
+      "module": "HMath.Geometry.Internal",
+      "name": "Capsule",
+      "signature": "Point3 -> Point3 -> Double -> Capsule"
+    },
+    {
+      "module": "HMath.Geometry.Internal",
+      "name": "Circle",
+      "signature": "Point2 -> Double -> Circle"
+    },
+    {
+      "module": "HMath.Geometry.Internal",
+      "name": "Clockwise",
+      "signature": "Orientation"
+    },
+    {
+      "module": "HMath.Geometry.Internal",
+      "name": "Collinear",
+      "signature": "Orientation"
+    },
+    {
+      "module": "HMath.Geometry.Internal",
+      "name": "Cone",
+      "signature": "Point3 -> Point3 -> Double -> Cone"
+    },
+    {
+      "module": "HMath.Geometry.Internal",
+      "name": "Counterclockwise",
+      "signature": "Orientation"
+    },
+    {
+      "module": "HMath.Geometry.Internal",
+      "name": "Cylinder",
+      "signature": "Point3 -> Point3 -> Double -> Cylinder"
+    },
+    {
+      "module": "HMath.Geometry.Internal",
+      "name": "Ellipse",
+      "signature": "Point2 -> Double -> Double -> Double -> Ellipse"
+    },
+    {
+      "module": "HMath.Geometry.Internal",
+      "name": "Frustum",
+      "signature": "[Plane] -> Frustum"
+    },
+    {
+      "module": "HMath.Geometry.Internal",
+      "name": "Inside",
+      "signature": "Location"
+    },
+    {
+      "module": "HMath.Geometry.Internal",
+      "name": "Line",
+      "signature": "PointND -> PointND -> Line"
+    },
+    {
+      "module": "HMath.Geometry.Internal",
+      "name": "OBB",
+      "signature": "Point3 -> [Point3] -> Point3 -> OBB"
+    },
+    {
+      "module": "HMath.Geometry.Internal",
+      "name": "Outside",
+      "signature": "Location"
+    },
+    {
+      "module": "HMath.Geometry.Internal",
+      "name": "P2",
+      "signature": "Double -> Double -> Point2"
+    },
+    {
+      "module": "HMath.Geometry.Internal",
+      "name": "P3",
+      "signature": "Double -> Double -> Double -> Point3"
+    },
+    {
+      "module": "HMath.Geometry.Internal",
+      "name": "Plane",
+      "signature": "Point3 -> Double -> Plane"
+    },
+    {
+      "module": "HMath.Geometry.Internal",
+      "name": "PointND",
+      "signature": "[Double] -> PointND"
+    },
+    {
+      "module": "HMath.Geometry.Internal",
+      "name": "Polygon",
+      "signature": "[Point2] -> Polygon"
+    },
+    {
+      "module": "HMath.Geometry.Internal",
+      "name": "Ray",
+      "signature": "Point3 -> Point3 -> Ray"
+    },
+    {
+      "module": "HMath.Geometry.Internal",
+      "name": "Rectangle",
+      "signature": "Point2 -> Point2 -> Rectangle"
+    },
+    {
+      "module": "HMath.Geometry.Internal",
+      "name": "Segment",
+      "signature": "PointND -> PointND -> Segment"
+    },
+    {
+      "module": "HMath.Geometry.Internal",
+      "name": "Sphere",
+      "signature": "Point3 -> Double -> Sphere"
+    },
+    {
+      "module": "HMath.Geometry.Internal",
+      "name": "Triangle",
+      "signature": "Point2 -> Point2 -> Point2 -> Triangle"
+    },
+    {
+      "module": "HMath.Geometry.Internal",
+      "name": "point2",
+      "signature": "Double -> Double -> Either MathError Point2"
+    },
+    {
+      "module": "HMath.Geometry.Internal",
+      "name": "point3",
+      "signature": "Double -> Double -> Double -> Either MathError Point3"
+    },
+    {
+      "module": "HMath.Geometry.Internal",
+      "name": "pointND",
+      "signature": "[Double] -> Either MathError PointND"
+    },
+    {
+      "module": "HMath.Geometry.Polygon",
+      "name": "Difference",
+      "signature": "BooleanOperation"
+    },
+    {
+      "module": "HMath.Geometry.Polygon",
+      "name": "GiftWrapping",
+      "signature": "HullAlgorithm"
+    },
+    {
+      "module": "HMath.Geometry.Polygon",
+      "name": "GrahamScan",
+      "signature": "HullAlgorithm"
+    },
+    {
+      "module": "HMath.Geometry.Polygon",
+      "name": "Intersection",
+      "signature": "BooleanOperation"
+    },
+    {
+      "module": "HMath.Geometry.Polygon",
+      "name": "MonotoneChain",
+      "signature": "HullAlgorithm"
+    },
+    {
+      "module": "HMath.Geometry.Polygon",
+      "name": "Quickhull",
+      "signature": "HullAlgorithm"
+    },
+    {
+      "module": "HMath.Geometry.Polygon",
+      "name": "Union",
+      "signature": "BooleanOperation"
+    },
+    {
+      "module": "HMath.Geometry.Polygon",
+      "name": "clipPolygon",
+      "signature": "Polygon -> Polygon -> Either MathError [Point2]"
+    },
+    {
+      "module": "HMath.Geometry.Polygon",
+      "name": "convexHull",
+      "signature": "HullAlgorithm -> [Point2] -> Either MathError [Point2]"
+    },
+    {
+      "module": "HMath.Geometry.Polygon",
+      "name": "minimumBoundingCircle",
+      "signature": "[Point2] -> Either MathError Circle"
+    },
+    {
+      "module": "HMath.Geometry.Polygon",
+      "name": "minimumBoundingRectangle",
+      "signature": "[Point2] -> Either MathError [Point2]"
+    },
+    {
+      "module": "HMath.Geometry.Polygon",
+      "name": "minkowskiSum",
+      "signature": "[Point2] -> [Point2] -> Either MathError [Point2]"
+    },
+    {
+      "module": "HMath.Geometry.Polygon",
+      "name": "polygonArea",
+      "signature": "Polygon -> Either MathError Double"
+    },
+    {
+      "module": "HMath.Geometry.Polygon",
+      "name": "polygonBoolean",
+      "signature": "BooleanOperation -> Polygon -> Polygon -> Either MathError [Polygon]"
+    },
+    {
+      "module": "HMath.Geometry.Polygon",
+      "name": "polygonCentroid",
+      "signature": "Polygon -> Either MathError Point2"
+    },
+    {
+      "module": "HMath.Geometry.Polygon",
+      "name": "shoelace",
+      "signature": "Polygon -> Either MathError Double"
+    },
+    {
+      "module": "HMath.Geometry.Primitives",
+      "name": "Chebyshev",
+      "signature": "Metric"
+    },
+    {
+      "module": "HMath.Geometry.Primitives",
+      "name": "CirclePoints",
+      "signature": "[Point2] -> CircleIntersection"
+    },
+    {
+      "module": "HMath.Geometry.Primitives",
+      "name": "CoincidentCircles",
+      "signature": "CircleIntersection"
+    },
+    {
+      "module": "HMath.Geometry.Primitives",
+      "name": "CoincidentLine",
+      "signature": "Intersection2"
+    },
+    {
+      "module": "HMath.Geometry.Primitives",
+      "name": "DisjointCircles",
+      "signature": "CircleIntersection"
+    },
+    {
+      "module": "HMath.Geometry.Primitives",
+      "name": "Euclidean",
+      "signature": "Metric"
+    },
+    {
+      "module": "HMath.Geometry.Primitives",
+      "name": "IntersectionPoint",
+      "signature": "Point2 -> Intersection2"
+    },
+    {
+      "module": "HMath.Geometry.Primitives",
+      "name": "Manhattan",
+      "signature": "Metric"
+    },
+    {
+      "module": "HMath.Geometry.Primitives",
+      "name": "Minkowski",
+      "signature": "Double -> Metric"
+    },
+    {
+      "module": "HMath.Geometry.Primitives",
+      "name": "NoIntersection",
+      "signature": "Intersection2"
+    },
+    {
+      "module": "HMath.Geometry.Primitives",
+      "name": "OverlapSegment",
+      "signature": "Point2 -> Point2 -> Intersection2"
+    },
+    {
+      "module": "HMath.Geometry.Primitives",
+      "name": "boxContains",
+      "signature": "AABB -> PointND -> Either MathError Bool"
+    },
+    {
+      "module": "HMath.Geometry.Primitives",
+      "name": "boxSDF",
+      "signature": "AABB -> PointND -> Either MathError Double"
+    },
+    {
+      "module": "HMath.Geometry.Primitives",
+      "name": "capsuleSDF",
+      "signature": "Capsule -> Point3 -> Either MathError Double"
+    },
+    {
+      "module": "HMath.Geometry.Primitives",
+      "name": "circleIntersection",
+      "signature": "Circle -> Circle -> Either MathError CircleIntersection"
+    },
+    {
+      "module": "HMath.Geometry.Primitives",
+      "name": "circumcenter",
+      "signature": "Triangle -> Either MathError Point2"
+    },
+    {
+      "module": "HMath.Geometry.Primitives",
+      "name": "coneSDF",
+      "signature": "Cone -> Point3 -> Either MathError Double"
+    },
+    {
+      "module": "HMath.Geometry.Primitives",
+      "name": "cosineDistance",
+      "signature": "PointND -> PointND -> Either MathError Double"
+    },
+    {
+      "module": "HMath.Geometry.Primitives",
+      "name": "cylinderSDF",
+      "signature": "Cylinder -> Point3 -> Either MathError Double"
+    },
+    {
+      "module": "HMath.Geometry.Primitives",
+      "name": "distance",
+      "signature": "Metric -> PointND -> PointND -> Either MathError Double"
+    },
+    {
+      "module": "HMath.Geometry.Primitives",
+      "name": "ellipseContains",
+      "signature": "Ellipse -> Point2 -> Either MathError Bool"
+    },
+    {
+      "module": "HMath.Geometry.Primitives",
+      "name": "hammingDistance",
+      "signature": "Eq a => [a] -> [a] -> Either MathError Int"
+    },
+    {
+      "module": "HMath.Geometry.Primitives",
+      "name": "hausdorffDistance",
+      "signature": "[PointND] -> [PointND] -> Either MathError Double"
+    },
+    {
+      "module": "HMath.Geometry.Primitives",
+      "name": "incenter",
+      "signature": "Triangle -> Either MathError Point2"
+    },
+    {
+      "module": "HMath.Geometry.Primitives",
+      "name": "incircle",
+      "signature": "Point2 -> Point2 -> Point2 -> Point2 -> Either MathError Ordering"
+    },
+    {
+      "module": "HMath.Geometry.Primitives",
+      "name": "jaccardDistance",
+      "signature": "Eq a => [a] -> [a] -> Either MathError Double"
+    },
+    {
+      "module": "HMath.Geometry.Primitives",
+      "name": "lineIntersection",
+      "signature": "Point2 -> Point2 -> Point2 -> Point2 -> Either MathError Intersection2"
+    },
+    {
+      "module": "HMath.Geometry.Primitives",
+      "name": "linePlaneIntersection",
+      "signature": "Line -> Plane -> Either MathError (Maybe (Maybe Point3))"
+    },
+    {
+      "module": "HMath.Geometry.Primitives",
+      "name": "mahalanobisDistance",
+      "signature": "[[Double]] -> PointND -> PointND -> Either MathError Double"
+    },
+    {
+      "module": "HMath.Geometry.Primitives",
+      "name": "obbSDF",
+      "signature": "OBB -> Point3 -> Either MathError Double"
+    },
+    {
+      "module": "HMath.Geometry.Primitives",
+      "name": "orientation",
+      "signature": "Point2 -> Point2 -> Point2 -> Either MathError Orientation"
+    },
+    {
+      "module": "HMath.Geometry.Primitives",
+      "name": "planeIntersection",
+      "signature": "Plane -> Plane -> Either MathError (Maybe (Maybe Line))"
+    },
+    {
+      "module": "HMath.Geometry.Primitives",
+      "name": "pointLineDistance",
+      "signature": "PointND -> Line -> Either MathError Double"
+    },
+    {
+      "module": "HMath.Geometry.Primitives",
+      "name": "pointPlaneDistance",
+      "signature": "Point3 -> Plane -> Either MathError Double"
+    },
+    {
+      "module": "HMath.Geometry.Primitives",
+      "name": "pointSegmentDistance",
+      "signature": "PointND -> Segment -> Either MathError Double"
+    },
+    {
+      "module": "HMath.Geometry.Primitives",
+      "name": "polygonLocation",
+      "signature": "Polygon -> Point2 -> Either MathError Location"
+    },
+    {
+      "module": "HMath.Geometry.Primitives",
+      "name": "rayBox",
+      "signature": "Ray -> AABB -> Either MathError (Maybe (Double, Double))"
+    },
+    {
+      "module": "HMath.Geometry.Primitives",
+      "name": "raySphere",
+      "signature": "Ray -> Sphere -> Either MathError (Maybe (Double, Double))"
+    },
+    {
+      "module": "HMath.Geometry.Primitives",
+      "name": "rayTriangle",
+      "signature": "Ray -> (Point3, Point3, Point3) -> Either MathError (Maybe Double)"
+    },
+    {
+      "module": "HMath.Geometry.Primitives",
+      "name": "segmentIntersection",
+      "signature": "Point2 -> Point2 -> Point2 -> Point2 -> Either MathError Intersection2"
+    },
+    {
+      "module": "HMath.Geometry.Primitives",
+      "name": "sphereContains",
+      "signature": "Sphere -> Point3 -> Either MathError Bool"
+    },
+    {
+      "module": "HMath.Geometry.Primitives",
+      "name": "sphereSDF",
+      "signature": "Sphere -> Point3 -> Either MathError Double"
+    },
+    {
+      "module": "HMath.Geometry.Primitives",
+      "name": "triangleBarycentric",
+      "signature": "Triangle -> Point2 -> Either MathError [Double]"
+    },
+    {
+      "module": "HMath.Geometry.Primitives",
+      "name": "triangleIntersection",
+      "signature": "Triangle -> Triangle -> Either MathError [Point2]"
+    },
+    {
+      "module": "HMath.Geometry.Primitives",
+      "name": "triangleLocation",
+      "signature": "Triangle -> Point2 -> Either MathError Location"
+    },
+    {
+      "module": "HMath.Geometry.Spatial",
+      "name": "BVH",
+      "signature": "SpatialKind"
+    },
+    {
+      "module": "HMath.Geometry.Spatial",
+      "name": "BallTree",
+      "signature": "SpatialKind"
+    },
+    {
+      "module": "HMath.Geometry.Spatial",
+      "name": "KDTree",
+      "signature": "SpatialKind"
+    },
+    {
+      "module": "HMath.Geometry.Spatial",
+      "name": "NeighborQuery",
+      "signature": "[(Int, Double)] -> Int -> Bool -> NeighborQuery"
+    },
+    {
+      "module": "HMath.Geometry.Spatial",
+      "name": "Octree",
+      "signature": "SpatialKind"
+    },
+    {
+      "module": "HMath.Geometry.Spatial",
+      "name": "Quadtree",
+      "signature": "SpatialKind"
+    },
+    {
+      "module": "HMath.Geometry.Spatial",
+      "name": "RTree",
+      "signature": "SpatialKind"
+    },
+    {
+      "module": "HMath.Geometry.Spatial",
+      "name": "SpatialHash",
+      "signature": "Double -> SpatialKind"
+    },
+    {
+      "module": "HMath.Geometry.Spatial",
+      "name": "buildSpatialIndex",
+      "signature": "SpatialKind -> PointCloud -> Either MathError SpatialIndex"
+    },
+    {
+      "module": "HMath.Geometry.Spatial",
+      "name": "cloudPoints",
+      "signature": "PointCloud -> [PointND]"
+    },
+    {
+      "module": "HMath.Geometry.Spatial",
+      "name": "nearestQuery",
+      "signature": "Int -> Int -> SpatialIndex -> PointND -> Either MathError NeighborQuery"
+    },
+    {
+      "module": "HMath.Geometry.Spatial",
+      "name": "pointCloud",
+      "signature": "[PointND] -> Either MathError PointCloud"
+    },
+    {
+      "module": "HMath.Geometry.Spatial",
+      "name": "queryExhaustive",
+      "signature": "NeighborQuery -> Bool"
+    },
+    {
+      "module": "HMath.Geometry.Spatial",
+      "name": "queryLeaves",
+      "signature": "NeighborQuery -> Int"
+    },
+    {
+      "module": "HMath.Geometry.Spatial",
+      "name": "queryNeighbors",
+      "signature": "NeighborQuery -> [(Int, Double)]"
+    },
+    {
+      "module": "HMath.Geometry.Spatial",
+      "name": "radiusQuery",
+      "signature": "SpatialIndex -> PointND -> Double -> Either MathError [Int]"
+    },
+    {
+      "module": "HMath.Geometry.Spatial",
+      "name": "rangeQuery",
+      "signature": "SpatialIndex -> AABB -> Either MathError [Int]"
+    },
+    {
+      "module": "HMath.Geometry.Transform",
+      "name": "affineTransform",
+      "signature": "Matrix Double -> PointND -> Either MathError (Matrix Double)"
+    },
+    {
+      "module": "HMath.Geometry.Transform",
+      "name": "applyTransform",
+      "signature": "Matrix Double -> PointND -> Either MathError PointND"
+    },
+    {
+      "module": "HMath.Geometry.Transform",
+      "name": "composeTransforms",
+      "signature": "Matrix Double -> Matrix Double -> Either MathError (Matrix Double)"
+    },
+    {
+      "module": "HMath.Geometry.Transform",
+      "name": "cullBox",
+      "signature": "Frustum -> AABB -> Either MathError Bool"
+    },
+    {
+      "module": "HMath.Geometry.Transform",
+      "name": "cullSphere",
+      "signature": "Frustum -> Sphere -> Either MathError Bool"
+    },
+    {
+      "module": "HMath.Geometry.Transform",
+      "name": "extractFrustum",
+      "signature": "Matrix Double -> Either MathError Frustum"
+    },
+    {
+      "module": "HMath.Geometry.Transform",
+      "name": "inverseTransform",
+      "signature": "Matrix Double -> Either MathError (Matrix Double)"
+    },
+    {
+      "module": "HMath.Geometry.Transform",
+      "name": "lookAt",
+      "signature": "Point3 -> Point3 -> Point3 -> Either MathError (Matrix Double)"
+    },
+    {
+      "module": "HMath.Geometry.Transform",
+      "name": "orthographic",
+      "signature": "Double -> Double -> Double -> Double -> Double -> Double -> Either MathError (Matrix Double)"
+    },
+    {
+      "module": "HMath.Geometry.Transform",
+      "name": "perspective",
+      "signature": "Double -> Double -> Double -> Double -> Either MathError (Matrix Double)"
+    },
+    {
+      "module": "HMath.Geometry.Triangulation",
+      "name": "constrainedDelaunay",
+      "signature": "[Point2] -> [(Int, Int)] -> Either MathError [IndexedTriangle]"
+    },
+    {
+      "module": "HMath.Geometry.Triangulation",
+      "name": "delaunay",
+      "signature": "[Point2] -> Either MathError [IndexedTriangle]"
+    },
+    {
+      "module": "HMath.Geometry.Triangulation",
+      "name": "earClip",
+      "signature": "Polygon -> Either MathError [IndexedTriangle]"
+    },
+    {
+      "module": "HMath.Geometry.Triangulation",
+      "name": "voronoi",
+      "signature": "Rectangle -> [Point2] -> Either MathError [[Point2]]"
+    }
+  ]
+}

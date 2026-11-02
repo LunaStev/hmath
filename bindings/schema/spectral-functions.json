@@ -1,0 +1,780 @@
+{
+  "schema": 1,
+  "functions": [
+    {
+      "module": "HMath.Signal",
+      "name": "iir",
+      "signature": "[Double] -> [Double] -> Either MathError Filter"
+    },
+    {
+      "module": "HMath.Signal",
+      "name": "fir",
+      "signature": "[Double] -> Either MathError Filter"
+    },
+    {
+      "module": "HMath.Signal",
+      "name": "filterCoefficients",
+      "signature": "Filter -> ([Double], [Double])"
+    },
+    {
+      "module": "HMath.Signal",
+      "name": "filterState",
+      "signature": "Filter -> [Double]"
+    },
+    {
+      "module": "HMath.Signal",
+      "name": "resetFilter",
+      "signature": "Filter -> Filter"
+    },
+    {
+      "module": "HMath.Signal",
+      "name": "filterSignal",
+      "signature": "Filter -> [Double] -> Either MathError ([Double], Filter)"
+    },
+    {
+      "module": "HMath.Signal",
+      "name": "frequencyResponse",
+      "signature": "Filter -> Double -> Either MathError (Complex Double)"
+    },
+    {
+      "module": "HMath.Signal",
+      "name": "Butterworth",
+      "signature": "FilterFamily"
+    },
+    {
+      "module": "HMath.Signal",
+      "name": "ChebyshevI",
+      "signature": "Double -> FilterFamily"
+    },
+    {
+      "module": "HMath.Signal",
+      "name": "ChebyshevII",
+      "signature": "Double -> FilterFamily"
+    },
+    {
+      "module": "HMath.Signal",
+      "name": "Elliptic",
+      "signature": "Double -> Double -> FilterFamily"
+    },
+    {
+      "module": "HMath.Signal",
+      "name": "Bessel",
+      "signature": "FilterFamily"
+    },
+    {
+      "module": "HMath.Signal",
+      "name": "Lowpass",
+      "signature": "Double -> FilterBand"
+    },
+    {
+      "module": "HMath.Signal",
+      "name": "Highpass",
+      "signature": "Double -> FilterBand"
+    },
+    {
+      "module": "HMath.Signal",
+      "name": "Bandpass",
+      "signature": "Double -> Double -> FilterBand"
+    },
+    {
+      "module": "HMath.Signal",
+      "name": "Bandstop",
+      "signature": "Double -> Double -> FilterBand"
+    },
+    {
+      "module": "HMath.Signal",
+      "name": "designIIR",
+      "signature": "FilterFamily -> FilterBand -> Int -> Double -> Either MathError Filter"
+    },
+    {
+      "module": "HMath.Signal",
+      "name": "notch",
+      "signature": "Double -> Double -> Either MathError Filter"
+    },
+    {
+      "module": "HMath.Signal",
+      "name": "allPass",
+      "signature": "Double -> Double -> Either MathError Filter"
+    },
+    {
+      "module": "HMath.Signal",
+      "name": "wiener",
+      "signature": "Int -> Maybe Double -> [Double] -> Either MathError [Double]"
+    },
+    {
+      "module": "HMath.Signal",
+      "name": "Hann",
+      "signature": "Window"
+    },
+    {
+      "module": "HMath.Signal",
+      "name": "Hamming",
+      "signature": "Window"
+    },
+    {
+      "module": "HMath.Signal",
+      "name": "Blackman",
+      "signature": "Window"
+    },
+    {
+      "module": "HMath.Signal",
+      "name": "Bartlett",
+      "signature": "Window"
+    },
+    {
+      "module": "HMath.Signal",
+      "name": "Kaiser",
+      "signature": "Double -> Window"
+    },
+    {
+      "module": "HMath.Signal",
+      "name": "Gaussian",
+      "signature": "Double -> Window"
+    },
+    {
+      "module": "HMath.Signal",
+      "name": "Tukey",
+      "signature": "Double -> Window"
+    },
+    {
+      "module": "HMath.Signal",
+      "name": "FlatTop",
+      "signature": "Window"
+    },
+    {
+      "module": "HMath.Signal",
+      "name": "DolphChebyshev",
+      "signature": "Double -> Window"
+    },
+    {
+      "module": "HMath.Signal",
+      "name": "window",
+      "signature": "Window -> Int -> Either MathError [Double]"
+    },
+    {
+      "module": "HMath.Signal",
+      "name": "windowedSinc",
+      "signature": "Window -> Int -> Double -> Double -> Either MathError [Double]"
+    },
+    {
+      "module": "HMath.Signal",
+      "name": "Peak",
+      "signature": "Int -> Double -> Double -> Double -> Peak"
+    },
+    {
+      "module": "HMath.Signal",
+      "name": "peakIndex",
+      "signature": "Peak -> Int"
+    },
+    {
+      "module": "HMath.Signal",
+      "name": "peakHeight",
+      "signature": "Peak -> Double"
+    },
+    {
+      "module": "HMath.Signal",
+      "name": "peakProminence",
+      "signature": "Peak -> Double"
+    },
+    {
+      "module": "HMath.Signal",
+      "name": "peakWidth",
+      "signature": "Peak -> Double"
+    },
+    {
+      "module": "HMath.Signal",
+      "name": "peaks",
+      "signature": "Double -> Int -> [Double] -> Either MathError [Peak]"
+    },
+    {
+      "module": "HMath.Signal",
+      "name": "kalman",
+      "signature": "[[Double]] -> [[Double]] -> [[Double]] -> [[Double]] -> [Double] -> GaussianState -> Either MathError GaussianState"
+    },
+    {
+      "module": "HMath.Signal",
+      "name": "extendedKalman",
+      "signature": "([Double] -> [Double]) -> ([Double] -> [Double]) -> [[Double]] -> [[Double]] -> [Double] -> GaussianState -> Either MathError GaussianState"
+    },
+    {
+      "module": "HMath.Signal",
+      "name": "unscentedKalman",
+      "signature": "Double -> Double -> Double -> ([Double] -> [Double]) -> ([Double] -> [Double]) -> [[Double]] -> [[Double]] -> [Double] -> GaussianState -> Either MathError GaussianState"
+    },
+    {
+      "module": "HMath.Signal",
+      "name": "Haar",
+      "signature": "Wavelet"
+    },
+    {
+      "module": "HMath.Signal",
+      "name": "Daubechies2",
+      "signature": "Wavelet"
+    },
+    {
+      "module": "HMath.Signal",
+      "name": "Daubechies4",
+      "signature": "Wavelet"
+    },
+    {
+      "module": "HMath.Signal",
+      "name": "Biorthogonal53",
+      "signature": "Wavelet"
+    },
+    {
+      "module": "HMath.Signal",
+      "name": "waveletApproximation",
+      "signature": "WaveletTree -> [Double]"
+    },
+    {
+      "module": "HMath.Signal",
+      "name": "waveletDetails",
+      "signature": "WaveletTree -> [[Double]]"
+    },
+    {
+      "module": "HMath.Signal",
+      "name": "dwt",
+      "signature": "Wavelet -> Int -> [Double] -> Either MathError WaveletTree"
+    },
+    {
+      "module": "HMath.Signal",
+      "name": "idwt",
+      "signature": "WaveletTree -> Either MathError [Double]"
+    },
+    {
+      "module": "HMath.Signal",
+      "name": "Morlet",
+      "signature": "Double -> MotherWavelet"
+    },
+    {
+      "module": "HMath.Signal",
+      "name": "MexicanHat",
+      "signature": "MotherWavelet"
+    },
+    {
+      "module": "HMath.Signal",
+      "name": "GaussianDerivative",
+      "signature": "MotherWavelet"
+    },
+    {
+      "module": "HMath.Signal",
+      "name": "cwt",
+      "signature": "MotherWavelet -> Double -> [Double] -> [Double] -> Either MathError [[Complex Double]]"
+    },
+    {
+      "module": "HMath.Signal",
+      "name": "waveletPackets",
+      "signature": "Wavelet -> Int -> [Double] -> Either MathError WaveletPacket"
+    },
+    {
+      "module": "HMath.Signal",
+      "name": "inverseWaveletPackets",
+      "signature": "WaveletPacket -> Either MathError [Double]"
+    },
+    {
+      "module": "HMath.Signal",
+      "name": "packetBands",
+      "signature": "WaveletPacket -> [[Double]]"
+    },
+    {
+      "module": "HMath.Signal",
+      "name": "waveletDenoise",
+      "signature": "Wavelet -> Int -> Maybe Double -> [Double] -> Either MathError [Double]"
+    },
+    {
+      "module": "HMath.Interpolation",
+      "name": "Reject",
+      "signature": "Extrapolation"
+    },
+    {
+      "module": "HMath.Interpolation",
+      "name": "Clamp",
+      "signature": "Extrapolation"
+    },
+    {
+      "module": "HMath.Interpolation",
+      "name": "Extrapolate",
+      "signature": "Extrapolation"
+    },
+    {
+      "module": "HMath.Interpolation",
+      "name": "Nearest",
+      "signature": "InterpolationMethod"
+    },
+    {
+      "module": "HMath.Interpolation",
+      "name": "Linear",
+      "signature": "InterpolationMethod"
+    },
+    {
+      "module": "HMath.Interpolation",
+      "name": "Lagrange",
+      "signature": "InterpolationMethod"
+    },
+    {
+      "module": "HMath.Interpolation",
+      "name": "Newton",
+      "signature": "InterpolationMethod"
+    },
+    {
+      "module": "HMath.Interpolation",
+      "name": "Barycentric",
+      "signature": "InterpolationMethod"
+    },
+    {
+      "module": "HMath.Interpolation",
+      "name": "Natural",
+      "signature": "SplineBoundary"
+    },
+    {
+      "module": "HMath.Interpolation",
+      "name": "Clamped",
+      "signature": "Double -> Double -> SplineBoundary"
+    },
+    {
+      "module": "HMath.Interpolation",
+      "name": "Periodic",
+      "signature": "SplineBoundary"
+    },
+    {
+      "module": "HMath.Interpolation",
+      "name": "Gaussian",
+      "signature": "Double -> RadialKernel"
+    },
+    {
+      "module": "HMath.Interpolation",
+      "name": "Multiquadric",
+      "signature": "Double -> RadialKernel"
+    },
+    {
+      "module": "HMath.Interpolation",
+      "name": "InverseMultiquadric",
+      "signature": "Double -> RadialKernel"
+    },
+    {
+      "module": "HMath.Interpolation",
+      "name": "ThinPlate",
+      "signature": "RadialKernel"
+    },
+    {
+      "module": "HMath.Interpolation",
+      "name": "Cubic",
+      "signature": "RadialKernel"
+    },
+    {
+      "module": "HMath.Interpolation",
+      "name": "Approximation",
+      "signature": "[Double] -> Double -> Int -> Approximation"
+    },
+    {
+      "module": "HMath.Interpolation",
+      "name": "approximationCoefficients",
+      "signature": "Approximation -> [Double]"
+    },
+    {
+      "module": "HMath.Interpolation",
+      "name": "approximationError",
+      "signature": "Approximation -> Double"
+    },
+    {
+      "module": "HMath.Interpolation",
+      "name": "approximationIterations",
+      "signature": "Approximation -> Int"
+    },
+    {
+      "module": "HMath.Interpolation",
+      "name": "interpolate",
+      "signature": "InterpolationMethod -> Extrapolation -> [(Double, Double)] -> Double -> Either MathError Double"
+    },
+    {
+      "module": "HMath.Interpolation",
+      "name": "hermite",
+      "signature": "[(Double, Double, Double)] -> Double -> Either MathError Double"
+    },
+    {
+      "module": "HMath.Interpolation",
+      "name": "piecewisePolynomial",
+      "signature": "[Double] -> [[Double]] -> Either MathError PiecewisePolynomial"
+    },
+    {
+      "module": "HMath.Interpolation",
+      "name": "piecewiseKnots",
+      "signature": "PiecewisePolynomial -> [Double]"
+    },
+    {
+      "module": "HMath.Interpolation",
+      "name": "evaluatePiecewise",
+      "signature": "Extrapolation -> PiecewisePolynomial -> Double -> Either MathError Double"
+    },
+    {
+      "module": "HMath.Interpolation",
+      "name": "differentiatePiecewise",
+      "signature": "PiecewisePolynomial -> Either MathError PiecewisePolynomial"
+    },
+    {
+      "module": "HMath.Interpolation",
+      "name": "integratePiecewise",
+      "signature": "PiecewisePolynomial -> Double -> Double -> Either MathError Double"
+    },
+    {
+      "module": "HMath.Interpolation",
+      "name": "cubicHermite",
+      "signature": "[(Double, Double, Double)] -> Either MathError PiecewisePolynomial"
+    },
+    {
+      "module": "HMath.Interpolation",
+      "name": "cubicSpline",
+      "signature": "SplineBoundary -> [(Double, Double)] -> Either MathError PiecewisePolynomial"
+    },
+    {
+      "module": "HMath.Interpolation",
+      "name": "pchip",
+      "signature": "[(Double, Double)] -> Either MathError PiecewisePolynomial"
+    },
+    {
+      "module": "HMath.Interpolation",
+      "name": "akima",
+      "signature": "[(Double, Double)] -> Either MathError PiecewisePolynomial"
+    },
+    {
+      "module": "HMath.Interpolation",
+      "name": "smoothingSpline",
+      "signature": "Double -> [(Double, Double)] -> Either MathError PiecewisePolynomial"
+    },
+    {
+      "module": "HMath.Interpolation",
+      "name": "bSpline",
+      "signature": "Int -> [Double] -> [[Double]] -> [Double] -> Either MathError BSpline"
+    },
+    {
+      "module": "HMath.Interpolation",
+      "name": "evaluateBSpline",
+      "signature": "BSpline -> Double -> Either MathError [Double]"
+    },
+    {
+      "module": "HMath.Interpolation",
+      "name": "derivativeBSpline",
+      "signature": "BSpline -> Double -> Either MathError [Double]"
+    },
+    {
+      "module": "HMath.Interpolation",
+      "name": "insertKnot",
+      "signature": "BSpline -> Double -> Either MathError BSpline"
+    },
+    {
+      "module": "HMath.Interpolation",
+      "name": "rationalBezier",
+      "signature": "[[Double]] -> [Double] -> Double -> Either MathError [Double]"
+    },
+    {
+      "module": "HMath.Interpolation",
+      "name": "bezier",
+      "signature": "[[Double]] -> Double -> Either MathError [Double]"
+    },
+    {
+      "module": "HMath.Interpolation",
+      "name": "kochanekBartels",
+      "signature": "Double -> Double -> Double -> [(Double, Double)] -> Either MathError PiecewisePolynomial"
+    },
+    {
+      "module": "HMath.Interpolation",
+      "name": "cardinalSpline",
+      "signature": "Double -> [(Double, Double)] -> Either MathError PiecewisePolynomial"
+    },
+    {
+      "module": "HMath.Interpolation",
+      "name": "catmullRom",
+      "signature": "[(Double, Double)] -> Either MathError PiecewisePolynomial"
+    },
+    {
+      "module": "HMath.Interpolation",
+      "name": "curveIntegral",
+      "signature": "C.Tolerance -> BSpline -> Double -> Double -> Either MathError [C.Estimate Double]"
+    },
+    {
+      "module": "HMath.Interpolation",
+      "name": "arcLength",
+      "signature": "C.Tolerance -> BSpline -> Double -> Double -> Either MathError (C.Estimate Double)"
+    },
+    {
+      "module": "HMath.Interpolation",
+      "name": "gridInterpolate",
+      "signature": "InterpolationMethod -> Extrapolation -> [[Double]] -> [Double] -> [Double] -> Either MathError Double"
+    },
+    {
+      "module": "HMath.Interpolation",
+      "name": "fitRBF",
+      "signature": "RadialKernel -> Double -> [[Double]] -> [Double] -> Either MathError RBF"
+    },
+    {
+      "module": "HMath.Interpolation",
+      "name": "evaluateRBF",
+      "signature": "RBF -> [Double] -> Either MathError Double"
+    },
+    {
+      "module": "HMath.Interpolation",
+      "name": "inverseDistance",
+      "signature": "Double -> [[Double]] -> [Double] -> [Double] -> Either MathError Double"
+    },
+    {
+      "module": "HMath.Interpolation",
+      "name": "shepard",
+      "signature": "[[Double]] -> [Double] -> [Double] -> Either MathError Double"
+    },
+    {
+      "module": "HMath.Interpolation",
+      "name": "kriging",
+      "signature": "Double -> Double -> [[Double]] -> [Double] -> [Double] -> Either MathError (Double, Double)"
+    },
+    {
+      "module": "HMath.Interpolation",
+      "name": "polynomialFit",
+      "signature": "Int -> [(Double, Double)] -> Either MathError Approximation"
+    },
+    {
+      "module": "HMath.Interpolation",
+      "name": "chebyshevApproximate",
+      "signature": "Int -> (Double -> Double) -> Double -> Double -> Either MathError Approximation"
+    },
+    {
+      "module": "HMath.Interpolation",
+      "name": "pade",
+      "signature": "Int -> Int -> [Double] -> Either MathError ([Double], [Double])"
+    },
+    {
+      "module": "HMath.Interpolation",
+      "name": "rationalFit",
+      "signature": "Int -> Int -> [(Double, Double)] -> Either MathError ([Double], [Double], Double)"
+    },
+    {
+      "module": "HMath.Interpolation",
+      "name": "remez",
+      "signature": "Int -> Int -> Double -> Int -> (Double -> Double) -> Double -> Double -> Either MathError Approximation"
+    },
+    {
+      "module": "HMath.Interpolation",
+      "name": "nonlinearFit",
+      "signature": "Int -> Double -> (Double -> [Double] -> Double) -> [(Double, Double)] -> [Double] -> Either MathError Approximation"
+    },
+    {
+      "module": "HMath.Interpolation",
+      "name": "interpolationError",
+      "signature": "(Double -> Double) -> [(Double, Double)] -> Either MathError Double"
+    },
+    {
+      "module": "HMath.Fourier",
+      "name": "Forward",
+      "signature": "Direction"
+    },
+    {
+      "module": "HMath.Fourier",
+      "name": "Inverse",
+      "signature": "Direction"
+    },
+    {
+      "module": "HMath.Fourier",
+      "name": "Automatic",
+      "signature": "FFTAlgorithm"
+    },
+    {
+      "module": "HMath.Fourier",
+      "name": "Direct",
+      "signature": "FFTAlgorithm"
+    },
+    {
+      "module": "HMath.Fourier",
+      "name": "Radix2",
+      "signature": "FFTAlgorithm"
+    },
+    {
+      "module": "HMath.Fourier",
+      "name": "Radix4",
+      "signature": "FFTAlgorithm"
+    },
+    {
+      "module": "HMath.Fourier",
+      "name": "MixedRadix",
+      "signature": "FFTAlgorithm"
+    },
+    {
+      "module": "HMath.Fourier",
+      "name": "SplitRadix",
+      "signature": "FFTAlgorithm"
+    },
+    {
+      "module": "HMath.Fourier",
+      "name": "Bluestein",
+      "signature": "FFTAlgorithm"
+    },
+    {
+      "module": "HMath.Fourier",
+      "name": "Rader",
+      "signature": "FFTAlgorithm"
+    },
+    {
+      "module": "HMath.Fourier",
+      "name": "TypeI",
+      "signature": "TransformType"
+    },
+    {
+      "module": "HMath.Fourier",
+      "name": "TypeII",
+      "signature": "TransformType"
+    },
+    {
+      "module": "HMath.Fourier",
+      "name": "TypeIII",
+      "signature": "TransformType"
+    },
+    {
+      "module": "HMath.Fourier",
+      "name": "TypeIV",
+      "signature": "TransformType"
+    },
+    {
+      "module": "HMath.Fourier",
+      "name": "planFFT",
+      "signature": "Direction -> FFTAlgorithm -> Int -> Either MathError FFTPlan"
+    },
+    {
+      "module": "HMath.Fourier",
+      "name": "executeFFT",
+      "signature": "FFTPlan -> [Complex Double] -> Either MathError [Complex Double]"
+    },
+    {
+      "module": "HMath.Fourier",
+      "name": "fft",
+      "signature": "[Complex Double] -> Either MathError [Complex Double]"
+    },
+    {
+      "module": "HMath.Fourier",
+      "name": "ifft",
+      "signature": "[Complex Double] -> Either MathError [Complex Double]"
+    },
+    {
+      "module": "HMath.Fourier",
+      "name": "dft",
+      "signature": "[Complex Double] -> Either MathError [Complex Double]"
+    },
+    {
+      "module": "HMath.Fourier",
+      "name": "realFFT",
+      "signature": "[Double] -> Either MathError [Complex Double]"
+    },
+    {
+      "module": "HMath.Fourier",
+      "name": "inverseRealFFT",
+      "signature": "Double -> [Complex Double] -> Either MathError [Double]"
+    },
+    {
+      "module": "HMath.Fourier",
+      "name": "fftBatch",
+      "signature": "FFTPlan -> [[Complex Double]] -> Either MathError [[Complex Double]]"
+    },
+    {
+      "module": "HMath.Fourier",
+      "name": "fftND",
+      "signature": "Direction -> [Int] -> [Complex Double] -> Either MathError [Complex Double]"
+    },
+    {
+      "module": "HMath.Fourier",
+      "name": "fftInPlace",
+      "signature": "FFTPlan -> Ptr (Complex Double) -> Int -> IO (Either MathError ())"
+    },
+    {
+      "module": "HMath.Fourier",
+      "name": "dct",
+      "signature": "TransformType -> [Double] -> Either MathError [Double]"
+    },
+    {
+      "module": "HMath.Fourier",
+      "name": "idct",
+      "signature": "TransformType -> [Double] -> Either MathError [Double]"
+    },
+    {
+      "module": "HMath.Fourier",
+      "name": "dst",
+      "signature": "TransformType -> [Double] -> Either MathError [Double]"
+    },
+    {
+      "module": "HMath.Fourier",
+      "name": "idst",
+      "signature": "TransformType -> [Double] -> Either MathError [Double]"
+    },
+    {
+      "module": "HMath.Fourier",
+      "name": "stftFrames",
+      "signature": "STFT -> [[Complex Double]]"
+    },
+    {
+      "module": "HMath.Fourier",
+      "name": "stft",
+      "signature": "[Double] -> Int -> [Double] -> Either MathError STFT"
+    },
+    {
+      "module": "HMath.Fourier",
+      "name": "istft",
+      "signature": "STFT -> Either MathError [Double]"
+    },
+    {
+      "module": "HMath.Fourier",
+      "name": "magnitudeSpectrum",
+      "signature": "[Complex Double] -> [Double]"
+    },
+    {
+      "module": "HMath.Fourier",
+      "name": "phaseSpectrum",
+      "signature": "[Complex Double] -> [Double]"
+    },
+    {
+      "module": "HMath.Fourier",
+      "name": "powerSpectrum",
+      "signature": "[Complex Double] -> [Double]"
+    },
+    {
+      "module": "HMath.Fourier",
+      "name": "crossSpectrum",
+      "signature": "Double -> [Double] -> [Double] -> [Double] -> Either MathError [Complex Double]"
+    },
+    {
+      "module": "HMath.Fourier",
+      "name": "spectrogram",
+      "signature": "[Double] -> Int -> [Double] -> Either MathError [[Double]]"
+    },
+    {
+      "module": "HMath.Fourier",
+      "name": "analyticSignal",
+      "signature": "[Double] -> Either MathError [Complex Double]"
+    },
+    {
+      "module": "HMath.Fourier",
+      "name": "chirpZ",
+      "signature": "Int -> Complex Double -> Complex Double -> [Complex Double] -> Either MathError [Complex Double]"
+    },
+    {
+      "module": "HMath.Fourier",
+      "name": "goertzel",
+      "signature": "Double -> [Double] -> Either MathError (Complex Double)"
+    },
+    {
+      "module": "HMath.Fourier",
+      "name": "fftConvolve",
+      "signature": "[Complex Double] -> [Complex Double] -> Either MathError [Complex Double]"
+    },
+    {
+      "module": "HMath.Fourier",
+      "name": "fftCorrelate",
+      "signature": "[Complex Double] -> [Complex Double] -> Either MathError [Complex Double]"
+    },
+    {
+      "module": "HMath.Fourier",
+      "name": "fftShift",
+      "signature": "[a] -> [a]"
+    },
+    {
+      "module": "HMath.Fourier",
+      "name": "ifftShift",
+      "signature": "[a] -> [a]"
+    }
+  ]
+}

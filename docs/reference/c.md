@@ -96,8 +96,11 @@ interrupt a running Haskell kernel.
 | 6 | `HMATH_HASKELL_EXCEPTION` | Contained Haskell exception |
 | 7 | `HMATH_CANCELLED` | Cooperative cancellation |
 | 8 | `HMATH_BOUNDS_ERROR` | Buffer or metadata bounds error |
-| 9 | `HMATH_BUSY` | Active work prevents shutdown |
+| 9 | `HMATH_BUSY` | Active work or Haskell-backed states prevent shutdown |
 | 10 | `HMATH_UNSUPPORTED` | Unsupported operation |
+| 11 | `HMATH_MATH_ERROR` | Original Haskell `MathError`; use `hmath_last_math_error` for its constructor and complete payload. |
+| 12 | `HMATH_EXPRESSION_ERROR` | Original expression `ExprError`; use `hmath_last_expression_error` for its kind, position and complete message. |
+| 13 | `HMATH_INTERCHANGE_ERROR` | Original `InterchangeError`; use `hmath_last_interchange_error` for its kind and complete message. |
 
 ## Version and diagnostics
 
@@ -279,8 +282,8 @@ None.
 #### Returns
 
 `HMATH_OK` after final shutdown or `HMATH_BUSY`
-while a checked/legacy call or callback is active. Join workers, then retry a
-busy result. Successful shutdown is irreversible; only the process owner
+while a checked/legacy call or callback is active, or an optimizer state is alive.
+Join workers and release optimizer states, then retry a busy result. Successful shutdown is irreversible; only the process owner
 should invoke it. Release owned resources before shutdown.
 
 #### See also

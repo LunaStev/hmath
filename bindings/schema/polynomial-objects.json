@@ -1,0 +1,541 @@
+{
+  "schema": 1,
+  "bindings": [
+    {
+      "symbol": "HMath.Polynomial.Polynomial",
+      "c": [
+        "hmath_value",
+        "hmath_value_release",
+        "hmath_value_info"
+      ],
+      "python": "hmath.polynomial.Polynomial",
+      "specializations": [
+        "owned immutable Value kind6"
+      ]
+    },
+    {
+      "symbol": "HMath.Polynomial.PowerSeries",
+      "c": [
+        "hmath_value",
+        "hmath_value_release",
+        "hmath_value_info"
+      ],
+      "python": "hmath.polynomial.PowerSeries",
+      "specializations": [
+        "owned immutable Value kind7"
+      ]
+    },
+    {
+      "symbol": "HMath.Polynomial.RationalFunction",
+      "c": [
+        "hmath_value",
+        "hmath_value_release",
+        "hmath_value_info"
+      ],
+      "python": "hmath.polynomial.RationalFunction",
+      "specializations": [
+        "owned immutable Value kind8"
+      ]
+    },
+    {
+      "symbol": "HMath.Polynomial.aberthEhrlich",
+      "c": [
+        "hmath_polynomial_aberth_ehrlich"
+      ],
+      "python": "hmath.polynomial.aberth_ehrlich",
+      "specializations": [
+        "original coefficient constraints; standard numeric instances; Rational-only exact and ComplexDouble-only roots as source"
+      ]
+    },
+    {
+      "symbol": "HMath.Polynomial.addPolynomial",
+      "c": [
+        "hmath_polynomial_add_polynomial"
+      ],
+      "python": "hmath.polynomial.add_polynomial",
+      "specializations": [
+        "original coefficient constraints; standard numeric instances; Rational-only exact and ComplexDouble-only roots as source"
+      ]
+    },
+    {
+      "symbol": "HMath.Polynomial.addRationalFunction",
+      "c": [
+        "hmath_polynomial_add_rational_function"
+      ],
+      "python": "hmath.polynomial.add_rational_function",
+      "specializations": [
+        "original coefficient constraints; standard numeric instances; Rational-only exact and ComplexDouble-only roots as source"
+      ]
+    },
+    {
+      "symbol": "HMath.Polynomial.addSeries",
+      "c": [
+        "hmath_polynomial_add_series"
+      ],
+      "python": "hmath.polynomial.add_series",
+      "specializations": [
+        "original coefficient constraints; standard numeric instances; Rational-only exact and ComplexDouble-only roots as source"
+      ]
+    },
+    {
+      "symbol": "HMath.Polynomial.bernsteinPolynomial",
+      "c": [
+        "hmath_polynomial_bernstein_polynomial"
+      ],
+      "python": "hmath.polynomial.bernstein_polynomial",
+      "specializations": [
+        "original coefficient constraints; standard numeric instances; Rational-only exact and ComplexDouble-only roots as source"
+      ]
+    },
+    {
+      "symbol": "HMath.Polynomial.chebyshevApproximation",
+      "c": [
+        "hmath_polynomial_chebyshev_approximation"
+      ],
+      "python": "hmath.polynomial.chebyshev_approximation",
+      "specializations": [
+        "Double callback, synchronous"
+      ]
+    },
+    {
+      "symbol": "HMath.Polynomial.chebyshevPolynomial",
+      "c": [
+        "hmath_polynomial_chebyshev_polynomial"
+      ],
+      "python": "hmath.polynomial.chebyshev_polynomial",
+      "specializations": [
+        "original coefficient constraints; standard numeric instances; Rational-only exact and ComplexDouble-only roots as source"
+      ]
+    },
+    {
+      "symbol": "HMath.Polynomial.coefficients",
+      "c": [
+        "hmath_polynomial_coefficients"
+      ],
+      "python": "hmath.polynomial.coefficients",
+      "specializations": [
+        "original coefficient constraints; standard numeric instances; Rational-only exact and ComplexDouble-only roots as source"
+      ]
+    },
+    {
+      "symbol": "HMath.Polynomial.companionMatrix",
+      "c": [
+        "hmath_polynomial_companion_matrix"
+      ],
+      "python": "hmath.polynomial.companion_matrix",
+      "specializations": [
+        "original coefficient constraints; standard numeric instances; Rational-only exact and ComplexDouble-only roots as source"
+      ]
+    },
+    {
+      "symbol": "HMath.Polynomial.composePolynomial",
+      "c": [
+        "hmath_polynomial_compose_polynomial"
+      ],
+      "python": "hmath.polynomial.compose_polynomial",
+      "specializations": [
+        "original coefficient constraints; standard numeric instances; Rational-only exact and ComplexDouble-only roots as source"
+      ]
+    },
+    {
+      "symbol": "HMath.Polynomial.composeSeries",
+      "c": [
+        "hmath_polynomial_compose_series"
+      ],
+      "python": "hmath.polynomial.compose_series",
+      "specializations": [
+        "original coefficient constraints; standard numeric instances; Rational-only exact and ComplexDouble-only roots as source"
+      ]
+    },
+    {
+      "symbol": "HMath.Polynomial.countRealRoots",
+      "c": [
+        "hmath_polynomial_count_real_roots"
+      ],
+      "python": "hmath.polynomial.count_real_roots",
+      "specializations": [
+        "original coefficient constraints; standard numeric instances; Rational-only exact and ComplexDouble-only roots as source"
+      ]
+    },
+    {
+      "symbol": "HMath.Polynomial.differentiatePolynomial",
+      "c": [
+        "hmath_polynomial_differentiate_polynomial"
+      ],
+      "python": "hmath.polynomial.differentiate_polynomial",
+      "specializations": [
+        "original coefficient constraints; standard numeric instances; Rational-only exact and ComplexDouble-only roots as source"
+      ]
+    },
+    {
+      "symbol": "HMath.Polynomial.differentiateSeries",
+      "c": [
+        "hmath_polynomial_differentiate_series"
+      ],
+      "python": "hmath.polynomial.differentiate_series",
+      "specializations": [
+        "original coefficient constraints; standard numeric instances; Rational-only exact and ComplexDouble-only roots as source"
+      ]
+    },
+    {
+      "symbol": "HMath.Polynomial.dividePolynomial",
+      "c": [
+        "hmath_polynomial_divide_polynomial"
+      ],
+      "python": "hmath.polynomial.divide_polynomial",
+      "specializations": [
+        "original coefficient constraints; standard numeric instances; Rational-only exact and ComplexDouble-only roots as source"
+      ]
+    },
+    {
+      "symbol": "HMath.Polynomial.divideSeries",
+      "c": [
+        "hmath_polynomial_divide_series"
+      ],
+      "python": "hmath.polynomial.divide_series",
+      "specializations": [
+        "original coefficient constraints; standard numeric instances; Rational-only exact and ComplexDouble-only roots as source"
+      ]
+    },
+    {
+      "symbol": "HMath.Polynomial.durandKerner",
+      "c": [
+        "hmath_polynomial_durand_kerner"
+      ],
+      "python": "hmath.polynomial.durand_kerner",
+      "specializations": [
+        "original coefficient constraints; standard numeric instances; Rational-only exact and ComplexDouble-only roots as source"
+      ]
+    },
+    {
+      "symbol": "HMath.Polynomial.evaluatePolynomial",
+      "c": [
+        "hmath_polynomial_evaluate_polynomial"
+      ],
+      "python": "hmath.polynomial.evaluate_polynomial",
+      "specializations": [
+        "original coefficient constraints; standard numeric instances; Rational-only exact and ComplexDouble-only roots as source"
+      ]
+    },
+    {
+      "symbol": "HMath.Polynomial.evaluateRationalFunction",
+      "c": [
+        "hmath_polynomial_evaluate_rational_function"
+      ],
+      "python": "hmath.polynomial.evaluate_rational_function",
+      "specializations": [
+        "original coefficient constraints; standard numeric instances; Rational-only exact and ComplexDouble-only roots as source"
+      ]
+    },
+    {
+      "symbol": "HMath.Polynomial.expSeries",
+      "c": [
+        "hmath_polynomial_exp_series"
+      ],
+      "python": "hmath.polynomial.exp_series",
+      "specializations": [
+        "original coefficient constraints; standard numeric instances; Rational-only exact and ComplexDouble-only roots as source"
+      ]
+    },
+    {
+      "symbol": "HMath.Polynomial.factorRationalPolynomial",
+      "c": [
+        "hmath_polynomial_factor_rational_polynomial"
+      ],
+      "python": "hmath.polynomial.factor_rational_polynomial",
+      "specializations": [
+        "original coefficient constraints; standard numeric instances; Rational-only exact and ComplexDouble-only roots as source"
+      ]
+    },
+    {
+      "symbol": "HMath.Polynomial.gcdPolynomial",
+      "c": [
+        "hmath_polynomial_gcd_polynomial"
+      ],
+      "python": "hmath.polynomial.gcd_polynomial",
+      "specializations": [
+        "original coefficient constraints; standard numeric instances; Rational-only exact and ComplexDouble-only roots as source"
+      ]
+    },
+    {
+      "symbol": "HMath.Polynomial.hermitePolynomial",
+      "c": [
+        "hmath_polynomial_hermite_polynomial"
+      ],
+      "python": "hmath.polynomial.hermite_polynomial",
+      "specializations": [
+        "original coefficient constraints; standard numeric instances; Rational-only exact and ComplexDouble-only roots as source"
+      ]
+    },
+    {
+      "symbol": "HMath.Polynomial.integratePolynomial",
+      "c": [
+        "hmath_polynomial_integrate_polynomial"
+      ],
+      "python": "hmath.polynomial.integrate_polynomial",
+      "specializations": [
+        "original coefficient constraints; standard numeric instances; Rational-only exact and ComplexDouble-only roots as source"
+      ]
+    },
+    {
+      "symbol": "HMath.Polynomial.integrateSeries",
+      "c": [
+        "hmath_polynomial_integrate_series"
+      ],
+      "python": "hmath.polynomial.integrate_series",
+      "specializations": [
+        "original coefficient constraints; standard numeric instances; Rational-only exact and ComplexDouble-only roots as source"
+      ]
+    },
+    {
+      "symbol": "HMath.Polynomial.isolateRealRoots",
+      "c": [
+        "hmath_polynomial_isolate_real_roots"
+      ],
+      "python": "hmath.polynomial.isolate_real_roots",
+      "specializations": [
+        "original coefficient constraints; standard numeric instances; Rational-only exact and ComplexDouble-only roots as source"
+      ]
+    },
+    {
+      "symbol": "HMath.Polynomial.lagrangeInterpolation",
+      "c": [
+        "hmath_polynomial_lagrange_interpolation"
+      ],
+      "python": "hmath.polynomial.lagrange_interpolation",
+      "specializations": [
+        "original coefficient constraints; standard numeric instances; Rational-only exact and ComplexDouble-only roots as source"
+      ]
+    },
+    {
+      "symbol": "HMath.Polynomial.laguerrePolynomial",
+      "c": [
+        "hmath_polynomial_laguerre_polynomial"
+      ],
+      "python": "hmath.polynomial.laguerre_polynomial",
+      "specializations": [
+        "original coefficient constraints; standard numeric instances; Rational-only exact and ComplexDouble-only roots as source"
+      ]
+    },
+    {
+      "symbol": "HMath.Polynomial.legendrePolynomial",
+      "c": [
+        "hmath_polynomial_legendre_polynomial"
+      ],
+      "python": "hmath.polynomial.legendre_polynomial",
+      "specializations": [
+        "original coefficient constraints; standard numeric instances; Rational-only exact and ComplexDouble-only roots as source"
+      ]
+    },
+    {
+      "symbol": "HMath.Polynomial.logSeries",
+      "c": [
+        "hmath_polynomial_log_series"
+      ],
+      "python": "hmath.polynomial.log_series",
+      "specializations": [
+        "original coefficient constraints; standard numeric instances; Rational-only exact and ComplexDouble-only roots as source"
+      ]
+    },
+    {
+      "symbol": "HMath.Polynomial.monicPolynomial",
+      "c": [
+        "hmath_polynomial_monic_polynomial"
+      ],
+      "python": "hmath.polynomial.monic_polynomial",
+      "specializations": [
+        "original coefficient constraints; standard numeric instances; Rational-only exact and ComplexDouble-only roots as source"
+      ]
+    },
+    {
+      "symbol": "HMath.Polynomial.multiplyPolynomial",
+      "c": [
+        "hmath_polynomial_multiply_polynomial"
+      ],
+      "python": "hmath.polynomial.multiply_polynomial",
+      "specializations": [
+        "original coefficient constraints; standard numeric instances; Rational-only exact and ComplexDouble-only roots as source"
+      ]
+    },
+    {
+      "symbol": "HMath.Polynomial.multiplyRationalFunction",
+      "c": [
+        "hmath_polynomial_multiply_rational_function"
+      ],
+      "python": "hmath.polynomial.multiply_rational_function",
+      "specializations": [
+        "original coefficient constraints; standard numeric instances; Rational-only exact and ComplexDouble-only roots as source"
+      ]
+    },
+    {
+      "symbol": "HMath.Polynomial.multiplySeries",
+      "c": [
+        "hmath_polynomial_multiply_series"
+      ],
+      "python": "hmath.polynomial.multiply_series",
+      "specializations": [
+        "original coefficient constraints; standard numeric instances; Rational-only exact and ComplexDouble-only roots as source"
+      ]
+    },
+    {
+      "symbol": "HMath.Polynomial.newtonInterpolation",
+      "c": [
+        "hmath_polynomial_newton_interpolation"
+      ],
+      "python": "hmath.polynomial.newton_interpolation",
+      "specializations": [
+        "original coefficient constraints; standard numeric instances; Rational-only exact and ComplexDouble-only roots as source"
+      ]
+    },
+    {
+      "symbol": "HMath.Polynomial.partialFractions",
+      "c": [
+        "hmath_polynomial_partial_fractions"
+      ],
+      "python": "hmath.polynomial.partial_fractions",
+      "specializations": [
+        "original coefficient constraints; standard numeric instances; Rational-only exact and ComplexDouble-only roots as source"
+      ]
+    },
+    {
+      "symbol": "HMath.Polynomial.polynomial",
+      "c": [
+        "hmath_polynomial_polynomial"
+      ],
+      "python": "hmath.polynomial.polynomial",
+      "specializations": [
+        "original coefficient constraints; standard numeric instances; Rational-only exact and ComplexDouble-only roots as source"
+      ]
+    },
+    {
+      "symbol": "HMath.Polynomial.polynomialDegree",
+      "c": [
+        "hmath_polynomial_polynomial_degree"
+      ],
+      "python": "hmath.polynomial.polynomial_degree",
+      "specializations": [
+        "original coefficient constraints; standard numeric instances; Rational-only exact and ComplexDouble-only roots as source"
+      ]
+    },
+    {
+      "symbol": "HMath.Polynomial.polynomialRegression",
+      "c": [
+        "hmath_polynomial_polynomial_regression"
+      ],
+      "python": "hmath.polynomial.polynomial_regression",
+      "specializations": [
+        "original coefficient constraints; standard numeric instances; Rational-only exact and ComplexDouble-only roots as source"
+      ]
+    },
+    {
+      "symbol": "HMath.Polynomial.powerSeries",
+      "c": [
+        "hmath_polynomial_power_series"
+      ],
+      "python": "hmath.polynomial.power_series",
+      "specializations": [
+        "original coefficient constraints; standard numeric instances; Rational-only exact and ComplexDouble-only roots as source"
+      ]
+    },
+    {
+      "symbol": "HMath.Polynomial.rationalDenominator",
+      "c": [
+        "hmath_polynomial_rational_denominator"
+      ],
+      "python": "hmath.polynomial.rational_denominator",
+      "specializations": [
+        "original coefficient constraints; standard numeric instances; Rational-only exact and ComplexDouble-only roots as source"
+      ]
+    },
+    {
+      "symbol": "HMath.Polynomial.rationalFunction",
+      "c": [
+        "hmath_polynomial_rational_function"
+      ],
+      "python": "hmath.polynomial.rational_function",
+      "specializations": [
+        "original coefficient constraints; standard numeric instances; Rational-only exact and ComplexDouble-only roots as source"
+      ]
+    },
+    {
+      "symbol": "HMath.Polynomial.rationalNumerator",
+      "c": [
+        "hmath_polynomial_rational_numerator"
+      ],
+      "python": "hmath.polynomial.rational_numerator",
+      "specializations": [
+        "original coefficient constraints; standard numeric instances; Rational-only exact and ComplexDouble-only roots as source"
+      ]
+    },
+    {
+      "symbol": "HMath.Polynomial.rationalRoots",
+      "c": [
+        "hmath_polynomial_rational_roots"
+      ],
+      "python": "hmath.polynomial.rational_roots",
+      "specializations": [
+        "original coefficient constraints; standard numeric instances; Rational-only exact and ComplexDouble-only roots as source"
+      ]
+    },
+    {
+      "symbol": "HMath.Polynomial.reciprocalSeries",
+      "c": [
+        "hmath_polynomial_reciprocal_series"
+      ],
+      "python": "hmath.polynomial.reciprocal_series",
+      "specializations": [
+        "original coefficient constraints; standard numeric instances; Rational-only exact and ComplexDouble-only roots as source"
+      ]
+    },
+    {
+      "symbol": "HMath.Polynomial.scalePolynomial",
+      "c": [
+        "hmath_polynomial_scale_polynomial"
+      ],
+      "python": "hmath.polynomial.scale_polynomial",
+      "specializations": [
+        "original coefficient constraints; standard numeric instances; Rational-only exact and ComplexDouble-only roots as source"
+      ]
+    },
+    {
+      "symbol": "HMath.Polynomial.seriesCoefficients",
+      "c": [
+        "hmath_polynomial_series_coefficients"
+      ],
+      "python": "hmath.polynomial.series_coefficients",
+      "specializations": [
+        "original coefficient constraints; standard numeric instances; Rational-only exact and ComplexDouble-only roots as source"
+      ]
+    },
+    {
+      "symbol": "HMath.Polynomial.squareFreeFactors",
+      "c": [
+        "hmath_polynomial_square_free_factors"
+      ],
+      "python": "hmath.polynomial.square_free_factors",
+      "specializations": [
+        "original coefficient constraints; standard numeric instances; Rational-only exact and ComplexDouble-only roots as source"
+      ]
+    },
+    {
+      "symbol": "HMath.Polynomial.sturmSequence",
+      "c": [
+        "hmath_polynomial_sturm_sequence"
+      ],
+      "python": "hmath.polynomial.sturm_sequence",
+      "specializations": [
+        "original coefficient constraints; standard numeric instances; Rational-only exact and ComplexDouble-only roots as source"
+      ]
+    },
+    {
+      "symbol": "HMath.Polynomial.subtractPolynomial",
+      "c": [
+        "hmath_polynomial_subtract_polynomial"
+      ],
+      "python": "hmath.polynomial.subtract_polynomial",
+      "specializations": [
+        "original coefficient constraints; standard numeric instances; Rational-only exact and ComplexDouble-only roots as source"
+      ]
+    }
+  ]
+}

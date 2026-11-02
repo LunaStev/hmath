@@ -31,7 +31,10 @@ typedef enum hmath_status {
     HMATH_CANCELLED = 7,
     HMATH_BOUNDS_ERROR = 8,
     HMATH_BUSY = 9,
-    HMATH_UNSUPPORTED = 10
+    HMATH_UNSUPPORTED = 10,
+    HMATH_MATH_ERROR = 11,
+    HMATH_EXPRESSION_ERROR = 12,
+    HMATH_INTERCHANGE_ERROR = 13
 } hmath_status;
 typedef struct hmath_context hmath_context;
 typedef struct hmath_tensor hmath_tensor;
@@ -57,7 +60,8 @@ enum hmath_init_result { HMATH_INIT_OK = 0, HMATH_INIT_ALREADY_SHUT_DOWN = 1 };
 /* HMath owns its GHC RTS. Do not combine with independently initialized GHC
  * libraries. Initialization is idempotent; final shutdown is irreversible.
  * Checked and legacy calls reserve the RTS; shutdown returns BUSY while any
- * call is active, including a callback. Retry after joining workers. */
+ * call is active, including a callback, or Haskell-backed optimizer states
+ * remain live. Retry after joining workers and releasing those states. */
 HMATH_API int hmath_init(void);
 HMATH_API hmath_status hmath_runtime_shutdown(void);
 /* Legacy void form leaves the RTS running on BUSY; inspect last_error_code. */

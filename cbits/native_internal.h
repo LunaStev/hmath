@@ -20,6 +20,7 @@ struct hmath_tensor {
     hmath_storage *storage;
 };
 hmath_status hm_error(hmath_status code, const char *message);
+void hm_clear_math_error(void);
 hmath_status hm_enter(hmath_context *context);
 void hm_leave(void);
 int hm_cancelled(const hmath_context *context);

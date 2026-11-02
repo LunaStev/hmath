@@ -39,15 +39,39 @@ jobs:
       - name: Build self-contained manylinux wheel and source distribution
         run: |
           docker run --rm --volume "$PWD:/io" \
+            --env SOURCE_DATE_EPOCH="$(git show -s --format=%ct HEAD)" \
             quay.io/pypa/manylinux_2_28_x86_64@sha256:e0adf18521ad35192df733a6c62d35df7801957d24e0470238aacecfab2188a3 \
             bash /io/tools/build_python_wheel.sh
           python -m pip install twine
-          python -m twine check --strict dist/*
+          python -m twine check --strict dist/*.whl dist/hmath_python-*.tar.gz
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
           name: python-distributions
-          path: dist/*
+          path: |
+            dist/*.whl
+            dist/hmath_python-*.tar.gz
           if-no-files-found: error
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: native-distributions
+          path: dist/native/*
+          if-no-files-found: error
+
+  c-sdk:
+    needs: build
+    runs-on: ubuntu-24.04
+    container: python:3.12-slim-bookworm
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: actions/download-artifact@018cc2cf5baa6db3ef3c5f8a56943fffe632ef53 # v6
+        with:
+          name: native-distributions
+          path: /tmp/hmath-native
+      - name: Verify the relocated SDK without GHC
+        run: |
+          apt-get update
+          apt-get install -y --no-install-recommends build-essential pkg-config cmake
+          python tools/check_c_sdk.py /tmp/hmath-native/hmath-*-linux-x86_64.tar.gz
 
   test:
     needs: build
@@ -70,4 +94,10 @@ jobs:
           python "$GITHUB_WORKSPACE/tools/check_python_wheel.py"
           python -m pip install numpy cffi
           python "$GITHUB_WORKSPACE/tools/check_python_wheel.py" "$GITHUB_WORKSPACE/bindings/python/test_bindings.py"
+          python "$GITHUB_WORKSPACE/tools/check_python_wheel.py" "$GITHUB_WORKSPACE/test/native/expanded_bindings.py"
+          python "$GITHUB_WORKSPACE/tools/check_python_wheel.py" "$GITHUB_WORKSPACE/test/native/autodiff_bindings.py"
+          for contract in value polynomial optimization units expression linear stochastic numerical spectral foundation tensor; do
+            python "$GITHUB_WORKSPACE/tools/check_python_wheel.py" "$GITHUB_WORKSPACE/test/native/${contract}_bindings.py"
+          done
+          python "$GITHUB_WORKSPACE/tools/check_python_wheel.py" "$GITHUB_WORKSPACE/test/native/callback_errors.py"
           python "$GITHUB_WORKSPACE/tools/check_docs_examples.py"

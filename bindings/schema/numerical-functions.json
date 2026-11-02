@@ -1,0 +1,930 @@
+{
+  "schema": 1,
+  "functions": [
+    {
+      "module": "HMath.Calculus",
+      "name": "Estimate",
+      "signature": "a -> Double -> Int -> Estimate a"
+    },
+    {
+      "module": "HMath.Calculus",
+      "name": "estimateValue",
+      "signature": "Estimate a -> a"
+    },
+    {
+      "module": "HMath.Calculus",
+      "name": "estimateError",
+      "signature": "Estimate a -> Double"
+    },
+    {
+      "module": "HMath.Calculus",
+      "name": "evaluations",
+      "signature": "Estimate a -> Int"
+    },
+    {
+      "module": "HMath.Calculus",
+      "name": "Tolerance",
+      "signature": "Double -> Double -> Int -> Tolerance"
+    },
+    {
+      "module": "HMath.Calculus",
+      "name": "absoluteTolerance",
+      "signature": "Tolerance -> Double"
+    },
+    {
+      "module": "HMath.Calculus",
+      "name": "relativeTolerance",
+      "signature": "Tolerance -> Double"
+    },
+    {
+      "module": "HMath.Calculus",
+      "name": "maximumEvaluations",
+      "signature": "Tolerance -> Int"
+    },
+    {
+      "module": "HMath.Calculus",
+      "name": "defaultTolerance",
+      "signature": "Tolerance"
+    },
+    {
+      "module": "HMath.Calculus",
+      "name": "Forward",
+      "signature": "Difference"
+    },
+    {
+      "module": "HMath.Calculus",
+      "name": "Backward",
+      "signature": "Difference"
+    },
+    {
+      "module": "HMath.Calculus",
+      "name": "Central",
+      "signature": "Difference"
+    },
+    {
+      "module": "HMath.Calculus",
+      "name": "Trapezoidal",
+      "signature": "Quadrature"
+    },
+    {
+      "module": "HMath.Calculus",
+      "name": "Simpson",
+      "signature": "Quadrature"
+    },
+    {
+      "module": "HMath.Calculus",
+      "name": "ThreeEighths",
+      "signature": "Quadrature"
+    },
+    {
+      "module": "HMath.Calculus",
+      "name": "derivative",
+      "signature": "Difference -> Double -> (Double -> Double) -> Double -> Either MathError Double"
+    },
+    {
+      "module": "HMath.Calculus",
+      "name": "derivativeN",
+      "signature": "Int -> Double -> (Double -> Double) -> Double -> Either MathError Double"
+    },
+    {
+      "module": "HMath.Calculus",
+      "name": "complexDerivative",
+      "signature": "Double -> (Complex Double -> Complex Double) -> Double -> Either MathError Double"
+    },
+    {
+      "module": "HMath.Calculus",
+      "name": "richardson",
+      "signature": "Tolerance -> Double -> (Double -> Double) -> Double -> Either MathError (Estimate Double)"
+    },
+    {
+      "module": "HMath.Calculus",
+      "name": "ridders",
+      "signature": "Tolerance -> Double -> (Double -> Double) -> Double -> Either MathError (Estimate Double)"
+    },
+    {
+      "module": "HMath.Calculus",
+      "name": "limit",
+      "signature": "Difference -> Tolerance -> Double -> (Double -> Double) -> Double -> Either MathError (Estimate Double)"
+    },
+    {
+      "module": "HMath.Calculus",
+      "name": "partialDerivative",
+      "signature": "Int -> Double -> ([Double] -> Double) -> [Double] -> Either MathError Double"
+    },
+    {
+      "module": "HMath.Calculus",
+      "name": "gradient",
+      "signature": "Double -> ([Double] -> Double) -> [Double] -> Either MathError [Double]"
+    },
+    {
+      "module": "HMath.Calculus",
+      "name": "jacobian",
+      "signature": "Double -> ([Double] -> [Double]) -> [Double] -> Either MathError (Matrix Double)"
+    },
+    {
+      "module": "HMath.Calculus",
+      "name": "hessian",
+      "signature": "Double -> ([Double] -> Double) -> [Double] -> Either MathError (Matrix Double)"
+    },
+    {
+      "module": "HMath.Calculus",
+      "name": "directionalDerivative",
+      "signature": "Double -> ([Double] -> Double) -> [Double] -> [Double] -> Either MathError Double"
+    },
+    {
+      "module": "HMath.Calculus",
+      "name": "jvp",
+      "signature": "Double -> ([Double] -> [Double]) -> [Double] -> [Double] -> Either MathError [Double]"
+    },
+    {
+      "module": "HMath.Calculus",
+      "name": "vjp",
+      "signature": "Double -> ([Double] -> [Double]) -> [Double] -> [Double] -> Either MathError [Double]"
+    },
+    {
+      "module": "HMath.Calculus",
+      "name": "hvp",
+      "signature": "Double -> ([Double] -> Double) -> [Double] -> [Double] -> Either MathError [Double]"
+    },
+    {
+      "module": "HMath.Calculus",
+      "name": "divergence",
+      "signature": "Double -> ([Double] -> [Double]) -> [Double] -> Either MathError Double"
+    },
+    {
+      "module": "HMath.Calculus",
+      "name": "curl",
+      "signature": "Double -> ([Double] -> [Double]) -> [Double] -> Either MathError [Double]"
+    },
+    {
+      "module": "HMath.Calculus",
+      "name": "laplacian",
+      "signature": "Double -> ([Double] -> Double) -> [Double] -> Either MathError Double"
+    },
+    {
+      "module": "HMath.Calculus",
+      "name": "integrateComposite",
+      "signature": "Quadrature -> Int -> (Double -> Double) -> Double -> Double -> Either MathError Double"
+    },
+    {
+      "module": "HMath.Calculus",
+      "name": "romberg",
+      "signature": "Tolerance -> (Double -> Double) -> Double -> Double -> Either MathError (Estimate Double)"
+    },
+    {
+      "module": "HMath.Calculus",
+      "name": "gaussLegendre",
+      "signature": "Int -> (Double -> Double) -> Double -> Double -> Either MathError Double"
+    },
+    {
+      "module": "HMath.Calculus",
+      "name": "gaussHermite",
+      "signature": "Int -> (Double -> Double) -> Either MathError Double"
+    },
+    {
+      "module": "HMath.Calculus",
+      "name": "gaussLaguerre",
+      "signature": "Int -> (Double -> Double) -> Either MathError Double"
+    },
+    {
+      "module": "HMath.Calculus",
+      "name": "gaussChebyshev",
+      "signature": "Int -> (Double -> Double) -> Either MathError Double"
+    },
+    {
+      "module": "HMath.Calculus",
+      "name": "gaussKronrod",
+      "signature": "(Double -> Double) -> Double -> Double -> Either MathError (Estimate Double)"
+    },
+    {
+      "module": "HMath.Calculus",
+      "name": "adaptiveIntegrate",
+      "signature": "Tolerance -> (Double -> Double) -> Double -> Double -> Either MathError (Estimate Double)"
+    },
+    {
+      "module": "HMath.Calculus",
+      "name": "clenshawCurtis",
+      "signature": "Int -> (Double -> Double) -> Double -> Double -> Either MathError Double"
+    },
+    {
+      "module": "HMath.Calculus",
+      "name": "tanhSinh",
+      "signature": "Tolerance -> (Double -> Double) -> Double -> Double -> Either MathError (Estimate Double)"
+    },
+    {
+      "module": "HMath.Calculus",
+      "name": "integrateInfinite",
+      "signature": "Tolerance -> (Double -> Double) -> Double -> Double -> Either MathError (Estimate Double)"
+    },
+    {
+      "module": "HMath.Calculus",
+      "name": "integrateOscillatory",
+      "signature": "Bool -> Double -> Tolerance -> (Double -> Double) -> Double -> Double -> Either MathError (Estimate Double)"
+    },
+    {
+      "module": "HMath.Calculus",
+      "name": "integrateND",
+      "signature": "Int -> Int -> ([Double] -> Double) -> [(Double, Double)] -> Either MathError Double"
+    },
+    {
+      "module": "HMath.Calculus",
+      "name": "monteCarlo",
+      "signature": "Integer -> Int -> ([Double] -> Double) -> [(Double, Double)] -> Either MathError (Estimate Double)"
+    },
+    {
+      "module": "HMath.Calculus",
+      "name": "quasiMonteCarlo",
+      "signature": "Int -> ([Double] -> Double) -> [(Double, Double)] -> Either MathError (Estimate Double)"
+    },
+    {
+      "module": "HMath.Calculus",
+      "name": "cumulativeIntegral",
+      "signature": "[(Double, Double)] -> Either MathError [Double]"
+    },
+    {
+      "module": "HMath.Calculus",
+      "name": "pathIntegral",
+      "signature": "Tolerance -> (Double -> [Double]) -> (Double -> [Double]) -> ([Double] -> Double) -> Double -> Double -> Either MathError (Estimate Double)"
+    },
+    {
+      "module": "HMath.Calculus",
+      "name": "lineIntegral",
+      "signature": "Tolerance -> (Double -> [Double]) -> (Double -> [Double]) -> ([Double] -> [Double]) -> Double -> Double -> Either MathError (Estimate Double)"
+    },
+    {
+      "module": "HMath.Calculus",
+      "name": "surfaceIntegral",
+      "signature": "Int -> Int -> ([Double] -> [Double]) -> ([Double] -> [Double]) -> ([Double] -> [Double]) -> ([Double] -> Double) -> [(Double, Double)] -> Either MathError Double"
+    },
+    {
+      "module": "HMath.Calculus",
+      "name": "volumeIntegral",
+      "signature": "Int -> Int -> ([Double] -> Double) -> [(Double, Double)] -> Either MathError Double"
+    },
+    {
+      "module": "HMath.Root",
+      "name": "RootOptions",
+      "signature": "Int -> Int -> Double -> Double -> RootOptions"
+    },
+    {
+      "module": "HMath.Root",
+      "name": "rootMaxIterations",
+      "signature": "RootOptions -> Int"
+    },
+    {
+      "module": "HMath.Root",
+      "name": "rootMaxEvaluations",
+      "signature": "RootOptions -> Int"
+    },
+    {
+      "module": "HMath.Root",
+      "name": "rootTolerance",
+      "signature": "RootOptions -> Double"
+    },
+    {
+      "module": "HMath.Root",
+      "name": "rootStepTolerance",
+      "signature": "RootOptions -> Double"
+    },
+    {
+      "module": "HMath.Root",
+      "name": "defaultRootOptions",
+      "signature": "RootOptions"
+    },
+    {
+      "module": "HMath.Root",
+      "name": "RootResult",
+      "signature": "Double -> Double -> Maybe Double -> Int -> Int -> RootResult"
+    },
+    {
+      "module": "HMath.Root",
+      "name": "rootValue",
+      "signature": "RootResult -> Double"
+    },
+    {
+      "module": "HMath.Root",
+      "name": "rootResidual",
+      "signature": "RootResult -> Double"
+    },
+    {
+      "module": "HMath.Root",
+      "name": "rootErrorBound",
+      "signature": "RootResult -> Maybe Double"
+    },
+    {
+      "module": "HMath.Root",
+      "name": "rootIterations",
+      "signature": "RootResult -> Int"
+    },
+    {
+      "module": "HMath.Root",
+      "name": "rootEvaluations",
+      "signature": "RootResult -> Int"
+    },
+    {
+      "module": "HMath.Root",
+      "name": "Bisection",
+      "signature": "BracketMethod"
+    },
+    {
+      "module": "HMath.Root",
+      "name": "RegulaFalsi",
+      "signature": "BracketMethod"
+    },
+    {
+      "module": "HMath.Root",
+      "name": "Illinois",
+      "signature": "BracketMethod"
+    },
+    {
+      "module": "HMath.Root",
+      "name": "Brent",
+      "signature": "BracketMethod"
+    },
+    {
+      "module": "HMath.Root",
+      "name": "Ridder",
+      "signature": "BracketMethod"
+    },
+    {
+      "module": "HMath.Root",
+      "name": "Newton",
+      "signature": "DerivativeMethod"
+    },
+    {
+      "module": "HMath.Root",
+      "name": "Halley",
+      "signature": "DerivativeMethod"
+    },
+    {
+      "module": "HMath.Root",
+      "name": "Householder3",
+      "signature": "DerivativeMethod"
+    },
+    {
+      "module": "HMath.Root",
+      "name": "Picard",
+      "signature": "FixedPointMethod"
+    },
+    {
+      "module": "HMath.Root",
+      "name": "Aitken",
+      "signature": "FixedPointMethod"
+    },
+    {
+      "module": "HMath.Root",
+      "name": "SteffensenFixed",
+      "signature": "FixedPointMethod"
+    },
+    {
+      "module": "HMath.Root",
+      "name": "MultivariateNewton",
+      "signature": "SystemMethod"
+    },
+    {
+      "module": "HMath.Root",
+      "name": "NewtonTrustRegion",
+      "signature": "Double -> SystemMethod"
+    },
+    {
+      "module": "HMath.Root",
+      "name": "Broyden",
+      "signature": "SystemMethod"
+    },
+    {
+      "module": "HMath.Root",
+      "name": "SystemRootResult",
+      "signature": "[Double] -> Double -> Int -> Int -> SystemRootResult"
+    },
+    {
+      "module": "HMath.Root",
+      "name": "systemRoot",
+      "signature": "SystemRootResult -> [Double]"
+    },
+    {
+      "module": "HMath.Root",
+      "name": "systemResidual",
+      "signature": "SystemRootResult -> Double"
+    },
+    {
+      "module": "HMath.Root",
+      "name": "systemIterations",
+      "signature": "SystemRootResult -> Int"
+    },
+    {
+      "module": "HMath.Root",
+      "name": "systemEvaluations",
+      "signature": "SystemRootResult -> Int"
+    },
+    {
+      "module": "HMath.Root",
+      "name": "bracket",
+      "signature": "(Double -> Double) -> Double -> Double -> Either MathError Bracket"
+    },
+    {
+      "module": "HMath.Root",
+      "name": "solveBracket",
+      "signature": "BracketMethod -> RootOptions -> (Double -> Double) -> Bracket -> Either MathError RootResult"
+    },
+    {
+      "module": "HMath.Root",
+      "name": "bracketScan",
+      "signature": "RootOptions -> (Double -> Double) -> Double -> Double -> Int -> Either MathError [Bracket]"
+    },
+    {
+      "module": "HMath.Root",
+      "name": "isolateIntervals",
+      "signature": "RootOptions -> (Double -> Double) -> Double -> Double -> Int -> Either MathError [RootResult]"
+    },
+    {
+      "module": "HMath.Root",
+      "name": "solveDerivative",
+      "signature": "DerivativeMethod -> RootOptions -> (Double -> Double) -> [Double -> Double] -> Double -> Either MathError RootResult"
+    },
+    {
+      "module": "HMath.Root",
+      "name": "secant",
+      "signature": "RootOptions -> (Double -> Double) -> Double -> Double -> Either MathError RootResult"
+    },
+    {
+      "module": "HMath.Root",
+      "name": "steffensen",
+      "signature": "RootOptions -> (Double -> Double) -> Double -> Either MathError RootResult"
+    },
+    {
+      "module": "HMath.Root",
+      "name": "fixedPoint",
+      "signature": "FixedPointMethod -> RootOptions -> (Double -> Double) -> Double -> Either MathError RootResult"
+    },
+    {
+      "module": "HMath.Root",
+      "name": "anderson",
+      "signature": "Int -> Double -> RootOptions -> ([Double] -> [Double]) -> [Double] -> Either MathError SystemRootResult"
+    },
+    {
+      "module": "HMath.Root",
+      "name": "solveSystem",
+      "signature": "SystemMethod -> RootOptions -> ([Double] -> [Double]) -> ([Double] -> [[Double]]) -> [Double] -> Either MathError SystemRootResult"
+    },
+    {
+      "module": "HMath.Root",
+      "name": "polynomialRoots",
+      "signature": "RootOptions -> P.Polynomial (Complex Double) -> Either MathError [Complex Double]"
+    },
+    {
+      "module": "HMath.Root",
+      "name": "realPolynomialRoots",
+      "signature": "Int -> Rational -> P.Polynomial Rational -> Either MathError [(Rational, Rational, Int)]"
+    },
+    {
+      "module": "HMath.ODE",
+      "name": "Euler",
+      "signature": "Method"
+    },
+    {
+      "module": "HMath.ODE",
+      "name": "Heun",
+      "signature": "Method"
+    },
+    {
+      "module": "HMath.ODE",
+      "name": "Midpoint",
+      "signature": "Method"
+    },
+    {
+      "module": "HMath.ODE",
+      "name": "RK2",
+      "signature": "Method"
+    },
+    {
+      "module": "HMath.ODE",
+      "name": "RK4",
+      "signature": "Method"
+    },
+    {
+      "module": "HMath.ODE",
+      "name": "RK23",
+      "signature": "Method"
+    },
+    {
+      "module": "HMath.ODE",
+      "name": "RK45",
+      "signature": "Method"
+    },
+    {
+      "module": "HMath.ODE",
+      "name": "DormandPrince",
+      "signature": "Method"
+    },
+    {
+      "module": "HMath.ODE",
+      "name": "DOP853",
+      "signature": "Method"
+    },
+    {
+      "module": "HMath.ODE",
+      "name": "AdamsBashforth",
+      "signature": "Method"
+    },
+    {
+      "module": "HMath.ODE",
+      "name": "AdamsMoulton",
+      "signature": "Method"
+    },
+    {
+      "module": "HMath.ODE",
+      "name": "PredictorCorrector",
+      "signature": "Method"
+    },
+    {
+      "module": "HMath.ODE",
+      "name": "BackwardEuler",
+      "signature": "Method"
+    },
+    {
+      "module": "HMath.ODE",
+      "name": "BDF",
+      "signature": "Method"
+    },
+    {
+      "module": "HMath.ODE",
+      "name": "Radau",
+      "signature": "Method"
+    },
+    {
+      "module": "HMath.ODE",
+      "name": "Rosenbrock",
+      "signature": "Method"
+    },
+    {
+      "module": "HMath.ODE",
+      "name": "ODEOptions",
+      "signature": "Double -> Double -> Double -> Double -> Double -> Int -> Int -> ODEOptions"
+    },
+    {
+      "module": "HMath.ODE",
+      "name": "odeAbsoluteTolerance",
+      "signature": "ODEOptions -> Double"
+    },
+    {
+      "module": "HMath.ODE",
+      "name": "odeRelativeTolerance",
+      "signature": "ODEOptions -> Double"
+    },
+    {
+      "module": "HMath.ODE",
+      "name": "initialStep",
+      "signature": "ODEOptions -> Double"
+    },
+    {
+      "module": "HMath.ODE",
+      "name": "minimumStep",
+      "signature": "ODEOptions -> Double"
+    },
+    {
+      "module": "HMath.ODE",
+      "name": "maximumStep",
+      "signature": "ODEOptions -> Double"
+    },
+    {
+      "module": "HMath.ODE",
+      "name": "maximumSteps",
+      "signature": "ODEOptions -> Int"
+    },
+    {
+      "module": "HMath.ODE",
+      "name": "newtonIterations",
+      "signature": "ODEOptions -> Int"
+    },
+    {
+      "module": "HMath.ODE",
+      "name": "defaultODEOptions",
+      "signature": "ODEOptions"
+    },
+    {
+      "module": "HMath.ODE",
+      "name": "Trajectory",
+      "signature": "[Double] -> [[Double]] -> [[Double]] -> Trajectory"
+    },
+    {
+      "module": "HMath.ODE",
+      "name": "trajectoryTimes",
+      "signature": "Trajectory -> [Double]"
+    },
+    {
+      "module": "HMath.ODE",
+      "name": "trajectoryStates",
+      "signature": "Trajectory -> [[Double]]"
+    },
+    {
+      "module": "HMath.ODE",
+      "name": "trajectoryDerivatives",
+      "signature": "Trajectory -> [[Double]]"
+    },
+    {
+      "module": "HMath.ODE",
+      "name": "solveIVP",
+      "signature": "Method -> ODEOptions -> Int -> ODE -> Double -> Double -> [Double] -> Either MathError Trajectory"
+    },
+    {
+      "module": "HMath.ODE",
+      "name": "solveAdaptive",
+      "signature": "Method -> ODEOptions -> ODE -> Double -> Double -> [Double] -> Either MathError Trajectory"
+    },
+    {
+      "module": "HMath.ODE",
+      "name": "interpolateTrajectory",
+      "signature": "Trajectory -> Double -> Either MathError [Double]"
+    },
+    {
+      "module": "HMath.ODE",
+      "name": "AnyDirection",
+      "signature": "EventDirection"
+    },
+    {
+      "module": "HMath.ODE",
+      "name": "Rising",
+      "signature": "EventDirection"
+    },
+    {
+      "module": "HMath.ODE",
+      "name": "Falling",
+      "signature": "EventDirection"
+    },
+    {
+      "module": "HMath.ODE",
+      "name": "Event",
+      "signature": "Double -> [Double] -> Event"
+    },
+    {
+      "module": "HMath.ODE",
+      "name": "eventTime",
+      "signature": "Event -> Double"
+    },
+    {
+      "module": "HMath.ODE",
+      "name": "eventState",
+      "signature": "Event -> [Double]"
+    },
+    {
+      "module": "HMath.ODE",
+      "name": "locateEvents",
+      "signature": "EventDirection -> Double -> (Double -> [Double] -> Double) -> Trajectory -> Either MathError [Event]"
+    },
+    {
+      "module": "HMath.ODE",
+      "name": "solveBoundary",
+      "signature": "Method -> ODEOptions -> Int -> ODE -> ([Double] -> [Double] -> [Double]) -> Double -> Double -> [Double] -> Either MathError Trajectory"
+    },
+    {
+      "module": "HMath.ODE",
+      "name": "solveDAE",
+      "signature": "ODEOptions -> Int -> (Double -> [Double] -> [Double] -> [Double]) -> Double -> Double -> [Double] -> [Double] -> Either MathError Trajectory"
+    },
+    {
+      "module": "HMath.ODE",
+      "name": "SymplecticEuler",
+      "signature": "HamiltonianMethod"
+    },
+    {
+      "module": "HMath.ODE",
+      "name": "Verlet",
+      "signature": "HamiltonianMethod"
+    },
+    {
+      "module": "HMath.ODE",
+      "name": "Leapfrog",
+      "signature": "HamiltonianMethod"
+    },
+    {
+      "module": "HMath.ODE",
+      "name": "solveHamiltonian",
+      "signature": "HamiltonianMethod -> Int -> ([Double] -> [Double]) -> ([Double] -> [Double]) -> Double -> Double -> [Double] -> [Double] -> Either MathError Trajectory"
+    },
+    {
+      "module": "HMath.ODE",
+      "name": "solveNystrom",
+      "signature": "Int -> (Double -> [Double] -> [Double]) -> Double -> Double -> [Double] -> [Double] -> Either MathError Trajectory"
+    },
+    {
+      "module": "HMath.ODE",
+      "name": "sensitivities",
+      "signature": "Method -> ODEOptions -> Int -> Double -> ([Double] -> ODE) -> [Double] -> Double -> Double -> [Double] -> Either MathError (Matrix Double)"
+    },
+    {
+      "module": "HMath.ODE",
+      "name": "equilibrium",
+      "signature": "ODEOptions -> ([Double] -> [Double]) -> [Double] -> Either MathError [Double]"
+    },
+    {
+      "module": "HMath.ODE",
+      "name": "phaseTrajectories",
+      "signature": "Method -> ODEOptions -> Int -> ([Double] -> [Double]) -> Double -> Double -> [[Double]] -> Either MathError [Trajectory]"
+    },
+    {
+      "module": "HMath.ODE",
+      "name": "lyapunovExponents",
+      "signature": "ODEOptions -> Int -> Double -> ODE -> Double -> Double -> [Double] -> Either MathError [Double]"
+    },
+    {
+      "module": "HMath.PDE",
+      "name": "Dirichlet",
+      "signature": "Double -> Boundary"
+    },
+    {
+      "module": "HMath.PDE",
+      "name": "Neumann",
+      "signature": "Double -> Boundary"
+    },
+    {
+      "module": "HMath.PDE",
+      "name": "Robin",
+      "signature": "Double -> Double -> Double -> Boundary"
+    },
+    {
+      "module": "HMath.PDE",
+      "name": "Periodic",
+      "signature": "Boundary"
+    },
+    {
+      "module": "HMath.PDE",
+      "name": "FiniteDifference",
+      "signature": "Discretization"
+    },
+    {
+      "module": "HMath.PDE",
+      "name": "FiniteVolume",
+      "signature": "Discretization"
+    },
+    {
+      "module": "HMath.PDE",
+      "name": "FiniteElement",
+      "signature": "Discretization"
+    },
+    {
+      "module": "HMath.PDE",
+      "name": "PDEResult",
+      "signature": "[Double] -> Double -> Double -> PDEResult"
+    },
+    {
+      "module": "HMath.PDE",
+      "name": "pdeValues",
+      "signature": "PDEResult -> [Double]"
+    },
+    {
+      "module": "HMath.PDE",
+      "name": "pdeResidual",
+      "signature": "PDEResult -> Double"
+    },
+    {
+      "module": "HMath.PDE",
+      "name": "pdeErrorEstimate",
+      "signature": "PDEResult -> Double"
+    },
+    {
+      "module": "HMath.PDE",
+      "name": "grid",
+      "signature": "[Int] -> [(Double, Double)] -> [Bool] -> Either MathError Grid"
+    },
+    {
+      "module": "HMath.PDE",
+      "name": "gridShape",
+      "signature": "Grid -> [Int]"
+    },
+    {
+      "module": "HMath.PDE",
+      "name": "gridSpacing",
+      "signature": "Grid -> [Double]"
+    },
+    {
+      "module": "HMath.PDE",
+      "name": "flattenIndex",
+      "signature": "Grid -> [Int] -> Either MathError Int"
+    },
+    {
+      "module": "HMath.PDE",
+      "name": "unflattenIndex",
+      "signature": "Grid -> Int -> Either MathError [Int]"
+    },
+    {
+      "module": "HMath.PDE",
+      "name": "gridCoordinates",
+      "signature": "Grid -> [[Double]]"
+    },
+    {
+      "module": "HMath.PDE",
+      "name": "assemblePDE",
+      "signature": "Discretization -> Grid -> [(Boundary, Boundary)] -> [Double] -> Double -> Either MathError PDEOperator"
+    },
+    {
+      "module": "HMath.PDE",
+      "name": "pdeStiffness",
+      "signature": "PDEOperator -> S.Sparse Double"
+    },
+    {
+      "module": "HMath.PDE",
+      "name": "pdeMass",
+      "signature": "PDEOperator -> S.Sparse Double"
+    },
+    {
+      "module": "HMath.PDE",
+      "name": "pdeBoundaryLoad",
+      "signature": "PDEOperator -> [Double]"
+    },
+    {
+      "module": "HMath.PDE",
+      "name": "solveElliptic",
+      "signature": "PDEOperator -> [Double] -> Either MathError PDEResult"
+    },
+    {
+      "module": "HMath.PDE",
+      "name": "poisson",
+      "signature": "Discretization -> Grid -> [(Boundary, Boundary)] -> [Double] -> Either MathError PDEResult"
+    },
+    {
+      "module": "HMath.PDE",
+      "name": "laplace",
+      "signature": "Discretization -> Grid -> [(Boundary, Boundary)] -> Either MathError PDEResult"
+    },
+    {
+      "module": "HMath.PDE",
+      "name": "helmholtz",
+      "signature": "Discretization -> Grid -> [(Boundary, Boundary)] -> Double -> [Double] -> Either MathError PDEResult"
+    },
+    {
+      "module": "HMath.PDE",
+      "name": "spatialGradient",
+      "signature": "Grid -> [Double] -> Either MathError [[Double]]"
+    },
+    {
+      "module": "HMath.PDE",
+      "name": "laplacianStencil",
+      "signature": "Grid -> [(Boundary, Boundary)] -> [Double] -> Either MathError [Double]"
+    },
+    {
+      "module": "HMath.PDE",
+      "name": "spectralDerivative",
+      "signature": "Grid -> Int -> Int -> [Double] -> Either MathError [Double]"
+    },
+    {
+      "module": "HMath.PDE",
+      "name": "spectralLaplacian",
+      "signature": "Grid -> [Double] -> Either MathError [Double]"
+    },
+    {
+      "module": "HMath.PDE",
+      "name": "spectralPoisson",
+      "signature": "Grid -> Double -> [Double] -> Either MathError PDEResult"
+    },
+    {
+      "module": "HMath.PDE",
+      "name": "pseudoSpectralDiffusion",
+      "signature": "Grid -> [Double] -> [Double] -> Either MathError [Double]"
+    },
+    {
+      "module": "HMath.PDE",
+      "name": "methodOfLines",
+      "signature": "O.Method -> PDEOperator -> (Double -> [Double]) -> [Double] -> [Double] -> Either MathError O.Trajectory"
+    },
+    {
+      "module": "HMath.PDE",
+      "name": "heat",
+      "signature": "Grid -> [(Boundary, Boundary)] -> Double -> [Double] -> [Double] -> Either MathError O.Trajectory"
+    },
+    {
+      "module": "HMath.PDE",
+      "name": "diffusion",
+      "signature": "Discretization -> Grid -> [(Boundary, Boundary)] -> [Double] -> [Double] -> [Double] -> Either MathError O.Trajectory"
+    },
+    {
+      "module": "HMath.PDE",
+      "name": "wave",
+      "signature": "Grid -> Double -> [Double] -> [Double] -> [Double] -> Either MathError [[Double]]"
+    },
+    {
+      "module": "HMath.PDE",
+      "name": "advection",
+      "signature": "Grid -> [Double] -> [Double] -> [Double] -> Either MathError [[Double]]"
+    },
+    {
+      "module": "HMath.PDE",
+      "name": "advectionDiffusion",
+      "signature": "Grid -> [Double] -> Double -> [Double] -> [Double] -> Either MathError [[Double]]"
+    },
+    {
+      "module": "HMath.PDE",
+      "name": "stabilityLimit",
+      "signature": "Grid -> Double -> [Double] -> Either MathError Double"
+    },
+    {
+      "module": "HMath.PDE",
+      "name": "cflNumber",
+      "signature": "Grid -> Double -> [Double] -> Double -> Either MathError Double"
+    },
+    {
+      "module": "HMath.PDE",
+      "name": "manufacturedError",
+      "signature": "Grid -> ([Double] -> Double) -> [Double] -> Either MathError Double"
+    }
+  ]
+}

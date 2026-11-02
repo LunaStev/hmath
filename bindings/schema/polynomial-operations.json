@@ -1,0 +1,410 @@
+[
+  {
+    "name": "polynomial",
+    "arguments": [
+      "prototype",
+      "coefficients"
+    ],
+    "opcode": 0
+  },
+  {
+    "name": "coefficients",
+    "arguments": [
+      "polynomial"
+    ],
+    "opcode": 1
+  },
+  {
+    "name": "polynomialDegree",
+    "arguments": [
+      "polynomial"
+    ],
+    "opcode": 2
+  },
+  {
+    "name": "evaluatePolynomial",
+    "arguments": [
+      "polynomial",
+      "x"
+    ],
+    "opcode": 3
+  },
+  {
+    "name": "addPolynomial",
+    "arguments": [
+      "left",
+      "right"
+    ],
+    "opcode": 4
+  },
+  {
+    "name": "subtractPolynomial",
+    "arguments": [
+      "left",
+      "right"
+    ],
+    "opcode": 5
+  },
+  {
+    "name": "scalePolynomial",
+    "arguments": [
+      "scalar",
+      "polynomial"
+    ],
+    "opcode": 6
+  },
+  {
+    "name": "multiplyPolynomial",
+    "arguments": [
+      "left",
+      "right"
+    ],
+    "opcode": 7
+  },
+  {
+    "name": "composePolynomial",
+    "arguments": [
+      "outer",
+      "inner"
+    ],
+    "opcode": 8
+  },
+  {
+    "name": "dividePolynomial",
+    "arguments": [
+      "numerator",
+      "denominator"
+    ],
+    "opcode": 9
+  },
+  {
+    "name": "monicPolynomial",
+    "arguments": [
+      "polynomial"
+    ],
+    "opcode": 10
+  },
+  {
+    "name": "gcdPolynomial",
+    "arguments": [
+      "left",
+      "right"
+    ],
+    "opcode": 11
+  },
+  {
+    "name": "differentiatePolynomial",
+    "arguments": [
+      "polynomial"
+    ],
+    "opcode": 12
+  },
+  {
+    "name": "integratePolynomial",
+    "arguments": [
+      "constant",
+      "polynomial"
+    ],
+    "opcode": 13
+  },
+  {
+    "name": "squareFreeFactors",
+    "arguments": [
+      "polynomial"
+    ],
+    "opcode": 14
+  },
+  {
+    "name": "rationalRoots",
+    "arguments": [
+      "budget",
+      "polynomial"
+    ],
+    "opcode": 15
+  },
+  {
+    "name": "factorRationalPolynomial",
+    "arguments": [
+      "budget",
+      "polynomial"
+    ],
+    "opcode": 16
+  },
+  {
+    "name": "sturmSequence",
+    "arguments": [
+      "polynomial"
+    ],
+    "opcode": 17
+  },
+  {
+    "name": "countRealRoots",
+    "arguments": [
+      "polynomial",
+      "left",
+      "right"
+    ],
+    "opcode": 18
+  },
+  {
+    "name": "isolateRealRoots",
+    "arguments": [
+      "depth",
+      "width",
+      "polynomial"
+    ],
+    "opcode": 19
+  },
+  {
+    "name": "durandKerner",
+    "arguments": [
+      "iterations",
+      "tolerance",
+      "polynomial"
+    ],
+    "opcode": 20
+  },
+  {
+    "name": "aberthEhrlich",
+    "arguments": [
+      "iterations",
+      "tolerance",
+      "polynomial"
+    ],
+    "opcode": 21
+  },
+  {
+    "name": "companionMatrix",
+    "arguments": [
+      "polynomial"
+    ],
+    "opcode": 22
+  },
+  {
+    "name": "lagrangeInterpolation",
+    "arguments": [
+      "prototype",
+      "points"
+    ],
+    "opcode": 23
+  },
+  {
+    "name": "newtonInterpolation",
+    "arguments": [
+      "prototype",
+      "points"
+    ],
+    "opcode": 24
+  },
+  {
+    "name": "chebyshevPolynomial",
+    "arguments": [
+      "prototype",
+      "degree"
+    ],
+    "opcode": 25
+  },
+  {
+    "name": "legendrePolynomial",
+    "arguments": [
+      "prototype",
+      "degree"
+    ],
+    "opcode": 26
+  },
+  {
+    "name": "hermitePolynomial",
+    "arguments": [
+      "prototype",
+      "degree"
+    ],
+    "opcode": 27
+  },
+  {
+    "name": "laguerrePolynomial",
+    "arguments": [
+      "prototype",
+      "degree"
+    ],
+    "opcode": 28
+  },
+  {
+    "name": "bernsteinPolynomial",
+    "arguments": [
+      "prototype",
+      "degree",
+      "index"
+    ],
+    "opcode": 29
+  },
+  {
+    "name": "polynomialRegression",
+    "arguments": [
+      "prototype",
+      "degree",
+      "points"
+    ],
+    "opcode": 30
+  },
+  {
+    "name": "powerSeries",
+    "arguments": [
+      "prototype",
+      "coefficients"
+    ],
+    "opcode": 31
+  },
+  {
+    "name": "seriesCoefficients",
+    "arguments": [
+      "series"
+    ],
+    "opcode": 32
+  },
+  {
+    "name": "addSeries",
+    "arguments": [
+      "left",
+      "right"
+    ],
+    "opcode": 33
+  },
+  {
+    "name": "multiplySeries",
+    "arguments": [
+      "left",
+      "right"
+    ],
+    "opcode": 34
+  },
+  {
+    "name": "reciprocalSeries",
+    "arguments": [
+      "series"
+    ],
+    "opcode": 35
+  },
+  {
+    "name": "divideSeries",
+    "arguments": [
+      "numerator",
+      "denominator"
+    ],
+    "opcode": 36
+  },
+  {
+    "name": "composeSeries",
+    "arguments": [
+      "outer",
+      "inner"
+    ],
+    "opcode": 37
+  },
+  {
+    "name": "differentiateSeries",
+    "arguments": [
+      "series"
+    ],
+    "opcode": 38
+  },
+  {
+    "name": "integrateSeries",
+    "arguments": [
+      "constant",
+      "series"
+    ],
+    "opcode": 39
+  },
+  {
+    "name": "expSeries",
+    "arguments": [
+      "series"
+    ],
+    "opcode": 40
+  },
+  {
+    "name": "logSeries",
+    "arguments": [
+      "series"
+    ],
+    "opcode": 41
+  },
+  {
+    "name": "rationalFunction",
+    "arguments": [
+      "numerator",
+      "denominator"
+    ],
+    "opcode": 42
+  },
+  {
+    "name": "rationalNumerator",
+    "arguments": [
+      "function"
+    ],
+    "opcode": 43
+  },
+  {
+    "name": "rationalDenominator",
+    "arguments": [
+      "function"
+    ],
+    "opcode": 44
+  },
+  {
+    "name": "evaluateRationalFunction",
+    "arguments": [
+      "function",
+      "x"
+    ],
+    "opcode": 45
+  },
+  {
+    "name": "addRationalFunction",
+    "arguments": [
+      "left",
+      "right"
+    ],
+    "opcode": 46
+  },
+  {
+    "name": "multiplyRationalFunction",
+    "arguments": [
+      "left",
+      "right"
+    ],
+    "opcode": 47
+  },
+  {
+    "name": "partialFractions",
+    "arguments": [
+      "budget",
+      "function"
+    ],
+    "opcode": 48
+  },
+  {
+    "name": "polynomialEqual",
+    "arguments": [
+      "left",
+      "right"
+    ],
+    "opcode": 49
+  },
+  {
+    "name": "seriesEqual",
+    "arguments": [
+      "left",
+      "right"
+    ],
+    "opcode": 50
+  },
+  {
+    "name": "rationalFunctionEqual",
+    "arguments": [
+      "left",
+      "right"
+    ],
+    "opcode": 51
+  }
+]

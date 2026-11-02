@@ -54,7 +54,7 @@ hmath_status hmath_runtime_shutdown(void) {
     lock();
     if (active_calls) {
         unlock();
-        return hm_error(HMATH_BUSY, "numerical calls are active; join workers before shutdown");
+        return hm_error(HMATH_BUSY, "calls or Haskell-backed states remain; join workers and release states");
     }
     if (runtime_state == RUNNING) {
         hs_exit();

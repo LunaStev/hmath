@@ -1,0 +1,97 @@
+# SPDX-License-Identifier: MPL-2.0
+name: Prepare HMath release
+
+on:
+  workflow_dispatch:
+  workflow_call:
+    outputs:
+      version:
+        description: Version checked against all language packages
+        value: ${{ jobs.preflight.outputs.version }}
+
+permissions:
+  contents: read
+
+jobs:
+  preflight:
+    runs-on: ubuntu-24.04
+    outputs:
+      version: ${{ steps.version.outputs.version }}
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        with:
+          python-version: '3.12'
+      - uses: ./.github/actions/setup-haskell
+        with:
+          ghc-version: '9.10.3'
+      - uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
+        with:
+          path: build-docs/cabal
+          key: docs-haddock-${{ hashFiles('hmath.cabal', 'cabal.project', 'src/**', 'cbits/**') }}
+          restore-keys: docs-haddock-
+      - name: Check every public API before preparing a complete release
+        run: |
+          python -m pip install -r requirements-docs.txt
+          python tools/generate_numeric_bindings.py --check
+          python tools/generate_matrix_bindings.py --check
+          python tools/build_docs.py
+          interface=$(python - <<'PY'
+          import json, pathlib
+          plan = json.loads(pathlib.Path('build-docs/cabal/cache/plan.json').read_text())
+          library = next(u for u in plan['install-plan'] if u.get('pkg-name') == 'hmath' and u.get('component-name') == 'lib')
+          print(pathlib.Path(library['dist-dir']) / 'doc/html/hmath/hmath.haddock')
+          PY
+          )
+          python tools/check_binding_coverage.py --interface "$interface" --require-complete
+      - name: Read the single project version
+        id: version
+        run: echo "version=$(python tools/release_version.py)" >> "$GITHUB_OUTPUT"
+  validate:
+    needs: preflight
+    uses: ./.github/workflows/validate.yml
+    with:
+      full-matrix: true
+  distributions:
+    needs: preflight
+    uses: ./.github/workflows/python-wheels.yml
+  haskell-source:
+    needs: distributions
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: ./.github/actions/setup-haskell
+        with:
+          ghc-version: '9.10.3'
+      - uses: actions/download-artifact@018cc2cf5baa6db3ef3c5f8a56943fffe632ef53 # v6
+        with:
+          name: native-distributions
+          path: source-artifacts
+      - name: Build the actual Cabal source archive
+        run: |
+          version=$(python tools/release_version.py)
+          mkdir "$RUNNER_TEMP/hmath-source"
+          tar -xzf "source-artifacts/hmath-$version.tar.gz" -C "$RUNNER_TEMP/hmath-source"
+          cd "$RUNNER_TEMP/hmath-source/hmath-$version"
+          cabal check
+          cabal build lib:hmath flib:hmath --offline -O0
+  ready:
+    needs: [preflight, validate, distributions, haskell-source]
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        with:
+          python-version: '3.12'
+      - uses: actions/download-artifact@018cc2cf5baa6db3ef3c5f8a56943fffe632ef53 # v6
+        with:
+          pattern: '*-distributions'
+          path: candidate
+          merge-multiple: true
+      - name: Record checksums and source identity
+        run: python tools/release_manifest.py candidate --commit "$GITHUB_SHA" --run-id "$GITHUB_RUN_ID"
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: release-candidate
+          path: candidate/*
+          if-no-files-found: error

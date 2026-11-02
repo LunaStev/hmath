@@ -1,0 +1,809 @@
+{
+  "schema": 1,
+  "bindings": [
+    {
+      "symbol": "HMath.Units.Dimension",
+      "c": [
+        "hmath_value",
+        "hmath_units_value_dimension"
+      ],
+      "python": "hmath.units.Dimension",
+      "specializations": [
+        "immutable exact Units Value kind68"
+      ]
+    },
+    {
+      "symbol": "HMath.Units.Quantity",
+      "c": [
+        "hmath_value",
+        "hmath_units_value_quantity"
+      ],
+      "python": "hmath.units.Quantity",
+      "specializations": [
+        "immutable exact Units Value kind70"
+      ]
+    },
+    {
+      "symbol": "HMath.Units.SIPrefix",
+      "c": [
+        "hmath_value",
+        "hmath_units_value_si_prefix"
+      ],
+      "python": "hmath.units.SIPrefix",
+      "specializations": [
+        "immutable exact Units Value kind71"
+      ]
+    },
+    {
+      "symbol": "HMath.Units.Unit",
+      "c": [
+        "hmath_value",
+        "hmath_units_value_unit"
+      ],
+      "python": "hmath.units.Unit",
+      "specializations": [
+        "immutable exact Units Value kind69"
+      ]
+    },
+    {
+      "symbol": "HMath.Units.addQuantity",
+      "c": [
+        "hmath_units_value_add_quantity"
+      ],
+      "python": "hmath.units.add_quantity",
+      "specializations": [
+        "original concrete Integer/Rational/Int/String/record types; exact conversion"
+      ]
+    },
+    {
+      "symbol": "HMath.Units.angleDimension",
+      "c": [
+        "hmath_units_value_angle_dimension"
+      ],
+      "python": "hmath.units.angle_dimension",
+      "specializations": [
+        "original concrete Integer/Rational/Int/String/record types; exact conversion"
+      ]
+    },
+    {
+      "symbol": "HMath.Units.atmosphere",
+      "c": [
+        "hmath_units_value_atmosphere"
+      ],
+      "python": "hmath.units.atmosphere",
+      "specializations": [
+        "original concrete Integer/Rational/Int/String/record types; exact conversion"
+      ]
+    },
+    {
+      "symbol": "HMath.Units.bar",
+      "c": [
+        "hmath_units_value_bar"
+      ],
+      "python": "hmath.units.bar",
+      "specializations": [
+        "original concrete Integer/Rational/Int/String/record types; exact conversion"
+      ]
+    },
+    {
+      "symbol": "HMath.Units.bit",
+      "c": [
+        "hmath_units_value_bit"
+      ],
+      "python": "hmath.units.bit",
+      "specializations": [
+        "original concrete Integer/Rational/Int/String/record types; exact conversion"
+      ]
+    },
+    {
+      "symbol": "HMath.Units.byte",
+      "c": [
+        "hmath_units_value_byte"
+      ],
+      "python": "hmath.units.byte",
+      "specializations": [
+        "original concrete Integer/Rational/Int/String/record types; exact conversion"
+      ]
+    },
+    {
+      "symbol": "HMath.Units.celsius",
+      "c": [
+        "hmath_units_value_celsius"
+      ],
+      "python": "hmath.units.celsius",
+      "specializations": [
+        "original concrete Integer/Rational/Int/String/record types; exact conversion"
+      ]
+    },
+    {
+      "symbol": "HMath.Units.centimetre",
+      "c": [
+        "hmath_units_value_centimetre"
+      ],
+      "python": "hmath.units.centimetre",
+      "specializations": [
+        "original concrete Integer/Rational/Int/String/record types; exact conversion"
+      ]
+    },
+    {
+      "symbol": "HMath.Units.convert",
+      "c": [
+        "hmath_units_value_convert"
+      ],
+      "python": "hmath.units.convert",
+      "specializations": [
+        "original concrete Integer/Rational/Int/String/record types; exact conversion"
+      ]
+    },
+    {
+      "symbol": "HMath.Units.cubicMetre",
+      "c": [
+        "hmath_units_value_cubic_metre"
+      ],
+      "python": "hmath.units.cubic_metre",
+      "specializations": [
+        "original concrete Integer/Rational/Int/String/record types; exact conversion"
+      ]
+    },
+    {
+      "symbol": "HMath.Units.dataDimension",
+      "c": [
+        "hmath_units_value_data_dimension"
+      ],
+      "python": "hmath.units.data_dimension",
+      "specializations": [
+        "original concrete Integer/Rational/Int/String/record types; exact conversion"
+      ]
+    },
+    {
+      "symbol": "HMath.Units.day",
+      "c": [
+        "hmath_units_value_day"
+      ],
+      "python": "hmath.units.day",
+      "specializations": [
+        "original concrete Integer/Rational/Int/String/record types; exact conversion"
+      ]
+    },
+    {
+      "symbol": "HMath.Units.degree",
+      "c": [
+        "hmath_units_value_degree"
+      ],
+      "python": "hmath.units.degree",
+      "specializations": [
+        "original concrete Integer/Rational/Int/String/record types; exact conversion"
+      ]
+    },
+    {
+      "symbol": "HMath.Units.dimension",
+      "c": [
+        "hmath_units_value_dimension"
+      ],
+      "python": "hmath.units.dimension",
+      "specializations": [
+        "original concrete Integer/Rational/Int/String/record types; exact conversion"
+      ]
+    },
+    {
+      "symbol": "HMath.Units.dimensionExponents",
+      "c": [
+        "hmath_units_value_dimension_exponents"
+      ],
+      "python": "hmath.units.dimension_exponents",
+      "specializations": [
+        "original concrete Integer/Rational/Int/String/record types; exact conversion"
+      ]
+    },
+    {
+      "symbol": "HMath.Units.dimensionless",
+      "c": [
+        "hmath_units_value_dimensionless"
+      ],
+      "python": "hmath.units.dimensionless",
+      "specializations": [
+        "original concrete Integer/Rational/Int/String/record types; exact conversion"
+      ]
+    },
+    {
+      "symbol": "HMath.Units.divideQuantity",
+      "c": [
+        "hmath_units_value_divide_quantity"
+      ],
+      "python": "hmath.units.divide_quantity",
+      "specializations": [
+        "original concrete Integer/Rational/Int/String/record types; exact conversion"
+      ]
+    },
+    {
+      "symbol": "HMath.Units.fahrenheit",
+      "c": [
+        "hmath_units_value_fahrenheit"
+      ],
+      "python": "hmath.units.fahrenheit",
+      "specializations": [
+        "original concrete Integer/Rational/Int/String/record types; exact conversion"
+      ]
+    },
+    {
+      "symbol": "HMath.Units.foot",
+      "c": [
+        "hmath_units_value_foot"
+      ],
+      "python": "hmath.units.foot",
+      "specializations": [
+        "original concrete Integer/Rational/Int/String/record types; exact conversion"
+      ]
+    },
+    {
+      "symbol": "HMath.Units.gigabyte",
+      "c": [
+        "hmath_units_value_gigabyte"
+      ],
+      "python": "hmath.units.gigabyte",
+      "specializations": [
+        "original concrete Integer/Rational/Int/String/record types; exact conversion"
+      ]
+    },
+    {
+      "symbol": "HMath.Units.gradian",
+      "c": [
+        "hmath_units_value_gradian"
+      ],
+      "python": "hmath.units.gradian",
+      "specializations": [
+        "original concrete Integer/Rational/Int/String/record types; exact conversion"
+      ]
+    },
+    {
+      "symbol": "HMath.Units.gram",
+      "c": [
+        "hmath_units_value_gram"
+      ],
+      "python": "hmath.units.gram",
+      "specializations": [
+        "original concrete Integer/Rational/Int/String/record types; exact conversion"
+      ]
+    },
+    {
+      "symbol": "HMath.Units.hectare",
+      "c": [
+        "hmath_units_value_hectare"
+      ],
+      "python": "hmath.units.hectare",
+      "specializations": [
+        "original concrete Integer/Rational/Int/String/record types; exact conversion"
+      ]
+    },
+    {
+      "symbol": "HMath.Units.hertz",
+      "c": [
+        "hmath_units_value_hertz"
+      ],
+      "python": "hmath.units.hertz",
+      "specializations": [
+        "original concrete Integer/Rational/Int/String/record types; exact conversion"
+      ]
+    },
+    {
+      "symbol": "HMath.Units.hour",
+      "c": [
+        "hmath_units_value_hour"
+      ],
+      "python": "hmath.units.hour",
+      "specializations": [
+        "original concrete Integer/Rational/Int/String/record types; exact conversion"
+      ]
+    },
+    {
+      "symbol": "HMath.Units.inUnit",
+      "c": [
+        "hmath_units_value_in_unit"
+      ],
+      "python": "hmath.units.in_unit",
+      "specializations": [
+        "original concrete Integer/Rational/Int/String/record types; exact conversion"
+      ]
+    },
+    {
+      "symbol": "HMath.Units.inch",
+      "c": [
+        "hmath_units_value_inch"
+      ],
+      "python": "hmath.units.inch",
+      "specializations": [
+        "original concrete Integer/Rational/Int/String/record types; exact conversion"
+      ]
+    },
+    {
+      "symbol": "HMath.Units.joule",
+      "c": [
+        "hmath_units_value_joule"
+      ],
+      "python": "hmath.units.joule",
+      "specializations": [
+        "original concrete Integer/Rational/Int/String/record types; exact conversion"
+      ]
+    },
+    {
+      "symbol": "HMath.Units.kelvin",
+      "c": [
+        "hmath_units_value_kelvin"
+      ],
+      "python": "hmath.units.kelvin",
+      "specializations": [
+        "original concrete Integer/Rational/Int/String/record types; exact conversion"
+      ]
+    },
+    {
+      "symbol": "HMath.Units.kibibyte",
+      "c": [
+        "hmath_units_value_kibibyte"
+      ],
+      "python": "hmath.units.kibibyte",
+      "specializations": [
+        "original concrete Integer/Rational/Int/String/record types; exact conversion"
+      ]
+    },
+    {
+      "symbol": "HMath.Units.kilogram",
+      "c": [
+        "hmath_units_value_kilogram"
+      ],
+      "python": "hmath.units.kilogram",
+      "specializations": [
+        "original concrete Integer/Rational/Int/String/record types; exact conversion"
+      ]
+    },
+    {
+      "symbol": "HMath.Units.kilometre",
+      "c": [
+        "hmath_units_value_kilometre"
+      ],
+      "python": "hmath.units.kilometre",
+      "specializations": [
+        "original concrete Integer/Rational/Int/String/record types; exact conversion"
+      ]
+    },
+    {
+      "symbol": "HMath.Units.kilometresPerHour",
+      "c": [
+        "hmath_units_value_kilometres_per_hour"
+      ],
+      "python": "hmath.units.kilometres_per_hour",
+      "specializations": [
+        "original concrete Integer/Rational/Int/String/record types; exact conversion"
+      ]
+    },
+    {
+      "symbol": "HMath.Units.lengthDimension",
+      "c": [
+        "hmath_units_value_length_dimension"
+      ],
+      "python": "hmath.units.length_dimension",
+      "specializations": [
+        "original concrete Integer/Rational/Int/String/record types; exact conversion"
+      ]
+    },
+    {
+      "symbol": "HMath.Units.litre",
+      "c": [
+        "hmath_units_value_litre"
+      ],
+      "python": "hmath.units.litre",
+      "specializations": [
+        "original concrete Integer/Rational/Int/String/record types; exact conversion"
+      ]
+    },
+    {
+      "symbol": "HMath.Units.massDimension",
+      "c": [
+        "hmath_units_value_mass_dimension"
+      ],
+      "python": "hmath.units.mass_dimension",
+      "specializations": [
+        "original concrete Integer/Rational/Int/String/record types; exact conversion"
+      ]
+    },
+    {
+      "symbol": "HMath.Units.mebibyte",
+      "c": [
+        "hmath_units_value_mebibyte"
+      ],
+      "python": "hmath.units.mebibyte",
+      "specializations": [
+        "original concrete Integer/Rational/Int/String/record types; exact conversion"
+      ]
+    },
+    {
+      "symbol": "HMath.Units.metre",
+      "c": [
+        "hmath_units_value_metre"
+      ],
+      "python": "hmath.units.metre",
+      "specializations": [
+        "original concrete Integer/Rational/Int/String/record types; exact conversion"
+      ]
+    },
+    {
+      "symbol": "HMath.Units.metresPerSecond",
+      "c": [
+        "hmath_units_value_metres_per_second"
+      ],
+      "python": "hmath.units.metres_per_second",
+      "specializations": [
+        "original concrete Integer/Rational/Int/String/record types; exact conversion"
+      ]
+    },
+    {
+      "symbol": "HMath.Units.metresPerSecondSquared",
+      "c": [
+        "hmath_units_value_metres_per_second_squared"
+      ],
+      "python": "hmath.units.metres_per_second_squared",
+      "specializations": [
+        "original concrete Integer/Rational/Int/String/record types; exact conversion"
+      ]
+    },
+    {
+      "symbol": "HMath.Units.mile",
+      "c": [
+        "hmath_units_value_mile"
+      ],
+      "python": "hmath.units.mile",
+      "specializations": [
+        "original concrete Integer/Rational/Int/String/record types; exact conversion"
+      ]
+    },
+    {
+      "symbol": "HMath.Units.milesPerHour",
+      "c": [
+        "hmath_units_value_miles_per_hour"
+      ],
+      "python": "hmath.units.miles_per_hour",
+      "specializations": [
+        "original concrete Integer/Rational/Int/String/record types; exact conversion"
+      ]
+    },
+    {
+      "symbol": "HMath.Units.millilitre",
+      "c": [
+        "hmath_units_value_millilitre"
+      ],
+      "python": "hmath.units.millilitre",
+      "specializations": [
+        "original concrete Integer/Rational/Int/String/record types; exact conversion"
+      ]
+    },
+    {
+      "symbol": "HMath.Units.millimetre",
+      "c": [
+        "hmath_units_value_millimetre"
+      ],
+      "python": "hmath.units.millimetre",
+      "specializations": [
+        "original concrete Integer/Rational/Int/String/record types; exact conversion"
+      ]
+    },
+    {
+      "symbol": "HMath.Units.minute",
+      "c": [
+        "hmath_units_value_minute"
+      ],
+      "python": "hmath.units.minute",
+      "specializations": [
+        "original concrete Integer/Rational/Int/String/record types; exact conversion"
+      ]
+    },
+    {
+      "symbol": "HMath.Units.multiplyQuantity",
+      "c": [
+        "hmath_units_value_multiply_quantity"
+      ],
+      "python": "hmath.units.multiply_quantity",
+      "specializations": [
+        "original concrete Integer/Rational/Int/String/record types; exact conversion"
+      ]
+    },
+    {
+      "symbol": "HMath.Units.nauticalMile",
+      "c": [
+        "hmath_units_value_nautical_mile"
+      ],
+      "python": "hmath.units.nautical_mile",
+      "specializations": [
+        "original concrete Integer/Rational/Int/String/record types; exact conversion"
+      ]
+    },
+    {
+      "symbol": "HMath.Units.newton",
+      "c": [
+        "hmath_units_value_newton"
+      ],
+      "python": "hmath.units.newton",
+      "specializations": [
+        "original concrete Integer/Rational/Int/String/record types; exact conversion"
+      ]
+    },
+    {
+      "symbol": "HMath.Units.pascal",
+      "c": [
+        "hmath_units_value_pascal"
+      ],
+      "python": "hmath.units.pascal",
+      "specializations": [
+        "original concrete Integer/Rational/Int/String/record types; exact conversion"
+      ]
+    },
+    {
+      "symbol": "HMath.Units.pound",
+      "c": [
+        "hmath_units_value_pound"
+      ],
+      "python": "hmath.units.pound",
+      "specializations": [
+        "original concrete Integer/Rational/Int/String/record types; exact conversion"
+      ]
+    },
+    {
+      "symbol": "HMath.Units.prefixExponent",
+      "c": [
+        "hmath_units_value_prefix_exponent"
+      ],
+      "python": "hmath.units.prefix_exponent",
+      "specializations": [
+        "original concrete Integer/Rational/Int/String/record types; exact conversion"
+      ]
+    },
+    {
+      "symbol": "HMath.Units.prefixName",
+      "c": [
+        "hmath_units_value_prefix_name"
+      ],
+      "python": "hmath.units.prefix_name",
+      "specializations": [
+        "original concrete Integer/Rational/Int/String/record types; exact conversion"
+      ]
+    },
+    {
+      "symbol": "HMath.Units.prefixSymbol",
+      "c": [
+        "hmath_units_value_prefix_symbol"
+      ],
+      "python": "hmath.units.prefix_symbol",
+      "specializations": [
+        "original concrete Integer/Rational/Int/String/record types; exact conversion"
+      ]
+    },
+    {
+      "symbol": "HMath.Units.prefixed",
+      "c": [
+        "hmath_units_value_prefixed"
+      ],
+      "python": "hmath.units.prefixed",
+      "specializations": [
+        "original concrete Integer/Rational/Int/String/record types; exact conversion"
+      ]
+    },
+    {
+      "symbol": "HMath.Units.quantity",
+      "c": [
+        "hmath_units_value_quantity"
+      ],
+      "python": "hmath.units.quantity",
+      "specializations": [
+        "original concrete Integer/Rational/Int/String/record types; exact conversion"
+      ]
+    },
+    {
+      "symbol": "HMath.Units.quantityDimension",
+      "c": [
+        "hmath_units_value_quantity_dimension"
+      ],
+      "python": "hmath.units.quantity_dimension",
+      "specializations": [
+        "original concrete Integer/Rational/Int/String/record types; exact conversion"
+      ]
+    },
+    {
+      "symbol": "HMath.Units.radian",
+      "c": [
+        "hmath_units_value_radian"
+      ],
+      "python": "hmath.units.radian",
+      "specializations": [
+        "original concrete Integer/Rational/Int/String/record types; exact conversion"
+      ]
+    },
+    {
+      "symbol": "HMath.Units.second",
+      "c": [
+        "hmath_units_value_second"
+      ],
+      "python": "hmath.units.second",
+      "specializations": [
+        "original concrete Integer/Rational/Int/String/record types; exact conversion"
+      ]
+    },
+    {
+      "symbol": "HMath.Units.siPrefixes",
+      "c": [
+        "hmath_units_value_si_prefixes"
+      ],
+      "python": "hmath.units.si_prefixes",
+      "specializations": [
+        "original concrete Integer/Rational/Int/String/record types; exact conversion"
+      ]
+    },
+    {
+      "symbol": "HMath.Units.siValue",
+      "c": [
+        "hmath_units_value_si_value"
+      ],
+      "python": "hmath.units.si_value",
+      "specializations": [
+        "original concrete Integer/Rational/Int/String/record types; exact conversion"
+      ]
+    },
+    {
+      "symbol": "HMath.Units.squareMetre",
+      "c": [
+        "hmath_units_value_square_metre"
+      ],
+      "python": "hmath.units.square_metre",
+      "specializations": [
+        "original concrete Integer/Rational/Int/String/record types; exact conversion"
+      ]
+    },
+    {
+      "symbol": "HMath.Units.subtractQuantity",
+      "c": [
+        "hmath_units_value_subtract_quantity"
+      ],
+      "python": "hmath.units.subtract_quantity",
+      "specializations": [
+        "original concrete Integer/Rational/Int/String/record types; exact conversion"
+      ]
+    },
+    {
+      "symbol": "HMath.Units.temperatureDifference",
+      "c": [
+        "hmath_units_value_temperature_difference"
+      ],
+      "python": "hmath.units.temperature_difference",
+      "specializations": [
+        "original concrete Integer/Rational/Int/String/record types; exact conversion"
+      ]
+    },
+    {
+      "symbol": "HMath.Units.temperatureDimension",
+      "c": [
+        "hmath_units_value_temperature_dimension"
+      ],
+      "python": "hmath.units.temperature_dimension",
+      "specializations": [
+        "original concrete Integer/Rational/Int/String/record types; exact conversion"
+      ]
+    },
+    {
+      "symbol": "HMath.Units.timeDimension",
+      "c": [
+        "hmath_units_value_time_dimension"
+      ],
+      "python": "hmath.units.time_dimension",
+      "specializations": [
+        "original concrete Integer/Rational/Int/String/record types; exact conversion"
+      ]
+    },
+    {
+      "symbol": "HMath.Units.tonne",
+      "c": [
+        "hmath_units_value_tonne"
+      ],
+      "python": "hmath.units.tonne",
+      "specializations": [
+        "original concrete Integer/Rational/Int/String/record types; exact conversion"
+      ]
+    },
+    {
+      "symbol": "HMath.Units.unit",
+      "c": [
+        "hmath_units_value_unit"
+      ],
+      "python": "hmath.units.unit",
+      "specializations": [
+        "original concrete Integer/Rational/Int/String/record types; exact conversion"
+      ]
+    },
+    {
+      "symbol": "HMath.Units.unitDimension",
+      "c": [
+        "hmath_units_value_unit_dimension"
+      ],
+      "python": "hmath.units.unit_dimension",
+      "specializations": [
+        "original concrete Integer/Rational/Int/String/record types; exact conversion"
+      ]
+    },
+    {
+      "symbol": "HMath.Units.unitName",
+      "c": [
+        "hmath_units_value_unit_name"
+      ],
+      "python": "hmath.units.unit_name",
+      "specializations": [
+        "original concrete Integer/Rational/Int/String/record types; exact conversion"
+      ]
+    },
+    {
+      "symbol": "HMath.Units.unitOffset",
+      "c": [
+        "hmath_units_value_unit_offset"
+      ],
+      "python": "hmath.units.unit_offset",
+      "specializations": [
+        "original concrete Integer/Rational/Int/String/record types; exact conversion"
+      ]
+    },
+    {
+      "symbol": "HMath.Units.unitPower",
+      "c": [
+        "hmath_units_value_unit_power"
+      ],
+      "python": "hmath.units.unit_power",
+      "specializations": [
+        "original concrete Integer/Rational/Int/String/record types; exact conversion"
+      ]
+    },
+    {
+      "symbol": "HMath.Units.unitProduct",
+      "c": [
+        "hmath_units_value_unit_product"
+      ],
+      "python": "hmath.units.unit_product",
+      "specializations": [
+        "original concrete Integer/Rational/Int/String/record types; exact conversion"
+      ]
+    },
+    {
+      "symbol": "HMath.Units.unitQuotient",
+      "c": [
+        "hmath_units_value_unit_quotient"
+      ],
+      "python": "hmath.units.unit_quotient",
+      "specializations": [
+        "original concrete Integer/Rational/Int/String/record types; exact conversion"
+      ]
+    },
+    {
+      "symbol": "HMath.Units.unitScale",
+      "c": [
+        "hmath_units_value_unit_scale"
+      ],
+      "python": "hmath.units.unit_scale",
+      "specializations": [
+        "original concrete Integer/Rational/Int/String/record types; exact conversion"
+      ]
+    },
+    {
+      "symbol": "HMath.Units.watt",
+      "c": [
+        "hmath_units_value_watt"
+      ],
+      "python": "hmath.units.watt",
+      "specializations": [
+        "original concrete Integer/Rational/Int/String/record types; exact conversion"
+      ]
+    },
+    {
+      "symbol": "HMath.Units.yard",
+      "c": [
+        "hmath_units_value_yard"
+      ],
+      "python": "hmath.units.yard",
+      "specializations": [
+        "original concrete Integer/Rational/Int/String/record types; exact conversion"
+      ]
+    }
+  ]
+}

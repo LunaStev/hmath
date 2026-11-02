@@ -37,5 +37,7 @@ if sys.platform == "linux":
     )
 
 if len(sys.argv) > 1:
-    runpy.run_path(sys.argv[1], run_name="__main__")
+    test_path = sys.argv[1]
+    sys.argv = [test_path]
+    runpy.run_path(test_path, run_name="__main__")
 print(f"Installed wheel verified on Python {sys.version.split()[0]}")

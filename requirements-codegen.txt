@@ -1,0 +1,2 @@
+ruff==0.16.10
+clang-format==21.1.8

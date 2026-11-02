@@ -43,6 +43,21 @@ if not (reference / "index.html").is_file():
     raise SystemExit(f"Haddock reference not found: {reference}")
 interface = reference / "hmath.haddock"
 check_reference(interface)
+for generator in sorted((root / "tools").glob("generate_*bindings.py")):
+    subprocess.run([sys.executable, str(generator), "--check"], cwd=root, check=True)
+for generator in (
+    "generate_numeric_types.py",
+    "generate_scalar_extras.py",
+    "generate_numeric_objects.py",
+):
+    subprocess.run(
+        [sys.executable, "tools/" + generator, "--check"], cwd=root, check=True
+    )
+subprocess.run(
+    [sys.executable, "tools/check_binding_coverage.py", "--interface", str(interface)],
+    cwd=root,
+    check=True,
+)
 subprocess.run(
     [sys.executable, "tools/check_haskell_doc_examples.py"], cwd=root, check=True
 )

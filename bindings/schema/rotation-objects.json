@@ -1,0 +1,525 @@
+{
+  "schema": 1,
+  "bindings": [
+    {
+      "symbol": "HMath.Quaternion.quaternion",
+      "c": [
+        "hmath_quaternion_quaternion"
+      ],
+      "python": "hmath.quaternion.quaternion",
+      "specializations": [
+        "original checked Double representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Quaternion.components",
+      "c": [
+        "hmath_quaternion_components"
+      ],
+      "python": "hmath.quaternion.components",
+      "specializations": [
+        "original checked Double representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Quaternion.norm",
+      "c": [
+        "hmath_quaternion_norm"
+      ],
+      "python": "hmath.quaternion.norm",
+      "specializations": [
+        "original checked Double representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Quaternion.normalize",
+      "c": [
+        "hmath_quaternion_normalize"
+      ],
+      "python": "hmath.quaternion.normalize",
+      "specializations": [
+        "original checked Double representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Quaternion.inverse",
+      "c": [
+        "hmath_quaternion_inverse"
+      ],
+      "python": "hmath.quaternion.inverse",
+      "specializations": [
+        "original checked Double representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Quaternion.conjugate",
+      "c": [
+        "hmath_quaternion_conjugate"
+      ],
+      "python": "hmath.quaternion.conjugate",
+      "specializations": [
+        "original checked Double representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Quaternion.multiply",
+      "c": [
+        "hmath_quaternion_multiply"
+      ],
+      "python": "hmath.quaternion.multiply",
+      "specializations": [
+        "original checked Double representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Quaternion.add",
+      "c": [
+        "hmath_quaternion_add"
+      ],
+      "python": "hmath.quaternion.add",
+      "specializations": [
+        "original checked Double representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Quaternion.scale",
+      "c": [
+        "hmath_quaternion_scale"
+      ],
+      "python": "hmath.quaternion.scale",
+      "specializations": [
+        "original checked Double representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Quaternion.rotateVector",
+      "c": [
+        "hmath_quaternion_rotate_vector"
+      ],
+      "python": "hmath.quaternion.rotate_vector",
+      "specializations": [
+        "original checked Double representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Quaternion.axisAngle",
+      "c": [
+        "hmath_quaternion_axis_angle"
+      ],
+      "python": "hmath.quaternion.axis_angle",
+      "specializations": [
+        "original checked Double representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Quaternion.toAxisAngle",
+      "c": [
+        "hmath_quaternion_to_axis_angle"
+      ],
+      "python": "hmath.quaternion.to_axis_angle",
+      "specializations": [
+        "original checked Double representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Quaternion.fromEuler",
+      "c": [
+        "hmath_quaternion_from_euler"
+      ],
+      "python": "hmath.quaternion.from_euler",
+      "specializations": [
+        "original checked Double representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Quaternion.toEuler",
+      "c": [
+        "hmath_quaternion_to_euler"
+      ],
+      "python": "hmath.quaternion.to_euler",
+      "specializations": [
+        "original checked Double representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Quaternion.toMatrix",
+      "c": [
+        "hmath_quaternion_to_matrix"
+      ],
+      "python": "hmath.quaternion.to_matrix",
+      "specializations": [
+        "original checked Double representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Quaternion.fromMatrix",
+      "c": [
+        "hmath_quaternion_from_matrix"
+      ],
+      "python": "hmath.quaternion.from_matrix",
+      "specializations": [
+        "original checked Double representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Quaternion.nlerp",
+      "c": [
+        "hmath_quaternion_nlerp"
+      ],
+      "python": "hmath.quaternion.nlerp",
+      "specializations": [
+        "original checked Double representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Quaternion.slerp",
+      "c": [
+        "hmath_quaternion_slerp"
+      ],
+      "python": "hmath.quaternion.slerp",
+      "specializations": [
+        "original checked Double representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Quaternion.squad",
+      "c": [
+        "hmath_quaternion_squad"
+      ],
+      "python": "hmath.quaternion.squad",
+      "specializations": [
+        "original checked Double representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Quaternion.exponential",
+      "c": [
+        "hmath_quaternion_exponential"
+      ],
+      "python": "hmath.quaternion.exponential",
+      "specializations": [
+        "original checked Double representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Quaternion.logarithm",
+      "c": [
+        "hmath_quaternion_logarithm"
+      ],
+      "python": "hmath.quaternion.logarithm",
+      "specializations": [
+        "original checked Double representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Quaternion.swingTwist",
+      "c": [
+        "hmath_quaternion_swing_twist"
+      ],
+      "python": "hmath.quaternion.swing_twist",
+      "specializations": [
+        "original checked Double representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Rotation.so3",
+      "c": [
+        "hmath_rotation_so3"
+      ],
+      "python": "hmath.rotation.so3",
+      "specializations": [
+        "original checked Double representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Rotation.rotationQuaternion",
+      "c": [
+        "hmath_rotation_rotation_quaternion"
+      ],
+      "python": "hmath.rotation.rotation_quaternion",
+      "specializations": [
+        "original checked Double representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Rotation.identityRotation",
+      "c": [
+        "hmath_rotation_identity_rotation"
+      ],
+      "python": "hmath.rotation.identity_rotation",
+      "specializations": [
+        "original checked Double representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Rotation.composeRotation",
+      "c": [
+        "hmath_rotation_compose_rotation"
+      ],
+      "python": "hmath.rotation.compose_rotation",
+      "specializations": [
+        "original checked Double representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Rotation.inverseRotation",
+      "c": [
+        "hmath_rotation_inverse_rotation"
+      ],
+      "python": "hmath.rotation.inverse_rotation",
+      "specializations": [
+        "original checked Double representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Rotation.rotate",
+      "c": [
+        "hmath_rotation_rotate"
+      ],
+      "python": "hmath.rotation.rotate",
+      "specializations": [
+        "original checked Double representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Rotation.expSO3",
+      "c": [
+        "hmath_rotation_exp_so3"
+      ],
+      "python": "hmath.rotation.exp_so3",
+      "specializations": [
+        "original checked Double representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Rotation.logSO3",
+      "c": [
+        "hmath_rotation_log_so3"
+      ],
+      "python": "hmath.rotation.log_so3",
+      "specializations": [
+        "original checked Double representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Rotation.se3",
+      "c": [
+        "hmath_rotation_se3"
+      ],
+      "python": "hmath.rotation.se3",
+      "specializations": [
+        "original checked Double representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Rotation.rotationPart",
+      "c": [
+        "hmath_rotation_rotation_part"
+      ],
+      "python": "hmath.rotation.rotation_part",
+      "specializations": [
+        "original checked Double representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Rotation.translationPart",
+      "c": [
+        "hmath_rotation_translation_part"
+      ],
+      "python": "hmath.rotation.translation_part",
+      "specializations": [
+        "original checked Double representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Rotation.identityTransform",
+      "c": [
+        "hmath_rotation_identity_transform"
+      ],
+      "python": "hmath.rotation.identity_transform",
+      "specializations": [
+        "original checked Double representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Rotation.compose",
+      "c": [
+        "hmath_rotation_compose"
+      ],
+      "python": "hmath.rotation.compose",
+      "specializations": [
+        "original checked Double representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Rotation.inverse",
+      "c": [
+        "hmath_rotation_inverse"
+      ],
+      "python": "hmath.rotation.inverse",
+      "specializations": [
+        "original checked Double representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Rotation.transformPoint",
+      "c": [
+        "hmath_rotation_transform_point"
+      ],
+      "python": "hmath.rotation.transform_point",
+      "specializations": [
+        "original checked Double representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Rotation.expSE3",
+      "c": [
+        "hmath_rotation_exp_se3"
+      ],
+      "python": "hmath.rotation.exp_se3",
+      "specializations": [
+        "original checked Double representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Rotation.logSE3",
+      "c": [
+        "hmath_rotation_log_se3"
+      ],
+      "python": "hmath.rotation.log_se3",
+      "specializations": [
+        "original checked Double representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Rotation.toHomogeneous",
+      "c": [
+        "hmath_rotation_to_homogeneous"
+      ],
+      "python": "hmath.rotation.to_homogeneous",
+      "specializations": [
+        "original checked Double representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Rotation.fromHomogeneous",
+      "c": [
+        "hmath_rotation_from_homogeneous"
+      ],
+      "python": "hmath.rotation.from_homogeneous",
+      "specializations": [
+        "original checked Double representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Rotation.dualQuaternion",
+      "c": [
+        "hmath_rotation_dual_quaternion"
+      ],
+      "python": "hmath.rotation.dual_quaternion",
+      "specializations": [
+        "original checked Double representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Rotation.dualParts",
+      "c": [
+        "hmath_rotation_dual_parts"
+      ],
+      "python": "hmath.rotation.dual_parts",
+      "specializations": [
+        "original checked Double representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Rotation.toDualQuaternion",
+      "c": [
+        "hmath_rotation_to_dual_quaternion"
+      ],
+      "python": "hmath.rotation.to_dual_quaternion",
+      "specializations": [
+        "original checked Double representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Rotation.fromDualQuaternion",
+      "c": [
+        "hmath_rotation_from_dual_quaternion"
+      ],
+      "python": "hmath.rotation.from_dual_quaternion",
+      "specializations": [
+        "original checked Double representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Rotation.multiplyDual",
+      "c": [
+        "hmath_rotation_multiply_dual"
+      ],
+      "python": "hmath.rotation.multiply_dual",
+      "specializations": [
+        "original checked Double representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Rotation.inverseDual",
+      "c": [
+        "hmath_rotation_inverse_dual"
+      ],
+      "python": "hmath.rotation.inverse_dual",
+      "specializations": [
+        "original checked Double representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Rotation.interpolateDual",
+      "c": [
+        "hmath_rotation_interpolate_dual"
+      ],
+      "python": "hmath.rotation.interpolate_dual",
+      "specializations": [
+        "original checked Double representation"
+      ]
+    },
+    {
+      "symbol": "HMath.Quaternion.Quaternion",
+      "c": [
+        "hmath_quaternion_quaternion"
+      ],
+      "python": "hmath.quaternion.Quaternion",
+      "specializations": [
+        "original opaque Haskell type"
+      ]
+    },
+    {
+      "symbol": "HMath.Rotation.SO3",
+      "c": [
+        "hmath_rotation_so3"
+      ],
+      "python": "hmath.rotation.SO3",
+      "specializations": [
+        "original opaque Haskell type"
+      ]
+    },
+    {
+      "symbol": "HMath.Rotation.SE3",
+      "c": [
+        "hmath_rotation_se3"
+      ],
+      "python": "hmath.rotation.SE3",
+      "specializations": [
+        "original opaque Haskell type"
+      ]
+    },
+    {
+      "symbol": "HMath.Rotation.DualQuaternion",
+      "c": [
+        "hmath_rotation_dual_quaternion"
+      ],
+      "python": "hmath.rotation.DualQuaternion",
+      "specializations": [
+        "original opaque Haskell type"
+      ]
+    }
+  ]
+}

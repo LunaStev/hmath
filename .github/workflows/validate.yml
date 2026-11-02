@@ -46,6 +46,7 @@ jobs:
             ${{ steps.haskell.outputs.cabal-store }}
             dist-newstyle
             build-ci/cabal
+            build-ci/numeric-oracle
             build-interchange/cabal
           key: cabal-${{ runner.os }}-${{ matrix.ghc }}-${{ matrix.buildtype }}-${{ hashFiles('hmath.cabal', 'cabal.project', 'src/**', 'cbits/**', 'test/**', 'bench/**') }}
           restore-keys: cabal-${{ runner.os }}-${{ matrix.ghc }}-${{ matrix.buildtype }}-
@@ -58,7 +59,7 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y liblapacke-dev libopenblas-dev zlib1g-dev cmake ninja-build clang
-          python -m pip install meson==1.8.5 numpy cffi
+          python -m pip install -r requirements-codegen.txt meson==1.8.5 numpy cffi
       - name: Wave compiler
         if: matrix.primary
         env:
@@ -114,6 +115,7 @@ jobs:
             ${{ steps.haskell.outputs.cabal-store }}
             dist-newstyle
             build-ci/cabal
+            build-ci/numeric-oracle
             build-interchange/cabal
           key: cabal-extended-${{ runner.os }}-9.10.3-${{ hashFiles('hmath.cabal', 'cabal.project', 'src/**', 'cbits/**', 'test/**', 'bench/**') }}
           restore-keys: |

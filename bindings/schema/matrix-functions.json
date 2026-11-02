@@ -1,0 +1,1002 @@
+[
+  {
+    "source": "HMath.Matrix.fromList",
+    "c": "hmath_dense_from_list_f32",
+    "precision": 32,
+    "name": "fromList",
+    "mode": "maybe",
+    "args": "iiv",
+    "result": "m",
+    "module": "M"
+  },
+  {
+    "source": "HMath.Matrix.zeroMatrix",
+    "c": "hmath_dense_zero_matrix_f32",
+    "precision": 32,
+    "name": "zeroMatrix",
+    "mode": "maybe",
+    "args": "ii",
+    "result": "m",
+    "module": "M"
+  },
+  {
+    "source": "HMath.Matrix.diagonal",
+    "c": "hmath_dense_diagonal_f32",
+    "precision": 32,
+    "name": "diagonal",
+    "mode": "maybe",
+    "args": "v",
+    "result": "m",
+    "module": "M"
+  },
+  {
+    "source": "HMath.Matrix.at",
+    "c": "hmath_dense_at_f32",
+    "precision": 32,
+    "name": "at",
+    "mode": "maybe",
+    "args": "mii",
+    "result": "f",
+    "module": "M"
+  },
+  {
+    "source": "HMath.Matrix.sliceMatrix",
+    "c": "hmath_dense_slice_matrix_f32",
+    "precision": 32,
+    "name": "sliceMatrix",
+    "mode": "maybe",
+    "args": "iiiim",
+    "result": "m",
+    "module": "M"
+  },
+  {
+    "source": "HMath.Matrix.reshape",
+    "c": "hmath_dense_reshape_f32",
+    "precision": 32,
+    "name": "reshape",
+    "mode": "maybe",
+    "args": "iim",
+    "result": "m",
+    "module": "M"
+  },
+  {
+    "source": "HMath.Matrix.addMatrix",
+    "c": "hmath_dense_add_matrix_f32",
+    "precision": 32,
+    "name": "addMatrix",
+    "mode": "maybe",
+    "args": "mm",
+    "result": "m",
+    "module": "M"
+  },
+  {
+    "source": "HMath.Matrix.subtractMatrix",
+    "c": "hmath_dense_subtract_matrix_f32",
+    "precision": 32,
+    "name": "subtractMatrix",
+    "mode": "maybe",
+    "args": "mm",
+    "result": "m",
+    "module": "M"
+  },
+  {
+    "source": "HMath.Matrix.hadamard",
+    "c": "hmath_dense_hadamard_f32",
+    "precision": 32,
+    "name": "hadamard",
+    "mode": "maybe",
+    "args": "mm",
+    "result": "m",
+    "module": "M"
+  },
+  {
+    "source": "HMath.Matrix.multiply",
+    "c": "hmath_dense_multiply_f32",
+    "precision": 32,
+    "name": "multiply",
+    "mode": "maybe",
+    "args": "mm",
+    "result": "m",
+    "module": "M"
+  },
+  {
+    "source": "HMath.Matrix.identity",
+    "c": "hmath_dense_identity_f32",
+    "precision": 32,
+    "name": "identity",
+    "mode": "maybe",
+    "args": "i",
+    "result": "m",
+    "module": "M"
+  },
+  {
+    "source": "HMath.Matrix.fromListChecked",
+    "c": "hmath_dense_from_list_checked_f32",
+    "precision": 32,
+    "name": "fromListChecked",
+    "mode": "either",
+    "args": "iiv",
+    "result": "m",
+    "module": "M"
+  },
+  {
+    "source": "HMath.Matrix.zeroMatrixChecked",
+    "c": "hmath_dense_zero_matrix_checked_f32",
+    "precision": 32,
+    "name": "zeroMatrixChecked",
+    "mode": "either",
+    "args": "ii",
+    "result": "m",
+    "module": "M"
+  },
+  {
+    "source": "HMath.Matrix.diagonalChecked",
+    "c": "hmath_dense_diagonal_checked_f32",
+    "precision": 32,
+    "name": "diagonalChecked",
+    "mode": "either",
+    "args": "v",
+    "result": "m",
+    "module": "M"
+  },
+  {
+    "source": "HMath.Matrix.atChecked",
+    "c": "hmath_dense_at_checked_f32",
+    "precision": 32,
+    "name": "atChecked",
+    "mode": "either",
+    "args": "mii",
+    "result": "f",
+    "module": "M"
+  },
+  {
+    "source": "HMath.Matrix.sliceMatrixChecked",
+    "c": "hmath_dense_slice_matrix_checked_f32",
+    "precision": 32,
+    "name": "sliceMatrixChecked",
+    "mode": "either",
+    "args": "iiiim",
+    "result": "m",
+    "module": "M"
+  },
+  {
+    "source": "HMath.Matrix.reshapeChecked",
+    "c": "hmath_dense_reshape_checked_f32",
+    "precision": 32,
+    "name": "reshapeChecked",
+    "mode": "either",
+    "args": "iim",
+    "result": "m",
+    "module": "M"
+  },
+  {
+    "source": "HMath.Matrix.addMatrixChecked",
+    "c": "hmath_dense_add_matrix_checked_f32",
+    "precision": 32,
+    "name": "addMatrixChecked",
+    "mode": "either",
+    "args": "mm",
+    "result": "m",
+    "module": "M"
+  },
+  {
+    "source": "HMath.Matrix.subtractMatrixChecked",
+    "c": "hmath_dense_subtract_matrix_checked_f32",
+    "precision": 32,
+    "name": "subtractMatrixChecked",
+    "mode": "either",
+    "args": "mm",
+    "result": "m",
+    "module": "M"
+  },
+  {
+    "source": "HMath.Matrix.hadamardChecked",
+    "c": "hmath_dense_hadamard_checked_f32",
+    "precision": 32,
+    "name": "hadamardChecked",
+    "mode": "either",
+    "args": "mm",
+    "result": "m",
+    "module": "M"
+  },
+  {
+    "source": "HMath.Matrix.multiplyChecked",
+    "c": "hmath_dense_multiply_checked_f32",
+    "precision": 32,
+    "name": "multiplyChecked",
+    "mode": "either",
+    "args": "mm",
+    "result": "m",
+    "module": "M"
+  },
+  {
+    "source": "HMath.Matrix.identityChecked",
+    "c": "hmath_dense_identity_checked_f32",
+    "precision": 32,
+    "name": "identityChecked",
+    "mode": "either",
+    "args": "i",
+    "result": "m",
+    "module": "M"
+  },
+  {
+    "source": "HMath.Matrix.scaleMatrix",
+    "c": "hmath_dense_scale_matrix_f32",
+    "precision": 32,
+    "name": "scaleMatrix",
+    "mode": "pure",
+    "args": "fm",
+    "result": "m",
+    "module": "M"
+  },
+  {
+    "source": "HMath.Matrix.transposeMatrix",
+    "c": "hmath_dense_transpose_matrix_f32",
+    "precision": 32,
+    "name": "transposeMatrix",
+    "mode": "pure",
+    "args": "m",
+    "result": "m",
+    "module": "M"
+  },
+  {
+    "source": "HMath.Matrix.LU.luDecompose",
+    "c": "hmath_dense_lu_lu_decompose_f32",
+    "precision": 32,
+    "name": "luDecompose",
+    "mode": "either",
+    "args": "m",
+    "result": "l",
+    "module": "L"
+  },
+  {
+    "source": "HMath.Matrix.LU.luDecomposeWithTolerance",
+    "c": "hmath_dense_lu_lu_decompose_with_tolerance_f32",
+    "precision": 32,
+    "name": "luDecomposeWithTolerance",
+    "mode": "either",
+    "args": "fm",
+    "result": "l",
+    "module": "L"
+  },
+  {
+    "source": "HMath.Matrix.LU.luLower",
+    "c": "hmath_dense_lu_lu_lower_f32",
+    "precision": 32,
+    "name": "luLower",
+    "mode": "pure",
+    "args": "l",
+    "result": "m",
+    "module": "L"
+  },
+  {
+    "source": "HMath.Matrix.LU.luUpper",
+    "c": "hmath_dense_lu_lu_upper_f32",
+    "precision": 32,
+    "name": "luUpper",
+    "mode": "pure",
+    "args": "l",
+    "result": "m",
+    "module": "L"
+  },
+  {
+    "source": "HMath.Matrix.LU.luPermutation",
+    "c": "hmath_dense_lu_lu_permutation_f32",
+    "precision": 32,
+    "name": "luPermutation",
+    "mode": "pure",
+    "args": "l",
+    "result": "p",
+    "module": "L"
+  },
+  {
+    "source": "HMath.Matrix.LU.solveLU",
+    "c": "hmath_dense_lu_solve_lu_f32",
+    "precision": 32,
+    "name": "solveLU",
+    "mode": "either",
+    "args": "lv",
+    "result": "v",
+    "module": "L"
+  },
+  {
+    "source": "HMath.Matrix.LU.solveMatrixLU",
+    "c": "hmath_dense_lu_solve_matrix_lu_f32",
+    "precision": 32,
+    "name": "solveMatrixLU",
+    "mode": "either",
+    "args": "lm",
+    "result": "m",
+    "module": "L"
+  },
+  {
+    "source": "HMath.Matrix.LU.solve",
+    "c": "hmath_dense_lu_solve_f32",
+    "precision": 32,
+    "name": "solve",
+    "mode": "either",
+    "args": "mv",
+    "result": "v",
+    "module": "L"
+  },
+  {
+    "source": "HMath.Matrix.LU.solveMatrix",
+    "c": "hmath_dense_lu_solve_matrix_f32",
+    "precision": 32,
+    "name": "solveMatrix",
+    "mode": "either",
+    "args": "mm",
+    "result": "m",
+    "module": "L"
+  },
+  {
+    "source": "HMath.Matrix.LU.determinantLU",
+    "c": "hmath_dense_lu_determinant_lu_f32",
+    "precision": 32,
+    "name": "determinantLU",
+    "mode": "either",
+    "args": "l",
+    "result": "f",
+    "module": "L"
+  },
+  {
+    "source": "HMath.Matrix.LU.determinant",
+    "c": "hmath_dense_lu_determinant_f32",
+    "precision": 32,
+    "name": "determinant",
+    "mode": "either",
+    "args": "m",
+    "result": "f",
+    "module": "L"
+  },
+  {
+    "source": "HMath.Matrix.LU.inverse",
+    "c": "hmath_dense_lu_inverse_f32",
+    "precision": 32,
+    "name": "inverse",
+    "mode": "either",
+    "args": "m",
+    "result": "m",
+    "module": "L"
+  },
+  {
+    "source": "HMath.Matrix.QR.qrDecompose",
+    "c": "hmath_dense_qr_qr_decompose_f32",
+    "precision": 32,
+    "name": "qrDecompose",
+    "mode": "either",
+    "args": "m",
+    "result": "q",
+    "module": "Q"
+  },
+  {
+    "source": "HMath.Matrix.QR.qrDecomposeWithTolerance",
+    "c": "hmath_dense_qr_qr_decompose_with_tolerance_f32",
+    "precision": 32,
+    "name": "qrDecomposeWithTolerance",
+    "mode": "either",
+    "args": "fm",
+    "result": "q",
+    "module": "Q"
+  },
+  {
+    "source": "HMath.Matrix.QR.qrQ",
+    "c": "hmath_dense_qr_qr_q_f32",
+    "precision": 32,
+    "name": "qrQ",
+    "mode": "pure",
+    "args": "q",
+    "result": "m",
+    "module": "Q"
+  },
+  {
+    "source": "HMath.Matrix.QR.qrR",
+    "c": "hmath_dense_qr_qr_r_f32",
+    "precision": 32,
+    "name": "qrR",
+    "mode": "pure",
+    "args": "q",
+    "result": "m",
+    "module": "Q"
+  },
+  {
+    "source": "HMath.Matrix.QR.qrPermutation",
+    "c": "hmath_dense_qr_qr_permutation_f32",
+    "precision": 32,
+    "name": "qrPermutation",
+    "mode": "pure",
+    "args": "q",
+    "result": "p",
+    "module": "Q"
+  },
+  {
+    "source": "HMath.Matrix.QR.qrRank",
+    "c": "hmath_dense_qr_qr_rank_f32",
+    "precision": 32,
+    "name": "qrRank",
+    "mode": "pure",
+    "args": "q",
+    "result": "i",
+    "module": "Q"
+  },
+  {
+    "source": "HMath.Matrix.QR.applyQ",
+    "c": "hmath_dense_qr_apply_q_f32",
+    "precision": 32,
+    "name": "applyQ",
+    "mode": "either",
+    "args": "qm",
+    "result": "m",
+    "module": "Q"
+  },
+  {
+    "source": "HMath.Matrix.QR.applyQT",
+    "c": "hmath_dense_qr_apply_qt_f32",
+    "precision": 32,
+    "name": "applyQT",
+    "mode": "either",
+    "args": "qm",
+    "result": "m",
+    "module": "Q"
+  },
+  {
+    "source": "HMath.Matrix.QR.solveMatrixQR",
+    "c": "hmath_dense_qr_solve_matrix_qr_f32",
+    "precision": 32,
+    "name": "solveMatrixQR",
+    "mode": "either",
+    "args": "qm",
+    "result": "m",
+    "module": "Q"
+  },
+  {
+    "source": "HMath.Matrix.QR.solveQR",
+    "c": "hmath_dense_qr_solve_qr_f32",
+    "precision": 32,
+    "name": "solveQR",
+    "mode": "either",
+    "args": "qv",
+    "result": "v",
+    "module": "Q"
+  },
+  {
+    "source": "HMath.Matrix.QR.leastSquares",
+    "c": "hmath_dense_qr_least_squares_f32",
+    "precision": 32,
+    "name": "leastSquares",
+    "mode": "either",
+    "args": "mv",
+    "result": "v",
+    "module": "Q"
+  },
+  {
+    "source": "HMath.Matrix.QR.leastSquaresMatrix",
+    "c": "hmath_dense_qr_least_squares_matrix_f32",
+    "precision": 32,
+    "name": "leastSquaresMatrix",
+    "mode": "either",
+    "args": "mm",
+    "result": "m",
+    "module": "Q"
+  },
+  {
+    "source": "HMath.Matrix.QR.ridgeSolve",
+    "c": "hmath_dense_qr_ridge_solve_f32",
+    "precision": 32,
+    "name": "ridgeSolve",
+    "mode": "either",
+    "args": "fmv",
+    "result": "v",
+    "module": "Q"
+  },
+  {
+    "source": "HMath.Matrix.QR.ridgeSolveMatrix",
+    "c": "hmath_dense_qr_ridge_solve_matrix_f32",
+    "precision": 32,
+    "name": "ridgeSolveMatrix",
+    "mode": "either",
+    "args": "fmm",
+    "result": "m",
+    "module": "Q"
+  },
+  {
+    "source": "HMath.Matrix.fromList",
+    "c": "hmath_dense_from_list_f64",
+    "precision": 64,
+    "name": "fromList",
+    "mode": "maybe",
+    "args": "iiv",
+    "result": "m",
+    "module": "M"
+  },
+  {
+    "source": "HMath.Matrix.zeroMatrix",
+    "c": "hmath_dense_zero_matrix_f64",
+    "precision": 64,
+    "name": "zeroMatrix",
+    "mode": "maybe",
+    "args": "ii",
+    "result": "m",
+    "module": "M"
+  },
+  {
+    "source": "HMath.Matrix.diagonal",
+    "c": "hmath_dense_diagonal_f64",
+    "precision": 64,
+    "name": "diagonal",
+    "mode": "maybe",
+    "args": "v",
+    "result": "m",
+    "module": "M"
+  },
+  {
+    "source": "HMath.Matrix.at",
+    "c": "hmath_dense_at_f64",
+    "precision": 64,
+    "name": "at",
+    "mode": "maybe",
+    "args": "mii",
+    "result": "f",
+    "module": "M"
+  },
+  {
+    "source": "HMath.Matrix.sliceMatrix",
+    "c": "hmath_dense_slice_matrix_f64",
+    "precision": 64,
+    "name": "sliceMatrix",
+    "mode": "maybe",
+    "args": "iiiim",
+    "result": "m",
+    "module": "M"
+  },
+  {
+    "source": "HMath.Matrix.reshape",
+    "c": "hmath_dense_reshape_f64",
+    "precision": 64,
+    "name": "reshape",
+    "mode": "maybe",
+    "args": "iim",
+    "result": "m",
+    "module": "M"
+  },
+  {
+    "source": "HMath.Matrix.addMatrix",
+    "c": "hmath_dense_add_matrix_f64",
+    "precision": 64,
+    "name": "addMatrix",
+    "mode": "maybe",
+    "args": "mm",
+    "result": "m",
+    "module": "M"
+  },
+  {
+    "source": "HMath.Matrix.subtractMatrix",
+    "c": "hmath_dense_subtract_matrix_f64",
+    "precision": 64,
+    "name": "subtractMatrix",
+    "mode": "maybe",
+    "args": "mm",
+    "result": "m",
+    "module": "M"
+  },
+  {
+    "source": "HMath.Matrix.hadamard",
+    "c": "hmath_dense_hadamard_f64",
+    "precision": 64,
+    "name": "hadamard",
+    "mode": "maybe",
+    "args": "mm",
+    "result": "m",
+    "module": "M"
+  },
+  {
+    "source": "HMath.Matrix.multiply",
+    "c": "hmath_dense_multiply_f64",
+    "precision": 64,
+    "name": "multiply",
+    "mode": "maybe",
+    "args": "mm",
+    "result": "m",
+    "module": "M"
+  },
+  {
+    "source": "HMath.Matrix.identity",
+    "c": "hmath_dense_identity_f64",
+    "precision": 64,
+    "name": "identity",
+    "mode": "maybe",
+    "args": "i",
+    "result": "m",
+    "module": "M"
+  },
+  {
+    "source": "HMath.Matrix.fromListChecked",
+    "c": "hmath_dense_from_list_checked_f64",
+    "precision": 64,
+    "name": "fromListChecked",
+    "mode": "either",
+    "args": "iiv",
+    "result": "m",
+    "module": "M"
+  },
+  {
+    "source": "HMath.Matrix.zeroMatrixChecked",
+    "c": "hmath_dense_zero_matrix_checked_f64",
+    "precision": 64,
+    "name": "zeroMatrixChecked",
+    "mode": "either",
+    "args": "ii",
+    "result": "m",
+    "module": "M"
+  },
+  {
+    "source": "HMath.Matrix.diagonalChecked",
+    "c": "hmath_dense_diagonal_checked_f64",
+    "precision": 64,
+    "name": "diagonalChecked",
+    "mode": "either",
+    "args": "v",
+    "result": "m",
+    "module": "M"
+  },
+  {
+    "source": "HMath.Matrix.atChecked",
+    "c": "hmath_dense_at_checked_f64",
+    "precision": 64,
+    "name": "atChecked",
+    "mode": "either",
+    "args": "mii",
+    "result": "f",
+    "module": "M"
+  },
+  {
+    "source": "HMath.Matrix.sliceMatrixChecked",
+    "c": "hmath_dense_slice_matrix_checked_f64",
+    "precision": 64,
+    "name": "sliceMatrixChecked",
+    "mode": "either",
+    "args": "iiiim",
+    "result": "m",
+    "module": "M"
+  },
+  {
+    "source": "HMath.Matrix.reshapeChecked",
+    "c": "hmath_dense_reshape_checked_f64",
+    "precision": 64,
+    "name": "reshapeChecked",
+    "mode": "either",
+    "args": "iim",
+    "result": "m",
+    "module": "M"
+  },
+  {
+    "source": "HMath.Matrix.addMatrixChecked",
+    "c": "hmath_dense_add_matrix_checked_f64",
+    "precision": 64,
+    "name": "addMatrixChecked",
+    "mode": "either",
+    "args": "mm",
+    "result": "m",
+    "module": "M"
+  },
+  {
+    "source": "HMath.Matrix.subtractMatrixChecked",
+    "c": "hmath_dense_subtract_matrix_checked_f64",
+    "precision": 64,
+    "name": "subtractMatrixChecked",
+    "mode": "either",
+    "args": "mm",
+    "result": "m",
+    "module": "M"
+  },
+  {
+    "source": "HMath.Matrix.hadamardChecked",
+    "c": "hmath_dense_hadamard_checked_f64",
+    "precision": 64,
+    "name": "hadamardChecked",
+    "mode": "either",
+    "args": "mm",
+    "result": "m",
+    "module": "M"
+  },
+  {
+    "source": "HMath.Matrix.multiplyChecked",
+    "c": "hmath_dense_multiply_checked_f64",
+    "precision": 64,
+    "name": "multiplyChecked",
+    "mode": "either",
+    "args": "mm",
+    "result": "m",
+    "module": "M"
+  },
+  {
+    "source": "HMath.Matrix.identityChecked",
+    "c": "hmath_dense_identity_checked_f64",
+    "precision": 64,
+    "name": "identityChecked",
+    "mode": "either",
+    "args": "i",
+    "result": "m",
+    "module": "M"
+  },
+  {
+    "source": "HMath.Matrix.scaleMatrix",
+    "c": "hmath_dense_scale_matrix_f64",
+    "precision": 64,
+    "name": "scaleMatrix",
+    "mode": "pure",
+    "args": "fm",
+    "result": "m",
+    "module": "M"
+  },
+  {
+    "source": "HMath.Matrix.transposeMatrix",
+    "c": "hmath_dense_transpose_matrix_f64",
+    "precision": 64,
+    "name": "transposeMatrix",
+    "mode": "pure",
+    "args": "m",
+    "result": "m",
+    "module": "M"
+  },
+  {
+    "source": "HMath.Matrix.LU.luDecompose",
+    "c": "hmath_dense_lu_lu_decompose_f64",
+    "precision": 64,
+    "name": "luDecompose",
+    "mode": "either",
+    "args": "m",
+    "result": "l",
+    "module": "L"
+  },
+  {
+    "source": "HMath.Matrix.LU.luDecomposeWithTolerance",
+    "c": "hmath_dense_lu_lu_decompose_with_tolerance_f64",
+    "precision": 64,
+    "name": "luDecomposeWithTolerance",
+    "mode": "either",
+    "args": "fm",
+    "result": "l",
+    "module": "L"
+  },
+  {
+    "source": "HMath.Matrix.LU.luLower",
+    "c": "hmath_dense_lu_lu_lower_f64",
+    "precision": 64,
+    "name": "luLower",
+    "mode": "pure",
+    "args": "l",
+    "result": "m",
+    "module": "L"
+  },
+  {
+    "source": "HMath.Matrix.LU.luUpper",
+    "c": "hmath_dense_lu_lu_upper_f64",
+    "precision": 64,
+    "name": "luUpper",
+    "mode": "pure",
+    "args": "l",
+    "result": "m",
+    "module": "L"
+  },
+  {
+    "source": "HMath.Matrix.LU.luPermutation",
+    "c": "hmath_dense_lu_lu_permutation_f64",
+    "precision": 64,
+    "name": "luPermutation",
+    "mode": "pure",
+    "args": "l",
+    "result": "p",
+    "module": "L"
+  },
+  {
+    "source": "HMath.Matrix.LU.solveLU",
+    "c": "hmath_dense_lu_solve_lu_f64",
+    "precision": 64,
+    "name": "solveLU",
+    "mode": "either",
+    "args": "lv",
+    "result": "v",
+    "module": "L"
+  },
+  {
+    "source": "HMath.Matrix.LU.solveMatrixLU",
+    "c": "hmath_dense_lu_solve_matrix_lu_f64",
+    "precision": 64,
+    "name": "solveMatrixLU",
+    "mode": "either",
+    "args": "lm",
+    "result": "m",
+    "module": "L"
+  },
+  {
+    "source": "HMath.Matrix.LU.solve",
+    "c": "hmath_dense_lu_solve_f64",
+    "precision": 64,
+    "name": "solve",
+    "mode": "either",
+    "args": "mv",
+    "result": "v",
+    "module": "L"
+  },
+  {
+    "source": "HMath.Matrix.LU.solveMatrix",
+    "c": "hmath_dense_lu_solve_matrix_f64",
+    "precision": 64,
+    "name": "solveMatrix",
+    "mode": "either",
+    "args": "mm",
+    "result": "m",
+    "module": "L"
+  },
+  {
+    "source": "HMath.Matrix.LU.determinantLU",
+    "c": "hmath_dense_lu_determinant_lu_f64",
+    "precision": 64,
+    "name": "determinantLU",
+    "mode": "either",
+    "args": "l",
+    "result": "f",
+    "module": "L"
+  },
+  {
+    "source": "HMath.Matrix.LU.determinant",
+    "c": "hmath_dense_lu_determinant_f64",
+    "precision": 64,
+    "name": "determinant",
+    "mode": "either",
+    "args": "m",
+    "result": "f",
+    "module": "L"
+  },
+  {
+    "source": "HMath.Matrix.LU.inverse",
+    "c": "hmath_dense_lu_inverse_f64",
+    "precision": 64,
+    "name": "inverse",
+    "mode": "either",
+    "args": "m",
+    "result": "m",
+    "module": "L"
+  },
+  {
+    "source": "HMath.Matrix.QR.qrDecompose",
+    "c": "hmath_dense_qr_qr_decompose_f64",
+    "precision": 64,
+    "name": "qrDecompose",
+    "mode": "either",
+    "args": "m",
+    "result": "q",
+    "module": "Q"
+  },
+  {
+    "source": "HMath.Matrix.QR.qrDecomposeWithTolerance",
+    "c": "hmath_dense_qr_qr_decompose_with_tolerance_f64",
+    "precision": 64,
+    "name": "qrDecomposeWithTolerance",
+    "mode": "either",
+    "args": "fm",
+    "result": "q",
+    "module": "Q"
+  },
+  {
+    "source": "HMath.Matrix.QR.qrQ",
+    "c": "hmath_dense_qr_qr_q_f64",
+    "precision": 64,
+    "name": "qrQ",
+    "mode": "pure",
+    "args": "q",
+    "result": "m",
+    "module": "Q"
+  },
+  {
+    "source": "HMath.Matrix.QR.qrR",
+    "c": "hmath_dense_qr_qr_r_f64",
+    "precision": 64,
+    "name": "qrR",
+    "mode": "pure",
+    "args": "q",
+    "result": "m",
+    "module": "Q"
+  },
+  {
+    "source": "HMath.Matrix.QR.qrPermutation",
+    "c": "hmath_dense_qr_qr_permutation_f64",
+    "precision": 64,
+    "name": "qrPermutation",
+    "mode": "pure",
+    "args": "q",
+    "result": "p",
+    "module": "Q"
+  },
+  {
+    "source": "HMath.Matrix.QR.qrRank",
+    "c": "hmath_dense_qr_qr_rank_f64",
+    "precision": 64,
+    "name": "qrRank",
+    "mode": "pure",
+    "args": "q",
+    "result": "i",
+    "module": "Q"
+  },
+  {
+    "source": "HMath.Matrix.QR.applyQ",
+    "c": "hmath_dense_qr_apply_q_f64",
+    "precision": 64,
+    "name": "applyQ",
+    "mode": "either",
+    "args": "qm",
+    "result": "m",
+    "module": "Q"
+  },
+  {
+    "source": "HMath.Matrix.QR.applyQT",
+    "c": "hmath_dense_qr_apply_qt_f64",
+    "precision": 64,
+    "name": "applyQT",
+    "mode": "either",
+    "args": "qm",
+    "result": "m",
+    "module": "Q"
+  },
+  {
+    "source": "HMath.Matrix.QR.solveMatrixQR",
+    "c": "hmath_dense_qr_solve_matrix_qr_f64",
+    "precision": 64,
+    "name": "solveMatrixQR",
+    "mode": "either",
+    "args": "qm",
+    "result": "m",
+    "module": "Q"
+  },
+  {
+    "source": "HMath.Matrix.QR.solveQR",
+    "c": "hmath_dense_qr_solve_qr_f64",
+    "precision": 64,
+    "name": "solveQR",
+    "mode": "either",
+    "args": "qv",
+    "result": "v",
+    "module": "Q"
+  },
+  {
+    "source": "HMath.Matrix.QR.leastSquares",
+    "c": "hmath_dense_qr_least_squares_f64",
+    "precision": 64,
+    "name": "leastSquares",
+    "mode": "either",
+    "args": "mv",
+    "result": "v",
+    "module": "Q"
+  },
+  {
+    "source": "HMath.Matrix.QR.leastSquaresMatrix",
+    "c": "hmath_dense_qr_least_squares_matrix_f64",
+    "precision": 64,
+    "name": "leastSquaresMatrix",
+    "mode": "either",
+    "args": "mm",
+    "result": "m",
+    "module": "Q"
+  },
+  {
+    "source": "HMath.Matrix.QR.ridgeSolve",
+    "c": "hmath_dense_qr_ridge_solve_f64",
+    "precision": 64,
+    "name": "ridgeSolve",
+    "mode": "either",
+    "args": "fmv",
+    "result": "v",
+    "module": "Q"
+  },
+  {
+    "source": "HMath.Matrix.QR.ridgeSolveMatrix",
+    "c": "hmath_dense_qr_ridge_solve_matrix_f64",
+    "precision": 64,
+    "name": "ridgeSolveMatrix",
+    "mode": "either",
+    "args": "fmm",
+    "result": "m",
+    "module": "Q"
+  }
+]

@@ -1,0 +1,959 @@
+{
+  "schema": 1,
+  "types": [
+    {
+      "module": "HMath.MachineLearning.Clustering",
+      "name": "ClusterModel"
+    },
+    {
+      "module": "HMath.MachineLearning.Clustering",
+      "name": "GaussianMixture"
+    },
+    {
+      "module": "HMath.MachineLearning.Clustering",
+      "name": "Linkage"
+    },
+    {
+      "module": "HMath.MachineLearning.Clustering",
+      "name": "Merge"
+    },
+    {
+      "module": "HMath.MachineLearning.Decomposition",
+      "name": "CCA"
+    },
+    {
+      "module": "HMath.MachineLearning.Decomposition",
+      "name": "FactorAnalysis"
+    },
+    {
+      "module": "HMath.MachineLearning.Decomposition",
+      "name": "ICA"
+    },
+    {
+      "module": "HMath.MachineLearning.Decomposition",
+      "name": "IncrementalPCA"
+    },
+    {
+      "module": "HMath.MachineLearning.Decomposition",
+      "name": "KernelPCA"
+    },
+    {
+      "module": "HMath.MachineLearning.Decomposition",
+      "name": "PCA"
+    },
+    {
+      "module": "HMath.MachineLearning.Decomposition",
+      "name": "PLS"
+    },
+    {
+      "module": "HMath.MachineLearning.Internal",
+      "name": "Dataset"
+    },
+    {
+      "module": "HMath.MachineLearning.Internal",
+      "name": "Fit"
+    },
+    {
+      "module": "HMath.MachineLearning.Internal",
+      "name": "MLConfig"
+    },
+    {
+      "module": "HMath.MachineLearning.Neighbors",
+      "name": "IndexKind"
+    },
+    {
+      "module": "HMath.MachineLearning.Neighbors",
+      "name": "IsolationForest"
+    },
+    {
+      "module": "HMath.MachineLearning.Neighbors",
+      "name": "LSH"
+    },
+    {
+      "module": "HMath.MachineLearning.Neighbors",
+      "name": "NeighborResult"
+    },
+    {
+      "module": "HMath.MachineLearning.Neighbors",
+      "name": "OneClassSVM"
+    },
+    {
+      "module": "HMath.MachineLearning.Neighbors",
+      "name": "SpatialIndex"
+    },
+    {
+      "module": "HMath.MachineLearning.Preprocessing",
+      "name": "Encoder"
+    },
+    {
+      "module": "HMath.MachineLearning.Preprocessing",
+      "name": "Fold"
+    },
+    {
+      "module": "HMath.MachineLearning.Preprocessing",
+      "name": "Imputation"
+    },
+    {
+      "module": "HMath.MachineLearning.Preprocessing",
+      "name": "Imputer"
+    },
+    {
+      "module": "HMath.MachineLearning.Preprocessing",
+      "name": "PowerTransform"
+    },
+    {
+      "module": "HMath.MachineLearning.Preprocessing",
+      "name": "QuantileTransformer"
+    },
+    {
+      "module": "HMath.MachineLearning.Preprocessing",
+      "name": "Scaler"
+    },
+    {
+      "module": "HMath.MachineLearning.Preprocessing",
+      "name": "Scaling"
+    },
+    {
+      "module": "HMath.MachineLearning.Preprocessing",
+      "name": "UnknownCategory"
+    },
+    {
+      "module": "HMath.MachineLearning.Regression",
+      "name": "BayesFamily"
+    },
+    {
+      "module": "HMath.MachineLearning.Regression",
+      "name": "BayesianLinear"
+    },
+    {
+      "module": "HMath.MachineLearning.Regression",
+      "name": "Discriminant"
+    },
+    {
+      "module": "HMath.MachineLearning.Regression",
+      "name": "GLM"
+    },
+    {
+      "module": "HMath.MachineLearning.Regression",
+      "name": "GLMFamily"
+    },
+    {
+      "module": "HMath.MachineLearning.Regression",
+      "name": "GPClassifier"
+    },
+    {
+      "module": "HMath.MachineLearning.Regression",
+      "name": "GaussianProcess"
+    },
+    {
+      "module": "HMath.MachineLearning.Regression",
+      "name": "Kernel"
+    },
+    {
+      "module": "HMath.MachineLearning.Regression",
+      "name": "LinearModel"
+    },
+    {
+      "module": "HMath.MachineLearning.Regression",
+      "name": "MultinomialModel"
+    },
+    {
+      "module": "HMath.MachineLearning.Regression",
+      "name": "NaiveBayes"
+    },
+    {
+      "module": "HMath.MachineLearning.Regression",
+      "name": "Penalty"
+    },
+    {
+      "module": "HMath.MachineLearning.Regression",
+      "name": "RecursiveLS"
+    },
+    {
+      "module": "HMath.MachineLearning.Regression",
+      "name": "SVM"
+    }
+  ],
+  "functions": [
+    {
+      "module": "HMath.MachineLearning.Clustering",
+      "name": "Average",
+      "signature": "Linkage"
+    },
+    {
+      "module": "HMath.MachineLearning.Clustering",
+      "name": "Complete",
+      "signature": "Linkage"
+    },
+    {
+      "module": "HMath.MachineLearning.Clustering",
+      "name": "Merge",
+      "signature": "Int -> Int -> Double -> Int -> Merge"
+    },
+    {
+      "module": "HMath.MachineLearning.Clustering",
+      "name": "Single",
+      "signature": "Linkage"
+    },
+    {
+      "module": "HMath.MachineLearning.Clustering",
+      "name": "Ward",
+      "signature": "Linkage"
+    },
+    {
+      "module": "HMath.MachineLearning.Clustering",
+      "name": "affinityPropagation",
+      "signature": "MLConfig -> Double -> Double -> Dataset -> Either MathError (Fit [Int])"
+    },
+    {
+      "module": "HMath.MachineLearning.Clustering",
+      "name": "clusterCenters",
+      "signature": "ClusterModel -> Dataset"
+    },
+    {
+      "module": "HMath.MachineLearning.Clustering",
+      "name": "cutHierarchy",
+      "signature": "Int -> Int -> [Merge] -> Either MathError [Int]"
+    },
+    {
+      "module": "HMath.MachineLearning.Clustering",
+      "name": "dbscan",
+      "signature": "Double -> Int -> Dataset -> Either MathError [Int]"
+    },
+    {
+      "module": "HMath.MachineLearning.Clustering",
+      "name": "extractOPTICS",
+      "signature": "Double -> [(Int, Maybe Double, Maybe Double)] -> Either MathError [Int]"
+    },
+    {
+      "module": "HMath.MachineLearning.Clustering",
+      "name": "fitGaussianMixture",
+      "signature": "MLConfig -> Int -> Double -> Dataset -> Either MathError (Fit GaussianMixture)"
+    },
+    {
+      "module": "HMath.MachineLearning.Clustering",
+      "name": "hierarchical",
+      "signature": "Linkage -> Dataset -> Either MathError [Merge]"
+    },
+    {
+      "module": "HMath.MachineLearning.Clustering",
+      "name": "kMeans",
+      "signature": "MLConfig -> Int -> Dataset -> Either MathError (Fit ClusterModel)"
+    },
+    {
+      "module": "HMath.MachineLearning.Clustering",
+      "name": "kMeansPlusPlus",
+      "signature": "MLConfig -> Int -> Dataset -> Either MathError (Fit ClusterModel)"
+    },
+    {
+      "module": "HMath.MachineLearning.Clustering",
+      "name": "kMedoids",
+      "signature": "MLConfig -> Int -> Dataset -> Either MathError (Fit [Int])"
+    },
+    {
+      "module": "HMath.MachineLearning.Clustering",
+      "name": "leftCluster",
+      "signature": "Merge -> Int"
+    },
+    {
+      "module": "HMath.MachineLearning.Clustering",
+      "name": "meanShift",
+      "signature": "MLConfig -> Double -> Dataset -> Either MathError (Fit ClusterModel)"
+    },
+    {
+      "module": "HMath.MachineLearning.Clustering",
+      "name": "mergeDistance",
+      "signature": "Merge -> Double"
+    },
+    {
+      "module": "HMath.MachineLearning.Clustering",
+      "name": "mergedSize",
+      "signature": "Merge -> Int"
+    },
+    {
+      "module": "HMath.MachineLearning.Clustering",
+      "name": "miniBatchKMeans",
+      "signature": "MLConfig -> Int -> Int -> Dataset -> Either MathError (Fit ClusterModel)"
+    },
+    {
+      "module": "HMath.MachineLearning.Clustering",
+      "name": "mixtureCovariances",
+      "signature": "GaussianMixture -> [Dataset]"
+    },
+    {
+      "module": "HMath.MachineLearning.Clustering",
+      "name": "mixtureMeans",
+      "signature": "GaussianMixture -> Dataset"
+    },
+    {
+      "module": "HMath.MachineLearning.Clustering",
+      "name": "mixtureResponsibilities",
+      "signature": "GaussianMixture -> Dataset -> Either MathError Dataset"
+    },
+    {
+      "module": "HMath.MachineLearning.Clustering",
+      "name": "mixtureWeights",
+      "signature": "GaussianMixture -> [Double]"
+    },
+    {
+      "module": "HMath.MachineLearning.Clustering",
+      "name": "optics",
+      "signature": "Double -> Int -> Dataset -> Either MathError [(Int, Maybe Double, Maybe Double)]"
+    },
+    {
+      "module": "HMath.MachineLearning.Clustering",
+      "name": "predictClusters",
+      "signature": "ClusterModel -> Dataset -> Either MathError [Int]"
+    },
+    {
+      "module": "HMath.MachineLearning.Clustering",
+      "name": "rightCluster",
+      "signature": "Merge -> Int"
+    },
+    {
+      "module": "HMath.MachineLearning.Clustering",
+      "name": "spectralClustering",
+      "signature": "MLConfig -> Int -> Double -> Dataset -> Either MathError (Fit [Int])"
+    },
+    {
+      "module": "HMath.MachineLearning.Decomposition",
+      "name": "canonicalCorrelations",
+      "signature": "CCA -> [Double]"
+    },
+    {
+      "module": "HMath.MachineLearning.Decomposition",
+      "name": "classicalMDS",
+      "signature": "Int -> Dataset -> Either MathError Dataset"
+    },
+    {
+      "module": "HMath.MachineLearning.Decomposition",
+      "name": "factorLoadings",
+      "signature": "FactorAnalysis -> Dataset"
+    },
+    {
+      "module": "HMath.MachineLearning.Decomposition",
+      "name": "factorNoise",
+      "signature": "FactorAnalysis -> [Double]"
+    },
+    {
+      "module": "HMath.MachineLearning.Decomposition",
+      "name": "finishPCA",
+      "signature": "Int -> IncrementalPCA -> Either MathError PCA"
+    },
+    {
+      "module": "HMath.MachineLearning.Decomposition",
+      "name": "fitCCA",
+      "signature": "Int -> Double -> Dataset -> Dataset -> Either MathError CCA"
+    },
+    {
+      "module": "HMath.MachineLearning.Decomposition",
+      "name": "fitFactorAnalysis",
+      "signature": "MLConfig -> Int -> Double -> Dataset -> Either MathError (Fit FactorAnalysis)"
+    },
+    {
+      "module": "HMath.MachineLearning.Decomposition",
+      "name": "fitICA",
+      "signature": "MLConfig -> Int -> Dataset -> Either MathError (Fit ICA)"
+    },
+    {
+      "module": "HMath.MachineLearning.Decomposition",
+      "name": "fitKernelPCA",
+      "signature": "Int -> Kernel -> Dataset -> Either MathError KernelPCA"
+    },
+    {
+      "module": "HMath.MachineLearning.Decomposition",
+      "name": "fitPCA",
+      "signature": "Int -> Dataset -> Either MathError PCA"
+    },
+    {
+      "module": "HMath.MachineLearning.Decomposition",
+      "name": "fitPLS",
+      "signature": "MLConfig -> Int -> Dataset -> Dataset -> Either MathError (Fit PLS)"
+    },
+    {
+      "module": "HMath.MachineLearning.Decomposition",
+      "name": "incrementalPCA",
+      "signature": "Int -> Either MathError IncrementalPCA"
+    },
+    {
+      "module": "HMath.MachineLearning.Decomposition",
+      "name": "inversePCA",
+      "signature": "PCA -> Dataset -> Either MathError Dataset"
+    },
+    {
+      "module": "HMath.MachineLearning.Decomposition",
+      "name": "isomap",
+      "signature": "Int -> Int -> Dataset -> Either MathError Dataset"
+    },
+    {
+      "module": "HMath.MachineLearning.Decomposition",
+      "name": "mergePCA",
+      "signature": "IncrementalPCA -> IncrementalPCA -> Either MathError IncrementalPCA"
+    },
+    {
+      "module": "HMath.MachineLearning.Decomposition",
+      "name": "pcaComponents",
+      "signature": "PCA -> Dataset"
+    },
+    {
+      "module": "HMath.MachineLearning.Decomposition",
+      "name": "pcaMean",
+      "signature": "PCA -> [Double]"
+    },
+    {
+      "module": "HMath.MachineLearning.Decomposition",
+      "name": "pcaVariances",
+      "signature": "PCA -> [Double]"
+    },
+    {
+      "module": "HMath.MachineLearning.Decomposition",
+      "name": "predictPLS",
+      "signature": "PLS -> Dataset -> Either MathError Dataset"
+    },
+    {
+      "module": "HMath.MachineLearning.Decomposition",
+      "name": "randomProjection",
+      "signature": "MLConfig -> Int -> Dataset -> Either MathError Dataset"
+    },
+    {
+      "module": "HMath.MachineLearning.Decomposition",
+      "name": "transformCCA",
+      "signature": "CCA -> Dataset -> Dataset -> Either MathError (Dataset, Dataset)"
+    },
+    {
+      "module": "HMath.MachineLearning.Decomposition",
+      "name": "transformICA",
+      "signature": "ICA -> Dataset -> Either MathError Dataset"
+    },
+    {
+      "module": "HMath.MachineLearning.Decomposition",
+      "name": "transformKernelPCA",
+      "signature": "KernelPCA -> Dataset -> Either MathError Dataset"
+    },
+    {
+      "module": "HMath.MachineLearning.Decomposition",
+      "name": "transformPCA",
+      "signature": "PCA -> Dataset -> Either MathError Dataset"
+    },
+    {
+      "module": "HMath.MachineLearning.Decomposition",
+      "name": "truncatedSVD",
+      "signature": "Int -> Dataset -> Either MathError (Dataset, [Double], Dataset)"
+    },
+    {
+      "module": "HMath.MachineLearning.Decomposition",
+      "name": "tsne",
+      "signature": "MLConfig -> Int -> Double -> Dataset -> Either MathError (Fit Dataset)"
+    },
+    {
+      "module": "HMath.MachineLearning.Decomposition",
+      "name": "umap",
+      "signature": "MLConfig -> Int -> Int -> Double -> Double -> Dataset -> Either MathError (Fit Dataset)"
+    },
+    {
+      "module": "HMath.MachineLearning.Decomposition",
+      "name": "updatePCA",
+      "signature": "IncrementalPCA -> Dataset -> Either MathError IncrementalPCA"
+    },
+    {
+      "module": "HMath.MachineLearning.Internal",
+      "name": "Fit",
+      "signature": "a -> Int -> Double -> Bool -> Fit a"
+    },
+    {
+      "module": "HMath.MachineLearning.Internal",
+      "name": "MLConfig",
+      "signature": "Int -> Double -> Double -> Word64 -> MLConfig"
+    },
+    {
+      "module": "HMath.MachineLearning.Internal",
+      "name": "defaultMLConfig",
+      "signature": "MLConfig"
+    },
+    {
+      "module": "HMath.MachineLearning.Internal",
+      "name": "fitConverged",
+      "signature": "Fit a -> Bool"
+    },
+    {
+      "module": "HMath.MachineLearning.Internal",
+      "name": "fitIterations",
+      "signature": "Fit a -> Int"
+    },
+    {
+      "module": "HMath.MachineLearning.Internal",
+      "name": "fitResidual",
+      "signature": "Fit a -> Double"
+    },
+    {
+      "module": "HMath.MachineLearning.Internal",
+      "name": "fitted",
+      "signature": "Fit a -> a"
+    },
+    {
+      "module": "HMath.MachineLearning.Internal",
+      "name": "mlIterations",
+      "signature": "MLConfig -> Int"
+    },
+    {
+      "module": "HMath.MachineLearning.Internal",
+      "name": "mlRate",
+      "signature": "MLConfig -> Double"
+    },
+    {
+      "module": "HMath.MachineLearning.Internal",
+      "name": "mlSeed",
+      "signature": "MLConfig -> Word64"
+    },
+    {
+      "module": "HMath.MachineLearning.Internal",
+      "name": "mlTolerance",
+      "signature": "MLConfig -> Double"
+    },
+    {
+      "module": "HMath.MachineLearning.Neighbors",
+      "name": "BallTree",
+      "signature": "IndexKind"
+    },
+    {
+      "module": "HMath.MachineLearning.Neighbors",
+      "name": "KDTree",
+      "signature": "IndexKind"
+    },
+    {
+      "module": "HMath.MachineLearning.Neighbors",
+      "name": "NeighborResult",
+      "signature": "[(Int, Double)] -> Int -> Bool -> NeighborResult"
+    },
+    {
+      "module": "HMath.MachineLearning.Neighbors",
+      "name": "buildIndex",
+      "signature": "IndexKind -> Int -> Dataset -> Either MathError SpatialIndex"
+    },
+    {
+      "module": "HMath.MachineLearning.Neighbors",
+      "name": "buildLSH",
+      "signature": "Word64 -> Int -> Int -> Double -> Dataset -> Either MathError LSH"
+    },
+    {
+      "module": "HMath.MachineLearning.Neighbors",
+      "name": "decisionOneClassSVM",
+      "signature": "OneClassSVM -> Dataset -> Either MathError [Double]"
+    },
+    {
+      "module": "HMath.MachineLearning.Neighbors",
+      "name": "exhaustive",
+      "signature": "NeighborResult -> Bool"
+    },
+    {
+      "module": "HMath.MachineLearning.Neighbors",
+      "name": "fitIsolationForest",
+      "signature": "Word64 -> Int -> Int -> Dataset -> Either MathError IsolationForest"
+    },
+    {
+      "module": "HMath.MachineLearning.Neighbors",
+      "name": "fitOneClassSVM",
+      "signature": "MLConfig -> Kernel -> Double -> Dataset -> Either MathError (Fit OneClassSVM)"
+    },
+    {
+      "module": "HMath.MachineLearning.Neighbors",
+      "name": "knnClassify",
+      "signature": "Int -> SpatialIndex -> [Int] -> Dataset -> Either MathError [Int]"
+    },
+    {
+      "module": "HMath.MachineLearning.Neighbors",
+      "name": "knnRegress",
+      "signature": "Int -> SpatialIndex -> [Double] -> Dataset -> Either MathError [Double]"
+    },
+    {
+      "module": "HMath.MachineLearning.Neighbors",
+      "name": "localOutlierFactor",
+      "signature": "Int -> Dataset -> Either MathError [Double]"
+    },
+    {
+      "module": "HMath.MachineLearning.Neighbors",
+      "name": "nearestNeighbors",
+      "signature": "Int -> Int -> SpatialIndex -> [Double] -> Either MathError NeighborResult"
+    },
+    {
+      "module": "HMath.MachineLearning.Neighbors",
+      "name": "neighbors",
+      "signature": "NeighborResult -> [(Int, Double)]"
+    },
+    {
+      "module": "HMath.MachineLearning.Neighbors",
+      "name": "queryLSH",
+      "signature": "Int -> LSH -> [Double] -> Either MathError [(Int, Double)]"
+    },
+    {
+      "module": "HMath.MachineLearning.Neighbors",
+      "name": "scoreIsolationForest",
+      "signature": "IsolationForest -> Dataset -> Either MathError [Double]"
+    },
+    {
+      "module": "HMath.MachineLearning.Neighbors",
+      "name": "visitedLeaves",
+      "signature": "NeighborResult -> Int"
+    },
+    {
+      "module": "HMath.MachineLearning.Preprocessing",
+      "name": "BoxCox",
+      "signature": "Double -> PowerTransform"
+    },
+    {
+      "module": "HMath.MachineLearning.Preprocessing",
+      "name": "ConstantImpute",
+      "signature": "Double -> Imputation"
+    },
+    {
+      "module": "HMath.MachineLearning.Preprocessing",
+      "name": "Fold",
+      "signature": "[Int] -> [Int] -> Fold"
+    },
+    {
+      "module": "HMath.MachineLearning.Preprocessing",
+      "name": "MeanImpute",
+      "signature": "Imputation"
+    },
+    {
+      "module": "HMath.MachineLearning.Preprocessing",
+      "name": "MedianImpute",
+      "signature": "Imputation"
+    },
+    {
+      "module": "HMath.MachineLearning.Preprocessing",
+      "name": "MinMax",
+      "signature": "Scaling"
+    },
+    {
+      "module": "HMath.MachineLearning.Preprocessing",
+      "name": "RejectUnknown",
+      "signature": "UnknownCategory"
+    },
+    {
+      "module": "HMath.MachineLearning.Preprocessing",
+      "name": "RobustScale",
+      "signature": "Scaling"
+    },
+    {
+      "module": "HMath.MachineLearning.Preprocessing",
+      "name": "Standardize",
+      "signature": "Scaling"
+    },
+    {
+      "module": "HMath.MachineLearning.Preprocessing",
+      "name": "YeoJohnson",
+      "signature": "Double -> PowerTransform"
+    },
+    {
+      "module": "HMath.MachineLearning.Preprocessing",
+      "name": "ZeroUnknown",
+      "signature": "UnknownCategory"
+    },
+    {
+      "module": "HMath.MachineLearning.Preprocessing",
+      "name": "fitEncoder",
+      "signature": "Ord a => [a] -> Either MathError (Encoder a)"
+    },
+    {
+      "module": "HMath.MachineLearning.Preprocessing",
+      "name": "fitImputer",
+      "signature": "Imputation -> Dataset -> Either MathError Imputer"
+    },
+    {
+      "module": "HMath.MachineLearning.Preprocessing",
+      "name": "fitQuantileTransformer",
+      "signature": "Dataset -> Either MathError QuantileTransformer"
+    },
+    {
+      "module": "HMath.MachineLearning.Preprocessing",
+      "name": "fitScaler",
+      "signature": "Scaling -> Dataset -> Either MathError Scaler"
+    },
+    {
+      "module": "HMath.MachineLearning.Preprocessing",
+      "name": "gridSearch",
+      "signature": "[p] -> [Fold] -> (p -> Fold -> Either MathError Double) -> Either MathError (p, Double)"
+    },
+    {
+      "module": "HMath.MachineLearning.Preprocessing",
+      "name": "impute",
+      "signature": "Imputer -> Dataset -> Either MathError Dataset"
+    },
+    {
+      "module": "HMath.MachineLearning.Preprocessing",
+      "name": "inversePowerTransform",
+      "signature": "PowerTransform -> Dataset -> Either MathError Dataset"
+    },
+    {
+      "module": "HMath.MachineLearning.Preprocessing",
+      "name": "inverseQuantileTransform",
+      "signature": "QuantileTransformer -> Dataset -> Either MathError Dataset"
+    },
+    {
+      "module": "HMath.MachineLearning.Preprocessing",
+      "name": "inverseTransform",
+      "signature": "Scaler -> Dataset -> Either MathError Dataset"
+    },
+    {
+      "module": "HMath.MachineLearning.Preprocessing",
+      "name": "kFold",
+      "signature": "Word64 -> Int -> Int -> Either MathError [Fold]"
+    },
+    {
+      "module": "HMath.MachineLearning.Preprocessing",
+      "name": "labelDecode",
+      "signature": "Encoder a -> [Int] -> Either MathError [a]"
+    },
+    {
+      "module": "HMath.MachineLearning.Preprocessing",
+      "name": "labelEncode",
+      "signature": "Eq a => Encoder a -> [a] -> Either MathError [Int]"
+    },
+    {
+      "module": "HMath.MachineLearning.Preprocessing",
+      "name": "oneHotEncode",
+      "signature": "Eq a => UnknownCategory -> Encoder a -> [a] -> Either MathError Dataset"
+    },
+    {
+      "module": "HMath.MachineLearning.Preprocessing",
+      "name": "powerTransform",
+      "signature": "PowerTransform -> Dataset -> Either MathError Dataset"
+    },
+    {
+      "module": "HMath.MachineLearning.Preprocessing",
+      "name": "quantileTransform",
+      "signature": "QuantileTransformer -> Dataset -> Either MathError Dataset"
+    },
+    {
+      "module": "HMath.MachineLearning.Preprocessing",
+      "name": "randomSearch",
+      "signature": "Word64 -> Int -> [p] -> [Fold] -> (p -> Fold -> Either MathError Double) -> Either MathError (p, Double)"
+    },
+    {
+      "module": "HMath.MachineLearning.Preprocessing",
+      "name": "stratifiedKFold",
+      "signature": "Ord a => Word64 -> Int -> [a] -> Either MathError [Fold]"
+    },
+    {
+      "module": "HMath.MachineLearning.Preprocessing",
+      "name": "trainTestSplit",
+      "signature": "Word64 -> Double -> Int -> Either MathError Fold"
+    },
+    {
+      "module": "HMath.MachineLearning.Preprocessing",
+      "name": "trainingIndices",
+      "signature": "Fold -> [Int]"
+    },
+    {
+      "module": "HMath.MachineLearning.Preprocessing",
+      "name": "transform",
+      "signature": "Scaler -> Dataset -> Either MathError Dataset"
+    },
+    {
+      "module": "HMath.MachineLearning.Preprocessing",
+      "name": "validationIndices",
+      "signature": "Fold -> [Int]"
+    },
+    {
+      "module": "HMath.MachineLearning.Regression",
+      "name": "BernoulliBayes",
+      "signature": "BayesFamily"
+    },
+    {
+      "module": "HMath.MachineLearning.Regression",
+      "name": "BinomialLogit",
+      "signature": "GLMFamily"
+    },
+    {
+      "module": "HMath.MachineLearning.Regression",
+      "name": "ElasticNet",
+      "signature": "Double -> Double -> Penalty"
+    },
+    {
+      "module": "HMath.MachineLearning.Regression",
+      "name": "GaussianBayes",
+      "signature": "BayesFamily"
+    },
+    {
+      "module": "HMath.MachineLearning.Regression",
+      "name": "Lasso",
+      "signature": "Double -> Penalty"
+    },
+    {
+      "module": "HMath.MachineLearning.Regression",
+      "name": "LinearKernel",
+      "signature": "Kernel"
+    },
+    {
+      "module": "HMath.MachineLearning.Regression",
+      "name": "MultinomialBayes",
+      "signature": "BayesFamily"
+    },
+    {
+      "module": "HMath.MachineLearning.Regression",
+      "name": "Ordinary",
+      "signature": "Penalty"
+    },
+    {
+      "module": "HMath.MachineLearning.Regression",
+      "name": "PoissonLog",
+      "signature": "GLMFamily"
+    },
+    {
+      "module": "HMath.MachineLearning.Regression",
+      "name": "PolynomialKernel",
+      "signature": "Int -> Double -> Double -> Kernel"
+    },
+    {
+      "module": "HMath.MachineLearning.Regression",
+      "name": "RBFKernel",
+      "signature": "Double -> Kernel"
+    },
+    {
+      "module": "HMath.MachineLearning.Regression",
+      "name": "Ridge",
+      "signature": "Double -> Penalty"
+    },
+    {
+      "module": "HMath.MachineLearning.Regression",
+      "name": "bayesianCovariance",
+      "signature": "BayesianLinear -> Dataset"
+    },
+    {
+      "module": "HMath.MachineLearning.Regression",
+      "name": "bayesianMean",
+      "signature": "BayesianLinear -> LinearModel"
+    },
+    {
+      "module": "HMath.MachineLearning.Regression",
+      "name": "coefficients",
+      "signature": "LinearModel -> [Double]"
+    },
+    {
+      "module": "HMath.MachineLearning.Regression",
+      "name": "decisionSVM",
+      "signature": "SVM -> Dataset -> Either MathError [Double]"
+    },
+    {
+      "module": "HMath.MachineLearning.Regression",
+      "name": "fitBayesian",
+      "signature": "Double -> Double -> Dataset -> [Double] -> Either MathError BayesianLinear"
+    },
+    {
+      "module": "HMath.MachineLearning.Regression",
+      "name": "fitDiscriminant",
+      "signature": "Bool -> Double -> Dataset -> [Int] -> Either MathError Discriminant"
+    },
+    {
+      "module": "HMath.MachineLearning.Regression",
+      "name": "fitGLM",
+      "signature": "MLConfig -> GLMFamily -> Double -> Dataset -> [Double] -> Either MathError (Fit GLM)"
+    },
+    {
+      "module": "HMath.MachineLearning.Regression",
+      "name": "fitGPClassifier",
+      "signature": "MLConfig -> Kernel -> Dataset -> [Double] -> Either MathError (Fit GPClassifier)"
+    },
+    {
+      "module": "HMath.MachineLearning.Regression",
+      "name": "fitGaussianProcess",
+      "signature": "Kernel -> Double -> Dataset -> [Double] -> Either MathError GaussianProcess"
+    },
+    {
+      "module": "HMath.MachineLearning.Regression",
+      "name": "fitLinear",
+      "signature": "MLConfig -> Penalty -> Dataset -> [Double] -> Either MathError (Fit LinearModel)"
+    },
+    {
+      "module": "HMath.MachineLearning.Regression",
+      "name": "fitMultinomial",
+      "signature": "MLConfig -> Double -> Dataset -> [Int] -> Either MathError (Fit MultinomialModel)"
+    },
+    {
+      "module": "HMath.MachineLearning.Regression",
+      "name": "fitNaiveBayes",
+      "signature": "BayesFamily -> Double -> Dataset -> [Int] -> Either MathError NaiveBayes"
+    },
+    {
+      "module": "HMath.MachineLearning.Regression",
+      "name": "fitRobust",
+      "signature": "MLConfig -> Double -> Dataset -> [Double] -> Either MathError (Fit LinearModel)"
+    },
+    {
+      "module": "HMath.MachineLearning.Regression",
+      "name": "fitSVM",
+      "signature": "MLConfig -> Kernel -> Double -> Dataset -> [Double] -> Either MathError (Fit SVM)"
+    },
+    {
+      "module": "HMath.MachineLearning.Regression",
+      "name": "fitWeighted",
+      "signature": "Dataset -> [Double] -> [Double] -> Either MathError LinearModel"
+    },
+    {
+      "module": "HMath.MachineLearning.Regression",
+      "name": "kernel",
+      "signature": "Kernel -> [Double] -> [Double] -> Either MathError Double"
+    },
+    {
+      "module": "HMath.MachineLearning.Regression",
+      "name": "polynomialFeatures",
+      "signature": "Int -> [Double] -> Either MathError Dataset"
+    },
+    {
+      "module": "HMath.MachineLearning.Regression",
+      "name": "predictDiscriminant",
+      "signature": "Discriminant -> Dataset -> Either MathError [Int]"
+    },
+    {
+      "module": "HMath.MachineLearning.Regression",
+      "name": "predictGLM",
+      "signature": "GLM -> Dataset -> Either MathError [Double]"
+    },
+    {
+      "module": "HMath.MachineLearning.Regression",
+      "name": "predictGPClassifier",
+      "signature": "GPClassifier -> Dataset -> Either MathError [Double]"
+    },
+    {
+      "module": "HMath.MachineLearning.Regression",
+      "name": "predictGaussianProcess",
+      "signature": "GaussianProcess -> Dataset -> Either MathError [(Double, Double)]"
+    },
+    {
+      "module": "HMath.MachineLearning.Regression",
+      "name": "predictLinear",
+      "signature": "LinearModel -> Dataset -> Either MathError [Double]"
+    },
+    {
+      "module": "HMath.MachineLearning.Regression",
+      "name": "predictMultinomial",
+      "signature": "MultinomialModel -> Dataset -> Either MathError [[(Int, Double)]]"
+    },
+    {
+      "module": "HMath.MachineLearning.Regression",
+      "name": "predictNaiveBayes",
+      "signature": "NaiveBayes -> Dataset -> Either MathError [Int]"
+    },
+    {
+      "module": "HMath.MachineLearning.Regression",
+      "name": "predictSVM",
+      "signature": "SVM -> Dataset -> Either MathError [Double]"
+    },
+    {
+      "module": "HMath.MachineLearning.Regression",
+      "name": "recursiveCoefficients",
+      "signature": "RecursiveLS -> [Double]"
+    },
+    {
+      "module": "HMath.MachineLearning.Regression",
+      "name": "recursiveLS",
+      "signature": "Int -> Double -> Double -> Either MathError RecursiveLS"
+    },
+    {
+      "module": "HMath.MachineLearning.Regression",
+      "name": "updateRecursiveLS",
+      "signature": "RecursiveLS -> [Double] -> Double -> Either MathError RecursiveLS"
+    }
+  ]
+}

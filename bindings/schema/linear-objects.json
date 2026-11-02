@@ -1,0 +1,2845 @@
+{
+  "schema": 1,
+  "bindings": [
+    {
+      "symbol": "HMath.Backend.Accelerate",
+      "c": [
+        "hmath_linear_backend_new_accelerate"
+      ],
+      "python": "hmath.backend.accelerate",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Backend.AutoBackend",
+      "c": [
+        "hmath_linear_backend_new_auto_backend"
+      ],
+      "python": "hmath.backend.auto_backend",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Backend.BLIS",
+      "c": [
+        "hmath_linear_backend_new_blis"
+      ],
+      "python": "hmath.backend.blis",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Backend.Backend",
+      "c": [
+        "hmath_linear_backend_backend_object"
+      ],
+      "python": "hmath.backend.Backend",
+      "specializations": [
+        "original owned opaque type with source coefficient type"
+      ]
+    },
+    {
+      "symbol": "HMath.Backend.BackendInfo",
+      "c": [
+        "hmath_linear_backend_new_backend_info"
+      ],
+      "python": "hmath.backend.BackendInfo",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Backend.BackendLayout",
+      "c": [
+        "hmath_linear_backend_backend_layout_object"
+      ],
+      "python": "hmath.backend.BackendLayout",
+      "specializations": [
+        "original owned opaque type with source coefficient type"
+      ]
+    },
+    {
+      "symbol": "HMath.Backend.BackendRequest",
+      "c": [
+        "hmath_linear_backend_backend_request_object"
+      ],
+      "python": "hmath.backend.BackendRequest",
+      "specializations": [
+        "original owned opaque type with source coefficient type"
+      ]
+    },
+    {
+      "symbol": "HMath.Backend.ColumnMajor",
+      "c": [
+        "hmath_linear_backend_new_column_major"
+      ],
+      "python": "hmath.backend.column_major",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Backend.ConjugateTranspose",
+      "c": [
+        "hmath_linear_backend_new_conjugate_transpose"
+      ],
+      "python": "hmath.backend.conjugate_transpose",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Backend.ILP64",
+      "c": [
+        "hmath_linear_backend_new_ilp64"
+      ],
+      "python": "hmath.backend.ilp64",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Backend.IntegerABI",
+      "c": [
+        "hmath_linear_backend_integer_abi_object"
+      ],
+      "python": "hmath.backend.IntegerABI",
+      "specializations": [
+        "original owned opaque type with source coefficient type"
+      ]
+    },
+    {
+      "symbol": "HMath.Backend.LP64",
+      "c": [
+        "hmath_linear_backend_new_lp64"
+      ],
+      "python": "hmath.backend.lp64",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Backend.NoTranspose",
+      "c": [
+        "hmath_linear_backend_new_no_transpose"
+      ],
+      "python": "hmath.backend.no_transpose",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Backend.OneMKL",
+      "c": [
+        "hmath_linear_backend_new_one_mkl"
+      ],
+      "python": "hmath.backend.one_mkl",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Backend.OpenBLAS",
+      "c": [
+        "hmath_linear_backend_new_open_blas"
+      ],
+      "python": "hmath.backend.open_blas",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Backend.Provider",
+      "c": [
+        "hmath_linear_backend_provider_object"
+      ],
+      "python": "hmath.backend.Provider",
+      "specializations": [
+        "original owned opaque type with source coefficient type"
+      ]
+    },
+    {
+      "symbol": "HMath.Backend.Pure",
+      "c": [
+        "hmath_linear_backend_new_pure"
+      ],
+      "python": "hmath.backend.pure",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Backend.RequireBackend",
+      "c": [
+        "hmath_linear_backend_new_require_backend"
+      ],
+      "python": "hmath.backend.require_backend",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Backend.RowMajor",
+      "c": [
+        "hmath_linear_backend_new_row_major"
+      ],
+      "python": "hmath.backend.row_major",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Backend.Transpose",
+      "c": [
+        "hmath_linear_backend_new_transpose"
+      ],
+      "python": "hmath.backend.Transpose",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Backend.axpy",
+      "c": [
+        "hmath_linear_backend_axpy"
+      ],
+      "python": "hmath.backend.axpy",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Backend.backendCholesky",
+      "c": [
+        "hmath_linear_backend_backend_cholesky"
+      ],
+      "python": "hmath.backend.backend_cholesky",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Backend.backendInfo",
+      "c": [
+        "hmath_linear_backend_backend_info"
+      ],
+      "python": "hmath.backend.backend_info",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Backend.backendLU",
+      "c": [
+        "hmath_linear_backend_backend_lu"
+      ],
+      "python": "hmath.backend.backend_lu",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Backend.backendLeastSquares",
+      "c": [
+        "hmath_linear_backend_backend_least_squares"
+      ],
+      "python": "hmath.backend.backend_least_squares",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Backend.backendQR",
+      "c": [
+        "hmath_linear_backend_backend_qr"
+      ],
+      "python": "hmath.backend.backend_qr",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Backend.backendSVD",
+      "c": [
+        "hmath_linear_backend_backend_svd"
+      ],
+      "python": "hmath.backend.backend_svd",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Backend.backendSolve",
+      "c": [
+        "hmath_linear_backend_backend_solve"
+      ],
+      "python": "hmath.backend.backend_solve",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Backend.backendSymmetricEigen",
+      "c": [
+        "hmath_linear_backend_backend_symmetric_eigen"
+      ],
+      "python": "hmath.backend.backend_symmetric_eigen",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Backend.batchedGemm",
+      "c": [
+        "hmath_linear_backend_batched_gemm"
+      ],
+      "python": "hmath.backend.batched_gemm",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Backend.complexAxpy",
+      "c": [
+        "hmath_linear_backend_complex_axpy"
+      ],
+      "python": "hmath.backend.complex_axpy",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Backend.complexDot",
+      "c": [
+        "hmath_linear_backend_complex_dot"
+      ],
+      "python": "hmath.backend.complex_dot",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Backend.complexGemm",
+      "c": [
+        "hmath_linear_backend_complex_gemm"
+      ],
+      "python": "hmath.backend.complex_gemm",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Backend.complexGemv",
+      "c": [
+        "hmath_linear_backend_complex_gemv"
+      ],
+      "python": "hmath.backend.complex_gemv",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Backend.complexNrm2",
+      "c": [
+        "hmath_linear_backend_complex_nrm2"
+      ],
+      "python": "hmath.backend.complex_nrm2",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Backend.dot",
+      "c": [
+        "hmath_linear_backend_dot"
+      ],
+      "python": "hmath.backend.dot",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Backend.gemm",
+      "c": [
+        "hmath_linear_backend_gemm"
+      ],
+      "python": "hmath.backend.gemm",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Backend.gemv",
+      "c": [
+        "hmath_linear_backend_gemv"
+      ],
+      "python": "hmath.backend.gemv",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Backend.lapackAvailable",
+      "c": [
+        "hmath_linear_backend_lapack_available"
+      ],
+      "python": "hmath.backend.lapack_available",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Backend.lapackStatus",
+      "c": [
+        "hmath_linear_backend_lapack_status"
+      ],
+      "python": "hmath.backend.lapack_status",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Backend.matrixFromLayout",
+      "c": [
+        "hmath_linear_backend_matrix_from_layout"
+      ],
+      "python": "hmath.backend.matrix_from_layout",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Backend.matrixToLayout",
+      "c": [
+        "hmath_linear_backend_matrix_to_layout"
+      ],
+      "python": "hmath.backend.matrix_to_layout",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Backend.nrm2",
+      "c": [
+        "hmath_linear_backend_nrm2"
+      ],
+      "python": "hmath.backend.nrm2",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Backend.pureBackend",
+      "c": [
+        "hmath_linear_backend_pure_backend"
+      ],
+      "python": "hmath.backend.pure_backend",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Backend.pureSVD",
+      "c": [
+        "hmath_linear_backend_pure_svd"
+      ],
+      "python": "hmath.backend.pure_svd",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Backend.pureSymmetricEigen",
+      "c": [
+        "hmath_linear_backend_pure_symmetric_eigen"
+      ],
+      "python": "hmath.backend.pure_symmetric_eigen",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Backend.selectBackend",
+      "c": [
+        "hmath_linear_backend_select_backend"
+      ],
+      "python": "hmath.backend.select_backend",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Backend.selectedIntegerABI",
+      "c": [
+        "hmath_linear_backend_selected_integer_abi"
+      ],
+      "python": "hmath.backend.selected_integer_abi",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Backend.selectedProvider",
+      "c": [
+        "hmath_linear_backend_selected_provider"
+      ],
+      "python": "hmath.backend.selected_provider",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Backend.setBackendThreads",
+      "c": [
+        "hmath_linear_backend_set_backend_threads"
+      ],
+      "python": "hmath.backend.set_backend_threads",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Backend.stridedBatchedGemm",
+      "c": [
+        "hmath_linear_backend_strided_batched_gemm"
+      ],
+      "python": "hmath.backend.strided_batched_gemm",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.Advanced.bandedMatrix",
+      "c": [
+        "hmath_linear_matrix_advanced_banded_matrix"
+      ],
+      "python": "hmath.matrix_advanced.banded_matrix",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.Advanced.batchedMultiply",
+      "c": [
+        "hmath_linear_matrix_advanced_batched_multiply"
+      ],
+      "python": "hmath.matrix_advanced.batched_multiply",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.Advanced.blockMatrix",
+      "c": [
+        "hmath_linear_matrix_advanced_block_matrix"
+      ],
+      "python": "hmath.matrix_advanced.block_matrix",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.Advanced.changeCoordinates",
+      "c": [
+        "hmath_linear_matrix_advanced_change_coordinates"
+      ],
+      "python": "hmath.matrix_advanced.change_coordinates",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.Advanced.columnSpace",
+      "c": [
+        "hmath_linear_matrix_advanced_column_space"
+      ],
+      "python": "hmath.matrix_advanced.column_space",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.Advanced.complexPseudoinverse",
+      "c": [
+        "hmath_linear_matrix_advanced_complex_pseudoinverse"
+      ],
+      "python": "hmath.matrix_advanced.complex_pseudoinverse",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.Advanced.conditionNumber",
+      "c": [
+        "hmath_linear_matrix_advanced_condition_number"
+      ],
+      "python": "hmath.matrix_advanced.condition_number",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.Advanced.conjugateTranspose",
+      "c": [
+        "hmath_linear_matrix_advanced_conjugate_transpose"
+      ],
+      "python": "hmath.matrix_advanced.conjugate_transpose",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.Advanced.frobeniusNorm",
+      "c": [
+        "hmath_linear_matrix_advanced_frobenius_norm"
+      ],
+      "python": "hmath.matrix_advanced.frobenius_norm",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.Advanced.generateMatrix",
+      "c": [
+        "hmath_linear_matrix_advanced_generate_matrix"
+      ],
+      "python": "hmath.matrix_advanced.generate_matrix",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.Advanced.hermitianMatrix",
+      "c": [
+        "hmath_linear_matrix_advanced_hermitian_matrix"
+      ],
+      "python": "hmath.matrix_advanced.hermitian_matrix",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.Advanced.khatriRao",
+      "c": [
+        "hmath_linear_matrix_advanced_khatri_rao"
+      ],
+      "python": "hmath.matrix_advanced.khatri_rao",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.Advanced.kronecker",
+      "c": [
+        "hmath_linear_matrix_advanced_kronecker"
+      ],
+      "python": "hmath.matrix_advanced.kronecker",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.Advanced.matrixExp",
+      "c": [
+        "hmath_linear_matrix_advanced_matrix_exp"
+      ],
+      "python": "hmath.matrix_advanced.matrix_exp",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.Advanced.matrixLog",
+      "c": [
+        "hmath_linear_matrix_advanced_matrix_log"
+      ],
+      "python": "hmath.matrix_advanced.matrix_log",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.Advanced.matrixLogGeneral",
+      "c": [
+        "hmath_linear_matrix_advanced_matrix_log_general"
+      ],
+      "python": "hmath.matrix_advanced.matrix_log_general",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.Advanced.matrixNorm1",
+      "c": [
+        "hmath_linear_matrix_advanced_matrix_norm1"
+      ],
+      "python": "hmath.matrix_advanced.matrix_norm1",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.Advanced.matrixNormInfinity",
+      "c": [
+        "hmath_linear_matrix_advanced_matrix_norm_infinity"
+      ],
+      "python": "hmath.matrix_advanced.matrix_norm_infinity",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.Advanced.matrixPower",
+      "c": [
+        "hmath_linear_matrix_advanced_matrix_power"
+      ],
+      "python": "hmath.matrix_advanced.matrix_power",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.Advanced.matrixRank",
+      "c": [
+        "hmath_linear_matrix_advanced_matrix_rank"
+      ],
+      "python": "hmath.matrix_advanced.matrix_rank",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.Advanced.matrixSqrt",
+      "c": [
+        "hmath_linear_matrix_advanced_matrix_sqrt"
+      ],
+      "python": "hmath.matrix_advanced.matrix_sqrt",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.Advanced.matrixSqrtGeneral",
+      "c": [
+        "hmath_linear_matrix_advanced_matrix_sqrt_general"
+      ],
+      "python": "hmath.matrix_advanced.matrix_sqrt_general",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.Advanced.nullSpace",
+      "c": [
+        "hmath_linear_matrix_advanced_null_space"
+      ],
+      "python": "hmath.matrix_advanced.null_space",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.Advanced.permutationMatrix",
+      "c": [
+        "hmath_linear_matrix_advanced_permutation_matrix"
+      ],
+      "python": "hmath.matrix_advanced.permutation_matrix",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.Advanced.polar",
+      "c": [
+        "hmath_linear_matrix_advanced_polar"
+      ],
+      "python": "hmath.matrix_advanced.polar",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.Advanced.pseudoinverse",
+      "c": [
+        "hmath_linear_matrix_advanced_pseudoinverse"
+      ],
+      "python": "hmath.matrix_advanced.pseudoinverse",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.Advanced.rowSpace",
+      "c": [
+        "hmath_linear_matrix_advanced_row_space"
+      ],
+      "python": "hmath.matrix_advanced.row_space",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.Advanced.spectralNorm",
+      "c": [
+        "hmath_linear_matrix_advanced_spectral_norm"
+      ],
+      "python": "hmath.matrix_advanced.spectral_norm",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.Advanced.symmetricMatrix",
+      "c": [
+        "hmath_linear_matrix_advanced_symmetric_matrix"
+      ],
+      "python": "hmath.matrix_advanced.symmetric_matrix",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.Advanced.trace",
+      "c": [
+        "hmath_linear_matrix_advanced_trace"
+      ],
+      "python": "hmath.matrix_advanced.trace",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.Advanced.triangularMatrix",
+      "c": [
+        "hmath_linear_matrix_advanced_triangular_matrix"
+      ],
+      "python": "hmath.matrix_advanced.triangular_matrix",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.Advanced.zipMatrixWith",
+      "c": [
+        "hmath_linear_matrix_advanced_zip_matrix_with"
+      ],
+      "python": "hmath.matrix_advanced.zip_matrix_with",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.Decomposition.Arnoldi",
+      "c": [
+        "hmath_linear_decomposition_new_arnoldi"
+      ],
+      "python": "hmath.decomposition.Arnoldi",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.Decomposition.Bidiagonal",
+      "c": [
+        "hmath_linear_decomposition_new_bidiagonal"
+      ],
+      "python": "hmath.decomposition.Bidiagonal",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.Decomposition.Iteration",
+      "c": [
+        "hmath_linear_decomposition_new_iteration"
+      ],
+      "python": "hmath.decomposition.Iteration",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.Decomposition.arnoldi",
+      "c": [
+        "hmath_linear_decomposition_arnoldi"
+      ],
+      "python": "hmath.decomposition.arnoldi",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.Decomposition.arnoldiBasis",
+      "c": [
+        "hmath_linear_decomposition_arnoldi_basis"
+      ],
+      "python": "hmath.decomposition.arnoldi_basis",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.Decomposition.arnoldiHessenberg",
+      "c": [
+        "hmath_linear_decomposition_arnoldi_hessenberg"
+      ],
+      "python": "hmath.decomposition.arnoldi_hessenberg",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.Decomposition.bidiagonalB",
+      "c": [
+        "hmath_linear_decomposition_bidiagonal_b"
+      ],
+      "python": "hmath.decomposition.bidiagonal_b",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.Decomposition.bidiagonalU",
+      "c": [
+        "hmath_linear_decomposition_bidiagonal_u"
+      ],
+      "python": "hmath.decomposition.bidiagonal_u",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.Decomposition.bidiagonalV",
+      "c": [
+        "hmath_linear_decomposition_bidiagonal_v"
+      ],
+      "python": "hmath.decomposition.bidiagonal_v",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.Decomposition.bidiagonalize",
+      "c": [
+        "hmath_linear_decomposition_bidiagonalize"
+      ],
+      "python": "hmath.decomposition.bidiagonalize",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.Decomposition.cholesky",
+      "c": [
+        "hmath_linear_decomposition_cholesky"
+      ],
+      "python": "hmath.decomposition.cholesky",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.Decomposition.gaussJordan",
+      "c": [
+        "hmath_linear_decomposition_gauss_jordan"
+      ],
+      "python": "hmath.decomposition.gauss_jordan",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.Decomposition.gaussianElimination",
+      "c": [
+        "hmath_linear_decomposition_gaussian_elimination"
+      ],
+      "python": "hmath.decomposition.gaussian_elimination",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.Decomposition.givensQR",
+      "c": [
+        "hmath_linear_decomposition_givens_qr"
+      ],
+      "python": "hmath.decomposition.givens_qr",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.Decomposition.inverseIteration",
+      "c": [
+        "hmath_linear_decomposition_inverse_iteration"
+      ],
+      "python": "hmath.decomposition.inverse_iteration",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.Decomposition.iterationCount",
+      "c": [
+        "hmath_linear_decomposition_iteration_count"
+      ],
+      "python": "hmath.decomposition.iteration_count",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.Decomposition.iterationResidual",
+      "c": [
+        "hmath_linear_decomposition_iteration_residual"
+      ],
+      "python": "hmath.decomposition.iteration_residual",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.Decomposition.iterationValue",
+      "c": [
+        "hmath_linear_decomposition_iteration_value"
+      ],
+      "python": "hmath.decomposition.iteration_value",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.Decomposition.iterationVector",
+      "c": [
+        "hmath_linear_decomposition_iteration_vector"
+      ],
+      "python": "hmath.decomposition.iteration_vector",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.Decomposition.jordanChains",
+      "c": [
+        "hmath_linear_decomposition_jordan_chains"
+      ],
+      "python": "hmath.decomposition.jordan_chains",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.Decomposition.jordanForm",
+      "c": [
+        "hmath_linear_decomposition_jordan_form"
+      ],
+      "python": "hmath.decomposition.jordan_form",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.Decomposition.lanczos",
+      "c": [
+        "hmath_linear_decomposition_lanczos"
+      ],
+      "python": "hmath.decomposition.lanczos",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.Decomposition.ldlt",
+      "c": [
+        "hmath_linear_decomposition_ldlt"
+      ],
+      "python": "hmath.decomposition.ldlt",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.Decomposition.powerIteration",
+      "c": [
+        "hmath_linear_decomposition_power_iteration"
+      ],
+      "python": "hmath.decomposition.power_iteration",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.Decomposition.qrIteration",
+      "c": [
+        "hmath_linear_decomposition_qr_iteration"
+      ],
+      "python": "hmath.decomposition.qr_iteration",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.Decomposition.rayleighIteration",
+      "c": [
+        "hmath_linear_decomposition_rayleigh_iteration"
+      ],
+      "python": "hmath.decomposition.rayleigh_iteration",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.Decomposition.tridiagonalize",
+      "c": [
+        "hmath_linear_decomposition_tridiagonalize"
+      ],
+      "python": "hmath.decomposition.tridiagonalize",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.Iterative.IterativeOptions",
+      "c": [
+        "hmath_linear_iterative_new_iterative_options"
+      ],
+      "python": "hmath.iterative.IterativeOptions",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.Iterative.IterativeResult",
+      "c": [
+        "hmath_linear_iterative_new_iterative_result"
+      ],
+      "python": "hmath.iterative.IterativeResult",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.Iterative.Preconditioner",
+      "c": [
+        "hmath_linear_iterative_preconditioner_object"
+      ],
+      "python": "hmath.iterative.Preconditioner",
+      "specializations": [
+        "original owned opaque type with source coefficient type"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.Iterative.absoluteTolerance",
+      "c": [
+        "hmath_linear_iterative_absolute_tolerance"
+      ],
+      "python": "hmath.iterative.absolute_tolerance",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.Iterative.applyPreconditioner",
+      "c": [
+        "hmath_linear_iterative_apply_preconditioner"
+      ],
+      "python": "hmath.iterative.apply_preconditioner",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.Iterative.bicg",
+      "c": [
+        "hmath_linear_iterative_bicg"
+      ],
+      "python": "hmath.iterative.bicg",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.Iterative.bicgstab",
+      "c": [
+        "hmath_linear_iterative_bicgstab"
+      ],
+      "python": "hmath.iterative.bicgstab",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.Iterative.blockJacobiPreconditioner",
+      "c": [
+        "hmath_linear_iterative_block_jacobi_preconditioner"
+      ],
+      "python": "hmath.iterative.block_jacobi_preconditioner",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.Iterative.conjugateGradient",
+      "c": [
+        "hmath_linear_iterative_conjugate_gradient"
+      ],
+      "python": "hmath.iterative.conjugate_gradient",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.Iterative.defaultIterativeOptions",
+      "c": [
+        "hmath_linear_iterative_default_iterative_options"
+      ],
+      "python": "hmath.iterative.default_iterative_options",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.Iterative.gaussSeidelSolve",
+      "c": [
+        "hmath_linear_iterative_gauss_seidel_solve"
+      ],
+      "python": "hmath.iterative.gauss_seidel_solve",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.Iterative.gmres",
+      "c": [
+        "hmath_linear_iterative_gmres"
+      ],
+      "python": "hmath.iterative.gmres",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.Iterative.ic0Preconditioner",
+      "c": [
+        "hmath_linear_iterative_ic0_preconditioner"
+      ],
+      "python": "hmath.iterative.ic0_preconditioner",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.Iterative.identityPreconditioner",
+      "c": [
+        "hmath_linear_iterative_identity_preconditioner"
+      ],
+      "python": "hmath.iterative.identity_preconditioner",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.Iterative.ilu0Preconditioner",
+      "c": [
+        "hmath_linear_iterative_ilu0_preconditioner"
+      ],
+      "python": "hmath.iterative.ilu0_preconditioner",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.Iterative.iterativeIterations",
+      "c": [
+        "hmath_linear_iterative_iterative_iterations"
+      ],
+      "python": "hmath.iterative.iterative_iterations",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.Iterative.iterativeNormalResidualNorm",
+      "c": [
+        "hmath_linear_iterative_iterative_normal_residual_norm"
+      ],
+      "python": "hmath.iterative.iterative_normal_residual_norm",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.Iterative.iterativeRefinement",
+      "c": [
+        "hmath_linear_iterative_iterative_refinement"
+      ],
+      "python": "hmath.iterative.iterative_refinement",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.Iterative.iterativeResidualNorm",
+      "c": [
+        "hmath_linear_iterative_iterative_residual_norm"
+      ],
+      "python": "hmath.iterative.iterative_residual_norm",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.Iterative.iterativeSolution",
+      "c": [
+        "hmath_linear_iterative_iterative_solution"
+      ],
+      "python": "hmath.iterative.iterative_solution",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.Iterative.jacobiPreconditioner",
+      "c": [
+        "hmath_linear_iterative_jacobi_preconditioner"
+      ],
+      "python": "hmath.iterative.jacobi_preconditioner",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.Iterative.jacobiSolve",
+      "c": [
+        "hmath_linear_iterative_jacobi_solve"
+      ],
+      "python": "hmath.iterative.jacobi_solve",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.Iterative.lsmr",
+      "c": [
+        "hmath_linear_iterative_lsmr"
+      ],
+      "python": "hmath.iterative.lsmr",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.Iterative.lsqr",
+      "c": [
+        "hmath_linear_iterative_lsqr"
+      ],
+      "python": "hmath.iterative.lsqr",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.Iterative.maximumIterations",
+      "c": [
+        "hmath_linear_iterative_maximum_iterations"
+      ],
+      "python": "hmath.iterative.maximum_iterations",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.Iterative.minres",
+      "c": [
+        "hmath_linear_iterative_minres"
+      ],
+      "python": "hmath.iterative.minres",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.Iterative.preconditionedCG",
+      "c": [
+        "hmath_linear_iterative_preconditioned_cg"
+      ],
+      "python": "hmath.iterative.preconditioned_cg",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.Iterative.relativeTolerance",
+      "c": [
+        "hmath_linear_iterative_relative_tolerance"
+      ],
+      "python": "hmath.iterative.relative_tolerance",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.Iterative.sorSolve",
+      "c": [
+        "hmath_linear_iterative_sor_solve"
+      ],
+      "python": "hmath.iterative.sor_solve",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.LAPACK.Balance",
+      "c": [
+        "hmath_linear_lapack_new_balance"
+      ],
+      "python": "hmath.lapack.Balance",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.LAPACK.ComplexSVD",
+      "c": [
+        "hmath_linear_lapack_new_complex_svd"
+      ],
+      "python": "hmath.lapack.ComplexSVD",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.LAPACK.Eigen",
+      "c": [
+        "hmath_linear_lapack_new_eigen"
+      ],
+      "python": "hmath.lapack.Eigen",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.LAPACK.GeneralizedEigen",
+      "c": [
+        "hmath_linear_lapack_new_generalized_eigen"
+      ],
+      "python": "hmath.lapack.GeneralizedEigen",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.LAPACK.Hessenberg",
+      "c": [
+        "hmath_linear_lapack_new_hessenberg"
+      ],
+      "python": "hmath.lapack.Hessenberg",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.LAPACK.QZ",
+      "c": [
+        "hmath_linear_lapack_new_qz"
+      ],
+      "python": "hmath.lapack.QZ",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.LAPACK.SVD",
+      "c": [
+        "hmath_linear_lapack_new_svd"
+      ],
+      "python": "hmath.lapack.SVD",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.LAPACK.Schur",
+      "c": [
+        "hmath_linear_lapack_new_schur"
+      ],
+      "python": "hmath.lapack.Schur",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.LAPACK.balance",
+      "c": [
+        "hmath_linear_lapack_balance"
+      ],
+      "python": "hmath.lapack.balance",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.LAPACK.balanceScales",
+      "c": [
+        "hmath_linear_lapack_balance_scales"
+      ],
+      "python": "hmath.lapack.balance_scales",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.LAPACK.balancedMatrix",
+      "c": [
+        "hmath_linear_lapack_balanced_matrix"
+      ],
+      "python": "hmath.lapack.balanced_matrix",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.LAPACK.complexEigen",
+      "c": [
+        "hmath_linear_lapack_complex_eigen"
+      ],
+      "python": "hmath.lapack.complex_eigen",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.LAPACK.complexSVD",
+      "c": [
+        "hmath_linear_lapack_complex_svd"
+      ],
+      "python": "hmath.lapack.complex_svd",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.LAPACK.complexSingularValues",
+      "c": [
+        "hmath_linear_lapack_complex_singular_values"
+      ],
+      "python": "hmath.lapack.complex_singular_values",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.LAPACK.complexU",
+      "c": [
+        "hmath_linear_lapack_complex_u"
+      ],
+      "python": "hmath.lapack.complex_u",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.LAPACK.complexVT",
+      "c": [
+        "hmath_linear_lapack_complex_vt"
+      ],
+      "python": "hmath.lapack.complex_vt",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.LAPACK.eigen",
+      "c": [
+        "hmath_linear_lapack_eigen"
+      ],
+      "python": "hmath.lapack.eigen",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.LAPACK.eigenAlpha",
+      "c": [
+        "hmath_linear_lapack_eigen_alpha"
+      ],
+      "python": "hmath.lapack.eigen_alpha",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.LAPACK.eigenBeta",
+      "c": [
+        "hmath_linear_lapack_eigen_beta"
+      ],
+      "python": "hmath.lapack.eigen_beta",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.LAPACK.eigenvalues",
+      "c": [
+        "hmath_linear_lapack_eigenvalues"
+      ],
+      "python": "hmath.lapack.eigenvalues",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.LAPACK.eigenvectors",
+      "c": [
+        "hmath_linear_lapack_eigenvectors"
+      ],
+      "python": "hmath.lapack.eigenvectors",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.LAPACK.fullSVD",
+      "c": [
+        "hmath_linear_lapack_full_svd"
+      ],
+      "python": "hmath.lapack.full_svd",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.LAPACK.generalizedEigen",
+      "c": [
+        "hmath_linear_lapack_generalized_eigen"
+      ],
+      "python": "hmath.lapack.generalized_eigen",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.LAPACK.generalizedEigenvectors",
+      "c": [
+        "hmath_linear_lapack_generalized_eigenvectors"
+      ],
+      "python": "hmath.lapack.generalized_eigenvectors",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.LAPACK.hessenberg",
+      "c": [
+        "hmath_linear_lapack_hessenberg"
+      ],
+      "python": "hmath.lapack.hessenberg",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.LAPACK.hessenbergH",
+      "c": [
+        "hmath_linear_lapack_hessenberg_h"
+      ],
+      "python": "hmath.lapack.hessenberg_h",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.LAPACK.hessenbergQ",
+      "c": [
+        "hmath_linear_lapack_hessenberg_q"
+      ],
+      "python": "hmath.lapack.hessenberg_q",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.LAPACK.qz",
+      "c": [
+        "hmath_linear_lapack_qz"
+      ],
+      "python": "hmath.lapack.qz",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.LAPACK.qzAlpha",
+      "c": [
+        "hmath_linear_lapack_qz_alpha"
+      ],
+      "python": "hmath.lapack.qz_alpha",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.LAPACK.qzBeta",
+      "c": [
+        "hmath_linear_lapack_qz_beta"
+      ],
+      "python": "hmath.lapack.qz_beta",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.LAPACK.qzQ",
+      "c": [
+        "hmath_linear_lapack_qz_q"
+      ],
+      "python": "hmath.lapack.qz_q",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.LAPACK.qzS",
+      "c": [
+        "hmath_linear_lapack_qz_s"
+      ],
+      "python": "hmath.lapack.qz_s",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.LAPACK.qzT",
+      "c": [
+        "hmath_linear_lapack_qz_t"
+      ],
+      "python": "hmath.lapack.qz_t",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.LAPACK.qzZ",
+      "c": [
+        "hmath_linear_lapack_qz_z"
+      ],
+      "python": "hmath.lapack.qz_z",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.LAPACK.randomizedSVD",
+      "c": [
+        "hmath_linear_lapack_randomized_svd"
+      ],
+      "python": "hmath.lapack.randomized_svd",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.LAPACK.schur",
+      "c": [
+        "hmath_linear_lapack_schur"
+      ],
+      "python": "hmath.lapack.schur",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.LAPACK.schurEigenvalues",
+      "c": [
+        "hmath_linear_lapack_schur_eigenvalues"
+      ],
+      "python": "hmath.lapack.schur_eigenvalues",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.LAPACK.schurQ",
+      "c": [
+        "hmath_linear_lapack_schur_q"
+      ],
+      "python": "hmath.lapack.schur_q",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.LAPACK.schurT",
+      "c": [
+        "hmath_linear_lapack_schur_t"
+      ],
+      "python": "hmath.lapack.schur_t",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.LAPACK.singularValues",
+      "c": [
+        "hmath_linear_lapack_singular_values"
+      ],
+      "python": "hmath.lapack.singular_values",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.LAPACK.svd",
+      "c": [
+        "hmath_linear_lapack_svd"
+      ],
+      "python": "hmath.lapack.svd",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.LAPACK.svdU",
+      "c": [
+        "hmath_linear_lapack_svd_u"
+      ],
+      "python": "hmath.lapack.svd_u",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.LAPACK.svdVT",
+      "c": [
+        "hmath_linear_lapack_svd_vt"
+      ],
+      "python": "hmath.lapack.svd_vt",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.LAPACK.symmetricEigen",
+      "c": [
+        "hmath_linear_lapack_symmetric_eigen"
+      ],
+      "python": "hmath.lapack.symmetric_eigen",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.LAPACK.truncatedSVD",
+      "c": [
+        "hmath_linear_lapack_truncated_svd"
+      ],
+      "python": "hmath.lapack.truncated_svd",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Sparse.BSR",
+      "c": [
+        "hmath_linear_sparse_new_bsr"
+      ],
+      "python": "hmath.sparse.bsr",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Sparse.COO",
+      "c": [
+        "hmath_linear_sparse_new_coo"
+      ],
+      "python": "hmath.sparse.coo",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Sparse.CSC",
+      "c": [
+        "hmath_linear_sparse_new_csc"
+      ],
+      "python": "hmath.sparse.csc",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Sparse.CSR",
+      "c": [
+        "hmath_linear_sparse_new_csr"
+      ],
+      "python": "hmath.sparse.csr",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Sparse.DIA",
+      "c": [
+        "hmath_linear_sparse_new_dia"
+      ],
+      "python": "hmath.sparse.dia",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Sparse.ELLPACK",
+      "c": [
+        "hmath_linear_sparse_new_ellpack"
+      ],
+      "python": "hmath.sparse.ellpack",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Sparse.Sparse",
+      "c": [
+        "hmath_linear_sparse_sparse_object"
+      ],
+      "python": "hmath.sparse.Sparse",
+      "specializations": [
+        "original owned opaque type with source coefficient type"
+      ]
+    },
+    {
+      "symbol": "HMath.Sparse.SparseFormat",
+      "c": [
+        "hmath_linear_sparse_sparse_format_object"
+      ],
+      "python": "hmath.sparse.SparseFormat",
+      "specializations": [
+        "original owned opaque type with source coefficient type"
+      ]
+    },
+    {
+      "symbol": "HMath.Sparse.SparseLU",
+      "c": [
+        "hmath_linear_sparse_sparse_lu_object"
+      ],
+      "python": "hmath.sparse.SparseLU",
+      "specializations": [
+        "original owned opaque type with source coefficient type"
+      ]
+    },
+    {
+      "symbol": "HMath.Sparse.SparseQR",
+      "c": [
+        "hmath_linear_sparse_sparse_qr_object"
+      ],
+      "python": "hmath.sparse.SparseQR",
+      "specializations": [
+        "original owned opaque type with source coefficient type"
+      ]
+    },
+    {
+      "symbol": "HMath.Sparse.SparseTensor",
+      "c": [
+        "hmath_linear_sparse_sparse_tensor_object"
+      ],
+      "python": "hmath.sparse.SparseTensor",
+      "specializations": [
+        "original owned opaque type with source coefficient type"
+      ]
+    },
+    {
+      "symbol": "HMath.Sparse.Spectral.SparseEigenResult",
+      "c": [
+        "hmath_linear_sparse_spectral_new_sparse_eigen_result"
+      ],
+      "python": "hmath.sparse_spectral.SparseEigenResult",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Sparse.Spectral.SparseSVD",
+      "c": [
+        "hmath_linear_sparse_spectral_new_sparse_svd"
+      ],
+      "python": "hmath.sparse_spectral.SparseSVD",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Sparse.Spectral.SparseSpectralOptions",
+      "c": [
+        "hmath_linear_sparse_spectral_new_sparse_spectral_options"
+      ],
+      "python": "hmath.sparse_spectral.SparseSpectralOptions",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Sparse.Spectral.defaultSparseSpectralOptions",
+      "c": [
+        "hmath_linear_sparse_spectral_default_sparse_spectral_options"
+      ],
+      "python": "hmath.sparse_spectral.default_sparse_spectral_options",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Sparse.Spectral.sparseAbsoluteTolerance",
+      "c": [
+        "hmath_linear_sparse_spectral_sparse_absolute_tolerance"
+      ],
+      "python": "hmath.sparse_spectral.sparse_absolute_tolerance",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Sparse.Spectral.sparseDominantEigen",
+      "c": [
+        "hmath_linear_sparse_spectral_sparse_dominant_eigen"
+      ],
+      "python": "hmath.sparse_spectral.sparse_dominant_eigen",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Sparse.Spectral.sparseEigenIterations",
+      "c": [
+        "hmath_linear_sparse_spectral_sparse_eigen_iterations"
+      ],
+      "python": "hmath.sparse_spectral.sparse_eigen_iterations",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Sparse.Spectral.sparseEigenResidual",
+      "c": [
+        "hmath_linear_sparse_spectral_sparse_eigen_residual"
+      ],
+      "python": "hmath.sparse_spectral.sparse_eigen_residual",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Sparse.Spectral.sparseEigenvalue",
+      "c": [
+        "hmath_linear_sparse_spectral_sparse_eigenvalue"
+      ],
+      "python": "hmath.sparse_spectral.sparse_eigenvalue",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Sparse.Spectral.sparseEigenvector",
+      "c": [
+        "hmath_linear_sparse_spectral_sparse_eigenvector"
+      ],
+      "python": "hmath.sparse_spectral.sparse_eigenvector",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Sparse.Spectral.sparseIterationLimit",
+      "c": [
+        "hmath_linear_sparse_spectral_sparse_iteration_limit"
+      ],
+      "python": "hmath.sparse_spectral.sparse_iteration_limit",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Sparse.Spectral.sparseLeftVectors",
+      "c": [
+        "hmath_linear_sparse_spectral_sparse_left_vectors"
+      ],
+      "python": "hmath.sparse_spectral.sparse_left_vectors",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Sparse.Spectral.sparseRelativeTolerance",
+      "c": [
+        "hmath_linear_sparse_spectral_sparse_relative_tolerance"
+      ],
+      "python": "hmath.sparse_spectral.sparse_relative_tolerance",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Sparse.Spectral.sparseRightVectors",
+      "c": [
+        "hmath_linear_sparse_spectral_sparse_right_vectors"
+      ],
+      "python": "hmath.sparse_spectral.sparse_right_vectors",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Sparse.Spectral.sparseSingularIterations",
+      "c": [
+        "hmath_linear_sparse_spectral_sparse_singular_iterations"
+      ],
+      "python": "hmath.sparse_spectral.sparse_singular_iterations",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Sparse.Spectral.sparseSingularResiduals",
+      "c": [
+        "hmath_linear_sparse_spectral_sparse_singular_residuals"
+      ],
+      "python": "hmath.sparse_spectral.sparse_singular_residuals",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Sparse.Spectral.sparseSingularValues",
+      "c": [
+        "hmath_linear_sparse_spectral_sparse_singular_values"
+      ],
+      "python": "hmath.sparse_spectral.sparse_singular_values",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Sparse.Spectral.sparseTruncatedSVD",
+      "c": [
+        "hmath_linear_sparse_spectral_sparse_truncated_svd"
+      ],
+      "python": "hmath.sparse_spectral.sparse_truncated_svd",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Sparse.Spectral.sparseWorkspaceLimit",
+      "c": [
+        "hmath_linear_sparse_spectral_sparse_workspace_limit"
+      ],
+      "python": "hmath.sparse_spectral.sparse_workspace_limit",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Sparse.denseToSparse",
+      "c": [
+        "hmath_linear_sparse_dense_to_sparse"
+      ],
+      "python": "hmath.sparse.dense_to_sparse",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Sparse.fromFormat",
+      "c": [
+        "hmath_linear_sparse_from_format"
+      ],
+      "python": "hmath.sparse.from_format",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Sparse.nonzeros",
+      "c": [
+        "hmath_linear_sparse_nonzeros"
+      ],
+      "python": "hmath.sparse.nonzeros",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Sparse.sparse",
+      "c": [
+        "hmath_linear_sparse_sparse"
+      ],
+      "python": "hmath.sparse.sparse",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Sparse.sparseAdd",
+      "c": [
+        "hmath_linear_sparse_sparse_add"
+      ],
+      "python": "hmath.sparse.sparse_add",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Sparse.sparseCholesky",
+      "c": [
+        "hmath_linear_sparse_sparse_cholesky"
+      ],
+      "python": "hmath.sparse.sparse_cholesky",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Sparse.sparseDiagonalSolve",
+      "c": [
+        "hmath_linear_sparse_sparse_diagonal_solve"
+      ],
+      "python": "hmath.sparse.sparse_diagonal_solve",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Sparse.sparseEigenReference",
+      "c": [
+        "hmath_linear_sparse_sparse_eigen_reference"
+      ],
+      "python": "hmath.sparse.sparse_eigen_reference",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Sparse.sparseEntries",
+      "c": [
+        "hmath_linear_sparse_sparse_entries"
+      ],
+      "python": "hmath.sparse.sparse_entries",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Sparse.sparseGraph",
+      "c": [
+        "hmath_linear_sparse_sparse_graph"
+      ],
+      "python": "hmath.sparse.sparse_graph",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Sparse.sparseKronecker",
+      "c": [
+        "hmath_linear_sparse_sparse_kronecker"
+      ],
+      "python": "hmath.sparse.sparse_kronecker",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Sparse.sparseLU",
+      "c": [
+        "hmath_linear_sparse_sparse_lu"
+      ],
+      "python": "hmath.sparse.sparse_lu",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Sparse.sparseLULower",
+      "c": [
+        "hmath_linear_sparse_sparse_lu_lower"
+      ],
+      "python": "hmath.sparse.sparse_lu_lower",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Sparse.sparseLUPermutation",
+      "c": [
+        "hmath_linear_sparse_sparse_lu_permutation"
+      ],
+      "python": "hmath.sparse.sparse_lu_permutation",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Sparse.sparseLUUpper",
+      "c": [
+        "hmath_linear_sparse_sparse_lu_upper"
+      ],
+      "python": "hmath.sparse.sparse_lu_upper",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Sparse.sparseQR",
+      "c": [
+        "hmath_linear_sparse_sparse_qr"
+      ],
+      "python": "hmath.sparse.sparse_qr",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Sparse.sparseQRApplyQT",
+      "c": [
+        "hmath_linear_sparse_sparse_qr_apply_qt"
+      ],
+      "python": "hmath.sparse.sparse_qr_apply_qt",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Sparse.sparseQRUpper",
+      "c": [
+        "hmath_linear_sparse_sparse_qr_upper"
+      ],
+      "python": "hmath.sparse.sparse_qr_upper",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Sparse.sparseSVDReference",
+      "c": [
+        "hmath_linear_sparse_sparse_svd_reference"
+      ],
+      "python": "hmath.sparse.sparse_svd_reference",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Sparse.sparseShape",
+      "c": [
+        "hmath_linear_sparse_sparse_shape"
+      ],
+      "python": "hmath.sparse.sparse_shape",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Sparse.sparseSolveLU",
+      "c": [
+        "hmath_linear_sparse_sparse_solve_lu"
+      ],
+      "python": "hmath.sparse.sparse_solve_lu",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Sparse.sparseStorageBytes",
+      "c": [
+        "hmath_linear_sparse_sparse_storage_bytes"
+      ],
+      "python": "hmath.sparse.sparse_storage_bytes",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Sparse.sparseSubtract",
+      "c": [
+        "hmath_linear_sparse_sparse_subtract"
+      ],
+      "python": "hmath.sparse.sparse_subtract",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Sparse.sparseTensor",
+      "c": [
+        "hmath_linear_sparse_sparse_tensor"
+      ],
+      "python": "hmath.sparse.sparse_tensor",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Sparse.sparseTensorEntries",
+      "c": [
+        "hmath_linear_sparse_sparse_tensor_entries"
+      ],
+      "python": "hmath.sparse.sparse_tensor_entries",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Sparse.sparseTensorLookup",
+      "c": [
+        "hmath_linear_sparse_sparse_tensor_lookup"
+      ],
+      "python": "hmath.sparse.sparse_tensor_lookup",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Sparse.sparseTensorShape",
+      "c": [
+        "hmath_linear_sparse_sparse_tensor_shape"
+      ],
+      "python": "hmath.sparse.sparse_tensor_shape",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Sparse.sparseToDense",
+      "c": [
+        "hmath_linear_sparse_sparse_to_dense"
+      ],
+      "python": "hmath.sparse.sparse_to_dense",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Sparse.sparseTranspose",
+      "c": [
+        "hmath_linear_sparse_sparse_transpose"
+      ],
+      "python": "hmath.sparse.sparse_transpose",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Sparse.sparseTriangularSolve",
+      "c": [
+        "hmath_linear_sparse_sparse_triangular_solve"
+      ],
+      "python": "hmath.sparse.sparse_triangular_solve",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Sparse.spmm",
+      "c": [
+        "hmath_linear_sparse_spmm"
+      ],
+      "python": "hmath.sparse.spmm",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Sparse.spmv",
+      "c": [
+        "hmath_linear_sparse_spmv"
+      ],
+      "python": "hmath.sparse.spmv",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Sparse.toBSR",
+      "c": [
+        "hmath_linear_sparse_to_bsr"
+      ],
+      "python": "hmath.sparse.to_bsr",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Sparse.toCOO",
+      "c": [
+        "hmath_linear_sparse_to_coo"
+      ],
+      "python": "hmath.sparse.to_coo",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Sparse.toCSC",
+      "c": [
+        "hmath_linear_sparse_to_csc"
+      ],
+      "python": "hmath.sparse.to_csc",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Sparse.toCSR",
+      "c": [
+        "hmath_linear_sparse_to_csr"
+      ],
+      "python": "hmath.sparse.to_csr",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Sparse.toDIA",
+      "c": [
+        "hmath_linear_sparse_to_dia"
+      ],
+      "python": "hmath.sparse.to_dia",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Sparse.toELLPACK",
+      "c": [
+        "hmath_linear_sparse_to_ellpack"
+      ],
+      "python": "hmath.sparse.to_ellpack",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Vector.FixedVector",
+      "c": [
+        "hmath_linear_vector_fixed_vector_object"
+      ],
+      "python": "hmath.vector.FixedVector",
+      "specializations": [
+        "original owned opaque type with source coefficient type"
+      ]
+    },
+    {
+      "symbol": "HMath.Vector.SparseVector",
+      "c": [
+        "hmath_linear_vector_sparse_vector_object"
+      ],
+      "python": "hmath.vector.SparseVector",
+      "specializations": [
+        "original owned opaque type with source coefficient type"
+      ]
+    },
+    {
+      "symbol": "HMath.Vector.Vector",
+      "c": [
+        "hmath_linear_vector_vector_object"
+      ],
+      "python": "hmath.vector.Vector",
+      "specializations": [
+        "original owned opaque type with source coefficient type"
+      ]
+    },
+    {
+      "symbol": "HMath.Vector.angle",
+      "c": [
+        "hmath_linear_vector_angle"
+      ],
+      "python": "hmath.vector.angle",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Vector.cosineSimilarity",
+      "c": [
+        "hmath_linear_vector_cosine_similarity"
+      ],
+      "python": "hmath.vector.cosine_similarity",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Vector.cross",
+      "c": [
+        "hmath_linear_vector_cross"
+      ],
+      "python": "hmath.vector.cross",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Vector.distance",
+      "c": [
+        "hmath_linear_vector_distance"
+      ],
+      "python": "hmath.vector.distance",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Vector.fixedValues",
+      "c": [
+        "hmath_linear_vector_fixed_values"
+      ],
+      "python": "hmath.vector.fixed_values",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Vector.fixedVector",
+      "c": [
+        "hmath_linear_vector_fixed_vector"
+      ],
+      "python": "hmath.vector.fixed_vector",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Vector.gramSchmidt",
+      "c": [
+        "hmath_linear_vector_gram_schmidt"
+      ],
+      "python": "hmath.vector.gram_schmidt",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Vector.norm0",
+      "c": [
+        "hmath_linear_vector_norm0"
+      ],
+      "python": "hmath.vector.norm0",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Vector.norm1",
+      "c": [
+        "hmath_linear_vector_norm1"
+      ],
+      "python": "hmath.vector.norm1",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Vector.norm2",
+      "c": [
+        "hmath_linear_vector_norm2"
+      ],
+      "python": "hmath.vector.norm2",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Vector.normInfinity",
+      "c": [
+        "hmath_linear_vector_norm_infinity"
+      ],
+      "python": "hmath.vector.norm_infinity",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Vector.normP",
+      "c": [
+        "hmath_linear_vector_norm_p"
+      ],
+      "python": "hmath.vector.norm_p",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Vector.normalizeVector",
+      "c": [
+        "hmath_linear_vector_normalize_vector"
+      ],
+      "python": "hmath.vector.normalize_vector",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Vector.outer",
+      "c": [
+        "hmath_linear_vector_outer"
+      ],
+      "python": "hmath.vector.outer",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Vector.project",
+      "c": [
+        "hmath_linear_vector_project"
+      ],
+      "python": "hmath.vector.project",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Vector.reflect",
+      "c": [
+        "hmath_linear_vector_reflect"
+      ],
+      "python": "hmath.vector.reflect",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Vector.refract",
+      "c": [
+        "hmath_linear_vector_refract"
+      ],
+      "python": "hmath.vector.refract",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Vector.sparseVector",
+      "c": [
+        "hmath_linear_vector_sparse_vector"
+      ],
+      "python": "hmath.vector.sparse_vector",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Vector.sparseVectorValues",
+      "c": [
+        "hmath_linear_vector_sparse_vector_values"
+      ],
+      "python": "hmath.vector.sparse_vector_values",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Vector.triple",
+      "c": [
+        "hmath_linear_vector_triple"
+      ],
+      "python": "hmath.vector.triple",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Vector.vector",
+      "c": [
+        "hmath_linear_vector_vector"
+      ],
+      "python": "hmath.vector.vector",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Vector.vectorAdd",
+      "c": [
+        "hmath_linear_vector_vector_add"
+      ],
+      "python": "hmath.vector.vector_add",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Vector.vectorConcat",
+      "c": [
+        "hmath_linear_vector_vector_concat"
+      ],
+      "python": "hmath.vector.vector_concat",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Vector.vectorDimension",
+      "c": [
+        "hmath_linear_vector_vector_dimension"
+      ],
+      "python": "hmath.vector.vector_dimension",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Vector.vectorDot",
+      "c": [
+        "hmath_linear_vector_vector_dot"
+      ],
+      "python": "hmath.vector.vector_dot",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Vector.vectorScale",
+      "c": [
+        "hmath_linear_vector_vector_scale"
+      ],
+      "python": "hmath.vector.vector_scale",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Vector.vectorSlice",
+      "c": [
+        "hmath_linear_vector_vector_slice"
+      ],
+      "python": "hmath.vector.vector_slice",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Vector.vectorSubtract",
+      "c": [
+        "hmath_linear_vector_vector_subtract"
+      ],
+      "python": "hmath.vector.vector_subtract",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    },
+    {
+      "symbol": "HMath.Vector.vectorValues",
+      "c": [
+        "hmath_linear_vector_vector_values"
+      ],
+      "python": "hmath.vector.vector_values",
+      "specializations": [
+        "original source type/constraints; standard coefficient witnesses; full public fields/constructors"
+      ]
+    }
+  ]
+}

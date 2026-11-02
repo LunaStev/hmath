@@ -1,0 +1,1095 @@
+{
+  "schema": 1,
+  "bindings": [
+    {
+      "symbol": "HMath.Optimization.Common.OptimizeOptions",
+      "c": [
+        "hmath_optimization_optimize_options_create"
+      ],
+      "python": "hmath.optimization.OptimizeOptions",
+      "specializations": [
+        "Double (original fixed type)"
+      ]
+    },
+    {
+      "symbol": "HMath.Optimization.Common.defaultOptimizeOptions",
+      "c": [
+        "hmath_optimization_default_optimize_options"
+      ],
+      "python": "hmath.optimization.default_optimize_options",
+      "specializations": [
+        "Double (original fixed type)"
+      ]
+    },
+    {
+      "symbol": "HMath.Optimization.Common.OptimizeResult",
+      "c": [
+        "hmath_optimization_optimize_result_create"
+      ],
+      "python": "hmath.optimization.OptimizeResult",
+      "specializations": [
+        "Double (original fixed type)"
+      ]
+    },
+    {
+      "symbol": "HMath.Optimization.Common.EarlyStopping",
+      "c": [
+        "hmath_optimization_early_stopping_create"
+      ],
+      "python": "hmath.optimization.EarlyStopping",
+      "specializations": [
+        "Double (original fixed type)"
+      ]
+    },
+    {
+      "symbol": "HMath.Optimization.Common.ConstantRate",
+      "c": [
+        "hmath_optimization_constant_rate_create"
+      ],
+      "python": "hmath.optimization.ConstantRate",
+      "specializations": [
+        "Double (original fixed type)"
+      ]
+    },
+    {
+      "symbol": "HMath.Optimization.Common.StepDecay",
+      "c": [
+        "hmath_optimization_step_decay_create"
+      ],
+      "python": "hmath.optimization.StepDecay",
+      "specializations": [
+        "Double (original fixed type)"
+      ]
+    },
+    {
+      "symbol": "HMath.Optimization.Common.ExponentialDecay",
+      "c": [
+        "hmath_optimization_exponential_decay_create"
+      ],
+      "python": "hmath.optimization.ExponentialDecay",
+      "specializations": [
+        "Double (original fixed type)"
+      ]
+    },
+    {
+      "symbol": "HMath.Optimization.Common.CosineAnnealing",
+      "c": [
+        "hmath_optimization_cosine_annealing_create"
+      ],
+      "python": "hmath.optimization.CosineAnnealing",
+      "specializations": [
+        "Double (original fixed type)"
+      ]
+    },
+    {
+      "symbol": "HMath.Optimization.Common.Warmup",
+      "c": [
+        "hmath_optimization_warmup_create"
+      ],
+      "python": "hmath.optimization.Warmup",
+      "specializations": [
+        "Double (original fixed type)"
+      ]
+    },
+    {
+      "symbol": "HMath.Optimization.Common.Armijo",
+      "c": [
+        "hmath_optimization_armijo_create"
+      ],
+      "python": "hmath.optimization.Armijo",
+      "specializations": [
+        "Double (original fixed type)"
+      ]
+    },
+    {
+      "symbol": "HMath.Optimization.Common.StrongWolfe",
+      "c": [
+        "hmath_optimization_strong_wolfe_create"
+      ],
+      "python": "hmath.optimization.StrongWolfe",
+      "specializations": [
+        "Double (original fixed type)"
+      ]
+    },
+    {
+      "symbol": "HMath.Optimization.Common.checkedOptions",
+      "c": [
+        "hmath_optimization_checked_options"
+      ],
+      "python": "hmath.optimization.checked_options",
+      "specializations": [
+        "Double (original fixed type)"
+      ]
+    },
+    {
+      "symbol": "HMath.Optimization.Common.checkedPoint",
+      "c": [
+        "hmath_optimization_checked_point"
+      ],
+      "python": "hmath.optimization.checked_point",
+      "specializations": [
+        "Double (original fixed type)"
+      ]
+    },
+    {
+      "symbol": "HMath.Optimization.Common.checkedValue",
+      "c": [
+        "hmath_optimization_checked_value"
+      ],
+      "python": "hmath.optimization.checked_value",
+      "specializations": [
+        "Double (original fixed type)"
+      ]
+    },
+    {
+      "symbol": "HMath.Optimization.Common.checkedGradient",
+      "c": [
+        "hmath_optimization_checked_gradient"
+      ],
+      "python": "hmath.optimization.checked_gradient",
+      "specializations": [
+        "Double (original fixed type)"
+      ]
+    },
+    {
+      "symbol": "HMath.Optimization.Common.checkBudget",
+      "c": [
+        "hmath_optimization_check_budget"
+      ],
+      "python": "hmath.optimization.check_budget",
+      "specializations": [
+        "Double (original fixed type)"
+      ]
+    },
+    {
+      "symbol": "HMath.Optimization.Common.outer",
+      "c": [
+        "hmath_optimization_outer"
+      ],
+      "python": "hmath.optimization.outer",
+      "specializations": [
+        "Double (original fixed type)"
+      ]
+    },
+    {
+      "symbol": "HMath.Optimization.Common.identity",
+      "c": [
+        "hmath_optimization_identity"
+      ],
+      "python": "hmath.optimization.identity",
+      "specializations": [
+        "Double (original fixed type)"
+      ]
+    },
+    {
+      "symbol": "HMath.Optimization.Common.matVec",
+      "c": [
+        "hmath_optimization_mat_vec"
+      ],
+      "python": "hmath.optimization.mat_vec",
+      "specializations": [
+        "Double (original fixed type)"
+      ]
+    },
+    {
+      "symbol": "HMath.Optimization.Common.matMul",
+      "c": [
+        "hmath_optimization_mat_mul"
+      ],
+      "python": "hmath.optimization.mat_mul",
+      "specializations": [
+        "Double (original fixed type)"
+      ]
+    },
+    {
+      "symbol": "HMath.Optimization.Common.solveDense",
+      "c": [
+        "hmath_optimization_solve_dense"
+      ],
+      "python": "hmath.optimization.solve_dense",
+      "specializations": [
+        "Double (original fixed type)"
+      ]
+    },
+    {
+      "symbol": "HMath.Optimization.Common.result",
+      "c": [
+        "hmath_optimization_result"
+      ],
+      "python": "hmath.optimization.result",
+      "specializations": [
+        "Double (original fixed type)"
+      ]
+    },
+    {
+      "symbol": "HMath.Optimization.Common.learningRate",
+      "c": [
+        "hmath_optimization_learning_rate"
+      ],
+      "python": "hmath.optimization.learning_rate",
+      "specializations": [
+        "Double (original fixed type)"
+      ]
+    },
+    {
+      "symbol": "HMath.Optimization.Common.earlyStopping",
+      "c": [
+        "hmath_optimization_early_stopping"
+      ],
+      "python": "hmath.optimization.early_stopping",
+      "specializations": [
+        "Double (original fixed type)"
+      ]
+    },
+    {
+      "symbol": "HMath.Optimization.Common.lineSearch",
+      "c": [
+        "hmath_optimization_line_search"
+      ],
+      "python": "hmath.optimization.line_search",
+      "specializations": [
+        "Double (original fixed type)"
+      ]
+    },
+    {
+      "symbol": "HMath.Optimization.Common.optMaxIterations",
+      "c": [
+        "hmath_optimization_opt_max_iterations"
+      ],
+      "python": "hmath.optimization.opt_max_iterations",
+      "specializations": [
+        "Double (original fixed type)"
+      ]
+    },
+    {
+      "symbol": "HMath.Optimization.Common.optMaxEvaluations",
+      "c": [
+        "hmath_optimization_opt_max_evaluations"
+      ],
+      "python": "hmath.optimization.opt_max_evaluations",
+      "specializations": [
+        "Double (original fixed type)"
+      ]
+    },
+    {
+      "symbol": "HMath.Optimization.Common.optTolerance",
+      "c": [
+        "hmath_optimization_opt_tolerance"
+      ],
+      "python": "hmath.optimization.opt_tolerance",
+      "specializations": [
+        "Double (original fixed type)"
+      ]
+    },
+    {
+      "symbol": "HMath.Optimization.Common.optLearningRate",
+      "c": [
+        "hmath_optimization_opt_learning_rate"
+      ],
+      "python": "hmath.optimization.opt_learning_rate",
+      "specializations": [
+        "Double (original fixed type)"
+      ]
+    },
+    {
+      "symbol": "HMath.Optimization.Common.optPoint",
+      "c": [
+        "hmath_optimization_opt_point"
+      ],
+      "python": "hmath.optimization.opt_point",
+      "specializations": [
+        "Double (original fixed type)"
+      ]
+    },
+    {
+      "symbol": "HMath.Optimization.Common.optValue",
+      "c": [
+        "hmath_optimization_opt_value"
+      ],
+      "python": "hmath.optimization.opt_value",
+      "specializations": [
+        "Double (original fixed type)"
+      ]
+    },
+    {
+      "symbol": "HMath.Optimization.Common.optGradientNorm",
+      "c": [
+        "hmath_optimization_opt_gradient_norm"
+      ],
+      "python": "hmath.optimization.opt_gradient_norm",
+      "specializations": [
+        "Double (original fixed type)"
+      ]
+    },
+    {
+      "symbol": "HMath.Optimization.Common.optIterations",
+      "c": [
+        "hmath_optimization_opt_iterations"
+      ],
+      "python": "hmath.optimization.opt_iterations",
+      "specializations": [
+        "Double (original fixed type)"
+      ]
+    },
+    {
+      "symbol": "HMath.Optimization.Common.optEvaluations",
+      "c": [
+        "hmath_optimization_opt_evaluations"
+      ],
+      "python": "hmath.optimization.opt_evaluations",
+      "specializations": [
+        "Double (original fixed type)"
+      ]
+    },
+    {
+      "symbol": "HMath.Optimization.Common.optConverged",
+      "c": [
+        "hmath_optimization_opt_converged"
+      ],
+      "python": "hmath.optimization.opt_converged",
+      "specializations": [
+        "Double (original fixed type)"
+      ]
+    },
+    {
+      "symbol": "HMath.Optimization.Common.bestScore",
+      "c": [
+        "hmath_optimization_best_score"
+      ],
+      "python": "hmath.optimization.best_score",
+      "specializations": [
+        "Double (original fixed type)"
+      ]
+    },
+    {
+      "symbol": "HMath.Optimization.Common.staleSteps",
+      "c": [
+        "hmath_optimization_stale_steps"
+      ],
+      "python": "hmath.optimization.stale_steps",
+      "specializations": [
+        "Double (original fixed type)"
+      ]
+    },
+    {
+      "symbol": "HMath.Optimization.Common.stopped",
+      "c": [
+        "hmath_optimization_stopped"
+      ],
+      "python": "hmath.optimization.stopped",
+      "specializations": [
+        "Double (original fixed type)"
+      ]
+    },
+    {
+      "symbol": "HMath.Optimization.FirstOrder.minimizeGradient",
+      "c": [
+        "hmath_optimization_minimize_gradient"
+      ],
+      "python": "hmath.optimization.minimize_gradient",
+      "specializations": [
+        "Double (original fixed type)"
+      ]
+    },
+    {
+      "symbol": "HMath.Optimization.FirstOrder.minimizeGradientWithCallback",
+      "c": [
+        "hmath_optimization_minimize_gradient_with_callback"
+      ],
+      "python": "hmath.optimization.minimize_gradient_with_callback",
+      "specializations": [
+        "Double (original fixed type)"
+      ]
+    },
+    {
+      "symbol": "HMath.Optimization.FirstOrder.stochasticGradient",
+      "c": [
+        "hmath_optimization_stochastic_gradient"
+      ],
+      "python": "hmath.optimization.stochastic_gradient",
+      "specializations": [
+        "Double (original fixed type)"
+      ]
+    },
+    {
+      "symbol": "HMath.Optimization.FirstOrder.miniBatchGradient",
+      "c": [
+        "hmath_optimization_mini_batch_gradient"
+      ],
+      "python": "hmath.optimization.mini_batch_gradient",
+      "specializations": [
+        "Double (original fixed type)"
+      ]
+    },
+    {
+      "symbol": "HMath.Optimization.FirstOrder.projectedGradient",
+      "c": [
+        "hmath_optimization_projected_gradient"
+      ],
+      "python": "hmath.optimization.projected_gradient",
+      "specializations": [
+        "Double (original fixed type)"
+      ]
+    },
+    {
+      "symbol": "HMath.Optimization.FirstOrder.proximalGradient",
+      "c": [
+        "hmath_optimization_proximal_gradient"
+      ],
+      "python": "hmath.optimization.proximal_gradient",
+      "specializations": [
+        "Double (original fixed type)"
+      ]
+    },
+    {
+      "symbol": "HMath.Optimization.FirstOrder.fista",
+      "c": [
+        "hmath_optimization_fista"
+      ],
+      "python": "hmath.optimization.fista",
+      "specializations": [
+        "Double (original fixed type)"
+      ]
+    },
+    {
+      "symbol": "HMath.Optimization.FirstOrder.coordinateDescent",
+      "c": [
+        "hmath_optimization_coordinate_descent"
+      ],
+      "python": "hmath.optimization.coordinate_descent",
+      "specializations": [
+        "Double (original fixed type)"
+      ]
+    },
+    {
+      "symbol": "HMath.Optimization.Local.GoldenSection",
+      "c": [
+        "hmath_optimization_golden_section_create"
+      ],
+      "python": "hmath.optimization.GoldenSection",
+      "specializations": [
+        "Double (original fixed type)"
+      ]
+    },
+    {
+      "symbol": "HMath.Optimization.Local.TernarySearch",
+      "c": [
+        "hmath_optimization_ternary_search_create"
+      ],
+      "python": "hmath.optimization.TernarySearch",
+      "specializations": [
+        "Double (original fixed type)"
+      ]
+    },
+    {
+      "symbol": "HMath.Optimization.Local.BrentSearch",
+      "c": [
+        "hmath_optimization_brent_search_create"
+      ],
+      "python": "hmath.optimization.BrentSearch",
+      "specializations": [
+        "Double (original fixed type)"
+      ]
+    },
+    {
+      "symbol": "HMath.Optimization.Local.minimizeScalar",
+      "c": [
+        "hmath_optimization_minimize_scalar"
+      ],
+      "python": "hmath.optimization.minimize_scalar",
+      "specializations": [
+        "Double (original fixed type)"
+      ]
+    },
+    {
+      "symbol": "HMath.Optimization.Local.BFGS",
+      "c": [
+        "hmath_optimization_bfgs_create"
+      ],
+      "python": "hmath.optimization.BFGS",
+      "specializations": [
+        "Double (original fixed type)"
+      ]
+    },
+    {
+      "symbol": "HMath.Optimization.Local.DFP",
+      "c": [
+        "hmath_optimization_dfp_create"
+      ],
+      "python": "hmath.optimization.DFP",
+      "specializations": [
+        "Double (original fixed type)"
+      ]
+    },
+    {
+      "symbol": "HMath.Optimization.Local.SR1",
+      "c": [
+        "hmath_optimization_sr1_create"
+      ],
+      "python": "hmath.optimization.SR1",
+      "specializations": [
+        "Double (original fixed type)"
+      ]
+    },
+    {
+      "symbol": "HMath.Optimization.Local.LBFGS",
+      "c": [
+        "hmath_optimization_lbfgs_create"
+      ],
+      "python": "hmath.optimization.LBFGS",
+      "specializations": [
+        "Double (original fixed type)"
+      ]
+    },
+    {
+      "symbol": "HMath.Optimization.Local.minimizeQuasiNewton",
+      "c": [
+        "hmath_optimization_minimize_quasi_newton"
+      ],
+      "python": "hmath.optimization.minimize_quasi_newton",
+      "specializations": [
+        "Double (original fixed type)"
+      ]
+    },
+    {
+      "symbol": "HMath.Optimization.Local.Newton",
+      "c": [
+        "hmath_optimization_newton_create"
+      ],
+      "python": "hmath.optimization.Newton",
+      "specializations": [
+        "Double (original fixed type)"
+      ]
+    },
+    {
+      "symbol": "HMath.Optimization.Local.NewtonCG",
+      "c": [
+        "hmath_optimization_newton_cg_create"
+      ],
+      "python": "hmath.optimization.NewtonCG",
+      "specializations": [
+        "Double (original fixed type)"
+      ]
+    },
+    {
+      "symbol": "HMath.Optimization.Local.TrustRegion",
+      "c": [
+        "hmath_optimization_trust_region_create"
+      ],
+      "python": "hmath.optimization.TrustRegion",
+      "specializations": [
+        "Double (original fixed type)"
+      ]
+    },
+    {
+      "symbol": "HMath.Optimization.Local.Dogleg",
+      "c": [
+        "hmath_optimization_dogleg_create"
+      ],
+      "python": "hmath.optimization.Dogleg",
+      "specializations": [
+        "Double (original fixed type)"
+      ]
+    },
+    {
+      "symbol": "HMath.Optimization.Local.minimizeNewton",
+      "c": [
+        "hmath_optimization_minimize_newton"
+      ],
+      "python": "hmath.optimization.minimize_newton",
+      "specializations": [
+        "Double (original fixed type)"
+      ]
+    },
+    {
+      "symbol": "HMath.Optimization.Local.nonlinearCG",
+      "c": [
+        "hmath_optimization_nonlinear_cg"
+      ],
+      "python": "hmath.optimization.nonlinear_cg",
+      "specializations": [
+        "Double (original fixed type)"
+      ]
+    },
+    {
+      "symbol": "HMath.Optimization.Local.SquaredLoss",
+      "c": [
+        "hmath_optimization_squared_loss_create"
+      ],
+      "python": "hmath.optimization.SquaredLoss",
+      "specializations": [
+        "Double (original fixed type)"
+      ]
+    },
+    {
+      "symbol": "HMath.Optimization.Local.HuberLoss",
+      "c": [
+        "hmath_optimization_huber_loss_create"
+      ],
+      "python": "hmath.optimization.HuberLoss",
+      "specializations": [
+        "Double (original fixed type)"
+      ]
+    },
+    {
+      "symbol": "HMath.Optimization.Local.CauchyLoss",
+      "c": [
+        "hmath_optimization_cauchy_loss_create"
+      ],
+      "python": "hmath.optimization.CauchyLoss",
+      "specializations": [
+        "Double (original fixed type)"
+      ]
+    },
+    {
+      "symbol": "HMath.Optimization.Local.SoftL1",
+      "c": [
+        "hmath_optimization_soft_l1_create"
+      ],
+      "python": "hmath.optimization.SoftL1",
+      "specializations": [
+        "Double (original fixed type)"
+      ]
+    },
+    {
+      "symbol": "HMath.Optimization.Local.leastSquares",
+      "c": [
+        "hmath_optimization_least_squares"
+      ],
+      "python": "hmath.optimization.least_squares",
+      "specializations": [
+        "Double (original fixed type)"
+      ]
+    },
+    {
+      "symbol": "HMath.Optimization.Local.nelderMead",
+      "c": [
+        "hmath_optimization_nelder_mead"
+      ],
+      "python": "hmath.optimization.nelder_mead",
+      "specializations": [
+        "Double (original fixed type)"
+      ]
+    },
+    {
+      "symbol": "HMath.Optimization.Local.powell",
+      "c": [
+        "hmath_optimization_powell"
+      ],
+      "python": "hmath.optimization.powell",
+      "specializations": [
+        "Double (original fixed type)"
+      ]
+    },
+    {
+      "symbol": "HMath.Optimization.Constrained.Equality",
+      "c": [
+        "hmath_optimization_equality_create"
+      ],
+      "python": "hmath.optimization.Equality",
+      "specializations": [
+        "Double (original fixed type)"
+      ]
+    },
+    {
+      "symbol": "HMath.Optimization.Constrained.LessEqual",
+      "c": [
+        "hmath_optimization_less_equal_create"
+      ],
+      "python": "hmath.optimization.LessEqual",
+      "specializations": [
+        "Double (original fixed type)"
+      ]
+    },
+    {
+      "symbol": "HMath.Optimization.Constrained.feasibility",
+      "c": [
+        "hmath_optimization_feasibility"
+      ],
+      "python": "hmath.optimization.feasibility",
+      "specializations": [
+        "Double (original fixed type)"
+      ]
+    },
+    {
+      "symbol": "HMath.Optimization.Constrained.QuadraticPenalty",
+      "c": [
+        "hmath_optimization_quadratic_penalty_create"
+      ],
+      "python": "hmath.optimization.QuadraticPenalty",
+      "specializations": [
+        "Double (original fixed type)"
+      ]
+    },
+    {
+      "symbol": "HMath.Optimization.Constrained.LogBarrier",
+      "c": [
+        "hmath_optimization_log_barrier_create"
+      ],
+      "python": "hmath.optimization.LogBarrier",
+      "specializations": [
+        "Double (original fixed type)"
+      ]
+    },
+    {
+      "symbol": "HMath.Optimization.Constrained.InteriorPoint",
+      "c": [
+        "hmath_optimization_interior_point_create"
+      ],
+      "python": "hmath.optimization.InteriorPoint",
+      "specializations": [
+        "Double (original fixed type)"
+      ]
+    },
+    {
+      "symbol": "HMath.Optimization.Constrained.AugmentedLagrangian",
+      "c": [
+        "hmath_optimization_augmented_lagrangian_create"
+      ],
+      "python": "hmath.optimization.AugmentedLagrangian",
+      "specializations": [
+        "Double (original fixed type)"
+      ]
+    },
+    {
+      "symbol": "HMath.Optimization.Constrained.constrainedMinimize",
+      "c": [
+        "hmath_optimization_constrained_minimize"
+      ],
+      "python": "hmath.optimization.constrained_minimize",
+      "specializations": [
+        "Double (original fixed type)"
+      ]
+    },
+    {
+      "symbol": "HMath.Optimization.Constrained.LPResult",
+      "c": [
+        "hmath_optimization_lp_result_create"
+      ],
+      "python": "hmath.optimization.LPResult",
+      "specializations": [
+        "Double (original fixed type)"
+      ]
+    },
+    {
+      "symbol": "HMath.Optimization.Constrained.linearProgramming",
+      "c": [
+        "hmath_optimization_linear_programming"
+      ],
+      "python": "hmath.optimization.linear_programming",
+      "specializations": [
+        "Double (original fixed type)"
+      ]
+    },
+    {
+      "symbol": "HMath.Optimization.Constrained.revisedSimplex",
+      "c": [
+        "hmath_optimization_revised_simplex"
+      ],
+      "python": "hmath.optimization.revised_simplex",
+      "specializations": [
+        "Double (original fixed type)"
+      ]
+    },
+    {
+      "symbol": "HMath.Optimization.Constrained.quadraticProgramming",
+      "c": [
+        "hmath_optimization_quadratic_programming"
+      ],
+      "python": "hmath.optimization.quadratic_programming",
+      "specializations": [
+        "Double (original fixed type)"
+      ]
+    },
+    {
+      "symbol": "HMath.Optimization.Constrained.slsqp",
+      "c": [
+        "hmath_optimization_slsqp"
+      ],
+      "python": "hmath.optimization.slsqp",
+      "specializations": [
+        "Double (original fixed type)"
+      ]
+    },
+    {
+      "symbol": "HMath.Optimization.Constrained.cobyla",
+      "c": [
+        "hmath_optimization_cobyla"
+      ],
+      "python": "hmath.optimization.cobyla",
+      "specializations": [
+        "Double (original fixed type)"
+      ]
+    },
+    {
+      "symbol": "HMath.Optimization.Constrained.weightedObjective",
+      "c": [
+        "hmath_optimization_weighted_objective"
+      ],
+      "python": "hmath.optimization.weighted_objective",
+      "specializations": [
+        "Double (original fixed type)"
+      ]
+    },
+    {
+      "symbol": "HMath.Optimization.Constrained.paretoFront",
+      "c": [
+        "hmath_optimization_pareto_front"
+      ],
+      "python": "hmath.optimization.pareto_front",
+      "specializations": [
+        "Double (original fixed type)"
+      ]
+    },
+    {
+      "symbol": "HMath.Optimization.Constrained.lpPoint",
+      "c": [
+        "hmath_optimization_lp_point"
+      ],
+      "python": "hmath.optimization.lp_point",
+      "specializations": [
+        "Double (original fixed type)"
+      ]
+    },
+    {
+      "symbol": "HMath.Optimization.Constrained.lpValue",
+      "c": [
+        "hmath_optimization_lp_value"
+      ],
+      "python": "hmath.optimization.lp_value",
+      "specializations": [
+        "Double (original fixed type)"
+      ]
+    },
+    {
+      "symbol": "HMath.Optimization.Constrained.lpBasis",
+      "c": [
+        "hmath_optimization_lp_basis"
+      ],
+      "python": "hmath.optimization.lp_basis",
+      "specializations": [
+        "Double (original fixed type)"
+      ]
+    },
+    {
+      "symbol": "HMath.Optimization.Constrained.lpIterations",
+      "c": [
+        "hmath_optimization_lp_iterations"
+      ],
+      "python": "hmath.optimization.lp_iterations",
+      "specializations": [
+        "Double (original fixed type)"
+      ]
+    },
+    {
+      "symbol": "HMath.Optimization.Global.SimulatedAnnealing",
+      "c": [
+        "hmath_optimization_simulated_annealing_create"
+      ],
+      "python": "hmath.optimization.SimulatedAnnealing",
+      "specializations": [
+        "Double (original fixed type)"
+      ]
+    },
+    {
+      "symbol": "HMath.Optimization.Global.DifferentialEvolution",
+      "c": [
+        "hmath_optimization_differential_evolution_create"
+      ],
+      "python": "hmath.optimization.DifferentialEvolution",
+      "specializations": [
+        "Double (original fixed type)"
+      ]
+    },
+    {
+      "symbol": "HMath.Optimization.Global.GeneticAlgorithm",
+      "c": [
+        "hmath_optimization_genetic_algorithm_create"
+      ],
+      "python": "hmath.optimization.GeneticAlgorithm",
+      "specializations": [
+        "Double (original fixed type)"
+      ]
+    },
+    {
+      "symbol": "HMath.Optimization.Global.ParticleSwarm",
+      "c": [
+        "hmath_optimization_particle_swarm_create"
+      ],
+      "python": "hmath.optimization.ParticleSwarm",
+      "specializations": [
+        "Double (original fixed type)"
+      ]
+    },
+    {
+      "symbol": "HMath.Optimization.Global.CMAES",
+      "c": [
+        "hmath_optimization_cmaes_create"
+      ],
+      "python": "hmath.optimization.CMAES",
+      "specializations": [
+        "Double (original fixed type)"
+      ]
+    },
+    {
+      "symbol": "HMath.Optimization.Global.globalMinimize",
+      "c": [
+        "hmath_optimization_global_minimize"
+      ],
+      "python": "hmath.optimization.global_minimize",
+      "specializations": [
+        "Double (original fixed type)"
+      ]
+    },
+    {
+      "symbol": "HMath.Optimization.Global.basinHopping",
+      "c": [
+        "hmath_optimization_basin_hopping"
+      ],
+      "python": "hmath.optimization.basin_hopping",
+      "specializations": [
+        "Double (original fixed type)"
+      ]
+    },
+    {
+      "symbol": "HMath.Optimization.Common.Objective",
+      "c": [
+        "hmath_optimization_callback"
+      ],
+      "python": "hmath.optimization.Objective",
+      "specializations": [
+        "Double checked callback"
+      ]
+    },
+    {
+      "symbol": "HMath.Optimization.Common.Gradient",
+      "c": [
+        "hmath_optimization_callback"
+      ],
+      "python": "hmath.optimization.Gradient",
+      "specializations": [
+        "Double checked callback"
+      ]
+    },
+    {
+      "symbol": "HMath.Optimization.Common.Hessian",
+      "c": [
+        "hmath_optimization_callback"
+      ],
+      "python": "hmath.optimization.Hessian",
+      "specializations": [
+        "Double checked callback"
+      ]
+    },
+    {
+      "symbol": "HMath.Optimization.Common.LearningRate",
+      "c": [
+        "hmath_value"
+      ],
+      "python": "hmath.optimization.LearningRate",
+      "specializations": [
+        "original immutable sum type"
+      ]
+    },
+    {
+      "symbol": "HMath.Optimization.Common.LineSearch",
+      "c": [
+        "hmath_value"
+      ],
+      "python": "hmath.optimization.LineSearch",
+      "specializations": [
+        "original immutable sum type"
+      ]
+    },
+    {
+      "symbol": "HMath.Optimization.Local.ScalarMethod",
+      "c": [
+        "hmath_value"
+      ],
+      "python": "hmath.optimization.ScalarMethod",
+      "specializations": [
+        "original immutable sum type"
+      ]
+    },
+    {
+      "symbol": "HMath.Optimization.Local.QuasiNewton",
+      "c": [
+        "hmath_value"
+      ],
+      "python": "hmath.optimization.QuasiNewton",
+      "specializations": [
+        "original immutable sum type"
+      ]
+    },
+    {
+      "symbol": "HMath.Optimization.Local.NewtonMethod",
+      "c": [
+        "hmath_value"
+      ],
+      "python": "hmath.optimization.NewtonMethod",
+      "specializations": [
+        "original immutable sum type"
+      ]
+    },
+    {
+      "symbol": "HMath.Optimization.Local.LeastSquaresLoss",
+      "c": [
+        "hmath_value"
+      ],
+      "python": "hmath.optimization.LeastSquaresLoss",
+      "specializations": [
+        "original immutable sum type"
+      ]
+    },
+    {
+      "symbol": "HMath.Optimization.Local.ResidualFunction",
+      "c": [
+        "hmath_optimization_callback"
+      ],
+      "python": "hmath.optimization.ResidualFunction",
+      "specializations": [
+        "Double checked callback"
+      ]
+    },
+    {
+      "symbol": "HMath.Optimization.Local.JacobianFunction",
+      "c": [
+        "hmath_optimization_callback"
+      ],
+      "python": "hmath.optimization.JacobianFunction",
+      "specializations": [
+        "Double checked callback"
+      ]
+    },
+    {
+      "symbol": "HMath.Optimization.Constrained.Constraint",
+      "c": [
+        "hmath_value"
+      ],
+      "python": "hmath.optimization.Constraint",
+      "specializations": [
+        "original immutable sum type"
+      ]
+    },
+    {
+      "symbol": "HMath.Optimization.Constrained.PenaltyMethod",
+      "c": [
+        "hmath_value"
+      ],
+      "python": "hmath.optimization.PenaltyMethod",
+      "specializations": [
+        "original immutable sum type"
+      ]
+    },
+    {
+      "symbol": "HMath.Optimization.Global.GlobalMethod",
+      "c": [
+        "hmath_value"
+      ],
+      "python": "hmath.optimization.GlobalMethod",
+      "specializations": [
+        "original immutable sum type"
+      ]
+    }
+  ]
+}

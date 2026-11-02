@@ -1,0 +1,443 @@
+{
+  "schema": 1,
+  "extends": "matrix-objects.json",
+  "bindings": [
+    {
+      "symbol": "HMath.Matrix.fromList",
+      "c": [
+        "hmath_matrix_value_from_list"
+      ],
+      "python": "hmath.matrix.from_list",
+      "specializations": [
+        "Float",
+        "Double",
+        "Integer",
+        "Rational",
+        "Complex Float",
+        "Complex Double",
+        "bounded standard integral Num instances",
+        "Numeric.Dual/Quaternion Num instances when constructed as typed scalar Values",
+        "Bool/String and other captured structural codecs"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.zeroMatrix",
+      "c": [
+        "hmath_matrix_value_zero_matrix"
+      ],
+      "python": "hmath.matrix.zero_matrix",
+      "specializations": [
+        "Float",
+        "Double",
+        "Integer",
+        "Rational",
+        "Complex Float",
+        "Complex Double",
+        "bounded standard integral Num instances",
+        "Numeric.Dual/Quaternion Num instances when constructed as typed scalar Values"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.diagonal",
+      "c": [
+        "hmath_matrix_value_diagonal"
+      ],
+      "python": "hmath.matrix.diagonal",
+      "specializations": [
+        "Float",
+        "Double",
+        "Integer",
+        "Rational",
+        "Complex Float",
+        "Complex Double",
+        "bounded standard integral Num instances",
+        "Numeric.Dual/Quaternion Num instances when constructed as typed scalar Values"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.at",
+      "c": [
+        "hmath_matrix_value_at"
+      ],
+      "python": "hmath.matrix.at",
+      "specializations": [
+        "Float",
+        "Double",
+        "Integer",
+        "Rational",
+        "Complex Float",
+        "Complex Double",
+        "bounded standard integral Num instances",
+        "Numeric.Dual/Quaternion Num instances when constructed as typed scalar Values",
+        "Bool/String and other captured structural codecs"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.sliceMatrix",
+      "c": [
+        "hmath_matrix_value_slice_matrix"
+      ],
+      "python": "hmath.matrix.slice_matrix",
+      "specializations": [
+        "Float",
+        "Double",
+        "Integer",
+        "Rational",
+        "Complex Float",
+        "Complex Double",
+        "bounded standard integral Num instances",
+        "Numeric.Dual/Quaternion Num instances when constructed as typed scalar Values",
+        "Bool/String and other captured structural codecs"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.reshape",
+      "c": [
+        "hmath_matrix_value_reshape"
+      ],
+      "python": "hmath.matrix.reshape",
+      "specializations": [
+        "Float",
+        "Double",
+        "Integer",
+        "Rational",
+        "Complex Float",
+        "Complex Double",
+        "bounded standard integral Num instances",
+        "Numeric.Dual/Quaternion Num instances when constructed as typed scalar Values",
+        "Bool/String and other captured structural codecs"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.addMatrix",
+      "c": [
+        "hmath_matrix_value_add_matrix"
+      ],
+      "python": "hmath.matrix.add_matrix",
+      "specializations": [
+        "Float",
+        "Double",
+        "Integer",
+        "Rational",
+        "Complex Float",
+        "Complex Double",
+        "bounded standard integral Num instances",
+        "Numeric.Dual/Quaternion Num instances when constructed as typed scalar Values"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.subtractMatrix",
+      "c": [
+        "hmath_matrix_value_subtract_matrix"
+      ],
+      "python": "hmath.matrix.subtract_matrix",
+      "specializations": [
+        "Float",
+        "Double",
+        "Integer",
+        "Rational",
+        "Complex Float",
+        "Complex Double",
+        "bounded standard integral Num instances",
+        "Numeric.Dual/Quaternion Num instances when constructed as typed scalar Values"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.hadamard",
+      "c": [
+        "hmath_matrix_value_hadamard"
+      ],
+      "python": "hmath.matrix.hadamard",
+      "specializations": [
+        "Float",
+        "Double",
+        "Integer",
+        "Rational",
+        "Complex Float",
+        "Complex Double",
+        "bounded standard integral Num instances",
+        "Numeric.Dual/Quaternion Num instances when constructed as typed scalar Values"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.multiply",
+      "c": [
+        "hmath_matrix_value_multiply"
+      ],
+      "python": "hmath.matrix.multiply",
+      "specializations": [
+        "Float",
+        "Double",
+        "Integer",
+        "Rational",
+        "Complex Float",
+        "Complex Double",
+        "bounded standard integral Num instances",
+        "Numeric.Dual/Quaternion Num instances when constructed as typed scalar Values"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.identity",
+      "c": [
+        "hmath_matrix_value_identity"
+      ],
+      "python": "hmath.matrix.identity",
+      "specializations": [
+        "Float",
+        "Double",
+        "Integer",
+        "Rational",
+        "Complex Float",
+        "Complex Double",
+        "bounded standard integral Num instances",
+        "Numeric.Dual/Quaternion Num instances when constructed as typed scalar Values"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.fromListChecked",
+      "c": [
+        "hmath_matrix_value_from_list_checked"
+      ],
+      "python": "hmath.matrix.from_list_checked",
+      "specializations": [
+        "Float",
+        "Double",
+        "Integer",
+        "Rational",
+        "Complex Float",
+        "Complex Double",
+        "bounded standard integral Num instances",
+        "Numeric.Dual/Quaternion Num instances when constructed as typed scalar Values",
+        "Bool/String and other captured structural codecs"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.zeroMatrixChecked",
+      "c": [
+        "hmath_matrix_value_zero_matrix_checked"
+      ],
+      "python": "hmath.matrix.zero_matrix_checked",
+      "specializations": [
+        "Float",
+        "Double",
+        "Integer",
+        "Rational",
+        "Complex Float",
+        "Complex Double",
+        "bounded standard integral Num instances",
+        "Numeric.Dual/Quaternion Num instances when constructed as typed scalar Values"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.diagonalChecked",
+      "c": [
+        "hmath_matrix_value_diagonal_checked"
+      ],
+      "python": "hmath.matrix.diagonal_checked",
+      "specializations": [
+        "Float",
+        "Double",
+        "Integer",
+        "Rational",
+        "Complex Float",
+        "Complex Double",
+        "bounded standard integral Num instances",
+        "Numeric.Dual/Quaternion Num instances when constructed as typed scalar Values"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.atChecked",
+      "c": [
+        "hmath_matrix_value_at_checked"
+      ],
+      "python": "hmath.matrix.at_checked",
+      "specializations": [
+        "Float",
+        "Double",
+        "Integer",
+        "Rational",
+        "Complex Float",
+        "Complex Double",
+        "bounded standard integral Num instances",
+        "Numeric.Dual/Quaternion Num instances when constructed as typed scalar Values",
+        "Bool/String and other captured structural codecs"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.sliceMatrixChecked",
+      "c": [
+        "hmath_matrix_value_slice_matrix_checked"
+      ],
+      "python": "hmath.matrix.slice_matrix_checked",
+      "specializations": [
+        "Float",
+        "Double",
+        "Integer",
+        "Rational",
+        "Complex Float",
+        "Complex Double",
+        "bounded standard integral Num instances",
+        "Numeric.Dual/Quaternion Num instances when constructed as typed scalar Values",
+        "Bool/String and other captured structural codecs"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.reshapeChecked",
+      "c": [
+        "hmath_matrix_value_reshape_checked"
+      ],
+      "python": "hmath.matrix.reshape_checked",
+      "specializations": [
+        "Float",
+        "Double",
+        "Integer",
+        "Rational",
+        "Complex Float",
+        "Complex Double",
+        "bounded standard integral Num instances",
+        "Numeric.Dual/Quaternion Num instances when constructed as typed scalar Values",
+        "Bool/String and other captured structural codecs"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.addMatrixChecked",
+      "c": [
+        "hmath_matrix_value_add_matrix_checked"
+      ],
+      "python": "hmath.matrix.add_matrix_checked",
+      "specializations": [
+        "Float",
+        "Double",
+        "Integer",
+        "Rational",
+        "Complex Float",
+        "Complex Double",
+        "bounded standard integral Num instances",
+        "Numeric.Dual/Quaternion Num instances when constructed as typed scalar Values"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.subtractMatrixChecked",
+      "c": [
+        "hmath_matrix_value_subtract_matrix_checked"
+      ],
+      "python": "hmath.matrix.subtract_matrix_checked",
+      "specializations": [
+        "Float",
+        "Double",
+        "Integer",
+        "Rational",
+        "Complex Float",
+        "Complex Double",
+        "bounded standard integral Num instances",
+        "Numeric.Dual/Quaternion Num instances when constructed as typed scalar Values"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.hadamardChecked",
+      "c": [
+        "hmath_matrix_value_hadamard_checked"
+      ],
+      "python": "hmath.matrix.hadamard_checked",
+      "specializations": [
+        "Float",
+        "Double",
+        "Integer",
+        "Rational",
+        "Complex Float",
+        "Complex Double",
+        "bounded standard integral Num instances",
+        "Numeric.Dual/Quaternion Num instances when constructed as typed scalar Values"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.multiplyChecked",
+      "c": [
+        "hmath_matrix_value_multiply_checked"
+      ],
+      "python": "hmath.matrix.multiply_checked",
+      "specializations": [
+        "Float",
+        "Double",
+        "Integer",
+        "Rational",
+        "Complex Float",
+        "Complex Double",
+        "bounded standard integral Num instances",
+        "Numeric.Dual/Quaternion Num instances when constructed as typed scalar Values"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.identityChecked",
+      "c": [
+        "hmath_matrix_value_identity_checked"
+      ],
+      "python": "hmath.matrix.identity_checked",
+      "specializations": [
+        "Float",
+        "Double",
+        "Integer",
+        "Rational",
+        "Complex Float",
+        "Complex Double",
+        "bounded standard integral Num instances",
+        "Numeric.Dual/Quaternion Num instances when constructed as typed scalar Values"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.scaleMatrix",
+      "c": [
+        "hmath_matrix_value_scale_matrix"
+      ],
+      "python": "hmath.matrix.scale_matrix",
+      "specializations": [
+        "Float",
+        "Double",
+        "Integer",
+        "Rational",
+        "Complex Float",
+        "Complex Double",
+        "bounded standard integral Num instances",
+        "Numeric.Dual/Quaternion Num instances when constructed as typed scalar Values"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.transposeMatrix",
+      "c": [
+        "hmath_matrix_value_transpose_matrix"
+      ],
+      "python": "hmath.matrix.transpose_matrix",
+      "specializations": [
+        "Float",
+        "Double",
+        "Integer",
+        "Rational",
+        "Complex Float",
+        "Complex Double",
+        "bounded standard integral Num instances",
+        "Numeric.Dual/Quaternion Num instances when constructed as typed scalar Values",
+        "Bool/String and other captured structural codecs"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.toList",
+      "c": [
+        "hmath_matrix_value_to_list"
+      ],
+      "python": "hmath.matrix.to_list",
+      "specializations": [
+        "same standard coefficients and Bool/String structural elements as Matrix Value"
+      ]
+    },
+    {
+      "symbol": "HMath.Matrix.shape",
+      "c": [
+        "hmath_matrix_value_shape"
+      ],
+      "python": "hmath.matrix.shape",
+      "specializations": [
+        "same standard coefficients and Bool/String structural elements as Matrix Value"
+      ]
+    }
+  ]
+}

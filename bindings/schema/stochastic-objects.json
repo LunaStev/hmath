@@ -1,0 +1,1532 @@
+{
+  "schema": 1,
+  "bindings": [
+    {
+      "symbol": "HMath.Probability.Bernoulli",
+      "c": [
+        "hmath_stochastic_probability_new_bernoulli"
+      ],
+      "python": "hmath.probability.bernoulli",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    },
+    {
+      "symbol": "HMath.Probability.Beta",
+      "c": [
+        "hmath_stochastic_probability_new_beta"
+      ],
+      "python": "hmath.probability.beta",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    },
+    {
+      "symbol": "HMath.Probability.BetaBinomial",
+      "c": [
+        "hmath_stochastic_probability_new_beta_binomial"
+      ],
+      "python": "hmath.probability.beta_binomial",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    },
+    {
+      "symbol": "HMath.Probability.Binomial",
+      "c": [
+        "hmath_stochastic_probability_new_binomial"
+      ],
+      "python": "hmath.probability.binomial",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    },
+    {
+      "symbol": "HMath.Probability.Categorical",
+      "c": [
+        "hmath_stochastic_probability_new_categorical"
+      ],
+      "python": "hmath.probability.categorical",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    },
+    {
+      "symbol": "HMath.Probability.Cauchy",
+      "c": [
+        "hmath_stochastic_probability_new_cauchy"
+      ],
+      "python": "hmath.probability.cauchy",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    },
+    {
+      "symbol": "HMath.Probability.ChiSquare",
+      "c": [
+        "hmath_stochastic_probability_new_chi_square"
+      ],
+      "python": "hmath.probability.chi_square",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    },
+    {
+      "symbol": "HMath.Probability.DiscreteUniform",
+      "c": [
+        "hmath_stochastic_probability_new_discrete_uniform"
+      ],
+      "python": "hmath.probability.discrete_uniform",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    },
+    {
+      "symbol": "HMath.Probability.Distribution",
+      "c": [
+        "hmath_value",
+        "hmath_value_release"
+      ],
+      "python": "hmath.probability.Distribution",
+      "specializations": [
+        "original raw immutable type, Value kind243"
+      ]
+    },
+    {
+      "symbol": "HMath.Probability.Empirical",
+      "c": [
+        "hmath_stochastic_probability_new_empirical"
+      ],
+      "python": "hmath.probability.empirical",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    },
+    {
+      "symbol": "HMath.Probability.Exponential",
+      "c": [
+        "hmath_stochastic_probability_new_exponential"
+      ],
+      "python": "hmath.probability.exponential",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    },
+    {
+      "symbol": "HMath.Probability.FisherF",
+      "c": [
+        "hmath_stochastic_probability_new_fisher_f"
+      ],
+      "python": "hmath.probability.fisher_f",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    },
+    {
+      "symbol": "HMath.Probability.Gamma",
+      "c": [
+        "hmath_stochastic_probability_new_gamma"
+      ],
+      "python": "hmath.probability.gamma",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    },
+    {
+      "symbol": "HMath.Probability.GaussianKDE",
+      "c": [
+        "hmath_stochastic_probability_new_gaussian_kde"
+      ],
+      "python": "hmath.probability.new_gaussian_kde",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    },
+    {
+      "symbol": "HMath.Probability.GeneralizedExtremeValue",
+      "c": [
+        "hmath_stochastic_probability_new_generalized_extreme_value"
+      ],
+      "python": "hmath.probability.generalized_extreme_value",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    },
+    {
+      "symbol": "HMath.Probability.Geometric",
+      "c": [
+        "hmath_stochastic_probability_new_geometric"
+      ],
+      "python": "hmath.probability.geometric",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    },
+    {
+      "symbol": "HMath.Probability.Gumbel",
+      "c": [
+        "hmath_stochastic_probability_new_gumbel"
+      ],
+      "python": "hmath.probability.gumbel",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    },
+    {
+      "symbol": "HMath.Probability.HMM",
+      "c": [
+        "hmath_value",
+        "hmath_value_release"
+      ],
+      "python": "hmath.probability.HMM",
+      "specializations": [
+        "original raw immutable type, Value kind245"
+      ]
+    },
+    {
+      "symbol": "HMath.Probability.Hypergeometric",
+      "c": [
+        "hmath_stochastic_probability_new_hypergeometric"
+      ],
+      "python": "hmath.probability.hypergeometric",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    },
+    {
+      "symbol": "HMath.Probability.Laplace",
+      "c": [
+        "hmath_stochastic_probability_new_laplace"
+      ],
+      "python": "hmath.probability.laplace",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    },
+    {
+      "symbol": "HMath.Probability.LogNormal",
+      "c": [
+        "hmath_stochastic_probability_new_log_normal"
+      ],
+      "python": "hmath.probability.log_normal",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    },
+    {
+      "symbol": "HMath.Probability.Logistic",
+      "c": [
+        "hmath_stochastic_probability_new_logistic"
+      ],
+      "python": "hmath.probability.logistic",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    },
+    {
+      "symbol": "HMath.Probability.Markov",
+      "c": [
+        "hmath_value",
+        "hmath_value_release"
+      ],
+      "python": "hmath.probability.Markov",
+      "specializations": [
+        "original raw immutable type, Value kind244"
+      ]
+    },
+    {
+      "symbol": "HMath.Probability.Maxwell",
+      "c": [
+        "hmath_stochastic_probability_new_maxwell"
+      ],
+      "python": "hmath.probability.maxwell",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    },
+    {
+      "symbol": "HMath.Probability.Mixture",
+      "c": [
+        "hmath_stochastic_probability_new_mixture"
+      ],
+      "python": "hmath.probability.mixture",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    },
+    {
+      "symbol": "HMath.Probability.NegativeBinomial",
+      "c": [
+        "hmath_stochastic_probability_new_negative_binomial"
+      ],
+      "python": "hmath.probability.negative_binomial",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    },
+    {
+      "symbol": "HMath.Probability.Normal",
+      "c": [
+        "hmath_stochastic_probability_new_normal"
+      ],
+      "python": "hmath.probability.normal",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    },
+    {
+      "symbol": "HMath.Probability.Pareto",
+      "c": [
+        "hmath_stochastic_probability_new_pareto"
+      ],
+      "python": "hmath.probability.pareto",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    },
+    {
+      "symbol": "HMath.Probability.Poisson",
+      "c": [
+        "hmath_stochastic_probability_new_poisson"
+      ],
+      "python": "hmath.probability.poisson",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    },
+    {
+      "symbol": "HMath.Probability.Rayleigh",
+      "c": [
+        "hmath_stochastic_probability_new_rayleigh"
+      ],
+      "python": "hmath.probability.rayleigh",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    },
+    {
+      "symbol": "HMath.Probability.Skellam",
+      "c": [
+        "hmath_stochastic_probability_new_skellam"
+      ],
+      "python": "hmath.probability.skellam",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    },
+    {
+      "symbol": "HMath.Probability.StudentT",
+      "c": [
+        "hmath_stochastic_probability_new_student_t"
+      ],
+      "python": "hmath.probability.student_t",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    },
+    {
+      "symbol": "HMath.Probability.Triangular",
+      "c": [
+        "hmath_stochastic_probability_new_triangular"
+      ],
+      "python": "hmath.probability.triangular",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    },
+    {
+      "symbol": "HMath.Probability.TruncatedNormal",
+      "c": [
+        "hmath_stochastic_probability_new_truncated_normal"
+      ],
+      "python": "hmath.probability.truncated_normal",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    },
+    {
+      "symbol": "HMath.Probability.Uniform",
+      "c": [
+        "hmath_stochastic_probability_new_uniform"
+      ],
+      "python": "hmath.probability.uniform",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    },
+    {
+      "symbol": "HMath.Probability.VonMises",
+      "c": [
+        "hmath_stochastic_probability_new_von_mises"
+      ],
+      "python": "hmath.probability.von_mises",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    },
+    {
+      "symbol": "HMath.Probability.Weibull",
+      "c": [
+        "hmath_stochastic_probability_new_weibull"
+      ],
+      "python": "hmath.probability.weibull",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    },
+    {
+      "symbol": "HMath.Probability.backward",
+      "c": [
+        "hmath_stochastic_probability_backward"
+      ],
+      "python": "hmath.probability.backward",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    },
+    {
+      "symbol": "HMath.Probability.baumWelch",
+      "c": [
+        "hmath_stochastic_probability_baum_welch"
+      ],
+      "python": "hmath.probability.baum_welch",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    },
+    {
+      "symbol": "HMath.Probability.betaBernoulliUpdate",
+      "c": [
+        "hmath_stochastic_probability_beta_bernoulli_update"
+      ],
+      "python": "hmath.probability.beta_bernoulli_update",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    },
+    {
+      "symbol": "HMath.Probability.cdf",
+      "c": [
+        "hmath_stochastic_probability_cdf"
+      ],
+      "python": "hmath.probability.cdf",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    },
+    {
+      "symbol": "HMath.Probability.density",
+      "c": [
+        "hmath_stochastic_probability_density"
+      ],
+      "python": "hmath.probability.density",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    },
+    {
+      "symbol": "HMath.Probability.entropy",
+      "c": [
+        "hmath_stochastic_probability_entropy"
+      ],
+      "python": "hmath.probability.entropy",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    },
+    {
+      "symbol": "HMath.Probability.expectation",
+      "c": [
+        "hmath_stochastic_probability_expectation"
+      ],
+      "python": "hmath.probability.expectation",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    },
+    {
+      "symbol": "HMath.Probability.fitBernoulli",
+      "c": [
+        "hmath_stochastic_probability_fit_bernoulli"
+      ],
+      "python": "hmath.probability.fit_bernoulli",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    },
+    {
+      "symbol": "HMath.Probability.fitExponential",
+      "c": [
+        "hmath_stochastic_probability_fit_exponential"
+      ],
+      "python": "hmath.probability.fit_exponential",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    },
+    {
+      "symbol": "HMath.Probability.fitMAPGrid",
+      "c": [
+        "hmath_stochastic_probability_fit_map_grid"
+      ],
+      "python": "hmath.probability.fit_map_grid",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    },
+    {
+      "symbol": "HMath.Probability.fitMLEGrid",
+      "c": [
+        "hmath_stochastic_probability_fit_mle_grid"
+      ],
+      "python": "hmath.probability.fit_mle_grid",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    },
+    {
+      "symbol": "HMath.Probability.fitNormal",
+      "c": [
+        "hmath_stochastic_probability_fit_normal"
+      ],
+      "python": "hmath.probability.fit_normal",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    },
+    {
+      "symbol": "HMath.Probability.forward",
+      "c": [
+        "hmath_stochastic_probability_forward"
+      ],
+      "python": "hmath.probability.forward",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    },
+    {
+      "symbol": "HMath.Probability.gaussianKDE",
+      "c": [
+        "hmath_stochastic_probability_gaussian_kde"
+      ],
+      "python": "hmath.probability.gaussian_kde",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    },
+    {
+      "symbol": "HMath.Probability.goodnessOfFit",
+      "c": [
+        "hmath_stochastic_probability_goodness_of_fit"
+      ],
+      "python": "hmath.probability.goodness_of_fit",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    },
+    {
+      "symbol": "HMath.Probability.hazard",
+      "c": [
+        "hmath_stochastic_probability_hazard"
+      ],
+      "python": "hmath.probability.hazard",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    },
+    {
+      "symbol": "HMath.Probability.hmm",
+      "c": [
+        "hmath_stochastic_probability_hmm"
+      ],
+      "python": "hmath.probability.hmm",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    },
+    {
+      "symbol": "HMath.Probability.logDensity",
+      "c": [
+        "hmath_stochastic_probability_log_density"
+      ],
+      "python": "hmath.probability.log_density",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    },
+    {
+      "symbol": "HMath.Probability.logLikelihood",
+      "c": [
+        "hmath_stochastic_probability_log_likelihood"
+      ],
+      "python": "hmath.probability.log_likelihood",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    },
+    {
+      "symbol": "HMath.Probability.markov",
+      "c": [
+        "hmath_stochastic_probability_markov"
+      ],
+      "python": "hmath.probability.markov",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    },
+    {
+      "symbol": "HMath.Probability.moments",
+      "c": [
+        "hmath_stochastic_probability_moments"
+      ],
+      "python": "hmath.probability.moments",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    },
+    {
+      "symbol": "HMath.Probability.multivariateNormalLogDensity",
+      "c": [
+        "hmath_stochastic_probability_multivariate_normal_log_density"
+      ],
+      "python": "hmath.probability.multivariate_normal_log_density",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    },
+    {
+      "symbol": "HMath.Probability.posteriorStates",
+      "c": [
+        "hmath_stochastic_probability_posterior_states"
+      ],
+      "python": "hmath.probability.posterior_states",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    },
+    {
+      "symbol": "HMath.Probability.quantile",
+      "c": [
+        "hmath_stochastic_probability_quantile"
+      ],
+      "python": "hmath.probability.quantile",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    },
+    {
+      "symbol": "HMath.Probability.sample",
+      "c": [
+        "hmath_stochastic_probability_sample"
+      ],
+      "python": "hmath.probability.sample",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    },
+    {
+      "symbol": "HMath.Probability.sampleMultivariateNormal",
+      "c": [
+        "hmath_stochastic_probability_sample_multivariate_normal"
+      ],
+      "python": "hmath.probability.sample_multivariate_normal",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    },
+    {
+      "symbol": "HMath.Probability.sampleWishart",
+      "c": [
+        "hmath_stochastic_probability_sample_wishart"
+      ],
+      "python": "hmath.probability.sample_wishart",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    },
+    {
+      "symbol": "HMath.Probability.stationary",
+      "c": [
+        "hmath_stochastic_probability_stationary"
+      ],
+      "python": "hmath.probability.stationary",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    },
+    {
+      "symbol": "HMath.Probability.survival",
+      "c": [
+        "hmath_stochastic_probability_survival"
+      ],
+      "python": "hmath.probability.survival",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    },
+    {
+      "symbol": "HMath.Probability.transition",
+      "c": [
+        "hmath_stochastic_probability_transition"
+      ],
+      "python": "hmath.probability.transition",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    },
+    {
+      "symbol": "HMath.Probability.validateDistribution",
+      "c": [
+        "hmath_stochastic_probability_validate_distribution"
+      ],
+      "python": "hmath.probability.validate_distribution",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    },
+    {
+      "symbol": "HMath.Probability.viterbi",
+      "c": [
+        "hmath_stochastic_probability_viterbi"
+      ],
+      "python": "hmath.probability.viterbi",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    },
+    {
+      "symbol": "HMath.Probability.wishartLogDensity",
+      "c": [
+        "hmath_stochastic_probability_wishart_log_density"
+      ],
+      "python": "hmath.probability.wishart_log_density",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    },
+    {
+      "symbol": "HMath.Random.AliasTable",
+      "c": [
+        "hmath_value",
+        "hmath_value_release"
+      ],
+      "python": "hmath.random.AliasTable",
+      "specializations": [
+        "original raw immutable type, Value kind242"
+      ]
+    },
+    {
+      "symbol": "HMath.Random.ChaCha20",
+      "c": [
+        "hmath_stochastic_random_new_cha_cha20"
+      ],
+      "python": "hmath.random.cha_cha20",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    },
+    {
+      "symbol": "HMath.Random.Generator",
+      "c": [
+        "hmath_value",
+        "hmath_value_release"
+      ],
+      "python": "hmath.random.Generator",
+      "specializations": [
+        "original raw immutable type, Value kind241"
+      ]
+    },
+    {
+      "symbol": "HMath.Random.MT19937",
+      "c": [
+        "hmath_stochastic_random_new_mt19937"
+      ],
+      "python": "hmath.random.mt19937",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    },
+    {
+      "symbol": "HMath.Random.PCG32",
+      "c": [
+        "hmath_stochastic_random_new_pcg32"
+      ],
+      "python": "hmath.random.pcg32",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    },
+    {
+      "symbol": "HMath.Random.Philox4x32",
+      "c": [
+        "hmath_stochastic_random_new_philox4x32"
+      ],
+      "python": "hmath.random.philox4x32",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    },
+    {
+      "symbol": "HMath.Random.RNG",
+      "c": [
+        "hmath_value",
+        "hmath_value_release"
+      ],
+      "python": "hmath.random.RNG",
+      "specializations": [
+        "original raw immutable type, Value kind240"
+      ]
+    },
+    {
+      "symbol": "HMath.Random.Threefry2x64",
+      "c": [
+        "hmath_stochastic_random_new_threefry2x64"
+      ],
+      "python": "hmath.random.threefry2x64",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    },
+    {
+      "symbol": "HMath.Random.Xoroshiro128Plus",
+      "c": [
+        "hmath_stochastic_random_new_xoroshiro128_plus"
+      ],
+      "python": "hmath.random.xoroshiro128_plus",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    },
+    {
+      "symbol": "HMath.Random.Xoshiro256StarStar",
+      "c": [
+        "hmath_stochastic_random_new_xoshiro256_star_star"
+      ],
+      "python": "hmath.random.xoshiro256_star_star",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    },
+    {
+      "symbol": "HMath.Random.aliasSample",
+      "c": [
+        "hmath_stochastic_random_alias_sample"
+      ],
+      "python": "hmath.random.alias_sample",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    },
+    {
+      "symbol": "HMath.Random.aliasTable",
+      "c": [
+        "hmath_stochastic_random_alias_table"
+      ],
+      "python": "hmath.random.alias_table",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    },
+    {
+      "symbol": "HMath.Random.beta",
+      "c": [
+        "hmath_stochastic_random_beta"
+      ],
+      "python": "hmath.random.beta",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    },
+    {
+      "symbol": "HMath.Random.binomial",
+      "c": [
+        "hmath_stochastic_random_binomial"
+      ],
+      "python": "hmath.random.binomial",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    },
+    {
+      "symbol": "HMath.Random.boxMuller",
+      "c": [
+        "hmath_stochastic_random_box_muller"
+      ],
+      "python": "hmath.random.box_muller",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    },
+    {
+      "symbol": "HMath.Random.cloneRNG",
+      "c": [
+        "hmath_stochastic_random_clone_rng"
+      ],
+      "python": "hmath.random.clone_rng",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    },
+    {
+      "symbol": "HMath.Random.entropySeed",
+      "c": [
+        "hmath_stochastic_random_entropy_seed"
+      ],
+      "python": "hmath.random.entropy_seed",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    },
+    {
+      "symbol": "HMath.Random.exponential",
+      "c": [
+        "hmath_stochastic_random_exponential"
+      ],
+      "python": "hmath.random.exponential",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    },
+    {
+      "symbol": "HMath.Random.gamma",
+      "c": [
+        "hmath_stochastic_random_gamma"
+      ],
+      "python": "hmath.random.gamma",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    },
+    {
+      "symbol": "HMath.Random.gibbs",
+      "c": [
+        "hmath_stochastic_random_gibbs"
+      ],
+      "python": "hmath.random.gibbs",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    },
+    {
+      "symbol": "HMath.Random.hamiltonianMonteCarlo",
+      "c": [
+        "hmath_stochastic_random_hamiltonian_monte_carlo"
+      ],
+      "python": "hmath.random.hamiltonian_monte_carlo",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    },
+    {
+      "symbol": "HMath.Random.inverseTransform",
+      "c": [
+        "hmath_stochastic_random_inverse_transform"
+      ],
+      "python": "hmath.random.inverse_transform",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    },
+    {
+      "symbol": "HMath.Random.latinHypercube",
+      "c": [
+        "hmath_stochastic_random_latin_hypercube"
+      ],
+      "python": "hmath.random.latin_hypercube",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    },
+    {
+      "symbol": "HMath.Random.marsagliaNormal",
+      "c": [
+        "hmath_stochastic_random_marsaglia_normal"
+      ],
+      "python": "hmath.random.marsaglia_normal",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    },
+    {
+      "symbol": "HMath.Random.metropolisHastings",
+      "c": [
+        "hmath_stochastic_random_metropolis_hastings"
+      ],
+      "python": "hmath.random.metropolis_hastings",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    },
+    {
+      "symbol": "HMath.Random.monteCarlo",
+      "c": [
+        "hmath_stochastic_random_monte_carlo"
+      ],
+      "python": "hmath.random.monte_carlo",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    },
+    {
+      "symbol": "HMath.Random.nextWord64",
+      "c": [
+        "hmath_stochastic_random_next_word64"
+      ],
+      "python": "hmath.random.next_word64",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    },
+    {
+      "symbol": "HMath.Random.normal",
+      "c": [
+        "hmath_stochastic_random_normal"
+      ],
+      "python": "hmath.random.normal",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    },
+    {
+      "symbol": "HMath.Random.poisson",
+      "c": [
+        "hmath_stochastic_random_poisson"
+      ],
+      "python": "hmath.random.poisson",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    },
+    {
+      "symbol": "HMath.Random.randomQuality",
+      "c": [
+        "hmath_stochastic_random_random_quality"
+      ],
+      "python": "hmath.random.random_quality",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    },
+    {
+      "symbol": "HMath.Random.rejection",
+      "c": [
+        "hmath_stochastic_random_rejection"
+      ],
+      "python": "hmath.random.rejection",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    },
+    {
+      "symbol": "HMath.Random.reservoir",
+      "c": [
+        "hmath_stochastic_random_reservoir"
+      ],
+      "python": "hmath.random.reservoir",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    },
+    {
+      "symbol": "HMath.Random.restoreRNG",
+      "c": [
+        "hmath_stochastic_random_restore_rng"
+      ],
+      "python": "hmath.random.restore_rng",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    },
+    {
+      "symbol": "HMath.Random.sampleN",
+      "c": [
+        "hmath_stochastic_random_sample_n"
+      ],
+      "python": "hmath.random.sample_n",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    },
+    {
+      "symbol": "HMath.Random.seedRNG",
+      "c": [
+        "hmath_stochastic_random_seed_rng"
+      ],
+      "python": "hmath.random.seed_rng",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    },
+    {
+      "symbol": "HMath.Random.serializeRNG",
+      "c": [
+        "hmath_stochastic_random_serialize_rng"
+      ],
+      "python": "hmath.random.serialize_rng",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    },
+    {
+      "symbol": "HMath.Random.shuffle",
+      "c": [
+        "hmath_stochastic_random_shuffle"
+      ],
+      "python": "hmath.random.shuffle",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    },
+    {
+      "symbol": "HMath.Random.splitRNG",
+      "c": [
+        "hmath_stochastic_random_split_rng"
+      ],
+      "python": "hmath.random.split_rng",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    },
+    {
+      "symbol": "HMath.Random.stratified",
+      "c": [
+        "hmath_stochastic_random_stratified"
+      ],
+      "python": "hmath.random.stratified",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    },
+    {
+      "symbol": "HMath.Random.uniform",
+      "c": [
+        "hmath_stochastic_random_uniform"
+      ],
+      "python": "hmath.random.uniform",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    },
+    {
+      "symbol": "HMath.Random.uniformInt",
+      "c": [
+        "hmath_stochastic_random_uniform_int"
+      ],
+      "python": "hmath.random.uniform_int",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    },
+    {
+      "symbol": "HMath.Random.uniformOpen",
+      "c": [
+        "hmath_stochastic_random_uniform_open"
+      ],
+      "python": "hmath.random.uniform_open",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    },
+    {
+      "symbol": "HMath.Random.weighted",
+      "c": [
+        "hmath_stochastic_random_weighted"
+      ],
+      "python": "hmath.random.weighted",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    },
+    {
+      "symbol": "HMath.Random.withReplacement",
+      "c": [
+        "hmath_stochastic_random_with_replacement"
+      ],
+      "python": "hmath.random.with_replacement",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    },
+    {
+      "symbol": "HMath.Random.withoutReplacement",
+      "c": [
+        "hmath_stochastic_random_without_replacement"
+      ],
+      "python": "hmath.random.without_replacement",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    },
+    {
+      "symbol": "HMath.Random.zigguratNormal",
+      "c": [
+        "hmath_stochastic_random_ziggurat_normal"
+      ],
+      "python": "hmath.random.ziggurat_normal",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    },
+    {
+      "symbol": "HMath.Statistics.Advanced.Streaming",
+      "c": [
+        "hmath_value",
+        "hmath_value_release"
+      ],
+      "python": "hmath.statistics_advanced.Streaming",
+      "specializations": [
+        "original raw immutable type, Value kind246"
+      ]
+    },
+    {
+      "symbol": "HMath.Statistics.Advanced.TestResult",
+      "c": [
+        "hmath_stochastic_statistics_advanced_new_test_result"
+      ],
+      "python": "hmath.statistics_advanced.TestResult",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    },
+    {
+      "symbol": "HMath.Statistics.Advanced.andersonDarling",
+      "c": [
+        "hmath_stochastic_statistics_advanced_anderson_darling"
+      ],
+      "python": "hmath.statistics_advanced.anderson_darling",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    },
+    {
+      "symbol": "HMath.Statistics.Advanced.anova",
+      "c": [
+        "hmath_stochastic_statistics_advanced_anova"
+      ],
+      "python": "hmath.statistics_advanced.anova",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    },
+    {
+      "symbol": "HMath.Statistics.Advanced.bartlett",
+      "c": [
+        "hmath_stochastic_statistics_advanced_bartlett"
+      ],
+      "python": "hmath.statistics_advanced.bartlett",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    },
+    {
+      "symbol": "HMath.Statistics.Advanced.bootstrap",
+      "c": [
+        "hmath_stochastic_statistics_advanced_bootstrap"
+      ],
+      "python": "hmath.statistics_advanced.bootstrap",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    },
+    {
+      "symbol": "HMath.Statistics.Advanced.chiSquareTest",
+      "c": [
+        "hmath_stochastic_statistics_advanced_chi_square_test"
+      ],
+      "python": "hmath.statistics_advanced.chi_square_test",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    },
+    {
+      "symbol": "HMath.Statistics.Advanced.combineStreaming",
+      "c": [
+        "hmath_stochastic_statistics_advanced_combine_streaming"
+      ],
+      "python": "hmath.statistics_advanced.combine_streaming",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    },
+    {
+      "symbol": "HMath.Statistics.Advanced.covarianceMatrix",
+      "c": [
+        "hmath_stochastic_statistics_advanced_covariance_matrix"
+      ],
+      "python": "hmath.statistics_advanced.covariance_matrix",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    },
+    {
+      "symbol": "HMath.Statistics.Advanced.degreesOfFreedom",
+      "c": [
+        "hmath_stochastic_statistics_advanced_degrees_of_freedom"
+      ],
+      "python": "hmath.statistics_advanced.degrees_of_freedom",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    },
+    {
+      "symbol": "HMath.Statistics.Advanced.emptyStreaming",
+      "c": [
+        "hmath_stochastic_statistics_advanced_empty_streaming"
+      ],
+      "python": "hmath.statistics_advanced.empty_streaming",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    },
+    {
+      "symbol": "HMath.Statistics.Advanced.etaSquared",
+      "c": [
+        "hmath_stochastic_statistics_advanced_eta_squared"
+      ],
+      "python": "hmath.statistics_advanced.eta_squared",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    },
+    {
+      "symbol": "HMath.Statistics.Advanced.fisherExact",
+      "c": [
+        "hmath_stochastic_statistics_advanced_fisher_exact"
+      ],
+      "python": "hmath.statistics_advanced.fisher_exact",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    },
+    {
+      "symbol": "HMath.Statistics.Advanced.grubbs",
+      "c": [
+        "hmath_stochastic_statistics_advanced_grubbs"
+      ],
+      "python": "hmath.statistics_advanced.grubbs",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    },
+    {
+      "symbol": "HMath.Statistics.Advanced.histogramND",
+      "c": [
+        "hmath_stochastic_statistics_advanced_histogram_nd"
+      ],
+      "python": "hmath.statistics_advanced.histogram_nd",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    },
+    {
+      "symbol": "HMath.Statistics.Advanced.jackknife",
+      "c": [
+        "hmath_stochastic_statistics_advanced_jackknife"
+      ],
+      "python": "hmath.statistics_advanced.jackknife",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    },
+    {
+      "symbol": "HMath.Statistics.Advanced.kolmogorovSmirnov",
+      "c": [
+        "hmath_stochastic_statistics_advanced_kolmogorov_smirnov"
+      ],
+      "python": "hmath.statistics_advanced.kolmogorov_smirnov",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    },
+    {
+      "symbol": "HMath.Statistics.Advanced.kruskalWallis",
+      "c": [
+        "hmath_stochastic_statistics_advanced_kruskal_wallis"
+      ],
+      "python": "hmath.statistics_advanced.kruskal_wallis",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    },
+    {
+      "symbol": "HMath.Statistics.Advanced.levene",
+      "c": [
+        "hmath_stochastic_statistics_advanced_levene"
+      ],
+      "python": "hmath.statistics_advanced.levene",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    },
+    {
+      "symbol": "HMath.Statistics.Advanced.mannWhitney",
+      "c": [
+        "hmath_stochastic_statistics_advanced_mann_whitney"
+      ],
+      "python": "hmath.statistics_advanced.mann_whitney",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    },
+    {
+      "symbol": "HMath.Statistics.Advanced.masked",
+      "c": [
+        "hmath_stochastic_statistics_advanced_masked"
+      ],
+      "python": "hmath.statistics_advanced.masked",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    },
+    {
+      "symbol": "HMath.Statistics.Advanced.mutualInformation",
+      "c": [
+        "hmath_stochastic_statistics_advanced_mutual_information"
+      ],
+      "python": "hmath.statistics_advanced.mutual_information",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    },
+    {
+      "symbol": "HMath.Statistics.Advanced.oneSampleT",
+      "c": [
+        "hmath_stochastic_statistics_advanced_one_sample_t"
+      ],
+      "python": "hmath.statistics_advanced.one_sample_t",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    },
+    {
+      "symbol": "HMath.Statistics.Advanced.pValue",
+      "c": [
+        "hmath_stochastic_statistics_advanced_p_value"
+      ],
+      "python": "hmath.statistics_advanced.p_value",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    },
+    {
+      "symbol": "HMath.Statistics.Advanced.pairedT",
+      "c": [
+        "hmath_stochastic_statistics_advanced_paired_t"
+      ],
+      "python": "hmath.statistics_advanced.paired_t",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    },
+    {
+      "symbol": "HMath.Statistics.Advanced.partialCorrelation",
+      "c": [
+        "hmath_stochastic_statistics_advanced_partial_correlation"
+      ],
+      "python": "hmath.statistics_advanced.partial_correlation",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    },
+    {
+      "symbol": "HMath.Statistics.Advanced.permutationTest",
+      "c": [
+        "hmath_stochastic_statistics_advanced_permutation_test"
+      ],
+      "python": "hmath.statistics_advanced.permutation_test",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    },
+    {
+      "symbol": "HMath.Statistics.Advanced.shapiroWilk",
+      "c": [
+        "hmath_stochastic_statistics_advanced_shapiro_wilk"
+      ],
+      "python": "hmath.statistics_advanced.shapiro_wilk",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    },
+    {
+      "symbol": "HMath.Statistics.Advanced.streamingResult",
+      "c": [
+        "hmath_stochastic_statistics_advanced_streaming_result"
+      ],
+      "python": "hmath.statistics_advanced.streaming_result",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    },
+    {
+      "symbol": "HMath.Statistics.Advanced.testStatistic",
+      "c": [
+        "hmath_stochastic_statistics_advanced_test_statistic"
+      ],
+      "python": "hmath.statistics_advanced.test_statistic",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    },
+    {
+      "symbol": "HMath.Statistics.Advanced.twoSampleT",
+      "c": [
+        "hmath_stochastic_statistics_advanced_two_sample_t"
+      ],
+      "python": "hmath.statistics_advanced.two_sample_t",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    },
+    {
+      "symbol": "HMath.Statistics.Advanced.updateStreaming",
+      "c": [
+        "hmath_stochastic_statistics_advanced_update_streaming"
+      ],
+      "python": "hmath.statistics_advanced.update_streaming",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    },
+    {
+      "symbol": "HMath.Statistics.Advanced.varianceFTest",
+      "c": [
+        "hmath_stochastic_statistics_advanced_variance_f_test"
+      ],
+      "python": "hmath.statistics_advanced.variance_f_test",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    },
+    {
+      "symbol": "HMath.Statistics.Advanced.welchAnova",
+      "c": [
+        "hmath_stochastic_statistics_advanced_welch_anova"
+      ],
+      "python": "hmath.statistics_advanced.welch_anova",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    },
+    {
+      "symbol": "HMath.Statistics.Advanced.wilcoxon",
+      "c": [
+        "hmath_stochastic_statistics_advanced_wilcoxon"
+      ],
+      "python": "hmath.statistics_advanced.wilcoxon",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    },
+    {
+      "symbol": "HMath.Statistics.Advanced.zTest",
+      "c": [
+        "hmath_stochastic_statistics_advanced_z_test"
+      ],
+      "python": "hmath.statistics_advanced.z_test",
+      "specializations": [
+        "original concrete types; arbitrary Value element containers without coercion; original checked/pure callbacks"
+      ]
+    }
+  ]
+}

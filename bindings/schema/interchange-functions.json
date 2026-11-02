@@ -1,0 +1,440 @@
+{
+  "schema": 1,
+  "functions": [
+    {
+      "module": "HMath.Interchange.Array",
+      "name": "BigEndian",
+      "signature": "Endian"
+    },
+    {
+      "module": "HMath.Interchange.Array",
+      "name": "Bool8",
+      "signature": "DType"
+    },
+    {
+      "module": "HMath.Interchange.Array",
+      "name": "C128",
+      "signature": "DType"
+    },
+    {
+      "module": "HMath.Interchange.Array",
+      "name": "C64",
+      "signature": "DType"
+    },
+    {
+      "module": "HMath.Interchange.Array",
+      "name": "COrder",
+      "signature": "Order"
+    },
+    {
+      "module": "HMath.Interchange.Array",
+      "name": "F32",
+      "signature": "DType"
+    },
+    {
+      "module": "HMath.Interchange.Array",
+      "name": "F64",
+      "signature": "DType"
+    },
+    {
+      "module": "HMath.Interchange.Array",
+      "name": "FOrder",
+      "signature": "Order"
+    },
+    {
+      "module": "HMath.Interchange.Array",
+      "name": "I16",
+      "signature": "DType"
+    },
+    {
+      "module": "HMath.Interchange.Array",
+      "name": "I32",
+      "signature": "DType"
+    },
+    {
+      "module": "HMath.Interchange.Array",
+      "name": "I64",
+      "signature": "DType"
+    },
+    {
+      "module": "HMath.Interchange.Array",
+      "name": "I8",
+      "signature": "DType"
+    },
+    {
+      "module": "HMath.Interchange.Array",
+      "name": "InterchangeIOError",
+      "signature": "String -> InterchangeError"
+    },
+    {
+      "module": "HMath.Interchange.Array",
+      "name": "InvalidData",
+      "signature": "String -> InterchangeError"
+    },
+    {
+      "module": "HMath.Interchange.Array",
+      "name": "LimitExceeded",
+      "signature": "String -> InterchangeError"
+    },
+    {
+      "module": "HMath.Interchange.Array",
+      "name": "Limits",
+      "signature": "Int -> Int -> Int -> Int -> Int -> Limits"
+    },
+    {
+      "module": "HMath.Interchange.Array",
+      "name": "LittleEndian",
+      "signature": "Endian"
+    },
+    {
+      "module": "HMath.Interchange.Array",
+      "name": "U16",
+      "signature": "DType"
+    },
+    {
+      "module": "HMath.Interchange.Array",
+      "name": "U32",
+      "signature": "DType"
+    },
+    {
+      "module": "HMath.Interchange.Array",
+      "name": "U64",
+      "signature": "DType"
+    },
+    {
+      "module": "HMath.Interchange.Array",
+      "name": "U8",
+      "signature": "DType"
+    },
+    {
+      "module": "HMath.Interchange.Array",
+      "name": "Unsupported",
+      "signature": "String -> InterchangeError"
+    },
+    {
+      "module": "HMath.Interchange.Array",
+      "name": "array",
+      "signature": "Limits -> DType -> Endian -> [Int] -> [Int] -> Int -> ByteString -> Either InterchangeError Array"
+    },
+    {
+      "module": "HMath.Interchange.Array",
+      "name": "arrayBytes",
+      "signature": "Array -> ByteString"
+    },
+    {
+      "module": "HMath.Interchange.Array",
+      "name": "arrayDType",
+      "signature": "Array -> DType"
+    },
+    {
+      "module": "HMath.Interchange.Array",
+      "name": "arrayEndian",
+      "signature": "Array -> Endian"
+    },
+    {
+      "module": "HMath.Interchange.Array",
+      "name": "arrayMetadata",
+      "signature": "Array -> [(String, String)]"
+    },
+    {
+      "module": "HMath.Interchange.Array",
+      "name": "arrayOffset",
+      "signature": "Array -> Int"
+    },
+    {
+      "module": "HMath.Interchange.Array",
+      "name": "arrayShape",
+      "signature": "Array -> [Int]"
+    },
+    {
+      "module": "HMath.Interchange.Array",
+      "name": "arrayStrides",
+      "signature": "Array -> [Int]"
+    },
+    {
+      "module": "HMath.Interchange.Array",
+      "name": "contiguousArray",
+      "signature": "Limits -> DType -> Endian -> Order -> [Int] -> ByteString -> Either InterchangeError Array"
+    },
+    {
+      "module": "HMath.Interchange.Array",
+      "name": "defaultLimits",
+      "signature": "Limits"
+    },
+    {
+      "module": "HMath.Interchange.Array",
+      "name": "denseStrides",
+      "signature": "Order -> Int -> [Int] -> [Int]"
+    },
+    {
+      "module": "HMath.Interchange.Array",
+      "name": "elementBytes",
+      "signature": "DType -> Int"
+    },
+    {
+      "module": "HMath.Interchange.Array",
+      "name": "elementCount",
+      "signature": "Array -> Int"
+    },
+    {
+      "module": "HMath.Interchange.Array",
+      "name": "elementType",
+      "signature": "Element a => proxy a -> DType"
+    },
+    {
+      "module": "HMath.Interchange.Array",
+      "name": "fromMatrix",
+      "signature": "Element a => Limits -> Endian -> HMath.Matrix.Matrix a -> Either InterchangeError Array"
+    },
+    {
+      "module": "HMath.Interchange.Array",
+      "name": "fromTensor",
+      "signature": "Element a => Limits -> Endian -> HMath.Tensor.Tensor a -> Either InterchangeError Array"
+    },
+    {
+      "module": "HMath.Interchange.Array",
+      "name": "fromValues",
+      "signature": "Element a => Limits -> Endian -> [Int] -> [a] -> Either InterchangeError Array"
+    },
+    {
+      "module": "HMath.Interchange.Array",
+      "name": "getElement",
+      "signature": "Element a => Endian -> Data.Binary.Get.Internal.Get a"
+    },
+    {
+      "module": "HMath.Interchange.Array",
+      "name": "maxArchiveEntries",
+      "signature": "Limits -> Int"
+    },
+    {
+      "module": "HMath.Interchange.Array",
+      "name": "maxBytes",
+      "signature": "Limits -> Int"
+    },
+    {
+      "module": "HMath.Interchange.Array",
+      "name": "maxElements",
+      "signature": "Limits -> Int"
+    },
+    {
+      "module": "HMath.Interchange.Array",
+      "name": "maxMetadata",
+      "signature": "Limits -> Int"
+    },
+    {
+      "module": "HMath.Interchange.Array",
+      "name": "maxRank",
+      "signature": "Limits -> Int"
+    },
+    {
+      "module": "HMath.Interchange.Array",
+      "name": "putElement",
+      "signature": "Element a => Endian -> a -> Data.Binary.Put.Put"
+    },
+    {
+      "module": "HMath.Interchange.Array",
+      "name": "rawDecode",
+      "signature": "Limits -> DType -> Endian -> Order -> [Int] -> ByteString -> Either InterchangeError Array"
+    },
+    {
+      "module": "HMath.Interchange.Array",
+      "name": "rawEncode",
+      "signature": "Limits -> Endian -> Order -> Array -> Either InterchangeError ByteString"
+    },
+    {
+      "module": "HMath.Interchange.Array",
+      "name": "repack",
+      "signature": "Limits -> Endian -> Order -> Array -> Either InterchangeError Array"
+    },
+    {
+      "module": "HMath.Interchange.Array",
+      "name": "toMatrix",
+      "signature": "Element a => Array -> Either InterchangeError (HMath.Matrix.Matrix a)"
+    },
+    {
+      "module": "HMath.Interchange.Array",
+      "name": "toTensor",
+      "signature": "Element a => Array -> Either InterchangeError (HMath.Tensor.Tensor a)"
+    },
+    {
+      "module": "HMath.Interchange.Array",
+      "name": "toValues",
+      "signature": "Element a => Array -> Either InterchangeError [a]"
+    },
+    {
+      "module": "HMath.Interchange.Array",
+      "name": "validateShape",
+      "signature": "Limits -> [Int] -> Either InterchangeError Int"
+    },
+    {
+      "module": "HMath.Interchange.Array",
+      "name": "withMetadata",
+      "signature": "Limits -> [(String, String)] -> Array -> Either InterchangeError Array"
+    },
+    {
+      "module": "HMath.Interchange.Binary",
+      "name": "crc32",
+      "signature": "ByteString -> Word32"
+    },
+    {
+      "module": "HMath.Interchange.Binary",
+      "name": "decodeBinary",
+      "signature": "Limits -> ByteString -> Either InterchangeError Array"
+    },
+    {
+      "module": "HMath.Interchange.Binary",
+      "name": "encodeBinary",
+      "signature": "Limits -> Array -> Either InterchangeError ByteString"
+    },
+    {
+      "module": "HMath.Interchange.Compression",
+      "name": "Gzip",
+      "signature": "Compression"
+    },
+    {
+      "module": "HMath.Interchange.Compression",
+      "name": "RawDeflate",
+      "signature": "Compression"
+    },
+    {
+      "module": "HMath.Interchange.Compression",
+      "name": "Zlib",
+      "signature": "Compression"
+    },
+    {
+      "module": "HMath.Interchange.Compression",
+      "name": "compress",
+      "signature": "Limits -> Compression -> ByteString -> IO (Either InterchangeError ByteString)"
+    },
+    {
+      "module": "HMath.Interchange.Compression",
+      "name": "compressionAvailable",
+      "signature": "IO Bool"
+    },
+    {
+      "module": "HMath.Interchange.Compression",
+      "name": "decompress",
+      "signature": "Limits -> Compression -> Int -> ByteString -> IO (Either InterchangeError ByteString)"
+    },
+    {
+      "module": "HMath.Interchange.IO",
+      "name": "RawSpec",
+      "signature": "DType -> Endian -> Order -> [Int] -> RawSpec"
+    },
+    {
+      "module": "HMath.Interchange.IO",
+      "name": "mappedReadBytes",
+      "signature": "forall {k} (s :: k). MappedArray s -> Int -> Int -> IO (Either InterchangeError ByteString)"
+    },
+    {
+      "module": "HMath.Interchange.IO",
+      "name": "mappedShape",
+      "signature": "forall {k} (s :: k). MappedArray s -> [Int]"
+    },
+    {
+      "module": "HMath.Interchange.IO",
+      "name": "mappedValue",
+      "signature": "forall {k} a (s :: k). Element a => MappedArray s -> [Int] -> IO (Either InterchangeError a)"
+    },
+    {
+      "module": "HMath.Interchange.IO",
+      "name": "readArrayFile",
+      "signature": "Limits -> (ByteString -> Either InterchangeError Array) -> FilePath -> IO (Either InterchangeError Array)"
+    },
+    {
+      "module": "HMath.Interchange.IO",
+      "name": "readRawChunks",
+      "signature": "Limits -> RawSpec -> Int -> Handle -> (Array -> IO (Either InterchangeError Bool)) -> IO (Either InterchangeError ())"
+    },
+    {
+      "module": "HMath.Interchange.IO",
+      "name": "withMappedArray",
+      "signature": "Limits -> RawSpec -> FilePath -> (forall (s :: k). MappedArray s -> IO a) -> IO (Either InterchangeError a)"
+    },
+    {
+      "module": "HMath.Interchange.IO",
+      "name": "writeArrayFile",
+      "signature": "Limits -> (Limits -> Array -> Either InterchangeError ByteString) -> FilePath -> Array -> IO (Either InterchangeError ())"
+    },
+    {
+      "module": "HMath.Interchange.IO",
+      "name": "writeRawChunks",
+      "signature": "Limits -> RawSpec -> Int -> Handle -> (Int -> IO (Either InterchangeError (Maybe ByteString))) -> IO (Either InterchangeError ())"
+    },
+    {
+      "module": "HMath.Interchange.Numpy",
+      "name": "decodeNpy",
+      "signature": "Limits -> ByteString -> Either InterchangeError Array"
+    },
+    {
+      "module": "HMath.Interchange.Numpy",
+      "name": "decodeNpz",
+      "signature": "Limits -> ByteString -> IO (Either InterchangeError [(String, Array)])"
+    },
+    {
+      "module": "HMath.Interchange.Numpy",
+      "name": "encodeNpy",
+      "signature": "Limits -> Order -> Array -> Either InterchangeError ByteString"
+    },
+    {
+      "module": "HMath.Interchange.Numpy",
+      "name": "encodeNpz",
+      "signature": "Limits -> Bool -> [(String, Array)] -> IO (Either InterchangeError ByteString)"
+    },
+    {
+      "module": "HMath.Interchange.Text",
+      "name": "decodeDelimited",
+      "signature": "Limits -> Char -> DType -> ByteString -> Either InterchangeError Array"
+    },
+    {
+      "module": "HMath.Interchange.Text",
+      "name": "decodeMatrixMarket",
+      "signature": "Limits -> ByteString -> Either InterchangeError Array"
+    },
+    {
+      "module": "HMath.Interchange.Text",
+      "name": "decodeText",
+      "signature": "Limits -> ByteString -> Either InterchangeError Array"
+    },
+    {
+      "module": "HMath.Interchange.Text",
+      "name": "encodeDelimited",
+      "signature": "Limits -> Char -> Array -> Either InterchangeError ByteString"
+    },
+    {
+      "module": "HMath.Interchange.Text",
+      "name": "encodeMatrixMarket",
+      "signature": "Limits -> Array -> Either InterchangeError ByteString"
+    },
+    {
+      "module": "HMath.Interchange.Text",
+      "name": "encodeText",
+      "signature": "Limits -> Array -> Either InterchangeError ByteString"
+    },
+    {
+      "module": "HMath.Interchange.Array",
+      "name": "boundedInt",
+      "signature": "String -> Integer -> Integer -> Either InterchangeError Int"
+    },
+    {
+      "module": "HMath.Interchange.Array",
+      "name": "byteOffsets",
+      "signature": "Array -> [Int]"
+    },
+    {
+      "module": "HMath.Interchange.Array",
+      "name": "checkLimits",
+      "signature": "Limits -> Either InterchangeError ()"
+    },
+    {
+      "module": "HMath.Interchange.Array",
+      "name": "guardI",
+      "signature": "Bool -> InterchangeError -> Either InterchangeError ()"
+    },
+    {
+      "module": "HMath.Interchange.Binary",
+      "name": "runDecoder",
+      "signature": "Get a -> ByteString -> Either InterchangeError a"
+    }
+  ]
+}

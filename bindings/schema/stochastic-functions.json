@@ -1,0 +1,4042 @@
+{
+  "functions": [
+    {
+      "module": "HMath.Random",
+      "name": "cloneRNG",
+      "args": [
+        [
+          "RNG"
+        ]
+      ],
+      "result": [
+        "RNG"
+      ],
+      "constraints": "",
+      "signature": "RNG -> RNG",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Random",
+      "name": "seedRNG",
+      "args": [
+        [
+          "Generator"
+        ],
+        [
+          "Word64"
+        ]
+      ],
+      "result": [
+        "RNG"
+      ],
+      "constraints": "",
+      "signature": "Generator -> Word64 -> RNG",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Random",
+      "name": "nextWord64",
+      "args": [
+        [
+          "RNG"
+        ]
+      ],
+      "result": [
+        "tuple",
+        [
+          "Word64"
+        ],
+        [
+          "RNG"
+        ]
+      ],
+      "constraints": "",
+      "signature": "RNG -> (Word64, RNG)",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Random",
+      "name": "splitRNG",
+      "args": [
+        [
+          "RNG"
+        ]
+      ],
+      "result": [
+        "tuple",
+        [
+          "RNG"
+        ],
+        [
+          "RNG"
+        ]
+      ],
+      "constraints": "",
+      "signature": "RNG -> (RNG, RNG)",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Random",
+      "name": "serializeRNG",
+      "args": [
+        [
+          "RNG"
+        ]
+      ],
+      "result": [
+        "String"
+      ],
+      "constraints": "",
+      "signature": "RNG -> String",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Random",
+      "name": "restoreRNG",
+      "args": [
+        [
+          "String"
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "RNG"
+        ]
+      ],
+      "constraints": "",
+      "signature": "String -> Either MathError RNG",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Random",
+      "name": "uniform",
+      "args": [
+        [
+          "RNG"
+        ]
+      ],
+      "result": [
+        "tuple",
+        [
+          "Double"
+        ],
+        [
+          "RNG"
+        ]
+      ],
+      "constraints": "",
+      "signature": "RNG -> (Double, RNG)",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Random",
+      "name": "uniformOpen",
+      "args": [
+        [
+          "RNG"
+        ]
+      ],
+      "result": [
+        "tuple",
+        [
+          "Double"
+        ],
+        [
+          "RNG"
+        ]
+      ],
+      "constraints": "",
+      "signature": "RNG -> (Double, RNG)",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Random",
+      "name": "uniformInt",
+      "args": [
+        [
+          "Int"
+        ],
+        [
+          "Int"
+        ],
+        [
+          "RNG"
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "tuple",
+          [
+            "Int"
+          ],
+          [
+            "RNG"
+          ]
+        ]
+      ],
+      "constraints": "",
+      "signature": "Int -> Int -> RNG -> Either MathError (Int, RNG)",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Random",
+      "name": "sampleN",
+      "args": [
+        [
+          "Int"
+        ],
+        [
+          "function",
+          [
+            "RNG"
+          ],
+          [
+            "Either",
+            [
+              "MathError"
+            ],
+            [
+              "tuple",
+              [
+                "a"
+              ],
+              [
+                "RNG"
+              ]
+            ]
+          ]
+        ],
+        [
+          "RNG"
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "tuple",
+          [
+            "list",
+            [
+              "a"
+            ]
+          ],
+          [
+            "RNG"
+          ]
+        ]
+      ],
+      "constraints": "",
+      "signature": "Int -> (RNG -> Either MathError (a, RNG)) -> RNG -> Either MathError ([a], RNG)",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Random",
+      "name": "boxMuller",
+      "args": [
+        [
+          "RNG"
+        ]
+      ],
+      "result": [
+        "tuple",
+        [
+          "Double"
+        ],
+        [
+          "RNG"
+        ]
+      ],
+      "constraints": "",
+      "signature": "RNG -> (Double, RNG)",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Random",
+      "name": "marsagliaNormal",
+      "args": [
+        [
+          "RNG"
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "tuple",
+          [
+            "Double"
+          ],
+          [
+            "RNG"
+          ]
+        ]
+      ],
+      "constraints": "",
+      "signature": "RNG -> Either MathError (Double, RNG)",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Random",
+      "name": "zigguratNormal",
+      "args": [
+        [
+          "RNG"
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "tuple",
+          [
+            "Double"
+          ],
+          [
+            "RNG"
+          ]
+        ]
+      ],
+      "constraints": "",
+      "signature": "RNG -> Either MathError (Double, RNG)",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Random",
+      "name": "normal",
+      "args": [
+        [
+          "Double"
+        ],
+        [
+          "Double"
+        ],
+        [
+          "RNG"
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "tuple",
+          [
+            "Double"
+          ],
+          [
+            "RNG"
+          ]
+        ]
+      ],
+      "constraints": "",
+      "signature": "Double -> Double -> RNG -> Either MathError (Double, RNG)",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Random",
+      "name": "exponential",
+      "args": [
+        [
+          "Double"
+        ],
+        [
+          "RNG"
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "tuple",
+          [
+            "Double"
+          ],
+          [
+            "RNG"
+          ]
+        ]
+      ],
+      "constraints": "",
+      "signature": "Double -> RNG -> Either MathError (Double, RNG)",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Random",
+      "name": "gamma",
+      "args": [
+        [
+          "Double"
+        ],
+        [
+          "Double"
+        ],
+        [
+          "RNG"
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "tuple",
+          [
+            "Double"
+          ],
+          [
+            "RNG"
+          ]
+        ]
+      ],
+      "constraints": "",
+      "signature": "Double -> Double -> RNG -> Either MathError (Double, RNG)",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Random",
+      "name": "beta",
+      "args": [
+        [
+          "Double"
+        ],
+        [
+          "Double"
+        ],
+        [
+          "RNG"
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "tuple",
+          [
+            "Double"
+          ],
+          [
+            "RNG"
+          ]
+        ]
+      ],
+      "constraints": "",
+      "signature": "Double -> Double -> RNG -> Either MathError (Double, RNG)",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Random",
+      "name": "poisson",
+      "args": [
+        [
+          "Double"
+        ],
+        [
+          "RNG"
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "tuple",
+          [
+            "Int"
+          ],
+          [
+            "RNG"
+          ]
+        ]
+      ],
+      "constraints": "",
+      "signature": "Double -> RNG -> Either MathError (Int, RNG)",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Random",
+      "name": "binomial",
+      "args": [
+        [
+          "Int"
+        ],
+        [
+          "Double"
+        ],
+        [
+          "RNG"
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "tuple",
+          [
+            "Int"
+          ],
+          [
+            "RNG"
+          ]
+        ]
+      ],
+      "constraints": "",
+      "signature": "Int -> Double -> RNG -> Either MathError (Int, RNG)",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Random",
+      "name": "weighted",
+      "args": [
+        [
+          "list",
+          [
+            "Double"
+          ]
+        ],
+        [
+          "RNG"
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "tuple",
+          [
+            "Int"
+          ],
+          [
+            "RNG"
+          ]
+        ]
+      ],
+      "constraints": "",
+      "signature": "[Double] -> RNG -> Either MathError (Int, RNG)",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Random",
+      "name": "aliasTable",
+      "args": [
+        [
+          "list",
+          [
+            "Double"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "AliasTable"
+        ]
+      ],
+      "constraints": "",
+      "signature": "[Double] -> Either MathError AliasTable",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Random",
+      "name": "aliasSample",
+      "args": [
+        [
+          "AliasTable"
+        ],
+        [
+          "RNG"
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "tuple",
+          [
+            "Int"
+          ],
+          [
+            "RNG"
+          ]
+        ]
+      ],
+      "constraints": "",
+      "signature": "AliasTable -> RNG -> Either MathError (Int, RNG)",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Random",
+      "name": "shuffle",
+      "args": [
+        [
+          "list",
+          [
+            "a"
+          ]
+        ],
+        [
+          "RNG"
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "tuple",
+          [
+            "list",
+            [
+              "a"
+            ]
+          ],
+          [
+            "RNG"
+          ]
+        ]
+      ],
+      "constraints": "",
+      "signature": "[a] -> RNG -> Either MathError ([a], RNG)",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Random",
+      "name": "withReplacement",
+      "args": [
+        [
+          "Int"
+        ],
+        [
+          "list",
+          [
+            "a"
+          ]
+        ],
+        [
+          "RNG"
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "tuple",
+          [
+            "list",
+            [
+              "a"
+            ]
+          ],
+          [
+            "RNG"
+          ]
+        ]
+      ],
+      "constraints": "",
+      "signature": "Int -> [a] -> RNG -> Either MathError ([a], RNG)",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Random",
+      "name": "withoutReplacement",
+      "args": [
+        [
+          "Int"
+        ],
+        [
+          "list",
+          [
+            "a"
+          ]
+        ],
+        [
+          "RNG"
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "tuple",
+          [
+            "list",
+            [
+              "a"
+            ]
+          ],
+          [
+            "RNG"
+          ]
+        ]
+      ],
+      "constraints": "",
+      "signature": "Int -> [a] -> RNG -> Either MathError ([a], RNG)",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Random",
+      "name": "reservoir",
+      "args": [
+        [
+          "Int"
+        ],
+        [
+          "list",
+          [
+            "a"
+          ]
+        ],
+        [
+          "RNG"
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "tuple",
+          [
+            "list",
+            [
+              "a"
+            ]
+          ],
+          [
+            "RNG"
+          ]
+        ]
+      ],
+      "constraints": "",
+      "signature": "Int -> [a] -> RNG -> Either MathError ([a], RNG)",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Random",
+      "name": "stratified",
+      "args": [
+        [
+          "Int"
+        ],
+        [
+          "RNG"
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "tuple",
+          [
+            "list",
+            [
+              "Double"
+            ]
+          ],
+          [
+            "RNG"
+          ]
+        ]
+      ],
+      "constraints": "",
+      "signature": "Int -> RNG -> Either MathError ([Double], RNG)",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Random",
+      "name": "rejection",
+      "args": [
+        [
+          "Int"
+        ],
+        [
+          "function",
+          [
+            "Double"
+          ],
+          [
+            "Double"
+          ]
+        ],
+        [
+          "function",
+          [
+            "RNG"
+          ],
+          [
+            "Either",
+            [
+              "MathError"
+            ],
+            [
+              "tuple",
+              [
+                "Double"
+              ],
+              [
+                "RNG"
+              ]
+            ]
+          ]
+        ],
+        [
+          "RNG"
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "tuple",
+          [
+            "Double"
+          ],
+          [
+            "RNG"
+          ]
+        ]
+      ],
+      "constraints": "",
+      "signature": "Int -> (Double -> Double) -> (RNG -> Either MathError (Double, RNG)) -> RNG -> Either MathError (Double, RNG)",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Random",
+      "name": "inverseTransform",
+      "args": [
+        [
+          "function",
+          [
+            "Double"
+          ],
+          [
+            "Either",
+            [
+              "MathError"
+            ],
+            [
+              "Double"
+            ]
+          ]
+        ],
+        [
+          "RNG"
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "tuple",
+          [
+            "Double"
+          ],
+          [
+            "RNG"
+          ]
+        ]
+      ],
+      "constraints": "",
+      "signature": "(Double -> Either MathError Double) -> RNG -> Either MathError (Double, RNG)",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Random",
+      "name": "metropolisHastings",
+      "args": [
+        [
+          "Int"
+        ],
+        [
+          "Double"
+        ],
+        [
+          "function",
+          [
+            "Double"
+          ],
+          [
+            "Double"
+          ]
+        ],
+        [
+          "Double"
+        ],
+        [
+          "RNG"
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "tuple",
+          [
+            "list",
+            [
+              "Double"
+            ]
+          ],
+          [
+            "RNG"
+          ]
+        ]
+      ],
+      "constraints": "",
+      "signature": "Int -> Double -> (Double -> Double) -> Double -> RNG -> Either MathError ([Double], RNG)",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Random",
+      "name": "gibbs",
+      "args": [
+        [
+          "Int"
+        ],
+        [
+          "list",
+          [
+            "function",
+            [
+              "list",
+              [
+                "Double"
+              ]
+            ],
+            [
+              "RNG"
+            ],
+            [
+              "Either",
+              [
+                "MathError"
+              ],
+              [
+                "tuple",
+                [
+                  "Double"
+                ],
+                [
+                  "RNG"
+                ]
+              ]
+            ]
+          ]
+        ],
+        [
+          "list",
+          [
+            "Double"
+          ]
+        ],
+        [
+          "RNG"
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "tuple",
+          [
+            "list",
+            [
+              "list",
+              [
+                "Double"
+              ]
+            ]
+          ],
+          [
+            "RNG"
+          ]
+        ]
+      ],
+      "constraints": "",
+      "signature": "Int -> [([Double] -> RNG -> Either MathError (Double, RNG))] -> [Double] -> RNG -> Either MathError ([[Double]], RNG)",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Random",
+      "name": "hamiltonianMonteCarlo",
+      "args": [
+        [
+          "Int"
+        ],
+        [
+          "Int"
+        ],
+        [
+          "Double"
+        ],
+        [
+          "function",
+          [
+            "list",
+            [
+              "Double"
+            ]
+          ],
+          [
+            "Double"
+          ]
+        ],
+        [
+          "function",
+          [
+            "list",
+            [
+              "Double"
+            ]
+          ],
+          [
+            "list",
+            [
+              "Double"
+            ]
+          ]
+        ],
+        [
+          "list",
+          [
+            "Double"
+          ]
+        ],
+        [
+          "RNG"
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "tuple",
+          [
+            "list",
+            [
+              "list",
+              [
+                "Double"
+              ]
+            ]
+          ],
+          [
+            "RNG"
+          ]
+        ]
+      ],
+      "constraints": "",
+      "signature": "Int -> Int -> Double -> ([Double] -> Double) -> ([Double] -> [Double]) -> [Double] -> RNG -> Either MathError ([[Double]], RNG)",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Random",
+      "name": "monteCarlo",
+      "args": [
+        [
+          "function",
+          [
+            "Double"
+          ],
+          [
+            "Double"
+          ]
+        ],
+        [
+          "Int"
+        ],
+        [
+          "RNG"
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "tuple",
+          [
+            "tuple",
+            [
+              "Double"
+            ],
+            [
+              "Double"
+            ]
+          ],
+          [
+            "RNG"
+          ]
+        ]
+      ],
+      "constraints": "",
+      "signature": "(Double -> Double) -> Int -> RNG -> Either MathError ((Double, Double), RNG)",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Random",
+      "name": "latinHypercube",
+      "args": [
+        [
+          "Int"
+        ],
+        [
+          "Int"
+        ],
+        [
+          "RNG"
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "tuple",
+          [
+            "list",
+            [
+              "list",
+              [
+                "Double"
+              ]
+            ]
+          ],
+          [
+            "RNG"
+          ]
+        ]
+      ],
+      "constraints": "",
+      "signature": "Int -> Int -> RNG -> Either MathError ([[Double]], RNG)",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Random",
+      "name": "randomQuality",
+      "args": [
+        [
+          "Int"
+        ],
+        [
+          "RNG"
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "tuple",
+          [
+            "tuple",
+            [
+              "Double"
+            ],
+            [
+              "Double"
+            ],
+            [
+              "Double"
+            ]
+          ],
+          [
+            "RNG"
+          ]
+        ]
+      ],
+      "constraints": "",
+      "signature": "Int -> RNG -> Either MathError ((Double, Double, Double), RNG)",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Random",
+      "name": "entropySeed",
+      "args": [],
+      "result": [
+        "IO",
+        [
+          "Word64"
+        ]
+      ],
+      "constraints": "",
+      "signature": "IO Word64",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Random",
+      "name": "PCG32",
+      "args": [],
+      "result": [
+        "Generator"
+      ],
+      "constraints": "",
+      "signature": "constructor",
+      "constructor": true
+    },
+    {
+      "module": "HMath.Random",
+      "name": "Xoshiro256StarStar",
+      "args": [],
+      "result": [
+        "Generator"
+      ],
+      "constraints": "",
+      "signature": "constructor",
+      "constructor": true
+    },
+    {
+      "module": "HMath.Random",
+      "name": "Xoroshiro128Plus",
+      "args": [],
+      "result": [
+        "Generator"
+      ],
+      "constraints": "",
+      "signature": "constructor",
+      "constructor": true
+    },
+    {
+      "module": "HMath.Random",
+      "name": "MT19937",
+      "args": [],
+      "result": [
+        "Generator"
+      ],
+      "constraints": "",
+      "signature": "constructor",
+      "constructor": true
+    },
+    {
+      "module": "HMath.Random",
+      "name": "Philox4x32",
+      "args": [],
+      "result": [
+        "Generator"
+      ],
+      "constraints": "",
+      "signature": "constructor",
+      "constructor": true
+    },
+    {
+      "module": "HMath.Random",
+      "name": "Threefry2x64",
+      "args": [],
+      "result": [
+        "Generator"
+      ],
+      "constraints": "",
+      "signature": "constructor",
+      "constructor": true
+    },
+    {
+      "module": "HMath.Random",
+      "name": "ChaCha20",
+      "args": [],
+      "result": [
+        "Generator"
+      ],
+      "constraints": "",
+      "signature": "constructor",
+      "constructor": true
+    },
+    {
+      "module": "HMath.Probability",
+      "name": "validateDistribution",
+      "args": [
+        [
+          "Distribution"
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "unit"
+        ]
+      ],
+      "constraints": "",
+      "signature": "Distribution -> Either MathError ()",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Probability",
+      "name": "logDensity",
+      "args": [
+        [
+          "Distribution"
+        ],
+        [
+          "Double"
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "Double"
+        ]
+      ],
+      "constraints": "",
+      "signature": "Distribution -> Double -> Either MathError Double",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Probability",
+      "name": "density",
+      "args": [
+        [
+          "Distribution"
+        ],
+        [
+          "Double"
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "Double"
+        ]
+      ],
+      "constraints": "",
+      "signature": "Distribution -> Double -> Either MathError Double",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Probability",
+      "name": "cdf",
+      "args": [
+        [
+          "Distribution"
+        ],
+        [
+          "Double"
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "Double"
+        ]
+      ],
+      "constraints": "",
+      "signature": "Distribution -> Double -> Either MathError Double",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Probability",
+      "name": "survival",
+      "args": [
+        [
+          "Distribution"
+        ],
+        [
+          "Double"
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "Double"
+        ]
+      ],
+      "constraints": "",
+      "signature": "Distribution -> Double -> Either MathError Double",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Probability",
+      "name": "quantile",
+      "args": [
+        [
+          "Distribution"
+        ],
+        [
+          "Double"
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "Double"
+        ]
+      ],
+      "constraints": "",
+      "signature": "Distribution -> Double -> Either MathError Double",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Probability",
+      "name": "hazard",
+      "args": [
+        [
+          "Distribution"
+        ],
+        [
+          "Double"
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "Double"
+        ]
+      ],
+      "constraints": "",
+      "signature": "Distribution -> Double -> Either MathError Double",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Probability",
+      "name": "logLikelihood",
+      "args": [
+        [
+          "Distribution"
+        ],
+        [
+          "list",
+          [
+            "Double"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "Double"
+        ]
+      ],
+      "constraints": "",
+      "signature": "Distribution -> [Double] -> Either MathError Double",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Probability",
+      "name": "moments",
+      "args": [
+        [
+          "Distribution"
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "tuple",
+          [
+            "Double"
+          ],
+          [
+            "Double"
+          ]
+        ]
+      ],
+      "constraints": "",
+      "signature": "Distribution -> Either MathError (Double, Double)",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Probability",
+      "name": "entropy",
+      "args": [
+        [
+          "Distribution"
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "Double"
+        ]
+      ],
+      "constraints": "",
+      "signature": "Distribution -> Either MathError Double",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Probability",
+      "name": "expectation",
+      "args": [
+        [
+          "Distribution"
+        ],
+        [
+          "function",
+          [
+            "Double"
+          ],
+          [
+            "Double"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "Double"
+        ]
+      ],
+      "constraints": "",
+      "signature": "Distribution -> (Double -> Double) -> Either MathError Double",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Probability",
+      "name": "sample",
+      "args": [
+        [
+          "Distribution"
+        ],
+        [
+          "RNG"
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "tuple",
+          [
+            "Double"
+          ],
+          [
+            "RNG"
+          ]
+        ]
+      ],
+      "constraints": "",
+      "signature": "Distribution -> R.RNG -> Either MathError (Double, R.RNG)",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Probability",
+      "name": "fitNormal",
+      "args": [
+        [
+          "list",
+          [
+            "Double"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "Distribution"
+        ]
+      ],
+      "constraints": "",
+      "signature": "[Double] -> Either MathError Distribution",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Probability",
+      "name": "fitExponential",
+      "args": [
+        [
+          "list",
+          [
+            "Double"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "Distribution"
+        ]
+      ],
+      "constraints": "",
+      "signature": "[Double] -> Either MathError Distribution",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Probability",
+      "name": "fitBernoulli",
+      "args": [
+        [
+          "list",
+          [
+            "Double"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "Distribution"
+        ]
+      ],
+      "constraints": "",
+      "signature": "[Double] -> Either MathError Distribution",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Probability",
+      "name": "fitMLEGrid",
+      "args": [
+        [
+          "list",
+          [
+            "Distribution"
+          ]
+        ],
+        [
+          "list",
+          [
+            "Double"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "Distribution"
+        ]
+      ],
+      "constraints": "",
+      "signature": "[Distribution] -> [Double] -> Either MathError Distribution",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Probability",
+      "name": "fitMAPGrid",
+      "args": [
+        [
+          "list",
+          [
+            "Distribution"
+          ]
+        ],
+        [
+          "list",
+          [
+            "Double"
+          ]
+        ],
+        [
+          "function",
+          [
+            "Distribution"
+          ],
+          [
+            "Double"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "Distribution"
+        ]
+      ],
+      "constraints": "",
+      "signature": "[Distribution] -> [Double] -> (Distribution -> Double) -> Either MathError Distribution",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Probability",
+      "name": "betaBernoulliUpdate",
+      "args": [
+        [
+          "Double"
+        ],
+        [
+          "Double"
+        ],
+        [
+          "list",
+          [
+            "Bool"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "tuple",
+          [
+            "Double"
+          ],
+          [
+            "Double"
+          ]
+        ]
+      ],
+      "constraints": "",
+      "signature": "Double -> Double -> [Bool] -> Either MathError (Double, Double)",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Probability",
+      "name": "goodnessOfFit",
+      "args": [
+        [
+          "Distribution"
+        ],
+        [
+          "list",
+          [
+            "Double"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "Double"
+        ]
+      ],
+      "constraints": "",
+      "signature": "Distribution -> [Double] -> Either MathError Double",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Probability",
+      "name": "gaussianKDE",
+      "args": [
+        [
+          "Double"
+        ],
+        [
+          "list",
+          [
+            "Double"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "Distribution"
+        ]
+      ],
+      "constraints": "",
+      "signature": "Double -> [Double] -> Either MathError Distribution",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Probability",
+      "name": "multivariateNormalLogDensity",
+      "args": [
+        [
+          "list",
+          [
+            "Double"
+          ]
+        ],
+        [
+          "Matrix",
+          [
+            "Double"
+          ]
+        ],
+        [
+          "list",
+          [
+            "Double"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "Double"
+        ]
+      ],
+      "constraints": "",
+      "signature": "[Double] -> Matrix Double -> [Double] -> Either MathError Double",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Probability",
+      "name": "sampleMultivariateNormal",
+      "args": [
+        [
+          "list",
+          [
+            "Double"
+          ]
+        ],
+        [
+          "Matrix",
+          [
+            "Double"
+          ]
+        ],
+        [
+          "RNG"
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "tuple",
+          [
+            "list",
+            [
+              "Double"
+            ]
+          ],
+          [
+            "RNG"
+          ]
+        ]
+      ],
+      "constraints": "",
+      "signature": "[Double] -> Matrix Double -> R.RNG -> Either MathError ([Double], R.RNG)",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Probability",
+      "name": "wishartLogDensity",
+      "args": [
+        [
+          "Double"
+        ],
+        [
+          "Matrix",
+          [
+            "Double"
+          ]
+        ],
+        [
+          "Matrix",
+          [
+            "Double"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "Double"
+        ]
+      ],
+      "constraints": "",
+      "signature": "Double -> Matrix Double -> Matrix Double -> Either MathError Double",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Probability",
+      "name": "sampleWishart",
+      "args": [
+        [
+          "Int"
+        ],
+        [
+          "Matrix",
+          [
+            "Double"
+          ]
+        ],
+        [
+          "RNG"
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "tuple",
+          [
+            "Matrix",
+            [
+              "Double"
+            ]
+          ],
+          [
+            "RNG"
+          ]
+        ]
+      ],
+      "constraints": "",
+      "signature": "Int -> Matrix Double -> R.RNG -> Either MathError (Matrix Double, R.RNG)",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Probability",
+      "name": "markov",
+      "args": [
+        [
+          "list",
+          [
+            "list",
+            [
+              "Double"
+            ]
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "Markov"
+        ]
+      ],
+      "constraints": "",
+      "signature": "[[Double]] -> Either MathError Markov",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Probability",
+      "name": "transition",
+      "args": [
+        [
+          "Markov"
+        ],
+        [
+          "list",
+          [
+            "Double"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "list",
+          [
+            "Double"
+          ]
+        ]
+      ],
+      "constraints": "",
+      "signature": "Markov -> [Double] -> Either MathError [Double]",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Probability",
+      "name": "stationary",
+      "args": [
+        [
+          "Int"
+        ],
+        [
+          "Double"
+        ],
+        [
+          "Markov"
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "list",
+          [
+            "Double"
+          ]
+        ]
+      ],
+      "constraints": "",
+      "signature": "Int -> Double -> Markov -> Either MathError [Double]",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Probability",
+      "name": "hmm",
+      "args": [
+        [
+          "list",
+          [
+            "Double"
+          ]
+        ],
+        [
+          "list",
+          [
+            "list",
+            [
+              "Double"
+            ]
+          ]
+        ],
+        [
+          "list",
+          [
+            "list",
+            [
+              "Double"
+            ]
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "HMM"
+        ]
+      ],
+      "constraints": "",
+      "signature": "[Double] -> [[Double]] -> [[Double]] -> Either MathError HMM",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Probability",
+      "name": "forward",
+      "args": [
+        [
+          "HMM"
+        ],
+        [
+          "list",
+          [
+            "Int"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "tuple",
+          [
+            "Double"
+          ],
+          [
+            "list",
+            [
+              "list",
+              [
+                "Double"
+              ]
+            ]
+          ],
+          [
+            "list",
+            [
+              "Double"
+            ]
+          ]
+        ]
+      ],
+      "constraints": "",
+      "signature": "HMM -> [Int] -> Either MathError (Double, [[Double]], [Double])",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Probability",
+      "name": "backward",
+      "args": [
+        [
+          "HMM"
+        ],
+        [
+          "list",
+          [
+            "Int"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "list",
+          [
+            "list",
+            [
+              "Double"
+            ]
+          ]
+        ]
+      ],
+      "constraints": "",
+      "signature": "HMM -> [Int] -> Either MathError [[Double]]",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Probability",
+      "name": "posteriorStates",
+      "args": [
+        [
+          "HMM"
+        ],
+        [
+          "list",
+          [
+            "Int"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "list",
+          [
+            "list",
+            [
+              "Double"
+            ]
+          ]
+        ]
+      ],
+      "constraints": "",
+      "signature": "HMM -> [Int] -> Either MathError [[Double]]",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Probability",
+      "name": "viterbi",
+      "args": [
+        [
+          "HMM"
+        ],
+        [
+          "list",
+          [
+            "Int"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "tuple",
+          [
+            "list",
+            [
+              "Int"
+            ]
+          ],
+          [
+            "Double"
+          ]
+        ]
+      ],
+      "constraints": "",
+      "signature": "HMM -> [Int] -> Either MathError ([Int], Double)",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Probability",
+      "name": "baumWelch",
+      "args": [
+        [
+          "Int"
+        ],
+        [
+          "Double"
+        ],
+        [
+          "HMM"
+        ],
+        [
+          "list",
+          [
+            "Int"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "HMM"
+        ]
+      ],
+      "constraints": "",
+      "signature": "Int -> Double -> HMM -> [Int] -> Either MathError HMM",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Probability",
+      "name": "Bernoulli",
+      "args": [
+        [
+          "Double"
+        ]
+      ],
+      "result": [
+        "Distribution"
+      ],
+      "constraints": "",
+      "signature": "constructor",
+      "constructor": true
+    },
+    {
+      "module": "HMath.Probability",
+      "name": "Binomial",
+      "args": [
+        [
+          "Int"
+        ],
+        [
+          "Double"
+        ]
+      ],
+      "result": [
+        "Distribution"
+      ],
+      "constraints": "",
+      "signature": "constructor",
+      "constructor": true
+    },
+    {
+      "module": "HMath.Probability",
+      "name": "NegativeBinomial",
+      "args": [
+        [
+          "Double"
+        ],
+        [
+          "Double"
+        ]
+      ],
+      "result": [
+        "Distribution"
+      ],
+      "constraints": "",
+      "signature": "constructor",
+      "constructor": true
+    },
+    {
+      "module": "HMath.Probability",
+      "name": "Geometric",
+      "args": [
+        [
+          "Double"
+        ]
+      ],
+      "result": [
+        "Distribution"
+      ],
+      "constraints": "",
+      "signature": "constructor",
+      "constructor": true
+    },
+    {
+      "module": "HMath.Probability",
+      "name": "Hypergeometric",
+      "args": [
+        [
+          "Int"
+        ],
+        [
+          "Int"
+        ],
+        [
+          "Int"
+        ]
+      ],
+      "result": [
+        "Distribution"
+      ],
+      "constraints": "",
+      "signature": "constructor",
+      "constructor": true
+    },
+    {
+      "module": "HMath.Probability",
+      "name": "Poisson",
+      "args": [
+        [
+          "Double"
+        ]
+      ],
+      "result": [
+        "Distribution"
+      ],
+      "constraints": "",
+      "signature": "constructor",
+      "constructor": true
+    },
+    {
+      "module": "HMath.Probability",
+      "name": "Categorical",
+      "args": [
+        [
+          "list",
+          [
+            "Double"
+          ]
+        ]
+      ],
+      "result": [
+        "Distribution"
+      ],
+      "constraints": "",
+      "signature": "constructor",
+      "constructor": true
+    },
+    {
+      "module": "HMath.Probability",
+      "name": "DiscreteUniform",
+      "args": [
+        [
+          "Int"
+        ],
+        [
+          "Int"
+        ]
+      ],
+      "result": [
+        "Distribution"
+      ],
+      "constraints": "",
+      "signature": "constructor",
+      "constructor": true
+    },
+    {
+      "module": "HMath.Probability",
+      "name": "Uniform",
+      "args": [
+        [
+          "Double"
+        ],
+        [
+          "Double"
+        ]
+      ],
+      "result": [
+        "Distribution"
+      ],
+      "constraints": "",
+      "signature": "constructor",
+      "constructor": true
+    },
+    {
+      "module": "HMath.Probability",
+      "name": "Normal",
+      "args": [
+        [
+          "Double"
+        ],
+        [
+          "Double"
+        ]
+      ],
+      "result": [
+        "Distribution"
+      ],
+      "constraints": "",
+      "signature": "constructor",
+      "constructor": true
+    },
+    {
+      "module": "HMath.Probability",
+      "name": "LogNormal",
+      "args": [
+        [
+          "Double"
+        ],
+        [
+          "Double"
+        ]
+      ],
+      "result": [
+        "Distribution"
+      ],
+      "constraints": "",
+      "signature": "constructor",
+      "constructor": true
+    },
+    {
+      "module": "HMath.Probability",
+      "name": "Exponential",
+      "args": [
+        [
+          "Double"
+        ]
+      ],
+      "result": [
+        "Distribution"
+      ],
+      "constraints": "",
+      "signature": "constructor",
+      "constructor": true
+    },
+    {
+      "module": "HMath.Probability",
+      "name": "Gamma",
+      "args": [
+        [
+          "Double"
+        ],
+        [
+          "Double"
+        ]
+      ],
+      "result": [
+        "Distribution"
+      ],
+      "constraints": "",
+      "signature": "constructor",
+      "constructor": true
+    },
+    {
+      "module": "HMath.Probability",
+      "name": "Beta",
+      "args": [
+        [
+          "Double"
+        ],
+        [
+          "Double"
+        ]
+      ],
+      "result": [
+        "Distribution"
+      ],
+      "constraints": "",
+      "signature": "constructor",
+      "constructor": true
+    },
+    {
+      "module": "HMath.Probability",
+      "name": "ChiSquare",
+      "args": [
+        [
+          "Double"
+        ]
+      ],
+      "result": [
+        "Distribution"
+      ],
+      "constraints": "",
+      "signature": "constructor",
+      "constructor": true
+    },
+    {
+      "module": "HMath.Probability",
+      "name": "StudentT",
+      "args": [
+        [
+          "Double"
+        ]
+      ],
+      "result": [
+        "Distribution"
+      ],
+      "constraints": "",
+      "signature": "constructor",
+      "constructor": true
+    },
+    {
+      "module": "HMath.Probability",
+      "name": "FisherF",
+      "args": [
+        [
+          "Double"
+        ],
+        [
+          "Double"
+        ]
+      ],
+      "result": [
+        "Distribution"
+      ],
+      "constraints": "",
+      "signature": "constructor",
+      "constructor": true
+    },
+    {
+      "module": "HMath.Probability",
+      "name": "Cauchy",
+      "args": [
+        [
+          "Double"
+        ],
+        [
+          "Double"
+        ]
+      ],
+      "result": [
+        "Distribution"
+      ],
+      "constraints": "",
+      "signature": "constructor",
+      "constructor": true
+    },
+    {
+      "module": "HMath.Probability",
+      "name": "Laplace",
+      "args": [
+        [
+          "Double"
+        ],
+        [
+          "Double"
+        ]
+      ],
+      "result": [
+        "Distribution"
+      ],
+      "constraints": "",
+      "signature": "constructor",
+      "constructor": true
+    },
+    {
+      "module": "HMath.Probability",
+      "name": "Logistic",
+      "args": [
+        [
+          "Double"
+        ],
+        [
+          "Double"
+        ]
+      ],
+      "result": [
+        "Distribution"
+      ],
+      "constraints": "",
+      "signature": "constructor",
+      "constructor": true
+    },
+    {
+      "module": "HMath.Probability",
+      "name": "Weibull",
+      "args": [
+        [
+          "Double"
+        ],
+        [
+          "Double"
+        ]
+      ],
+      "result": [
+        "Distribution"
+      ],
+      "constraints": "",
+      "signature": "constructor",
+      "constructor": true
+    },
+    {
+      "module": "HMath.Probability",
+      "name": "Pareto",
+      "args": [
+        [
+          "Double"
+        ],
+        [
+          "Double"
+        ]
+      ],
+      "result": [
+        "Distribution"
+      ],
+      "constraints": "",
+      "signature": "constructor",
+      "constructor": true
+    },
+    {
+      "module": "HMath.Probability",
+      "name": "Rayleigh",
+      "args": [
+        [
+          "Double"
+        ]
+      ],
+      "result": [
+        "Distribution"
+      ],
+      "constraints": "",
+      "signature": "constructor",
+      "constructor": true
+    },
+    {
+      "module": "HMath.Probability",
+      "name": "Maxwell",
+      "args": [
+        [
+          "Double"
+        ]
+      ],
+      "result": [
+        "Distribution"
+      ],
+      "constraints": "",
+      "signature": "constructor",
+      "constructor": true
+    },
+    {
+      "module": "HMath.Probability",
+      "name": "Gumbel",
+      "args": [
+        [
+          "Double"
+        ],
+        [
+          "Double"
+        ]
+      ],
+      "result": [
+        "Distribution"
+      ],
+      "constraints": "",
+      "signature": "constructor",
+      "constructor": true
+    },
+    {
+      "module": "HMath.Probability",
+      "name": "GeneralizedExtremeValue",
+      "args": [
+        [
+          "Double"
+        ],
+        [
+          "Double"
+        ],
+        [
+          "Double"
+        ]
+      ],
+      "result": [
+        "Distribution"
+      ],
+      "constraints": "",
+      "signature": "constructor",
+      "constructor": true
+    },
+    {
+      "module": "HMath.Probability",
+      "name": "BetaBinomial",
+      "args": [
+        [
+          "Int"
+        ],
+        [
+          "Double"
+        ],
+        [
+          "Double"
+        ]
+      ],
+      "result": [
+        "Distribution"
+      ],
+      "constraints": "",
+      "signature": "constructor",
+      "constructor": true
+    },
+    {
+      "module": "HMath.Probability",
+      "name": "Skellam",
+      "args": [
+        [
+          "Double"
+        ],
+        [
+          "Double"
+        ]
+      ],
+      "result": [
+        "Distribution"
+      ],
+      "constraints": "",
+      "signature": "constructor",
+      "constructor": true
+    },
+    {
+      "module": "HMath.Probability",
+      "name": "VonMises",
+      "args": [
+        [
+          "Double"
+        ],
+        [
+          "Double"
+        ]
+      ],
+      "result": [
+        "Distribution"
+      ],
+      "constraints": "",
+      "signature": "constructor",
+      "constructor": true
+    },
+    {
+      "module": "HMath.Probability",
+      "name": "Triangular",
+      "args": [
+        [
+          "Double"
+        ],
+        [
+          "Double"
+        ],
+        [
+          "Double"
+        ]
+      ],
+      "result": [
+        "Distribution"
+      ],
+      "constraints": "",
+      "signature": "constructor",
+      "constructor": true
+    },
+    {
+      "module": "HMath.Probability",
+      "name": "TruncatedNormal",
+      "args": [
+        [
+          "Double"
+        ],
+        [
+          "Double"
+        ],
+        [
+          "Double"
+        ],
+        [
+          "Double"
+        ]
+      ],
+      "result": [
+        "Distribution"
+      ],
+      "constraints": "",
+      "signature": "constructor",
+      "constructor": true
+    },
+    {
+      "module": "HMath.Probability",
+      "name": "Mixture",
+      "args": [
+        [
+          "list",
+          [
+            "tuple",
+            [
+              "Double"
+            ],
+            [
+              "Distribution"
+            ]
+          ]
+        ]
+      ],
+      "result": [
+        "Distribution"
+      ],
+      "constraints": "",
+      "signature": "constructor",
+      "constructor": true
+    },
+    {
+      "module": "HMath.Probability",
+      "name": "Empirical",
+      "args": [
+        [
+          "list",
+          [
+            "Double"
+          ]
+        ]
+      ],
+      "result": [
+        "Distribution"
+      ],
+      "constraints": "",
+      "signature": "constructor",
+      "constructor": true
+    },
+    {
+      "module": "HMath.Probability",
+      "name": "GaussianKDE",
+      "args": [
+        [
+          "Double"
+        ],
+        [
+          "list",
+          [
+            "Double"
+          ]
+        ]
+      ],
+      "result": [
+        "Distribution"
+      ],
+      "constraints": "",
+      "signature": "constructor",
+      "constructor": true
+    },
+    {
+      "module": "HMath.Statistics.Advanced",
+      "name": "covarianceMatrix",
+      "args": [
+        [
+          "Bool"
+        ],
+        [
+          "list",
+          [
+            "list",
+            [
+              "Double"
+            ]
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "list",
+          [
+            "list",
+            [
+              "Double"
+            ]
+          ]
+        ]
+      ],
+      "constraints": "",
+      "signature": "Bool -> [[Double]] -> Either MathError [[Double]]",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Statistics.Advanced",
+      "name": "partialCorrelation",
+      "args": [
+        [
+          "list",
+          [
+            "list",
+            [
+              "Double"
+            ]
+          ]
+        ],
+        [
+          "Int"
+        ],
+        [
+          "Int"
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "Double"
+        ]
+      ],
+      "constraints": "",
+      "signature": "[[Double]] -> Int -> Int -> Either MathError Double",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Statistics.Advanced",
+      "name": "emptyStreaming",
+      "args": [],
+      "result": [
+        "Streaming"
+      ],
+      "constraints": "",
+      "signature": "Streaming",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Statistics.Advanced",
+      "name": "updateStreaming",
+      "args": [
+        [
+          "Streaming"
+        ],
+        [
+          "Double"
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "Streaming"
+        ]
+      ],
+      "constraints": "",
+      "signature": "Streaming -> Double -> Either MathError Streaming",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Statistics.Advanced",
+      "name": "combineStreaming",
+      "args": [
+        [
+          "Streaming"
+        ],
+        [
+          "Streaming"
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "Streaming"
+        ]
+      ],
+      "constraints": "",
+      "signature": "Streaming -> Streaming -> Either MathError Streaming",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Statistics.Advanced",
+      "name": "streamingResult",
+      "args": [
+        [
+          "Bool"
+        ],
+        [
+          "Streaming"
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "tuple",
+          [
+            "Integer"
+          ],
+          [
+            "Double"
+          ],
+          [
+            "Double"
+          ]
+        ]
+      ],
+      "constraints": "",
+      "signature": "Bool -> Streaming -> Either MathError (Integer, Double, Double)",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Statistics.Advanced",
+      "name": "histogramND",
+      "args": [
+        [
+          "list",
+          [
+            "list",
+            [
+              "Double"
+            ]
+          ]
+        ],
+        [
+          "list",
+          [
+            "list",
+            [
+              "Double"
+            ]
+          ]
+        ],
+        [
+          "list",
+          [
+            "Double"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "list",
+          [
+            "Double"
+          ]
+        ]
+      ],
+      "constraints": "",
+      "signature": "[[Double]] -> [[Double]] -> [Double] -> Either MathError [Double]",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Statistics.Advanced",
+      "name": "mutualInformation",
+      "args": [
+        [
+          "list",
+          [
+            "list",
+            [
+              "Double"
+            ]
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "Double"
+        ]
+      ],
+      "constraints": "",
+      "signature": "[[Double]] -> Either MathError Double",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Statistics.Advanced",
+      "name": "bootstrap",
+      "args": [
+        [
+          "Int"
+        ],
+        [
+          "function",
+          [
+            "list",
+            [
+              "Double"
+            ]
+          ],
+          [
+            "Either",
+            [
+              "MathError"
+            ],
+            [
+              "Double"
+            ]
+          ]
+        ],
+        [
+          "list",
+          [
+            "Double"
+          ]
+        ],
+        [
+          "RNG"
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "tuple",
+          [
+            "list",
+            [
+              "Double"
+            ]
+          ],
+          [
+            "RNG"
+          ]
+        ]
+      ],
+      "constraints": "",
+      "signature": "Int -> ([Double] -> Either MathError Double) -> [Double] -> R.RNG -> Either MathError ([Double], R.RNG)",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Statistics.Advanced",
+      "name": "jackknife",
+      "args": [
+        [
+          "function",
+          [
+            "list",
+            [
+              "Double"
+            ]
+          ],
+          [
+            "Either",
+            [
+              "MathError"
+            ],
+            [
+              "Double"
+            ]
+          ]
+        ],
+        [
+          "list",
+          [
+            "Double"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "tuple",
+          [
+            "Double"
+          ],
+          [
+            "Double"
+          ]
+        ]
+      ],
+      "constraints": "",
+      "signature": "([Double] -> Either MathError Double) -> [Double] -> Either MathError (Double, Double)",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Statistics.Advanced",
+      "name": "oneSampleT",
+      "args": [
+        [
+          "Double"
+        ],
+        [
+          "list",
+          [
+            "Double"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "TestResult"
+        ]
+      ],
+      "constraints": "",
+      "signature": "Double -> [Double] -> Either MathError TestResult",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Statistics.Advanced",
+      "name": "twoSampleT",
+      "args": [
+        [
+          "Bool"
+        ],
+        [
+          "list",
+          [
+            "Double"
+          ]
+        ],
+        [
+          "list",
+          [
+            "Double"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "TestResult"
+        ]
+      ],
+      "constraints": "",
+      "signature": "Bool -> [Double] -> [Double] -> Either MathError TestResult",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Statistics.Advanced",
+      "name": "pairedT",
+      "args": [
+        [
+          "list",
+          [
+            "Double"
+          ]
+        ],
+        [
+          "list",
+          [
+            "Double"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "TestResult"
+        ]
+      ],
+      "constraints": "",
+      "signature": "[Double] -> [Double] -> Either MathError TestResult",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Statistics.Advanced",
+      "name": "zTest",
+      "args": [
+        [
+          "Double"
+        ],
+        [
+          "Double"
+        ],
+        [
+          "list",
+          [
+            "Double"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "TestResult"
+        ]
+      ],
+      "constraints": "",
+      "signature": "Double -> Double -> [Double] -> Either MathError TestResult",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Statistics.Advanced",
+      "name": "chiSquareTest",
+      "args": [
+        [
+          "Int"
+        ],
+        [
+          "list",
+          [
+            "Double"
+          ]
+        ],
+        [
+          "list",
+          [
+            "Double"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "TestResult"
+        ]
+      ],
+      "constraints": "",
+      "signature": "Int -> [Double] -> [Double] -> Either MathError TestResult",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Statistics.Advanced",
+      "name": "varianceFTest",
+      "args": [
+        [
+          "list",
+          [
+            "Double"
+          ]
+        ],
+        [
+          "list",
+          [
+            "Double"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "TestResult"
+        ]
+      ],
+      "constraints": "",
+      "signature": "[Double] -> [Double] -> Either MathError TestResult",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Statistics.Advanced",
+      "name": "anova",
+      "args": [
+        [
+          "list",
+          [
+            "list",
+            [
+              "Double"
+            ]
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "TestResult"
+        ]
+      ],
+      "constraints": "",
+      "signature": "[[Double]] -> Either MathError TestResult",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Statistics.Advanced",
+      "name": "welchAnova",
+      "args": [
+        [
+          "list",
+          [
+            "list",
+            [
+              "Double"
+            ]
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "TestResult"
+        ]
+      ],
+      "constraints": "",
+      "signature": "[[Double]] -> Either MathError TestResult",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Statistics.Advanced",
+      "name": "kruskalWallis",
+      "args": [
+        [
+          "list",
+          [
+            "list",
+            [
+              "Double"
+            ]
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "TestResult"
+        ]
+      ],
+      "constraints": "",
+      "signature": "[[Double]] -> Either MathError TestResult",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Statistics.Advanced",
+      "name": "mannWhitney",
+      "args": [
+        [
+          "list",
+          [
+            "Double"
+          ]
+        ],
+        [
+          "list",
+          [
+            "Double"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "TestResult"
+        ]
+      ],
+      "constraints": "",
+      "signature": "[Double] -> [Double] -> Either MathError TestResult",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Statistics.Advanced",
+      "name": "wilcoxon",
+      "args": [
+        [
+          "list",
+          [
+            "Double"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "TestResult"
+        ]
+      ],
+      "constraints": "",
+      "signature": "[Double] -> Either MathError TestResult",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Statistics.Advanced",
+      "name": "kolmogorovSmirnov",
+      "args": [
+        [
+          "Distribution"
+        ],
+        [
+          "list",
+          [
+            "Double"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "TestResult"
+        ]
+      ],
+      "constraints": "",
+      "signature": "P.Distribution -> [Double] -> Either MathError TestResult",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Statistics.Advanced",
+      "name": "shapiroWilk",
+      "args": [
+        [
+          "list",
+          [
+            "Double"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "TestResult"
+        ]
+      ],
+      "constraints": "",
+      "signature": "[Double] -> Either MathError TestResult",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Statistics.Advanced",
+      "name": "andersonDarling",
+      "args": [
+        [
+          "list",
+          [
+            "Double"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "TestResult"
+        ]
+      ],
+      "constraints": "",
+      "signature": "[Double] -> Either MathError TestResult",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Statistics.Advanced",
+      "name": "levene",
+      "args": [
+        [
+          "Bool"
+        ],
+        [
+          "list",
+          [
+            "list",
+            [
+              "Double"
+            ]
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "TestResult"
+        ]
+      ],
+      "constraints": "",
+      "signature": "Bool -> [[Double]] -> Either MathError TestResult",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Statistics.Advanced",
+      "name": "bartlett",
+      "args": [
+        [
+          "list",
+          [
+            "list",
+            [
+              "Double"
+            ]
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "TestResult"
+        ]
+      ],
+      "constraints": "",
+      "signature": "[[Double]] -> Either MathError TestResult",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Statistics.Advanced",
+      "name": "fisherExact",
+      "args": [
+        [
+          "Int"
+        ],
+        [
+          "Int"
+        ],
+        [
+          "Int"
+        ],
+        [
+          "Int"
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "TestResult"
+        ]
+      ],
+      "constraints": "",
+      "signature": "Int -> Int -> Int -> Int -> Either MathError TestResult",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Statistics.Advanced",
+      "name": "permutationTest",
+      "args": [
+        [
+          "Int"
+        ],
+        [
+          "function",
+          [
+            "list",
+            [
+              "Double"
+            ]
+          ],
+          [
+            "list",
+            [
+              "Double"
+            ]
+          ],
+          [
+            "Either",
+            [
+              "MathError"
+            ],
+            [
+              "Double"
+            ]
+          ]
+        ],
+        [
+          "list",
+          [
+            "Double"
+          ]
+        ],
+        [
+          "list",
+          [
+            "Double"
+          ]
+        ],
+        [
+          "RNG"
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "tuple",
+          [
+            "TestResult"
+          ],
+          [
+            "RNG"
+          ]
+        ]
+      ],
+      "constraints": "",
+      "signature": "Int -> ([Double] -> [Double] -> Either MathError Double) -> [Double] -> [Double] -> R.RNG -> Either MathError (TestResult, R.RNG)",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Statistics.Advanced",
+      "name": "etaSquared",
+      "args": [
+        [
+          "list",
+          [
+            "list",
+            [
+              "Double"
+            ]
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "Double"
+        ]
+      ],
+      "constraints": "",
+      "signature": "[[Double]] -> Either MathError Double",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Statistics.Advanced",
+      "name": "grubbs",
+      "args": [
+        [
+          "Double"
+        ],
+        [
+          "list",
+          [
+            "Double"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "tuple",
+          [
+            "Int"
+          ],
+          [
+            "Double"
+          ],
+          [
+            "Bool"
+          ]
+        ]
+      ],
+      "constraints": "",
+      "signature": "Double -> [Double] -> Either MathError (Int, Double, Bool)",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Statistics.Advanced",
+      "name": "masked",
+      "args": [
+        [
+          "list",
+          [
+            "Bool"
+          ]
+        ],
+        [
+          "list",
+          [
+            "Double"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "list",
+          [
+            "Double"
+          ]
+        ]
+      ],
+      "constraints": "",
+      "signature": "[Bool] -> [Double] -> Either MathError [Double]",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Statistics.Advanced",
+      "name": "testStatistic",
+      "args": [
+        [
+          "TestResult"
+        ]
+      ],
+      "result": [
+        "Double"
+      ],
+      "constraints": "",
+      "signature": "TestResult -> field",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Statistics.Advanced",
+      "name": "pValue",
+      "args": [
+        [
+          "TestResult"
+        ]
+      ],
+      "result": [
+        "Double"
+      ],
+      "constraints": "",
+      "signature": "TestResult -> field",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Statistics.Advanced",
+      "name": "degreesOfFreedom",
+      "args": [
+        [
+          "TestResult"
+        ]
+      ],
+      "result": [
+        "list",
+        [
+          "Double"
+        ]
+      ],
+      "constraints": "",
+      "signature": "TestResult -> field",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Statistics.Advanced",
+      "name": "TestResult",
+      "args": [
+        [
+          "Double"
+        ],
+        [
+          "Double"
+        ],
+        [
+          "list",
+          [
+            "Double"
+          ]
+        ]
+      ],
+      "result": [
+        "TestResult"
+      ],
+      "constraints": "",
+      "signature": "constructor",
+      "constructor": true
+    }
+  ],
+  "types": {
+    "Generator": {
+      "module": "HMath.Random",
+      "alias": "R",
+      "namespace": "random_values",
+      "name": "Generator",
+      "params": []
+    },
+    "RNG": {
+      "module": "HMath.Random",
+      "alias": "R",
+      "namespace": "random_values",
+      "name": "RNG",
+      "params": []
+    },
+    "AliasTable": {
+      "module": "HMath.Random",
+      "alias": "R",
+      "namespace": "random_values",
+      "name": "AliasTable",
+      "params": []
+    },
+    "Distribution": {
+      "module": "HMath.Probability",
+      "alias": "P",
+      "namespace": "probability_values",
+      "name": "Distribution",
+      "params": []
+    },
+    "Markov": {
+      "module": "HMath.Probability",
+      "alias": "P",
+      "namespace": "probability_values",
+      "name": "Markov",
+      "params": []
+    },
+    "HMM": {
+      "module": "HMath.Probability",
+      "alias": "P",
+      "namespace": "probability_values",
+      "name": "HMM",
+      "params": []
+    },
+    "Streaming": {
+      "module": "HMath.Statistics.Advanced",
+      "alias": "S",
+      "namespace": "statistics_values",
+      "name": "Streaming",
+      "params": []
+    },
+    "TestResult": {
+      "module": "HMath.Statistics.Advanced",
+      "alias": "S",
+      "namespace": "statistics_values",
+      "name": "TestResult",
+      "params": []
+    }
+  },
+  "fields": {
+    "Generator": [],
+    "RNG": [],
+    "AliasTable": [],
+    "Distribution": [],
+    "Markov": [],
+    "HMM": [],
+    "Streaming": [],
+    "TestResult": [
+      [
+        "testStatistic",
+        [
+          "Double"
+        ]
+      ],
+      [
+        "pValue",
+        [
+          "Double"
+        ]
+      ],
+      [
+        "degreesOfFreedom",
+        [
+          "list",
+          [
+            "Double"
+          ]
+        ]
+      ]
+    ]
+  }
+}

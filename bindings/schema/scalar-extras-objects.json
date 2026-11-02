@@ -1,0 +1,505 @@
+{
+  "schema": 1,
+  "bindings": [
+    {
+      "symbol": "HMath.Complex.Exp",
+      "c": [
+        "hmath_complex_exp"
+      ],
+      "python": "hmath.complex.exp",
+      "specializations": [
+        "original concrete source type/structure"
+      ]
+    },
+    {
+      "symbol": "HMath.Complex.Log",
+      "c": [
+        "hmath_complex_log"
+      ],
+      "python": "hmath.complex.log",
+      "specializations": [
+        "original concrete source type/structure"
+      ]
+    },
+    {
+      "symbol": "HMath.Complex.Sqrt",
+      "c": [
+        "hmath_complex_sqrt"
+      ],
+      "python": "hmath.complex.sqrt",
+      "specializations": [
+        "original concrete source type/structure"
+      ]
+    },
+    {
+      "symbol": "HMath.Complex.Sin",
+      "c": [
+        "hmath_complex_sin"
+      ],
+      "python": "hmath.complex.sin",
+      "specializations": [
+        "original concrete source type/structure"
+      ]
+    },
+    {
+      "symbol": "HMath.Complex.Cos",
+      "c": [
+        "hmath_complex_cos"
+      ],
+      "python": "hmath.complex.cos",
+      "specializations": [
+        "original concrete source type/structure"
+      ]
+    },
+    {
+      "symbol": "HMath.Complex.Tan",
+      "c": [
+        "hmath_complex_tan"
+      ],
+      "python": "hmath.complex.tan",
+      "specializations": [
+        "original concrete source type/structure"
+      ]
+    },
+    {
+      "symbol": "HMath.Complex.Sinh",
+      "c": [
+        "hmath_complex_sinh"
+      ],
+      "python": "hmath.complex.sinh",
+      "specializations": [
+        "original concrete source type/structure"
+      ]
+    },
+    {
+      "symbol": "HMath.Complex.Cosh",
+      "c": [
+        "hmath_complex_cosh"
+      ],
+      "python": "hmath.complex.cosh",
+      "specializations": [
+        "original concrete source type/structure"
+      ]
+    },
+    {
+      "symbol": "HMath.Complex.Tanh",
+      "c": [
+        "hmath_complex_tanh"
+      ],
+      "python": "hmath.complex.tanh",
+      "specializations": [
+        "original concrete source type/structure"
+      ]
+    },
+    {
+      "symbol": "HMath.Complex.Asin",
+      "c": [
+        "hmath_complex_asin"
+      ],
+      "python": "hmath.complex.asin",
+      "specializations": [
+        "original concrete source type/structure"
+      ]
+    },
+    {
+      "symbol": "HMath.Complex.Acos",
+      "c": [
+        "hmath_complex_acos"
+      ],
+      "python": "hmath.complex.acos",
+      "specializations": [
+        "original concrete source type/structure"
+      ]
+    },
+    {
+      "symbol": "HMath.Complex.Atan",
+      "c": [
+        "hmath_complex_atan"
+      ],
+      "python": "hmath.complex.atan",
+      "specializations": [
+        "original concrete source type/structure"
+      ]
+    },
+    {
+      "symbol": "HMath.Complex.Asinh",
+      "c": [
+        "hmath_complex_asinh"
+      ],
+      "python": "hmath.complex.asinh",
+      "specializations": [
+        "original concrete source type/structure"
+      ]
+    },
+    {
+      "symbol": "HMath.Complex.Acosh",
+      "c": [
+        "hmath_complex_acosh"
+      ],
+      "python": "hmath.complex.acosh",
+      "specializations": [
+        "original concrete source type/structure"
+      ]
+    },
+    {
+      "symbol": "HMath.Complex.Atanh",
+      "c": [
+        "hmath_complex_atanh"
+      ],
+      "python": "hmath.complex.atanh",
+      "specializations": [
+        "original concrete source type/structure"
+      ]
+    },
+    {
+      "symbol": "HMath.Trigonometry.CSin",
+      "c": [
+        "hmath_trigonometry_c_sin"
+      ],
+      "python": "hmath.trigonometry.c_sin",
+      "specializations": [
+        "original concrete source type/structure"
+      ]
+    },
+    {
+      "symbol": "HMath.Trigonometry.CCos",
+      "c": [
+        "hmath_trigonometry_c_cos"
+      ],
+      "python": "hmath.trigonometry.c_cos",
+      "specializations": [
+        "original concrete source type/structure"
+      ]
+    },
+    {
+      "symbol": "HMath.Trigonometry.CTan",
+      "c": [
+        "hmath_trigonometry_c_tan"
+      ],
+      "python": "hmath.trigonometry.c_tan",
+      "specializations": [
+        "original concrete source type/structure"
+      ]
+    },
+    {
+      "symbol": "HMath.Trigonometry.CAsin",
+      "c": [
+        "hmath_trigonometry_c_asin"
+      ],
+      "python": "hmath.trigonometry.c_asin",
+      "specializations": [
+        "original concrete source type/structure"
+      ]
+    },
+    {
+      "symbol": "HMath.Trigonometry.CAcos",
+      "c": [
+        "hmath_trigonometry_c_acos"
+      ],
+      "python": "hmath.trigonometry.c_acos",
+      "specializations": [
+        "original concrete source type/structure"
+      ]
+    },
+    {
+      "symbol": "HMath.Trigonometry.CAtan",
+      "c": [
+        "hmath_trigonometry_c_atan"
+      ],
+      "python": "hmath.trigonometry.c_atan",
+      "specializations": [
+        "original concrete source type/structure"
+      ]
+    },
+    {
+      "symbol": "HMath.Trigonometry.CSinh",
+      "c": [
+        "hmath_trigonometry_c_sinh"
+      ],
+      "python": "hmath.trigonometry.c_sinh",
+      "specializations": [
+        "original concrete source type/structure"
+      ]
+    },
+    {
+      "symbol": "HMath.Trigonometry.CCosh",
+      "c": [
+        "hmath_trigonometry_c_cosh"
+      ],
+      "python": "hmath.trigonometry.c_cosh",
+      "specializations": [
+        "original concrete source type/structure"
+      ]
+    },
+    {
+      "symbol": "HMath.Trigonometry.CTanh",
+      "c": [
+        "hmath_trigonometry_c_tanh"
+      ],
+      "python": "hmath.trigonometry.c_tanh",
+      "specializations": [
+        "original concrete source type/structure"
+      ]
+    },
+    {
+      "symbol": "HMath.Trigonometry.CAsinh",
+      "c": [
+        "hmath_trigonometry_c_asinh"
+      ],
+      "python": "hmath.trigonometry.c_asinh",
+      "specializations": [
+        "original concrete source type/structure"
+      ]
+    },
+    {
+      "symbol": "HMath.Trigonometry.CAcosh",
+      "c": [
+        "hmath_trigonometry_c_acosh"
+      ],
+      "python": "hmath.trigonometry.c_acosh",
+      "specializations": [
+        "original concrete source type/structure"
+      ]
+    },
+    {
+      "symbol": "HMath.Trigonometry.CAtanh",
+      "c": [
+        "hmath_trigonometry_c_atanh"
+      ],
+      "python": "hmath.trigonometry.c_atanh",
+      "specializations": [
+        "original concrete source type/structure"
+      ]
+    },
+    {
+      "symbol": "HMath.Trigonometry.CSec",
+      "c": [
+        "hmath_trigonometry_c_sec"
+      ],
+      "python": "hmath.trigonometry.c_sec",
+      "specializations": [
+        "original concrete source type/structure"
+      ]
+    },
+    {
+      "symbol": "HMath.Trigonometry.CCsc",
+      "c": [
+        "hmath_trigonometry_c_csc"
+      ],
+      "python": "hmath.trigonometry.c_csc",
+      "specializations": [
+        "original concrete source type/structure"
+      ]
+    },
+    {
+      "symbol": "HMath.Trigonometry.CCot",
+      "c": [
+        "hmath_trigonometry_c_cot"
+      ],
+      "python": "hmath.trigonometry.c_cot",
+      "specializations": [
+        "original concrete source type/structure"
+      ]
+    },
+    {
+      "symbol": "HMath.Trigonometry.CSech",
+      "c": [
+        "hmath_trigonometry_c_sech"
+      ],
+      "python": "hmath.trigonometry.c_sech",
+      "specializations": [
+        "original concrete source type/structure"
+      ]
+    },
+    {
+      "symbol": "HMath.Trigonometry.CCsch",
+      "c": [
+        "hmath_trigonometry_c_csch"
+      ],
+      "python": "hmath.trigonometry.c_csch",
+      "specializations": [
+        "original concrete source type/structure"
+      ]
+    },
+    {
+      "symbol": "HMath.Trigonometry.CCoth",
+      "c": [
+        "hmath_trigonometry_c_coth"
+      ],
+      "python": "hmath.trigonometry.c_coth",
+      "specializations": [
+        "original concrete source type/structure"
+      ]
+    },
+    {
+      "symbol": "HMath.Complex.elementary",
+      "c": [
+        "hmath_complex_elementary"
+      ],
+      "python": "hmath.complex.elementary",
+      "specializations": [
+        "original concrete source type/structure"
+      ]
+    },
+    {
+      "symbol": "HMath.Complex.complexMatrix",
+      "c": [
+        "hmath_complex_complex_matrix"
+      ],
+      "python": "hmath.complex.complex_matrix",
+      "specializations": [
+        "original concrete source type/structure"
+      ]
+    },
+    {
+      "symbol": "HMath.Complex.multiplyMatrices",
+      "c": [
+        "hmath_complex_multiply_matrices"
+      ],
+      "python": "hmath.complex.multiply_matrices",
+      "specializations": [
+        "original concrete source type/structure"
+      ]
+    },
+    {
+      "symbol": "HMath.Complex.conjugateTranspose",
+      "c": [
+        "hmath_complex_conjugate_transpose"
+      ],
+      "python": "hmath.complex.conjugate_transpose",
+      "specializations": [
+        "original concrete source type/structure"
+      ]
+    },
+    {
+      "symbol": "HMath.Complex.complexFFT",
+      "c": [
+        "hmath_complex_complex_fft"
+      ],
+      "python": "hmath.complex.complex_fft",
+      "specializations": [
+        "original concrete source type/structure"
+      ]
+    },
+    {
+      "symbol": "HMath.Complex.complexIFFT",
+      "c": [
+        "hmath_complex_complex_ifft"
+      ],
+      "python": "hmath.complex.complex_ifft",
+      "specializations": [
+        "original concrete source type/structure"
+      ]
+    },
+    {
+      "symbol": "HMath.Trigonometry.complexFunction",
+      "c": [
+        "hmath_trigonometry_complex_function"
+      ],
+      "python": "hmath.trigonometry.complex_function",
+      "specializations": [
+        "actual Complex Float/Double RealFloat instances"
+      ]
+    },
+    {
+      "symbol": "HMath.NumberTheory.chineseRemainder",
+      "c": [
+        "hmath_numbertheory_chinese_remainder"
+      ],
+      "python": "hmath.numbertheory.chinese_remainder",
+      "specializations": [
+        "original concrete source type/structure"
+      ]
+    },
+    {
+      "symbol": "HMath.NumberTheory.linearDiophantine",
+      "c": [
+        "hmath_numbertheory_linear_diophantine"
+      ],
+      "python": "hmath.numbertheory.linear_diophantine",
+      "specializations": [
+        "original concrete source type/structure"
+      ]
+    },
+    {
+      "symbol": "HMath.NumberTheory.perfectPower",
+      "c": [
+        "hmath_numbertheory_perfect_power"
+      ],
+      "python": "hmath.numbertheory.perfect_power",
+      "specializations": [
+        "original concrete source type/structure"
+      ]
+    },
+    {
+      "symbol": "HMath.NumberTheory.primeFactorization",
+      "c": [
+        "hmath_numbertheory_prime_factorization"
+      ],
+      "python": "hmath.numbertheory.prime_factorization",
+      "specializations": [
+        "original concrete source type/structure"
+      ]
+    },
+    {
+      "symbol": "HMath.NumberTheory.partitions",
+      "c": [
+        "hmath_numbertheory_partitions"
+      ],
+      "python": "hmath.numbertheory.partitions",
+      "specializations": [
+        "original concrete source type/structure"
+      ]
+    },
+    {
+      "symbol": "HMath.Special.SFResult",
+      "c": [
+        "hmath_special_sf_result"
+      ],
+      "python": "hmath.special.SFResult",
+      "specializations": [
+        "original concrete source type/structure"
+      ]
+    },
+    {
+      "symbol": "HMath.Special.sfValue",
+      "c": [
+        "hmath_special_sf_value"
+      ],
+      "python": "hmath.special.sf_value",
+      "specializations": [
+        "original concrete source type/structure"
+      ]
+    },
+    {
+      "symbol": "HMath.Special.sfError",
+      "c": [
+        "hmath_special_sf_error"
+      ],
+      "python": "hmath.special.sf_error",
+      "specializations": [
+        "original concrete source type/structure"
+      ]
+    },
+    {
+      "symbol": "HMath.Complex.Elementary",
+      "c": [
+        "hmath_complex_elementary_object"
+      ],
+      "python": "hmath.complex.Elementary",
+      "specializations": [
+        "actual original selector"
+      ]
+    },
+    {
+      "symbol": "HMath.Trigonometry.ComplexFunction",
+      "c": [
+        "hmath_trigonometry_complex_function_object"
+      ],
+      "python": "hmath.trigonometry.ComplexFunction",
+      "specializations": [
+        "actual original selector"
+      ]
+    }
+  ]
+}

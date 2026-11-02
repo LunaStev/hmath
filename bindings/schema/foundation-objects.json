@@ -1,0 +1,1510 @@
+{
+  "schema": 1,
+  "bindings": [
+    {
+      "symbol": "HMath.API.Convergence.Converged",
+      "c": [
+        "hmath_foundation_convergence_converged"
+      ],
+      "python": "hmath.convergence.converged",
+      "specializations": [
+        "original algorithms; actual supported Ord/Eq dictionaries; no numeric conversion; complete public variants/fields"
+      ]
+    },
+    {
+      "symbol": "HMath.API.Convergence.Convergence",
+      "c": [
+        "hmath_foundation_convergence_new_convergence"
+      ],
+      "python": "hmath.convergence.Convergence",
+      "specializations": [
+        "original algorithms; actual supported Ord/Eq dictionaries; no numeric conversion; complete public variants/fields"
+      ]
+    },
+    {
+      "symbol": "HMath.API.Convergence.IterationLimit",
+      "c": [
+        "hmath_foundation_convergence_new_iteration_limit"
+      ],
+      "python": "hmath.convergence.iteration_limit",
+      "specializations": [
+        "original algorithms; actual supported Ord/Eq dictionaries; no numeric conversion; complete public variants/fields"
+      ]
+    },
+    {
+      "symbol": "HMath.API.Convergence.IterationOptions",
+      "c": [
+        "hmath_foundation_convergence_new_iteration_options"
+      ],
+      "python": "hmath.convergence.IterationOptions",
+      "specializations": [
+        "original algorithms; actual supported Ord/Eq dictionaries; no numeric conversion; complete public variants/fields"
+      ]
+    },
+    {
+      "symbol": "HMath.API.Convergence.ResidualSatisfied",
+      "c": [
+        "hmath_foundation_convergence_new_residual_satisfied"
+      ],
+      "python": "hmath.convergence.residual_satisfied",
+      "specializations": [
+        "original algorithms; actual supported Ord/Eq dictionaries; no numeric conversion; complete public variants/fields"
+      ]
+    },
+    {
+      "symbol": "HMath.API.Convergence.Stagnation",
+      "c": [
+        "hmath_foundation_convergence_new_stagnation"
+      ],
+      "python": "hmath.convergence.stagnation",
+      "specializations": [
+        "original algorithms; actual supported Ord/Eq dictionaries; no numeric conversion; complete public variants/fields"
+      ]
+    },
+    {
+      "symbol": "HMath.API.Convergence.StopReason",
+      "c": [
+        "hmath_value",
+        "hmath_value_release"
+      ],
+      "python": "hmath.convergence.StopReason",
+      "specializations": [
+        "original immutable persistent container; kind400 source subtype"
+      ]
+    },
+    {
+      "symbol": "HMath.API.Convergence.absoluteTolerance",
+      "c": [
+        "hmath_foundation_convergence_absolute_tolerance"
+      ],
+      "python": "hmath.convergence.absolute_tolerance",
+      "specializations": [
+        "original algorithms; actual supported Ord/Eq dictionaries; no numeric conversion; complete public variants/fields"
+      ]
+    },
+    {
+      "symbol": "HMath.API.Convergence.defaultIterationOptions",
+      "c": [
+        "hmath_foundation_convergence_default_iteration_options"
+      ],
+      "python": "hmath.convergence.default_iteration_options",
+      "specializations": [
+        "original algorithms; actual supported Ord/Eq dictionaries; no numeric conversion; complete public variants/fields"
+      ]
+    },
+    {
+      "symbol": "HMath.API.Convergence.estimate",
+      "c": [
+        "hmath_foundation_convergence_estimate"
+      ],
+      "python": "hmath.convergence.estimate",
+      "specializations": [
+        "original algorithms; actual supported Ord/Eq dictionaries; no numeric conversion; complete public variants/fields"
+      ]
+    },
+    {
+      "symbol": "HMath.API.Convergence.finalResidual",
+      "c": [
+        "hmath_foundation_convergence_final_residual"
+      ],
+      "python": "hmath.convergence.final_residual",
+      "specializations": [
+        "original algorithms; actual supported Ord/Eq dictionaries; no numeric conversion; complete public variants/fields"
+      ]
+    },
+    {
+      "symbol": "HMath.API.Convergence.fromMaybeError",
+      "c": [
+        "hmath_foundation_convergence_from_maybe_error"
+      ],
+      "python": "hmath.convergence.from_maybe_error",
+      "specializations": [
+        "original algorithms; actual supported Ord/Eq dictionaries; no numeric conversion; complete public variants/fields"
+      ]
+    },
+    {
+      "symbol": "HMath.API.Convergence.iterateUntil",
+      "c": [
+        "hmath_foundation_convergence_iterate_until"
+      ],
+      "python": "hmath.convergence.iterate_until",
+      "specializations": [
+        "original algorithms; actual supported Ord/Eq dictionaries; no numeric conversion; complete public variants/fields"
+      ]
+    },
+    {
+      "symbol": "HMath.API.Convergence.iterationCount",
+      "c": [
+        "hmath_foundation_convergence_iteration_count"
+      ],
+      "python": "hmath.convergence.iteration_count",
+      "specializations": [
+        "original algorithms; actual supported Ord/Eq dictionaries; no numeric conversion; complete public variants/fields"
+      ]
+    },
+    {
+      "symbol": "HMath.API.Convergence.maximumIterations",
+      "c": [
+        "hmath_foundation_convergence_maximum_iterations"
+      ],
+      "python": "hmath.convergence.maximum_iterations",
+      "specializations": [
+        "original algorithms; actual supported Ord/Eq dictionaries; no numeric conversion; complete public variants/fields"
+      ]
+    },
+    {
+      "symbol": "HMath.API.Convergence.relativeTolerance",
+      "c": [
+        "hmath_foundation_convergence_relative_tolerance"
+      ],
+      "python": "hmath.convergence.relative_tolerance",
+      "specializations": [
+        "original algorithms; actual supported Ord/Eq dictionaries; no numeric conversion; complete public variants/fields"
+      ]
+    },
+    {
+      "symbol": "HMath.API.Convergence.requireConvergence",
+      "c": [
+        "hmath_foundation_convergence_require_convergence"
+      ],
+      "python": "hmath.convergence.require_convergence",
+      "specializations": [
+        "original algorithms; actual supported Ord/Eq dictionaries; no numeric conversion; complete public variants/fields"
+      ]
+    },
+    {
+      "symbol": "HMath.API.Convergence.resultMaybe",
+      "c": [
+        "hmath_foundation_convergence_result_maybe"
+      ],
+      "python": "hmath.convergence.result_maybe",
+      "specializations": [
+        "original algorithms; actual supported Ord/Eq dictionaries; no numeric conversion; complete public variants/fields"
+      ]
+    },
+    {
+      "symbol": "HMath.API.Convergence.stopReason",
+      "c": [
+        "hmath_foundation_convergence_stop_reason"
+      ],
+      "python": "hmath.convergence.stop_reason",
+      "specializations": [
+        "original algorithms; actual supported Ord/Eq dictionaries; no numeric conversion; complete public variants/fields"
+      ]
+    },
+    {
+      "symbol": "HMath.Algorithms.binarySearch",
+      "c": [
+        "hmath_foundation_algorithms_binary_search",
+        "hmath_foundation_algorithms_binary_search_typed"
+      ],
+      "python": "hmath.algorithms.binary_search",
+      "specializations": [
+        "original algorithms; actual supported Ord/Eq dictionaries; no numeric conversion; complete public variants/fields"
+      ]
+    },
+    {
+      "symbol": "HMath.Algorithms.coordinateCompression",
+      "c": [
+        "hmath_foundation_algorithms_coordinate_compression",
+        "hmath_foundation_algorithms_coordinate_compression_typed"
+      ],
+      "python": "hmath.algorithms.coordinate_compression",
+      "specializations": [
+        "original algorithms; actual supported Ord/Eq dictionaries; no numeric conversion; complete public variants/fields"
+      ]
+    },
+    {
+      "symbol": "HMath.Algorithms.divideConquerDP",
+      "c": [
+        "hmath_foundation_algorithms_divide_conquer_dp"
+      ],
+      "python": "hmath.algorithms.divide_conquer_dp",
+      "specializations": [
+        "original algorithms; actual supported Ord/Eq dictionaries; no numeric conversion; complete public variants/fields"
+      ]
+    },
+    {
+      "symbol": "HMath.Algorithms.exponentialSearch",
+      "c": [
+        "hmath_foundation_algorithms_exponential_search",
+        "hmath_foundation_algorithms_exponential_search_typed"
+      ],
+      "python": "hmath.algorithms.exponential_search",
+      "specializations": [
+        "original algorithms; actual supported Ord/Eq dictionaries; no numeric conversion; complete public variants/fields"
+      ]
+    },
+    {
+      "symbol": "HMath.Algorithms.integerMatrixPower",
+      "c": [
+        "hmath_foundation_algorithms_integer_matrix_power"
+      ],
+      "python": "hmath.algorithms.integer_matrix_power",
+      "specializations": [
+        "original algorithms; actual supported Ord/Eq dictionaries; no numeric conversion; complete public variants/fields"
+      ]
+    },
+    {
+      "symbol": "HMath.Algorithms.interpolationSearch",
+      "c": [
+        "hmath_foundation_algorithms_interpolation_search"
+      ],
+      "python": "hmath.algorithms.interpolation_search",
+      "specializations": [
+        "original algorithms; actual supported Ord/Eq dictionaries; no numeric conversion; complete public variants/fields"
+      ]
+    },
+    {
+      "symbol": "HMath.Algorithms.intervalSweep",
+      "c": [
+        "hmath_foundation_algorithms_interval_sweep"
+      ],
+      "python": "hmath.algorithms.interval_sweep",
+      "specializations": [
+        "original algorithms; actual supported Ord/Eq dictionaries; no numeric conversion; complete public variants/fields"
+      ]
+    },
+    {
+      "symbol": "HMath.Algorithms.memoizedDP",
+      "c": [
+        "hmath_foundation_algorithms_memoized_dp"
+      ],
+      "python": "hmath.algorithms.memoized_dp",
+      "specializations": [
+        "original algorithms; actual supported Ord/Eq dictionaries; no numeric conversion; complete public variants/fields"
+      ]
+    },
+    {
+      "symbol": "HMath.Algorithms.numericGroups",
+      "c": [
+        "hmath_foundation_algorithms_numeric_groups",
+        "hmath_foundation_algorithms_numeric_groups_typed"
+      ],
+      "python": "hmath.algorithms.numeric_groups",
+      "specializations": [
+        "original algorithms; actual supported Ord/Eq dictionaries; no numeric conversion; complete public variants/fields"
+      ]
+    },
+    {
+      "symbol": "HMath.Algorithms.runLengthDecode",
+      "c": [
+        "hmath_foundation_algorithms_run_length_decode"
+      ],
+      "python": "hmath.algorithms.run_length_decode",
+      "specializations": [
+        "original algorithms; actual supported Ord/Eq dictionaries; no numeric conversion; complete public variants/fields"
+      ]
+    },
+    {
+      "symbol": "HMath.Algorithms.runLengthEncode",
+      "c": [
+        "hmath_foundation_algorithms_run_length_encode"
+      ],
+      "python": "hmath.algorithms.run_length_encode",
+      "specializations": [
+        "original algorithms; actual supported Ord/Eq dictionaries; no numeric conversion; complete public variants/fields"
+      ]
+    },
+    {
+      "symbol": "HMath.Algorithms.tabulateDP",
+      "c": [
+        "hmath_foundation_algorithms_tabulate_dp"
+      ],
+      "python": "hmath.algorithms.tabulate_dp",
+      "specializations": [
+        "original algorithms; actual supported Ord/Eq dictionaries; no numeric conversion; complete public variants/fields"
+      ]
+    },
+    {
+      "symbol": "HMath.Algorithms.ternarySearch",
+      "c": [
+        "hmath_foundation_algorithms_ternary_search"
+      ],
+      "python": "hmath.algorithms.ternary_search",
+      "specializations": [
+        "original algorithms; actual supported Ord/Eq dictionaries; no numeric conversion; complete public variants/fields"
+      ]
+    },
+    {
+      "symbol": "HMath.Combinatorics.cartesianProduct",
+      "c": [
+        "hmath_foundation_combinatorics_cartesian_product"
+      ],
+      "python": "hmath.combinatorics.cartesian_product",
+      "specializations": [
+        "original algorithms; actual supported Ord/Eq dictionaries; no numeric conversion; complete public variants/fields"
+      ]
+    },
+    {
+      "symbol": "HMath.Combinatorics.combinationsOf",
+      "c": [
+        "hmath_foundation_combinatorics_combinations_of"
+      ],
+      "python": "hmath.combinatorics.combinations_of",
+      "specializations": [
+        "original algorithms; actual supported Ord/Eq dictionaries; no numeric conversion; complete public variants/fields"
+      ]
+    },
+    {
+      "symbol": "HMath.Combinatorics.derangements",
+      "c": [
+        "hmath_foundation_combinatorics_derangements"
+      ],
+      "python": "hmath.combinatorics.derangements",
+      "specializations": [
+        "original algorithms; actual supported Ord/Eq dictionaries; no numeric conversion; complete public variants/fields"
+      ]
+    },
+    {
+      "symbol": "HMath.Combinatorics.finiteDifferences",
+      "c": [
+        "hmath_foundation_combinatorics_finite_differences"
+      ],
+      "python": "hmath.combinatorics.finite_differences",
+      "specializations": [
+        "original algorithms; actual supported Ord/Eq dictionaries; no numeric conversion; complete public variants/fields"
+      ]
+    },
+    {
+      "symbol": "HMath.Combinatorics.generatingCoefficients",
+      "c": [
+        "hmath_foundation_combinatorics_generating_coefficients"
+      ],
+      "python": "hmath.combinatorics.generating_coefficients",
+      "specializations": [
+        "original algorithms; actual supported Ord/Eq dictionaries; no numeric conversion; complete public variants/fields"
+      ]
+    },
+    {
+      "symbol": "HMath.Combinatorics.integerPartitions",
+      "c": [
+        "hmath_foundation_combinatorics_integer_partitions"
+      ],
+      "python": "hmath.combinatorics.integer_partitions",
+      "specializations": [
+        "original algorithms; actual supported Ord/Eq dictionaries; no numeric conversion; complete public variants/fields"
+      ]
+    },
+    {
+      "symbol": "HMath.Combinatorics.multisetPermutations",
+      "c": [
+        "hmath_foundation_combinatorics_multiset_permutations",
+        "hmath_foundation_combinatorics_multiset_permutations_typed"
+      ],
+      "python": "hmath.combinatorics.multiset_permutations",
+      "specializations": [
+        "original algorithms; actual supported Ord/Eq dictionaries; no numeric conversion; complete public variants/fields"
+      ]
+    },
+    {
+      "symbol": "HMath.Combinatorics.pascalTriangle",
+      "c": [
+        "hmath_foundation_combinatorics_pascal_triangle"
+      ],
+      "python": "hmath.combinatorics.pascal_triangle",
+      "specializations": [
+        "original algorithms; actual supported Ord/Eq dictionaries; no numeric conversion; complete public variants/fields"
+      ]
+    },
+    {
+      "symbol": "HMath.Combinatorics.permutationsOf",
+      "c": [
+        "hmath_foundation_combinatorics_permutations_of"
+      ],
+      "python": "hmath.combinatorics.permutations_of",
+      "specializations": [
+        "original algorithms; actual supported Ord/Eq dictionaries; no numeric conversion; complete public variants/fields"
+      ]
+    },
+    {
+      "symbol": "HMath.Combinatorics.setPartitions",
+      "c": [
+        "hmath_foundation_combinatorics_set_partitions"
+      ],
+      "python": "hmath.combinatorics.set_partitions",
+      "specializations": [
+        "original algorithms; actual supported Ord/Eq dictionaries; no numeric conversion; complete public variants/fields"
+      ]
+    },
+    {
+      "symbol": "HMath.Combinatorics.subsets",
+      "c": [
+        "hmath_foundation_combinatorics_subsets"
+      ],
+      "python": "hmath.combinatorics.subsets",
+      "specializations": [
+        "original algorithms; actual supported Ord/Eq dictionaries; no numeric conversion; complete public variants/fields"
+      ]
+    },
+    {
+      "symbol": "HMath.DataStructure.BinaryHeap",
+      "c": [
+        "hmath_value",
+        "hmath_value_release"
+      ],
+      "python": "hmath.datastructure.BinaryHeap",
+      "specializations": [
+        "original immutable persistent container; kind400 source subtype"
+      ]
+    },
+    {
+      "symbol": "HMath.DataStructure.Bloom",
+      "c": [
+        "hmath_value",
+        "hmath_value_release"
+      ],
+      "python": "hmath.datastructure.Bloom",
+      "specializations": [
+        "original immutable persistent container; kind400 source subtype"
+      ]
+    },
+    {
+      "symbol": "HMath.DataStructure.CountMin",
+      "c": [
+        "hmath_value",
+        "hmath_value_release"
+      ],
+      "python": "hmath.datastructure.CountMin",
+      "specializations": [
+        "original immutable persistent container; kind400 source subtype"
+      ]
+    },
+    {
+      "symbol": "HMath.DataStructure.DisjointSparseTable",
+      "c": [
+        "hmath_value",
+        "hmath_value_release"
+      ],
+      "python": "hmath.datastructure.DisjointSparseTable",
+      "specializations": [
+        "original immutable persistent container; kind400 source subtype"
+      ]
+    },
+    {
+      "symbol": "HMath.DataStructure.Fenwick",
+      "c": [
+        "hmath_value",
+        "hmath_value_release"
+      ],
+      "python": "hmath.datastructure.Fenwick",
+      "specializations": [
+        "original immutable persistent container; kind400 source subtype"
+      ]
+    },
+    {
+      "symbol": "HMath.DataStructure.Heap",
+      "c": [
+        "hmath_value",
+        "hmath_value_release"
+      ],
+      "python": "hmath.datastructure.Heap",
+      "specializations": [
+        "original immutable persistent container; kind400 source subtype"
+      ]
+    },
+    {
+      "symbol": "HMath.DataStructure.HyperLogLog",
+      "c": [
+        "hmath_value",
+        "hmath_value_release"
+      ],
+      "python": "hmath.datastructure.HyperLogLog",
+      "specializations": [
+        "original immutable persistent container; kind400 source subtype"
+      ]
+    },
+    {
+      "symbol": "HMath.DataStructure.IndexedHeap",
+      "c": [
+        "hmath_value",
+        "hmath_value_release"
+      ],
+      "python": "hmath.datastructure.IndexedHeap",
+      "specializations": [
+        "original immutable persistent container; kind400 source subtype"
+      ]
+    },
+    {
+      "symbol": "HMath.DataStructure.OnlineQuantiles",
+      "c": [
+        "hmath_value",
+        "hmath_value_release"
+      ],
+      "python": "hmath.datastructure.OnlineQuantiles",
+      "specializations": [
+        "original immutable persistent container; kind400 source subtype"
+      ]
+    },
+    {
+      "symbol": "HMath.DataStructure.Reservoir",
+      "c": [
+        "hmath_value",
+        "hmath_value_release"
+      ],
+      "python": "hmath.datastructure.Reservoir",
+      "specializations": [
+        "original immutable persistent container; kind400 source subtype"
+      ]
+    },
+    {
+      "symbol": "HMath.DataStructure.SegmentTree",
+      "c": [
+        "hmath_value",
+        "hmath_value_release"
+      ],
+      "python": "hmath.datastructure.SegmentTree",
+      "specializations": [
+        "original immutable persistent container; kind400 source subtype"
+      ]
+    },
+    {
+      "symbol": "HMath.DataStructure.SparseTable",
+      "c": [
+        "hmath_value",
+        "hmath_value_release"
+      ],
+      "python": "hmath.datastructure.SparseTable",
+      "specializations": [
+        "original immutable persistent container; kind400 source subtype"
+      ]
+    },
+    {
+      "symbol": "HMath.DataStructure.UnionFind",
+      "c": [
+        "hmath_value",
+        "hmath_value_release"
+      ],
+      "python": "hmath.datastructure.UnionFind",
+      "specializations": [
+        "original immutable persistent container; kind400 source subtype"
+      ]
+    },
+    {
+      "symbol": "HMath.DataStructure.binaryHeap",
+      "c": [
+        "hmath_foundation_datastructure_binary_heap"
+      ],
+      "python": "hmath.datastructure.binary_heap",
+      "specializations": [
+        "original algorithms; actual supported Ord/Eq dictionaries; no numeric conversion; complete public variants/fields"
+      ]
+    },
+    {
+      "symbol": "HMath.DataStructure.binaryInsert",
+      "c": [
+        "hmath_foundation_datastructure_binary_insert"
+      ],
+      "python": "hmath.datastructure.binary_insert",
+      "specializations": [
+        "original algorithms; actual supported Ord/Eq dictionaries; no numeric conversion; complete public variants/fields"
+      ]
+    },
+    {
+      "symbol": "HMath.DataStructure.binaryPop",
+      "c": [
+        "hmath_foundation_datastructure_binary_pop"
+      ],
+      "python": "hmath.datastructure.binary_pop",
+      "specializations": [
+        "original algorithms; actual supported Ord/Eq dictionaries; no numeric conversion; complete public variants/fields"
+      ]
+    },
+    {
+      "symbol": "HMath.DataStructure.bloom",
+      "c": [
+        "hmath_foundation_datastructure_bloom"
+      ],
+      "python": "hmath.datastructure.bloom",
+      "specializations": [
+        "original algorithms; actual supported Ord/Eq dictionaries; no numeric conversion; complete public variants/fields"
+      ]
+    },
+    {
+      "symbol": "HMath.DataStructure.bloomFalsePositiveBound",
+      "c": [
+        "hmath_foundation_datastructure_bloom_false_positive_bound"
+      ],
+      "python": "hmath.datastructure.bloom_false_positive_bound",
+      "specializations": [
+        "original algorithms; actual supported Ord/Eq dictionaries; no numeric conversion; complete public variants/fields"
+      ]
+    },
+    {
+      "symbol": "HMath.DataStructure.bloomInsert",
+      "c": [
+        "hmath_foundation_datastructure_bloom_insert"
+      ],
+      "python": "hmath.datastructure.bloom_insert",
+      "specializations": [
+        "original algorithms; actual supported Ord/Eq dictionaries; no numeric conversion; complete public variants/fields"
+      ]
+    },
+    {
+      "symbol": "HMath.DataStructure.bloomMember",
+      "c": [
+        "hmath_foundation_datastructure_bloom_member"
+      ],
+      "python": "hmath.datastructure.bloom_member",
+      "specializations": [
+        "original algorithms; actual supported Ord/Eq dictionaries; no numeric conversion; complete public variants/fields"
+      ]
+    },
+    {
+      "symbol": "HMath.DataStructure.components",
+      "c": [
+        "hmath_foundation_datastructure_components"
+      ],
+      "python": "hmath.datastructure.components",
+      "specializations": [
+        "original algorithms; actual supported Ord/Eq dictionaries; no numeric conversion; complete public variants/fields"
+      ]
+    },
+    {
+      "symbol": "HMath.DataStructure.connected",
+      "c": [
+        "hmath_foundation_datastructure_connected"
+      ],
+      "python": "hmath.datastructure.connected",
+      "specializations": [
+        "original algorithms; actual supported Ord/Eq dictionaries; no numeric conversion; complete public variants/fields"
+      ]
+    },
+    {
+      "symbol": "HMath.DataStructure.countMin",
+      "c": [
+        "hmath_foundation_datastructure_count_min"
+      ],
+      "python": "hmath.datastructure.count_min",
+      "specializations": [
+        "original algorithms; actual supported Ord/Eq dictionaries; no numeric conversion; complete public variants/fields"
+      ]
+    },
+    {
+      "symbol": "HMath.DataStructure.countMinAdd",
+      "c": [
+        "hmath_foundation_datastructure_count_min_add"
+      ],
+      "python": "hmath.datastructure.count_min_add",
+      "specializations": [
+        "original algorithms; actual supported Ord/Eq dictionaries; no numeric conversion; complete public variants/fields"
+      ]
+    },
+    {
+      "symbol": "HMath.DataStructure.countMinErrorBound",
+      "c": [
+        "hmath_foundation_datastructure_count_min_error_bound"
+      ],
+      "python": "hmath.datastructure.count_min_error_bound",
+      "specializations": [
+        "original algorithms; actual supported Ord/Eq dictionaries; no numeric conversion; complete public variants/fields"
+      ]
+    },
+    {
+      "symbol": "HMath.DataStructure.countMinEstimate",
+      "c": [
+        "hmath_foundation_datastructure_count_min_estimate"
+      ],
+      "python": "hmath.datastructure.count_min_estimate",
+      "specializations": [
+        "original algorithms; actual supported Ord/Eq dictionaries; no numeric conversion; complete public variants/fields"
+      ]
+    },
+    {
+      "symbol": "HMath.DataStructure.disjointRange",
+      "c": [
+        "hmath_foundation_datastructure_disjoint_range"
+      ],
+      "python": "hmath.datastructure.disjoint_range",
+      "specializations": [
+        "original algorithms; actual supported Ord/Eq dictionaries; no numeric conversion; complete public variants/fields"
+      ]
+    },
+    {
+      "symbol": "HMath.DataStructure.disjointSparseTable",
+      "c": [
+        "hmath_foundation_datastructure_disjoint_sparse_table"
+      ],
+      "python": "hmath.datastructure.disjoint_sparse_table",
+      "specializations": [
+        "original algorithms; actual supported Ord/Eq dictionaries; no numeric conversion; complete public variants/fields"
+      ]
+    },
+    {
+      "symbol": "HMath.DataStructure.emptyHeap",
+      "c": [
+        "hmath_foundation_datastructure_empty_heap"
+      ],
+      "python": "hmath.datastructure.empty_heap",
+      "specializations": [
+        "original algorithms; actual supported Ord/Eq dictionaries; no numeric conversion; complete public variants/fields"
+      ]
+    },
+    {
+      "symbol": "HMath.DataStructure.fenwick",
+      "c": [
+        "hmath_foundation_datastructure_fenwick"
+      ],
+      "python": "hmath.datastructure.fenwick",
+      "specializations": [
+        "original algorithms; actual supported Ord/Eq dictionaries; no numeric conversion; complete public variants/fields"
+      ]
+    },
+    {
+      "symbol": "HMath.DataStructure.fenwickAdd",
+      "c": [
+        "hmath_foundation_datastructure_fenwick_add"
+      ],
+      "python": "hmath.datastructure.fenwick_add",
+      "specializations": [
+        "original algorithms; actual supported Ord/Eq dictionaries; no numeric conversion; complete public variants/fields"
+      ]
+    },
+    {
+      "symbol": "HMath.DataStructure.fenwickPrefix",
+      "c": [
+        "hmath_foundation_datastructure_fenwick_prefix"
+      ],
+      "python": "hmath.datastructure.fenwick_prefix",
+      "specializations": [
+        "original algorithms; actual supported Ord/Eq dictionaries; no numeric conversion; complete public variants/fields"
+      ]
+    },
+    {
+      "symbol": "HMath.DataStructure.fenwickRange",
+      "c": [
+        "hmath_foundation_datastructure_fenwick_range"
+      ],
+      "python": "hmath.datastructure.fenwick_range",
+      "specializations": [
+        "original algorithms; actual supported Ord/Eq dictionaries; no numeric conversion; complete public variants/fields"
+      ]
+    },
+    {
+      "symbol": "HMath.DataStructure.findRoot",
+      "c": [
+        "hmath_foundation_datastructure_find_root"
+      ],
+      "python": "hmath.datastructure.find_root",
+      "specializations": [
+        "original algorithms; actual supported Ord/Eq dictionaries; no numeric conversion; complete public variants/fields"
+      ]
+    },
+    {
+      "symbol": "HMath.DataStructure.heapFromList",
+      "c": [
+        "hmath_foundation_datastructure_heap_from_list",
+        "hmath_foundation_heap_from_list_typed"
+      ],
+      "python": "hmath.datastructure.heap_from_list",
+      "specializations": [
+        "original algorithms; actual supported Ord/Eq dictionaries; no numeric conversion; complete public variants/fields"
+      ]
+    },
+    {
+      "symbol": "HMath.DataStructure.heapInsert",
+      "c": [
+        "hmath_foundation_datastructure_heap_insert"
+      ],
+      "python": "hmath.datastructure.heap_insert",
+      "specializations": [
+        "original algorithms; actual supported Ord/Eq dictionaries; no numeric conversion; complete public variants/fields"
+      ]
+    },
+    {
+      "symbol": "HMath.DataStructure.heapPop",
+      "c": [
+        "hmath_foundation_datastructure_heap_pop"
+      ],
+      "python": "hmath.datastructure.heap_pop",
+      "specializations": [
+        "original algorithms; actual supported Ord/Eq dictionaries; no numeric conversion; complete public variants/fields"
+      ]
+    },
+    {
+      "symbol": "HMath.DataStructure.hllAdd",
+      "c": [
+        "hmath_foundation_datastructure_hll_add"
+      ],
+      "python": "hmath.datastructure.hll_add",
+      "specializations": [
+        "original algorithms; actual supported Ord/Eq dictionaries; no numeric conversion; complete public variants/fields"
+      ]
+    },
+    {
+      "symbol": "HMath.DataStructure.hllEstimate",
+      "c": [
+        "hmath_foundation_datastructure_hll_estimate"
+      ],
+      "python": "hmath.datastructure.hll_estimate",
+      "specializations": [
+        "original algorithms; actual supported Ord/Eq dictionaries; no numeric conversion; complete public variants/fields"
+      ]
+    },
+    {
+      "symbol": "HMath.DataStructure.hyperLogLog",
+      "c": [
+        "hmath_foundation_datastructure_hyper_log_log"
+      ],
+      "python": "hmath.datastructure.hyper_log_log",
+      "specializations": [
+        "original algorithms; actual supported Ord/Eq dictionaries; no numeric conversion; complete public variants/fields"
+      ]
+    },
+    {
+      "symbol": "HMath.DataStructure.indexedHeap",
+      "c": [
+        "hmath_foundation_datastructure_indexed_heap"
+      ],
+      "python": "hmath.datastructure.indexed_heap",
+      "specializations": [
+        "original algorithms; actual supported Ord/Eq dictionaries; no numeric conversion; complete public variants/fields"
+      ]
+    },
+    {
+      "symbol": "HMath.DataStructure.indexedPop",
+      "c": [
+        "hmath_foundation_datastructure_indexed_pop"
+      ],
+      "python": "hmath.datastructure.indexed_pop",
+      "specializations": [
+        "original algorithms; actual supported Ord/Eq dictionaries; no numeric conversion; complete public variants/fields"
+      ]
+    },
+    {
+      "symbol": "HMath.DataStructure.indexedSet",
+      "c": [
+        "hmath_foundation_datastructure_indexed_set"
+      ],
+      "python": "hmath.datastructure.indexed_set",
+      "specializations": [
+        "original algorithms; actual supported Ord/Eq dictionaries; no numeric conversion; complete public variants/fields"
+      ]
+    },
+    {
+      "symbol": "HMath.DataStructure.nextGreater",
+      "c": [
+        "hmath_foundation_datastructure_next_greater",
+        "hmath_foundation_datastructure_next_greater_typed"
+      ],
+      "python": "hmath.datastructure.next_greater",
+      "specializations": [
+        "original algorithms; actual supported Ord/Eq dictionaries; no numeric conversion; complete public variants/fields"
+      ]
+    },
+    {
+      "symbol": "HMath.DataStructure.onlineQuantile",
+      "c": [
+        "hmath_foundation_datastructure_online_quantile"
+      ],
+      "python": "hmath.datastructure.online_quantile",
+      "specializations": [
+        "original algorithms; actual supported Ord/Eq dictionaries; no numeric conversion; complete public variants/fields"
+      ]
+    },
+    {
+      "symbol": "HMath.DataStructure.onlineQuantiles",
+      "c": [
+        "hmath_foundation_datastructure_online_quantiles"
+      ],
+      "python": "hmath.datastructure.online_quantiles",
+      "specializations": [
+        "original algorithms; actual supported Ord/Eq dictionaries; no numeric conversion; complete public variants/fields"
+      ]
+    },
+    {
+      "symbol": "HMath.DataStructure.quantileAdd",
+      "c": [
+        "hmath_foundation_datastructure_quantile_add"
+      ],
+      "python": "hmath.datastructure.quantile_add",
+      "specializations": [
+        "original algorithms; actual supported Ord/Eq dictionaries; no numeric conversion; complete public variants/fields"
+      ]
+    },
+    {
+      "symbol": "HMath.DataStructure.reservoir",
+      "c": [
+        "hmath_foundation_datastructure_reservoir"
+      ],
+      "python": "hmath.datastructure.reservoir",
+      "specializations": [
+        "original algorithms; actual supported Ord/Eq dictionaries; no numeric conversion; complete public variants/fields"
+      ]
+    },
+    {
+      "symbol": "HMath.DataStructure.reservoirAdd",
+      "c": [
+        "hmath_foundation_datastructure_reservoir_add"
+      ],
+      "python": "hmath.datastructure.reservoir_add",
+      "specializations": [
+        "original algorithms; actual supported Ord/Eq dictionaries; no numeric conversion; complete public variants/fields"
+      ]
+    },
+    {
+      "symbol": "HMath.DataStructure.reservoirValues",
+      "c": [
+        "hmath_foundation_datastructure_reservoir_values"
+      ],
+      "python": "hmath.datastructure.reservoir_values",
+      "specializations": [
+        "original algorithms; actual supported Ord/Eq dictionaries; no numeric conversion; complete public variants/fields"
+      ]
+    },
+    {
+      "symbol": "HMath.DataStructure.segmentRange",
+      "c": [
+        "hmath_foundation_datastructure_segment_range"
+      ],
+      "python": "hmath.datastructure.segment_range",
+      "specializations": [
+        "original algorithms; actual supported Ord/Eq dictionaries; no numeric conversion; complete public variants/fields"
+      ]
+    },
+    {
+      "symbol": "HMath.DataStructure.segmentSet",
+      "c": [
+        "hmath_foundation_datastructure_segment_set"
+      ],
+      "python": "hmath.datastructure.segment_set",
+      "specializations": [
+        "original algorithms; actual supported Ord/Eq dictionaries; no numeric conversion; complete public variants/fields"
+      ]
+    },
+    {
+      "symbol": "HMath.DataStructure.segmentTree",
+      "c": [
+        "hmath_foundation_datastructure_segment_tree"
+      ],
+      "python": "hmath.datastructure.segment_tree",
+      "specializations": [
+        "original algorithms; actual supported Ord/Eq dictionaries; no numeric conversion; complete public variants/fields"
+      ]
+    },
+    {
+      "symbol": "HMath.DataStructure.sparseMinimum",
+      "c": [
+        "hmath_foundation_datastructure_sparse_minimum"
+      ],
+      "python": "hmath.datastructure.sparse_minimum",
+      "specializations": [
+        "original algorithms; actual supported Ord/Eq dictionaries; no numeric conversion; complete public variants/fields"
+      ]
+    },
+    {
+      "symbol": "HMath.DataStructure.sparseTable",
+      "c": [
+        "hmath_foundation_datastructure_sparse_table"
+      ],
+      "python": "hmath.datastructure.sparse_table",
+      "specializations": [
+        "original algorithms; actual supported Ord/Eq dictionaries; no numeric conversion; complete public variants/fields"
+      ]
+    },
+    {
+      "symbol": "HMath.DataStructure.union",
+      "c": [
+        "hmath_foundation_datastructure_union"
+      ],
+      "python": "hmath.datastructure.union",
+      "specializations": [
+        "original algorithms; actual supported Ord/Eq dictionaries; no numeric conversion; complete public variants/fields"
+      ]
+    },
+    {
+      "symbol": "HMath.DataStructure.unionFind",
+      "c": [
+        "hmath_foundation_datastructure_union_find"
+      ],
+      "python": "hmath.datastructure.union_find",
+      "specializations": [
+        "original algorithms; actual supported Ord/Eq dictionaries; no numeric conversion; complete public variants/fields"
+      ]
+    },
+    {
+      "symbol": "HMath.Discrete.And",
+      "c": [
+        "hmath_foundation_discrete_new_and"
+      ],
+      "python": "hmath.discrete.logical_and",
+      "specializations": [
+        "original algorithms; actual supported Ord/Eq dictionaries; no numeric conversion; complete public variants/fields"
+      ]
+    },
+    {
+      "symbol": "HMath.Discrete.BitSet",
+      "c": [
+        "hmath_value",
+        "hmath_value_release"
+      ],
+      "python": "hmath.discrete.BitSet",
+      "specializations": [
+        "original immutable persistent container; kind400 source subtype"
+      ]
+    },
+    {
+      "symbol": "HMath.Discrete.Iff",
+      "c": [
+        "hmath_foundation_discrete_new_iff"
+      ],
+      "python": "hmath.discrete.iff",
+      "specializations": [
+        "original algorithms; actual supported Ord/Eq dictionaries; no numeric conversion; complete public variants/fields"
+      ]
+    },
+    {
+      "symbol": "HMath.Discrete.Implicant",
+      "c": [
+        "hmath_foundation_discrete_new_implicant"
+      ],
+      "python": "hmath.discrete.Implicant",
+      "specializations": [
+        "original algorithms; actual supported Ord/Eq dictionaries; no numeric conversion; complete public variants/fields"
+      ]
+    },
+    {
+      "symbol": "HMath.Discrete.Implies",
+      "c": [
+        "hmath_foundation_discrete_new_implies"
+      ],
+      "python": "hmath.discrete.implies",
+      "specializations": [
+        "original algorithms; actual supported Ord/Eq dictionaries; no numeric conversion; complete public variants/fields"
+      ]
+    },
+    {
+      "symbol": "HMath.Discrete.Literal",
+      "c": [
+        "hmath_foundation_discrete_new_literal"
+      ],
+      "python": "hmath.discrete.literal",
+      "specializations": [
+        "original algorithms; actual supported Ord/Eq dictionaries; no numeric conversion; complete public variants/fields"
+      ]
+    },
+    {
+      "symbol": "HMath.Discrete.MultiSet",
+      "c": [
+        "hmath_value",
+        "hmath_value_release"
+      ],
+      "python": "hmath.discrete.MultiSet",
+      "specializations": [
+        "original immutable persistent container; kind400 source subtype"
+      ]
+    },
+    {
+      "symbol": "HMath.Discrete.Not",
+      "c": [
+        "hmath_foundation_discrete_new_not"
+      ],
+      "python": "hmath.discrete.logical_not",
+      "specializations": [
+        "original algorithms; actual supported Ord/Eq dictionaries; no numeric conversion; complete public variants/fields"
+      ]
+    },
+    {
+      "symbol": "HMath.Discrete.Or",
+      "c": [
+        "hmath_foundation_discrete_new_or"
+      ],
+      "python": "hmath.discrete.logical_or",
+      "specializations": [
+        "original algorithms; actual supported Ord/Eq dictionaries; no numeric conversion; complete public variants/fields"
+      ]
+    },
+    {
+      "symbol": "HMath.Discrete.Prop",
+      "c": [
+        "hmath_value",
+        "hmath_value_release"
+      ],
+      "python": "hmath.discrete.Prop",
+      "specializations": [
+        "original immutable persistent container; kind400 source subtype"
+      ]
+    },
+    {
+      "symbol": "HMath.Discrete.Variable",
+      "c": [
+        "hmath_foundation_discrete_new_variable"
+      ],
+      "python": "hmath.discrete.variable",
+      "specializations": [
+        "original algorithms; actual supported Ord/Eq dictionaries; no numeric conversion; complete public variants/fields"
+      ]
+    },
+    {
+      "symbol": "HMath.Discrete.Xor",
+      "c": [
+        "hmath_foundation_discrete_new_xor"
+      ],
+      "python": "hmath.discrete.xor",
+      "specializations": [
+        "original algorithms; actual supported Ord/Eq dictionaries; no numeric conversion; complete public variants/fields"
+      ]
+    },
+    {
+      "symbol": "HMath.Discrete.bitDelete",
+      "c": [
+        "hmath_foundation_discrete_bit_delete"
+      ],
+      "python": "hmath.discrete.bit_delete",
+      "specializations": [
+        "original algorithms; actual supported Ord/Eq dictionaries; no numeric conversion; complete public variants/fields"
+      ]
+    },
+    {
+      "symbol": "HMath.Discrete.bitDifference",
+      "c": [
+        "hmath_foundation_discrete_bit_difference"
+      ],
+      "python": "hmath.discrete.bit_difference",
+      "specializations": [
+        "original algorithms; actual supported Ord/Eq dictionaries; no numeric conversion; complete public variants/fields"
+      ]
+    },
+    {
+      "symbol": "HMath.Discrete.bitInsert",
+      "c": [
+        "hmath_foundation_discrete_bit_insert"
+      ],
+      "python": "hmath.discrete.bit_insert",
+      "specializations": [
+        "original algorithms; actual supported Ord/Eq dictionaries; no numeric conversion; complete public variants/fields"
+      ]
+    },
+    {
+      "symbol": "HMath.Discrete.bitIntersection",
+      "c": [
+        "hmath_foundation_discrete_bit_intersection"
+      ],
+      "python": "hmath.discrete.bit_intersection",
+      "specializations": [
+        "original algorithms; actual supported Ord/Eq dictionaries; no numeric conversion; complete public variants/fields"
+      ]
+    },
+    {
+      "symbol": "HMath.Discrete.bitMember",
+      "c": [
+        "hmath_foundation_discrete_bit_member"
+      ],
+      "python": "hmath.discrete.bit_member",
+      "specializations": [
+        "original algorithms; actual supported Ord/Eq dictionaries; no numeric conversion; complete public variants/fields"
+      ]
+    },
+    {
+      "symbol": "HMath.Discrete.bitSet",
+      "c": [
+        "hmath_foundation_discrete_bit_set"
+      ],
+      "python": "hmath.discrete.bit_set",
+      "specializations": [
+        "original algorithms; actual supported Ord/Eq dictionaries; no numeric conversion; complete public variants/fields"
+      ]
+    },
+    {
+      "symbol": "HMath.Discrete.bitUnion",
+      "c": [
+        "hmath_foundation_discrete_bit_union"
+      ],
+      "python": "hmath.discrete.bit_union",
+      "specializations": [
+        "original algorithms; actual supported Ord/Eq dictionaries; no numeric conversion; complete public variants/fields"
+      ]
+    },
+    {
+      "symbol": "HMath.Discrete.bitValue",
+      "c": [
+        "hmath_foundation_discrete_bit_value"
+      ],
+      "python": "hmath.discrete.bit_value",
+      "specializations": [
+        "original algorithms; actual supported Ord/Eq dictionaries; no numeric conversion; complete public variants/fields"
+      ]
+    },
+    {
+      "symbol": "HMath.Discrete.bitWidth",
+      "c": [
+        "hmath_foundation_discrete_bit_width"
+      ],
+      "python": "hmath.discrete.bit_width",
+      "specializations": [
+        "original algorithms; actual supported Ord/Eq dictionaries; no numeric conversion; complete public variants/fields"
+      ]
+    },
+    {
+      "symbol": "HMath.Discrete.booleanMultiply",
+      "c": [
+        "hmath_foundation_discrete_boolean_multiply"
+      ],
+      "python": "hmath.discrete.boolean_multiply",
+      "specializations": [
+        "original algorithms; actual supported Ord/Eq dictionaries; no numeric conversion; complete public variants/fields"
+      ]
+    },
+    {
+      "symbol": "HMath.Discrete.equivalenceClosure",
+      "c": [
+        "hmath_foundation_discrete_equivalence_closure"
+      ],
+      "python": "hmath.discrete.equivalence_closure",
+      "specializations": [
+        "original algorithms; actual supported Ord/Eq dictionaries; no numeric conversion; complete public variants/fields"
+      ]
+    },
+    {
+      "symbol": "HMath.Discrete.evaluateProp",
+      "c": [
+        "hmath_foundation_discrete_evaluate_prop"
+      ],
+      "python": "hmath.discrete.evaluate_prop",
+      "specializations": [
+        "original algorithms; actual supported Ord/Eq dictionaries; no numeric conversion; complete public variants/fields"
+      ]
+    },
+    {
+      "symbol": "HMath.Discrete.grayDecode",
+      "c": [
+        "hmath_foundation_discrete_gray_decode"
+      ],
+      "python": "hmath.discrete.gray_decode",
+      "specializations": [
+        "original algorithms; actual supported Ord/Eq dictionaries; no numeric conversion; complete public variants/fields"
+      ]
+    },
+    {
+      "symbol": "HMath.Discrete.grayEncode",
+      "c": [
+        "hmath_foundation_discrete_gray_encode"
+      ],
+      "python": "hmath.discrete.gray_encode",
+      "specializations": [
+        "original algorithms; actual supported Ord/Eq dictionaries; no numeric conversion; complete public variants/fields"
+      ]
+    },
+    {
+      "symbol": "HMath.Discrete.hammingDistance",
+      "c": [
+        "hmath_foundation_discrete_hamming_distance"
+      ],
+      "python": "hmath.discrete.hamming_distance",
+      "specializations": [
+        "original algorithms; actual supported Ord/Eq dictionaries; no numeric conversion; complete public variants/fields"
+      ]
+    },
+    {
+      "symbol": "HMath.Discrete.implicantCovers",
+      "c": [
+        "hmath_foundation_discrete_implicant_covers"
+      ],
+      "python": "hmath.discrete.implicant_covers",
+      "specializations": [
+        "original algorithms; actual supported Ord/Eq dictionaries; no numeric conversion; complete public variants/fields"
+      ]
+    },
+    {
+      "symbol": "HMath.Discrete.implicantMask",
+      "c": [
+        "hmath_foundation_discrete_implicant_mask"
+      ],
+      "python": "hmath.discrete.implicant_mask",
+      "specializations": [
+        "original algorithms; actual supported Ord/Eq dictionaries; no numeric conversion; complete public variants/fields"
+      ]
+    },
+    {
+      "symbol": "HMath.Discrete.implicantValue",
+      "c": [
+        "hmath_foundation_discrete_implicant_value"
+      ],
+      "python": "hmath.discrete.implicant_value",
+      "specializations": [
+        "original algorithms; actual supported Ord/Eq dictionaries; no numeric conversion; complete public variants/fields"
+      ]
+    },
+    {
+      "symbol": "HMath.Discrete.isEquivalence",
+      "c": [
+        "hmath_foundation_discrete_is_equivalence"
+      ],
+      "python": "hmath.discrete.is_equivalence",
+      "specializations": [
+        "original algorithms; actual supported Ord/Eq dictionaries; no numeric conversion; complete public variants/fields"
+      ]
+    },
+    {
+      "symbol": "HMath.Discrete.leadingZeros",
+      "c": [
+        "hmath_foundation_discrete_leading_zeros"
+      ],
+      "python": "hmath.discrete.leading_zeros",
+      "specializations": [
+        "original algorithms; actual supported Ord/Eq dictionaries; no numeric conversion; complete public variants/fields"
+      ]
+    },
+    {
+      "symbol": "HMath.Discrete.multiplicity",
+      "c": [
+        "hmath_foundation_discrete_multiplicity"
+      ],
+      "python": "hmath.discrete.multiplicity",
+      "specializations": [
+        "original algorithms; actual supported Ord/Eq dictionaries; no numeric conversion; complete public variants/fields"
+      ]
+    },
+    {
+      "symbol": "HMath.Discrete.multiset",
+      "c": [
+        "hmath_foundation_discrete_multiset",
+        "hmath_foundation_multiset_typed"
+      ],
+      "python": "hmath.discrete.multiset",
+      "specializations": [
+        "original algorithms; actual supported Ord/Eq dictionaries; no numeric conversion; complete public variants/fields"
+      ]
+    },
+    {
+      "symbol": "HMath.Discrete.multisetDelete",
+      "c": [
+        "hmath_foundation_discrete_multiset_delete"
+      ],
+      "python": "hmath.discrete.multiset_delete",
+      "specializations": [
+        "original algorithms; actual supported Ord/Eq dictionaries; no numeric conversion; complete public variants/fields"
+      ]
+    },
+    {
+      "symbol": "HMath.Discrete.multisetDifference",
+      "c": [
+        "hmath_foundation_discrete_multiset_difference"
+      ],
+      "python": "hmath.discrete.multiset_difference",
+      "specializations": [
+        "original algorithms; actual supported Ord/Eq dictionaries; no numeric conversion; complete public variants/fields"
+      ]
+    },
+    {
+      "symbol": "HMath.Discrete.multisetEntries",
+      "c": [
+        "hmath_foundation_discrete_multiset_entries"
+      ],
+      "python": "hmath.discrete.multiset_entries",
+      "specializations": [
+        "original algorithms; actual supported Ord/Eq dictionaries; no numeric conversion; complete public variants/fields"
+      ]
+    },
+    {
+      "symbol": "HMath.Discrete.multisetInsert",
+      "c": [
+        "hmath_foundation_discrete_multiset_insert"
+      ],
+      "python": "hmath.discrete.multiset_insert",
+      "specializations": [
+        "original algorithms; actual supported Ord/Eq dictionaries; no numeric conversion; complete public variants/fields"
+      ]
+    },
+    {
+      "symbol": "HMath.Discrete.multisetIntersection",
+      "c": [
+        "hmath_foundation_discrete_multiset_intersection"
+      ],
+      "python": "hmath.discrete.multiset_intersection",
+      "specializations": [
+        "original algorithms; actual supported Ord/Eq dictionaries; no numeric conversion; complete public variants/fields"
+      ]
+    },
+    {
+      "symbol": "HMath.Discrete.multisetUnion",
+      "c": [
+        "hmath_foundation_discrete_multiset_union"
+      ],
+      "python": "hmath.discrete.multiset_union",
+      "specializations": [
+        "original algorithms; actual supported Ord/Eq dictionaries; no numeric conversion; complete public variants/fields"
+      ]
+    },
+    {
+      "symbol": "HMath.Discrete.populationCount",
+      "c": [
+        "hmath_foundation_discrete_population_count"
+      ],
+      "python": "hmath.discrete.population_count",
+      "specializations": [
+        "original algorithms; actual supported Ord/Eq dictionaries; no numeric conversion; complete public variants/fields"
+      ]
+    },
+    {
+      "symbol": "HMath.Discrete.quineMcCluskey",
+      "c": [
+        "hmath_foundation_discrete_quine_mc_cluskey"
+      ],
+      "python": "hmath.discrete.quine_mc_cluskey",
+      "specializations": [
+        "original algorithms; actual supported Ord/Eq dictionaries; no numeric conversion; complete public variants/fields"
+      ]
+    },
+    {
+      "symbol": "HMath.Discrete.resizeBitSet",
+      "c": [
+        "hmath_foundation_discrete_resize_bit_set"
+      ],
+      "python": "hmath.discrete.resize_bit_set",
+      "specializations": [
+        "original algorithms; actual supported Ord/Eq dictionaries; no numeric conversion; complete public variants/fields"
+      ]
+    },
+    {
+      "symbol": "HMath.Discrete.reverseBits",
+      "c": [
+        "hmath_foundation_discrete_reverse_bits"
+      ],
+      "python": "hmath.discrete.reverse_bits",
+      "specializations": [
+        "original algorithms; actual supported Ord/Eq dictionaries; no numeric conversion; complete public variants/fields"
+      ]
+    },
+    {
+      "symbol": "HMath.Discrete.rotateBits",
+      "c": [
+        "hmath_foundation_discrete_rotate_bits"
+      ],
+      "python": "hmath.discrete.rotate_bits",
+      "specializations": [
+        "original algorithms; actual supported Ord/Eq dictionaries; no numeric conversion; complete public variants/fields"
+      ]
+    },
+    {
+      "symbol": "HMath.Discrete.trailingZeros",
+      "c": [
+        "hmath_foundation_discrete_trailing_zeros"
+      ],
+      "python": "hmath.discrete.trailing_zeros",
+      "specializations": [
+        "original algorithms; actual supported Ord/Eq dictionaries; no numeric conversion; complete public variants/fields"
+      ]
+    },
+    {
+      "symbol": "HMath.Discrete.transitiveClosure",
+      "c": [
+        "hmath_foundation_discrete_transitive_closure"
+      ],
+      "python": "hmath.discrete.transitive_closure",
+      "specializations": [
+        "original algorithms; actual supported Ord/Eq dictionaries; no numeric conversion; complete public variants/fields"
+      ]
+    },
+    {
+      "symbol": "HMath.Discrete.truthTable",
+      "c": [
+        "hmath_foundation_discrete_truth_table"
+      ],
+      "python": "hmath.discrete.truth_table",
+      "specializations": [
+        "original algorithms; actual supported Ord/Eq dictionaries; no numeric conversion; complete public variants/fields"
+      ]
+    }
+  ]
+}

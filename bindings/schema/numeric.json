@@ -1,0 +1,8278 @@
+{
+  "schema": 1,
+  "functions": [
+    {
+      "module": "HMath.Basic",
+      "name": "factorial",
+      "python": "factorial",
+      "args": [
+        {
+          "name": "n",
+          "type": "z"
+        }
+      ],
+      "result": "z",
+      "checked": false
+    },
+    {
+      "module": "HMath.Basic",
+      "name": "fibonacci",
+      "python": "fibonacci",
+      "args": [
+        {
+          "name": "n",
+          "type": "z"
+        }
+      ],
+      "result": "z",
+      "checked": false
+    },
+    {
+      "module": "HMath.Basic",
+      "name": "isPrime",
+      "python": "is_prime",
+      "args": [
+        {
+          "name": "n",
+          "type": "z"
+        }
+      ],
+      "result": "b",
+      "checked": false
+    },
+    {
+      "module": "HMath.Basic",
+      "name": "clamp",
+      "python": "clamp",
+      "args": [
+        {
+          "name": "low",
+          "type": "f"
+        },
+        {
+          "name": "high",
+          "type": "f"
+        },
+        {
+          "name": "value",
+          "type": "f"
+        }
+      ],
+      "result": "f",
+      "checked": false,
+      "specializations": [
+        "float32",
+        "float64",
+        "rational",
+        "integer",
+        "int8",
+        "int16",
+        "int32",
+        "int64",
+        "uint8",
+        "uint16",
+        "uint32",
+        "uint64",
+        "intp",
+        "uintp"
+      ],
+      "instance_coverage": "standard_numeric_subset"
+    },
+    {
+      "module": "HMath.Basic",
+      "name": "lerp",
+      "python": "lerp",
+      "args": [
+        {
+          "name": "a",
+          "type": "f"
+        },
+        {
+          "name": "b",
+          "type": "f"
+        },
+        {
+          "name": "t",
+          "type": "f"
+        }
+      ],
+      "result": "f",
+      "checked": false,
+      "specializations": [
+        "float32",
+        "float64",
+        "rational",
+        "complex64",
+        "complex128"
+      ],
+      "instance_coverage": "standard_numeric_subset"
+    },
+    {
+      "module": "HMath.Scalar",
+      "name": "add",
+      "python": "add",
+      "args": [
+        {
+          "name": "a",
+          "type": "f"
+        },
+        {
+          "name": "b",
+          "type": "f"
+        }
+      ],
+      "result": "f",
+      "checked": false,
+      "specializations": [
+        "float32",
+        "float64",
+        "rational",
+        "integer",
+        "int8",
+        "int16",
+        "int32",
+        "int64",
+        "uint8",
+        "uint16",
+        "uint32",
+        "uint64",
+        "intp",
+        "uintp",
+        "complex64",
+        "complex128"
+      ],
+      "instance_coverage": "standard_numeric_subset"
+    },
+    {
+      "module": "HMath.Scalar",
+      "name": "subtractScalar",
+      "python": "subtract_scalar",
+      "args": [
+        {
+          "name": "a",
+          "type": "f"
+        },
+        {
+          "name": "b",
+          "type": "f"
+        }
+      ],
+      "result": "f",
+      "checked": false,
+      "specializations": [
+        "float32",
+        "float64",
+        "rational",
+        "integer",
+        "int8",
+        "int16",
+        "int32",
+        "int64",
+        "uint8",
+        "uint16",
+        "uint32",
+        "uint64",
+        "intp",
+        "uintp",
+        "complex64",
+        "complex128"
+      ],
+      "instance_coverage": "standard_numeric_subset"
+    },
+    {
+      "module": "HMath.Scalar",
+      "name": "multiply",
+      "python": "multiply",
+      "args": [
+        {
+          "name": "a",
+          "type": "f"
+        },
+        {
+          "name": "b",
+          "type": "f"
+        }
+      ],
+      "result": "f",
+      "checked": false,
+      "specializations": [
+        "float32",
+        "float64",
+        "rational",
+        "integer",
+        "int8",
+        "int16",
+        "int32",
+        "int64",
+        "uint8",
+        "uint16",
+        "uint32",
+        "uint64",
+        "intp",
+        "uintp",
+        "complex64",
+        "complex128"
+      ],
+      "instance_coverage": "standard_numeric_subset"
+    },
+    {
+      "module": "HMath.Scalar",
+      "name": "minimumScalar",
+      "python": "minimum_scalar",
+      "args": [
+        {
+          "name": "a",
+          "type": "f"
+        },
+        {
+          "name": "b",
+          "type": "f"
+        }
+      ],
+      "result": "f",
+      "checked": false,
+      "specializations": [
+        "float32",
+        "float64",
+        "rational",
+        "integer",
+        "int8",
+        "int16",
+        "int32",
+        "int64",
+        "uint8",
+        "uint16",
+        "uint32",
+        "uint64",
+        "intp",
+        "uintp"
+      ],
+      "instance_coverage": "standard_numeric_subset"
+    },
+    {
+      "module": "HMath.Scalar",
+      "name": "maximumScalar",
+      "python": "maximum_scalar",
+      "args": [
+        {
+          "name": "a",
+          "type": "f"
+        },
+        {
+          "name": "b",
+          "type": "f"
+        }
+      ],
+      "result": "f",
+      "checked": false,
+      "specializations": [
+        "float32",
+        "float64",
+        "rational",
+        "integer",
+        "int8",
+        "int16",
+        "int32",
+        "int64",
+        "uint8",
+        "uint16",
+        "uint32",
+        "uint64",
+        "intp",
+        "uintp"
+      ],
+      "instance_coverage": "standard_numeric_subset"
+    },
+    {
+      "module": "HMath.Scalar",
+      "name": "absolute",
+      "python": "absolute",
+      "args": [
+        {
+          "name": "x",
+          "type": "f"
+        }
+      ],
+      "result": "f",
+      "checked": false,
+      "specializations": [
+        "float32",
+        "float64",
+        "rational",
+        "integer",
+        "int8",
+        "int16",
+        "int32",
+        "int64",
+        "uint8",
+        "uint16",
+        "uint32",
+        "uint64",
+        "intp",
+        "uintp",
+        "complex64",
+        "complex128"
+      ],
+      "instance_coverage": "standard_numeric_subset"
+    },
+    {
+      "module": "HMath.Scalar",
+      "name": "sign",
+      "python": "sign",
+      "args": [
+        {
+          "name": "x",
+          "type": "f"
+        }
+      ],
+      "result": "f",
+      "checked": false,
+      "specializations": [
+        "float32",
+        "float64",
+        "rational",
+        "integer",
+        "int8",
+        "int16",
+        "int32",
+        "int64",
+        "uint8",
+        "uint16",
+        "uint32",
+        "uint64",
+        "intp",
+        "uintp",
+        "complex64",
+        "complex128"
+      ],
+      "instance_coverage": "standard_numeric_subset"
+    },
+    {
+      "module": "HMath.Scalar",
+      "name": "divide",
+      "python": "divide",
+      "args": [
+        {
+          "name": "a",
+          "type": "f"
+        },
+        {
+          "name": "b",
+          "type": "f"
+        }
+      ],
+      "result": "f",
+      "checked": true
+    },
+    {
+      "module": "HMath.Scalar",
+      "name": "power",
+      "python": "power",
+      "args": [
+        {
+          "name": "a",
+          "type": "f"
+        },
+        {
+          "name": "b",
+          "type": "f"
+        }
+      ],
+      "result": "f",
+      "checked": true
+    },
+    {
+      "module": "HMath.Scalar",
+      "name": "hypot",
+      "python": "hypot",
+      "args": [
+        {
+          "name": "a",
+          "type": "f"
+        },
+        {
+          "name": "b",
+          "type": "f"
+        }
+      ],
+      "result": "f",
+      "checked": true
+    },
+    {
+      "module": "HMath.Scalar",
+      "name": "clampChecked",
+      "python": "clamp_checked",
+      "args": [
+        {
+          "name": "low",
+          "type": "f"
+        },
+        {
+          "name": "high",
+          "type": "f"
+        },
+        {
+          "name": "value",
+          "type": "f"
+        }
+      ],
+      "result": "f",
+      "checked": true
+    },
+    {
+      "module": "HMath.Scalar",
+      "name": "lerpChecked",
+      "python": "lerp_checked",
+      "args": [
+        {
+          "name": "a",
+          "type": "f"
+        },
+        {
+          "name": "b",
+          "type": "f"
+        },
+        {
+          "name": "t",
+          "type": "f"
+        }
+      ],
+      "result": "f",
+      "checked": true
+    },
+    {
+      "module": "HMath.Scalar",
+      "name": "inverseLerp",
+      "python": "inverse_lerp",
+      "args": [
+        {
+          "name": "a",
+          "type": "f"
+        },
+        {
+          "name": "b",
+          "type": "f"
+        },
+        {
+          "name": "x",
+          "type": "f"
+        }
+      ],
+      "result": "f",
+      "checked": true
+    },
+    {
+      "module": "HMath.Scalar",
+      "name": "smoothstep",
+      "python": "smoothstep",
+      "args": [
+        {
+          "name": "a",
+          "type": "f"
+        },
+        {
+          "name": "b",
+          "type": "f"
+        },
+        {
+          "name": "x",
+          "type": "f"
+        }
+      ],
+      "result": "f",
+      "checked": true
+    },
+    {
+      "module": "HMath.Scalar",
+      "name": "smootherstep",
+      "python": "smootherstep",
+      "args": [
+        {
+          "name": "a",
+          "type": "f"
+        },
+        {
+          "name": "b",
+          "type": "f"
+        },
+        {
+          "name": "x",
+          "type": "f"
+        }
+      ],
+      "result": "f",
+      "checked": true
+    },
+    {
+      "module": "HMath.Scalar",
+      "name": "remap",
+      "python": "remap",
+      "args": [
+        {
+          "name": "a",
+          "type": "f"
+        },
+        {
+          "name": "b",
+          "type": "f"
+        },
+        {
+          "name": "c",
+          "type": "f"
+        },
+        {
+          "name": "d",
+          "type": "f"
+        },
+        {
+          "name": "x",
+          "type": "f"
+        }
+      ],
+      "result": "f",
+      "checked": true
+    },
+    {
+      "module": "HMath.Scalar",
+      "name": "step",
+      "python": "step",
+      "args": [
+        {
+          "name": "edge",
+          "type": "f"
+        },
+        {
+          "name": "x",
+          "type": "f"
+        }
+      ],
+      "result": "f",
+      "checked": true
+    },
+    {
+      "module": "HMath.Scalar",
+      "name": "sqrtChecked",
+      "python": "sqrt_checked",
+      "args": [
+        {
+          "name": "x",
+          "type": "f"
+        }
+      ],
+      "result": "f",
+      "checked": true
+    },
+    {
+      "module": "HMath.Scalar",
+      "name": "cubeRoot",
+      "python": "cube_root",
+      "args": [
+        {
+          "name": "x",
+          "type": "f"
+        }
+      ],
+      "result": "f",
+      "checked": true
+    },
+    {
+      "module": "HMath.Scalar",
+      "name": "reciprocalSqrt",
+      "python": "reciprocal_sqrt",
+      "args": [
+        {
+          "name": "x",
+          "type": "f"
+        }
+      ],
+      "result": "f",
+      "checked": true
+    },
+    {
+      "module": "HMath.Scalar",
+      "name": "expChecked",
+      "python": "exp_checked",
+      "args": [
+        {
+          "name": "x",
+          "type": "f"
+        }
+      ],
+      "result": "f",
+      "checked": true
+    },
+    {
+      "module": "HMath.Scalar",
+      "name": "logChecked",
+      "python": "log_checked",
+      "args": [
+        {
+          "name": "x",
+          "type": "f"
+        }
+      ],
+      "result": "f",
+      "checked": true
+    },
+    {
+      "module": "HMath.Scalar",
+      "name": "expm1",
+      "python": "expm1",
+      "args": [
+        {
+          "name": "x",
+          "type": "f"
+        }
+      ],
+      "result": "f",
+      "checked": true
+    },
+    {
+      "module": "HMath.Scalar",
+      "name": "log1p",
+      "python": "log1p",
+      "args": [
+        {
+          "name": "x",
+          "type": "f"
+        }
+      ],
+      "result": "f",
+      "checked": true
+    },
+    {
+      "module": "HMath.Scalar",
+      "name": "integerPower",
+      "python": "integer_power",
+      "args": [
+        {
+          "name": "a",
+          "type": "f"
+        },
+        {
+          "name": "n",
+          "type": "z"
+        }
+      ],
+      "result": "f",
+      "checked": true
+    },
+    {
+      "module": "HMath.Scalar",
+      "name": "nthRoot",
+      "python": "nth_root",
+      "args": [
+        {
+          "name": "n",
+          "type": "i"
+        },
+        {
+          "name": "x",
+          "type": "f"
+        }
+      ],
+      "result": "f",
+      "checked": true
+    },
+    {
+      "module": "HMath.Scalar",
+      "name": "roundDigits",
+      "python": "round_digits",
+      "args": [
+        {
+          "name": "n",
+          "type": "i"
+        },
+        {
+          "name": "x",
+          "type": "f"
+        }
+      ],
+      "result": "f",
+      "checked": true
+    },
+    {
+      "module": "HMath.Scalar",
+      "name": "absoluteError",
+      "python": "absolute_error",
+      "args": [
+        {
+          "name": "actual",
+          "type": "f"
+        },
+        {
+          "name": "expected",
+          "type": "f"
+        }
+      ],
+      "result": "f",
+      "checked": true
+    },
+    {
+      "module": "HMath.Scalar",
+      "name": "relativeError",
+      "python": "relative_error",
+      "args": [
+        {
+          "name": "actual",
+          "type": "f"
+        },
+        {
+          "name": "expected",
+          "type": "f"
+        }
+      ],
+      "result": "f",
+      "checked": true
+    },
+    {
+      "module": "HMath.Scalar",
+      "name": "fusedMultiplyAdd",
+      "python": "fused_multiply_add",
+      "args": [
+        {
+          "name": "a",
+          "type": "f"
+        },
+        {
+          "name": "b",
+          "type": "f"
+        },
+        {
+          "name": "c",
+          "type": "f"
+        }
+      ],
+      "result": "f",
+      "checked": true
+    },
+    {
+      "module": "HMath.Scalar",
+      "name": "checkedFloatMultiply",
+      "python": "checked_float_multiply",
+      "args": [
+        {
+          "name": "a",
+          "type": "f"
+        },
+        {
+          "name": "b",
+          "type": "f"
+        }
+      ],
+      "result": "f",
+      "checked": true
+    },
+    {
+      "module": "HMath.Scalar",
+      "name": "floorChecked",
+      "python": "floor_checked",
+      "args": [
+        {
+          "name": "x",
+          "type": "f"
+        }
+      ],
+      "result": "z",
+      "checked": true
+    },
+    {
+      "module": "HMath.Scalar",
+      "name": "ceilChecked",
+      "python": "ceil_checked",
+      "args": [
+        {
+          "name": "x",
+          "type": "f"
+        }
+      ],
+      "result": "z",
+      "checked": true
+    },
+    {
+      "module": "HMath.Scalar",
+      "name": "roundChecked",
+      "python": "round_checked",
+      "args": [
+        {
+          "name": "x",
+          "type": "f"
+        }
+      ],
+      "result": "z",
+      "checked": true
+    },
+    {
+      "module": "HMath.Scalar",
+      "name": "truncateChecked",
+      "python": "truncate_checked",
+      "args": [
+        {
+          "name": "x",
+          "type": "f"
+        }
+      ],
+      "result": "z",
+      "checked": true
+    },
+    {
+      "module": "HMath.Scalar",
+      "name": "bankersRound",
+      "python": "bankers_round",
+      "args": [
+        {
+          "name": "x",
+          "type": "f"
+        }
+      ],
+      "result": "z",
+      "checked": true
+    },
+    {
+      "module": "HMath.Scalar",
+      "name": "integerFraction",
+      "python": "integer_fraction",
+      "args": [
+        {
+          "name": "x",
+          "type": "f"
+        }
+      ],
+      "result": "zf",
+      "checked": true
+    },
+    {
+      "module": "HMath.Scalar",
+      "name": "quotientRemainder",
+      "python": "quotient_remainder",
+      "args": [
+        {
+          "name": "a",
+          "type": "z"
+        },
+        {
+          "name": "b",
+          "type": "z"
+        }
+      ],
+      "result": "zz",
+      "checked": true
+    },
+    {
+      "module": "HMath.Scalar",
+      "name": "euclideanDivision",
+      "python": "euclidean_division",
+      "args": [
+        {
+          "name": "a",
+          "type": "z"
+        },
+        {
+          "name": "b",
+          "type": "z"
+        }
+      ],
+      "result": "zz",
+      "checked": true
+    },
+    {
+      "module": "HMath.Scalar",
+      "name": "positiveModulo",
+      "python": "positive_modulo",
+      "args": [
+        {
+          "name": "a",
+          "type": "z"
+        },
+        {
+          "name": "modulus",
+          "type": "z"
+        }
+      ],
+      "result": "z",
+      "checked": true,
+      "specializations": [
+        "integer",
+        "int8",
+        "int16",
+        "int32",
+        "int64",
+        "uint8",
+        "uint16",
+        "uint32",
+        "uint64",
+        "intp",
+        "uintp"
+      ],
+      "default_dtype": "integer",
+      "legacy_variants": [
+        {
+          "dtype": "integer",
+          "suffix": ""
+        }
+      ],
+      "instance_coverage": "standard_numeric_subset"
+    },
+    {
+      "module": "HMath.Scalar",
+      "name": "modularPower",
+      "python": "modular_power",
+      "args": [
+        {
+          "name": "a",
+          "type": "z"
+        },
+        {
+          "name": "n",
+          "type": "z"
+        },
+        {
+          "name": "modulus",
+          "type": "z"
+        }
+      ],
+      "result": "z",
+      "checked": true
+    },
+    {
+      "module": "HMath.Scalar",
+      "name": "factorialChecked",
+      "python": "factorial_checked",
+      "args": [
+        {
+          "name": "n",
+          "type": "z"
+        }
+      ],
+      "result": "z",
+      "checked": true
+    },
+    {
+      "module": "HMath.Scalar",
+      "name": "doubleFactorial",
+      "python": "double_factorial",
+      "args": [
+        {
+          "name": "n",
+          "type": "z"
+        }
+      ],
+      "result": "z",
+      "checked": true
+    },
+    {
+      "module": "HMath.Scalar",
+      "name": "fibonacciChecked",
+      "python": "fibonacci_checked",
+      "args": [
+        {
+          "name": "n",
+          "type": "z"
+        }
+      ],
+      "result": "z",
+      "checked": true
+    },
+    {
+      "module": "HMath.Scalar",
+      "name": "lucas",
+      "python": "lucas",
+      "args": [
+        {
+          "name": "n",
+          "type": "z"
+        }
+      ],
+      "result": "z",
+      "checked": true
+    },
+    {
+      "module": "HMath.Scalar",
+      "name": "catalan",
+      "python": "catalan",
+      "args": [
+        {
+          "name": "n",
+          "type": "z"
+        }
+      ],
+      "result": "z",
+      "checked": true
+    },
+    {
+      "module": "HMath.Scalar",
+      "name": "risingFactorial",
+      "python": "rising_factorial",
+      "args": [
+        {
+          "name": "x",
+          "type": "z"
+        },
+        {
+          "name": "n",
+          "type": "z"
+        }
+      ],
+      "result": "z",
+      "checked": true
+    },
+    {
+      "module": "HMath.Scalar",
+      "name": "fallingFactorial",
+      "python": "falling_factorial",
+      "args": [
+        {
+          "name": "x",
+          "type": "z"
+        },
+        {
+          "name": "n",
+          "type": "z"
+        }
+      ],
+      "result": "z",
+      "checked": true
+    },
+    {
+      "module": "HMath.Scalar",
+      "name": "permutations",
+      "python": "permutations",
+      "args": [
+        {
+          "name": "n",
+          "type": "z"
+        },
+        {
+          "name": "k",
+          "type": "z"
+        }
+      ],
+      "result": "z",
+      "checked": true
+    },
+    {
+      "module": "HMath.Scalar",
+      "name": "combinations",
+      "python": "combinations",
+      "args": [
+        {
+          "name": "n",
+          "type": "z"
+        },
+        {
+          "name": "k",
+          "type": "z"
+        }
+      ],
+      "result": "z",
+      "checked": true
+    },
+    {
+      "module": "HMath.Scalar",
+      "name": "bernoulli",
+      "python": "bernoulli",
+      "args": [
+        {
+          "name": "n",
+          "type": "i"
+        }
+      ],
+      "result": "q",
+      "checked": true
+    },
+    {
+      "module": "HMath.Scalar",
+      "name": "harmonic",
+      "python": "harmonic",
+      "args": [
+        {
+          "name": "n",
+          "type": "z"
+        }
+      ],
+      "result": "q",
+      "checked": true
+    },
+    {
+      "module": "HMath.Scalar",
+      "name": "cumulativeSum",
+      "python": "cumulative_sum",
+      "args": [
+        {
+          "name": "values",
+          "type": "fs"
+        }
+      ],
+      "result": "fs",
+      "checked": false,
+      "specializations": [
+        "float32",
+        "float64",
+        "rational",
+        "integer",
+        "int8",
+        "int16",
+        "int32",
+        "int64",
+        "uint8",
+        "uint16",
+        "uint32",
+        "uint64",
+        "intp",
+        "uintp",
+        "complex64",
+        "complex128"
+      ],
+      "instance_coverage": "standard_numeric_subset"
+    },
+    {
+      "module": "HMath.Scalar",
+      "name": "cumulativeProduct",
+      "python": "cumulative_product",
+      "args": [
+        {
+          "name": "values",
+          "type": "fs"
+        }
+      ],
+      "result": "fs",
+      "checked": false,
+      "specializations": [
+        "float32",
+        "float64",
+        "rational",
+        "integer",
+        "int8",
+        "int16",
+        "int32",
+        "int64",
+        "uint8",
+        "uint16",
+        "uint32",
+        "uint64",
+        "intp",
+        "uintp",
+        "complex64",
+        "complex128"
+      ],
+      "instance_coverage": "standard_numeric_subset"
+    },
+    {
+      "module": "HMath.Scalar",
+      "name": "prefixSum",
+      "python": "prefix_sum",
+      "args": [
+        {
+          "name": "values",
+          "type": "fs"
+        }
+      ],
+      "result": "fs",
+      "checked": false,
+      "result_extra": 1,
+      "specializations": [
+        "float32",
+        "float64",
+        "rational",
+        "integer",
+        "int8",
+        "int16",
+        "int32",
+        "int64",
+        "uint8",
+        "uint16",
+        "uint32",
+        "uint64",
+        "intp",
+        "uintp",
+        "complex64",
+        "complex128"
+      ],
+      "instance_coverage": "standard_numeric_subset"
+    },
+    {
+      "module": "HMath.Trigonometry",
+      "name": "sinChecked",
+      "python": "sin_checked",
+      "args": [
+        {
+          "name": "x",
+          "type": "f"
+        }
+      ],
+      "result": "f",
+      "checked": true
+    },
+    {
+      "module": "HMath.Trigonometry",
+      "name": "cosChecked",
+      "python": "cos_checked",
+      "args": [
+        {
+          "name": "x",
+          "type": "f"
+        }
+      ],
+      "result": "f",
+      "checked": true
+    },
+    {
+      "module": "HMath.Trigonometry",
+      "name": "tanChecked",
+      "python": "tan_checked",
+      "args": [
+        {
+          "name": "x",
+          "type": "f"
+        }
+      ],
+      "result": "f",
+      "checked": true
+    },
+    {
+      "module": "HMath.Trigonometry",
+      "name": "asinChecked",
+      "python": "asin_checked",
+      "args": [
+        {
+          "name": "x",
+          "type": "f"
+        }
+      ],
+      "result": "f",
+      "checked": true
+    },
+    {
+      "module": "HMath.Trigonometry",
+      "name": "acosChecked",
+      "python": "acos_checked",
+      "args": [
+        {
+          "name": "x",
+          "type": "f"
+        }
+      ],
+      "result": "f",
+      "checked": true
+    },
+    {
+      "module": "HMath.Trigonometry",
+      "name": "atanChecked",
+      "python": "atan_checked",
+      "args": [
+        {
+          "name": "x",
+          "type": "f"
+        }
+      ],
+      "result": "f",
+      "checked": true
+    },
+    {
+      "module": "HMath.Trigonometry",
+      "name": "sec",
+      "python": "sec",
+      "args": [
+        {
+          "name": "x",
+          "type": "f"
+        }
+      ],
+      "result": "f",
+      "checked": true
+    },
+    {
+      "module": "HMath.Trigonometry",
+      "name": "csc",
+      "python": "csc",
+      "args": [
+        {
+          "name": "x",
+          "type": "f"
+        }
+      ],
+      "result": "f",
+      "checked": true
+    },
+    {
+      "module": "HMath.Trigonometry",
+      "name": "cot",
+      "python": "cot",
+      "args": [
+        {
+          "name": "x",
+          "type": "f"
+        }
+      ],
+      "result": "f",
+      "checked": true
+    },
+    {
+      "module": "HMath.Trigonometry",
+      "name": "asec",
+      "python": "asec",
+      "args": [
+        {
+          "name": "x",
+          "type": "f"
+        }
+      ],
+      "result": "f",
+      "checked": true
+    },
+    {
+      "module": "HMath.Trigonometry",
+      "name": "acsc",
+      "python": "acsc",
+      "args": [
+        {
+          "name": "x",
+          "type": "f"
+        }
+      ],
+      "result": "f",
+      "checked": true
+    },
+    {
+      "module": "HMath.Trigonometry",
+      "name": "acot",
+      "python": "acot",
+      "args": [
+        {
+          "name": "x",
+          "type": "f"
+        }
+      ],
+      "result": "f",
+      "checked": true
+    },
+    {
+      "module": "HMath.Trigonometry",
+      "name": "sinhChecked",
+      "python": "sinh_checked",
+      "args": [
+        {
+          "name": "x",
+          "type": "f"
+        }
+      ],
+      "result": "f",
+      "checked": true
+    },
+    {
+      "module": "HMath.Trigonometry",
+      "name": "coshChecked",
+      "python": "cosh_checked",
+      "args": [
+        {
+          "name": "x",
+          "type": "f"
+        }
+      ],
+      "result": "f",
+      "checked": true
+    },
+    {
+      "module": "HMath.Trigonometry",
+      "name": "tanhChecked",
+      "python": "tanh_checked",
+      "args": [
+        {
+          "name": "x",
+          "type": "f"
+        }
+      ],
+      "result": "f",
+      "checked": true
+    },
+    {
+      "module": "HMath.Trigonometry",
+      "name": "asinhChecked",
+      "python": "asinh_checked",
+      "args": [
+        {
+          "name": "x",
+          "type": "f"
+        }
+      ],
+      "result": "f",
+      "checked": true
+    },
+    {
+      "module": "HMath.Trigonometry",
+      "name": "acoshChecked",
+      "python": "acosh_checked",
+      "args": [
+        {
+          "name": "x",
+          "type": "f"
+        }
+      ],
+      "result": "f",
+      "checked": true
+    },
+    {
+      "module": "HMath.Trigonometry",
+      "name": "atanhChecked",
+      "python": "atanh_checked",
+      "args": [
+        {
+          "name": "x",
+          "type": "f"
+        }
+      ],
+      "result": "f",
+      "checked": true
+    },
+    {
+      "module": "HMath.Trigonometry",
+      "name": "sech",
+      "python": "sech",
+      "args": [
+        {
+          "name": "x",
+          "type": "f"
+        }
+      ],
+      "result": "f",
+      "checked": true
+    },
+    {
+      "module": "HMath.Trigonometry",
+      "name": "csch",
+      "python": "csch",
+      "args": [
+        {
+          "name": "x",
+          "type": "f"
+        }
+      ],
+      "result": "f",
+      "checked": true
+    },
+    {
+      "module": "HMath.Trigonometry",
+      "name": "coth",
+      "python": "coth",
+      "args": [
+        {
+          "name": "x",
+          "type": "f"
+        }
+      ],
+      "result": "f",
+      "checked": true
+    },
+    {
+      "module": "HMath.Trigonometry",
+      "name": "asech",
+      "python": "asech",
+      "args": [
+        {
+          "name": "x",
+          "type": "f"
+        }
+      ],
+      "result": "f",
+      "checked": true
+    },
+    {
+      "module": "HMath.Trigonometry",
+      "name": "acsch",
+      "python": "acsch",
+      "args": [
+        {
+          "name": "x",
+          "type": "f"
+        }
+      ],
+      "result": "f",
+      "checked": true
+    },
+    {
+      "module": "HMath.Trigonometry",
+      "name": "acoth",
+      "python": "acoth",
+      "args": [
+        {
+          "name": "x",
+          "type": "f"
+        }
+      ],
+      "result": "f",
+      "checked": true
+    },
+    {
+      "module": "HMath.Trigonometry",
+      "name": "normalizeAngle",
+      "python": "normalize_angle",
+      "args": [
+        {
+          "name": "x",
+          "type": "f"
+        }
+      ],
+      "result": "f",
+      "checked": true
+    },
+    {
+      "module": "HMath.Trigonometry",
+      "name": "normalizeSignedAngle",
+      "python": "normalize_signed_angle",
+      "args": [
+        {
+          "name": "x",
+          "type": "f"
+        }
+      ],
+      "result": "f",
+      "checked": true
+    },
+    {
+      "module": "HMath.Trigonometry",
+      "name": "versine",
+      "python": "versine",
+      "args": [
+        {
+          "name": "x",
+          "type": "f"
+        }
+      ],
+      "result": "f",
+      "checked": true
+    },
+    {
+      "module": "HMath.Trigonometry",
+      "name": "haversine",
+      "python": "haversine",
+      "args": [
+        {
+          "name": "x",
+          "type": "f"
+        }
+      ],
+      "result": "f",
+      "checked": true
+    },
+    {
+      "module": "HMath.Trigonometry",
+      "name": "sinc",
+      "python": "sinc",
+      "args": [
+        {
+          "name": "x",
+          "type": "f"
+        }
+      ],
+      "result": "f",
+      "checked": true
+    },
+    {
+      "module": "HMath.Trigonometry",
+      "name": "cosc",
+      "python": "cosc",
+      "args": [
+        {
+          "name": "x",
+          "type": "f"
+        }
+      ],
+      "result": "f",
+      "checked": true
+    },
+    {
+      "module": "HMath.Trigonometry",
+      "name": "atan2Checked",
+      "python": "atan2_checked",
+      "args": [
+        {
+          "name": "y",
+          "type": "f"
+        },
+        {
+          "name": "x",
+          "type": "f"
+        }
+      ],
+      "result": "f",
+      "checked": true
+    },
+    {
+      "module": "HMath.Trigonometry",
+      "name": "sincos",
+      "python": "sincos",
+      "args": [
+        {
+          "name": "x",
+          "type": "f"
+        }
+      ],
+      "result": "ff",
+      "checked": true
+    },
+    {
+      "module": "HMath.Trigonometry",
+      "name": "wrap",
+      "python": "wrap",
+      "args": [
+        {
+          "name": "low",
+          "type": "f"
+        },
+        {
+          "name": "high",
+          "type": "f"
+        },
+        {
+          "name": "x",
+          "type": "f"
+        }
+      ],
+      "result": "f",
+      "checked": true
+    },
+    {
+      "module": "HMath.Trigonometry",
+      "name": "angleDifference",
+      "python": "angle_difference",
+      "args": [
+        {
+          "name": "a",
+          "type": "f"
+        },
+        {
+          "name": "b",
+          "type": "f"
+        }
+      ],
+      "result": "f",
+      "checked": true
+    },
+    {
+      "module": "HMath.Trigonometry",
+      "name": "greatCircleAngle",
+      "python": "great_circle_angle",
+      "args": [
+        {
+          "name": "a",
+          "type": "p"
+        },
+        {
+          "name": "b",
+          "type": "p"
+        }
+      ],
+      "result": "f",
+      "checked": true
+    },
+    {
+      "module": "HMath.Trigonometry",
+      "name": "greatCircleDistance",
+      "python": "great_circle_distance",
+      "args": [
+        {
+          "name": "radius",
+          "type": "f"
+        },
+        {
+          "name": "a",
+          "type": "p"
+        },
+        {
+          "name": "b",
+          "type": "p"
+        }
+      ],
+      "result": "f",
+      "checked": true
+    },
+    {
+      "module": "HMath.Trigonometry",
+      "name": "sphericalSide",
+      "python": "spherical_side",
+      "args": [
+        {
+          "name": "a",
+          "type": "f"
+        },
+        {
+          "name": "b",
+          "type": "f"
+        },
+        {
+          "name": "included",
+          "type": "f"
+        }
+      ],
+      "result": "f",
+      "checked": true
+    },
+    {
+      "module": "HMath.Trigonometry",
+      "name": "sphericalAngles",
+      "python": "spherical_angles",
+      "args": [
+        {
+          "name": "a",
+          "type": "f"
+        },
+        {
+          "name": "b",
+          "type": "f"
+        },
+        {
+          "name": "c",
+          "type": "f"
+        }
+      ],
+      "result": "fff",
+      "checked": true
+    },
+    {
+      "module": "HMath.Trigonometry",
+      "name": "sphericalExcess",
+      "python": "spherical_excess",
+      "args": [
+        {
+          "name": "a",
+          "type": "f"
+        },
+        {
+          "name": "b",
+          "type": "f"
+        },
+        {
+          "name": "c",
+          "type": "f"
+        }
+      ],
+      "result": "f",
+      "checked": true
+    },
+    {
+      "module": "HMath.Trigonometry",
+      "name": "complexSin",
+      "python": "complex_sin",
+      "args": [
+        {
+          "name": "z",
+          "type": "c"
+        }
+      ],
+      "result": "c",
+      "checked": true
+    },
+    {
+      "module": "HMath.Trigonometry",
+      "name": "complexCos",
+      "python": "complex_cos",
+      "args": [
+        {
+          "name": "z",
+          "type": "c"
+        }
+      ],
+      "result": "c",
+      "checked": true
+    },
+    {
+      "module": "HMath.Trigonometry",
+      "name": "complexTan",
+      "python": "complex_tan",
+      "args": [
+        {
+          "name": "z",
+          "type": "c"
+        }
+      ],
+      "result": "c",
+      "checked": true
+    },
+    {
+      "module": "HMath.Trigonometry",
+      "name": "complexAsin",
+      "python": "complex_asin",
+      "args": [
+        {
+          "name": "z",
+          "type": "c"
+        }
+      ],
+      "result": "c",
+      "checked": true
+    },
+    {
+      "module": "HMath.Trigonometry",
+      "name": "complexAcos",
+      "python": "complex_acos",
+      "args": [
+        {
+          "name": "z",
+          "type": "c"
+        }
+      ],
+      "result": "c",
+      "checked": true
+    },
+    {
+      "module": "HMath.Trigonometry",
+      "name": "complexAtan",
+      "python": "complex_atan",
+      "args": [
+        {
+          "name": "z",
+          "type": "c"
+        }
+      ],
+      "result": "c",
+      "checked": true
+    },
+    {
+      "module": "HMath.Trigonometry",
+      "name": "complexSinh",
+      "python": "complex_sinh",
+      "args": [
+        {
+          "name": "z",
+          "type": "c"
+        }
+      ],
+      "result": "c",
+      "checked": true
+    },
+    {
+      "module": "HMath.Trigonometry",
+      "name": "complexCosh",
+      "python": "complex_cosh",
+      "args": [
+        {
+          "name": "z",
+          "type": "c"
+        }
+      ],
+      "result": "c",
+      "checked": true
+    },
+    {
+      "module": "HMath.Trigonometry",
+      "name": "complexTanh",
+      "python": "complex_tanh",
+      "args": [
+        {
+          "name": "z",
+          "type": "c"
+        }
+      ],
+      "result": "c",
+      "checked": true
+    },
+    {
+      "module": "HMath.Trigonometry",
+      "name": "complexAsinh",
+      "python": "complex_asinh",
+      "args": [
+        {
+          "name": "z",
+          "type": "c"
+        }
+      ],
+      "result": "c",
+      "checked": true
+    },
+    {
+      "module": "HMath.Trigonometry",
+      "name": "complexAcosh",
+      "python": "complex_acosh",
+      "args": [
+        {
+          "name": "z",
+          "type": "c"
+        }
+      ],
+      "result": "c",
+      "checked": true
+    },
+    {
+      "module": "HMath.Trigonometry",
+      "name": "complexAtanh",
+      "python": "complex_atanh",
+      "args": [
+        {
+          "name": "z",
+          "type": "c"
+        }
+      ],
+      "result": "c",
+      "checked": true
+    },
+    {
+      "module": "HMath.Trigonometry",
+      "name": "periodicSawtooth",
+      "python": "periodic_sawtooth",
+      "args": [
+        {
+          "name": "period",
+          "type": "f"
+        },
+        {
+          "name": "x",
+          "type": "f"
+        }
+      ],
+      "result": "f",
+      "checked": true
+    },
+    {
+      "module": "HMath.Trigonometry",
+      "name": "periodicTriangle",
+      "python": "periodic_triangle",
+      "args": [
+        {
+          "name": "period",
+          "type": "f"
+        },
+        {
+          "name": "x",
+          "type": "f"
+        }
+      ],
+      "result": "f",
+      "checked": true
+    },
+    {
+      "module": "HMath.Trigonometry",
+      "name": "periodicSquare",
+      "python": "periodic_square",
+      "args": [
+        {
+          "name": "period",
+          "type": "f"
+        },
+        {
+          "name": "x",
+          "type": "f"
+        }
+      ],
+      "result": "f",
+      "checked": true
+    },
+    {
+      "module": "HMath.Statistics",
+      "name": "mean",
+      "python": "mean",
+      "args": [
+        {
+          "name": "values",
+          "type": "fs"
+        }
+      ],
+      "result": "f",
+      "checked": false,
+      "specializations": [
+        "float32",
+        "float64",
+        "rational",
+        "complex64",
+        "complex128"
+      ],
+      "instance_coverage": "standard_numeric_subset"
+    },
+    {
+      "module": "HMath.Statistics",
+      "name": "variance",
+      "python": "variance",
+      "args": [
+        {
+          "name": "values",
+          "type": "fs"
+        }
+      ],
+      "result": "f",
+      "checked": false,
+      "specializations": [
+        "float32",
+        "float64",
+        "rational",
+        "complex64",
+        "complex128"
+      ],
+      "instance_coverage": "standard_numeric_subset"
+    },
+    {
+      "module": "HMath.Statistics",
+      "name": "standardDeviation",
+      "python": "standard_deviation",
+      "args": [
+        {
+          "name": "values",
+          "type": "fs"
+        }
+      ],
+      "result": "f",
+      "checked": false,
+      "specializations": [
+        "float32",
+        "float64",
+        "complex64",
+        "complex128"
+      ],
+      "instance_coverage": "standard_numeric_subset"
+    },
+    {
+      "module": "HMath.Statistics",
+      "name": "median",
+      "python": "median",
+      "args": [
+        {
+          "name": "values",
+          "type": "fs"
+        }
+      ],
+      "result": "f",
+      "checked": false,
+      "specializations": [
+        "float32",
+        "float64",
+        "rational"
+      ],
+      "instance_coverage": "standard_numeric_subset"
+    },
+    {
+      "module": "HMath.Constants",
+      "name": "piConstant",
+      "python": "pi_constant",
+      "args": [],
+      "result": "f",
+      "checked": false
+    },
+    {
+      "module": "HMath.Constants",
+      "name": "eConstant",
+      "python": "e_constant",
+      "args": [],
+      "result": "f",
+      "checked": false
+    },
+    {
+      "module": "HMath.Constants",
+      "name": "tau",
+      "python": "tau",
+      "args": [],
+      "result": "f",
+      "checked": false
+    },
+    {
+      "module": "HMath.Constants",
+      "name": "goldenRatio",
+      "python": "golden_ratio",
+      "args": [],
+      "result": "f",
+      "checked": false
+    },
+    {
+      "module": "HMath.Constants",
+      "name": "eulerMascheroni",
+      "python": "euler_mascheroni",
+      "args": [],
+      "result": "f",
+      "checked": false
+    },
+    {
+      "module": "HMath.Constants",
+      "name": "catalanConstant",
+      "python": "catalan_constant",
+      "args": [],
+      "result": "f",
+      "checked": false
+    },
+    {
+      "module": "HMath.Constants",
+      "name": "aperyConstant",
+      "python": "apery_constant",
+      "args": [],
+      "result": "f",
+      "checked": false
+    },
+    {
+      "module": "HMath.Constants",
+      "name": "sqrt2",
+      "python": "sqrt2",
+      "args": [],
+      "result": "f",
+      "checked": false
+    },
+    {
+      "module": "HMath.Constants",
+      "name": "sqrt3",
+      "python": "sqrt3",
+      "args": [],
+      "result": "f",
+      "checked": false
+    },
+    {
+      "module": "HMath.Constants",
+      "name": "ln2",
+      "python": "ln2",
+      "args": [],
+      "result": "f",
+      "checked": false
+    },
+    {
+      "module": "HMath.Constants",
+      "name": "ln10",
+      "python": "ln10",
+      "args": [],
+      "result": "f",
+      "checked": false
+    },
+    {
+      "module": "HMath.Constants",
+      "name": "infinity",
+      "python": "infinity",
+      "args": [],
+      "result": "f",
+      "checked": false
+    },
+    {
+      "module": "HMath.Constants",
+      "name": "nan",
+      "python": "nan",
+      "args": [],
+      "result": "f",
+      "checked": false
+    },
+    {
+      "module": "HMath.Scalar",
+      "name": "multinomial",
+      "python": "multinomial",
+      "args": [
+        {
+          "name": "ks",
+          "type": "zs"
+        }
+      ],
+      "result": "z",
+      "checked": true
+    },
+    {
+      "module": "HMath.NumberTheory",
+      "name": "gcdInteger",
+      "python": "gcd_integer",
+      "args": [
+        {
+          "name": "argument1",
+          "type": "z"
+        },
+        {
+          "name": "argument2",
+          "type": "z"
+        }
+      ],
+      "result": "z",
+      "checked": false
+    },
+    {
+      "module": "HMath.NumberTheory",
+      "name": "lcmInteger",
+      "python": "lcm_integer",
+      "args": [
+        {
+          "name": "argument1",
+          "type": "z"
+        },
+        {
+          "name": "argument2",
+          "type": "z"
+        }
+      ],
+      "result": "z",
+      "checked": false
+    },
+    {
+      "module": "HMath.NumberTheory",
+      "name": "extendedGCD",
+      "python": "extended_g_c_d",
+      "args": [
+        {
+          "name": "a",
+          "type": "z"
+        },
+        {
+          "name": "b",
+          "type": "z"
+        }
+      ],
+      "result": "zzz",
+      "checked": false
+    },
+    {
+      "module": "HMath.NumberTheory",
+      "name": "bezout",
+      "python": "bezout",
+      "args": [
+        {
+          "name": "a",
+          "type": "z"
+        },
+        {
+          "name": "b",
+          "type": "z"
+        }
+      ],
+      "result": "zz",
+      "checked": false
+    },
+    {
+      "module": "HMath.NumberTheory",
+      "name": "modPow",
+      "python": "mod_pow",
+      "args": [
+        {
+          "name": "a",
+          "type": "z"
+        },
+        {
+          "name": "e",
+          "type": "z"
+        },
+        {
+          "name": "m",
+          "type": "z"
+        }
+      ],
+      "result": "z",
+      "checked": true
+    },
+    {
+      "module": "HMath.NumberTheory",
+      "name": "modInverse",
+      "python": "mod_inverse",
+      "args": [
+        {
+          "name": "a",
+          "type": "z"
+        },
+        {
+          "name": "m",
+          "type": "z"
+        }
+      ],
+      "result": "z",
+      "checked": true
+    },
+    {
+      "module": "HMath.NumberTheory",
+      "name": "integerSquareRoot",
+      "python": "integer_square_root",
+      "args": [
+        {
+          "name": "n",
+          "type": "z"
+        }
+      ],
+      "result": "z",
+      "checked": true
+    },
+    {
+      "module": "HMath.NumberTheory",
+      "name": "isPrimeExact",
+      "python": "is_prime_exact",
+      "args": [
+        {
+          "name": "budget",
+          "type": "i"
+        },
+        {
+          "name": "n",
+          "type": "z"
+        }
+      ],
+      "result": "b",
+      "checked": true
+    },
+    {
+      "module": "HMath.NumberTheory",
+      "name": "nextPrime",
+      "python": "next_prime",
+      "args": [
+        {
+          "name": "budget",
+          "type": "i"
+        },
+        {
+          "name": "n",
+          "type": "z"
+        }
+      ],
+      "result": "z",
+      "checked": true
+    },
+    {
+      "module": "HMath.NumberTheory",
+      "name": "millerRabin",
+      "python": "miller_rabin",
+      "args": [
+        {
+          "name": "bases",
+          "type": "zs"
+        },
+        {
+          "name": "n",
+          "type": "z"
+        }
+      ],
+      "result": "b",
+      "checked": true
+    },
+    {
+      "module": "HMath.NumberTheory",
+      "name": "bailliePSW",
+      "python": "baillie_p_s_w",
+      "args": [
+        {
+          "name": "n",
+          "type": "z"
+        }
+      ],
+      "result": "b",
+      "checked": true
+    },
+    {
+      "module": "HMath.NumberTheory",
+      "name": "sieveEratosthenes",
+      "python": "sieve_eratosthenes",
+      "args": [
+        {
+          "name": "bound",
+          "type": "i"
+        }
+      ],
+      "result": "zd",
+      "checked": false
+    },
+    {
+      "module": "HMath.NumberTheory",
+      "name": "sieveAtkin",
+      "python": "sieve_atkin",
+      "args": [
+        {
+          "name": "bound",
+          "type": "i"
+        }
+      ],
+      "result": "zd",
+      "checked": false
+    },
+    {
+      "module": "HMath.NumberTheory",
+      "name": "segmentedSieve",
+      "python": "segmented_sieve",
+      "args": [
+        {
+          "name": "lo",
+          "type": "z"
+        },
+        {
+          "name": "hi",
+          "type": "z"
+        }
+      ],
+      "result": "zd",
+      "checked": true
+    },
+    {
+      "module": "HMath.NumberTheory",
+      "name": "pollardRho",
+      "python": "pollard_rho",
+      "args": [
+        {
+          "name": "budget",
+          "type": "i"
+        },
+        {
+          "name": "seed",
+          "type": "z"
+        },
+        {
+          "name": "n",
+          "type": "z"
+        }
+      ],
+      "result": "z",
+      "checked": true
+    },
+    {
+      "module": "HMath.NumberTheory",
+      "name": "pollardPMinusOne",
+      "python": "pollard_p_minus_one",
+      "args": [
+        {
+          "name": "bound",
+          "type": "i"
+        },
+        {
+          "name": "base",
+          "type": "z"
+        },
+        {
+          "name": "n",
+          "type": "z"
+        }
+      ],
+      "result": "z",
+      "checked": true
+    },
+    {
+      "module": "HMath.NumberTheory",
+      "name": "fermatFactor",
+      "python": "fermat_factor",
+      "args": [
+        {
+          "name": "budget",
+          "type": "i"
+        },
+        {
+          "name": "n",
+          "type": "z"
+        }
+      ],
+      "result": "z",
+      "checked": true
+    },
+    {
+      "module": "HMath.NumberTheory",
+      "name": "divisors",
+      "python": "divisors",
+      "args": [
+        {
+          "name": "budget",
+          "type": "i"
+        },
+        {
+          "name": "n",
+          "type": "z"
+        }
+      ],
+      "result": "zd",
+      "checked": true
+    },
+    {
+      "module": "HMath.NumberTheory",
+      "name": "divisorSum",
+      "python": "divisor_sum",
+      "args": [
+        {
+          "name": "budget",
+          "type": "i"
+        },
+        {
+          "name": "n",
+          "type": "z"
+        }
+      ],
+      "result": "z",
+      "checked": true
+    },
+    {
+      "module": "HMath.NumberTheory",
+      "name": "divisorCount",
+      "python": "divisor_count",
+      "args": [
+        {
+          "name": "budget",
+          "type": "i"
+        },
+        {
+          "name": "n",
+          "type": "z"
+        }
+      ],
+      "result": "z",
+      "checked": true
+    },
+    {
+      "module": "HMath.NumberTheory",
+      "name": "eulerTotient",
+      "python": "euler_totient",
+      "args": [
+        {
+          "name": "budget",
+          "type": "i"
+        },
+        {
+          "name": "n",
+          "type": "z"
+        }
+      ],
+      "result": "z",
+      "checked": true
+    },
+    {
+      "module": "HMath.NumberTheory",
+      "name": "carmichael",
+      "python": "carmichael",
+      "args": [
+        {
+          "name": "budget",
+          "type": "i"
+        },
+        {
+          "name": "n",
+          "type": "z"
+        }
+      ],
+      "result": "z",
+      "checked": true
+    },
+    {
+      "module": "HMath.NumberTheory",
+      "name": "mobius",
+      "python": "mobius",
+      "args": [
+        {
+          "name": "budget",
+          "type": "i"
+        },
+        {
+          "name": "n",
+          "type": "z"
+        }
+      ],
+      "result": "z",
+      "checked": true
+    },
+    {
+      "module": "HMath.NumberTheory",
+      "name": "liouville",
+      "python": "liouville",
+      "args": [
+        {
+          "name": "budget",
+          "type": "i"
+        },
+        {
+          "name": "n",
+          "type": "z"
+        }
+      ],
+      "result": "z",
+      "checked": true
+    },
+    {
+      "module": "HMath.NumberTheory",
+      "name": "multiplicativeOrder",
+      "python": "multiplicative_order",
+      "args": [
+        {
+          "name": "budget",
+          "type": "i"
+        },
+        {
+          "name": "a",
+          "type": "z"
+        },
+        {
+          "name": "m",
+          "type": "z"
+        }
+      ],
+      "result": "z",
+      "checked": true
+    },
+    {
+      "module": "HMath.NumberTheory",
+      "name": "primitiveRoot",
+      "python": "primitive_root",
+      "args": [
+        {
+          "name": "budget",
+          "type": "i"
+        },
+        {
+          "name": "m",
+          "type": "z"
+        }
+      ],
+      "result": "z",
+      "checked": true
+    },
+    {
+      "module": "HMath.NumberTheory",
+      "name": "discreteLog",
+      "python": "discrete_log",
+      "args": [
+        {
+          "name": "budget",
+          "type": "i"
+        },
+        {
+          "name": "a",
+          "type": "z"
+        },
+        {
+          "name": "b",
+          "type": "z"
+        },
+        {
+          "name": "m",
+          "type": "z"
+        }
+      ],
+      "result": "z",
+      "checked": true
+    },
+    {
+      "module": "HMath.NumberTheory",
+      "name": "legendreSymbol",
+      "python": "legendre_symbol",
+      "args": [
+        {
+          "name": "budget",
+          "type": "i"
+        },
+        {
+          "name": "a",
+          "type": "z"
+        },
+        {
+          "name": "p",
+          "type": "z"
+        }
+      ],
+      "result": "z",
+      "checked": true
+    },
+    {
+      "module": "HMath.NumberTheory",
+      "name": "jacobiSymbol",
+      "python": "jacobi_symbol",
+      "args": [
+        {
+          "name": "a",
+          "type": "z"
+        },
+        {
+          "name": "n",
+          "type": "z"
+        }
+      ],
+      "result": "z",
+      "checked": true
+    },
+    {
+      "module": "HMath.NumberTheory",
+      "name": "kroneckerSymbol",
+      "python": "kronecker_symbol",
+      "args": [
+        {
+          "name": "a",
+          "type": "z"
+        },
+        {
+          "name": "n",
+          "type": "z"
+        }
+      ],
+      "result": "z",
+      "checked": false
+    },
+    {
+      "module": "HMath.NumberTheory",
+      "name": "tonelliShanks",
+      "python": "tonelli_shanks",
+      "args": [
+        {
+          "name": "budget",
+          "type": "i"
+        },
+        {
+          "name": "a",
+          "type": "z"
+        },
+        {
+          "name": "p",
+          "type": "z"
+        }
+      ],
+      "result": "z",
+      "checked": true
+    },
+    {
+      "module": "HMath.NumberTheory",
+      "name": "continuedFraction",
+      "python": "continued_fraction",
+      "args": [
+        {
+          "name": "r",
+          "type": "q"
+        }
+      ],
+      "result": "zd",
+      "checked": false
+    },
+    {
+      "module": "HMath.NumberTheory",
+      "name": "fromContinuedFraction",
+      "python": "from_continued_fraction",
+      "args": [
+        {
+          "name": "argument1",
+          "type": "zs"
+        }
+      ],
+      "result": "q",
+      "checked": true
+    },
+    {
+      "module": "HMath.NumberTheory",
+      "name": "convergents",
+      "python": "convergents",
+      "args": [
+        {
+          "name": "xs",
+          "type": "zs"
+        }
+      ],
+      "result": "qd",
+      "checked": true
+    },
+    {
+      "module": "HMath.NumberTheory",
+      "name": "farey",
+      "python": "farey",
+      "args": [
+        {
+          "name": "n",
+          "type": "z"
+        }
+      ],
+      "result": "qd",
+      "checked": true
+    },
+    {
+      "module": "HMath.NumberTheory",
+      "name": "pellFundamental",
+      "python": "pell_fundamental",
+      "args": [
+        {
+          "name": "budget",
+          "type": "i"
+        },
+        {
+          "name": "d",
+          "type": "z"
+        }
+      ],
+      "result": "zz",
+      "checked": true
+    },
+    {
+      "module": "HMath.NumberTheory",
+      "name": "isPerfectNumber",
+      "python": "is_perfect_number",
+      "args": [
+        {
+          "name": "budget",
+          "type": "i"
+        },
+        {
+          "name": "n",
+          "type": "z"
+        }
+      ],
+      "result": "b",
+      "checked": true
+    },
+    {
+      "module": "HMath.NumberTheory",
+      "name": "areAmicable",
+      "python": "are_amicable",
+      "args": [
+        {
+          "name": "budget",
+          "type": "i"
+        },
+        {
+          "name": "a",
+          "type": "z"
+        },
+        {
+          "name": "b",
+          "type": "z"
+        }
+      ],
+      "result": "b",
+      "checked": true
+    },
+    {
+      "module": "HMath.NumberTheory",
+      "name": "partitionCount",
+      "python": "partition_count",
+      "args": [
+        {
+          "name": "n",
+          "type": "i"
+        }
+      ],
+      "result": "z",
+      "checked": true
+    },
+    {
+      "module": "HMath.NumberTheory",
+      "name": "fibonacciFast",
+      "python": "fibonacci_fast",
+      "args": [
+        {
+          "name": "n",
+          "type": "z"
+        }
+      ],
+      "result": "z",
+      "checked": false
+    },
+    {
+      "module": "HMath.Combinatorics",
+      "name": "permutationsCount",
+      "python": "permutations_count",
+      "args": [
+        {
+          "name": "n",
+          "type": "i"
+        },
+        {
+          "name": "k",
+          "type": "i"
+        }
+      ],
+      "result": "z",
+      "checked": true
+    },
+    {
+      "module": "HMath.Combinatorics",
+      "name": "combinationsCount",
+      "python": "combinations_count",
+      "args": [
+        {
+          "name": "n",
+          "type": "i"
+        },
+        {
+          "name": "k",
+          "type": "i"
+        }
+      ],
+      "result": "z",
+      "checked": true
+    },
+    {
+      "module": "HMath.Combinatorics",
+      "name": "multinomial",
+      "python": "multinomial",
+      "args": [
+        {
+          "name": "argument1",
+          "type": "is"
+        }
+      ],
+      "result": "z",
+      "checked": true
+    },
+    {
+      "module": "HMath.Combinatorics",
+      "name": "rankPermutation",
+      "python": "rank_permutation",
+      "args": [
+        {
+          "name": "p",
+          "type": "is"
+        }
+      ],
+      "result": "z",
+      "checked": true
+    },
+    {
+      "module": "HMath.Combinatorics",
+      "name": "unrankPermutation",
+      "python": "unrank_permutation",
+      "args": [
+        {
+          "name": "n",
+          "type": "i"
+        },
+        {
+          "name": "r",
+          "type": "z"
+        }
+      ],
+      "result": "id",
+      "checked": true
+    },
+    {
+      "module": "HMath.Combinatorics",
+      "name": "rankCombination",
+      "python": "rank_combination",
+      "args": [
+        {
+          "name": "n",
+          "type": "i"
+        },
+        {
+          "name": "xs",
+          "type": "is"
+        }
+      ],
+      "result": "z",
+      "checked": true
+    },
+    {
+      "module": "HMath.Combinatorics",
+      "name": "unrankCombination",
+      "python": "unrank_combination",
+      "args": [
+        {
+          "name": "n",
+          "type": "i"
+        },
+        {
+          "name": "k",
+          "type": "i"
+        },
+        {
+          "name": "r",
+          "type": "z"
+        }
+      ],
+      "result": "id",
+      "checked": true
+    },
+    {
+      "module": "HMath.Combinatorics",
+      "name": "derangementCount",
+      "python": "derangement_count",
+      "args": [
+        {
+          "name": "n",
+          "type": "i"
+        }
+      ],
+      "result": "z",
+      "checked": true
+    },
+    {
+      "module": "HMath.Combinatorics",
+      "name": "stirlingFirst",
+      "python": "stirling_first",
+      "args": [
+        {
+          "name": "argument1",
+          "type": "i"
+        },
+        {
+          "name": "argument2",
+          "type": "i"
+        }
+      ],
+      "result": "z",
+      "checked": true
+    },
+    {
+      "module": "HMath.Combinatorics",
+      "name": "stirlingSecond",
+      "python": "stirling_second",
+      "args": [
+        {
+          "name": "argument1",
+          "type": "i"
+        },
+        {
+          "name": "argument2",
+          "type": "i"
+        }
+      ],
+      "result": "z",
+      "checked": true
+    },
+    {
+      "module": "HMath.Combinatorics",
+      "name": "bellNumber",
+      "python": "bell_number",
+      "args": [
+        {
+          "name": "n",
+          "type": "i"
+        }
+      ],
+      "result": "z",
+      "checked": true
+    },
+    {
+      "module": "HMath.Combinatorics",
+      "name": "eulerianNumber",
+      "python": "eulerian_number",
+      "args": [
+        {
+          "name": "argument1",
+          "type": "i"
+        },
+        {
+          "name": "argument2",
+          "type": "i"
+        }
+      ],
+      "result": "z",
+      "checked": true
+    },
+    {
+      "module": "HMath.Combinatorics",
+      "name": "lahNumber",
+      "python": "lah_number",
+      "args": [
+        {
+          "name": "n",
+          "type": "i"
+        },
+        {
+          "name": "k",
+          "type": "i"
+        }
+      ],
+      "result": "z",
+      "checked": true
+    },
+    {
+      "module": "HMath.Combinatorics",
+      "name": "catalanNumber",
+      "python": "catalan_number",
+      "args": [
+        {
+          "name": "argument1",
+          "type": "i"
+        }
+      ],
+      "result": "z",
+      "checked": true
+    },
+    {
+      "module": "HMath.Combinatorics",
+      "name": "fibonacci",
+      "python": "fibonacci",
+      "args": [
+        {
+          "name": "n",
+          "type": "i"
+        }
+      ],
+      "result": "z",
+      "checked": true
+    },
+    {
+      "module": "HMath.Combinatorics",
+      "name": "lucas",
+      "python": "lucas",
+      "args": [
+        {
+          "name": "n",
+          "type": "i"
+        }
+      ],
+      "result": "z",
+      "checked": true
+    },
+    {
+      "module": "HMath.Combinatorics",
+      "name": "inclusionExclusion",
+      "python": "inclusion_exclusion",
+      "args": [
+        {
+          "name": "n",
+          "type": "i"
+        },
+        {
+          "name": "sizes",
+          "type": "zs"
+        }
+      ],
+      "result": "z",
+      "checked": true
+    },
+    {
+      "module": "HMath.Combinatorics",
+      "name": "multisetCount",
+      "python": "multiset_count",
+      "args": [
+        {
+          "name": "argument1",
+          "type": "fs"
+        }
+      ],
+      "result": "z",
+      "checked": true
+    },
+    {
+      "module": "HMath.Combinatorics",
+      "name": "linearRecurrence",
+      "python": "linear_recurrence",
+      "args": [
+        {
+          "name": "n",
+          "type": "i"
+        },
+        {
+          "name": "cs",
+          "type": "zs"
+        },
+        {
+          "name": "initial",
+          "type": "zs"
+        }
+      ],
+      "result": "zd",
+      "checked": true
+    },
+    {
+      "module": "HMath.Combinatorics",
+      "name": "convolveSeries",
+      "python": "convolve_series",
+      "args": [
+        {
+          "name": "n",
+          "type": "i"
+        },
+        {
+          "name": "a",
+          "type": "zs"
+        },
+        {
+          "name": "b",
+          "type": "zs"
+        }
+      ],
+      "result": "zd",
+      "checked": true
+    },
+    {
+      "module": "HMath.Combinatorics",
+      "name": "finiteSum",
+      "python": "finite_sum",
+      "args": [
+        {
+          "name": "argument1",
+          "type": "fs"
+        }
+      ],
+      "result": "f",
+      "checked": false
+    },
+    {
+      "module": "HMath.Linear",
+      "name": "dot",
+      "python": "dot",
+      "args": [
+        {
+          "name": "argument1",
+          "type": "fs"
+        },
+        {
+          "name": "argument2",
+          "type": "fs"
+        }
+      ],
+      "result": "f",
+      "checked": false,
+      "specializations": [
+        "float32",
+        "float64",
+        "rational",
+        "integer",
+        "int8",
+        "int16",
+        "int32",
+        "int64",
+        "uint8",
+        "uint16",
+        "uint32",
+        "uint64",
+        "intp",
+        "uintp",
+        "complex64",
+        "complex128"
+      ],
+      "instance_coverage": "standard_numeric_subset"
+    },
+    {
+      "module": "HMath.Linear",
+      "name": "dotChecked",
+      "python": "dot_checked",
+      "args": [
+        {
+          "name": "argument1",
+          "type": "fs"
+        },
+        {
+          "name": "argument2",
+          "type": "fs"
+        }
+      ],
+      "result": "f",
+      "checked": true,
+      "specializations": [
+        "float32",
+        "float64",
+        "rational",
+        "integer",
+        "int8",
+        "int16",
+        "int32",
+        "int64",
+        "uint8",
+        "uint16",
+        "uint32",
+        "uint64",
+        "intp",
+        "uintp",
+        "complex64",
+        "complex128"
+      ],
+      "instance_coverage": "standard_numeric_subset"
+    },
+    {
+      "module": "HMath.Linear",
+      "name": "magnitude",
+      "python": "magnitude",
+      "args": [
+        {
+          "name": "argument1",
+          "type": "fs"
+        }
+      ],
+      "result": "f",
+      "checked": false,
+      "specializations": [
+        "float32",
+        "float64",
+        "complex64",
+        "complex128"
+      ],
+      "instance_coverage": "standard_numeric_subset"
+    },
+    {
+      "module": "HMath.Linear",
+      "name": "normalize",
+      "python": "normalize",
+      "args": [
+        {
+          "name": "argument1",
+          "type": "fs"
+        }
+      ],
+      "result": "fd",
+      "checked": false,
+      "specializations": [
+        "float32",
+        "float64",
+        "complex64",
+        "complex128"
+      ],
+      "instance_coverage": "standard_numeric_subset"
+    },
+    {
+      "module": "HMath.Linear",
+      "name": "add",
+      "python": "add",
+      "args": [
+        {
+          "name": "argument1",
+          "type": "fs"
+        },
+        {
+          "name": "argument2",
+          "type": "fs"
+        }
+      ],
+      "result": "fd",
+      "checked": false,
+      "specializations": [
+        "float32",
+        "float64",
+        "rational",
+        "integer",
+        "int8",
+        "int16",
+        "int32",
+        "int64",
+        "uint8",
+        "uint16",
+        "uint32",
+        "uint64",
+        "intp",
+        "uintp",
+        "complex64",
+        "complex128"
+      ],
+      "instance_coverage": "standard_numeric_subset"
+    },
+    {
+      "module": "HMath.Linear",
+      "name": "addChecked",
+      "python": "add_checked",
+      "args": [
+        {
+          "name": "argument1",
+          "type": "fs"
+        },
+        {
+          "name": "argument2",
+          "type": "fs"
+        }
+      ],
+      "result": "fd",
+      "checked": true,
+      "specializations": [
+        "float32",
+        "float64",
+        "rational",
+        "integer",
+        "int8",
+        "int16",
+        "int32",
+        "int64",
+        "uint8",
+        "uint16",
+        "uint32",
+        "uint64",
+        "intp",
+        "uintp",
+        "complex64",
+        "complex128"
+      ],
+      "instance_coverage": "standard_numeric_subset"
+    },
+    {
+      "module": "HMath.Linear",
+      "name": "subtractChecked",
+      "python": "subtract_checked",
+      "args": [
+        {
+          "name": "argument1",
+          "type": "fs"
+        },
+        {
+          "name": "argument2",
+          "type": "fs"
+        }
+      ],
+      "result": "fd",
+      "checked": true,
+      "specializations": [
+        "float32",
+        "float64",
+        "rational",
+        "integer",
+        "int8",
+        "int16",
+        "int32",
+        "int64",
+        "uint8",
+        "uint16",
+        "uint32",
+        "uint64",
+        "intp",
+        "uintp",
+        "complex64",
+        "complex128"
+      ],
+      "instance_coverage": "standard_numeric_subset"
+    },
+    {
+      "module": "HMath.Linear",
+      "name": "scale",
+      "python": "scale",
+      "args": [
+        {
+          "name": "argument1",
+          "type": "f"
+        },
+        {
+          "name": "argument2",
+          "type": "fs"
+        }
+      ],
+      "result": "fd",
+      "checked": false,
+      "specializations": [
+        "float32",
+        "float64",
+        "rational",
+        "integer",
+        "int8",
+        "int16",
+        "int32",
+        "int64",
+        "uint8",
+        "uint16",
+        "uint32",
+        "uint64",
+        "intp",
+        "uintp",
+        "complex64",
+        "complex128"
+      ],
+      "instance_coverage": "standard_numeric_subset"
+    },
+    {
+      "module": "HMath.Special",
+      "name": "gamma",
+      "python": "gamma",
+      "args": [
+        {
+          "name": "x",
+          "type": "f"
+        }
+      ],
+      "result": "f",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Special",
+      "name": "logGamma",
+      "python": "log_gamma",
+      "args": [
+        {
+          "name": "x",
+          "type": "f"
+        }
+      ],
+      "result": "f",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Special",
+      "name": "logBeta",
+      "python": "log_beta",
+      "args": [
+        {
+          "name": "a",
+          "type": "f"
+        },
+        {
+          "name": "b",
+          "type": "f"
+        }
+      ],
+      "result": "f",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Special",
+      "name": "beta",
+      "python": "beta",
+      "args": [
+        {
+          "name": "a",
+          "type": "f"
+        },
+        {
+          "name": "b",
+          "type": "f"
+        }
+      ],
+      "result": "f",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Special",
+      "name": "gammaP",
+      "python": "gamma_p",
+      "args": [
+        {
+          "name": "a",
+          "type": "f"
+        },
+        {
+          "name": "x",
+          "type": "f"
+        }
+      ],
+      "result": "f",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Special",
+      "name": "gammaQ",
+      "python": "gamma_q",
+      "args": [
+        {
+          "name": "a",
+          "type": "f"
+        },
+        {
+          "name": "x",
+          "type": "f"
+        }
+      ],
+      "result": "f",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Special",
+      "name": "incompleteGamma",
+      "python": "incomplete_gamma",
+      "args": [
+        {
+          "name": "a",
+          "type": "f"
+        },
+        {
+          "name": "x",
+          "type": "f"
+        }
+      ],
+      "result": "f",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Special",
+      "name": "betaI",
+      "python": "beta_i",
+      "args": [
+        {
+          "name": "a",
+          "type": "f"
+        },
+        {
+          "name": "b",
+          "type": "f"
+        },
+        {
+          "name": "x",
+          "type": "f"
+        }
+      ],
+      "result": "f",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Special",
+      "name": "incompleteBeta",
+      "python": "incomplete_beta",
+      "args": [
+        {
+          "name": "a",
+          "type": "f"
+        },
+        {
+          "name": "b",
+          "type": "f"
+        },
+        {
+          "name": "x",
+          "type": "f"
+        }
+      ],
+      "result": "f",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Special",
+      "name": "digamma",
+      "python": "digamma",
+      "args": [
+        {
+          "name": "x",
+          "type": "f"
+        }
+      ],
+      "result": "f",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Special",
+      "name": "trigamma",
+      "python": "trigamma",
+      "args": [
+        {
+          "name": "argument1",
+          "type": "f"
+        }
+      ],
+      "result": "f",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Special",
+      "name": "polygamma",
+      "python": "polygamma",
+      "args": [
+        {
+          "name": "n",
+          "type": "i"
+        },
+        {
+          "name": "x",
+          "type": "f"
+        }
+      ],
+      "result": "f",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Special",
+      "name": "erf",
+      "python": "erf",
+      "args": [
+        {
+          "name": "x",
+          "type": "f"
+        }
+      ],
+      "result": "f",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Special",
+      "name": "erfc",
+      "python": "erfc",
+      "args": [
+        {
+          "name": "x",
+          "type": "f"
+        }
+      ],
+      "result": "f",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Special",
+      "name": "erfcx",
+      "python": "erfcx",
+      "args": [
+        {
+          "name": "x",
+          "type": "f"
+        }
+      ],
+      "result": "sf",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Special",
+      "name": "normalCDF",
+      "python": "normal_c_d_f",
+      "args": [
+        {
+          "name": "x",
+          "type": "f"
+        }
+      ],
+      "result": "f",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Special",
+      "name": "normalQuantile",
+      "python": "normal_quantile",
+      "args": [
+        {
+          "name": "p",
+          "type": "f"
+        }
+      ],
+      "result": "f",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Special",
+      "name": "inverseErf",
+      "python": "inverse_erf",
+      "args": [
+        {
+          "name": "x",
+          "type": "f"
+        }
+      ],
+      "result": "f",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Special",
+      "name": "dawson",
+      "python": "dawson",
+      "args": [
+        {
+          "name": "x",
+          "type": "f"
+        }
+      ],
+      "result": "sf",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Special",
+      "name": "exponentialIntegral",
+      "python": "exponential_integral",
+      "args": [
+        {
+          "name": "n",
+          "type": "i"
+        },
+        {
+          "name": "x",
+          "type": "f"
+        }
+      ],
+      "result": "sf",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Special",
+      "name": "logarithmicIntegral",
+      "python": "logarithmic_integral",
+      "args": [
+        {
+          "name": "x",
+          "type": "f"
+        }
+      ],
+      "result": "sf",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Special",
+      "name": "sineIntegral",
+      "python": "sine_integral",
+      "args": [
+        {
+          "name": "x",
+          "type": "f"
+        }
+      ],
+      "result": "sf",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Special",
+      "name": "cosineIntegral",
+      "python": "cosine_integral",
+      "args": [
+        {
+          "name": "x",
+          "type": "f"
+        }
+      ],
+      "result": "sf",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Special",
+      "name": "fresnel",
+      "python": "fresnel",
+      "args": [
+        {
+          "name": "x",
+          "type": "f"
+        }
+      ],
+      "result": "sf2",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Special",
+      "name": "ellipticF",
+      "python": "elliptic_f",
+      "args": [
+        {
+          "name": "phi",
+          "type": "f"
+        },
+        {
+          "name": "m",
+          "type": "f"
+        }
+      ],
+      "result": "sf",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Special",
+      "name": "ellipticE",
+      "python": "elliptic_e",
+      "args": [
+        {
+          "name": "phi",
+          "type": "f"
+        },
+        {
+          "name": "m",
+          "type": "f"
+        }
+      ],
+      "result": "sf",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Special",
+      "name": "ellipticPi",
+      "python": "elliptic_pi",
+      "args": [
+        {
+          "name": "n",
+          "type": "f"
+        },
+        {
+          "name": "phi",
+          "type": "f"
+        },
+        {
+          "name": "m",
+          "type": "f"
+        }
+      ],
+      "result": "sf",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Special",
+      "name": "jacobiElliptic",
+      "python": "jacobi_elliptic",
+      "args": [
+        {
+          "name": "u",
+          "type": "f"
+        },
+        {
+          "name": "m",
+          "type": "f"
+        }
+      ],
+      "result": "fff",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Special",
+      "name": "besselJ",
+      "python": "bessel_j",
+      "args": [
+        {
+          "name": "n",
+          "type": "i"
+        },
+        {
+          "name": "x",
+          "type": "f"
+        }
+      ],
+      "result": "f",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Special",
+      "name": "besselY",
+      "python": "bessel_y",
+      "args": [
+        {
+          "name": "n",
+          "type": "i"
+        },
+        {
+          "name": "x",
+          "type": "f"
+        }
+      ],
+      "result": "f",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Special",
+      "name": "besselI",
+      "python": "bessel_i",
+      "args": [
+        {
+          "name": "n",
+          "type": "i"
+        },
+        {
+          "name": "x",
+          "type": "f"
+        }
+      ],
+      "result": "sf",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Special",
+      "name": "scaledBesselI",
+      "python": "scaled_bessel_i",
+      "args": [
+        {
+          "name": "n",
+          "type": "i"
+        },
+        {
+          "name": "x",
+          "type": "f"
+        }
+      ],
+      "result": "sf",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Special",
+      "name": "besselK",
+      "python": "bessel_k",
+      "args": [
+        {
+          "name": "n",
+          "type": "i"
+        },
+        {
+          "name": "x",
+          "type": "f"
+        }
+      ],
+      "result": "sf",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Special",
+      "name": "scaledBesselK",
+      "python": "scaled_bessel_k",
+      "args": [
+        {
+          "name": "n",
+          "type": "i"
+        },
+        {
+          "name": "x",
+          "type": "f"
+        }
+      ],
+      "result": "sf",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Special",
+      "name": "sphericalBesselJ",
+      "python": "spherical_bessel_j",
+      "args": [
+        {
+          "name": "n",
+          "type": "i"
+        },
+        {
+          "name": "x",
+          "type": "f"
+        }
+      ],
+      "result": "f",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Special",
+      "name": "sphericalBesselY",
+      "python": "spherical_bessel_y",
+      "args": [
+        {
+          "name": "n",
+          "type": "i"
+        },
+        {
+          "name": "x",
+          "type": "f"
+        }
+      ],
+      "result": "f",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Special",
+      "name": "airy",
+      "python": "airy",
+      "args": [
+        {
+          "name": "x",
+          "type": "f"
+        }
+      ],
+      "result": "sf4",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Special",
+      "name": "struve",
+      "python": "struve",
+      "args": [
+        {
+          "name": "nu",
+          "type": "f"
+        },
+        {
+          "name": "x",
+          "type": "f"
+        }
+      ],
+      "result": "sf",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Special",
+      "name": "hypergeometric",
+      "python": "hypergeometric",
+      "args": [
+        {
+          "name": "as",
+          "type": "fs"
+        },
+        {
+          "name": "bs",
+          "type": "fs"
+        },
+        {
+          "name": "z",
+          "type": "f"
+        }
+      ],
+      "result": "sf",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Special",
+      "name": "hypergeometric1F1",
+      "python": "hypergeometric1_f1",
+      "args": [
+        {
+          "name": "a",
+          "type": "f"
+        },
+        {
+          "name": "b",
+          "type": "f"
+        },
+        {
+          "name": "z",
+          "type": "f"
+        }
+      ],
+      "result": "sf",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Special",
+      "name": "hypergeometric2F1",
+      "python": "hypergeometric2_f1",
+      "args": [
+        {
+          "name": "a",
+          "type": "f"
+        },
+        {
+          "name": "b",
+          "type": "f"
+        },
+        {
+          "name": "c",
+          "type": "f"
+        },
+        {
+          "name": "z",
+          "type": "f"
+        }
+      ],
+      "result": "sf",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Special",
+      "name": "legendre",
+      "python": "legendre",
+      "args": [
+        {
+          "name": "n",
+          "type": "i"
+        },
+        {
+          "name": "x",
+          "type": "f"
+        }
+      ],
+      "result": "f",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Special",
+      "name": "associatedLegendre",
+      "python": "associated_legendre",
+      "args": [
+        {
+          "name": "l",
+          "type": "i"
+        },
+        {
+          "name": "m",
+          "type": "i"
+        },
+        {
+          "name": "x",
+          "type": "f"
+        }
+      ],
+      "result": "f",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Special",
+      "name": "hurwitzZeta",
+      "python": "hurwitz_zeta",
+      "args": [
+        {
+          "name": "s",
+          "type": "f"
+        },
+        {
+          "name": "q",
+          "type": "f"
+        }
+      ],
+      "result": "sf",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Special",
+      "name": "riemannZeta",
+      "python": "riemann_zeta",
+      "args": [
+        {
+          "name": "s",
+          "type": "f"
+        }
+      ],
+      "result": "sf",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Special",
+      "name": "polylogarithm",
+      "python": "polylogarithm",
+      "args": [
+        {
+          "name": "s",
+          "type": "f"
+        },
+        {
+          "name": "z",
+          "type": "f"
+        }
+      ],
+      "result": "sf",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Special",
+      "name": "dilogarithm",
+      "python": "dilogarithm",
+      "args": [
+        {
+          "name": "x",
+          "type": "f"
+        }
+      ],
+      "result": "sf",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Special",
+      "name": "lambertW",
+      "python": "lambert_w",
+      "args": [
+        {
+          "name": "branch",
+          "type": "i"
+        },
+        {
+          "name": "x",
+          "type": "f"
+        }
+      ],
+      "result": "sf",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Special",
+      "name": "debye",
+      "python": "debye",
+      "args": [
+        {
+          "name": "n",
+          "type": "i"
+        },
+        {
+          "name": "x",
+          "type": "f"
+        }
+      ],
+      "result": "sf",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Special",
+      "name": "clausen",
+      "python": "clausen",
+      "args": [
+        {
+          "name": "theta",
+          "type": "f"
+        }
+      ],
+      "result": "sf",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Special",
+      "name": "fermiDirac",
+      "python": "fermi_dirac",
+      "args": [
+        {
+          "name": "order",
+          "type": "f"
+        },
+        {
+          "name": "eta",
+          "type": "f"
+        }
+      ],
+      "result": "sf",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Special",
+      "name": "boseEinstein",
+      "python": "bose_einstein",
+      "args": [
+        {
+          "name": "order",
+          "type": "f"
+        },
+        {
+          "name": "eta",
+          "type": "f"
+        }
+      ],
+      "result": "sf",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Special",
+      "name": "coulombWave",
+      "python": "coulomb_wave",
+      "args": [
+        {
+          "name": "l",
+          "type": "i"
+        },
+        {
+          "name": "eta",
+          "type": "f"
+        },
+        {
+          "name": "rho",
+          "type": "f"
+        }
+      ],
+      "result": "sf2",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Special",
+      "name": "gegenbauer",
+      "python": "gegenbauer",
+      "args": [
+        {
+          "name": "n",
+          "type": "i"
+        },
+        {
+          "name": "a",
+          "type": "f"
+        },
+        {
+          "name": "x",
+          "type": "f"
+        }
+      ],
+      "result": "f",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Special",
+      "name": "parabolicCylinder",
+      "python": "parabolic_cylinder",
+      "args": [
+        {
+          "name": "nu",
+          "type": "f"
+        },
+        {
+          "name": "x",
+          "type": "f"
+        }
+      ],
+      "result": "sf",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Special",
+      "name": "mathieu",
+      "python": "mathieu",
+      "args": [
+        {
+          "name": "evenMode",
+          "type": "b"
+        },
+        {
+          "name": "n",
+          "type": "i"
+        },
+        {
+          "name": "q",
+          "type": "f"
+        },
+        {
+          "name": "x",
+          "type": "f"
+        }
+      ],
+      "result": "fsf",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Special",
+      "name": "bernoulliPolynomial",
+      "python": "bernoulli_polynomial",
+      "args": [
+        {
+          "name": "n",
+          "type": "i"
+        },
+        {
+          "name": "x",
+          "type": "f"
+        }
+      ],
+      "result": "f",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Special",
+      "name": "eulerPolynomial",
+      "python": "euler_polynomial",
+      "args": [
+        {
+          "name": "n",
+          "type": "i"
+        },
+        {
+          "name": "x",
+          "type": "f"
+        }
+      ],
+      "result": "f",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Special",
+      "name": "wigner3j",
+      "python": "wigner3j",
+      "args": [
+        {
+          "name": "j1",
+          "type": "i"
+        },
+        {
+          "name": "j2",
+          "type": "i"
+        },
+        {
+          "name": "j3",
+          "type": "i"
+        },
+        {
+          "name": "m1",
+          "type": "i"
+        },
+        {
+          "name": "m2",
+          "type": "i"
+        },
+        {
+          "name": "m3",
+          "type": "i"
+        }
+      ],
+      "result": "f",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Special",
+      "name": "wigner6j",
+      "python": "wigner6j",
+      "args": [
+        {
+          "name": "a",
+          "type": "i"
+        },
+        {
+          "name": "b",
+          "type": "i"
+        },
+        {
+          "name": "c",
+          "type": "i"
+        },
+        {
+          "name": "d",
+          "type": "i"
+        },
+        {
+          "name": "e",
+          "type": "i"
+        },
+        {
+          "name": "f",
+          "type": "i"
+        }
+      ],
+      "result": "f",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Special",
+      "name": "wigner9j",
+      "python": "wigner9j",
+      "args": [
+        {
+          "name": "js",
+          "type": "is"
+        }
+      ],
+      "result": "f",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Special",
+      "name": "clebschGordan",
+      "python": "clebsch_gordan",
+      "args": [
+        {
+          "name": "j1",
+          "type": "i"
+        },
+        {
+          "name": "m1",
+          "type": "i"
+        },
+        {
+          "name": "j2",
+          "type": "i"
+        },
+        {
+          "name": "m2",
+          "type": "i"
+        },
+        {
+          "name": "j",
+          "type": "i"
+        },
+        {
+          "name": "m",
+          "type": "i"
+        }
+      ],
+      "result": "f",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Complex",
+      "name": "toPolar",
+      "python": "to_polar",
+      "args": [
+        {
+          "name": "z",
+          "type": "c"
+        }
+      ],
+      "result": "ff",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Probability",
+      "name": "gammaPoissonUpdate",
+      "python": "gamma_poisson_update",
+      "args": [
+        {
+          "name": "shapePrior",
+          "type": "f"
+        },
+        {
+          "name": "ratePrior",
+          "type": "f"
+        },
+        {
+          "name": "xs",
+          "type": "is"
+        }
+      ],
+      "result": "ff",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Probability",
+      "name": "normalNormalUpdate",
+      "python": "normal_normal_update",
+      "args": [
+        {
+          "name": "mu",
+          "type": "f"
+        },
+        {
+          "name": "priorVariance",
+          "type": "f"
+        },
+        {
+          "name": "observationVariance",
+          "type": "f"
+        },
+        {
+          "name": "xs",
+          "type": "fs"
+        }
+      ],
+      "result": "ff",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Probability",
+      "name": "conditionalProbability",
+      "python": "conditional_probability",
+      "args": [
+        {
+          "name": "joint",
+          "type": "f"
+        },
+        {
+          "name": "given",
+          "type": "f"
+        }
+      ],
+      "result": "f",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Probability",
+      "name": "bayes",
+      "python": "bayes",
+      "args": [
+        {
+          "name": "priors",
+          "type": "fs"
+        },
+        {
+          "name": "likelihoods",
+          "type": "fs"
+        }
+      ],
+      "result": "fd",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Probability",
+      "name": "multinomialPMF",
+      "python": "multinomial_p_m_f",
+      "args": [
+        {
+          "name": "ps",
+          "type": "fs"
+        },
+        {
+          "name": "counts",
+          "type": "is"
+        }
+      ],
+      "result": "f",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Probability",
+      "name": "dirichletDensity",
+      "python": "dirichlet_density",
+      "args": [
+        {
+          "name": "as",
+          "type": "fs"
+        },
+        {
+          "name": "xs",
+          "type": "fs"
+        }
+      ],
+      "result": "f",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Complex",
+      "name": "complex",
+      "python": "complex",
+      "args": [
+        {
+          "name": "real",
+          "type": "f"
+        },
+        {
+          "name": "imaginary",
+          "type": "f"
+        }
+      ],
+      "result": "c",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Complex",
+      "name": "reciprocal",
+      "python": "reciprocal",
+      "args": [
+        {
+          "name": "z",
+          "type": "c"
+        }
+      ],
+      "result": "c",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Complex",
+      "name": "add",
+      "python": "add",
+      "args": [
+        {
+          "name": "a",
+          "type": "c"
+        },
+        {
+          "name": "b",
+          "type": "c"
+        }
+      ],
+      "result": "c",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Complex",
+      "name": "subtractComplex",
+      "python": "subtract_complex",
+      "args": [
+        {
+          "name": "a",
+          "type": "c"
+        },
+        {
+          "name": "b",
+          "type": "c"
+        }
+      ],
+      "result": "c",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Complex",
+      "name": "multiply",
+      "python": "multiply",
+      "args": [
+        {
+          "name": "a",
+          "type": "c"
+        },
+        {
+          "name": "b",
+          "type": "c"
+        }
+      ],
+      "result": "c",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Complex",
+      "name": "divide",
+      "python": "divide",
+      "args": [
+        {
+          "name": "a",
+          "type": "c"
+        },
+        {
+          "name": "b",
+          "type": "c"
+        }
+      ],
+      "result": "c",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Complex",
+      "name": "power",
+      "python": "power",
+      "args": [
+        {
+          "name": "a",
+          "type": "c"
+        },
+        {
+          "name": "b",
+          "type": "c"
+        }
+      ],
+      "result": "c",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Complex",
+      "name": "fromPolar",
+      "python": "from_polar",
+      "args": [
+        {
+          "name": "radius",
+          "type": "f"
+        },
+        {
+          "name": "angle",
+          "type": "f"
+        }
+      ],
+      "result": "c",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Complex",
+      "name": "rotate",
+      "python": "rotate",
+      "args": [
+        {
+          "name": "angle",
+          "type": "f"
+        },
+        {
+          "name": "z",
+          "type": "c"
+        }
+      ],
+      "result": "c",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Special",
+      "name": "hankel",
+      "python": "hankel",
+      "args": [
+        {
+          "name": "kind",
+          "type": "i"
+        },
+        {
+          "name": "order",
+          "type": "i"
+        },
+        {
+          "name": "x",
+          "type": "f"
+        }
+      ],
+      "result": "c",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Special",
+      "name": "sphericalHarmonic",
+      "python": "spherical_harmonic",
+      "args": [
+        {
+          "name": "degree",
+          "type": "i"
+        },
+        {
+          "name": "order",
+          "type": "i"
+        },
+        {
+          "name": "theta",
+          "type": "f"
+        },
+        {
+          "name": "phi",
+          "type": "f"
+        }
+      ],
+      "result": "c",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Special",
+      "name": "complex1F1",
+      "python": "complex1_f1",
+      "args": [
+        {
+          "name": "a",
+          "type": "c"
+        },
+        {
+          "name": "b",
+          "type": "c"
+        },
+        {
+          "name": "z",
+          "type": "c"
+        }
+      ],
+      "result": "c",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.API.Algebra",
+      "name": "innerProduct",
+      "python": "inner_product",
+      "args": [
+        {
+          "name": "argument1",
+          "type": "fs"
+        },
+        {
+          "name": "argument2",
+          "type": "fs"
+        }
+      ],
+      "result": "f",
+      "checked": true
+    },
+    {
+      "module": "HMath.Algorithms",
+      "name": "lowerBound",
+      "python": "lower_bound",
+      "args": [
+        {
+          "name": "x",
+          "type": "f"
+        },
+        {
+          "name": "xs",
+          "type": "fs"
+        }
+      ],
+      "result": "i",
+      "checked": true
+    },
+    {
+      "module": "HMath.Algorithms",
+      "name": "upperBound",
+      "python": "upper_bound",
+      "args": [
+        {
+          "name": "x",
+          "type": "f"
+        },
+        {
+          "name": "xs",
+          "type": "fs"
+        }
+      ],
+      "result": "i",
+      "checked": true
+    },
+    {
+      "module": "HMath.Algorithms",
+      "name": "quickselect",
+      "python": "quickselect",
+      "args": [
+        {
+          "name": "k",
+          "type": "i"
+        },
+        {
+          "name": "xs",
+          "type": "fs"
+        }
+      ],
+      "result": "f",
+      "checked": true
+    },
+    {
+      "module": "HMath.Algorithms",
+      "name": "introselect",
+      "python": "introselect",
+      "args": [
+        {
+          "name": "k",
+          "type": "i"
+        },
+        {
+          "name": "xs",
+          "type": "fs"
+        }
+      ],
+      "result": "f",
+      "checked": true
+    },
+    {
+      "module": "HMath.Algorithms",
+      "name": "partialSort",
+      "python": "partial_sort",
+      "args": [
+        {
+          "name": "argument1",
+          "type": "i"
+        },
+        {
+          "name": "argument2",
+          "type": "fs"
+        }
+      ],
+      "result": "fd",
+      "checked": true
+    },
+    {
+      "module": "HMath.Algorithms",
+      "name": "mergeSort",
+      "python": "merge_sort",
+      "args": [
+        {
+          "name": "argument1",
+          "type": "fs"
+        }
+      ],
+      "result": "fd",
+      "checked": false
+    },
+    {
+      "module": "HMath.Algorithms",
+      "name": "quicksort",
+      "python": "quicksort",
+      "args": [
+        {
+          "name": "argument1",
+          "type": "fs"
+        }
+      ],
+      "result": "fd",
+      "checked": false
+    },
+    {
+      "module": "HMath.Algorithms",
+      "name": "heapsort",
+      "python": "heapsort",
+      "args": [
+        {
+          "name": "argument1",
+          "type": "fs"
+        }
+      ],
+      "result": "fd",
+      "checked": false
+    },
+    {
+      "module": "HMath.Algorithms",
+      "name": "introsort",
+      "python": "introsort",
+      "args": [
+        {
+          "name": "argument1",
+          "type": "fs"
+        }
+      ],
+      "result": "fd",
+      "checked": false
+    },
+    {
+      "module": "HMath.Algorithms",
+      "name": "countingSort",
+      "python": "counting_sort",
+      "args": [
+        {
+          "name": "budget",
+          "type": "i"
+        },
+        {
+          "name": "xs",
+          "type": "is"
+        }
+      ],
+      "result": "id",
+      "checked": true
+    },
+    {
+      "module": "HMath.Algorithms",
+      "name": "radixSort",
+      "python": "radix_sort",
+      "args": [
+        {
+          "name": "argument1",
+          "type": "zs"
+        }
+      ],
+      "result": "zd",
+      "checked": false
+    },
+    {
+      "module": "HMath.Algorithms",
+      "name": "bucketSort",
+      "python": "bucket_sort",
+      "args": [
+        {
+          "name": "buckets",
+          "type": "i"
+        },
+        {
+          "name": "xs",
+          "type": "fs"
+        }
+      ],
+      "result": "fd",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Algorithms",
+      "name": "argsort",
+      "python": "argsort",
+      "args": [
+        {
+          "name": "argument1",
+          "type": "fs"
+        }
+      ],
+      "result": "id",
+      "checked": false
+    },
+    {
+      "module": "HMath.Algorithms",
+      "name": "topK",
+      "python": "top_k",
+      "args": [
+        {
+          "name": "argument1",
+          "type": "i"
+        },
+        {
+          "name": "argument2",
+          "type": "fs"
+        }
+      ],
+      "result": "fd",
+      "checked": true
+    },
+    {
+      "module": "HMath.Algorithms",
+      "name": "quantileSelect",
+      "python": "quantile_select",
+      "args": [
+        {
+          "name": "q",
+          "type": "f"
+        },
+        {
+          "name": "xs",
+          "type": "fs"
+        }
+      ],
+      "result": "f",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Algorithms",
+      "name": "deduplicate",
+      "python": "deduplicate",
+      "args": [
+        {
+          "name": "argument1",
+          "type": "fs"
+        }
+      ],
+      "result": "fd",
+      "checked": false
+    },
+    {
+      "module": "HMath.Algorithms",
+      "name": "prefixSums",
+      "python": "prefix_sums",
+      "args": [
+        {
+          "name": "argument1",
+          "type": "fs"
+        }
+      ],
+      "result": "fd",
+      "checked": false
+    },
+    {
+      "module": "HMath.Algorithms",
+      "name": "suffixSums",
+      "python": "suffix_sums",
+      "args": [
+        {
+          "name": "argument1",
+          "type": "fs"
+        }
+      ],
+      "result": "fd",
+      "checked": false
+    },
+    {
+      "module": "HMath.Algorithms",
+      "name": "differenceArray",
+      "python": "difference_array",
+      "args": [
+        {
+          "name": "argument1",
+          "type": "fs"
+        }
+      ],
+      "result": "fd",
+      "checked": false
+    },
+    {
+      "module": "HMath.Algorithms",
+      "name": "applyDifferences",
+      "python": "apply_differences",
+      "args": [
+        {
+          "name": "argument1",
+          "type": "fs"
+        }
+      ],
+      "result": "fd",
+      "checked": false
+    },
+    {
+      "module": "HMath.Algorithms",
+      "name": "binaryLift",
+      "python": "binary_lift",
+      "args": [
+        {
+          "name": "next",
+          "type": "is"
+        },
+        {
+          "name": "steps",
+          "type": "z"
+        },
+        {
+          "name": "start",
+          "type": "i"
+        }
+      ],
+      "result": "i",
+      "checked": true
+    },
+    {
+      "module": "HMath.Algorithms",
+      "name": "polynomialHash",
+      "python": "polynomial_hash",
+      "args": [
+        {
+          "name": "base",
+          "type": "z"
+        },
+        {
+          "name": "modulus",
+          "type": "z"
+        },
+        {
+          "name": "xs",
+          "type": "zs"
+        }
+      ],
+      "result": "z",
+      "checked": true
+    },
+    {
+      "module": "HMath.Algorithms",
+      "name": "rollingHashes",
+      "python": "rolling_hashes",
+      "args": [
+        {
+          "name": "base",
+          "type": "z"
+        },
+        {
+          "name": "modulus",
+          "type": "z"
+        },
+        {
+          "name": "width",
+          "type": "i"
+        },
+        {
+          "name": "xs",
+          "type": "zs"
+        }
+      ],
+      "result": "zd",
+      "checked": true
+    },
+    {
+      "module": "HMath.DataStructure",
+      "name": "monotonicMinima",
+      "python": "monotonic_minima",
+      "args": [
+        {
+          "name": "argument1",
+          "type": "i"
+        },
+        {
+          "name": "argument2",
+          "type": "fs"
+        }
+      ],
+      "result": "fd",
+      "checked": true
+    },
+    {
+      "module": "HMath.DeepLearning.Core",
+      "name": "logSoftmax",
+      "python": "log_softmax",
+      "args": [
+        {
+          "name": "argument1",
+          "type": "fs"
+        }
+      ],
+      "result": "fd",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.DeepLearning.Core",
+      "name": "softmax",
+      "python": "softmax",
+      "args": [
+        {
+          "name": "xs",
+          "type": "fs"
+        }
+      ],
+      "result": "fd",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.DeepLearning.Core",
+      "name": "sparsemax",
+      "python": "sparsemax",
+      "args": [
+        {
+          "name": "argument1",
+          "type": "fs"
+        }
+      ],
+      "result": "fd",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.DeepLearning.Core",
+      "name": "gatedLinearUnit",
+      "python": "gated_linear_unit",
+      "args": [
+        {
+          "name": "values",
+          "type": "fs"
+        },
+        {
+          "name": "gate",
+          "type": "fs"
+        }
+      ],
+      "result": "fd",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.DeepLearning.Core",
+      "name": "categoricalCrossEntropyLogits",
+      "python": "categorical_cross_entropy_logits",
+      "args": [
+        {
+          "name": "target",
+          "type": "fs"
+        },
+        {
+          "name": "logits",
+          "type": "fs"
+        }
+      ],
+      "result": "f",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.DeepLearning.Core",
+      "name": "regularization",
+      "python": "regularization",
+      "args": [
+        {
+          "name": "l1",
+          "type": "f"
+        },
+        {
+          "name": "l2",
+          "type": "f"
+        },
+        {
+          "name": "weights",
+          "type": "fs"
+        }
+      ],
+      "result": "f",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.DeepLearning.Core",
+      "name": "contrastiveLoss",
+      "python": "contrastive_loss",
+      "args": [
+        {
+          "name": "margin",
+          "type": "f"
+        },
+        {
+          "name": "similar",
+          "type": "b"
+        },
+        {
+          "name": "a",
+          "type": "fs"
+        },
+        {
+          "name": "b",
+          "type": "fs"
+        }
+      ],
+      "result": "f",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.DeepLearning.Core",
+      "name": "tripletLoss",
+      "python": "triplet_loss",
+      "args": [
+        {
+          "name": "margin",
+          "type": "f"
+        },
+        {
+          "name": "anchor",
+          "type": "fs"
+        },
+        {
+          "name": "positive",
+          "type": "fs"
+        },
+        {
+          "name": "negative",
+          "type": "fs"
+        }
+      ],
+      "result": "f",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.DeepLearning.Core",
+      "name": "focalLoss",
+      "python": "focal_loss",
+      "args": [
+        {
+          "name": "alpha",
+          "type": "f"
+        },
+        {
+          "name": "gamma",
+          "type": "f"
+        },
+        {
+          "name": "target",
+          "type": "fs"
+        },
+        {
+          "name": "prediction",
+          "type": "fs"
+        }
+      ],
+      "result": "f",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.DeepLearning.Core",
+      "name": "diceLoss",
+      "python": "dice_loss",
+      "args": [
+        {
+          "name": "smooth",
+          "type": "f"
+        },
+        {
+          "name": "target",
+          "type": "fs"
+        },
+        {
+          "name": "prediction",
+          "type": "fs"
+        }
+      ],
+      "result": "f",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.DeepLearning.Core",
+      "name": "iouLoss",
+      "python": "iou_loss",
+      "args": [
+        {
+          "name": "smooth",
+          "type": "f"
+        },
+        {
+          "name": "target",
+          "type": "fs"
+        },
+        {
+          "name": "prediction",
+          "type": "fs"
+        }
+      ],
+      "result": "f",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.DeepLearning.Metrics",
+      "name": "perplexity",
+      "python": "perplexity",
+      "args": [
+        {
+          "name": "logs",
+          "type": "fs"
+        }
+      ],
+      "result": "f",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.DeepLearning.Metrics",
+      "name": "marginRankingLoss",
+      "python": "margin_ranking_loss",
+      "args": [
+        {
+          "name": "margin",
+          "type": "f"
+        },
+        {
+          "name": "labels",
+          "type": "fs"
+        },
+        {
+          "name": "left",
+          "type": "fs"
+        },
+        {
+          "name": "right",
+          "type": "fs"
+        }
+      ],
+      "result": "f",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.DeepLearning.Precision",
+      "name": "gradientNorm",
+      "python": "gradient_norm",
+      "args": [
+        {
+          "name": "xs",
+          "type": "fs"
+        }
+      ],
+      "result": "f",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.DeepLearning.Precision",
+      "name": "clipGradients",
+      "python": "clip_gradients",
+      "args": [
+        {
+          "name": "argument1",
+          "type": "f"
+        },
+        {
+          "name": "argument2",
+          "type": "fs"
+        }
+      ],
+      "result": "fd",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Discrete",
+      "name": "setUnion",
+      "python": "set_union",
+      "args": [
+        {
+          "name": "a",
+          "type": "fs"
+        },
+        {
+          "name": "b",
+          "type": "fs"
+        }
+      ],
+      "result": "fd",
+      "checked": false
+    },
+    {
+      "module": "HMath.Discrete",
+      "name": "setIntersection",
+      "python": "set_intersection",
+      "args": [
+        {
+          "name": "a",
+          "type": "fs"
+        },
+        {
+          "name": "b",
+          "type": "fs"
+        }
+      ],
+      "result": "fd",
+      "checked": false
+    },
+    {
+      "module": "HMath.Discrete",
+      "name": "setDifference",
+      "python": "set_difference",
+      "args": [
+        {
+          "name": "a",
+          "type": "fs"
+        },
+        {
+          "name": "b",
+          "type": "fs"
+        }
+      ],
+      "result": "fd",
+      "checked": false
+    },
+    {
+      "module": "HMath.Discrete",
+      "name": "symmetricDifference",
+      "python": "symmetric_difference",
+      "args": [
+        {
+          "name": "a",
+          "type": "fs"
+        },
+        {
+          "name": "b",
+          "type": "fs"
+        }
+      ],
+      "result": "fd",
+      "checked": false
+    },
+    {
+      "module": "HMath.Fourier",
+      "name": "frequencies",
+      "python": "frequencies",
+      "args": [
+        {
+          "name": "n",
+          "type": "i"
+        },
+        {
+          "name": "spacing",
+          "type": "f"
+        }
+      ],
+      "result": "fd",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Fourier",
+      "name": "fftShift",
+      "python": "fft_shift",
+      "args": [
+        {
+          "name": "xs",
+          "type": "fs"
+        }
+      ],
+      "result": "fd",
+      "checked": false,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Fourier",
+      "name": "ifftShift",
+      "python": "ifft_shift",
+      "args": [
+        {
+          "name": "xs",
+          "type": "fs"
+        }
+      ],
+      "result": "fd",
+      "checked": false,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Fourier",
+      "name": "hartley",
+      "python": "hartley",
+      "args": [
+        {
+          "name": "xs",
+          "type": "fs"
+        }
+      ],
+      "result": "fd",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Fourier",
+      "name": "periodogram",
+      "python": "periodogram",
+      "args": [
+        {
+          "name": "rate",
+          "type": "f"
+        },
+        {
+          "name": "window",
+          "type": "fs"
+        },
+        {
+          "name": "xs",
+          "type": "fs"
+        }
+      ],
+      "result": "fd",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Fourier",
+      "name": "welch",
+      "python": "welch",
+      "args": [
+        {
+          "name": "rate",
+          "type": "f"
+        },
+        {
+          "name": "window",
+          "type": "fs"
+        },
+        {
+          "name": "hop",
+          "type": "i"
+        },
+        {
+          "name": "xs",
+          "type": "fs"
+        }
+      ],
+      "result": "fd",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Fourier",
+      "name": "cepstrum",
+      "python": "cepstrum",
+      "args": [
+        {
+          "name": "floorValue",
+          "type": "f"
+        },
+        {
+          "name": "xs",
+          "type": "fs"
+        }
+      ],
+      "result": "fd",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Fourier",
+      "name": "hilbert",
+      "python": "hilbert",
+      "args": [
+        {
+          "name": "xs",
+          "type": "fs"
+        }
+      ],
+      "result": "fd",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Geometry.Primitives",
+      "name": "hammingDistance",
+      "python": "hamming_distance",
+      "args": [
+        {
+          "name": "argument1",
+          "type": "fs"
+        },
+        {
+          "name": "argument2",
+          "type": "fs"
+        }
+      ],
+      "result": "i",
+      "checked": true
+    },
+    {
+      "module": "HMath.Geometry.Primitives",
+      "name": "jaccardDistance",
+      "python": "jaccard_distance",
+      "args": [
+        {
+          "name": "argument1",
+          "type": "fs"
+        },
+        {
+          "name": "argument2",
+          "type": "fs"
+        }
+      ],
+      "result": "f",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Graph.Core",
+      "name": "finite",
+      "python": "finite",
+      "args": [
+        {
+          "name": "x",
+          "type": "f"
+        }
+      ],
+      "result": "b",
+      "checked": false,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Image.Color",
+      "name": "srgbToLinear",
+      "python": "srgb_to_linear",
+      "args": [
+        {
+          "name": "x",
+          "type": "f"
+        }
+      ],
+      "result": "f",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Image.Color",
+      "name": "linearToSrgb",
+      "python": "linear_to_srgb",
+      "args": [
+        {
+          "name": "x",
+          "type": "f"
+        }
+      ],
+      "result": "f",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Interpolation",
+      "name": "evaluateChebyshev",
+      "python": "evaluate_chebyshev",
+      "args": [
+        {
+          "name": "cs",
+          "type": "fs"
+        },
+        {
+          "name": "a",
+          "type": "f"
+        },
+        {
+          "name": "b",
+          "type": "f"
+        },
+        {
+          "name": "x",
+          "type": "f"
+        }
+      ],
+      "result": "f",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Numeric",
+      "name": "nextAfter",
+      "python": "next_after",
+      "args": [
+        {
+          "name": "argument1",
+          "type": "f"
+        },
+        {
+          "name": "argument2",
+          "type": "f"
+        }
+      ],
+      "result": "f",
+      "checked": false
+    },
+    {
+      "module": "HMath.Numeric",
+      "name": "ldexp",
+      "python": "ldexp",
+      "args": [
+        {
+          "name": "argument1",
+          "type": "f"
+        },
+        {
+          "name": "argument2",
+          "type": "i"
+        }
+      ],
+      "result": "f",
+      "checked": false
+    },
+    {
+      "module": "HMath.Numeric",
+      "name": "ulpDistance",
+      "python": "ulp_distance",
+      "args": [
+        {
+          "name": "a",
+          "type": "f"
+        },
+        {
+          "name": "b",
+          "type": "f"
+        }
+      ],
+      "result": "z",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Numeric",
+      "name": "withinULPs",
+      "python": "within_u_l_ps",
+      "args": [
+        {
+          "name": "n",
+          "type": "z"
+        },
+        {
+          "name": "a",
+          "type": "f"
+        },
+        {
+          "name": "b",
+          "type": "f"
+        }
+      ],
+      "result": "b",
+      "checked": false,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Numeric",
+      "name": "kahanSum",
+      "python": "kahan_sum",
+      "args": [
+        {
+          "name": "argument1",
+          "type": "fs"
+        }
+      ],
+      "result": "f",
+      "checked": false
+    },
+    {
+      "module": "HMath.Numeric",
+      "name": "neumaierSum",
+      "python": "neumaier_sum",
+      "args": [
+        {
+          "name": "argument1",
+          "type": "fs"
+        }
+      ],
+      "result": "f",
+      "checked": false
+    },
+    {
+      "module": "HMath.Numeric",
+      "name": "pairwiseSum",
+      "python": "pairwise_sum",
+      "args": [
+        {
+          "name": "argument1",
+          "type": "fs"
+        }
+      ],
+      "result": "f",
+      "checked": false
+    },
+    {
+      "module": "HMath.Numeric",
+      "name": "logsumexp",
+      "python": "logsumexp",
+      "args": [
+        {
+          "name": "argument1",
+          "type": "fs"
+        }
+      ],
+      "result": "f",
+      "checked": true
+    },
+    {
+      "module": "HMath.Numeric",
+      "name": "sumErrorBound",
+      "python": "sum_error_bound",
+      "args": [
+        {
+          "name": "argument1",
+          "type": "fs"
+        }
+      ],
+      "result": "f",
+      "checked": true
+    },
+    {
+      "module": "HMath.Optimization.Common",
+      "name": "dot",
+      "python": "dot",
+      "args": [
+        {
+          "name": "a",
+          "type": "fs"
+        },
+        {
+          "name": "b",
+          "type": "fs"
+        }
+      ],
+      "result": "f",
+      "checked": false,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Optimization.Common",
+      "name": "norm",
+      "python": "norm",
+      "args": [
+        {
+          "name": "xs",
+          "type": "fs"
+        }
+      ],
+      "result": "f",
+      "checked": false,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Optimization.Common",
+      "name": "add",
+      "python": "add",
+      "args": [
+        {
+          "name": "argument1",
+          "type": "fs"
+        },
+        {
+          "name": "argument2",
+          "type": "fs"
+        }
+      ],
+      "result": "fd",
+      "checked": false,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Optimization.Common",
+      "name": "sub",
+      "python": "sub",
+      "args": [
+        {
+          "name": "argument1",
+          "type": "fs"
+        },
+        {
+          "name": "argument2",
+          "type": "fs"
+        }
+      ],
+      "result": "fd",
+      "checked": false,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Optimization.Common",
+      "name": "scale",
+      "python": "scale",
+      "args": [
+        {
+          "name": "argument1",
+          "type": "f"
+        },
+        {
+          "name": "argument2",
+          "type": "fs"
+        }
+      ],
+      "result": "fd",
+      "checked": false,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Random",
+      "name": "importance",
+      "python": "importance",
+      "args": [
+        {
+          "name": "values",
+          "type": "fs"
+        },
+        {
+          "name": "weights",
+          "type": "fs"
+        }
+      ],
+      "result": "f",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Random",
+      "name": "halton",
+      "python": "halton",
+      "args": [
+        {
+          "name": "dimension",
+          "type": "i"
+        },
+        {
+          "name": "index",
+          "type": "i"
+        }
+      ],
+      "result": "fd",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Random",
+      "name": "sobol",
+      "python": "sobol",
+      "args": [
+        {
+          "name": "dimension",
+          "type": "i"
+        },
+        {
+          "name": "index",
+          "type": "i"
+        }
+      ],
+      "result": "fd",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Random",
+      "name": "faure",
+      "python": "faure",
+      "args": [
+        {
+          "name": "d",
+          "type": "i"
+        },
+        {
+          "name": "ix",
+          "type": "i"
+        }
+      ],
+      "result": "fd",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Signal",
+      "name": "convolution",
+      "python": "convolution",
+      "args": [
+        {
+          "name": "xs",
+          "type": "fs"
+        },
+        {
+          "name": "ys",
+          "type": "fs"
+        }
+      ],
+      "result": "fd",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Signal",
+      "name": "circularConvolution",
+      "python": "circular_convolution",
+      "args": [
+        {
+          "name": "x",
+          "type": "fs"
+        },
+        {
+          "name": "y",
+          "type": "fs"
+        }
+      ],
+      "result": "fd",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Signal",
+      "name": "correlation",
+      "python": "correlation",
+      "args": [
+        {
+          "name": "x",
+          "type": "fs"
+        },
+        {
+          "name": "y",
+          "type": "fs"
+        }
+      ],
+      "result": "fd",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Signal",
+      "name": "autocorrelation",
+      "python": "autocorrelation",
+      "args": [
+        {
+          "name": "x",
+          "type": "fs"
+        }
+      ],
+      "result": "fd",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Signal",
+      "name": "overlapAdd",
+      "python": "overlap_add",
+      "args": [
+        {
+          "name": "block",
+          "type": "i"
+        },
+        {
+          "name": "kernel",
+          "type": "fs"
+        },
+        {
+          "name": "xs",
+          "type": "fs"
+        }
+      ],
+      "result": "fd",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Signal",
+      "name": "overlapSave",
+      "python": "overlap_save",
+      "args": [
+        {
+          "name": "fftLength",
+          "type": "i"
+        },
+        {
+          "name": "kernel",
+          "type": "fs"
+        },
+        {
+          "name": "xs",
+          "type": "fs"
+        }
+      ],
+      "result": "fd",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Signal",
+      "name": "movingAverage",
+      "python": "moving_average",
+      "args": [
+        {
+          "name": "count",
+          "type": "i"
+        },
+        {
+          "name": "xs",
+          "type": "fs"
+        }
+      ],
+      "result": "fd",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Signal",
+      "name": "medianFilter",
+      "python": "median_filter",
+      "args": [
+        {
+          "name": "argument1",
+          "type": "i"
+        },
+        {
+          "name": "argument2",
+          "type": "fs"
+        }
+      ],
+      "result": "fd",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Signal",
+      "name": "gaussianFilter",
+      "python": "gaussian_filter",
+      "args": [
+        {
+          "name": "width",
+          "type": "i"
+        },
+        {
+          "name": "sigma",
+          "type": "f"
+        },
+        {
+          "name": "xs",
+          "type": "fs"
+        }
+      ],
+      "result": "fd",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Signal",
+      "name": "savitzkyGolay",
+      "python": "savitzky_golay",
+      "args": [
+        {
+          "name": "width",
+          "type": "i"
+        },
+        {
+          "name": "degree",
+          "type": "i"
+        },
+        {
+          "name": "derivative",
+          "type": "i"
+        },
+        {
+          "name": "spacing",
+          "type": "f"
+        },
+        {
+          "name": "xs",
+          "type": "fs"
+        }
+      ],
+      "result": "fd",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Signal",
+      "name": "downsample",
+      "python": "downsample",
+      "args": [
+        {
+          "name": "factor",
+          "type": "i"
+        },
+        {
+          "name": "offset",
+          "type": "i"
+        },
+        {
+          "name": "xs",
+          "type": "fs"
+        }
+      ],
+      "result": "fd",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Signal",
+      "name": "upsample",
+      "python": "upsample",
+      "args": [
+        {
+          "name": "factor",
+          "type": "i"
+        },
+        {
+          "name": "xs",
+          "type": "fs"
+        }
+      ],
+      "result": "fd",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Signal",
+      "name": "resamplePolyphase",
+      "python": "resample_polyphase",
+      "args": [
+        {
+          "name": "up",
+          "type": "i"
+        },
+        {
+          "name": "down",
+          "type": "i"
+        },
+        {
+          "name": "kernel",
+          "type": "fs"
+        },
+        {
+          "name": "xs",
+          "type": "fs"
+        }
+      ],
+      "result": "fd",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Signal",
+      "name": "resample",
+      "python": "resample",
+      "args": [
+        {
+          "name": "up",
+          "type": "i"
+        },
+        {
+          "name": "down",
+          "type": "i"
+        },
+        {
+          "name": "taps",
+          "type": "i"
+        },
+        {
+          "name": "xs",
+          "type": "fs"
+        }
+      ],
+      "result": "fd",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Signal",
+      "name": "antiAlias",
+      "python": "anti_alias",
+      "args": [
+        {
+          "name": "factor",
+          "type": "i"
+        },
+        {
+          "name": "taps",
+          "type": "i"
+        },
+        {
+          "name": "xs",
+          "type": "fs"
+        }
+      ],
+      "result": "fd",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Signal",
+      "name": "zeroCrossings",
+      "python": "zero_crossings",
+      "args": [
+        {
+          "name": "xs",
+          "type": "fs"
+        }
+      ],
+      "result": "fd",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Signal",
+      "name": "envelope",
+      "python": "envelope",
+      "args": [
+        {
+          "name": "xs",
+          "type": "fs"
+        }
+      ],
+      "result": "fd",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Signal",
+      "name": "unwrapPhase",
+      "python": "unwrap_phase",
+      "args": [
+        {
+          "name": "xs",
+          "type": "fs"
+        }
+      ],
+      "result": "fd",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Signal",
+      "name": "detrend",
+      "python": "detrend",
+      "args": [
+        {
+          "name": "linear",
+          "type": "b"
+        },
+        {
+          "name": "xs",
+          "type": "fs"
+        }
+      ],
+      "result": "fd",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Signal",
+      "name": "normalize",
+      "python": "normalize",
+      "args": [
+        {
+          "name": "xs",
+          "type": "fs"
+        }
+      ],
+      "result": "fd",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Signal",
+      "name": "smooth",
+      "python": "smooth",
+      "args": [
+        {
+          "name": "argument1",
+          "type": "i"
+        },
+        {
+          "name": "argument2",
+          "type": "fs"
+        }
+      ],
+      "result": "fd",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Signal",
+      "name": "noiseEstimate",
+      "python": "noise_estimate",
+      "args": [
+        {
+          "name": "xs",
+          "type": "fs"
+        }
+      ],
+      "result": "f",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Signal",
+      "name": "signalToNoise",
+      "python": "signal_to_noise",
+      "args": [
+        {
+          "name": "signal",
+          "type": "fs"
+        },
+        {
+          "name": "noise",
+          "type": "fs"
+        }
+      ],
+      "result": "f",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Signal",
+      "name": "rms",
+      "python": "rms",
+      "args": [
+        {
+          "name": "xs",
+          "type": "fs"
+        }
+      ],
+      "result": "f",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Statistics.Advanced",
+      "name": "arithmeticMean",
+      "python": "arithmetic_mean",
+      "args": [
+        {
+          "name": "xs",
+          "type": "fs"
+        }
+      ],
+      "result": "f",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Statistics.Advanced",
+      "name": "weightedMean",
+      "python": "weighted_mean",
+      "args": [
+        {
+          "name": "xs",
+          "type": "fs"
+        },
+        {
+          "name": "ws",
+          "type": "fs"
+        }
+      ],
+      "result": "f",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Statistics.Advanced",
+      "name": "geometricMean",
+      "python": "geometric_mean",
+      "args": [
+        {
+          "name": "xs",
+          "type": "fs"
+        }
+      ],
+      "result": "f",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Statistics.Advanced",
+      "name": "harmonicMean",
+      "python": "harmonic_mean",
+      "args": [
+        {
+          "name": "xs",
+          "type": "fs"
+        }
+      ],
+      "result": "f",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Statistics.Advanced",
+      "name": "rms",
+      "python": "rms",
+      "args": [
+        {
+          "name": "xs",
+          "type": "fs"
+        }
+      ],
+      "result": "f",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Statistics.Advanced",
+      "name": "trimmedMean",
+      "python": "trimmed_mean",
+      "args": [
+        {
+          "name": "fraction",
+          "type": "f"
+        },
+        {
+          "name": "xs",
+          "type": "fs"
+        }
+      ],
+      "result": "f",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Statistics.Advanced",
+      "name": "winsorizedMean",
+      "python": "winsorized_mean",
+      "args": [
+        {
+          "name": "fraction",
+          "type": "f"
+        },
+        {
+          "name": "xs",
+          "type": "fs"
+        }
+      ],
+      "result": "f",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Statistics.Advanced",
+      "name": "quantile",
+      "python": "quantile",
+      "args": [
+        {
+          "name": "p",
+          "type": "f"
+        },
+        {
+          "name": "xs",
+          "type": "fs"
+        }
+      ],
+      "result": "f",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Statistics.Advanced",
+      "name": "median",
+      "python": "median",
+      "args": [
+        {
+          "name": "argument1",
+          "type": "fs"
+        }
+      ],
+      "result": "f",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Statistics.Advanced",
+      "name": "percentile",
+      "python": "percentile",
+      "args": [
+        {
+          "name": "argument1",
+          "type": "f"
+        },
+        {
+          "name": "argument2",
+          "type": "fs"
+        }
+      ],
+      "result": "f",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Statistics.Advanced",
+      "name": "modes",
+      "python": "modes",
+      "args": [
+        {
+          "name": "xs",
+          "type": "fs"
+        }
+      ],
+      "result": "fd",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Statistics.Advanced",
+      "name": "interquartileRange",
+      "python": "interquartile_range",
+      "args": [
+        {
+          "name": "xs",
+          "type": "fs"
+        }
+      ],
+      "result": "f",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Statistics.Advanced",
+      "name": "medianAbsoluteDeviation",
+      "python": "median_absolute_deviation",
+      "args": [
+        {
+          "name": "xs",
+          "type": "fs"
+        }
+      ],
+      "result": "f",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Statistics.Advanced",
+      "name": "dataRange",
+      "python": "data_range",
+      "args": [
+        {
+          "name": "xs",
+          "type": "fs"
+        }
+      ],
+      "result": "f",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Statistics.Advanced",
+      "name": "centralMoment",
+      "python": "central_moment",
+      "args": [
+        {
+          "name": "k",
+          "type": "i"
+        },
+        {
+          "name": "xs",
+          "type": "fs"
+        }
+      ],
+      "result": "f",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Statistics.Advanced",
+      "name": "populationVariance",
+      "python": "population_variance",
+      "args": [
+        {
+          "name": "argument1",
+          "type": "fs"
+        }
+      ],
+      "result": "f",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Statistics.Advanced",
+      "name": "sampleVariance",
+      "python": "sample_variance",
+      "args": [
+        {
+          "name": "xs",
+          "type": "fs"
+        }
+      ],
+      "result": "f",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Statistics.Advanced",
+      "name": "populationSD",
+      "python": "population_s_d",
+      "args": [
+        {
+          "name": "argument1",
+          "type": "fs"
+        }
+      ],
+      "result": "f",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Statistics.Advanced",
+      "name": "sampleSD",
+      "python": "sample_s_d",
+      "args": [
+        {
+          "name": "argument1",
+          "type": "fs"
+        }
+      ],
+      "result": "f",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Statistics.Advanced",
+      "name": "coefficientOfVariation",
+      "python": "coefficient_of_variation",
+      "args": [
+        {
+          "name": "xs",
+          "type": "fs"
+        }
+      ],
+      "result": "f",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Statistics.Advanced",
+      "name": "skewness",
+      "python": "skewness",
+      "args": [
+        {
+          "name": "xs",
+          "type": "fs"
+        }
+      ],
+      "result": "f",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Statistics.Advanced",
+      "name": "kurtosis",
+      "python": "kurtosis",
+      "args": [
+        {
+          "name": "xs",
+          "type": "fs"
+        }
+      ],
+      "result": "f",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Statistics.Advanced",
+      "name": "covariance",
+      "python": "covariance",
+      "args": [
+        {
+          "name": "sampleCorrection",
+          "type": "b"
+        },
+        {
+          "name": "xs",
+          "type": "fs"
+        },
+        {
+          "name": "ys",
+          "type": "fs"
+        }
+      ],
+      "result": "f",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Statistics.Advanced",
+      "name": "correlation",
+      "python": "correlation",
+      "args": [
+        {
+          "name": "xs",
+          "type": "fs"
+        },
+        {
+          "name": "ys",
+          "type": "fs"
+        }
+      ],
+      "result": "f",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Statistics.Advanced",
+      "name": "spearman",
+      "python": "spearman",
+      "args": [
+        {
+          "name": "xs",
+          "type": "fs"
+        },
+        {
+          "name": "ys",
+          "type": "fs"
+        }
+      ],
+      "result": "f",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Statistics.Advanced",
+      "name": "kendall",
+      "python": "kendall",
+      "args": [
+        {
+          "name": "xs",
+          "type": "fs"
+        },
+        {
+          "name": "ys",
+          "type": "fs"
+        }
+      ],
+      "result": "f",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Statistics.Advanced",
+      "name": "autocorrelation",
+      "python": "autocorrelation",
+      "args": [
+        {
+          "name": "lag",
+          "type": "i"
+        },
+        {
+          "name": "xs",
+          "type": "fs"
+        }
+      ],
+      "result": "f",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Statistics.Advanced",
+      "name": "crossCorrelation",
+      "python": "cross_correlation",
+      "args": [
+        {
+          "name": "lag",
+          "type": "i"
+        },
+        {
+          "name": "xs",
+          "type": "fs"
+        },
+        {
+          "name": "ys",
+          "type": "fs"
+        }
+      ],
+      "result": "f",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Statistics.Advanced",
+      "name": "movingAverage",
+      "python": "moving_average",
+      "args": [
+        {
+          "name": "window",
+          "type": "i"
+        },
+        {
+          "name": "xs",
+          "type": "fs"
+        }
+      ],
+      "result": "fd",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Statistics.Advanced",
+      "name": "movingVariance",
+      "python": "moving_variance",
+      "args": [
+        {
+          "name": "window",
+          "type": "i"
+        },
+        {
+          "name": "xs",
+          "type": "fs"
+        }
+      ],
+      "result": "fd",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Statistics.Advanced",
+      "name": "exponentialMovingAverage",
+      "python": "exponential_moving_average",
+      "args": [
+        {
+          "name": "alpha",
+          "type": "f"
+        },
+        {
+          "name": "xs",
+          "type": "fs"
+        }
+      ],
+      "result": "fd",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Statistics.Advanced",
+      "name": "entropy",
+      "python": "entropy",
+      "args": [
+        {
+          "name": "ps",
+          "type": "fs"
+        }
+      ],
+      "result": "f",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Statistics.Advanced",
+      "name": "klDivergence",
+      "python": "kl_divergence",
+      "args": [
+        {
+          "name": "p",
+          "type": "fs"
+        },
+        {
+          "name": "q",
+          "type": "fs"
+        }
+      ],
+      "result": "f",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Statistics.Advanced",
+      "name": "jsDivergence",
+      "python": "js_divergence",
+      "args": [
+        {
+          "name": "p",
+          "type": "fs"
+        },
+        {
+          "name": "q",
+          "type": "fs"
+        }
+      ],
+      "result": "f",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Statistics.Advanced",
+      "name": "zScores",
+      "python": "z_scores",
+      "args": [
+        {
+          "name": "xs",
+          "type": "fs"
+        }
+      ],
+      "result": "fd",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Statistics.Advanced",
+      "name": "standardError",
+      "python": "standard_error",
+      "args": [
+        {
+          "name": "xs",
+          "type": "fs"
+        }
+      ],
+      "result": "f",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Statistics.Advanced",
+      "name": "confidenceInterval",
+      "python": "confidence_interval",
+      "args": [
+        {
+          "name": "level",
+          "type": "f"
+        },
+        {
+          "name": "xs",
+          "type": "fs"
+        }
+      ],
+      "result": "ff",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Statistics.Advanced",
+      "name": "bonferroni",
+      "python": "bonferroni",
+      "args": [
+        {
+          "name": "ps",
+          "type": "fs"
+        }
+      ],
+      "result": "fd",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Statistics.Advanced",
+      "name": "benjaminiHochberg",
+      "python": "benjamini_hochberg",
+      "args": [
+        {
+          "name": "ps",
+          "type": "fs"
+        }
+      ],
+      "result": "fd",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Statistics.Advanced",
+      "name": "cohensD",
+      "python": "cohens_d",
+      "args": [
+        {
+          "name": "xs",
+          "type": "fs"
+        },
+        {
+          "name": "ys",
+          "type": "fs"
+        }
+      ],
+      "result": "f",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Statistics.Advanced",
+      "name": "normalTestPower",
+      "python": "normal_test_power",
+      "args": [
+        {
+          "name": "alpha",
+          "type": "f"
+        },
+        {
+          "name": "standardizedEffect",
+          "type": "f"
+        },
+        {
+          "name": "n",
+          "type": "i"
+        }
+      ],
+      "result": "f",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Statistics.Advanced",
+      "name": "normalSampleSize",
+      "python": "normal_sample_size",
+      "args": [
+        {
+          "name": "alpha",
+          "type": "f"
+        },
+        {
+          "name": "power",
+          "type": "f"
+        },
+        {
+          "name": "effect",
+          "type": "f"
+        }
+      ],
+      "result": "i",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Statistics.Advanced",
+      "name": "tukeyOutliers",
+      "python": "tukey_outliers",
+      "args": [
+        {
+          "name": "multiplier",
+          "type": "f"
+        },
+        {
+          "name": "xs",
+          "type": "fs"
+        }
+      ],
+      "result": "id",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Statistics.Advanced",
+      "name": "huberLocation",
+      "python": "huber_location",
+      "args": [
+        {
+          "name": "tuning",
+          "type": "f"
+        },
+        {
+          "name": "xs",
+          "type": "fs"
+        }
+      ],
+      "result": "f",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Tensor",
+      "name": "shapeSize",
+      "python": "shape_size",
+      "args": [
+        {
+          "name": "dims",
+          "type": "is"
+        }
+      ],
+      "result": "i",
+      "checked": true
+    },
+    {
+      "module": "HMath.Tensor",
+      "name": "inferBroadcast",
+      "python": "infer_broadcast",
+      "args": [
+        {
+          "name": "as",
+          "type": "is"
+        },
+        {
+          "name": "bs",
+          "type": "is"
+        }
+      ],
+      "result": "id",
+      "checked": true
+    },
+    {
+      "module": "HMath.TimeSeries.Core",
+      "name": "exponentialAverage",
+      "python": "exponential_average",
+      "args": [
+        {
+          "name": "alpha",
+          "type": "f"
+        },
+        {
+          "name": "xs",
+          "type": "fs"
+        }
+      ],
+      "result": "fd",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.TimeSeries.Core",
+      "name": "weightedAverage",
+      "python": "weighted_average",
+      "args": [
+        {
+          "name": "ws",
+          "type": "fs"
+        },
+        {
+          "name": "xs",
+          "type": "fs"
+        }
+      ],
+      "result": "fd",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.TimeSeries.Core",
+      "name": "cumulativeReturns",
+      "python": "cumulative_returns",
+      "args": [
+        {
+          "name": "xs",
+          "type": "fs"
+        }
+      ],
+      "result": "fd",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.TimeSeries.Core",
+      "name": "logarithmicReturns",
+      "python": "logarithmic_returns",
+      "args": [
+        {
+          "name": "xs",
+          "type": "fs"
+        }
+      ],
+      "result": "fd",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.TimeSeries.Core",
+      "name": "difference",
+      "python": "difference",
+      "args": [
+        {
+          "name": "order",
+          "type": "i"
+        },
+        {
+          "name": "lag",
+          "type": "i"
+        },
+        {
+          "name": "xs",
+          "type": "fs"
+        }
+      ],
+      "result": "fd",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.TimeSeries.Core",
+      "name": "autocorrelation",
+      "python": "autocorrelation",
+      "args": [
+        {
+          "name": "lags",
+          "type": "i"
+        },
+        {
+          "name": "xs",
+          "type": "fs"
+        }
+      ],
+      "result": "fd",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.TimeSeries.Core",
+      "name": "crossCorrelation",
+      "python": "cross_correlation",
+      "args": [
+        {
+          "name": "lag",
+          "type": "i"
+        },
+        {
+          "name": "xs",
+          "type": "fs"
+        },
+        {
+          "name": "ys",
+          "type": "fs"
+        }
+      ],
+      "result": "f",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.TimeSeries.Core",
+      "name": "partialAutocorrelation",
+      "python": "partial_autocorrelation",
+      "args": [
+        {
+          "name": "order",
+          "type": "i"
+        },
+        {
+          "name": "xs",
+          "type": "fs"
+        }
+      ],
+      "result": "fd",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.TimeSeries.Diagnostics",
+      "name": "changePoints",
+      "python": "change_points",
+      "args": [
+        {
+          "name": "penalty",
+          "type": "f"
+        },
+        {
+          "name": "minSegment",
+          "type": "i"
+        },
+        {
+          "name": "xs",
+          "type": "fs"
+        }
+      ],
+      "result": "id",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.TimeSeries.Diagnostics",
+      "name": "cusum",
+      "python": "cusum",
+      "args": [
+        {
+          "name": "mean",
+          "type": "f"
+        },
+        {
+          "name": "sd",
+          "type": "f"
+        },
+        {
+          "name": "drift",
+          "type": "f"
+        },
+        {
+          "name": "threshold",
+          "type": "f"
+        },
+        {
+          "name": "xs",
+          "type": "fs"
+        }
+      ],
+      "result": "id",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.TimeSeries.Diagnostics",
+      "name": "anomalies",
+      "python": "anomalies",
+      "args": [
+        {
+          "name": "threshold",
+          "type": "f"
+        },
+        {
+          "name": "xs",
+          "type": "fs"
+        }
+      ],
+      "result": "id",
+      "checked": true,
+      "precisions": [
+        64
+      ]
+    },
+    {
+      "module": "HMath.Units",
+      "name": "radiansToDegrees",
+      "python": "radians_to_degrees",
+      "args": [
+        {
+          "name": "x",
+          "type": "f"
+        }
+      ],
+      "result": "f",
+      "checked": false
+    },
+    {
+      "module": "HMath.Units",
+      "name": "degreesToRadians",
+      "python": "degrees_to_radians",
+      "args": [
+        {
+          "name": "x",
+          "type": "f"
+        }
+      ],
+      "result": "f",
+      "checked": false
+    },
+    {
+      "module": "HMath.Units",
+      "name": "radiansToGradians",
+      "python": "radians_to_gradians",
+      "args": [
+        {
+          "name": "x",
+          "type": "f"
+        }
+      ],
+      "result": "f",
+      "checked": false
+    },
+    {
+      "module": "HMath.Units",
+      "name": "gradiansToRadians",
+      "python": "gradians_to_radians",
+      "args": [
+        {
+          "name": "x",
+          "type": "f"
+        }
+      ],
+      "result": "f",
+      "checked": false
+    },
+    {
+      "module": "HMath.Scalar",
+      "name": "saturatingAdd",
+      "python": "saturating_add",
+      "args": [
+        {
+          "name": "a",
+          "type": "f"
+        },
+        {
+          "name": "b",
+          "type": "f"
+        }
+      ],
+      "result": "f",
+      "checked": false,
+      "default_dtype": "intp",
+      "specializations": [
+        "int8",
+        "int16",
+        "int32",
+        "int64",
+        "uint8",
+        "uint16",
+        "uint32",
+        "uint64",
+        "intp",
+        "uintp"
+      ],
+      "instance_coverage": "standard_numeric_subset"
+    },
+    {
+      "module": "HMath.Scalar",
+      "name": "saturatingSubtract",
+      "python": "saturating_subtract",
+      "args": [
+        {
+          "name": "a",
+          "type": "f"
+        },
+        {
+          "name": "b",
+          "type": "f"
+        }
+      ],
+      "result": "f",
+      "checked": false,
+      "default_dtype": "intp",
+      "specializations": [
+        "int8",
+        "int16",
+        "int32",
+        "int64",
+        "uint8",
+        "uint16",
+        "uint32",
+        "uint64",
+        "intp",
+        "uintp"
+      ],
+      "instance_coverage": "standard_numeric_subset"
+    },
+    {
+      "module": "HMath.Scalar",
+      "name": "saturatingMultiply",
+      "python": "saturating_multiply",
+      "args": [
+        {
+          "name": "a",
+          "type": "f"
+        },
+        {
+          "name": "b",
+          "type": "f"
+        }
+      ],
+      "result": "f",
+      "checked": false,
+      "default_dtype": "intp",
+      "specializations": [
+        "int8",
+        "int16",
+        "int32",
+        "int64",
+        "uint8",
+        "uint16",
+        "uint32",
+        "uint64",
+        "intp",
+        "uintp"
+      ],
+      "instance_coverage": "standard_numeric_subset"
+    },
+    {
+      "module": "HMath.Scalar",
+      "name": "checkedAdd",
+      "python": "checked_add",
+      "args": [
+        {
+          "name": "a",
+          "type": "f"
+        },
+        {
+          "name": "b",
+          "type": "f"
+        }
+      ],
+      "result": "f",
+      "checked": true,
+      "default_dtype": "intp",
+      "specializations": [
+        "int8",
+        "int16",
+        "int32",
+        "int64",
+        "uint8",
+        "uint16",
+        "uint32",
+        "uint64",
+        "intp",
+        "uintp"
+      ],
+      "instance_coverage": "standard_numeric_subset"
+    },
+    {
+      "module": "HMath.Scalar",
+      "name": "checkedSubtract",
+      "python": "checked_subtract",
+      "args": [
+        {
+          "name": "a",
+          "type": "f"
+        },
+        {
+          "name": "b",
+          "type": "f"
+        }
+      ],
+      "result": "f",
+      "checked": true,
+      "default_dtype": "intp",
+      "specializations": [
+        "int8",
+        "int16",
+        "int32",
+        "int64",
+        "uint8",
+        "uint16",
+        "uint32",
+        "uint64",
+        "intp",
+        "uintp"
+      ],
+      "instance_coverage": "standard_numeric_subset"
+    },
+    {
+      "module": "HMath.Scalar",
+      "name": "checkedMultiply",
+      "python": "checked_multiply",
+      "args": [
+        {
+          "name": "a",
+          "type": "f"
+        },
+        {
+          "name": "b",
+          "type": "f"
+        }
+      ],
+      "result": "f",
+      "checked": true,
+      "default_dtype": "intp",
+      "specializations": [
+        "int8",
+        "int16",
+        "int32",
+        "int64",
+        "uint8",
+        "uint16",
+        "uint32",
+        "uint64",
+        "intp",
+        "uintp"
+      ],
+      "instance_coverage": "standard_numeric_subset"
+    }
+  ]
+}

@@ -1,0 +1,957 @@
+{
+  "schema": 1,
+  "bindings": [
+    {
+      "symbol": "HMath.Interchange.Array.Array",
+      "c": [
+        "hmath_interchange_array_object"
+      ],
+      "python": "hmath.interchange.Array",
+      "specializations": [
+        "original structured type and scoped lifetime"
+      ]
+    },
+    {
+      "symbol": "HMath.Interchange.Array.InterchangeError",
+      "c": [
+        "hmath_interchange_interchange_error_object"
+      ],
+      "python": "hmath.interchange.InterchangeError",
+      "specializations": [
+        "original structured type and scoped lifetime"
+      ]
+    },
+    {
+      "symbol": "HMath.Interchange.Array.DType",
+      "c": [
+        "hmath_interchange_d_type_object"
+      ],
+      "python": "hmath.interchange.DType",
+      "specializations": [
+        "original structured type and scoped lifetime"
+      ]
+    },
+    {
+      "symbol": "HMath.Interchange.Array.Endian",
+      "c": [
+        "hmath_interchange_endian_object"
+      ],
+      "python": "hmath.interchange.Endian",
+      "specializations": [
+        "original structured type and scoped lifetime"
+      ]
+    },
+    {
+      "symbol": "HMath.Interchange.Array.Order",
+      "c": [
+        "hmath_interchange_order_object"
+      ],
+      "python": "hmath.interchange.Order",
+      "specializations": [
+        "original structured type and scoped lifetime"
+      ]
+    },
+    {
+      "symbol": "HMath.Interchange.Compression.Compression",
+      "c": [
+        "hmath_interchange_compression_object"
+      ],
+      "python": "hmath.interchange.Compression",
+      "specializations": [
+        "original structured type and scoped lifetime"
+      ]
+    },
+    {
+      "symbol": "HMath.Interchange.IO.MappedArray",
+      "c": [
+        "hmath_interchange_mapped_array_object"
+      ],
+      "python": "hmath.interchange.MappedArray",
+      "specializations": [
+        "original structured type and scoped lifetime"
+      ]
+    },
+    {
+      "symbol": "HMath.Interchange.Array.Element",
+      "c": [
+        "hmath_interchange_value_element_type",
+        "hmath_interchange_value_get_element",
+        "hmath_interchange_value_put_element"
+      ],
+      "python": "hmath.interchange.Element",
+      "specializations": [
+        "all13 original fixed-width Element dictionaries"
+      ]
+    },
+    {
+      "symbol": "HMath.Interchange.Array.BigEndian",
+      "c": [
+        "hmath_interchange_value_big_endian"
+      ],
+      "python": "hmath.interchange.big_endian",
+      "specializations": [
+        "all original fixed-width dictionaries where Element-polymorphic; original IO effects and error variants"
+      ]
+    },
+    {
+      "symbol": "HMath.Interchange.Array.Bool8",
+      "c": [
+        "hmath_interchange_value_bool8"
+      ],
+      "python": "hmath.interchange.bool8",
+      "specializations": [
+        "all original fixed-width dictionaries where Element-polymorphic; original IO effects and error variants"
+      ]
+    },
+    {
+      "symbol": "HMath.Interchange.Array.C128",
+      "c": [
+        "hmath_interchange_value_c128"
+      ],
+      "python": "hmath.interchange.c128",
+      "specializations": [
+        "all original fixed-width dictionaries where Element-polymorphic; original IO effects and error variants"
+      ]
+    },
+    {
+      "symbol": "HMath.Interchange.Array.C64",
+      "c": [
+        "hmath_interchange_value_c64"
+      ],
+      "python": "hmath.interchange.c64",
+      "specializations": [
+        "all original fixed-width dictionaries where Element-polymorphic; original IO effects and error variants"
+      ]
+    },
+    {
+      "symbol": "HMath.Interchange.Array.COrder",
+      "c": [
+        "hmath_interchange_value_c_order"
+      ],
+      "python": "hmath.interchange.c_order",
+      "specializations": [
+        "all original fixed-width dictionaries where Element-polymorphic; original IO effects and error variants"
+      ]
+    },
+    {
+      "symbol": "HMath.Interchange.Array.F32",
+      "c": [
+        "hmath_interchange_value_f32"
+      ],
+      "python": "hmath.interchange.f32",
+      "specializations": [
+        "all original fixed-width dictionaries where Element-polymorphic; original IO effects and error variants"
+      ]
+    },
+    {
+      "symbol": "HMath.Interchange.Array.F64",
+      "c": [
+        "hmath_interchange_value_f64"
+      ],
+      "python": "hmath.interchange.f64",
+      "specializations": [
+        "all original fixed-width dictionaries where Element-polymorphic; original IO effects and error variants"
+      ]
+    },
+    {
+      "symbol": "HMath.Interchange.Array.FOrder",
+      "c": [
+        "hmath_interchange_value_f_order"
+      ],
+      "python": "hmath.interchange.f_order",
+      "specializations": [
+        "all original fixed-width dictionaries where Element-polymorphic; original IO effects and error variants"
+      ]
+    },
+    {
+      "symbol": "HMath.Interchange.Array.I16",
+      "c": [
+        "hmath_interchange_value_i16"
+      ],
+      "python": "hmath.interchange.i16",
+      "specializations": [
+        "all original fixed-width dictionaries where Element-polymorphic; original IO effects and error variants"
+      ]
+    },
+    {
+      "symbol": "HMath.Interchange.Array.I32",
+      "c": [
+        "hmath_interchange_value_i32"
+      ],
+      "python": "hmath.interchange.i32",
+      "specializations": [
+        "all original fixed-width dictionaries where Element-polymorphic; original IO effects and error variants"
+      ]
+    },
+    {
+      "symbol": "HMath.Interchange.Array.I64",
+      "c": [
+        "hmath_interchange_value_i64"
+      ],
+      "python": "hmath.interchange.i64",
+      "specializations": [
+        "all original fixed-width dictionaries where Element-polymorphic; original IO effects and error variants"
+      ]
+    },
+    {
+      "symbol": "HMath.Interchange.Array.I8",
+      "c": [
+        "hmath_interchange_value_i8"
+      ],
+      "python": "hmath.interchange.i8",
+      "specializations": [
+        "all original fixed-width dictionaries where Element-polymorphic; original IO effects and error variants"
+      ]
+    },
+    {
+      "symbol": "HMath.Interchange.Array.InterchangeIOError",
+      "c": [
+        "hmath_interchange_value_interchange_io_error"
+      ],
+      "python": "hmath.interchange.interchange_io_error",
+      "specializations": [
+        "all original fixed-width dictionaries where Element-polymorphic; original IO effects and error variants"
+      ]
+    },
+    {
+      "symbol": "HMath.Interchange.Array.InvalidData",
+      "c": [
+        "hmath_interchange_value_invalid_data"
+      ],
+      "python": "hmath.interchange.invalid_data",
+      "specializations": [
+        "all original fixed-width dictionaries where Element-polymorphic; original IO effects and error variants"
+      ]
+    },
+    {
+      "symbol": "HMath.Interchange.Array.LimitExceeded",
+      "c": [
+        "hmath_interchange_value_limit_exceeded"
+      ],
+      "python": "hmath.interchange.limit_exceeded",
+      "specializations": [
+        "all original fixed-width dictionaries where Element-polymorphic; original IO effects and error variants"
+      ]
+    },
+    {
+      "symbol": "HMath.Interchange.Array.Limits",
+      "c": [
+        "hmath_interchange_value_limits"
+      ],
+      "python": "hmath.interchange.limits",
+      "specializations": [
+        "all original fixed-width dictionaries where Element-polymorphic; original IO effects and error variants"
+      ]
+    },
+    {
+      "symbol": "HMath.Interchange.Array.LittleEndian",
+      "c": [
+        "hmath_interchange_value_little_endian"
+      ],
+      "python": "hmath.interchange.little_endian",
+      "specializations": [
+        "all original fixed-width dictionaries where Element-polymorphic; original IO effects and error variants"
+      ]
+    },
+    {
+      "symbol": "HMath.Interchange.Array.U16",
+      "c": [
+        "hmath_interchange_value_u16"
+      ],
+      "python": "hmath.interchange.u16",
+      "specializations": [
+        "all original fixed-width dictionaries where Element-polymorphic; original IO effects and error variants"
+      ]
+    },
+    {
+      "symbol": "HMath.Interchange.Array.U32",
+      "c": [
+        "hmath_interchange_value_u32"
+      ],
+      "python": "hmath.interchange.u32",
+      "specializations": [
+        "all original fixed-width dictionaries where Element-polymorphic; original IO effects and error variants"
+      ]
+    },
+    {
+      "symbol": "HMath.Interchange.Array.U64",
+      "c": [
+        "hmath_interchange_value_u64"
+      ],
+      "python": "hmath.interchange.u64",
+      "specializations": [
+        "all original fixed-width dictionaries where Element-polymorphic; original IO effects and error variants"
+      ]
+    },
+    {
+      "symbol": "HMath.Interchange.Array.U8",
+      "c": [
+        "hmath_interchange_value_u8"
+      ],
+      "python": "hmath.interchange.u8",
+      "specializations": [
+        "all original fixed-width dictionaries where Element-polymorphic; original IO effects and error variants"
+      ]
+    },
+    {
+      "symbol": "HMath.Interchange.Array.Unsupported",
+      "c": [
+        "hmath_interchange_value_unsupported"
+      ],
+      "python": "hmath.interchange.unsupported",
+      "specializations": [
+        "all original fixed-width dictionaries where Element-polymorphic; original IO effects and error variants"
+      ]
+    },
+    {
+      "symbol": "HMath.Interchange.Array.array",
+      "c": [
+        "hmath_interchange_value_array"
+      ],
+      "python": "hmath.interchange.array",
+      "specializations": [
+        "all original fixed-width dictionaries where Element-polymorphic; original IO effects and error variants"
+      ]
+    },
+    {
+      "symbol": "HMath.Interchange.Array.arrayBytes",
+      "c": [
+        "hmath_interchange_value_array_bytes"
+      ],
+      "python": "hmath.interchange.array_bytes",
+      "specializations": [
+        "all original fixed-width dictionaries where Element-polymorphic; original IO effects and error variants"
+      ]
+    },
+    {
+      "symbol": "HMath.Interchange.Array.arrayDType",
+      "c": [
+        "hmath_interchange_value_array_d_type"
+      ],
+      "python": "hmath.interchange.array_d_type",
+      "specializations": [
+        "all original fixed-width dictionaries where Element-polymorphic; original IO effects and error variants"
+      ]
+    },
+    {
+      "symbol": "HMath.Interchange.Array.arrayEndian",
+      "c": [
+        "hmath_interchange_value_array_endian"
+      ],
+      "python": "hmath.interchange.array_endian",
+      "specializations": [
+        "all original fixed-width dictionaries where Element-polymorphic; original IO effects and error variants"
+      ]
+    },
+    {
+      "symbol": "HMath.Interchange.Array.arrayMetadata",
+      "c": [
+        "hmath_interchange_value_array_metadata"
+      ],
+      "python": "hmath.interchange.array_metadata",
+      "specializations": [
+        "all original fixed-width dictionaries where Element-polymorphic; original IO effects and error variants"
+      ]
+    },
+    {
+      "symbol": "HMath.Interchange.Array.arrayOffset",
+      "c": [
+        "hmath_interchange_value_array_offset"
+      ],
+      "python": "hmath.interchange.array_offset",
+      "specializations": [
+        "all original fixed-width dictionaries where Element-polymorphic; original IO effects and error variants"
+      ]
+    },
+    {
+      "symbol": "HMath.Interchange.Array.arrayShape",
+      "c": [
+        "hmath_interchange_value_array_shape"
+      ],
+      "python": "hmath.interchange.array_shape",
+      "specializations": [
+        "all original fixed-width dictionaries where Element-polymorphic; original IO effects and error variants"
+      ]
+    },
+    {
+      "symbol": "HMath.Interchange.Array.arrayStrides",
+      "c": [
+        "hmath_interchange_value_array_strides"
+      ],
+      "python": "hmath.interchange.array_strides",
+      "specializations": [
+        "all original fixed-width dictionaries where Element-polymorphic; original IO effects and error variants"
+      ]
+    },
+    {
+      "symbol": "HMath.Interchange.Array.contiguousArray",
+      "c": [
+        "hmath_interchange_value_contiguous_array"
+      ],
+      "python": "hmath.interchange.contiguous_array",
+      "specializations": [
+        "all original fixed-width dictionaries where Element-polymorphic; original IO effects and error variants"
+      ]
+    },
+    {
+      "symbol": "HMath.Interchange.Array.defaultLimits",
+      "c": [
+        "hmath_interchange_value_default_limits"
+      ],
+      "python": "hmath.interchange.default_limits",
+      "specializations": [
+        "all original fixed-width dictionaries where Element-polymorphic; original IO effects and error variants"
+      ]
+    },
+    {
+      "symbol": "HMath.Interchange.Array.denseStrides",
+      "c": [
+        "hmath_interchange_value_dense_strides"
+      ],
+      "python": "hmath.interchange.dense_strides",
+      "specializations": [
+        "all original fixed-width dictionaries where Element-polymorphic; original IO effects and error variants"
+      ]
+    },
+    {
+      "symbol": "HMath.Interchange.Array.elementBytes",
+      "c": [
+        "hmath_interchange_value_element_bytes"
+      ],
+      "python": "hmath.interchange.element_bytes",
+      "specializations": [
+        "all original fixed-width dictionaries where Element-polymorphic; original IO effects and error variants"
+      ]
+    },
+    {
+      "symbol": "HMath.Interchange.Array.elementCount",
+      "c": [
+        "hmath_interchange_value_element_count"
+      ],
+      "python": "hmath.interchange.element_count",
+      "specializations": [
+        "all original fixed-width dictionaries where Element-polymorphic; original IO effects and error variants"
+      ]
+    },
+    {
+      "symbol": "HMath.Interchange.Array.elementType",
+      "c": [
+        "hmath_interchange_value_element_type"
+      ],
+      "python": "hmath.interchange.element_type",
+      "specializations": [
+        "all original fixed-width dictionaries where Element-polymorphic; original IO effects and error variants"
+      ]
+    },
+    {
+      "symbol": "HMath.Interchange.Array.fromMatrix",
+      "c": [
+        "hmath_interchange_value_from_matrix"
+      ],
+      "python": "hmath.interchange.from_matrix",
+      "specializations": [
+        "all original fixed-width dictionaries where Element-polymorphic; original IO effects and error variants"
+      ]
+    },
+    {
+      "symbol": "HMath.Interchange.Array.fromTensor",
+      "c": [
+        "hmath_interchange_value_from_tensor"
+      ],
+      "python": "hmath.interchange.from_tensor",
+      "specializations": [
+        "all original fixed-width dictionaries where Element-polymorphic; original IO effects and error variants"
+      ]
+    },
+    {
+      "symbol": "HMath.Interchange.Array.fromValues",
+      "c": [
+        "hmath_interchange_value_from_values"
+      ],
+      "python": "hmath.interchange.from_values",
+      "specializations": [
+        "all original fixed-width dictionaries where Element-polymorphic; original IO effects and error variants"
+      ]
+    },
+    {
+      "symbol": "HMath.Interchange.Array.getElement",
+      "c": [
+        "hmath_interchange_value_get_element"
+      ],
+      "python": "hmath.interchange.get_element",
+      "specializations": [
+        "all original fixed-width dictionaries where Element-polymorphic; original IO effects and error variants"
+      ]
+    },
+    {
+      "symbol": "HMath.Interchange.Array.maxArchiveEntries",
+      "c": [
+        "hmath_interchange_value_max_archive_entries"
+      ],
+      "python": "hmath.interchange.max_archive_entries",
+      "specializations": [
+        "all original fixed-width dictionaries where Element-polymorphic; original IO effects and error variants"
+      ]
+    },
+    {
+      "symbol": "HMath.Interchange.Array.maxBytes",
+      "c": [
+        "hmath_interchange_value_max_bytes"
+      ],
+      "python": "hmath.interchange.max_bytes",
+      "specializations": [
+        "all original fixed-width dictionaries where Element-polymorphic; original IO effects and error variants"
+      ]
+    },
+    {
+      "symbol": "HMath.Interchange.Array.maxElements",
+      "c": [
+        "hmath_interchange_value_max_elements"
+      ],
+      "python": "hmath.interchange.max_elements",
+      "specializations": [
+        "all original fixed-width dictionaries where Element-polymorphic; original IO effects and error variants"
+      ]
+    },
+    {
+      "symbol": "HMath.Interchange.Array.maxMetadata",
+      "c": [
+        "hmath_interchange_value_max_metadata"
+      ],
+      "python": "hmath.interchange.max_metadata",
+      "specializations": [
+        "all original fixed-width dictionaries where Element-polymorphic; original IO effects and error variants"
+      ]
+    },
+    {
+      "symbol": "HMath.Interchange.Array.maxRank",
+      "c": [
+        "hmath_interchange_value_max_rank"
+      ],
+      "python": "hmath.interchange.max_rank",
+      "specializations": [
+        "all original fixed-width dictionaries where Element-polymorphic; original IO effects and error variants"
+      ]
+    },
+    {
+      "symbol": "HMath.Interchange.Array.putElement",
+      "c": [
+        "hmath_interchange_value_put_element"
+      ],
+      "python": "hmath.interchange.put_element",
+      "specializations": [
+        "all original fixed-width dictionaries where Element-polymorphic; original IO effects and error variants"
+      ]
+    },
+    {
+      "symbol": "HMath.Interchange.Array.rawDecode",
+      "c": [
+        "hmath_interchange_value_raw_decode"
+      ],
+      "python": "hmath.interchange.raw_decode",
+      "specializations": [
+        "all original fixed-width dictionaries where Element-polymorphic; original IO effects and error variants"
+      ]
+    },
+    {
+      "symbol": "HMath.Interchange.Array.rawEncode",
+      "c": [
+        "hmath_interchange_value_raw_encode"
+      ],
+      "python": "hmath.interchange.raw_encode",
+      "specializations": [
+        "all original fixed-width dictionaries where Element-polymorphic; original IO effects and error variants"
+      ]
+    },
+    {
+      "symbol": "HMath.Interchange.Array.repack",
+      "c": [
+        "hmath_interchange_value_repack"
+      ],
+      "python": "hmath.interchange.repack",
+      "specializations": [
+        "all original fixed-width dictionaries where Element-polymorphic; original IO effects and error variants"
+      ]
+    },
+    {
+      "symbol": "HMath.Interchange.Array.toMatrix",
+      "c": [
+        "hmath_interchange_value_to_matrix"
+      ],
+      "python": "hmath.interchange.to_matrix",
+      "specializations": [
+        "all original fixed-width dictionaries where Element-polymorphic; original IO effects and error variants"
+      ]
+    },
+    {
+      "symbol": "HMath.Interchange.Array.toTensor",
+      "c": [
+        "hmath_interchange_value_to_tensor"
+      ],
+      "python": "hmath.interchange.to_tensor",
+      "specializations": [
+        "all original fixed-width dictionaries where Element-polymorphic; original IO effects and error variants"
+      ]
+    },
+    {
+      "symbol": "HMath.Interchange.Array.toValues",
+      "c": [
+        "hmath_interchange_value_to_values"
+      ],
+      "python": "hmath.interchange.to_values",
+      "specializations": [
+        "all original fixed-width dictionaries where Element-polymorphic; original IO effects and error variants"
+      ]
+    },
+    {
+      "symbol": "HMath.Interchange.Array.validateShape",
+      "c": [
+        "hmath_interchange_value_validate_shape"
+      ],
+      "python": "hmath.interchange.validate_shape",
+      "specializations": [
+        "all original fixed-width dictionaries where Element-polymorphic; original IO effects and error variants"
+      ]
+    },
+    {
+      "symbol": "HMath.Interchange.Array.withMetadata",
+      "c": [
+        "hmath_interchange_value_with_metadata"
+      ],
+      "python": "hmath.interchange.with_metadata",
+      "specializations": [
+        "all original fixed-width dictionaries where Element-polymorphic; original IO effects and error variants"
+      ]
+    },
+    {
+      "symbol": "HMath.Interchange.Binary.crc32",
+      "c": [
+        "hmath_interchange_value_crc32"
+      ],
+      "python": "hmath.interchange.crc32",
+      "specializations": [
+        "all original fixed-width dictionaries where Element-polymorphic; original IO effects and error variants"
+      ]
+    },
+    {
+      "symbol": "HMath.Interchange.Binary.decodeBinary",
+      "c": [
+        "hmath_interchange_value_decode_binary"
+      ],
+      "python": "hmath.interchange.decode_binary",
+      "specializations": [
+        "all original fixed-width dictionaries where Element-polymorphic; original IO effects and error variants"
+      ]
+    },
+    {
+      "symbol": "HMath.Interchange.Binary.encodeBinary",
+      "c": [
+        "hmath_interchange_value_encode_binary"
+      ],
+      "python": "hmath.interchange.encode_binary",
+      "specializations": [
+        "all original fixed-width dictionaries where Element-polymorphic; original IO effects and error variants"
+      ]
+    },
+    {
+      "symbol": "HMath.Interchange.Compression.Gzip",
+      "c": [
+        "hmath_interchange_value_gzip"
+      ],
+      "python": "hmath.interchange.gzip",
+      "specializations": [
+        "all original fixed-width dictionaries where Element-polymorphic; original IO effects and error variants"
+      ]
+    },
+    {
+      "symbol": "HMath.Interchange.Compression.RawDeflate",
+      "c": [
+        "hmath_interchange_value_raw_deflate"
+      ],
+      "python": "hmath.interchange.raw_deflate",
+      "specializations": [
+        "all original fixed-width dictionaries where Element-polymorphic; original IO effects and error variants"
+      ]
+    },
+    {
+      "symbol": "HMath.Interchange.Compression.Zlib",
+      "c": [
+        "hmath_interchange_value_zlib"
+      ],
+      "python": "hmath.interchange.zlib",
+      "specializations": [
+        "all original fixed-width dictionaries where Element-polymorphic; original IO effects and error variants"
+      ]
+    },
+    {
+      "symbol": "HMath.Interchange.Compression.compress",
+      "c": [
+        "hmath_interchange_value_compress"
+      ],
+      "python": "hmath.interchange.compress",
+      "specializations": [
+        "all original fixed-width dictionaries where Element-polymorphic; original IO effects and error variants"
+      ]
+    },
+    {
+      "symbol": "HMath.Interchange.Compression.compressionAvailable",
+      "c": [
+        "hmath_interchange_value_compression_available"
+      ],
+      "python": "hmath.interchange.compression_available",
+      "specializations": [
+        "all original fixed-width dictionaries where Element-polymorphic; original IO effects and error variants"
+      ]
+    },
+    {
+      "symbol": "HMath.Interchange.Compression.decompress",
+      "c": [
+        "hmath_interchange_value_decompress"
+      ],
+      "python": "hmath.interchange.decompress",
+      "specializations": [
+        "all original fixed-width dictionaries where Element-polymorphic; original IO effects and error variants"
+      ]
+    },
+    {
+      "symbol": "HMath.Interchange.IO.RawSpec",
+      "c": [
+        "hmath_interchange_value_raw_spec"
+      ],
+      "python": "hmath.interchange.raw_spec",
+      "specializations": [
+        "all original fixed-width dictionaries where Element-polymorphic; original IO effects and error variants"
+      ]
+    },
+    {
+      "symbol": "HMath.Interchange.IO.mappedReadBytes",
+      "c": [
+        "hmath_interchange_value_mapped_read_bytes"
+      ],
+      "python": "hmath.interchange.mapped_read_bytes",
+      "specializations": [
+        "all original fixed-width dictionaries where Element-polymorphic; original IO effects and error variants"
+      ]
+    },
+    {
+      "symbol": "HMath.Interchange.IO.mappedShape",
+      "c": [
+        "hmath_interchange_value_mapped_shape"
+      ],
+      "python": "hmath.interchange.mapped_shape",
+      "specializations": [
+        "all original fixed-width dictionaries where Element-polymorphic; original IO effects and error variants"
+      ]
+    },
+    {
+      "symbol": "HMath.Interchange.IO.mappedValue",
+      "c": [
+        "hmath_interchange_value_mapped_value"
+      ],
+      "python": "hmath.interchange.mapped_value",
+      "specializations": [
+        "all original fixed-width dictionaries where Element-polymorphic; original IO effects and error variants"
+      ]
+    },
+    {
+      "symbol": "HMath.Interchange.IO.readArrayFile",
+      "c": [
+        "hmath_interchange_value_read_array_file"
+      ],
+      "python": "hmath.interchange.read_array_file",
+      "specializations": [
+        "all original fixed-width dictionaries where Element-polymorphic; original IO effects and error variants"
+      ]
+    },
+    {
+      "symbol": "HMath.Interchange.IO.readRawChunks",
+      "c": [
+        "hmath_interchange_value_read_raw_chunks"
+      ],
+      "python": "hmath.interchange.read_raw_chunks",
+      "specializations": [
+        "all original fixed-width dictionaries where Element-polymorphic; original IO effects and error variants"
+      ]
+    },
+    {
+      "symbol": "HMath.Interchange.IO.withMappedArray",
+      "c": [
+        "hmath_interchange_value_with_mapped_array"
+      ],
+      "python": "hmath.interchange.with_mapped_array",
+      "specializations": [
+        "all original fixed-width dictionaries where Element-polymorphic; original IO effects and error variants"
+      ]
+    },
+    {
+      "symbol": "HMath.Interchange.IO.writeArrayFile",
+      "c": [
+        "hmath_interchange_value_write_array_file"
+      ],
+      "python": "hmath.interchange.write_array_file",
+      "specializations": [
+        "all original fixed-width dictionaries where Element-polymorphic; original IO effects and error variants"
+      ]
+    },
+    {
+      "symbol": "HMath.Interchange.IO.writeRawChunks",
+      "c": [
+        "hmath_interchange_value_write_raw_chunks"
+      ],
+      "python": "hmath.interchange.write_raw_chunks",
+      "specializations": [
+        "all original fixed-width dictionaries where Element-polymorphic; original IO effects and error variants"
+      ]
+    },
+    {
+      "symbol": "HMath.Interchange.Numpy.decodeNpy",
+      "c": [
+        "hmath_interchange_value_decode_npy"
+      ],
+      "python": "hmath.interchange.decode_npy",
+      "specializations": [
+        "all original fixed-width dictionaries where Element-polymorphic; original IO effects and error variants"
+      ]
+    },
+    {
+      "symbol": "HMath.Interchange.Numpy.decodeNpz",
+      "c": [
+        "hmath_interchange_value_decode_npz"
+      ],
+      "python": "hmath.interchange.decode_npz",
+      "specializations": [
+        "all original fixed-width dictionaries where Element-polymorphic; original IO effects and error variants"
+      ]
+    },
+    {
+      "symbol": "HMath.Interchange.Numpy.encodeNpy",
+      "c": [
+        "hmath_interchange_value_encode_npy"
+      ],
+      "python": "hmath.interchange.encode_npy",
+      "specializations": [
+        "all original fixed-width dictionaries where Element-polymorphic; original IO effects and error variants"
+      ]
+    },
+    {
+      "symbol": "HMath.Interchange.Numpy.encodeNpz",
+      "c": [
+        "hmath_interchange_value_encode_npz"
+      ],
+      "python": "hmath.interchange.encode_npz",
+      "specializations": [
+        "all original fixed-width dictionaries where Element-polymorphic; original IO effects and error variants"
+      ]
+    },
+    {
+      "symbol": "HMath.Interchange.Text.decodeDelimited",
+      "c": [
+        "hmath_interchange_value_decode_delimited"
+      ],
+      "python": "hmath.interchange.decode_delimited",
+      "specializations": [
+        "all original fixed-width dictionaries where Element-polymorphic; original IO effects and error variants"
+      ]
+    },
+    {
+      "symbol": "HMath.Interchange.Text.decodeMatrixMarket",
+      "c": [
+        "hmath_interchange_value_decode_matrix_market"
+      ],
+      "python": "hmath.interchange.decode_matrix_market",
+      "specializations": [
+        "all original fixed-width dictionaries where Element-polymorphic; original IO effects and error variants"
+      ]
+    },
+    {
+      "symbol": "HMath.Interchange.Text.decodeText",
+      "c": [
+        "hmath_interchange_value_decode_text"
+      ],
+      "python": "hmath.interchange.decode_text",
+      "specializations": [
+        "all original fixed-width dictionaries where Element-polymorphic; original IO effects and error variants"
+      ]
+    },
+    {
+      "symbol": "HMath.Interchange.Text.encodeDelimited",
+      "c": [
+        "hmath_interchange_value_encode_delimited"
+      ],
+      "python": "hmath.interchange.encode_delimited",
+      "specializations": [
+        "all original fixed-width dictionaries where Element-polymorphic; original IO effects and error variants"
+      ]
+    },
+    {
+      "symbol": "HMath.Interchange.Text.encodeMatrixMarket",
+      "c": [
+        "hmath_interchange_value_encode_matrix_market"
+      ],
+      "python": "hmath.interchange.encode_matrix_market",
+      "specializations": [
+        "all original fixed-width dictionaries where Element-polymorphic; original IO effects and error variants"
+      ]
+    },
+    {
+      "symbol": "HMath.Interchange.Text.encodeText",
+      "c": [
+        "hmath_interchange_value_encode_text"
+      ],
+      "python": "hmath.interchange.encode_text",
+      "specializations": [
+        "all original fixed-width dictionaries where Element-polymorphic; original IO effects and error variants"
+      ]
+    },
+    {
+      "symbol": "HMath.Interchange.Array.boundedInt",
+      "c": [
+        "hmath_interchange_value_bounded_int"
+      ],
+      "python": "hmath.interchange.bounded_int",
+      "specializations": [
+        "all original fixed-width dictionaries where Element-polymorphic; original IO effects and error variants"
+      ]
+    },
+    {
+      "symbol": "HMath.Interchange.Array.byteOffsets",
+      "c": [
+        "hmath_interchange_value_byte_offsets"
+      ],
+      "python": "hmath.interchange.byte_offsets",
+      "specializations": [
+        "all original fixed-width dictionaries where Element-polymorphic; original IO effects and error variants"
+      ]
+    },
+    {
+      "symbol": "HMath.Interchange.Array.checkLimits",
+      "c": [
+        "hmath_interchange_value_check_limits"
+      ],
+      "python": "hmath.interchange.check_limits",
+      "specializations": [
+        "all original fixed-width dictionaries where Element-polymorphic; original IO effects and error variants"
+      ]
+    },
+    {
+      "symbol": "HMath.Interchange.Array.guardI",
+      "c": [
+        "hmath_interchange_value_guard_i"
+      ],
+      "python": "hmath.interchange.guard_i",
+      "specializations": [
+        "all original fixed-width dictionaries where Element-polymorphic; original IO effects and error variants"
+      ]
+    },
+    {
+      "symbol": "HMath.Interchange.Binary.runDecoder",
+      "c": [
+        "hmath_interchange_value_run_decoder"
+      ],
+      "python": "hmath.interchange.run_decoder",
+      "specializations": [
+        "all original fixed-width dictionaries where Element-polymorphic; original IO effects and error variants"
+      ]
+    }
+  ]
+}

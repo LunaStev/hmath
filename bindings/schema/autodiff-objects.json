@@ -1,0 +1,533 @@
+{
+  "schema": 1,
+  "bindings": [
+    {
+      "symbol": "HMath.Autodiff.Expr",
+      "c": [
+        "hmath_ad_expr"
+      ],
+      "python": "hmath.autodiff.Expr",
+      "specializations": [
+        "Double"
+      ]
+    },
+    {
+      "symbol": "HMath.Autodiff.CompiledGraph",
+      "c": [
+        "hmath_ad_graph"
+      ],
+      "python": "hmath.autodiff.CompiledGraph",
+      "specializations": [
+        "Double"
+      ]
+    },
+    {
+      "symbol": "HMath.Autodiff.Dual",
+      "c": [
+        "hmath_ad_dual_create",
+        "hmath_ad_dual_nested",
+        "hmath_ad_dual_depth",
+        "hmath_ad_dual_parts",
+        "hmath_ad_dual_create_f32",
+        "hmath_ad_dual_create_integer",
+        "hmath_ad_dual_create_rational",
+        "hmath_ad_dual_kind",
+        "hmath_ad_scalar_text",
+        "hmath_ad_value_import",
+        "hmath_ad_value_export"
+      ],
+      "python": "hmath.autodiff.Dual",
+      "specializations": [
+        "Double",
+        "Float",
+        "Integer",
+        "Rational",
+        "Complex Double",
+        "Complex Float",
+        "Int8/Int16/Int32/Int64/Int",
+        "Word8/Word16/Word32/Word64/Word",
+        "Nested original Numeric.Dual coefficient towers",
+        "Original Numeric.Quaternion Float/Double",
+        "Arbitrary original Autodiff.Dual nesting over those leaves"
+      ]
+    },
+    {
+      "symbol": "HMath.Autodiff.GradientState",
+      "c": [
+        "hmath_ad_gradient_state_create"
+      ],
+      "python": "hmath.autodiff.GradientState",
+      "specializations": [
+        "Double"
+      ]
+    },
+    {
+      "symbol": "HMath.Autodiff.ADTensor",
+      "c": [
+        "hmath_ad_tensor_create"
+      ],
+      "python": "hmath.autodiff.ADTensor",
+      "specializations": [
+        "Double"
+      ]
+    },
+    {
+      "symbol": "HMath.Autodiff.variable",
+      "c": [
+        "hmath_ad_variable"
+      ],
+      "python": "hmath.autodiff.variable",
+      "specializations": [
+        "Double"
+      ]
+    },
+    {
+      "symbol": "HMath.Autodiff.constant",
+      "c": [
+        "hmath_ad_constant"
+      ],
+      "python": "hmath.autodiff.constant",
+      "specializations": [
+        "Double"
+      ]
+    },
+    {
+      "symbol": "HMath.Autodiff.compileGraph",
+      "c": [
+        "hmath_ad_compile_graph"
+      ],
+      "python": "hmath.autodiff.compile_graph",
+      "specializations": [
+        "Double"
+      ]
+    },
+    {
+      "symbol": "HMath.Autodiff.evaluateGraph",
+      "c": [
+        "hmath_ad_evaluate_graph"
+      ],
+      "python": "hmath.autodiff.evaluate_graph",
+      "specializations": [
+        "Double"
+      ]
+    },
+    {
+      "symbol": "HMath.Autodiff.differentiate",
+      "c": [
+        "hmath_ad_differentiate"
+      ],
+      "python": "hmath.autodiff.differentiate",
+      "specializations": [
+        "Double"
+      ]
+    },
+    {
+      "symbol": "HMath.Autodiff.detach",
+      "c": [
+        "hmath_ad_unary"
+      ],
+      "python": "hmath.autodiff.detach",
+      "specializations": [
+        "Double"
+      ]
+    },
+    {
+      "symbol": "HMath.Autodiff.stopGradient",
+      "c": [
+        "hmath_ad_unary"
+      ],
+      "python": "hmath.autodiff.stop_gradient",
+      "specializations": [
+        "Double"
+      ]
+    },
+    {
+      "symbol": "HMath.Autodiff.valueAndGradient",
+      "c": [
+        "hmath_ad_value_and_gradient"
+      ],
+      "python": "hmath.autodiff.value_and_gradient",
+      "specializations": [
+        "Double"
+      ]
+    },
+    {
+      "symbol": "HMath.Autodiff.gradient",
+      "c": [
+        "hmath_ad_gradient"
+      ],
+      "python": "hmath.autodiff.gradient",
+      "specializations": [
+        "Double"
+      ]
+    },
+    {
+      "symbol": "HMath.Autodiff.hessian",
+      "c": [
+        "hmath_ad_hessian"
+      ],
+      "python": "hmath.autodiff.hessian",
+      "specializations": [
+        "Double"
+      ]
+    },
+    {
+      "symbol": "HMath.Autodiff.jacobian",
+      "c": [
+        "hmath_ad_jacobian"
+      ],
+      "python": "hmath.autodiff.jacobian",
+      "specializations": [
+        "Double"
+      ]
+    },
+    {
+      "symbol": "HMath.Autodiff.jvp",
+      "c": [
+        "hmath_ad_jvp"
+      ],
+      "python": "hmath.autodiff.jvp",
+      "specializations": [
+        "Double"
+      ]
+    },
+    {
+      "symbol": "HMath.Autodiff.vjp",
+      "c": [
+        "hmath_ad_vjp"
+      ],
+      "python": "hmath.autodiff.vjp",
+      "specializations": [
+        "Double"
+      ]
+    },
+    {
+      "symbol": "HMath.Autodiff.hvp",
+      "c": [
+        "hmath_ad_hvp"
+      ],
+      "python": "hmath.autodiff.hvp",
+      "specializations": [
+        "Double"
+      ]
+    },
+    {
+      "symbol": "HMath.Autodiff.gradientCheck",
+      "c": [
+        "hmath_ad_gradient_check"
+      ],
+      "python": "hmath.autodiff.gradient_check",
+      "specializations": [
+        "Double"
+      ]
+    },
+    {
+      "symbol": "HMath.Autodiff.complexGradient",
+      "c": [
+        "hmath_ad_complex_gradient"
+      ],
+      "python": "hmath.autodiff.complex_gradient",
+      "specializations": [
+        "Double"
+      ]
+    },
+    {
+      "symbol": "HMath.Autodiff.differentiableStep",
+      "c": [
+        "hmath_ad_differentiable_step"
+      ],
+      "python": "hmath.autodiff.differentiable_step",
+      "specializations": [
+        "Double"
+      ]
+    },
+    {
+      "symbol": "HMath.Autodiff.primal",
+      "c": [
+        "hmath_ad_values_copy",
+        "hmath_ad_dual_nested",
+        "hmath_ad_dual_depth",
+        "hmath_ad_dual_parts",
+        "hmath_ad_dual_create_f32",
+        "hmath_ad_dual_create_integer",
+        "hmath_ad_dual_create_rational",
+        "hmath_ad_dual_kind",
+        "hmath_ad_scalar_text",
+        "hmath_ad_value_import",
+        "hmath_ad_value_export"
+      ],
+      "python": "hmath.autodiff.primal",
+      "specializations": [
+        "Double",
+        "Float",
+        "Integer",
+        "Rational",
+        "Complex Double",
+        "Complex Float",
+        "Int8/Int16/Int32/Int64/Int",
+        "Word8/Word16/Word32/Word64/Word",
+        "Nested original Numeric.Dual coefficient towers",
+        "Original Numeric.Quaternion Float/Double",
+        "Arbitrary original Autodiff.Dual nesting over those leaves"
+      ]
+    },
+    {
+      "symbol": "HMath.Autodiff.tangent",
+      "c": [
+        "hmath_ad_values_copy",
+        "hmath_ad_dual_nested",
+        "hmath_ad_dual_depth",
+        "hmath_ad_dual_parts",
+        "hmath_ad_dual_create_f32",
+        "hmath_ad_dual_create_integer",
+        "hmath_ad_dual_create_rational",
+        "hmath_ad_dual_kind",
+        "hmath_ad_scalar_text",
+        "hmath_ad_value_import",
+        "hmath_ad_value_export"
+      ],
+      "python": "hmath.autodiff.tangent",
+      "specializations": [
+        "Double",
+        "Float",
+        "Integer",
+        "Rational",
+        "Complex Double",
+        "Complex Float",
+        "Int8/Int16/Int32/Int64/Int",
+        "Word8/Word16/Word32/Word64/Word",
+        "Nested original Numeric.Dual coefficient towers",
+        "Original Numeric.Quaternion Float/Double",
+        "Arbitrary original Autodiff.Dual nesting over those leaves"
+      ]
+    },
+    {
+      "symbol": "HMath.Autodiff.forward",
+      "c": [
+        "hmath_ad_dual_create",
+        "hmath_ad_unary",
+        "hmath_ad_binary",
+        "hmath_ad_values_copy",
+        "hmath_ad_dual_nested",
+        "hmath_ad_dual_depth",
+        "hmath_ad_dual_parts",
+        "hmath_ad_dual_create_f32",
+        "hmath_ad_dual_create_integer",
+        "hmath_ad_dual_create_rational",
+        "hmath_ad_dual_kind",
+        "hmath_ad_scalar_text",
+        "hmath_ad_value_import",
+        "hmath_ad_value_export"
+      ],
+      "python": "hmath.autodiff.forward",
+      "specializations": [
+        "Double",
+        "Float",
+        "Integer",
+        "Rational",
+        "Complex Double",
+        "Complex Float",
+        "Int8/Int16/Int32/Int64/Int",
+        "Word8/Word16/Word32/Word64/Word",
+        "Nested original Numeric.Dual coefficient towers",
+        "Original Numeric.Quaternion Float/Double",
+        "Arbitrary original Autodiff.Dual nesting over those leaves"
+      ],
+      "c_representation": "Compose caller function using native primitives/result adapter as documented."
+    },
+    {
+      "symbol": "HMath.Autodiff.forwardJVP",
+      "c": [
+        "hmath_ad_forward_jvp_result"
+      ],
+      "python": "hmath.autodiff.forward_jvp",
+      "specializations": [
+        "Double"
+      ]
+    },
+    {
+      "symbol": "HMath.Autodiff.zeroGradients",
+      "c": [
+        "hmath_ad_zero_gradients"
+      ],
+      "python": "hmath.autodiff.zero_gradients",
+      "specializations": [
+        "Double"
+      ]
+    },
+    {
+      "symbol": "HMath.Autodiff.accumulateGradients",
+      "c": [
+        "hmath_ad_accumulate_gradients"
+      ],
+      "python": "hmath.autodiff.accumulate_gradients",
+      "specializations": [
+        "Double"
+      ]
+    },
+    {
+      "symbol": "HMath.Autodiff.accumulatedGradient",
+      "c": [
+        "hmath_ad_values_copy"
+      ],
+      "python": "hmath.autodiff.GradientState.accumulated_gradient",
+      "specializations": [
+        "Double"
+      ]
+    },
+    {
+      "symbol": "HMath.Autodiff.resetGradients",
+      "c": [
+        "hmath_ad_reset_gradients"
+      ],
+      "python": "hmath.autodiff.reset_gradients",
+      "specializations": [
+        "Double"
+      ]
+    },
+    {
+      "symbol": "HMath.Autodiff.gradientHook",
+      "c": [
+        "hmath_ad_gradient_hook_result"
+      ],
+      "python": "hmath.autodiff.gradient_hook",
+      "specializations": [
+        "Double"
+      ],
+      "c_representation": "Compose caller function using native primitives/result adapter as documented."
+    },
+    {
+      "symbol": "HMath.Autodiff.clipGradient",
+      "c": [
+        "hmath_ad_clip_gradient"
+      ],
+      "python": "hmath.autodiff.clip_gradient",
+      "specializations": [
+        "Double"
+      ]
+    },
+    {
+      "symbol": "HMath.Autodiff.adTensor",
+      "c": [
+        "hmath_ad_tensor_create"
+      ],
+      "python": "hmath.autodiff.ad_tensor",
+      "specializations": [
+        "Double"
+      ]
+    },
+    {
+      "symbol": "HMath.Autodiff.adValues",
+      "c": [
+        "hmath_ad_tensor_values"
+      ],
+      "python": "hmath.autodiff.ad_values",
+      "specializations": [
+        "Double"
+      ]
+    },
+    {
+      "symbol": "HMath.Autodiff.adShape",
+      "c": [
+        "hmath_ad_shape_copy"
+      ],
+      "python": "hmath.autodiff.ad_shape",
+      "specializations": [
+        "Double"
+      ]
+    },
+    {
+      "symbol": "HMath.Autodiff.adBroadcast",
+      "c": [
+        "hmath_ad_broadcast"
+      ],
+      "python": "hmath.autodiff.ad_broadcast",
+      "specializations": [
+        "Double"
+      ]
+    },
+    {
+      "symbol": "HMath.Autodiff.adAdd",
+      "c": [
+        "hmath_ad_tensor_add"
+      ],
+      "python": "hmath.autodiff.ad_add",
+      "specializations": [
+        "Double"
+      ]
+    },
+    {
+      "symbol": "HMath.Autodiff.adMultiply",
+      "c": [
+        "hmath_ad_tensor_multiply"
+      ],
+      "python": "hmath.autodiff.ad_multiply",
+      "specializations": [
+        "Double"
+      ]
+    },
+    {
+      "symbol": "HMath.Autodiff.adMatmul",
+      "c": [
+        "hmath_ad_matmul"
+      ],
+      "python": "hmath.autodiff.ad_matmul",
+      "specializations": [
+        "Double"
+      ]
+    },
+    {
+      "symbol": "HMath.Autodiff.adContract",
+      "c": [
+        "hmath_ad_contract"
+      ],
+      "python": "hmath.autodiff.ad_contract",
+      "specializations": [
+        "Double"
+      ]
+    },
+    {
+      "symbol": "HMath.Autodiff.adSum",
+      "c": [
+        "hmath_ad_sum"
+      ],
+      "python": "hmath.autodiff.ad_sum",
+      "specializations": [
+        "Double"
+      ]
+    },
+    {
+      "symbol": "HMath.Autodiff.customOperation",
+      "c": [
+        "hmath_ad_custom_operation",
+        "hmath_ad_custom_operation_checked"
+      ],
+      "python": "hmath.autodiff.custom_operation",
+      "specializations": [
+        "Double"
+      ]
+    },
+    {
+      "symbol": "HMath.Autodiff.customUnary",
+      "c": [
+        "hmath_ad_custom_unary",
+        "hmath_ad_custom_unary_checked"
+      ],
+      "python": "hmath.autodiff.custom_unary",
+      "specializations": [
+        "Double"
+      ]
+    },
+    {
+      "symbol": "HMath.Autodiff.checkpoint",
+      "c": [
+        "hmath_ad_checkpoint",
+        "hmath_ad_checkpoint_checked"
+      ],
+      "python": "hmath.autodiff.checkpoint",
+      "specializations": [
+        "Double"
+      ]
+    }
+  ]
+}

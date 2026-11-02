@@ -36,6 +36,13 @@ HMATH_BUILD_LIBRARY="$work/libhmath.so" "$python" -m build --wheel --outdir "$wo
 "$python" -m build --sdist --outdir /io/dist
 "$python" -m auditwheel show /io/dist/*.whl
 
+# C and Haskell distributions use the same checkout and native wheel. C
+# consumers get exactly the repaired library tested by Python consumers.
+mkdir -p /io/dist/native
+release_epoch=${SOURCE_DATE_EPOCH:-0}
+"$python" /io/tools/build_c_sdk.py /io/dist/*.whl --output /io/dist/native --epoch "$release_epoch"
+cabal sdist --output-directory=/io/dist/native
+
 # An sdist must really build without the wheel staging environment variable.
 mkdir "$work/source"
 tar -xf /io/dist/hmath_python-*.tar.gz -C "$work/source"

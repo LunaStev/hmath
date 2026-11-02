@@ -64,6 +64,27 @@ def main():
                 env=env,
             )
             run([str(target)], env=env)
+        # Exercise the newly installed headers, not include/ from the checkout.
+        for compiler, standard, source in [
+            ("cc", "c99", "numeric_contracts.c"),
+            ("c++", "c++17", "numeric_contracts.cpp"),
+        ]:
+            target = Path(temporary) / ("numeric-" + standard)
+            run(
+                [
+                    compiler,
+                    "-Wall",
+                    "-Wextra",
+                    "-Werror",
+                    "-std=" + standard,
+                    str(root / "test/native" / source),
+                    *flags,
+                    "-o",
+                    str(target),
+                ],
+                env=env,
+            )
+            run([str(target)], env=env)
         config = next(stage.rglob("HMathConfig.cmake"))
         cmake_build = Path(temporary) / "cmake"
         run(

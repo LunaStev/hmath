@@ -1,0 +1,1945 @@
+{
+  "schema": 1,
+  "bindings": [
+    {
+      "symbol": "HMath.MachineLearning.Clustering.ClusterModel",
+      "c": [
+        "hmath_ml_cluster_model_object"
+      ],
+      "python": "hmath.machinelearning.ClusterModel",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Clustering.GaussianMixture",
+      "c": [
+        "hmath_ml_gaussian_mixture_object"
+      ],
+      "python": "hmath.machinelearning.GaussianMixture",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Clustering.Linkage",
+      "c": [
+        "hmath_ml_linkage_object"
+      ],
+      "python": "hmath.machinelearning.Linkage",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Decomposition.CCA",
+      "c": [
+        "hmath_ml_cca_object"
+      ],
+      "python": "hmath.machinelearning.CCA",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Decomposition.FactorAnalysis",
+      "c": [
+        "hmath_ml_factor_analysis_object"
+      ],
+      "python": "hmath.machinelearning.FactorAnalysis",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Decomposition.ICA",
+      "c": [
+        "hmath_ml_ica_object"
+      ],
+      "python": "hmath.machinelearning.ICA",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Decomposition.IncrementalPCA",
+      "c": [
+        "hmath_ml_incremental_pca_object"
+      ],
+      "python": "hmath.machinelearning.IncrementalPCA",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Decomposition.KernelPCA",
+      "c": [
+        "hmath_ml_kernel_pca_object"
+      ],
+      "python": "hmath.machinelearning.KernelPCA",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Decomposition.PCA",
+      "c": [
+        "hmath_ml_pca_object"
+      ],
+      "python": "hmath.machinelearning.PCA",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Decomposition.PLS",
+      "c": [
+        "hmath_ml_pls_object"
+      ],
+      "python": "hmath.machinelearning.PLS",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Neighbors.IndexKind",
+      "c": [
+        "hmath_ml_index_kind_object"
+      ],
+      "python": "hmath.machinelearning.IndexKind",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Neighbors.IsolationForest",
+      "c": [
+        "hmath_ml_isolation_forest_object"
+      ],
+      "python": "hmath.machinelearning.IsolationForest",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Neighbors.LSH",
+      "c": [
+        "hmath_ml_lsh_object"
+      ],
+      "python": "hmath.machinelearning.LSH",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Neighbors.OneClassSVM",
+      "c": [
+        "hmath_ml_one_class_svm_object"
+      ],
+      "python": "hmath.machinelearning.OneClassSVM",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Neighbors.SpatialIndex",
+      "c": [
+        "hmath_ml_spatial_index_object"
+      ],
+      "python": "hmath.machinelearning.SpatialIndex",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Preprocessing.Encoder",
+      "c": [
+        "hmath_ml_encoder_object"
+      ],
+      "python": "hmath.machinelearning.Encoder",
+      "specializations": [
+        "actual native supported category dictionaries"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Preprocessing.Imputation",
+      "c": [
+        "hmath_ml_imputation_object"
+      ],
+      "python": "hmath.machinelearning.Imputation",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Preprocessing.Imputer",
+      "c": [
+        "hmath_ml_imputer_object"
+      ],
+      "python": "hmath.machinelearning.Imputer",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Preprocessing.PowerTransform",
+      "c": [
+        "hmath_ml_power_transform_object"
+      ],
+      "python": "hmath.machinelearning.PowerTransform",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Preprocessing.QuantileTransformer",
+      "c": [
+        "hmath_ml_quantile_transformer_object"
+      ],
+      "python": "hmath.machinelearning.QuantileTransformer",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Preprocessing.Scaler",
+      "c": [
+        "hmath_ml_scaler_object"
+      ],
+      "python": "hmath.machinelearning.Scaler",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Preprocessing.Scaling",
+      "c": [
+        "hmath_ml_scaling_object"
+      ],
+      "python": "hmath.machinelearning.Scaling",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Preprocessing.UnknownCategory",
+      "c": [
+        "hmath_ml_unknown_category_object"
+      ],
+      "python": "hmath.machinelearning.UnknownCategory",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Regression.BayesFamily",
+      "c": [
+        "hmath_ml_bayes_family_object"
+      ],
+      "python": "hmath.machinelearning.BayesFamily",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Regression.BayesianLinear",
+      "c": [
+        "hmath_ml_bayesian_linear_object"
+      ],
+      "python": "hmath.machinelearning.BayesianLinear",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Regression.Discriminant",
+      "c": [
+        "hmath_ml_discriminant_object"
+      ],
+      "python": "hmath.machinelearning.Discriminant",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Regression.GLM",
+      "c": [
+        "hmath_ml_glm_object"
+      ],
+      "python": "hmath.machinelearning.GLM",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Regression.GLMFamily",
+      "c": [
+        "hmath_ml_glm_family_object"
+      ],
+      "python": "hmath.machinelearning.GLMFamily",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Regression.GPClassifier",
+      "c": [
+        "hmath_ml_gp_classifier_object"
+      ],
+      "python": "hmath.machinelearning.GPClassifier",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Regression.GaussianProcess",
+      "c": [
+        "hmath_ml_gaussian_process_object"
+      ],
+      "python": "hmath.machinelearning.GaussianProcess",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Regression.Kernel",
+      "c": [
+        "hmath_ml_kernel_object"
+      ],
+      "python": "hmath.machinelearning.Kernel",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Regression.LinearModel",
+      "c": [
+        "hmath_ml_linear_model_object"
+      ],
+      "python": "hmath.machinelearning.LinearModel",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Regression.MultinomialModel",
+      "c": [
+        "hmath_ml_multinomial_model_object"
+      ],
+      "python": "hmath.machinelearning.MultinomialModel",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Regression.NaiveBayes",
+      "c": [
+        "hmath_ml_naive_bayes_object"
+      ],
+      "python": "hmath.machinelearning.NaiveBayes",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Regression.Penalty",
+      "c": [
+        "hmath_ml_penalty_object"
+      ],
+      "python": "hmath.machinelearning.Penalty",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Regression.RecursiveLS",
+      "c": [
+        "hmath_ml_recursive_ls_object"
+      ],
+      "python": "hmath.machinelearning.RecursiveLS",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Regression.SVM",
+      "c": [
+        "hmath_ml_svm_object"
+      ],
+      "python": "hmath.machinelearning.SVM",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Internal.Dataset",
+      "c": [
+        "hmath_ml_dataset_value"
+      ],
+      "python": "hmath.machinelearning.Dataset",
+      "specializations": [
+        "original Double rows"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Clustering.Average",
+      "c": [
+        "hmath_ml_average"
+      ],
+      "python": "hmath.machinelearning.average",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Clustering.Complete",
+      "c": [
+        "hmath_ml_complete"
+      ],
+      "python": "hmath.machinelearning.complete",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Clustering.Merge",
+      "c": [
+        "hmath_ml_merge"
+      ],
+      "python": "hmath.machinelearning.merge",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Clustering.Single",
+      "c": [
+        "hmath_ml_single"
+      ],
+      "python": "hmath.machinelearning.single",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Clustering.Ward",
+      "c": [
+        "hmath_ml_ward"
+      ],
+      "python": "hmath.machinelearning.ward",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Clustering.affinityPropagation",
+      "c": [
+        "hmath_ml_affinity_propagation"
+      ],
+      "python": "hmath.machinelearning.affinity_propagation",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Clustering.clusterCenters",
+      "c": [
+        "hmath_ml_cluster_centers"
+      ],
+      "python": "hmath.machinelearning.cluster_centers",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Clustering.cutHierarchy",
+      "c": [
+        "hmath_ml_cut_hierarchy"
+      ],
+      "python": "hmath.machinelearning.cut_hierarchy",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Clustering.dbscan",
+      "c": [
+        "hmath_ml_dbscan"
+      ],
+      "python": "hmath.machinelearning.dbscan",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Clustering.extractOPTICS",
+      "c": [
+        "hmath_ml_extract_optics"
+      ],
+      "python": "hmath.machinelearning.extract_optics",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Clustering.fitGaussianMixture",
+      "c": [
+        "hmath_ml_fit_gaussian_mixture"
+      ],
+      "python": "hmath.machinelearning.fit_gaussian_mixture",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Clustering.hierarchical",
+      "c": [
+        "hmath_ml_hierarchical"
+      ],
+      "python": "hmath.machinelearning.hierarchical",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Clustering.kMeans",
+      "c": [
+        "hmath_ml_k_means"
+      ],
+      "python": "hmath.machinelearning.k_means",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Clustering.kMeansPlusPlus",
+      "c": [
+        "hmath_ml_k_means_plus_plus"
+      ],
+      "python": "hmath.machinelearning.k_means_plus_plus",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Clustering.kMedoids",
+      "c": [
+        "hmath_ml_k_medoids"
+      ],
+      "python": "hmath.machinelearning.k_medoids",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Clustering.leftCluster",
+      "c": [
+        "hmath_ml_left_cluster"
+      ],
+      "python": "hmath.machinelearning.left_cluster",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Clustering.meanShift",
+      "c": [
+        "hmath_ml_mean_shift"
+      ],
+      "python": "hmath.machinelearning.mean_shift",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Clustering.mergeDistance",
+      "c": [
+        "hmath_ml_merge_distance"
+      ],
+      "python": "hmath.machinelearning.merge_distance",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Clustering.mergedSize",
+      "c": [
+        "hmath_ml_merged_size"
+      ],
+      "python": "hmath.machinelearning.merged_size",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Clustering.miniBatchKMeans",
+      "c": [
+        "hmath_ml_mini_batch_k_means"
+      ],
+      "python": "hmath.machinelearning.mini_batch_k_means",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Clustering.mixtureCovariances",
+      "c": [
+        "hmath_ml_mixture_covariances"
+      ],
+      "python": "hmath.machinelearning.mixture_covariances",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Clustering.mixtureMeans",
+      "c": [
+        "hmath_ml_mixture_means"
+      ],
+      "python": "hmath.machinelearning.mixture_means",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Clustering.mixtureResponsibilities",
+      "c": [
+        "hmath_ml_mixture_responsibilities"
+      ],
+      "python": "hmath.machinelearning.mixture_responsibilities",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Clustering.mixtureWeights",
+      "c": [
+        "hmath_ml_mixture_weights"
+      ],
+      "python": "hmath.machinelearning.mixture_weights",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Clustering.optics",
+      "c": [
+        "hmath_ml_optics"
+      ],
+      "python": "hmath.machinelearning.optics",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Clustering.predictClusters",
+      "c": [
+        "hmath_ml_predict_clusters"
+      ],
+      "python": "hmath.machinelearning.predict_clusters",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Clustering.rightCluster",
+      "c": [
+        "hmath_ml_right_cluster"
+      ],
+      "python": "hmath.machinelearning.right_cluster",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Clustering.spectralClustering",
+      "c": [
+        "hmath_ml_spectral_clustering"
+      ],
+      "python": "hmath.machinelearning.spectral_clustering",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Decomposition.canonicalCorrelations",
+      "c": [
+        "hmath_ml_canonical_correlations"
+      ],
+      "python": "hmath.machinelearning.canonical_correlations",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Decomposition.classicalMDS",
+      "c": [
+        "hmath_ml_classical_mds"
+      ],
+      "python": "hmath.machinelearning.classical_mds",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Decomposition.factorLoadings",
+      "c": [
+        "hmath_ml_factor_loadings"
+      ],
+      "python": "hmath.machinelearning.factor_loadings",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Decomposition.factorNoise",
+      "c": [
+        "hmath_ml_factor_noise"
+      ],
+      "python": "hmath.machinelearning.factor_noise",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Decomposition.finishPCA",
+      "c": [
+        "hmath_ml_finish_pca"
+      ],
+      "python": "hmath.machinelearning.finish_pca",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Decomposition.fitCCA",
+      "c": [
+        "hmath_ml_fit_cca"
+      ],
+      "python": "hmath.machinelearning.fit_cca",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Decomposition.fitFactorAnalysis",
+      "c": [
+        "hmath_ml_fit_factor_analysis"
+      ],
+      "python": "hmath.machinelearning.fit_factor_analysis",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Decomposition.fitICA",
+      "c": [
+        "hmath_ml_fit_ica"
+      ],
+      "python": "hmath.machinelearning.fit_ica",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Decomposition.fitKernelPCA",
+      "c": [
+        "hmath_ml_fit_kernel_pca"
+      ],
+      "python": "hmath.machinelearning.fit_kernel_pca",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Decomposition.fitPCA",
+      "c": [
+        "hmath_ml_fit_pca"
+      ],
+      "python": "hmath.machinelearning.fit_pca",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Decomposition.fitPLS",
+      "c": [
+        "hmath_ml_fit_pls"
+      ],
+      "python": "hmath.machinelearning.fit_pls",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Decomposition.incrementalPCA",
+      "c": [
+        "hmath_ml_incremental_pca"
+      ],
+      "python": "hmath.machinelearning.incremental_pca",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Decomposition.inversePCA",
+      "c": [
+        "hmath_ml_inverse_pca"
+      ],
+      "python": "hmath.machinelearning.inverse_pca",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Decomposition.isomap",
+      "c": [
+        "hmath_ml_isomap"
+      ],
+      "python": "hmath.machinelearning.isomap",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Decomposition.mergePCA",
+      "c": [
+        "hmath_ml_merge_pca"
+      ],
+      "python": "hmath.machinelearning.merge_pca",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Decomposition.pcaComponents",
+      "c": [
+        "hmath_ml_pca_components"
+      ],
+      "python": "hmath.machinelearning.pca_components",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Decomposition.pcaMean",
+      "c": [
+        "hmath_ml_pca_mean"
+      ],
+      "python": "hmath.machinelearning.pca_mean",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Decomposition.pcaVariances",
+      "c": [
+        "hmath_ml_pca_variances"
+      ],
+      "python": "hmath.machinelearning.pca_variances",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Decomposition.predictPLS",
+      "c": [
+        "hmath_ml_predict_pls"
+      ],
+      "python": "hmath.machinelearning.predict_pls",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Decomposition.randomProjection",
+      "c": [
+        "hmath_ml_random_projection"
+      ],
+      "python": "hmath.machinelearning.random_projection",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Decomposition.transformCCA",
+      "c": [
+        "hmath_ml_transform_cca"
+      ],
+      "python": "hmath.machinelearning.transform_cca",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Decomposition.transformICA",
+      "c": [
+        "hmath_ml_transform_ica"
+      ],
+      "python": "hmath.machinelearning.transform_ica",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Decomposition.transformKernelPCA",
+      "c": [
+        "hmath_ml_transform_kernel_pca"
+      ],
+      "python": "hmath.machinelearning.transform_kernel_pca",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Decomposition.transformPCA",
+      "c": [
+        "hmath_ml_transform_pca"
+      ],
+      "python": "hmath.machinelearning.transform_pca",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Decomposition.truncatedSVD",
+      "c": [
+        "hmath_ml_truncated_svd"
+      ],
+      "python": "hmath.machinelearning.truncated_svd",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Decomposition.tsne",
+      "c": [
+        "hmath_ml_tsne"
+      ],
+      "python": "hmath.machinelearning.tsne",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Decomposition.umap",
+      "c": [
+        "hmath_ml_umap"
+      ],
+      "python": "hmath.machinelearning.umap",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Decomposition.updatePCA",
+      "c": [
+        "hmath_ml_update_pca"
+      ],
+      "python": "hmath.machinelearning.update_pca",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Internal.Fit",
+      "c": [
+        "hmath_ml_fit"
+      ],
+      "python": "hmath.machinelearning.fit",
+      "specializations": [
+        "generic record/configuration payload preserved"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Internal.MLConfig",
+      "c": [
+        "hmath_ml_ml_config"
+      ],
+      "python": "hmath.machinelearning.ml_config",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Internal.defaultMLConfig",
+      "c": [
+        "hmath_ml_default_ml_config"
+      ],
+      "python": "hmath.machinelearning.default_ml_config",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Internal.fitConverged",
+      "c": [
+        "hmath_ml_fit_converged"
+      ],
+      "python": "hmath.machinelearning.fit_converged",
+      "specializations": [
+        "generic record/configuration payload preserved"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Internal.fitIterations",
+      "c": [
+        "hmath_ml_fit_iterations"
+      ],
+      "python": "hmath.machinelearning.fit_iterations",
+      "specializations": [
+        "generic record/configuration payload preserved"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Internal.fitResidual",
+      "c": [
+        "hmath_ml_fit_residual"
+      ],
+      "python": "hmath.machinelearning.fit_residual",
+      "specializations": [
+        "generic record/configuration payload preserved"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Internal.fitted",
+      "c": [
+        "hmath_ml_fitted"
+      ],
+      "python": "hmath.machinelearning.fitted",
+      "specializations": [
+        "generic record/configuration payload preserved"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Internal.mlIterations",
+      "c": [
+        "hmath_ml_ml_iterations"
+      ],
+      "python": "hmath.machinelearning.ml_iterations",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Internal.mlRate",
+      "c": [
+        "hmath_ml_ml_rate"
+      ],
+      "python": "hmath.machinelearning.ml_rate",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Internal.mlSeed",
+      "c": [
+        "hmath_ml_ml_seed"
+      ],
+      "python": "hmath.machinelearning.ml_seed",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Internal.mlTolerance",
+      "c": [
+        "hmath_ml_ml_tolerance"
+      ],
+      "python": "hmath.machinelearning.ml_tolerance",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Neighbors.BallTree",
+      "c": [
+        "hmath_ml_ball_tree"
+      ],
+      "python": "hmath.machinelearning.ball_tree",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Neighbors.KDTree",
+      "c": [
+        "hmath_ml_kd_tree"
+      ],
+      "python": "hmath.machinelearning.kd_tree",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Neighbors.NeighborResult",
+      "c": [
+        "hmath_ml_neighbor_result"
+      ],
+      "python": "hmath.machinelearning.neighbor_result",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Neighbors.buildIndex",
+      "c": [
+        "hmath_ml_build_index"
+      ],
+      "python": "hmath.machinelearning.build_index",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Neighbors.buildLSH",
+      "c": [
+        "hmath_ml_build_lsh"
+      ],
+      "python": "hmath.machinelearning.build_lsh",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Neighbors.decisionOneClassSVM",
+      "c": [
+        "hmath_ml_decision_one_class_svm"
+      ],
+      "python": "hmath.machinelearning.decision_one_class_svm",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Neighbors.exhaustive",
+      "c": [
+        "hmath_ml_exhaustive"
+      ],
+      "python": "hmath.machinelearning.exhaustive",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Neighbors.fitIsolationForest",
+      "c": [
+        "hmath_ml_fit_isolation_forest"
+      ],
+      "python": "hmath.machinelearning.fit_isolation_forest",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Neighbors.fitOneClassSVM",
+      "c": [
+        "hmath_ml_fit_one_class_svm"
+      ],
+      "python": "hmath.machinelearning.fit_one_class_svm",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Neighbors.knnClassify",
+      "c": [
+        "hmath_ml_knn_classify"
+      ],
+      "python": "hmath.machinelearning.knn_classify",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Neighbors.knnRegress",
+      "c": [
+        "hmath_ml_knn_regress"
+      ],
+      "python": "hmath.machinelearning.knn_regress",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Neighbors.localOutlierFactor",
+      "c": [
+        "hmath_ml_local_outlier_factor"
+      ],
+      "python": "hmath.machinelearning.local_outlier_factor",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Neighbors.nearestNeighbors",
+      "c": [
+        "hmath_ml_nearest_neighbors"
+      ],
+      "python": "hmath.machinelearning.nearest_neighbors",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Neighbors.neighbors",
+      "c": [
+        "hmath_ml_neighbors"
+      ],
+      "python": "hmath.machinelearning.neighbors",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Neighbors.queryLSH",
+      "c": [
+        "hmath_ml_query_lsh"
+      ],
+      "python": "hmath.machinelearning.query_lsh",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Neighbors.scoreIsolationForest",
+      "c": [
+        "hmath_ml_score_isolation_forest"
+      ],
+      "python": "hmath.machinelearning.score_isolation_forest",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Neighbors.visitedLeaves",
+      "c": [
+        "hmath_ml_visited_leaves"
+      ],
+      "python": "hmath.machinelearning.visited_leaves",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Preprocessing.BoxCox",
+      "c": [
+        "hmath_ml_box_cox"
+      ],
+      "python": "hmath.machinelearning.box_cox",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Preprocessing.ConstantImpute",
+      "c": [
+        "hmath_ml_constant_impute"
+      ],
+      "python": "hmath.machinelearning.constant_impute",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Preprocessing.Fold",
+      "c": [
+        "hmath_ml_fold"
+      ],
+      "python": "hmath.machinelearning.fold",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Preprocessing.MeanImpute",
+      "c": [
+        "hmath_ml_mean_impute"
+      ],
+      "python": "hmath.machinelearning.mean_impute",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Preprocessing.MedianImpute",
+      "c": [
+        "hmath_ml_median_impute"
+      ],
+      "python": "hmath.machinelearning.median_impute",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Preprocessing.MinMax",
+      "c": [
+        "hmath_ml_min_max"
+      ],
+      "python": "hmath.machinelearning.min_max",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Preprocessing.RejectUnknown",
+      "c": [
+        "hmath_ml_reject_unknown"
+      ],
+      "python": "hmath.machinelearning.reject_unknown",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Preprocessing.RobustScale",
+      "c": [
+        "hmath_ml_robust_scale"
+      ],
+      "python": "hmath.machinelearning.robust_scale",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Preprocessing.Standardize",
+      "c": [
+        "hmath_ml_standardize"
+      ],
+      "python": "hmath.machinelearning.standardize",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Preprocessing.YeoJohnson",
+      "c": [
+        "hmath_ml_yeo_johnson"
+      ],
+      "python": "hmath.machinelearning.yeo_johnson",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Preprocessing.ZeroUnknown",
+      "c": [
+        "hmath_ml_zero_unknown"
+      ],
+      "python": "hmath.machinelearning.zero_unknown",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Preprocessing.fitEncoder",
+      "c": [
+        "hmath_ml_fit_encoder"
+      ],
+      "python": "hmath.machinelearning.fit_encoder",
+      "specializations": [
+        "actual native supported Ord/Eq dictionary; no arbitrary user-defined instance claim"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Preprocessing.fitImputer",
+      "c": [
+        "hmath_ml_fit_imputer"
+      ],
+      "python": "hmath.machinelearning.fit_imputer",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Preprocessing.fitQuantileTransformer",
+      "c": [
+        "hmath_ml_fit_quantile_transformer"
+      ],
+      "python": "hmath.machinelearning.fit_quantile_transformer",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Preprocessing.fitScaler",
+      "c": [
+        "hmath_ml_fit_scaler"
+      ],
+      "python": "hmath.machinelearning.fit_scaler",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Preprocessing.gridSearch",
+      "c": [
+        "hmath_ml_grid_search"
+      ],
+      "python": "hmath.machinelearning.grid_search",
+      "specializations": [
+        "generic record/configuration payload preserved"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Preprocessing.impute",
+      "c": [
+        "hmath_ml_impute"
+      ],
+      "python": "hmath.machinelearning.impute",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Preprocessing.inversePowerTransform",
+      "c": [
+        "hmath_ml_inverse_power_transform"
+      ],
+      "python": "hmath.machinelearning.inverse_power_transform",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Preprocessing.inverseQuantileTransform",
+      "c": [
+        "hmath_ml_inverse_quantile_transform"
+      ],
+      "python": "hmath.machinelearning.inverse_quantile_transform",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Preprocessing.inverseTransform",
+      "c": [
+        "hmath_ml_inverse_transform"
+      ],
+      "python": "hmath.machinelearning.inverse_transform",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Preprocessing.kFold",
+      "c": [
+        "hmath_ml_k_fold"
+      ],
+      "python": "hmath.machinelearning.k_fold",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Preprocessing.labelDecode",
+      "c": [
+        "hmath_ml_label_decode"
+      ],
+      "python": "hmath.machinelearning.label_decode",
+      "specializations": [
+        "actual native supported Ord/Eq dictionary; no arbitrary user-defined instance claim"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Preprocessing.labelEncode",
+      "c": [
+        "hmath_ml_label_encode"
+      ],
+      "python": "hmath.machinelearning.label_encode",
+      "specializations": [
+        "actual native supported Ord/Eq dictionary; no arbitrary user-defined instance claim"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Preprocessing.oneHotEncode",
+      "c": [
+        "hmath_ml_one_hot_encode"
+      ],
+      "python": "hmath.machinelearning.one_hot_encode",
+      "specializations": [
+        "actual native supported Ord/Eq dictionary; no arbitrary user-defined instance claim"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Preprocessing.powerTransform",
+      "c": [
+        "hmath_ml_power_transform"
+      ],
+      "python": "hmath.machinelearning.power_transform",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Preprocessing.quantileTransform",
+      "c": [
+        "hmath_ml_quantile_transform"
+      ],
+      "python": "hmath.machinelearning.quantile_transform",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Preprocessing.randomSearch",
+      "c": [
+        "hmath_ml_random_search"
+      ],
+      "python": "hmath.machinelearning.random_search",
+      "specializations": [
+        "generic record/configuration payload preserved"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Preprocessing.stratifiedKFold",
+      "c": [
+        "hmath_ml_stratified_k_fold"
+      ],
+      "python": "hmath.machinelearning.stratified_k_fold",
+      "specializations": [
+        "actual native supported Ord/Eq dictionary; no arbitrary user-defined instance claim"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Preprocessing.trainTestSplit",
+      "c": [
+        "hmath_ml_train_test_split"
+      ],
+      "python": "hmath.machinelearning.train_test_split",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Preprocessing.trainingIndices",
+      "c": [
+        "hmath_ml_training_indices"
+      ],
+      "python": "hmath.machinelearning.training_indices",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Preprocessing.transform",
+      "c": [
+        "hmath_ml_transform"
+      ],
+      "python": "hmath.machinelearning.transform",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Preprocessing.validationIndices",
+      "c": [
+        "hmath_ml_validation_indices"
+      ],
+      "python": "hmath.machinelearning.validation_indices",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Regression.BernoulliBayes",
+      "c": [
+        "hmath_ml_bernoulli_bayes"
+      ],
+      "python": "hmath.machinelearning.bernoulli_bayes",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Regression.BinomialLogit",
+      "c": [
+        "hmath_ml_binomial_logit"
+      ],
+      "python": "hmath.machinelearning.binomial_logit",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Regression.ElasticNet",
+      "c": [
+        "hmath_ml_elastic_net"
+      ],
+      "python": "hmath.machinelearning.elastic_net",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Regression.GaussianBayes",
+      "c": [
+        "hmath_ml_gaussian_bayes"
+      ],
+      "python": "hmath.machinelearning.gaussian_bayes",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Regression.Lasso",
+      "c": [
+        "hmath_ml_lasso"
+      ],
+      "python": "hmath.machinelearning.lasso",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Regression.LinearKernel",
+      "c": [
+        "hmath_ml_linear_kernel"
+      ],
+      "python": "hmath.machinelearning.linear_kernel",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Regression.MultinomialBayes",
+      "c": [
+        "hmath_ml_multinomial_bayes"
+      ],
+      "python": "hmath.machinelearning.multinomial_bayes",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Regression.Ordinary",
+      "c": [
+        "hmath_ml_ordinary"
+      ],
+      "python": "hmath.machinelearning.ordinary",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Regression.PoissonLog",
+      "c": [
+        "hmath_ml_poisson_log"
+      ],
+      "python": "hmath.machinelearning.poisson_log",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Regression.PolynomialKernel",
+      "c": [
+        "hmath_ml_polynomial_kernel"
+      ],
+      "python": "hmath.machinelearning.polynomial_kernel",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Regression.RBFKernel",
+      "c": [
+        "hmath_ml_rbf_kernel"
+      ],
+      "python": "hmath.machinelearning.rbf_kernel",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Regression.Ridge",
+      "c": [
+        "hmath_ml_ridge"
+      ],
+      "python": "hmath.machinelearning.ridge",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Regression.bayesianCovariance",
+      "c": [
+        "hmath_ml_bayesian_covariance"
+      ],
+      "python": "hmath.machinelearning.bayesian_covariance",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Regression.bayesianMean",
+      "c": [
+        "hmath_ml_bayesian_mean"
+      ],
+      "python": "hmath.machinelearning.bayesian_mean",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Regression.coefficients",
+      "c": [
+        "hmath_ml_coefficients"
+      ],
+      "python": "hmath.machinelearning.coefficients",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Regression.decisionSVM",
+      "c": [
+        "hmath_ml_decision_svm"
+      ],
+      "python": "hmath.machinelearning.decision_svm",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Regression.fitBayesian",
+      "c": [
+        "hmath_ml_fit_bayesian"
+      ],
+      "python": "hmath.machinelearning.fit_bayesian",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Regression.fitDiscriminant",
+      "c": [
+        "hmath_ml_fit_discriminant"
+      ],
+      "python": "hmath.machinelearning.fit_discriminant",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Regression.fitGLM",
+      "c": [
+        "hmath_ml_fit_glm"
+      ],
+      "python": "hmath.machinelearning.fit_glm",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Regression.fitGPClassifier",
+      "c": [
+        "hmath_ml_fit_gp_classifier"
+      ],
+      "python": "hmath.machinelearning.fit_gp_classifier",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Regression.fitGaussianProcess",
+      "c": [
+        "hmath_ml_fit_gaussian_process"
+      ],
+      "python": "hmath.machinelearning.fit_gaussian_process",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Regression.fitLinear",
+      "c": [
+        "hmath_ml_fit_linear"
+      ],
+      "python": "hmath.machinelearning.fit_linear",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Regression.fitMultinomial",
+      "c": [
+        "hmath_ml_fit_multinomial"
+      ],
+      "python": "hmath.machinelearning.fit_multinomial",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Regression.fitNaiveBayes",
+      "c": [
+        "hmath_ml_fit_naive_bayes"
+      ],
+      "python": "hmath.machinelearning.fit_naive_bayes",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Regression.fitRobust",
+      "c": [
+        "hmath_ml_fit_robust"
+      ],
+      "python": "hmath.machinelearning.fit_robust",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Regression.fitSVM",
+      "c": [
+        "hmath_ml_fit_svm"
+      ],
+      "python": "hmath.machinelearning.fit_svm",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Regression.fitWeighted",
+      "c": [
+        "hmath_ml_fit_weighted"
+      ],
+      "python": "hmath.machinelearning.fit_weighted",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Regression.kernel",
+      "c": [
+        "hmath_ml_kernel"
+      ],
+      "python": "hmath.machinelearning.kernel",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Regression.polynomialFeatures",
+      "c": [
+        "hmath_ml_polynomial_features"
+      ],
+      "python": "hmath.machinelearning.polynomial_features",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Regression.predictDiscriminant",
+      "c": [
+        "hmath_ml_predict_discriminant"
+      ],
+      "python": "hmath.machinelearning.predict_discriminant",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Regression.predictGLM",
+      "c": [
+        "hmath_ml_predict_glm"
+      ],
+      "python": "hmath.machinelearning.predict_glm",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Regression.predictGPClassifier",
+      "c": [
+        "hmath_ml_predict_gp_classifier"
+      ],
+      "python": "hmath.machinelearning.predict_gp_classifier",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Regression.predictGaussianProcess",
+      "c": [
+        "hmath_ml_predict_gaussian_process"
+      ],
+      "python": "hmath.machinelearning.predict_gaussian_process",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Regression.predictLinear",
+      "c": [
+        "hmath_ml_predict_linear"
+      ],
+      "python": "hmath.machinelearning.predict_linear",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Regression.predictMultinomial",
+      "c": [
+        "hmath_ml_predict_multinomial"
+      ],
+      "python": "hmath.machinelearning.predict_multinomial",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Regression.predictNaiveBayes",
+      "c": [
+        "hmath_ml_predict_naive_bayes"
+      ],
+      "python": "hmath.machinelearning.predict_naive_bayes",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Regression.predictSVM",
+      "c": [
+        "hmath_ml_predict_svm"
+      ],
+      "python": "hmath.machinelearning.predict_svm",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Regression.recursiveCoefficients",
+      "c": [
+        "hmath_ml_recursive_coefficients"
+      ],
+      "python": "hmath.machinelearning.recursive_coefficients",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Regression.recursiveLS",
+      "c": [
+        "hmath_ml_recursive_ls"
+      ],
+      "python": "hmath.machinelearning.recursive_ls",
+      "specializations": [
+        "original concrete types"
+      ]
+    },
+    {
+      "symbol": "HMath.MachineLearning.Regression.updateRecursiveLS",
+      "c": [
+        "hmath_ml_update_recursive_ls"
+      ],
+      "python": "hmath.machinelearning.update_recursive_ls",
+      "specializations": [
+        "original concrete types"
+      ]
+    }
+  ]
+}

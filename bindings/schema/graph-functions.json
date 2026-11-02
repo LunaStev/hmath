@@ -1,0 +1,540 @@
+{
+  "schema": 1,
+  "functions": [
+    {
+      "module": "HMath.Graph.Analysis",
+      "name": "betweennessCentrality",
+      "signature": "Graph -> [Double]"
+    },
+    {
+      "module": "HMath.Graph.Analysis",
+      "name": "bipartiteColors",
+      "signature": "Graph -> Maybe [Bool]"
+    },
+    {
+      "module": "HMath.Graph.Analysis",
+      "name": "closenessCentrality",
+      "signature": "Graph -> [Double]"
+    },
+    {
+      "module": "HMath.Graph.Analysis",
+      "name": "clusteringCoefficients",
+      "signature": "Graph -> Either MathError [Double]"
+    },
+    {
+      "module": "HMath.Graph.Analysis",
+      "name": "degreeCentrality",
+      "signature": "Graph -> [Double]"
+    },
+    {
+      "module": "HMath.Graph.Analysis",
+      "name": "density",
+      "signature": "Graph -> Double"
+    },
+    {
+      "module": "HMath.Graph.Analysis",
+      "name": "diameterRadius",
+      "signature": "Graph -> Maybe (Int, Int)"
+    },
+    {
+      "module": "HMath.Graph.Analysis",
+      "name": "eigenvectorCentrality",
+      "signature": "Int -> Double -> Graph -> Either MathError [Double]"
+    },
+    {
+      "module": "HMath.Graph.Analysis",
+      "name": "eulerianPath",
+      "signature": "Graph -> Either MathError (Maybe ([Int], [Int]))"
+    },
+    {
+      "module": "HMath.Graph.Analysis",
+      "name": "exactColoring",
+      "signature": "Int -> Graph -> Either MathError [Int]"
+    },
+    {
+      "module": "HMath.Graph.Analysis",
+      "name": "graphEditDistance",
+      "signature": "Int -> Graph -> Graph -> Either MathError Int"
+    },
+    {
+      "module": "HMath.Graph.Analysis",
+      "name": "graphLaplacian",
+      "signature": "Bool -> Graph -> Either MathError [[Double]]"
+    },
+    {
+      "module": "HMath.Graph.Analysis",
+      "name": "graphSimilarity",
+      "signature": "Graph -> Graph -> Either MathError Double"
+    },
+    {
+      "module": "HMath.Graph.Analysis",
+      "name": "greedyColoring",
+      "signature": "Graph -> Either MathError [Int]"
+    },
+    {
+      "module": "HMath.Graph.Analysis",
+      "name": "hamiltonianPath",
+      "signature": "Int -> Graph -> Either MathError (Maybe [Int])"
+    },
+    {
+      "module": "HMath.Graph.Analysis",
+      "name": "katzCentrality",
+      "signature": "Int -> Double -> Double -> Double -> Graph -> Either MathError [Double]"
+    },
+    {
+      "module": "HMath.Graph.Analysis",
+      "name": "labelPropagation",
+      "signature": "Int -> Graph -> Either MathError [Int]"
+    },
+    {
+      "module": "HMath.Graph.Analysis",
+      "name": "laplacianSpectrum",
+      "signature": "Int -> Double -> Bool -> Graph -> Either MathError [Double]"
+    },
+    {
+      "module": "HMath.Graph.Analysis",
+      "name": "louvain",
+      "signature": "Int -> Graph -> Either MathError [Int]"
+    },
+    {
+      "module": "HMath.Graph.Analysis",
+      "name": "modularity",
+      "signature": "Graph -> [Int] -> Either MathError Double"
+    },
+    {
+      "module": "HMath.Graph.Analysis",
+      "name": "nearestNeighborTour",
+      "signature": "Graph -> Int -> Either MathError (Maybe (Double, [Int]))"
+    },
+    {
+      "module": "HMath.Graph.Analysis",
+      "name": "pageRank",
+      "signature": "Int -> Double -> Double -> Graph -> Either MathError [Double]"
+    },
+    {
+      "module": "HMath.Graph.Analysis",
+      "name": "randomWalk",
+      "signature": "Int -> Word64 -> Graph -> Int -> Either MathError [Int]"
+    },
+    {
+      "module": "HMath.Graph.Analysis",
+      "name": "twoOptTour",
+      "signature": "Int -> Graph -> [Int] -> Either MathError (Double, [Int])"
+    },
+    {
+      "module": "HMath.Graph.Core",
+      "name": "CSR",
+      "signature": "Bool -> Int -> [Int] -> [Int] -> [Double] -> [Int] -> [(Int, Int)] -> CSR"
+    },
+    {
+      "module": "HMath.Graph.Core",
+      "name": "Edge",
+      "signature": "Int -> Int -> Int -> Double -> Edge"
+    },
+    {
+      "module": "HMath.Graph.Core",
+      "name": "adjacencyList",
+      "signature": "Graph -> [[(Int, Double, Int)]]"
+    },
+    {
+      "module": "HMath.Graph.Core",
+      "name": "adjacencyMatrix",
+      "signature": "Graph -> [[[(Int, Double)]]]"
+    },
+    {
+      "module": "HMath.Graph.Core",
+      "name": "arcs",
+      "signature": "Graph -> [Edge]"
+    },
+    {
+      "module": "HMath.Graph.Core",
+      "name": "articulationPoints",
+      "signature": "Graph -> Either MathError [Int]"
+    },
+    {
+      "module": "HMath.Graph.Core",
+      "name": "bfs",
+      "signature": "Graph -> Int -> Either MathError [Int]"
+    },
+    {
+      "module": "HMath.Graph.Core",
+      "name": "bipartiteBase",
+      "signature": "BipartiteGraph -> Graph"
+    },
+    {
+      "module": "HMath.Graph.Core",
+      "name": "bipartiteGraph",
+      "signature": "Int -> Int -> [(Int, Int, Double)] -> Either MathError BipartiteGraph"
+    },
+    {
+      "module": "HMath.Graph.Core",
+      "name": "bipartiteParts",
+      "signature": "BipartiteGraph -> (Int, Int)"
+    },
+    {
+      "module": "HMath.Graph.Core",
+      "name": "boruvka",
+      "signature": "Graph -> Either MathError [Edge]"
+    },
+    {
+      "module": "HMath.Graph.Core",
+      "name": "bridges",
+      "signature": "Graph -> Either MathError [Int]"
+    },
+    {
+      "module": "HMath.Graph.Core",
+      "name": "checkVertex",
+      "signature": "Graph -> Int -> Either MathError ()"
+    },
+    {
+      "module": "HMath.Graph.Core",
+      "name": "connectedComponents",
+      "signature": "Graph -> [[Int]]"
+    },
+    {
+      "module": "HMath.Graph.Core",
+      "name": "csrDirected",
+      "signature": "CSR -> Bool"
+    },
+    {
+      "module": "HMath.Graph.Core",
+      "name": "csrIds",
+      "signature": "CSR -> [Int]"
+    },
+    {
+      "module": "HMath.Graph.Core",
+      "name": "csrOffsets",
+      "signature": "CSR -> [Int]"
+    },
+    {
+      "module": "HMath.Graph.Core",
+      "name": "csrOrientations",
+      "signature": "CSR -> [(Int, Int)]"
+    },
+    {
+      "module": "HMath.Graph.Core",
+      "name": "csrTargets",
+      "signature": "CSR -> [Int]"
+    },
+    {
+      "module": "HMath.Graph.Core",
+      "name": "csrVertices",
+      "signature": "CSR -> Int"
+    },
+    {
+      "module": "HMath.Graph.Core",
+      "name": "csrWeights",
+      "signature": "CSR -> [Double]"
+    },
+    {
+      "module": "HMath.Graph.Core",
+      "name": "deserializeBipartiteGraph",
+      "signature": "String -> Either MathError BipartiteGraph"
+    },
+    {
+      "module": "HMath.Graph.Core",
+      "name": "deserializeGraph",
+      "signature": "String -> Either MathError Graph"
+    },
+    {
+      "module": "HMath.Graph.Core",
+      "name": "deserializeHypergraph",
+      "signature": "String -> Either MathError Hypergraph"
+    },
+    {
+      "module": "HMath.Graph.Core",
+      "name": "dfs",
+      "signature": "Graph -> Int -> Either MathError [Int]"
+    },
+    {
+      "module": "HMath.Graph.Core",
+      "name": "directed",
+      "signature": "Graph -> Bool"
+    },
+    {
+      "module": "HMath.Graph.Core",
+      "name": "edgeFrom",
+      "signature": "Edge -> Int"
+    },
+    {
+      "module": "HMath.Graph.Core",
+      "name": "edgeId",
+      "signature": "Edge -> Int"
+    },
+    {
+      "module": "HMath.Graph.Core",
+      "name": "edgeTo",
+      "signature": "Edge -> Int"
+    },
+    {
+      "module": "HMath.Graph.Core",
+      "name": "edgeWeight",
+      "signature": "Edge -> Double"
+    },
+    {
+      "module": "HMath.Graph.Core",
+      "name": "edges",
+      "signature": "Graph -> [Edge]"
+    },
+    {
+      "module": "HMath.Graph.Core",
+      "name": "finite",
+      "signature": "Double -> Bool"
+    },
+    {
+      "module": "HMath.Graph.Core",
+      "name": "fromAdjacencyList",
+      "signature": "Bool -> [[(Int, Double, Int)]] -> [(Int, Int)] -> Either MathError Graph"
+    },
+    {
+      "module": "HMath.Graph.Core",
+      "name": "fromAdjacencyMatrix",
+      "signature": "Bool -> [[[Double]]] -> Either MathError Graph"
+    },
+    {
+      "module": "HMath.Graph.Core",
+      "name": "fromCSR",
+      "signature": "CSR -> Either MathError Graph"
+    },
+    {
+      "module": "HMath.Graph.Core",
+      "name": "fromLabeledAdjacencyMatrix",
+      "signature": "Bool -> [[[(Int, Double)]]] -> [(Int, Int)] -> Either MathError Graph"
+    },
+    {
+      "module": "HMath.Graph.Core",
+      "name": "graph",
+      "signature": "Bool -> Int -> [(Int, Int, Double)] -> Either MathError Graph"
+    },
+    {
+      "module": "HMath.Graph.Core",
+      "name": "hasCycle",
+      "signature": "Graph -> Bool"
+    },
+    {
+      "module": "HMath.Graph.Core",
+      "name": "hyperVertices",
+      "signature": "Hypergraph -> Int"
+    },
+    {
+      "module": "HMath.Graph.Core",
+      "name": "hyperedges",
+      "signature": "Hypergraph -> [[Int]]"
+    },
+    {
+      "module": "HMath.Graph.Core",
+      "name": "hypergraph",
+      "signature": "Int -> [[Int]] -> Either MathError Hypergraph"
+    },
+    {
+      "module": "HMath.Graph.Core",
+      "name": "iterativeDeepening",
+      "signature": "Int -> Graph -> Int -> Int -> Either MathError (Maybe [Int])"
+    },
+    {
+      "module": "HMath.Graph.Core",
+      "name": "kosarajuSCC",
+      "signature": "Graph -> [[Int]]"
+    },
+    {
+      "module": "HMath.Graph.Core",
+      "name": "kruskal",
+      "signature": "Graph -> Either MathError [Edge]"
+    },
+    {
+      "module": "HMath.Graph.Core",
+      "name": "neighbors",
+      "signature": "Graph -> Int -> [(Int, Double, Int)]"
+    },
+    {
+      "module": "HMath.Graph.Core",
+      "name": "prim",
+      "signature": "Graph -> Either MathError [Edge]"
+    },
+    {
+      "module": "HMath.Graph.Core",
+      "name": "requireUndirected",
+      "signature": "Graph -> Either MathError ()"
+    },
+    {
+      "module": "HMath.Graph.Core",
+      "name": "serializeBipartiteGraph",
+      "signature": "BipartiteGraph -> String"
+    },
+    {
+      "module": "HMath.Graph.Core",
+      "name": "serializeGraph",
+      "signature": "Graph -> String"
+    },
+    {
+      "module": "HMath.Graph.Core",
+      "name": "serializeHypergraph",
+      "signature": "Hypergraph -> String"
+    },
+    {
+      "module": "HMath.Graph.Core",
+      "name": "tarjanSCC",
+      "signature": "Graph -> [[Int]]"
+    },
+    {
+      "module": "HMath.Graph.Core",
+      "name": "toCSR",
+      "signature": "Graph -> CSR"
+    },
+    {
+      "module": "HMath.Graph.Core",
+      "name": "topologicalSort",
+      "signature": "Graph -> Either MathError [Int]"
+    },
+    {
+      "module": "HMath.Graph.Core",
+      "name": "vertexCount",
+      "signature": "Graph -> Int"
+    },
+    {
+      "module": "HMath.Graph.Flow",
+      "name": "FlowResult",
+      "signature": "Integer -> [Integer] -> Integer -> FlowResult"
+    },
+    {
+      "module": "HMath.Graph.Flow",
+      "name": "NetworkEdge",
+      "signature": "Int -> Int -> Int -> Integer -> Integer -> NetworkEdge"
+    },
+    {
+      "module": "HMath.Graph.Flow",
+      "name": "dinic",
+      "signature": "Int -> Network -> Int -> Int -> Either MathError FlowResult"
+    },
+    {
+      "module": "HMath.Graph.Flow",
+      "name": "edgeFlows",
+      "signature": "FlowResult -> [Integer]"
+    },
+    {
+      "module": "HMath.Graph.Flow",
+      "name": "edmondsKarp",
+      "signature": "Int -> Network -> Int -> Int -> Either MathError FlowResult"
+    },
+    {
+      "module": "HMath.Graph.Flow",
+      "name": "flowCost",
+      "signature": "FlowResult -> Integer"
+    },
+    {
+      "module": "HMath.Graph.Flow",
+      "name": "flowValue",
+      "signature": "FlowResult -> Integer"
+    },
+    {
+      "module": "HMath.Graph.Flow",
+      "name": "fordFulkerson",
+      "signature": "Int -> Network -> Int -> Int -> Either MathError FlowResult"
+    },
+    {
+      "module": "HMath.Graph.Flow",
+      "name": "hopcroftKarp",
+      "signature": "BipartiteGraph -> [(Int, Int)]"
+    },
+    {
+      "module": "HMath.Graph.Flow",
+      "name": "hungarian",
+      "signature": "[[Integer]] -> Either MathError (Integer, [(Int, Int)])"
+    },
+    {
+      "module": "HMath.Graph.Flow",
+      "name": "minimumCostMaximumFlow",
+      "signature": "Int -> Network -> Int -> Int -> Either MathError FlowResult"
+    },
+    {
+      "module": "HMath.Graph.Flow",
+      "name": "minimumCut",
+      "signature": "Int -> Network -> Int -> Int -> Either MathError ([Int], Integer)"
+    },
+    {
+      "module": "HMath.Graph.Flow",
+      "name": "network",
+      "signature": "Int -> [(Int, Int, Integer, Integer)] -> Either MathError Network"
+    },
+    {
+      "module": "HMath.Graph.Flow",
+      "name": "networkCapacity",
+      "signature": "NetworkEdge -> Integer"
+    },
+    {
+      "module": "HMath.Graph.Flow",
+      "name": "networkCost",
+      "signature": "NetworkEdge -> Integer"
+    },
+    {
+      "module": "HMath.Graph.Flow",
+      "name": "networkEdgeId",
+      "signature": "NetworkEdge -> Int"
+    },
+    {
+      "module": "HMath.Graph.Flow",
+      "name": "networkEdges",
+      "signature": "Network -> [NetworkEdge]"
+    },
+    {
+      "module": "HMath.Graph.Flow",
+      "name": "networkFrom",
+      "signature": "NetworkEdge -> Int"
+    },
+    {
+      "module": "HMath.Graph.Flow",
+      "name": "networkTo",
+      "signature": "NetworkEdge -> Int"
+    },
+    {
+      "module": "HMath.Graph.Flow",
+      "name": "pushRelabel",
+      "signature": "Int -> Network -> Int -> Int -> Either MathError FlowResult"
+    },
+    {
+      "module": "HMath.Graph.Paths",
+      "name": "aStar",
+      "signature": "Graph -> (Int -> Double) -> Int -> Int -> Either MathError (Maybe (Double, [Int]))"
+    },
+    {
+      "module": "HMath.Graph.Paths",
+      "name": "bellmanFord",
+      "signature": "Graph -> Int -> Either MathError [Maybe Double]"
+    },
+    {
+      "module": "HMath.Graph.Paths",
+      "name": "bidirectionalDijkstra",
+      "signature": "Graph -> Int -> Int -> Either MathError (Maybe Double)"
+    },
+    {
+      "module": "HMath.Graph.Paths",
+      "name": "dijkstra",
+      "signature": "Graph -> Int -> Either MathError [Maybe Double]"
+    },
+    {
+      "module": "HMath.Graph.Paths",
+      "name": "floydWarshall",
+      "signature": "Graph -> Either MathError [[Maybe Double]]"
+    },
+    {
+      "module": "HMath.Graph.Paths",
+      "name": "johnson",
+      "signature": "Graph -> Either MathError [[Maybe Double]]"
+    },
+    {
+      "module": "HMath.Graph.Paths",
+      "name": "kShortestPaths",
+      "signature": "Int -> Int -> Graph -> Int -> Int -> Either MathError [(Double, [Int], [Int])]"
+    },
+    {
+      "module": "HMath.Graph.Paths",
+      "name": "longestDAGPaths",
+      "signature": "Graph -> Int -> Either MathError [Maybe Double]"
+    },
+    {
+      "module": "HMath.Graph.Paths",
+      "name": "multiSourceDijkstra",
+      "signature": "Graph -> [Int] -> Either MathError [Maybe Double]"
+    }
+  ]
+}

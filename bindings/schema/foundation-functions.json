@@ -1,0 +1,3416 @@
+{
+  "functions": [
+    {
+      "module": "HMath.DataStructure",
+      "name": "fenwick",
+      "args": [
+        [
+          "list",
+          [
+            "Integer"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "Fenwick"
+        ]
+      ],
+      "constraints": "",
+      "signature": "[Integer] -> Either MathError Fenwick",
+      "constructor": false
+    },
+    {
+      "module": "HMath.DataStructure",
+      "name": "fenwickAdd",
+      "args": [
+        [
+          "Int"
+        ],
+        [
+          "Integer"
+        ],
+        [
+          "Fenwick"
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "Fenwick"
+        ]
+      ],
+      "constraints": "",
+      "signature": "Int -> Integer -> Fenwick -> Either MathError Fenwick",
+      "constructor": false
+    },
+    {
+      "module": "HMath.DataStructure",
+      "name": "fenwickPrefix",
+      "args": [
+        [
+          "Int"
+        ],
+        [
+          "Fenwick"
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "Integer"
+        ]
+      ],
+      "constraints": "",
+      "signature": "Int -> Fenwick -> Either MathError Integer",
+      "constructor": false
+    },
+    {
+      "module": "HMath.DataStructure",
+      "name": "fenwickRange",
+      "args": [
+        [
+          "Int"
+        ],
+        [
+          "Int"
+        ],
+        [
+          "Fenwick"
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "Integer"
+        ]
+      ],
+      "constraints": "",
+      "signature": "Int -> Int -> Fenwick -> Either MathError Integer",
+      "constructor": false
+    },
+    {
+      "module": "HMath.DataStructure",
+      "name": "segmentTree",
+      "args": [
+        [
+          "list",
+          [
+            "Integer"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "SegmentTree"
+        ]
+      ],
+      "constraints": "",
+      "signature": "[Integer] -> Either MathError SegmentTree",
+      "constructor": false
+    },
+    {
+      "module": "HMath.DataStructure",
+      "name": "segmentSet",
+      "args": [
+        [
+          "Int"
+        ],
+        [
+          "Integer"
+        ],
+        [
+          "SegmentTree"
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "SegmentTree"
+        ]
+      ],
+      "constraints": "",
+      "signature": "Int -> Integer -> SegmentTree -> Either MathError SegmentTree",
+      "constructor": false
+    },
+    {
+      "module": "HMath.DataStructure",
+      "name": "segmentRange",
+      "args": [
+        [
+          "Int"
+        ],
+        [
+          "Int"
+        ],
+        [
+          "SegmentTree"
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "Integer"
+        ]
+      ],
+      "constraints": "",
+      "signature": "Int -> Int -> SegmentTree -> Either MathError Integer",
+      "constructor": false
+    },
+    {
+      "module": "HMath.DataStructure",
+      "name": "sparseTable",
+      "args": [
+        [
+          "list",
+          [
+            "Integer"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "SparseTable"
+        ]
+      ],
+      "constraints": "",
+      "signature": "[Integer] -> Either MathError SparseTable",
+      "constructor": false
+    },
+    {
+      "module": "HMath.DataStructure",
+      "name": "sparseMinimum",
+      "args": [
+        [
+          "Int"
+        ],
+        [
+          "Int"
+        ],
+        [
+          "SparseTable"
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "Integer"
+        ]
+      ],
+      "constraints": "",
+      "signature": "Int -> Int -> SparseTable -> Either MathError Integer",
+      "constructor": false
+    },
+    {
+      "module": "HMath.DataStructure",
+      "name": "disjointSparseTable",
+      "args": [
+        [
+          "list",
+          [
+            "Integer"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "DisjointSparseTable"
+        ]
+      ],
+      "constraints": "",
+      "signature": "[Integer] -> Either MathError DisjointSparseTable",
+      "constructor": false
+    },
+    {
+      "module": "HMath.DataStructure",
+      "name": "disjointRange",
+      "args": [
+        [
+          "Int"
+        ],
+        [
+          "Int"
+        ],
+        [
+          "DisjointSparseTable"
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "Integer"
+        ]
+      ],
+      "constraints": "",
+      "signature": "Int -> Int -> DisjointSparseTable -> Either MathError Integer",
+      "constructor": false
+    },
+    {
+      "module": "HMath.DataStructure",
+      "name": "nextGreater",
+      "args": [
+        [
+          "list",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "list",
+        [
+          "Maybe",
+          [
+            "Int"
+          ]
+        ]
+      ],
+      "constraints": "(Ord a)",
+      "signature": "[a] -> [Maybe Int]",
+      "constructor": false
+    },
+    {
+      "module": "HMath.DataStructure",
+      "name": "emptyHeap",
+      "args": [],
+      "result": [
+        "Heap",
+        [
+          "a"
+        ]
+      ],
+      "constraints": "",
+      "signature": "Heap a",
+      "constructor": false
+    },
+    {
+      "module": "HMath.DataStructure",
+      "name": "heapInsert",
+      "args": [
+        [
+          "a"
+        ],
+        [
+          "Heap",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "Heap",
+        [
+          "a"
+        ]
+      ],
+      "constraints": "(Ord a)",
+      "signature": "a -> Heap a -> Heap a",
+      "constructor": false
+    },
+    {
+      "module": "HMath.DataStructure",
+      "name": "heapPop",
+      "args": [
+        [
+          "Heap",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "Maybe",
+        [
+          "tuple",
+          [
+            "a"
+          ],
+          [
+            "Heap",
+            [
+              "a"
+            ]
+          ]
+        ]
+      ],
+      "constraints": "(Ord a)",
+      "signature": "Heap a -> Maybe (a, Heap a)",
+      "constructor": false
+    },
+    {
+      "module": "HMath.DataStructure",
+      "name": "heapFromList",
+      "args": [
+        [
+          "list",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "Heap",
+        [
+          "a"
+        ]
+      ],
+      "constraints": "(Ord a)",
+      "signature": "[a] -> Heap a",
+      "constructor": false
+    },
+    {
+      "module": "HMath.DataStructure",
+      "name": "binaryHeap",
+      "args": [
+        [
+          "list",
+          [
+            "Integer"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "BinaryHeap"
+        ]
+      ],
+      "constraints": "",
+      "signature": "[Integer] -> Either MathError BinaryHeap",
+      "constructor": false
+    },
+    {
+      "module": "HMath.DataStructure",
+      "name": "binaryInsert",
+      "args": [
+        [
+          "Integer"
+        ],
+        [
+          "BinaryHeap"
+        ]
+      ],
+      "result": [
+        "BinaryHeap"
+      ],
+      "constraints": "",
+      "signature": "Integer -> BinaryHeap -> BinaryHeap",
+      "constructor": false
+    },
+    {
+      "module": "HMath.DataStructure",
+      "name": "binaryPop",
+      "args": [
+        [
+          "BinaryHeap"
+        ]
+      ],
+      "result": [
+        "Maybe",
+        [
+          "tuple",
+          [
+            "Integer"
+          ],
+          [
+            "BinaryHeap"
+          ]
+        ]
+      ],
+      "constraints": "",
+      "signature": "BinaryHeap -> Maybe (Integer, BinaryHeap)",
+      "constructor": false
+    },
+    {
+      "module": "HMath.DataStructure",
+      "name": "indexedHeap",
+      "args": [],
+      "result": [
+        "IndexedHeap"
+      ],
+      "constraints": "",
+      "signature": "IndexedHeap",
+      "constructor": false
+    },
+    {
+      "module": "HMath.DataStructure",
+      "name": "indexedSet",
+      "args": [
+        [
+          "Int"
+        ],
+        [
+          "Integer"
+        ],
+        [
+          "IndexedHeap"
+        ]
+      ],
+      "result": [
+        "IndexedHeap"
+      ],
+      "constraints": "",
+      "signature": "Int -> Integer -> IndexedHeap -> IndexedHeap",
+      "constructor": false
+    },
+    {
+      "module": "HMath.DataStructure",
+      "name": "indexedPop",
+      "args": [
+        [
+          "IndexedHeap"
+        ]
+      ],
+      "result": [
+        "Maybe",
+        [
+          "tuple",
+          [
+            "tuple",
+            [
+              "Int"
+            ],
+            [
+              "Integer"
+            ]
+          ],
+          [
+            "IndexedHeap"
+          ]
+        ]
+      ],
+      "constraints": "",
+      "signature": "IndexedHeap -> Maybe ((Int, Integer), IndexedHeap)",
+      "constructor": false
+    },
+    {
+      "module": "HMath.DataStructure",
+      "name": "unionFind",
+      "args": [
+        [
+          "Int"
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "UnionFind"
+        ]
+      ],
+      "constraints": "",
+      "signature": "Int -> Either MathError UnionFind",
+      "constructor": false
+    },
+    {
+      "module": "HMath.DataStructure",
+      "name": "findRoot",
+      "args": [
+        [
+          "Int"
+        ],
+        [
+          "UnionFind"
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "Int"
+        ]
+      ],
+      "constraints": "",
+      "signature": "Int -> UnionFind -> Either MathError Int",
+      "constructor": false
+    },
+    {
+      "module": "HMath.DataStructure",
+      "name": "union",
+      "args": [
+        [
+          "Int"
+        ],
+        [
+          "Int"
+        ],
+        [
+          "UnionFind"
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "UnionFind"
+        ]
+      ],
+      "constraints": "",
+      "signature": "Int -> Int -> UnionFind -> Either MathError UnionFind",
+      "constructor": false
+    },
+    {
+      "module": "HMath.DataStructure",
+      "name": "connected",
+      "args": [
+        [
+          "Int"
+        ],
+        [
+          "Int"
+        ],
+        [
+          "UnionFind"
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "Bool"
+        ]
+      ],
+      "constraints": "",
+      "signature": "Int -> Int -> UnionFind -> Either MathError Bool",
+      "constructor": false
+    },
+    {
+      "module": "HMath.DataStructure",
+      "name": "components",
+      "args": [
+        [
+          "UnionFind"
+        ]
+      ],
+      "result": [
+        "list",
+        [
+          "list",
+          [
+            "Int"
+          ]
+        ]
+      ],
+      "constraints": "",
+      "signature": "UnionFind -> [[Int]]",
+      "constructor": false
+    },
+    {
+      "module": "HMath.DataStructure",
+      "name": "bloom",
+      "args": [
+        [
+          "Int"
+        ],
+        [
+          "Int"
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "Bloom"
+        ]
+      ],
+      "constraints": "",
+      "signature": "Int -> Int -> Either MathError Bloom",
+      "constructor": false
+    },
+    {
+      "module": "HMath.DataStructure",
+      "name": "bloomInsert",
+      "args": [
+        [
+          "Word64"
+        ],
+        [
+          "Bloom"
+        ]
+      ],
+      "result": [
+        "Bloom"
+      ],
+      "constraints": "",
+      "signature": "Word64 -> Bloom -> Bloom",
+      "constructor": false
+    },
+    {
+      "module": "HMath.DataStructure",
+      "name": "bloomMember",
+      "args": [
+        [
+          "Word64"
+        ],
+        [
+          "Bloom"
+        ]
+      ],
+      "result": [
+        "Bool"
+      ],
+      "constraints": "",
+      "signature": "Word64 -> Bloom -> Bool",
+      "constructor": false
+    },
+    {
+      "module": "HMath.DataStructure",
+      "name": "bloomFalsePositiveBound",
+      "args": [
+        [
+          "Bloom"
+        ]
+      ],
+      "result": [
+        "Double"
+      ],
+      "constraints": "",
+      "signature": "Bloom -> Double",
+      "constructor": false
+    },
+    {
+      "module": "HMath.DataStructure",
+      "name": "countMin",
+      "args": [
+        [
+          "Int"
+        ],
+        [
+          "Int"
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "CountMin"
+        ]
+      ],
+      "constraints": "",
+      "signature": "Int -> Int -> Either MathError CountMin",
+      "constructor": false
+    },
+    {
+      "module": "HMath.DataStructure",
+      "name": "countMinAdd",
+      "args": [
+        [
+          "Word64"
+        ],
+        [
+          "Integer"
+        ],
+        [
+          "CountMin"
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "CountMin"
+        ]
+      ],
+      "constraints": "",
+      "signature": "Word64 -> Integer -> CountMin -> Either MathError CountMin",
+      "constructor": false
+    },
+    {
+      "module": "HMath.DataStructure",
+      "name": "countMinEstimate",
+      "args": [
+        [
+          "Word64"
+        ],
+        [
+          "CountMin"
+        ]
+      ],
+      "result": [
+        "Integer"
+      ],
+      "constraints": "",
+      "signature": "Word64 -> CountMin -> Integer",
+      "constructor": false
+    },
+    {
+      "module": "HMath.DataStructure",
+      "name": "countMinErrorBound",
+      "args": [
+        [
+          "CountMin"
+        ]
+      ],
+      "result": [
+        "tuple",
+        [
+          "Double"
+        ],
+        [
+          "Double"
+        ]
+      ],
+      "constraints": "",
+      "signature": "CountMin -> (Double, Double)",
+      "constructor": false
+    },
+    {
+      "module": "HMath.DataStructure",
+      "name": "hyperLogLog",
+      "args": [
+        [
+          "Int"
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "HyperLogLog"
+        ]
+      ],
+      "constraints": "",
+      "signature": "Int -> Either MathError HyperLogLog",
+      "constructor": false
+    },
+    {
+      "module": "HMath.DataStructure",
+      "name": "hllAdd",
+      "args": [
+        [
+          "Word64"
+        ],
+        [
+          "HyperLogLog"
+        ]
+      ],
+      "result": [
+        "HyperLogLog"
+      ],
+      "constraints": "",
+      "signature": "Word64 -> HyperLogLog -> HyperLogLog",
+      "constructor": false
+    },
+    {
+      "module": "HMath.DataStructure",
+      "name": "hllEstimate",
+      "args": [
+        [
+          "HyperLogLog"
+        ]
+      ],
+      "result": [
+        "Double"
+      ],
+      "constraints": "",
+      "signature": "HyperLogLog -> Double",
+      "constructor": false
+    },
+    {
+      "module": "HMath.DataStructure",
+      "name": "reservoir",
+      "args": [
+        [
+          "Int"
+        ],
+        [
+          "Word64"
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "Reservoir",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "constraints": "",
+      "signature": "Int -> Word64 -> Either MathError (Reservoir a)",
+      "constructor": false
+    },
+    {
+      "module": "HMath.DataStructure",
+      "name": "reservoirAdd",
+      "args": [
+        [
+          "a"
+        ],
+        [
+          "Reservoir",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "Reservoir",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "constraints": "",
+      "signature": "a -> Reservoir a -> Either MathError (Reservoir a)",
+      "constructor": false
+    },
+    {
+      "module": "HMath.DataStructure",
+      "name": "reservoirValues",
+      "args": [
+        [
+          "Reservoir",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "list",
+        [
+          "a"
+        ]
+      ],
+      "constraints": "",
+      "signature": "Reservoir a -> [a]",
+      "constructor": false
+    },
+    {
+      "module": "HMath.DataStructure",
+      "name": "onlineQuantiles",
+      "args": [
+        [
+          "Int"
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "OnlineQuantiles"
+        ]
+      ],
+      "constraints": "",
+      "signature": "Int -> Either MathError OnlineQuantiles",
+      "constructor": false
+    },
+    {
+      "module": "HMath.DataStructure",
+      "name": "quantileAdd",
+      "args": [
+        [
+          "Double"
+        ],
+        [
+          "OnlineQuantiles"
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "OnlineQuantiles"
+        ]
+      ],
+      "constraints": "",
+      "signature": "Double -> OnlineQuantiles -> Either MathError OnlineQuantiles",
+      "constructor": false
+    },
+    {
+      "module": "HMath.DataStructure",
+      "name": "onlineQuantile",
+      "args": [
+        [
+          "Double"
+        ],
+        [
+          "OnlineQuantiles"
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "Double"
+        ]
+      ],
+      "constraints": "",
+      "signature": "Double -> OnlineQuantiles -> Either MathError Double",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Discrete",
+      "name": "multiset",
+      "args": [
+        [
+          "list",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "MultiSet",
+        [
+          "a"
+        ]
+      ],
+      "constraints": "(Ord a)",
+      "signature": "[a] -> MultiSet a",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Discrete",
+      "name": "multiplicity",
+      "args": [
+        [
+          "a"
+        ],
+        [
+          "MultiSet",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "Integer"
+      ],
+      "constraints": "(Ord a)",
+      "signature": "a -> MultiSet a -> Integer",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Discrete",
+      "name": "multisetEntries",
+      "args": [
+        [
+          "MultiSet",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "list",
+        [
+          "tuple",
+          [
+            "a"
+          ],
+          [
+            "Integer"
+          ]
+        ]
+      ],
+      "constraints": "",
+      "signature": "MultiSet a -> [(a, Integer)]",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Discrete",
+      "name": "multisetInsert",
+      "args": [
+        [
+          "a"
+        ],
+        [
+          "MultiSet",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "MultiSet",
+        [
+          "a"
+        ]
+      ],
+      "constraints": "(Ord a)",
+      "signature": "a -> MultiSet a -> MultiSet a",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Discrete",
+      "name": "multisetDelete",
+      "args": [
+        [
+          "a"
+        ],
+        [
+          "MultiSet",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "MultiSet",
+        [
+          "a"
+        ]
+      ],
+      "constraints": "(Ord a)",
+      "signature": "a -> MultiSet a -> MultiSet a",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Discrete",
+      "name": "multisetUnion",
+      "args": [
+        [
+          "MultiSet",
+          [
+            "a"
+          ]
+        ],
+        [
+          "MultiSet",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "MultiSet",
+        [
+          "a"
+        ]
+      ],
+      "constraints": "(Ord a)",
+      "signature": "MultiSet a -> MultiSet a -> MultiSet a",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Discrete",
+      "name": "multisetIntersection",
+      "args": [
+        [
+          "MultiSet",
+          [
+            "a"
+          ]
+        ],
+        [
+          "MultiSet",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "MultiSet",
+        [
+          "a"
+        ]
+      ],
+      "constraints": "(Ord a)",
+      "signature": "MultiSet a -> MultiSet a -> MultiSet a",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Discrete",
+      "name": "multisetDifference",
+      "args": [
+        [
+          "MultiSet",
+          [
+            "a"
+          ]
+        ],
+        [
+          "MultiSet",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "MultiSet",
+        [
+          "a"
+        ]
+      ],
+      "constraints": "(Ord a)",
+      "signature": "MultiSet a -> MultiSet a -> MultiSet a",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Discrete",
+      "name": "bitSet",
+      "args": [
+        [
+          "Int"
+        ],
+        [
+          "Integer"
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "BitSet"
+        ]
+      ],
+      "constraints": "",
+      "signature": "Int -> Integer -> Either MathError BitSet",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Discrete",
+      "name": "bitWidth",
+      "args": [
+        [
+          "BitSet"
+        ]
+      ],
+      "result": [
+        "Int"
+      ],
+      "constraints": "",
+      "signature": "BitSet -> Int",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Discrete",
+      "name": "bitValue",
+      "args": [
+        [
+          "BitSet"
+        ]
+      ],
+      "result": [
+        "Integer"
+      ],
+      "constraints": "",
+      "signature": "BitSet -> Integer",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Discrete",
+      "name": "bitMember",
+      "args": [
+        [
+          "BitSet"
+        ],
+        [
+          "Int"
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "Bool"
+        ]
+      ],
+      "constraints": "",
+      "signature": "BitSet -> Int -> Either MathError Bool",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Discrete",
+      "name": "bitInsert",
+      "args": [
+        [
+          "BitSet"
+        ],
+        [
+          "Int"
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "BitSet"
+        ]
+      ],
+      "constraints": "",
+      "signature": "BitSet -> Int -> Either MathError BitSet",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Discrete",
+      "name": "bitDelete",
+      "args": [
+        [
+          "BitSet"
+        ],
+        [
+          "Int"
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "BitSet"
+        ]
+      ],
+      "constraints": "",
+      "signature": "BitSet -> Int -> Either MathError BitSet",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Discrete",
+      "name": "bitUnion",
+      "args": [
+        [
+          "BitSet"
+        ],
+        [
+          "BitSet"
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "BitSet"
+        ]
+      ],
+      "constraints": "",
+      "signature": "BitSet -> BitSet -> Either MathError BitSet",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Discrete",
+      "name": "bitIntersection",
+      "args": [
+        [
+          "BitSet"
+        ],
+        [
+          "BitSet"
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "BitSet"
+        ]
+      ],
+      "constraints": "",
+      "signature": "BitSet -> BitSet -> Either MathError BitSet",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Discrete",
+      "name": "bitDifference",
+      "args": [
+        [
+          "BitSet"
+        ],
+        [
+          "BitSet"
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "BitSet"
+        ]
+      ],
+      "constraints": "",
+      "signature": "BitSet -> BitSet -> Either MathError BitSet",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Discrete",
+      "name": "resizeBitSet",
+      "args": [
+        [
+          "Int"
+        ],
+        [
+          "BitSet"
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "BitSet"
+        ]
+      ],
+      "constraints": "",
+      "signature": "Int -> BitSet -> Either MathError BitSet",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Discrete",
+      "name": "populationCount",
+      "args": [
+        [
+          "BitSet"
+        ]
+      ],
+      "result": [
+        "Int"
+      ],
+      "constraints": "",
+      "signature": "BitSet -> Int",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Discrete",
+      "name": "leadingZeros",
+      "args": [
+        [
+          "BitSet"
+        ]
+      ],
+      "result": [
+        "Int"
+      ],
+      "constraints": "",
+      "signature": "BitSet -> Int",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Discrete",
+      "name": "trailingZeros",
+      "args": [
+        [
+          "BitSet"
+        ]
+      ],
+      "result": [
+        "Int"
+      ],
+      "constraints": "",
+      "signature": "BitSet -> Int",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Discrete",
+      "name": "rotateBits",
+      "args": [
+        [
+          "Int"
+        ],
+        [
+          "BitSet"
+        ]
+      ],
+      "result": [
+        "BitSet"
+      ],
+      "constraints": "",
+      "signature": "Int -> BitSet -> BitSet",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Discrete",
+      "name": "reverseBits",
+      "args": [
+        [
+          "BitSet"
+        ]
+      ],
+      "result": [
+        "BitSet"
+      ],
+      "constraints": "",
+      "signature": "BitSet -> BitSet",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Discrete",
+      "name": "grayEncode",
+      "args": [
+        [
+          "BitSet"
+        ]
+      ],
+      "result": [
+        "BitSet"
+      ],
+      "constraints": "",
+      "signature": "BitSet -> BitSet",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Discrete",
+      "name": "grayDecode",
+      "args": [
+        [
+          "BitSet"
+        ]
+      ],
+      "result": [
+        "BitSet"
+      ],
+      "constraints": "",
+      "signature": "BitSet -> BitSet",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Discrete",
+      "name": "hammingDistance",
+      "args": [
+        [
+          "BitSet"
+        ],
+        [
+          "BitSet"
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "Int"
+        ]
+      ],
+      "constraints": "",
+      "signature": "BitSet -> BitSet -> Either MathError Int",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Discrete",
+      "name": "transitiveClosure",
+      "args": [
+        [
+          "list",
+          [
+            "list",
+            [
+              "Bool"
+            ]
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "list",
+          [
+            "list",
+            [
+              "Bool"
+            ]
+          ]
+        ]
+      ],
+      "constraints": "",
+      "signature": "[[Bool]] -> Either MathError [[Bool]]",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Discrete",
+      "name": "equivalenceClosure",
+      "args": [
+        [
+          "list",
+          [
+            "list",
+            [
+              "Bool"
+            ]
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "list",
+          [
+            "list",
+            [
+              "Bool"
+            ]
+          ]
+        ]
+      ],
+      "constraints": "",
+      "signature": "[[Bool]] -> Either MathError [[Bool]]",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Discrete",
+      "name": "isEquivalence",
+      "args": [
+        [
+          "list",
+          [
+            "list",
+            [
+              "Bool"
+            ]
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "Bool"
+        ]
+      ],
+      "constraints": "",
+      "signature": "[[Bool]] -> Either MathError Bool",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Discrete",
+      "name": "booleanMultiply",
+      "args": [
+        [
+          "list",
+          [
+            "list",
+            [
+              "Bool"
+            ]
+          ]
+        ],
+        [
+          "list",
+          [
+            "list",
+            [
+              "Bool"
+            ]
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "list",
+          [
+            "list",
+            [
+              "Bool"
+            ]
+          ]
+        ]
+      ],
+      "constraints": "",
+      "signature": "[[Bool]] -> [[Bool]] -> Either MathError [[Bool]]",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Discrete",
+      "name": "evaluateProp",
+      "args": [
+        [
+          "list",
+          [
+            "Bool"
+          ]
+        ],
+        [
+          "Prop"
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "Bool"
+        ]
+      ],
+      "constraints": "",
+      "signature": "[Bool] -> Prop -> Either MathError Bool",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Discrete",
+      "name": "truthTable",
+      "args": [
+        [
+          "Int"
+        ],
+        [
+          "Prop"
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "list",
+          [
+            "tuple",
+            [
+              "list",
+              [
+                "Bool"
+              ]
+            ],
+            [
+              "Bool"
+            ]
+          ]
+        ]
+      ],
+      "constraints": "",
+      "signature": "Int -> Prop -> Either MathError [([Bool], Bool)]",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Discrete",
+      "name": "implicantCovers",
+      "args": [
+        [
+          "Implicant"
+        ],
+        [
+          "Integer"
+        ]
+      ],
+      "result": [
+        "Bool"
+      ],
+      "constraints": "",
+      "signature": "Implicant -> Integer -> Bool",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Discrete",
+      "name": "quineMcCluskey",
+      "args": [
+        [
+          "Int"
+        ],
+        [
+          "Int"
+        ],
+        [
+          "list",
+          [
+            "Integer"
+          ]
+        ],
+        [
+          "list",
+          [
+            "Integer"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "list",
+          [
+            "Implicant"
+          ]
+        ]
+      ],
+      "constraints": "",
+      "signature": "Int -> Int -> [Integer] -> [Integer] -> Either MathError [Implicant]",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Discrete",
+      "name": "Literal",
+      "args": [
+        [
+          "Bool"
+        ]
+      ],
+      "result": [
+        "Prop"
+      ],
+      "constraints": "",
+      "signature": "constructor",
+      "constructor": true
+    },
+    {
+      "module": "HMath.Discrete",
+      "name": "Variable",
+      "args": [
+        [
+          "Int"
+        ]
+      ],
+      "result": [
+        "Prop"
+      ],
+      "constraints": "",
+      "signature": "constructor",
+      "constructor": true
+    },
+    {
+      "module": "HMath.Discrete",
+      "name": "Not",
+      "args": [
+        [
+          "Prop"
+        ]
+      ],
+      "result": [
+        "Prop"
+      ],
+      "constraints": "",
+      "signature": "constructor",
+      "constructor": true
+    },
+    {
+      "module": "HMath.Discrete",
+      "name": "And",
+      "args": [
+        [
+          "Prop"
+        ],
+        [
+          "Prop"
+        ]
+      ],
+      "result": [
+        "Prop"
+      ],
+      "constraints": "",
+      "signature": "constructor",
+      "constructor": true
+    },
+    {
+      "module": "HMath.Discrete",
+      "name": "Or",
+      "args": [
+        [
+          "Prop"
+        ],
+        [
+          "Prop"
+        ]
+      ],
+      "result": [
+        "Prop"
+      ],
+      "constraints": "",
+      "signature": "constructor",
+      "constructor": true
+    },
+    {
+      "module": "HMath.Discrete",
+      "name": "Xor",
+      "args": [
+        [
+          "Prop"
+        ],
+        [
+          "Prop"
+        ]
+      ],
+      "result": [
+        "Prop"
+      ],
+      "constraints": "",
+      "signature": "constructor",
+      "constructor": true
+    },
+    {
+      "module": "HMath.Discrete",
+      "name": "Implies",
+      "args": [
+        [
+          "Prop"
+        ],
+        [
+          "Prop"
+        ]
+      ],
+      "result": [
+        "Prop"
+      ],
+      "constraints": "",
+      "signature": "constructor",
+      "constructor": true
+    },
+    {
+      "module": "HMath.Discrete",
+      "name": "Iff",
+      "args": [
+        [
+          "Prop"
+        ],
+        [
+          "Prop"
+        ]
+      ],
+      "result": [
+        "Prop"
+      ],
+      "constraints": "",
+      "signature": "constructor",
+      "constructor": true
+    },
+    {
+      "module": "HMath.Discrete",
+      "name": "implicantValue",
+      "args": [
+        [
+          "Implicant"
+        ]
+      ],
+      "result": [
+        "Integer"
+      ],
+      "constraints": "",
+      "signature": "Implicant -> field",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Discrete",
+      "name": "implicantMask",
+      "args": [
+        [
+          "Implicant"
+        ]
+      ],
+      "result": [
+        "Integer"
+      ],
+      "constraints": "",
+      "signature": "Implicant -> field",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Discrete",
+      "name": "Implicant",
+      "args": [
+        [
+          "Integer"
+        ],
+        [
+          "Integer"
+        ]
+      ],
+      "result": [
+        "Implicant"
+      ],
+      "constraints": "",
+      "signature": "constructor",
+      "constructor": true
+    },
+    {
+      "module": "HMath.Algorithms",
+      "name": "binarySearch",
+      "args": [
+        [
+          "a"
+        ],
+        [
+          "list",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "Maybe",
+          [
+            "Int"
+          ]
+        ]
+      ],
+      "constraints": "(Ord a)",
+      "signature": "a -> [a] -> Either MathError (Maybe Int)",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Algorithms",
+      "name": "interpolationSearch",
+      "args": [
+        [
+          "Integer"
+        ],
+        [
+          "list",
+          [
+            "Integer"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "Maybe",
+          [
+            "Int"
+          ]
+        ]
+      ],
+      "constraints": "",
+      "signature": "Integer -> [Integer] -> Either MathError (Maybe Int)",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Algorithms",
+      "name": "exponentialSearch",
+      "args": [
+        [
+          "a"
+        ],
+        [
+          "list",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "Maybe",
+          [
+            "Int"
+          ]
+        ]
+      ],
+      "constraints": "(Ord a)",
+      "signature": "a -> [a] -> Either MathError (Maybe Int)",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Algorithms",
+      "name": "ternarySearch",
+      "args": [
+        [
+          "Int"
+        ],
+        [
+          "function",
+          [
+            "Double"
+          ],
+          [
+            "Double"
+          ]
+        ],
+        [
+          "Double"
+        ],
+        [
+          "Double"
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "tuple",
+          [
+            "Double"
+          ],
+          [
+            "Double"
+          ]
+        ]
+      ],
+      "constraints": "",
+      "signature": "Int -> (Double -> Double) -> Double -> Double -> Either MathError (Double, Double)",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Algorithms",
+      "name": "numericGroups",
+      "args": [
+        [
+          "list",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "list",
+        [
+          "tuple",
+          [
+            "a"
+          ],
+          [
+            "Int"
+          ]
+        ]
+      ],
+      "constraints": "(Ord a)",
+      "signature": "[a] -> [(a, Int)]",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Algorithms",
+      "name": "runLengthEncode",
+      "args": [
+        [
+          "list",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "list",
+        [
+          "tuple",
+          [
+            "a"
+          ],
+          [
+            "Int"
+          ]
+        ]
+      ],
+      "constraints": "(Eq a)",
+      "signature": "[a] -> [(a, Int)]",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Algorithms",
+      "name": "runLengthDecode",
+      "args": [
+        [
+          "Int"
+        ],
+        [
+          "list",
+          [
+            "tuple",
+            [
+              "a"
+            ],
+            [
+              "Int"
+            ]
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "list",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "constraints": "",
+      "signature": "Int -> [(a, Int)] -> Either MathError [a]",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Algorithms",
+      "name": "coordinateCompression",
+      "args": [
+        [
+          "list",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "tuple",
+        [
+          "list",
+          [
+            "a"
+          ]
+        ],
+        [
+          "list",
+          [
+            "Int"
+          ]
+        ]
+      ],
+      "constraints": "(Ord a)",
+      "signature": "[a] -> ([a], [Int])",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Algorithms",
+      "name": "intervalSweep",
+      "args": [
+        [
+          "list",
+          [
+            "tuple",
+            [
+              "Integer"
+            ],
+            [
+              "Integer"
+            ]
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "tuple",
+          [
+            "Integer"
+          ],
+          [
+            "Int"
+          ]
+        ]
+      ],
+      "constraints": "",
+      "signature": "[(Integer, Integer)] -> Either MathError (Integer, Int)",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Algorithms",
+      "name": "divideConquerDP",
+      "args": [
+        [
+          "list",
+          [
+            "Double"
+          ]
+        ],
+        [
+          "function",
+          [
+            "Int"
+          ],
+          [
+            "Int"
+          ],
+          [
+            "Double"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "list",
+          [
+            "Double"
+          ]
+        ]
+      ],
+      "constraints": "",
+      "signature": "[Double] -> (Int -> Int -> Double) -> Either MathError [Double]",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Algorithms",
+      "name": "tabulateDP",
+      "args": [
+        [
+          "Int"
+        ],
+        [
+          "function",
+          [
+            "Int"
+          ],
+          [
+            "list",
+            [
+              "tuple",
+              [
+                "Int"
+              ],
+              [
+                "Integer"
+              ]
+            ]
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "list",
+          [
+            "Integer"
+          ]
+        ]
+      ],
+      "constraints": "",
+      "signature": "Int -> (Int -> [(Int, Integer)]) -> Either MathError [Integer]",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Algorithms",
+      "name": "memoizedDP",
+      "args": [
+        [
+          "Int"
+        ],
+        [
+          "function",
+          [
+            "Int"
+          ],
+          [
+            "tuple",
+            [
+              "Integer"
+            ],
+            [
+              "list",
+              [
+                "tuple",
+                [
+                  "Int"
+                ],
+                [
+                  "Integer"
+                ]
+              ]
+            ]
+          ]
+        ],
+        [
+          "Int"
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "Integer"
+        ]
+      ],
+      "constraints": "",
+      "signature": "Int -> (Int -> (Integer, [(Int, Integer)])) -> Int -> Either MathError Integer",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Algorithms",
+      "name": "integerMatrixPower",
+      "args": [
+        [
+          "list",
+          [
+            "list",
+            [
+              "Integer"
+            ]
+          ]
+        ],
+        [
+          "Integer"
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "list",
+          [
+            "list",
+            [
+              "Integer"
+            ]
+          ]
+        ]
+      ],
+      "constraints": "",
+      "signature": "[[Integer]] -> Integer -> Either MathError [[Integer]]",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Combinatorics",
+      "name": "permutationsOf",
+      "args": [
+        [
+          "Int"
+        ],
+        [
+          "Int"
+        ],
+        [
+          "list",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "list",
+          [
+            "list",
+            [
+              "a"
+            ]
+          ]
+        ]
+      ],
+      "constraints": "",
+      "signature": "Int -> Int -> [a] -> Either MathError [[a]]",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Combinatorics",
+      "name": "combinationsOf",
+      "args": [
+        [
+          "Int"
+        ],
+        [
+          "Int"
+        ],
+        [
+          "list",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "list",
+          [
+            "list",
+            [
+              "a"
+            ]
+          ]
+        ]
+      ],
+      "constraints": "",
+      "signature": "Int -> Int -> [a] -> Either MathError [[a]]",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Combinatorics",
+      "name": "derangements",
+      "args": [
+        [
+          "Int"
+        ],
+        [
+          "Int"
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "list",
+          [
+            "list",
+            [
+              "Int"
+            ]
+          ]
+        ]
+      ],
+      "constraints": "",
+      "signature": "Int -> Int -> Either MathError [[Int]]",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Combinatorics",
+      "name": "integerPartitions",
+      "args": [
+        [
+          "Int"
+        ],
+        [
+          "Int"
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "list",
+          [
+            "list",
+            [
+              "Int"
+            ]
+          ]
+        ]
+      ],
+      "constraints": "",
+      "signature": "Int -> Int -> Either MathError [[Int]]",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Combinatorics",
+      "name": "setPartitions",
+      "args": [
+        [
+          "Int"
+        ],
+        [
+          "Int"
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "list",
+          [
+            "list",
+            [
+              "list",
+              [
+                "Int"
+              ]
+            ]
+          ]
+        ]
+      ],
+      "constraints": "",
+      "signature": "Int -> Int -> Either MathError [[[Int]]]",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Combinatorics",
+      "name": "pascalTriangle",
+      "args": [
+        [
+          "Int"
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "list",
+          [
+            "list",
+            [
+              "Integer"
+            ]
+          ]
+        ]
+      ],
+      "constraints": "",
+      "signature": "Int -> Either MathError [[Integer]]",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Combinatorics",
+      "name": "subsets",
+      "args": [
+        [
+          "Int"
+        ],
+        [
+          "list",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "list",
+          [
+            "list",
+            [
+              "a"
+            ]
+          ]
+        ]
+      ],
+      "constraints": "",
+      "signature": "Int -> [a] -> Either MathError [[a]]",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Combinatorics",
+      "name": "cartesianProduct",
+      "args": [
+        [
+          "Int"
+        ],
+        [
+          "list",
+          [
+            "list",
+            [
+              "a"
+            ]
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "list",
+          [
+            "list",
+            [
+              "a"
+            ]
+          ]
+        ]
+      ],
+      "constraints": "",
+      "signature": "Int -> [[a]] -> Either MathError [[a]]",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Combinatorics",
+      "name": "multisetPermutations",
+      "args": [
+        [
+          "Int"
+        ],
+        [
+          "list",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "list",
+          [
+            "list",
+            [
+              "a"
+            ]
+          ]
+        ]
+      ],
+      "constraints": "(Ord a)",
+      "signature": "Int -> [a] -> Either MathError [[a]]",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Combinatorics",
+      "name": "generatingCoefficients",
+      "args": [
+        [
+          "Int"
+        ],
+        [
+          "list",
+          [
+            "Rational"
+          ]
+        ],
+        [
+          "list",
+          [
+            "Rational"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "list",
+          [
+            "Rational"
+          ]
+        ]
+      ],
+      "constraints": "",
+      "signature": "Int -> [Rational] -> [Rational] -> Either MathError [Rational]",
+      "constructor": false
+    },
+    {
+      "module": "HMath.Combinatorics",
+      "name": "finiteDifferences",
+      "args": [
+        [
+          "list",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "list",
+        [
+          "list",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "constraints": "(Num a)",
+      "signature": "[a] -> [[a]]",
+      "constructor": false
+    },
+    {
+      "module": "HMath.API.Convergence",
+      "name": "defaultIterationOptions",
+      "args": [],
+      "result": [
+        "IterationOptions"
+      ],
+      "constraints": "",
+      "signature": "IterationOptions",
+      "constructor": false
+    },
+    {
+      "module": "HMath.API.Convergence",
+      "name": "iterateUntil",
+      "args": [
+        [
+          "IterationOptions"
+        ],
+        [
+          "function",
+          [
+            "a"
+          ],
+          [
+            "Either",
+            [
+              "MathError"
+            ],
+            [
+              "a"
+            ]
+          ]
+        ],
+        [
+          "function",
+          [
+            "a"
+          ],
+          [
+            "Either",
+            [
+              "MathError"
+            ],
+            [
+              "Double"
+            ]
+          ]
+        ],
+        [
+          "function",
+          [
+            "a"
+          ],
+          [
+            "a"
+          ],
+          [
+            "Bool"
+          ]
+        ],
+        [
+          "a"
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "Convergence",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "constraints": "",
+      "signature": "IterationOptions -> (a -> Either MathError a) -> (a -> Either MathError Double) -> (a -> a -> Bool) -> a -> Either MathError (Convergence a)",
+      "constructor": false
+    },
+    {
+      "module": "HMath.API.Convergence",
+      "name": "requireConvergence",
+      "args": [
+        [
+          "String"
+        ],
+        [
+          "Convergence",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "MathError"
+        ],
+        [
+          "a"
+        ]
+      ],
+      "constraints": "",
+      "signature": "String -> Convergence a -> Either MathError a",
+      "constructor": false
+    },
+    {
+      "module": "HMath.API.Convergence",
+      "name": "resultMaybe",
+      "args": [
+        [
+          "Either",
+          [
+            "e"
+          ],
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "Maybe",
+        [
+          "a"
+        ]
+      ],
+      "constraints": "",
+      "signature": "Either e a -> Maybe a",
+      "constructor": false
+    },
+    {
+      "module": "HMath.API.Convergence",
+      "name": "fromMaybeError",
+      "args": [
+        [
+          "e"
+        ],
+        [
+          "Maybe",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "Either",
+        [
+          "e"
+        ],
+        [
+          "a"
+        ]
+      ],
+      "constraints": "",
+      "signature": "e -> Maybe a -> Either e a",
+      "constructor": false
+    },
+    {
+      "module": "HMath.API.Convergence",
+      "name": "ResidualSatisfied",
+      "args": [],
+      "result": [
+        "StopReason"
+      ],
+      "constraints": "",
+      "signature": "constructor",
+      "constructor": true
+    },
+    {
+      "module": "HMath.API.Convergence",
+      "name": "IterationLimit",
+      "args": [],
+      "result": [
+        "StopReason"
+      ],
+      "constraints": "",
+      "signature": "constructor",
+      "constructor": true
+    },
+    {
+      "module": "HMath.API.Convergence",
+      "name": "Stagnation",
+      "args": [],
+      "result": [
+        "StopReason"
+      ],
+      "constraints": "",
+      "signature": "constructor",
+      "constructor": true
+    },
+    {
+      "module": "HMath.API.Convergence",
+      "name": "estimate",
+      "args": [
+        [
+          "Convergence",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "a"
+      ],
+      "constraints": "",
+      "signature": "Convergence -> field",
+      "constructor": false
+    },
+    {
+      "module": "HMath.API.Convergence",
+      "name": "iterationCount",
+      "args": [
+        [
+          "Convergence",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "Int"
+      ],
+      "constraints": "",
+      "signature": "Convergence -> field",
+      "constructor": false
+    },
+    {
+      "module": "HMath.API.Convergence",
+      "name": "finalResidual",
+      "args": [
+        [
+          "Convergence",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "Double"
+      ],
+      "constraints": "",
+      "signature": "Convergence -> field",
+      "constructor": false
+    },
+    {
+      "module": "HMath.API.Convergence",
+      "name": "stopReason",
+      "args": [
+        [
+          "Convergence",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "StopReason"
+      ],
+      "constraints": "",
+      "signature": "Convergence -> field",
+      "constructor": false
+    },
+    {
+      "module": "HMath.API.Convergence",
+      "name": "Convergence",
+      "args": [
+        [
+          "a"
+        ],
+        [
+          "Int"
+        ],
+        [
+          "Double"
+        ],
+        [
+          "StopReason"
+        ]
+      ],
+      "result": [
+        "Convergence",
+        [
+          "a"
+        ]
+      ],
+      "constraints": "",
+      "signature": "constructor",
+      "constructor": true
+    },
+    {
+      "module": "HMath.API.Convergence",
+      "name": "maximumIterations",
+      "args": [
+        [
+          "IterationOptions"
+        ]
+      ],
+      "result": [
+        "Int"
+      ],
+      "constraints": "",
+      "signature": "IterationOptions -> field",
+      "constructor": false
+    },
+    {
+      "module": "HMath.API.Convergence",
+      "name": "absoluteTolerance",
+      "args": [
+        [
+          "IterationOptions"
+        ]
+      ],
+      "result": [
+        "Double"
+      ],
+      "constraints": "",
+      "signature": "IterationOptions -> field",
+      "constructor": false
+    },
+    {
+      "module": "HMath.API.Convergence",
+      "name": "relativeTolerance",
+      "args": [
+        [
+          "IterationOptions"
+        ]
+      ],
+      "result": [
+        "Double"
+      ],
+      "constraints": "",
+      "signature": "IterationOptions -> field",
+      "constructor": false
+    },
+    {
+      "module": "HMath.API.Convergence",
+      "name": "IterationOptions",
+      "args": [
+        [
+          "Int"
+        ],
+        [
+          "Double"
+        ],
+        [
+          "Double"
+        ]
+      ],
+      "result": [
+        "IterationOptions"
+      ],
+      "constraints": "",
+      "signature": "constructor",
+      "constructor": true
+    },
+    {
+      "module": "HMath.API.Convergence",
+      "name": "Converged",
+      "args": [
+        [
+          "Convergence",
+          [
+            "a"
+          ]
+        ]
+      ],
+      "result": [
+        "Maybe",
+        [
+          "a"
+        ]
+      ],
+      "constraints": "",
+      "signature": "Convergence a -> Maybe a (read-only source pattern)",
+      "constructor": false
+    }
+  ],
+  "types": {
+    "Fenwick": {
+      "module": "HMath.DataStructure",
+      "alias": "D",
+      "namespace": "data_structures",
+      "name": "Fenwick",
+      "params": []
+    },
+    "SegmentTree": {
+      "module": "HMath.DataStructure",
+      "alias": "D",
+      "namespace": "data_structures",
+      "name": "SegmentTree",
+      "params": []
+    },
+    "SparseTable": {
+      "module": "HMath.DataStructure",
+      "alias": "D",
+      "namespace": "data_structures",
+      "name": "SparseTable",
+      "params": []
+    },
+    "DisjointSparseTable": {
+      "module": "HMath.DataStructure",
+      "alias": "D",
+      "namespace": "data_structures",
+      "name": "DisjointSparseTable",
+      "params": []
+    },
+    "Heap": {
+      "module": "HMath.DataStructure",
+      "alias": "D",
+      "namespace": "data_structures",
+      "name": "Heap",
+      "params": [
+        "a"
+      ]
+    },
+    "BinaryHeap": {
+      "module": "HMath.DataStructure",
+      "alias": "D",
+      "namespace": "data_structures",
+      "name": "BinaryHeap",
+      "params": []
+    },
+    "IndexedHeap": {
+      "module": "HMath.DataStructure",
+      "alias": "D",
+      "namespace": "data_structures",
+      "name": "IndexedHeap",
+      "params": []
+    },
+    "UnionFind": {
+      "module": "HMath.DataStructure",
+      "alias": "D",
+      "namespace": "data_structures",
+      "name": "UnionFind",
+      "params": []
+    },
+    "Bloom": {
+      "module": "HMath.DataStructure",
+      "alias": "D",
+      "namespace": "data_structures",
+      "name": "Bloom",
+      "params": []
+    },
+    "CountMin": {
+      "module": "HMath.DataStructure",
+      "alias": "D",
+      "namespace": "data_structures",
+      "name": "CountMin",
+      "params": []
+    },
+    "HyperLogLog": {
+      "module": "HMath.DataStructure",
+      "alias": "D",
+      "namespace": "data_structures",
+      "name": "HyperLogLog",
+      "params": []
+    },
+    "Reservoir": {
+      "module": "HMath.DataStructure",
+      "alias": "D",
+      "namespace": "data_structures",
+      "name": "Reservoir",
+      "params": [
+        "a"
+      ]
+    },
+    "OnlineQuantiles": {
+      "module": "HMath.DataStructure",
+      "alias": "D",
+      "namespace": "data_structures",
+      "name": "OnlineQuantiles",
+      "params": []
+    },
+    "MultiSet": {
+      "module": "HMath.Discrete",
+      "alias": "S",
+      "namespace": "discrete_values",
+      "name": "MultiSet",
+      "params": [
+        "a"
+      ]
+    },
+    "BitSet": {
+      "module": "HMath.Discrete",
+      "alias": "S",
+      "namespace": "discrete_values",
+      "name": "BitSet",
+      "params": []
+    },
+    "Prop": {
+      "module": "HMath.Discrete",
+      "alias": "S",
+      "namespace": "discrete_values",
+      "name": "Prop",
+      "params": []
+    },
+    "Implicant": {
+      "module": "HMath.Discrete",
+      "alias": "S",
+      "namespace": "discrete_values",
+      "name": "Implicant",
+      "params": []
+    },
+    "StopReason": {
+      "module": "HMath.API.Convergence",
+      "alias": "V",
+      "namespace": "convergence_values",
+      "name": "StopReason",
+      "params": []
+    },
+    "Convergence": {
+      "module": "HMath.API.Convergence",
+      "alias": "V",
+      "namespace": "convergence_values",
+      "name": "Convergence",
+      "params": [
+        "a"
+      ]
+    },
+    "IterationOptions": {
+      "module": "HMath.API.Convergence",
+      "alias": "V",
+      "namespace": "convergence_values",
+      "name": "IterationOptions",
+      "params": []
+    }
+  },
+  "fields": {
+    "Fenwick": [],
+    "SegmentTree": [],
+    "SparseTable": [],
+    "DisjointSparseTable": [],
+    "Heap": [],
+    "BinaryHeap": [],
+    "IndexedHeap": [],
+    "UnionFind": [],
+    "Bloom": [],
+    "CountMin": [],
+    "HyperLogLog": [],
+    "Reservoir": [],
+    "OnlineQuantiles": [],
+    "MultiSet": [],
+    "BitSet": [],
+    "Prop": [],
+    "Implicant": [
+      [
+        "implicantValue",
+        [
+          "Integer"
+        ]
+      ],
+      [
+        "implicantMask",
+        [
+          "Integer"
+        ]
+      ]
+    ],
+    "StopReason": [],
+    "Convergence": [
+      [
+        "estimate",
+        [
+          "a"
+        ]
+      ],
+      [
+        "iterationCount",
+        [
+          "Int"
+        ]
+      ],
+      [
+        "finalResidual",
+        [
+          "Double"
+        ]
+      ],
+      [
+        "stopReason",
+        [
+          "StopReason"
+        ]
+      ]
+    ],
+    "IterationOptions": [
+      [
+        "maximumIterations",
+        [
+          "Int"
+        ]
+      ],
+      [
+        "absoluteTolerance",
+        [
+          "Double"
+        ]
+      ],
+      [
+        "relativeTolerance",
+        [
+          "Double"
+        ]
+      ]
+    ]
+  }
+}

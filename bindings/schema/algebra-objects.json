@@ -1,0 +1,877 @@
+{
+  "schema": 1,
+  "bindings": [
+    {
+      "symbol": "HMath.API.Algebra.Differentiable",
+      "c": [
+        "hmath_algebra_api_differential"
+      ],
+      "python": "hmath.algebra_api.Differentiable",
+      "specializations": [
+        "original open class/associated type; adapter exposes documented existing concrete instances"
+      ]
+    },
+    {
+      "symbol": "HMath.API.Algebra.Differential",
+      "c": [
+        "hmath_value",
+        "hmath_value_release"
+      ],
+      "python": "hmath.algebra_api.Differential",
+      "specializations": [
+        "original open class/associated type; adapter exposes documented existing concrete instances"
+      ]
+    },
+    {
+      "symbol": "HMath.API.Algebra.Exact",
+      "c": [
+        "hmath_algebra_api_new_exact"
+      ],
+      "python": "hmath.algebra_api.Exact",
+      "specializations": [
+        "actual original instances; exact domain/dictionary retained; no invented typeclass instances"
+      ]
+    },
+    {
+      "symbol": "HMath.API.Algebra.Field",
+      "c": [
+        "hmath_algebra_api_invert"
+      ],
+      "python": "hmath.algebra_api.Field",
+      "specializations": [
+        "original open class/associated type; adapter exposes documented existing concrete instances"
+      ]
+    },
+    {
+      "symbol": "HMath.API.Algebra.FloatingPoint",
+      "c": [
+        "hmath_algebra_api_machine_epsilon",
+        "hmath_algebra_api_finite_scalar"
+      ],
+      "python": "hmath.algebra_api.FloatingPoint",
+      "specializations": [
+        "original open class/associated type; adapter exposes documented existing concrete instances"
+      ]
+    },
+    {
+      "symbol": "HMath.API.Algebra.MatrixLike",
+      "c": [
+        "hmath_algebra_api_matrix_dimensions",
+        "hmath_algebra_api_matrix_elements",
+        "hmath_algebra_api_matrix_construct"
+      ],
+      "python": "hmath.algebra_api.MatrixLike",
+      "specializations": [
+        "original open class/associated type; adapter exposes documented existing concrete instances"
+      ]
+    },
+    {
+      "symbol": "HMath.API.Algebra.Numeric",
+      "c": [
+        "hmath_algebra_api_rational"
+      ],
+      "python": "hmath.algebra_api.Numeric",
+      "specializations": [
+        "original open class/associated type; adapter exposes documented existing concrete instances"
+      ]
+    },
+    {
+      "symbol": "HMath.API.Algebra.Ring",
+      "c": [
+        "hmath_algebra_api_zero",
+        "hmath_algebra_api_one",
+        "hmath_algebra_api_plus",
+        "hmath_algebra_api_times",
+        "hmath_algebra_api_negative",
+        "hmath_algebra_api_integer"
+      ],
+      "python": "hmath.algebra_api.Ring",
+      "specializations": [
+        "original open class/associated type; adapter exposes documented existing concrete instances"
+      ]
+    },
+    {
+      "symbol": "HMath.API.Algebra.Scalar",
+      "c": [
+        "hmath_algebra_api_conjugate_scalar"
+      ],
+      "python": "hmath.algebra_api.Scalar",
+      "specializations": [
+        "original open class/associated type; adapter exposes documented existing concrete instances"
+      ]
+    },
+    {
+      "symbol": "HMath.API.Algebra.TensorLike",
+      "c": [
+        "hmath_algebra_api_tensor_dimensions",
+        "hmath_algebra_api_tensor_elements",
+        "hmath_algebra_api_tensor_construct"
+      ],
+      "python": "hmath.algebra_api.TensorLike",
+      "specializations": [
+        "original open class/associated type; adapter exposes documented existing concrete instances"
+      ]
+    },
+    {
+      "symbol": "HMath.API.Algebra.VectorSpace",
+      "c": [
+        "hmath_algebra_api_vector_plus",
+        "hmath_algebra_api_vector_scale"
+      ],
+      "python": "hmath.algebra_api.VectorSpace",
+      "specializations": [
+        "original open class/associated type; adapter exposes documented existing concrete instances"
+      ]
+    },
+    {
+      "symbol": "HMath.API.Algebra.conjugateScalar",
+      "c": [
+        "hmath_algebra_api_conjugate_scalar"
+      ],
+      "python": "hmath.algebra_api.conjugate_scalar",
+      "specializations": [
+        "actual original instances; exact domain/dictionary retained; no invented typeclass instances"
+      ]
+    },
+    {
+      "symbol": "HMath.API.Algebra.differential",
+      "c": [
+        "hmath_algebra_api_differential"
+      ],
+      "python": "hmath.algebra_api.differential",
+      "specializations": [
+        "actual original instances; exact domain/dictionary retained; no invented typeclass instances"
+      ]
+    },
+    {
+      "symbol": "HMath.API.Algebra.finiteScalar",
+      "c": [
+        "hmath_algebra_api_finite_scalar"
+      ],
+      "python": "hmath.algebra_api.finite_scalar",
+      "specializations": [
+        "actual original instances; exact domain/dictionary retained; no invented typeclass instances"
+      ]
+    },
+    {
+      "symbol": "HMath.API.Algebra.getExact",
+      "c": [
+        "hmath_algebra_api_get_exact"
+      ],
+      "python": "hmath.algebra_api.get_exact",
+      "specializations": [
+        "actual original instances; exact domain/dictionary retained; no invented typeclass instances"
+      ]
+    },
+    {
+      "symbol": "HMath.API.Algebra.horner",
+      "c": [
+        "hmath_algebra_api_horner"
+      ],
+      "python": "hmath.algebra_api.horner",
+      "specializations": [
+        "actual original instances; exact domain/dictionary retained; no invented typeclass instances"
+      ]
+    },
+    {
+      "symbol": "HMath.API.Algebra.integer",
+      "c": [
+        "hmath_algebra_api_integer"
+      ],
+      "python": "hmath.algebra_api.integer",
+      "specializations": [
+        "actual original instances; exact domain/dictionary retained; no invented typeclass instances"
+      ]
+    },
+    {
+      "symbol": "HMath.API.Algebra.invert",
+      "c": [
+        "hmath_algebra_api_invert"
+      ],
+      "python": "hmath.algebra_api.invert",
+      "specializations": [
+        "actual original instances; exact domain/dictionary retained; no invented typeclass instances"
+      ]
+    },
+    {
+      "symbol": "HMath.API.Algebra.machineEpsilon",
+      "c": [
+        "hmath_algebra_api_machine_epsilon"
+      ],
+      "python": "hmath.algebra_api.machine_epsilon",
+      "specializations": [
+        "actual original instances; exact domain/dictionary retained; no invented typeclass instances"
+      ]
+    },
+    {
+      "symbol": "HMath.API.Algebra.matrixConstruct",
+      "c": [
+        "hmath_algebra_api_matrix_construct"
+      ],
+      "python": "hmath.algebra_api.matrix_construct",
+      "specializations": [
+        "actual original instances; exact domain/dictionary retained; no invented typeclass instances"
+      ]
+    },
+    {
+      "symbol": "HMath.API.Algebra.matrixDimensions",
+      "c": [
+        "hmath_algebra_api_matrix_dimensions"
+      ],
+      "python": "hmath.algebra_api.matrix_dimensions",
+      "specializations": [
+        "actual original instances; exact domain/dictionary retained; no invented typeclass instances"
+      ]
+    },
+    {
+      "symbol": "HMath.API.Algebra.matrixElements",
+      "c": [
+        "hmath_algebra_api_matrix_elements"
+      ],
+      "python": "hmath.algebra_api.matrix_elements",
+      "specializations": [
+        "actual original instances; exact domain/dictionary retained; no invented typeclass instances"
+      ]
+    },
+    {
+      "symbol": "HMath.API.Algebra.negative",
+      "c": [
+        "hmath_algebra_api_negative"
+      ],
+      "python": "hmath.algebra_api.negative",
+      "specializations": [
+        "actual original instances; exact domain/dictionary retained; no invented typeclass instances"
+      ]
+    },
+    {
+      "symbol": "HMath.API.Algebra.one",
+      "c": [
+        "hmath_algebra_api_one"
+      ],
+      "python": "hmath.algebra_api.one",
+      "specializations": [
+        "actual original instances; exact domain/dictionary retained; no invented typeclass instances"
+      ]
+    },
+    {
+      "symbol": "HMath.API.Algebra.plus",
+      "c": [
+        "hmath_algebra_api_plus"
+      ],
+      "python": "hmath.algebra_api.plus",
+      "specializations": [
+        "actual original instances; exact domain/dictionary retained; no invented typeclass instances"
+      ]
+    },
+    {
+      "symbol": "HMath.API.Algebra.rational",
+      "c": [
+        "hmath_algebra_api_rational"
+      ],
+      "python": "hmath.algebra_api.rational",
+      "specializations": [
+        "actual original instances; exact domain/dictionary retained; no invented typeclass instances"
+      ]
+    },
+    {
+      "symbol": "HMath.API.Algebra.tensorConstruct",
+      "c": [
+        "hmath_algebra_api_tensor_construct"
+      ],
+      "python": "hmath.algebra_api.tensor_construct",
+      "specializations": [
+        "actual original instances; exact domain/dictionary retained; no invented typeclass instances"
+      ]
+    },
+    {
+      "symbol": "HMath.API.Algebra.tensorDimensions",
+      "c": [
+        "hmath_algebra_api_tensor_dimensions"
+      ],
+      "python": "hmath.algebra_api.tensor_dimensions",
+      "specializations": [
+        "actual original instances; exact domain/dictionary retained; no invented typeclass instances"
+      ]
+    },
+    {
+      "symbol": "HMath.API.Algebra.tensorElements",
+      "c": [
+        "hmath_algebra_api_tensor_elements"
+      ],
+      "python": "hmath.algebra_api.tensor_elements",
+      "specializations": [
+        "actual original instances; exact domain/dictionary retained; no invented typeclass instances"
+      ]
+    },
+    {
+      "symbol": "HMath.API.Algebra.times",
+      "c": [
+        "hmath_algebra_api_times"
+      ],
+      "python": "hmath.algebra_api.times",
+      "specializations": [
+        "actual original instances; exact domain/dictionary retained; no invented typeclass instances"
+      ]
+    },
+    {
+      "symbol": "HMath.API.Algebra.vectorPlus",
+      "c": [
+        "hmath_algebra_api_vector_plus"
+      ],
+      "python": "hmath.algebra_api.vector_plus",
+      "specializations": [
+        "actual original instances; exact domain/dictionary retained; no invented typeclass instances"
+      ]
+    },
+    {
+      "symbol": "HMath.API.Algebra.vectorScale",
+      "c": [
+        "hmath_algebra_api_vector_scale"
+      ],
+      "python": "hmath.algebra_api.vector_scale",
+      "specializations": [
+        "actual original instances; exact domain/dictionary retained; no invented typeclass instances"
+      ]
+    },
+    {
+      "symbol": "HMath.API.Algebra.zero",
+      "c": [
+        "hmath_algebra_api_zero"
+      ],
+      "python": "hmath.algebra_api.zero",
+      "specializations": [
+        "actual original instances; exact domain/dictionary retained; no invented typeclass instances"
+      ]
+    },
+    {
+      "symbol": "HMath.Algebra.Additive",
+      "c": [
+        "hmath_algebra_core_new_additive"
+      ],
+      "python": "hmath.algebra.Additive",
+      "specializations": [
+        "actual original instances; exact domain/dictionary retained; no invented typeclass instances"
+      ]
+    },
+    {
+      "symbol": "HMath.Algebra.Field",
+      "c": [
+        "hmath_algebra_core_inverse_field"
+      ],
+      "python": "hmath.algebra.Field",
+      "specializations": [
+        "original open class/associated type; adapter exposes documented existing concrete instances"
+      ]
+    },
+    {
+      "symbol": "HMath.Algebra.FieldElement",
+      "c": [
+        "hmath_value",
+        "hmath_value_release"
+      ],
+      "python": "hmath.algebra.FieldElement",
+      "specializations": [
+        "original opaque owned type"
+      ]
+    },
+    {
+      "symbol": "HMath.Algebra.FiniteField",
+      "c": [
+        "hmath_value",
+        "hmath_value_release"
+      ],
+      "python": "hmath.algebra.FiniteField",
+      "specializations": [
+        "original opaque owned type"
+      ]
+    },
+    {
+      "symbol": "HMath.Algebra.Group",
+      "c": [
+        "hmath_algebra_core_group_identity",
+        "hmath_algebra_core_group_combine",
+        "hmath_algebra_core_group_inverse"
+      ],
+      "python": "hmath.algebra.Group",
+      "specializations": [
+        "original open class/associated type; adapter exposes documented existing concrete instances"
+      ]
+    },
+    {
+      "symbol": "HMath.Algebra.Modular",
+      "c": [
+        "hmath_value",
+        "hmath_value_release"
+      ],
+      "python": "hmath.algebra.Modular",
+      "specializations": [
+        "original opaque owned type"
+      ]
+    },
+    {
+      "symbol": "HMath.Algebra.Module",
+      "c": [
+        "hmath_algebra_core_module_scale",
+        "hmath_algebra_core_module_add"
+      ],
+      "python": "hmath.algebra.Module",
+      "specializations": [
+        "original open class/associated type; adapter exposes documented existing concrete instances"
+      ]
+    },
+    {
+      "symbol": "HMath.Algebra.Ring",
+      "c": [
+        "hmath_algebra_core_negate_ring"
+      ],
+      "python": "hmath.algebra.Ring",
+      "specializations": [
+        "original open class/associated type; adapter exposes documented existing concrete instances"
+      ]
+    },
+    {
+      "symbol": "HMath.Algebra.Semiring",
+      "c": [
+        "hmath_algebra_core_zero",
+        "hmath_algebra_core_one",
+        "hmath_algebra_core_plus",
+        "hmath_algebra_core_times"
+      ],
+      "python": "hmath.algebra.Semiring",
+      "specializations": [
+        "original open class/associated type; adapter exposes documented existing concrete instances"
+      ]
+    },
+    {
+      "symbol": "HMath.Algebra.VectorSpace",
+      "c": [
+        "hmath_value",
+        "hmath_value_release"
+      ],
+      "python": "hmath.algebra.VectorSpace",
+      "specializations": [
+        "original open class/associated type; adapter exposes documented existing concrete instances"
+      ]
+    },
+    {
+      "symbol": "HMath.Algebra.addField",
+      "c": [
+        "hmath_algebra_core_add_field"
+      ],
+      "python": "hmath.algebra.add_field",
+      "specializations": [
+        "actual original instances; exact domain/dictionary retained; no invented typeclass instances"
+      ]
+    },
+    {
+      "symbol": "HMath.Algebra.addModular",
+      "c": [
+        "hmath_algebra_core_add_modular"
+      ],
+      "python": "hmath.algebra.add_modular",
+      "specializations": [
+        "actual original instances; exact domain/dictionary retained; no invented typeclass instances"
+      ]
+    },
+    {
+      "symbol": "HMath.Algebra.fieldCardinality",
+      "c": [
+        "hmath_algebra_core_field_cardinality"
+      ],
+      "python": "hmath.algebra.field_cardinality",
+      "specializations": [
+        "actual original instances; exact domain/dictionary retained; no invented typeclass instances"
+      ]
+    },
+    {
+      "symbol": "HMath.Algebra.fieldCharacteristic",
+      "c": [
+        "hmath_algebra_core_field_characteristic"
+      ],
+      "python": "hmath.algebra.field_characteristic",
+      "specializations": [
+        "actual original instances; exact domain/dictionary retained; no invented typeclass instances"
+      ]
+    },
+    {
+      "symbol": "HMath.Algebra.fieldDegree",
+      "c": [
+        "hmath_algebra_core_field_degree"
+      ],
+      "python": "hmath.algebra.field_degree",
+      "specializations": [
+        "actual original instances; exact domain/dictionary retained; no invented typeclass instances"
+      ]
+    },
+    {
+      "symbol": "HMath.Algebra.fieldElement",
+      "c": [
+        "hmath_algebra_core_field_element"
+      ],
+      "python": "hmath.algebra.field_element",
+      "specializations": [
+        "actual original instances; exact domain/dictionary retained; no invented typeclass instances"
+      ]
+    },
+    {
+      "symbol": "HMath.Algebra.fieldElementCoefficients",
+      "c": [
+        "hmath_algebra_core_field_element_coefficients"
+      ],
+      "python": "hmath.algebra.field_element_coefficients",
+      "specializations": [
+        "actual original instances; exact domain/dictionary retained; no invented typeclass instances"
+      ]
+    },
+    {
+      "symbol": "HMath.Algebra.fieldElements",
+      "c": [
+        "hmath_algebra_core_field_elements"
+      ],
+      "python": "hmath.algebra.field_elements",
+      "specializations": [
+        "actual original instances; exact domain/dictionary retained; no invented typeclass instances"
+      ]
+    },
+    {
+      "symbol": "HMath.Algebra.fieldLaws",
+      "c": [
+        "hmath_algebra_core_field_laws"
+      ],
+      "python": "hmath.algebra.field_laws",
+      "specializations": [
+        "actual original instances; exact domain/dictionary retained; no invented typeclass instances"
+      ]
+    },
+    {
+      "symbol": "HMath.Algebra.fieldModulus",
+      "c": [
+        "hmath_algebra_core_field_modulus"
+      ],
+      "python": "hmath.algebra.field_modulus",
+      "specializations": [
+        "actual original instances; exact domain/dictionary retained; no invented typeclass instances"
+      ]
+    },
+    {
+      "symbol": "HMath.Algebra.finiteField",
+      "c": [
+        "hmath_algebra_core_finite_field"
+      ],
+      "python": "hmath.algebra.finite_field",
+      "specializations": [
+        "actual original instances; exact domain/dictionary retained; no invented typeclass instances"
+      ]
+    },
+    {
+      "symbol": "HMath.Algebra.finiteFieldLaws",
+      "c": [
+        "hmath_algebra_core_finite_field_laws"
+      ],
+      "python": "hmath.algebra.finite_field_laws",
+      "specializations": [
+        "actual original instances; exact domain/dictionary retained; no invented typeclass instances"
+      ]
+    },
+    {
+      "symbol": "HMath.Algebra.getAdditive",
+      "c": [
+        "hmath_algebra_core_get_additive"
+      ],
+      "python": "hmath.algebra.get_additive",
+      "specializations": [
+        "actual original instances; exact domain/dictionary retained; no invented typeclass instances"
+      ]
+    },
+    {
+      "symbol": "HMath.Algebra.groupCombine",
+      "c": [
+        "hmath_algebra_core_group_combine"
+      ],
+      "python": "hmath.algebra.group_combine",
+      "specializations": [
+        "actual original instances; exact domain/dictionary retained; no invented typeclass instances"
+      ]
+    },
+    {
+      "symbol": "HMath.Algebra.groupIdentity",
+      "c": [
+        "hmath_algebra_core_group_identity"
+      ],
+      "python": "hmath.algebra.group_identity",
+      "specializations": [
+        "actual original instances; exact domain/dictionary retained; no invented typeclass instances"
+      ]
+    },
+    {
+      "symbol": "HMath.Algebra.groupInverse",
+      "c": [
+        "hmath_algebra_core_group_inverse"
+      ],
+      "python": "hmath.algebra.group_inverse",
+      "specializations": [
+        "actual original instances; exact domain/dictionary retained; no invented typeclass instances"
+      ]
+    },
+    {
+      "symbol": "HMath.Algebra.groupLaws",
+      "c": [
+        "hmath_algebra_core_group_laws"
+      ],
+      "python": "hmath.algebra.group_laws",
+      "specializations": [
+        "actual original instances; exact domain/dictionary retained; no invented typeclass instances"
+      ]
+    },
+    {
+      "symbol": "HMath.Algebra.inverseField",
+      "c": [
+        "hmath_algebra_core_inverse_field"
+      ],
+      "python": "hmath.algebra.inverse_field",
+      "specializations": [
+        "actual original instances; exact domain/dictionary retained; no invented typeclass instances"
+      ]
+    },
+    {
+      "symbol": "HMath.Algebra.inverseFieldElement",
+      "c": [
+        "hmath_algebra_core_inverse_field_element"
+      ],
+      "python": "hmath.algebra.inverse_field_element",
+      "specializations": [
+        "actual original instances; exact domain/dictionary retained; no invented typeclass instances"
+      ]
+    },
+    {
+      "symbol": "HMath.Algebra.inverseModular",
+      "c": [
+        "hmath_algebra_core_inverse_modular"
+      ],
+      "python": "hmath.algebra.inverse_modular",
+      "specializations": [
+        "actual original instances; exact domain/dictionary retained; no invented typeclass instances"
+      ]
+    },
+    {
+      "symbol": "HMath.Algebra.linearCombination",
+      "c": [
+        "hmath_algebra_core_linear_combination"
+      ],
+      "python": "hmath.algebra.linear_combination",
+      "specializations": [
+        "actual original instances; exact domain/dictionary retained; no invented typeclass instances"
+      ]
+    },
+    {
+      "symbol": "HMath.Algebra.modular",
+      "c": [
+        "hmath_algebra_core_modular"
+      ],
+      "python": "hmath.algebra.modular",
+      "specializations": [
+        "actual original instances; exact domain/dictionary retained; no invented typeclass instances"
+      ]
+    },
+    {
+      "symbol": "HMath.Algebra.modularModulus",
+      "c": [
+        "hmath_algebra_core_modular_modulus"
+      ],
+      "python": "hmath.algebra.modular_modulus",
+      "specializations": [
+        "actual original instances; exact domain/dictionary retained; no invented typeclass instances"
+      ]
+    },
+    {
+      "symbol": "HMath.Algebra.modularValue",
+      "c": [
+        "hmath_algebra_core_modular_value"
+      ],
+      "python": "hmath.algebra.modular_value",
+      "specializations": [
+        "actual original instances; exact domain/dictionary retained; no invented typeclass instances"
+      ]
+    },
+    {
+      "symbol": "HMath.Algebra.moduleAdd",
+      "c": [
+        "hmath_algebra_core_module_add"
+      ],
+      "python": "hmath.algebra.module_add",
+      "specializations": [
+        "actual original instances; exact domain/dictionary retained; no invented typeclass instances"
+      ]
+    },
+    {
+      "symbol": "HMath.Algebra.moduleLaws",
+      "c": [
+        "hmath_algebra_core_module_laws"
+      ],
+      "python": "hmath.algebra.module_laws",
+      "specializations": [
+        "actual original instances; exact domain/dictionary retained; no invented typeclass instances"
+      ]
+    },
+    {
+      "symbol": "HMath.Algebra.moduleScale",
+      "c": [
+        "hmath_algebra_core_module_scale"
+      ],
+      "python": "hmath.algebra.module_scale",
+      "specializations": [
+        "actual original instances; exact domain/dictionary retained; no invented typeclass instances"
+      ]
+    },
+    {
+      "symbol": "HMath.Algebra.multiplyField",
+      "c": [
+        "hmath_algebra_core_multiply_field"
+      ],
+      "python": "hmath.algebra.multiply_field",
+      "specializations": [
+        "actual original instances; exact domain/dictionary retained; no invented typeclass instances"
+      ]
+    },
+    {
+      "symbol": "HMath.Algebra.multiplyModular",
+      "c": [
+        "hmath_algebra_core_multiply_modular"
+      ],
+      "python": "hmath.algebra.multiply_modular",
+      "specializations": [
+        "actual original instances; exact domain/dictionary retained; no invented typeclass instances"
+      ]
+    },
+    {
+      "symbol": "HMath.Algebra.negateField",
+      "c": [
+        "hmath_algebra_core_negate_field"
+      ],
+      "python": "hmath.algebra.negate_field",
+      "specializations": [
+        "actual original instances; exact domain/dictionary retained; no invented typeclass instances"
+      ]
+    },
+    {
+      "symbol": "HMath.Algebra.negateRing",
+      "c": [
+        "hmath_algebra_core_negate_ring"
+      ],
+      "python": "hmath.algebra.negate_ring",
+      "specializations": [
+        "actual original instances; exact domain/dictionary retained; no invented typeclass instances"
+      ]
+    },
+    {
+      "symbol": "HMath.Algebra.one",
+      "c": [
+        "hmath_algebra_core_one"
+      ],
+      "python": "hmath.algebra.one",
+      "specializations": [
+        "actual original instances; exact domain/dictionary retained; no invented typeclass instances"
+      ]
+    },
+    {
+      "symbol": "HMath.Algebra.plus",
+      "c": [
+        "hmath_algebra_core_plus"
+      ],
+      "python": "hmath.algebra.plus",
+      "specializations": [
+        "actual original instances; exact domain/dictionary retained; no invented typeclass instances"
+      ]
+    },
+    {
+      "symbol": "HMath.Algebra.powerField",
+      "c": [
+        "hmath_algebra_core_power_field"
+      ],
+      "python": "hmath.algebra.power_field",
+      "specializations": [
+        "actual original instances; exact domain/dictionary retained; no invented typeclass instances"
+      ]
+    },
+    {
+      "symbol": "HMath.Algebra.powerModular",
+      "c": [
+        "hmath_algebra_core_power_modular"
+      ],
+      "python": "hmath.algebra.power_modular",
+      "specializations": [
+        "actual original instances; exact domain/dictionary retained; no invented typeclass instances"
+      ]
+    },
+    {
+      "symbol": "HMath.Algebra.primeField",
+      "c": [
+        "hmath_algebra_core_prime_field"
+      ],
+      "python": "hmath.algebra.prime_field",
+      "specializations": [
+        "actual original instances; exact domain/dictionary retained; no invented typeclass instances"
+      ]
+    },
+    {
+      "symbol": "HMath.Algebra.ringLaws",
+      "c": [
+        "hmath_algebra_core_ring_laws"
+      ],
+      "python": "hmath.algebra.ring_laws",
+      "specializations": [
+        "actual original instances; exact domain/dictionary retained; no invented typeclass instances"
+      ]
+    },
+    {
+      "symbol": "HMath.Algebra.semiringLaws",
+      "c": [
+        "hmath_algebra_core_semiring_laws"
+      ],
+      "python": "hmath.algebra.semiring_laws",
+      "specializations": [
+        "actual original instances; exact domain/dictionary retained; no invented typeclass instances"
+      ]
+    },
+    {
+      "symbol": "HMath.Algebra.subtractField",
+      "c": [
+        "hmath_algebra_core_subtract_field"
+      ],
+      "python": "hmath.algebra.subtract_field",
+      "specializations": [
+        "actual original instances; exact domain/dictionary retained; no invented typeclass instances"
+      ]
+    },
+    {
+      "symbol": "HMath.Algebra.subtractModular",
+      "c": [
+        "hmath_algebra_core_subtract_modular"
+      ],
+      "python": "hmath.algebra.subtract_modular",
+      "specializations": [
+        "actual original instances; exact domain/dictionary retained; no invented typeclass instances"
+      ]
+    },
+    {
+      "symbol": "HMath.Algebra.times",
+      "c": [
+        "hmath_algebra_core_times"
+      ],
+      "python": "hmath.algebra.times",
+      "specializations": [
+        "actual original instances; exact domain/dictionary retained; no invented typeclass instances"
+      ]
+    },
+    {
+      "symbol": "HMath.Algebra.zero",
+      "c": [
+        "hmath_algebra_core_zero"
+      ],
+      "python": "hmath.algebra.zero",
+      "specializations": [
+        "actual original instances; exact domain/dictionary retained; no invented typeclass instances"
+      ]
+    }
+  ]
+}
